@@ -62,8 +62,6 @@ BYTE		g_bAuthServer = false;
 bool		g_bCheckClientVersion = true;
 string	g_stClientVersion = "1215955205";
 
-BYTE		g_bBilling = false;
-
 string	g_stAuthMasterIP;
 WORD		g_wAuthMasterPort = 0;
 
@@ -811,11 +809,6 @@ void config_init(const string& st_localeServiceName)
 				fprintf(stdout, "AUTH_SERVER: master %s %u\n", g_stAuthMasterIP.c_str(), g_wAuthMasterPort);
 			}
 			continue;
-		}
-
-		TOKEN("billing")
-		{
-			g_bBilling = true;
 		}
 
 		TOKEN("quest_dir")

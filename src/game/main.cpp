@@ -255,44 +255,35 @@ void heartbeat(LPHEART ht, int pulse)
 			db_clientdesc->DBPacket(HEADER_GD_PLAYER_COUNT, 0, &pack, sizeof(TPlayerCountPacket));
 		}
 		else
-		{
 			DESC_MANAGER::instance().ProcessExpiredLoginKey();
-			DBManager::instance().FlushBilling();
-			/*
-			   if (!(pulse % (ht->passes_per_sec * 600)))
-			   DBManager::instance().CheckBilling();
-			 */
+
+		int count = 0;
+		itertype(g_sim) it = g_sim.begin();
+
+		while (it != g_sim.end())
+		{
+			if (!it->second->IsCheck())
+			{
+				it->second->SendLogin();
+
+				if (++count > 50)
+				{
+					sys_log(0, "FLUSH_SENT");
+					break;
+				}
+			}
+
+			it++;
 		}
 
+		if (save_idx < g_vec_save.size())
 		{
-			int count = 0;
-			itertype(g_sim) it = g_sim.begin();
+			count = MIN(100, g_vec_save.size() - save_idx);
 
-			while (it != g_sim.end())
-			{
-				if (!it->second->IsCheck())
-				{
-					it->second->SendLogin();
+			for (int i = 0; i < count; ++i, ++save_idx)
+				db_clientdesc->DBPacket(HEADER_GD_PLAYER_SAVE, 0, &g_vec_save[save_idx], sizeof(TPlayerTable));
 
-					if (++count > 50)
-					{
-						sys_log(0, "FLUSH_SENT");
-						break;
-					}
-				}
-
-				it++;
-			}
-
-			if (save_idx < g_vec_save.size())
-			{
-				count = MIN(100, g_vec_save.size() - save_idx);
-
-				for (int i = 0; i < count; ++i, ++save_idx)
-					db_clientdesc->DBPacket(HEADER_GD_PLAYER_SAVE, 0, &g_vec_save[save_idx], sizeof(TPlayerTable));
-
-				sys_log(0, "SAVE_FLUSH %d", count);
-			}
+			sys_log(0, "SAVE_FLUSH %d", count);
 		}
 	}
 
@@ -461,8 +452,6 @@ int main(int argc, char **argv)
 
 	if (g_bAuthServer)
 	{
-		DBManager::instance().FlushBilling(true);
-
 		int iLimit = DBManager::instance().CountQuery() / 50;
 		int i = 0;
 

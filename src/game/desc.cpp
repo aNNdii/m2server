@@ -78,9 +78,6 @@ void DESC::Initialize()
 
 	m_iCurrentSequence = 0;
 
-	m_dwMatrixRows = m_dwMatrixCols = 0;
-	m_bMatrixTryCount = 0;
-
 	m_pkLoginKey = NULL;
 	m_dwLoginKey = 0;
 	m_dwPanamaKey = 0;
@@ -94,8 +91,6 @@ void DESC::Initialize()
 	m_dwProcCRC = 0;
 	m_dwFileCRC = 0;
 	m_bHackCRCQuery = 0;
-
-	m_dwBillingExpireSecond = 0;
 
 	m_outtime = 0;
 	m_playtime = 0;
@@ -1055,16 +1050,6 @@ void DESC::AssembleCRCMagicCube(BYTE bProcPiece, BYTE bFilePiece)
 		m_dwFileCRC = 0;
 		m_bCRCMagicCubeIdx = 0;
 	}
-}
-
-void DESC::SetBillingExpireSecond(DWORD dwSec)
-{
-	m_dwBillingExpireSecond = dwSec;
-}
-
-DWORD DESC::GetBillingExpireSecond()
-{
-	return m_dwBillingExpireSecond;
 }
 
 void DESC::push_seq(BYTE hdr, BYTE seq)

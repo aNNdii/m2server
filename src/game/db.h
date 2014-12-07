@@ -19,8 +19,6 @@ enum
 	QID_LOTTO,
 	QID_HIGHSCORE_REGISTER,
 	QID_HIGHSCORE_SHOW,
-	QID_BILLING_GET_TIME,
-	QID_BILLING_CHECK,
 
 	// BLOCK_CHAT
 	QID_BLOCK_CHAT_LIST,
@@ -43,7 +41,6 @@ typedef struct SUseTime
 {
 	DWORD	dwLoginKey;
 	char        szLogin[LOGIN_MAX_LEN+1];
-	BYTE        bBillType;
 	DWORD       dwUseSec;
 	char        szIP[MAX_HOST_LENGTH+1];
 } TUseTime;
@@ -103,12 +100,6 @@ class DBManager : public singleton<DBManager>
 		void			InsertLoginData(CLoginData * pkLD);
 		void			DeleteLoginData(CLoginData * pkLD);
 		CLoginData *		GetLoginData(DWORD dwKey);
-		void			SetBilling(DWORD dwKey, bool bOn, bool bSkipPush = false);
-		void			PushBilling(CLoginData * pkLD);
-		void			FlushBilling(bool bForce=false);
-		void			CheckBilling();
-
-		void			StopAllBilling(); // 20050503.ipkn.DB-AUTH 접속 종료시 빌링 테이블 모두 지우기 (재연결시 복구함)
 
 		DWORD			CountQuery()		{ return m_sql.CountQuery(); }
 		DWORD			CountQueryResult()	{ return m_sql.CountResult(); }
@@ -137,7 +128,6 @@ class DBManager : public singleton<DBManager>
 		std::map<std::string, std::string>	m_map_dbstring;
 		std::vector<std::string>		m_vec_GreetMessage;
 		std::map<DWORD, CLoginData *>		m_map_pkLoginData;
-		std::map<std::string, CLoginData *>	mapLDBilling;
 		std::vector<TUseTime>			m_vec_kUseTime;
 };
 
@@ -184,7 +174,6 @@ typedef struct SHighscoreRegisterQueryInfo
 	bool    bOrder;
 } THighscoreRegisterQueryInfo;
 
-extern void SendBillingExpire(const char * c_pszLogin, BYTE bBillType, int iSecs, CLoginData * pkLD);
 extern void VCardUse(LPCHARACTER CardOwner, LPCHARACTER CardTaker, LPITEM item);
 
 

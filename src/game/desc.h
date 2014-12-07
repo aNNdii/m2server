@@ -166,9 +166,6 @@ class DESC
 
 		void			AssembleCRCMagicCube(BYTE bProcPiece, BYTE bFilePiece);
 
-		void			SetBillingExpireSecond(DWORD dwSec);
-		DWORD			GetBillingExpireSecond();
-
 		void			SetClientVersion(const char * c_pszTimestamp) { m_stClientVersion = c_pszTimestamp; }
 		const char *		GetClientVersion() { return m_stClientVersion.c_str(); }
 
@@ -228,10 +225,6 @@ class DESC
 
 		int			m_iCurrentSequence;
 
-		DWORD			m_dwMatrixRows;
-		DWORD			m_dwMatrixCols;
-		BYTE			m_bMatrixTryCount;
-
 		CLoginKey *		m_pkLoginKey;
 		DWORD			m_dwLoginKey;
 		DWORD			m_dwPanamaKey;
@@ -241,9 +234,7 @@ class DESC
 		DWORD                   m_dwFileCRC;
 		bool			m_bHackCRCQuery;
 
-		DWORD			m_dwBillingExpireSecond;
 		std::string		m_stClientVersion;
-		std::string		m_stMatrixCode;
 
 		std::string		m_Login;
 		int				m_outtime;
@@ -264,16 +255,6 @@ class DESC
 
 	public:
 		LPEVENT			m_pkDisconnectEvent;
-
-	protected:
-		std::string m_stMatrixCardID;
-		std::string m_stMatrixQuiz;
-
-	public:
-		void SetMatrixCardID( const char * szCardID ) { m_stMatrixCardID = szCardID;} 
-		const char * GetMatrixCardID() { return m_stMatrixCardID.c_str();}
-		void SetMatrixQuiz( const char * szCode ) { m_stMatrixCode = szCode; }
-		const char * GetMatrixQuiz() { return m_stMatrixCode.c_str(); }
 
 		void SetLogin( const std::string & login ) { m_Login = login; }
 		void SetLogin( const char * login ) { m_Login = login; }
