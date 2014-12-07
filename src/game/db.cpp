@@ -20,7 +20,6 @@
 #include "pcbang.h"
 #include "spam.h"
 
-extern bool g_bNoPasspod;
 extern std::string g_stBlockDate;
 extern int openid_server;
 
@@ -545,31 +544,7 @@ void DBManager::LoginPrepare(BYTE bBillType, DWORD dwBillID, long lRemainSecs, L
 				d->GetMatrixCode());
 	}
 	else
-	{
-		if (LC_IsNewCIBN())
-		{
-			if (!g_bNoPasspod)
-			{
-				if (CheckPasspod(r.login))
-				{
-					BYTE id = HEADER_GC_REQUEST_PASSPOD;
-					d->Packet(&id, sizeof(BYTE));
-					sys_log(0, "%s request passpod", r.login);
-				}
-				else
-				{
-					SendAuthLogin(d);
-
-				}
-			}
-			else
-			{
-				SendAuthLogin(d);
-			}
-		}
-		else
-			SendAuthLogin(d);
-	}
+	    SendAuthLogin(d);
 }
 
 bool GetGameTimeIP(MYSQL_RES * pRes, BYTE & bBillType, DWORD & dwBillID, int & seconds, const char * c_pszIP)
