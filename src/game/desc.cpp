@@ -973,30 +973,6 @@ void DESC::SendLoginSuccessPacket()
 //	//printf("STATE_CHECK PACKET PROCESSED.\n");
 //}
 
-void DESC::SetMatrixCardRowsAndColumns(unsigned long rows, unsigned long cols)
-{
-	m_dwMatrixRows = rows;
-	m_dwMatrixCols = cols;
-}
-
-unsigned long DESC::GetMatrixRows()
-{
-	return m_dwMatrixRows;
-}
-
-unsigned long DESC::GetMatrixCols()
-{
-	return m_dwMatrixCols;
-}
-
-bool DESC::CheckMatrixTryCount()
-{
-	if (++m_bMatrixTryCount >= 3)
-		return false;
-
-	return true;
-}
-
 void DESC::SetLoginKey(DWORD dwKey)
 {
 	m_dwLoginKey = dwKey;

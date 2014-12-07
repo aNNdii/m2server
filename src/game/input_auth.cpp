@@ -5,7 +5,6 @@
 #include "desc_client.h"
 #include "desc_manager.h"
 #include "protocol.h"
-#include "matrix_card.h"
 #include "locale_service.h"
 #include "db.h"
 

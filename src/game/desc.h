@@ -157,14 +157,6 @@ class DESC
 		void			SendLoginSuccessPacket();
 		//void			SendServerStatePacket(int nIndex);
 
-		void			SetMatrixCode(const char * c_psz) { m_stMatrixCode = c_psz; }
-		const char *		GetMatrixCode() { return m_stMatrixCode.c_str(); }
-
-		void			SetMatrixCardRowsAndColumns(unsigned long rows, unsigned long cols);
-		unsigned long		GetMatrixRows();
-		unsigned long		GetMatrixCols();
-		bool			CheckMatrixTryCount();
-
 		void			SetPanamaKey(DWORD dwKey)	{m_dwPanamaKey = dwKey;}
 		DWORD			GetPanamaKey() const		{ return m_dwPanamaKey; }
 
