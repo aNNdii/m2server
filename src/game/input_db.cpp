@@ -28,19 +28,14 @@
 #include "wedding.h"
 #include "login_data.h"
 #include "unique_item.h"
-
 #include "monarch.h"
 #include "affect.h"
 #include "castle.h"
 #include "block_country.h"
 #include "motion.h"
-
 #include "dev_log.h"
-
 #include "log.h"
-
 #include "horsename_manager.h"
-#include "pcbang.h"
 #include "gm.h"
 #include "panama.h"
 #include "map_location.h"
@@ -422,11 +417,6 @@ void CInputDB::PlayerLoad(LPDESC d, const char * data)
 		{
 			LogManager::instance().LoginLog(true, 
 					ch->GetDesc()->GetAccountTable().id, ch->GetPlayerID(), ch->GetLevel(), ch->GetJob(), ch->GetRealPoint(POINT_PLAYTIME));
-
-			if (LC_IsBrazil() != true )
-			{
-				ch->SetPCBang(CPCBangManager::instance().IsPCBangIP(ch->GetDesc()->GetHostName()));
-			}
 		}
 	}
 
@@ -999,8 +989,6 @@ void CInputDB::Boot(const char* data)
 	{
 		CMobManager::instance().DumpRegenCount("mob_count");
 	}
-
-	CPCBangManager::instance().RequestUpdateIPList(0);
 
 	// castle_boot
 	castle_boot();
