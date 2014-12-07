@@ -97,9 +97,6 @@ enum
 //	HEADER_CG_ROULETTE				= 200,
 //	HEADER_CG_RUNUP_MATRIX_ANSWER	= 201,
 
-	//
-	HEADER_CG_PASSPOD_ANSWER		= 202,
-
 	HEADER_CG_DRAGON_SOUL_REFINE			= 205,
 	HEADER_CG_STATE_CHECKER					= 206,
 
@@ -277,9 +274,6 @@ enum
 	// ROULETTE
 	HEADER_GC_ROULETTE					= 200, 
 	// END_ROULETTE			
-	//
-	HEADER_GC_REQUEST_PASSPOD				= 202,
-	HEADER_GC_REQUEST_PASSPOD_FAILED		= 203,
 
 	HEADER_GC_SPECIFIC_EFFECT				= 208,
 
@@ -852,7 +846,6 @@ enum EPhase
 	PHASE_P2P,
 	PHASE_AUTH,
 	PHASE_TEEN,
-	PHASE_PASSPOD,
 };
 
 typedef struct packet_phase
@@ -2153,18 +2146,6 @@ typedef struct command_runup_matrix_answer
 	BYTE    bHeader;
 	char    szAnswer[RUNUP_MATRIX_ANSWER_MAX_LEN + 1];
 } TPacketCGRunupMatrixAnswer;
-
-typedef struct packet_passpod 
-{
-	BYTE    bHeader;
-	char    szAnswer[8+1];
-} TPacketCGPasspod;
-
-typedef struct packet_passpod_failed 
-{
-	BYTE    bHeader;
-	char    szMessage[128];
-} TPacketCGPasspodFailed;
 
 typedef struct tag_GGSiege
 {

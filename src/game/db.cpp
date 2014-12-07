@@ -23,37 +23,6 @@
 extern std::string g_stBlockDate;
 extern int openid_server;
 
-//중국 passpod 전용 함수 
-bool CheckPasspod(const char * account)
-{
-	char szQuery[1024];
-
-	snprintf(szQuery, sizeof(szQuery), "SELECT ID FROM passpod WHERE Login='%s'", account); 
-	SQLMsg * pMsg = DBManager::instance().DirectQuery(szQuery);
- 	
-	if (!pMsg)
-	{
-		//fprintf(stderr, "cannot get the MATRIX\n");
-		sys_log(0, "cannot get the PASSPOD");
-		delete pMsg;
-		return false;
-	}
-
-	if (pMsg->Get()->uiNumRows == 0)
-	{
-		puts(szQuery);
-		sys_log(0, "[PASSPOD]DirectQuery failed(%s)", szQuery);
-
-		delete pMsg;
-		return false;
-	}
-
-	delete pMsg;
-
-	return true;
-}
-
-
 DBManager::DBManager() : m_bIsConnect(false)
 {
 }
