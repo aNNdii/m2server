@@ -45,9 +45,14 @@ include_directories(
 
 add_executable(game ${game_SRCS})
 
-find_library(MYSQL_LIBRARY mysqlclient ${MYSQL_INCLUDE_DIR}/lib)
-find_library(CRYPTOPP_LIBRARY cryptlib ${CRYPTOPP_LIBRARY_DIR})
-find_library(LIBDEVIL_LIBRARY DevIL-1.7.8 ${CMAKE_SOURCE_DIR}/src/shared/libdevil/win32/lib)
+if(WIN32)
+    find_library(MYSQL_LIBRARY mysqlclient ${MYSQL_INCLUDE_DIR}/lib)
+    find_library(CRYPTOPP_LIBRARY cryptlib ${CRYPTOPP_LIBRARY_DIR})
+    find_library(LIBDEVIL_LIBRARY DevIL-1.7.8 ${CMAKE_SOURCE_DIR}/src/shared/libdevil/win32/lib)
+elseif(UNIX)
+    find_library(MYSQL_LIBRARY mysqlclient ${MYSQL_LIBRARIES})
+    find_library(CRYPTOPP_LIBRARY libcryptopp.a ${CRYPTOPP_LIBRARY_DIR})
+endif()
 
 target_link_libraries(game
 	libthecore
@@ -56,7 +61,7 @@ target_link_libraries(game
 	${CRYPTOPP_LIBRARY}
 	${MYSQL_LIBRARY}
 	${Boost_LIBRARIES}
-	${LIBDEVIL_LIBRARY}
+
 )
 
 add_dependencies(game lua)
