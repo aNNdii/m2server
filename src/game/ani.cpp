@@ -157,27 +157,27 @@ DWORD ANI::load_one_weapon(const char *dir_name, int weapon, BYTE combo, bool ho
 	switch (weapon)
 	{
 		case WEAPON_SWORD:
-			strlcpymt(format, "%s/%sonehand_sword/combo_%02d.msa", sizeof(format));
+			enhance_strlcpymt(format, "%s/%sonehand_sword/combo_%02d.msa", sizeof(format));
 			break;
 
 		case WEAPON_DAGGER:
-			strlcpymt(format, "%s/%sdualhand_sword/combo_%02d.msa", sizeof(format));
+			enhance_strlcpymt(format, "%s/%sdualhand_sword/combo_%02d.msa", sizeof(format));
 			break;
 
 		case WEAPON_BOW:
-			strlcpymt(format, "%s/%sbow/attack.msa", sizeof(format));
+			enhance_strlcpymt(format, "%s/%sbow/attack.msa", sizeof(format));
 			break;
 
 		case WEAPON_TWO_HANDED:
-			strlcpymt(format, "%s/%stwohand_sword/combo_%02d.msa", sizeof(format));
+			enhance_strlcpymt(format, "%s/%stwohand_sword/combo_%02d.msa", sizeof(format));
 			break;
 
 		case WEAPON_BELL:
-			strlcpymt(format, "%s/%sbell/combo_%02d.msa", sizeof(format));
+			enhance_strlcpymt(format, "%s/%sbell/combo_%02d.msa", sizeof(format));
 			break;
 
 		case WEAPON_FAN:
-			strlcpymt(format, "%s/%sfan/combo_%02d.msa", sizeof(format));
+			enhance_strlcpymt(format, "%s/%sfan/combo_%02d.msa", sizeof(format));
 			break;
 
 		default:

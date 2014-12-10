@@ -60,7 +60,7 @@ bool ITEM_MANAGER::ReadCommonDropItemFile(const char * c_pszFileName)
 				if (!p2)
 					break;
 
-				strlcpymt(szTemp, p, MIN(sizeof(szTemp), (p2 - p) + 1));
+				enhance_strlcpymt(szTemp, p, MIN(sizeof(szTemp), (p2 - p) + 1));
 				p = p2 + 1;
 
 				switch (j)
@@ -69,7 +69,7 @@ bool ITEM_MANAGER::ReadCommonDropItemFile(const char * c_pszFileName)
 				case 1: str_to_number(d[i].iLvStart, szTemp);	break;
 				case 2: str_to_number(d[i].iLvEnd, szTemp);	break;
 				case 3: d[i].fPercent = atof(szTemp);	break;
-				case 4: strlcpymt(d[i].szItemName, szTemp, sizeof(d[i].szItemName));	break;
+				case 4: enhance_strlcpymt(d[i].szItemName, szTemp, sizeof(d[i].szItemName));	break;
 				case 5: str_to_number(d[i].iCount, szTemp);	break;
 				}
 			}
@@ -451,7 +451,7 @@ bool ITEM_MANAGER::ReadEtcDropItemFile(const char * c_pszFileName)
 		char szItemName[256];
 		float fProb = 0.0f;
 
-		strlcpymt(szItemName, buf, sizeof(szItemName));
+		enhance_strlcpymt(szItemName, buf, sizeof(szItemName));
 		char * cpTab = strrchr(szItemName, '\t');
 
 		if (!cpTab)

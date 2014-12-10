@@ -218,7 +218,7 @@ void CPVPManager::Insert(LPCHARACTER pkChr, LPCHARACTER pkVictim)
 		pack.bHeader = HEADER_GC_WHISPER;
 		pack.wSize = sizeof(TPacketGCWhisper) + len;
 		pack.bType = WHISPER_TYPE_SYSTEM;
-		strlcpymt(pack.szNameFrom, pkChr->GetName(), sizeof(pack.szNameFrom));
+		enhance_strlcpymt(pack.szNameFrom, pkChr->GetName(), sizeof(pack.szNameFrom));
 
 		TEMP_BUFFER buf;
 

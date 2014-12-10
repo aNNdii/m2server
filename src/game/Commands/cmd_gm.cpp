@@ -118,7 +118,7 @@ ACMD(do_transfer)
 			TPacketGGTransfer pgg;
 
 			pgg.bHeader = HEADER_GG_TRANSFER;
-			strlcpymt(pgg.szName, arg1, sizeof(pgg.szName));
+			enhance_strlcpymt(pgg.szName, arg1, sizeof(pgg.szName));
 			pgg.lX = ch->GetX();
 			pgg.lY = ch->GetY();
 
@@ -211,7 +211,7 @@ bool FindInString(const char * c_pszFind, const char * c_pszIn)
 
 		do
 		{
-			strlcpymt(sz, c, MIN(sizeof(sz), (p - c) + 1));
+			enhance_strlcpymt(sz, c, MIN(sizeof(sz), (p - c) + 1));
 
 			if (!strncasecmp(c_pszFind, sz, strlen(c_pszFind)))
 				return true;
@@ -219,7 +219,7 @@ bool FindInString(const char * c_pszFind, const char * c_pszIn)
 			c = p + 1;
 		} while ((p = strchr(c, '|')));
 
-		strlcpymt(sz, c, sizeof(sz));
+		enhance_strlcpymt(sz, c, sizeof(sz));
 
 		if (!strncasecmp(c_pszFind, sz, strlen(c_pszFind)))
 			return true;
@@ -1552,7 +1552,7 @@ ACMD(do_makeguild)
 	memset(&cp, 0, sizeof(cp));
 
 	cp.master = ch;
-	strlcpymt(cp.name, arg1, sizeof(cp.name));
+	enhance_strlcpymt(cp.name, arg1, sizeof(cp.name));
 
 	if (!check_name(cp.name))
 	{
@@ -2672,7 +2672,7 @@ ACMD(do_vote_block_chat)
 			TPacketGGBlockChat p;
 
 			p.bHeader = HEADER_GG_BLOCK_CHAT;
-			strlcpymt(p.szName, name, sizeof(p.szName));
+			enhance_strlcpymt(p.szName, name, sizeof(p.szName));
 			p.lBlockDuration = lBlockDuration;
 			P2P_MANAGER::instance().Send(&p, sizeof(TPacketGGBlockChat));
 		}
@@ -2680,7 +2680,7 @@ ACMD(do_vote_block_chat)
 		{
 			TPacketBlockChat p;
 
-			strlcpymt(p.szName, name, sizeof(p.szName));
+			enhance_strlcpymt(p.szName, name, sizeof(p.szName));
 			p.lDuration = lBlockDuration;
 			db_clientdesc->DBPacket(HEADER_GD_BLOCK_CHAT, ch ? ch->GetDesc()->GetHandle() : 0, &p, sizeof(p));
 
@@ -2742,7 +2742,7 @@ ACMD(do_block_chat)
 			TPacketGGBlockChat p;
 
 			p.bHeader = HEADER_GG_BLOCK_CHAT;
-			strlcpymt(p.szName, name, sizeof(p.szName));
+			enhance_strlcpymt(p.szName, name, sizeof(p.szName));
 			p.lBlockDuration = lBlockDuration;
 			P2P_MANAGER::instance().Send(&p, sizeof(TPacketGGBlockChat));
 		}
@@ -2750,7 +2750,7 @@ ACMD(do_block_chat)
 		{
 			TPacketBlockChat p;
 
-			strlcpymt(p.szName, name, sizeof(p.szName));
+			enhance_strlcpymt(p.szName, name, sizeof(p.szName));
 			p.lDuration = lBlockDuration;
 			db_clientdesc->DBPacket(HEADER_GD_BLOCK_CHAT, ch ? ch->GetDesc()->GetHandle() : 0, &p, sizeof(p));
 		}

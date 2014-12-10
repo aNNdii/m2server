@@ -59,6 +59,8 @@ extern "C"
 
     extern float	get_float_time();
     extern DWORD	get_dword_time();
+    
+    extern size_t enhance_strlcpymt(char* dst, const char* src, size_t size);
 
     extern char *	time_str(time_t ct);
 

@@ -171,7 +171,7 @@ void DBManager::SendLoginPing(const char * c_pszLogin)
 	TPacketGGLoginPing ptog;
 
 	ptog.bHeader = HEADER_GG_LOGIN_PING;
-	strlcpymt(ptog.szLogin, c_pszLogin, sizeof(ptog.szLogin));
+	enhance_strlcpymt(ptog.szLogin, c_pszLogin, sizeof(ptog.szLogin));
 
 	if (!g_pkAuthMasterDesc)  // If I am master, broadcast to others
 	{
@@ -196,7 +196,7 @@ void DBManager::SendAuthLogin(LPDESC d)
 	ptod.dwID = r.id;
 	
 	trim_and_lower(r.login, ptod.szLogin, sizeof(ptod.szLogin));
-	strlcpymt(ptod.szSocialID, r.social_id, sizeof(ptod.szSocialID));
+	enhance_strlcpymt(ptod.szSocialID, r.social_id, sizeof(ptod.szSocialID));
 	ptod.dwLoginKey = d->GetLoginKey();
 
 	thecore_memcpy(ptod.iPremiumTimes, pkLD->GetPremiumPtr(), sizeof(ptod.iPremiumTimes));
@@ -252,7 +252,7 @@ bool GetGameTimeIP(MYSQL_RES * pRes, BYTE & bBillType, DWORD & dwBillID, int & s
 	str_to_number(day_seconds, row[col++]);
 
 	char szIP[MAX_HOST_LENGTH + 1];
-	strlcpymt(szIP, c_pszIP, sizeof(szIP));
+	enhance_strlcpymt(szIP, c_pszIP, sizeof(szIP));
 
 	char * p = strrchr(szIP, '.');
 	++p;
@@ -330,7 +330,7 @@ void DBManager::AnalyzeReturnQuery(SQLMsg * pMsg)
 					   	break; 
 					}
 					
-					strlcpymt(szEncrytPassword, row[col++], sizeof(szEncrytPassword));
+					enhance_strlcpymt(szEncrytPassword, row[col++], sizeof(szEncrytPassword));
 
 					if (!row[col]) 
 					{
@@ -339,7 +339,7 @@ void DBManager::AnalyzeReturnQuery(SQLMsg * pMsg)
 					   	break;
 				   	}
 				
-					strlcpymt(szPassword, row[col++], sizeof(szPassword));
+					enhance_strlcpymt(szPassword, row[col++], sizeof(szPassword));
 
 					if (!row[col])
 				   	{ 
@@ -348,7 +348,7 @@ void DBManager::AnalyzeReturnQuery(SQLMsg * pMsg)
 						break;
 				   	}
 
-					strlcpymt(szSocialID, row[col++], sizeof(szSocialID));
+					enhance_strlcpymt(szSocialID, row[col++], sizeof(szSocialID));
 
 					if (!row[col])
 				   	{
@@ -366,7 +366,7 @@ void DBManager::AnalyzeReturnQuery(SQLMsg * pMsg)
 						break;
 				   	}
 
-					strlcpymt(szStatus, row[col++], sizeof(szStatus));
+					enhance_strlcpymt(szStatus, row[col++], sizeof(szStatus));
 
 					BYTE bNotAvail = 0;
 					str_to_number(bNotAvail, row[col++]);
@@ -459,8 +459,8 @@ void DBManager::AnalyzeReturnQuery(SQLMsg * pMsg)
 
 						r.id = dwID;
 						trim_and_lower(pinfo->login, r.login, sizeof(r.login));
-						strlcpymt(r.passwd, pinfo->passwd, sizeof(r.passwd));
-						strlcpymt(r.social_id, szSocialID, sizeof(r.social_id));
+						enhance_strlcpymt(r.passwd, pinfo->passwd, sizeof(r.passwd));
+						enhance_strlcpymt(r.social_id, szSocialID, sizeof(r.social_id));
 						DESC_MANAGER::instance().ConnectAccount(r.login, d);
 
 						sys_log(0, "QID_AUTH_LOGIN: SUCCESS %s", pinfo->login);
@@ -677,10 +677,10 @@ void VCardUse(LPCHARACTER CardOwner, LPCHARACTER CardTaker, LPITEM item)
 	TPacketGDVCard p;
 
 	p.dwID = item->GetSocket(0);
-	strlcpymt(p.szSellCharacter, CardOwner->GetName(), sizeof(p.szSellCharacter));
-	strlcpymt(p.szSellAccount, CardOwner->GetDesc()->GetAccountTable().login, sizeof(p.szSellAccount));
-	strlcpymt(p.szBuyCharacter, CardTaker->GetName(), sizeof(p.szBuyCharacter));
-	strlcpymt(p.szBuyAccount, CardTaker->GetDesc()->GetAccountTable().login, sizeof(p.szBuyAccount));
+	enhance_strlcpymt(p.szSellCharacter, CardOwner->GetName(), sizeof(p.szSellCharacter));
+	enhance_strlcpymt(p.szSellAccount, CardOwner->GetDesc()->GetAccountTable().login, sizeof(p.szSellAccount));
+	enhance_strlcpymt(p.szBuyCharacter, CardTaker->GetName(), sizeof(p.szBuyCharacter));
+	enhance_strlcpymt(p.szBuyAccount, CardTaker->GetDesc()->GetAccountTable().login, sizeof(p.szBuyAccount));
 
 	db_clientdesc->DBPacket(HEADER_GD_VCARD, 0, &p, sizeof(TPacketGDVCard));
 
@@ -700,7 +700,7 @@ void DBManager::RequestBlockException(const char *login, int cmd)
 	TPacketBlockException packet;
 
 	packet.cmd = cmd;
-	strlcpymt(packet.login, login, sizeof(packet.login));
+	enhance_strlcpymt(packet.login, login, sizeof(packet.login));
 	db_clientdesc->DBPacket(HEADER_GD_BLOCK_EXCEPTION, 0, &packet, sizeof(packet));
 }
 

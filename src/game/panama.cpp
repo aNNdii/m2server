@@ -77,7 +77,7 @@ void SendPanamaList(LPDESC d)
 
 	while (it != s_panamaVector.end())
 	{
-		strlcpymt(pack.szPackName, it->first.c_str(), sizeof(pack.szPackName));
+		enhance_strlcpymt(pack.szPackName, it->first.c_str(), sizeof(pack.szPackName));
 		memcpy(pack.abIV, it->second, sizeof(pack.abIV));
 
 

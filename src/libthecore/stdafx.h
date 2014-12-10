@@ -47,7 +47,6 @@ struct timespec
 
 // C runtime library adjustments
 #define strlcat(dst, src, size) strcat_s(dst, size, src)
-#define strlcpymt(dst, src, size) strncpy_s(dst, size, src, _TRUNCATE)
 #define strtoull(str, endptr, base) _strtoui64(str, endptr, base)
 #define strtof(str, endptr) (float)strtod(str, endptr)
 #define strcasecmp(s1, s2) stricmp(s1, s2)

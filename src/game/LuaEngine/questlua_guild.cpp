@@ -191,7 +191,7 @@ namespace quest
 		TPacketGDGuildWarBet p;
 
 		p.dwWarID = (DWORD) lua_tonumber(L, 1);
-		strlcpymt(p.szLogin, ch->GetDesc()->GetAccountTable().login, sizeof(p.szLogin));
+		enhance_strlcpymt(p.szLogin, ch->GetDesc()->GetAccountTable().login, sizeof(p.szLogin));
 		p.dwGuild = (DWORD) lua_tonumber(L, 2);
 		p.dwGold = (DWORD) lua_tonumber(L, 3);
 

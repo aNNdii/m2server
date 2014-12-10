@@ -126,7 +126,7 @@ void CInputDB::LoginSuccess(DWORD dwHandle, const char *data)
 
 		TLogoutPacket pack;
 
-		strlcpymt(pack.login, pTab->login, sizeof(pack.login));
+		enhance_strlcpymt(pack.login, pTab->login, sizeof(pack.login));
 		db_clientdesc->DBPacket(HEADER_GD_LOGOUT, dwHandle, &pack, sizeof(pack));
 		return;
 	}
@@ -137,7 +137,7 @@ void CInputDB::LoginSuccess(DWORD dwHandle, const char *data)
 
 		TLogoutPacket pack;
 
-		strlcpymt(pack.login, pTab->login, sizeof(pack.login));
+		enhance_strlcpymt(pack.login, pTab->login, sizeof(pack.login));
 		db_clientdesc->DBPacket(HEADER_GD_LOGOUT, dwHandle, &pack, sizeof(pack));
 
 		LoginFailure(d, pTab->status);
@@ -315,14 +315,14 @@ void CInputDB::ChangeName(LPDESC d, const char * data)
 	for (size_t i = 0; i < PLAYER_PER_ACCOUNT; ++i)
 		if (r.players[i].dwID == p->pid)
 		{
-			strlcpymt(r.players[i].szName, p->name, sizeof(r.players[i].szName));
+			enhance_strlcpymt(r.players[i].szName, p->name, sizeof(r.players[i].szName));
 			r.players[i].bChangeName = 0;
 
 			TPacketGCChangeName pgc;
 
 			pgc.header = HEADER_GC_CHANGE_NAME;
 			pgc.pid = p->pid;
-			strlcpymt(pgc.name, p->name, sizeof(pgc.name));
+			enhance_strlcpymt(pgc.name, p->name, sizeof(pgc.name));
 
 			d->Packet(&pgc, sizeof(TPacketGCChangeName));
 			break;
@@ -400,7 +400,7 @@ void CInputDB::PlayerLoad(LPDESC d, const char * data)
 		TPacketGGLogin p;
 
 		p.bHeader = HEADER_GG_LOGIN;
-		strlcpymt(p.szName, ch->GetName(), sizeof(p.szName));
+		enhance_strlcpymt(p.szName, ch->GetName(), sizeof(p.szName));
 		p.dwPID = ch->GetPlayerID();
 		p.bEmpire = ch->GetEmpire();
 		p.lMapIndex = SECTREE_MANAGER::instance().GetMapIndex(ch->GetX(), ch->GetY());
@@ -1253,7 +1253,7 @@ void CInputDB::LoginAlready(LPDESC d, const char * c_pData)
 			TPacketGGDisconnect pgg;
 
 			pgg.bHeader = HEADER_GG_DISCONNECT;
-			strlcpymt(pgg.szLogin, p->szLogin, sizeof(pgg.szLogin));
+			enhance_strlcpymt(pgg.szLogin, p->szLogin, sizeof(pgg.szLogin));
 
 			P2P_MANAGER::instance().Send(&pgg, sizeof(TPacketGGDisconnect));
 		}
@@ -1832,7 +1832,7 @@ void CInputDB::Notice(const char * c_pData)
 	extern void SendNotice(const char * c_pszBuf);
 
 	char szBuf[256+1];
-	strlcpymt(szBuf, c_pData, sizeof(szBuf));
+	enhance_strlcpymt(szBuf, c_pData, sizeof(szBuf));
 
 	sys_log(0, "InputDB:: Notice: %s", szBuf);
 

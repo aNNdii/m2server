@@ -117,7 +117,7 @@ bool CConfig::LoadFile(const char* filename)
 		switch (mode)
 		{
 			case 0:
-				strlcpymt(comment, szTmp, sizeof(comment));
+				enhance_strlcpymt(comment, szTmp, sizeof(comment));
 				++mode;
 				break;
 
@@ -229,7 +229,7 @@ bool CConfig::GetValue(const char * key, char *dest, size_t destSize)
 	if (!Search(key))
 		return false;
 
-	strlcpymt(dest, Get(key), destSize);
+	enhance_strlcpymt(dest, Get(key), destSize);
 
 	if (!*dest)
 		return false;

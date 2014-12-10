@@ -341,12 +341,12 @@ bool CClientManager::InitializeQuestItemTable()
 		str_to_number(tbl.dwVnum, row[col++]);
 
 		if (row[col])
-			strlcpymt(tbl.szName, row[col], sizeof(tbl.szName));
+			enhance_strlcpymt(tbl.szName, row[col], sizeof(tbl.szName));
 
 		col++;
 
 		if (row[col])
-			strlcpymt(tbl.szLocaleName, row[col], sizeof(tbl.szLocaleName));
+			enhance_strlcpymt(tbl.szLocaleName, row[col], sizeof(tbl.szLocaleName));
 
 		col++;
 
@@ -499,33 +499,33 @@ bool CClientManager::InitializeSkillTable()
 		col = 0;
 
 		str_to_number(t.dwVnum, data[col++]);
-		strlcpymt(t.szName, data[col++], sizeof(t.szName));
+		enhance_strlcpymt(t.szName, data[col++], sizeof(t.szName));
 		str_to_number(t.bType, data[col++]);
 		str_to_number(t.bMaxLevel, data[col++]);
 		str_to_number(t.dwSplashRange, data[col++]);
 
-		strlcpymt(t.szPointOn, data[col++], sizeof(t.szPointOn));
-		strlcpymt(t.szPointPoly, data[col++], sizeof(t.szPointPoly));
-		strlcpymt(t.szSPCostPoly, data[col++], sizeof(t.szSPCostPoly));
-		strlcpymt(t.szDurationPoly, data[col++], sizeof(t.szDurationPoly));
-		strlcpymt(t.szDurationSPCostPoly, data[col++], sizeof(t.szDurationSPCostPoly));
-		strlcpymt(t.szCooldownPoly, data[col++], sizeof(t.szCooldownPoly));
-		strlcpymt(t.szMasterBonusPoly, data[col++], sizeof(t.szMasterBonusPoly));
+		enhance_strlcpymt(t.szPointOn, data[col++], sizeof(t.szPointOn));
+		enhance_strlcpymt(t.szPointPoly, data[col++], sizeof(t.szPointPoly));
+		enhance_strlcpymt(t.szSPCostPoly, data[col++], sizeof(t.szSPCostPoly));
+		enhance_strlcpymt(t.szDurationPoly, data[col++], sizeof(t.szDurationPoly));
+		enhance_strlcpymt(t.szDurationSPCostPoly, data[col++], sizeof(t.szDurationSPCostPoly));
+		enhance_strlcpymt(t.szCooldownPoly, data[col++], sizeof(t.szCooldownPoly));
+		enhance_strlcpymt(t.szMasterBonusPoly, data[col++], sizeof(t.szMasterBonusPoly));
 
 		str_to_number(t.dwFlag, data[col++]);
 		str_to_number(t.dwAffectFlag, data[col++]);
 
-		strlcpymt(t.szPointOn2, data[col++], sizeof(t.szPointOn2));
-		strlcpymt(t.szPointPoly2, data[col++], sizeof(t.szPointPoly2));
-		strlcpymt(t.szDurationPoly2, data[col++], sizeof(t.szDurationPoly2));
+		enhance_strlcpymt(t.szPointOn2, data[col++], sizeof(t.szPointOn2));
+		enhance_strlcpymt(t.szPointPoly2, data[col++], sizeof(t.szPointPoly2));
+		enhance_strlcpymt(t.szDurationPoly2, data[col++], sizeof(t.szDurationPoly2));
 		str_to_number(t.dwAffectFlag2, data[col++]);
 
 		// ADD_GRANDMASTER_SKILL
-		strlcpymt(t.szPointOn3, data[col++], sizeof(t.szPointOn3));
-		strlcpymt(t.szPointPoly3, data[col++], sizeof(t.szPointPoly3));
-		strlcpymt(t.szDurationPoly3, data[col++], sizeof(t.szDurationPoly3));
+		enhance_strlcpymt(t.szPointOn3, data[col++], sizeof(t.szPointOn3));
+		enhance_strlcpymt(t.szPointPoly3, data[col++], sizeof(t.szPointPoly3));
+		enhance_strlcpymt(t.szDurationPoly3, data[col++], sizeof(t.szDurationPoly3));
 
-		strlcpymt(t.szGrandMasterAddSPCostPoly, data[col++], sizeof(t.szGrandMasterAddSPCostPoly));
+		enhance_strlcpymt(t.szGrandMasterAddSPCostPoly, data[col++], sizeof(t.szGrandMasterAddSPCostPoly));
 		// END_OF_ADD_GRANDMASTER_SKILL
 
 		str_to_number(t.bLevelStep, data[col++]);
@@ -535,7 +535,7 @@ bool CClientManager::InitializeSkillTable()
 
 		str_to_number(t.lMaxHit, data[col++]);
 
-		strlcpymt(t.szSplashAroundDamageAdjustPoly, data[col++], sizeof(t.szSplashAroundDamageAdjustPoly));
+		enhance_strlcpymt(t.szSplashAroundDamageAdjustPoly, data[col++], sizeof(t.szSplashAroundDamageAdjustPoly));
 
 		str_to_number(t.bSkillAttrType, data[col++]);
 		str_to_number(t.dwTargetRange, data[col++]);
@@ -567,7 +567,7 @@ bool CClientManager::InitializeBanwordTable()
 
 		if (data[0])
 		{
-			strlcpymt(t.szWord, data[0], sizeof(t.szWord));
+			enhance_strlcpymt(t.szWord, data[0], sizeof(t.szWord));
 			m_vec_banwordTable.push_back(t);
 		}
 	}
@@ -610,7 +610,7 @@ bool CClientManager::InitializeItemAttrTable()
 
 		int col = 0;
 
-		strlcpymt(t.szApply, data[col++], sizeof(t.szApply));
+		enhance_strlcpymt(t.szApply, data[col++], sizeof(t.szApply));
 		str_to_number(t.dwApplyIndex, data[col++]);
 		str_to_number(t.dwProb, data[col++]);
 		str_to_number(t.lValues[0], data[col++]);
@@ -684,7 +684,7 @@ bool CClientManager::InitializeItemRareTable()
 
 		int col = 0;
 
-		strlcpymt(t.szApply, data[col++], sizeof(t.szApply));
+		enhance_strlcpymt(t.szApply, data[col++], sizeof(t.szApply));
 		str_to_number(t.dwApplyIndex, data[col++]);
 		str_to_number(t.dwProb, data[col++]);
 		str_to_number(t.lValues[0], data[col++]);
@@ -789,7 +789,7 @@ void parse_pair_number_string(const char * c_pszString, std::vector<std::pair<in
 	{
 		if (isnhdigit(*t))
 		{
-			strlcpymt(szNum, t, MIN(sizeof(szNum), (p-t)+1));
+			enhance_strlcpymt(szNum, t, MIN(sizeof(szNum), (p-t)+1));
 
 			comma = strchr(szNum, ',');
 
@@ -811,7 +811,7 @@ void parse_pair_number_string(const char * c_pszString, std::vector<std::pair<in
 
 	if (isnhdigit(*t))
 	{
-		strlcpymt(szNum, t, sizeof(szNum));
+		enhance_strlcpymt(szNum, t, sizeof(szNum));
 
 		comma = strchr(const_cast<char*>(t), ',');
 

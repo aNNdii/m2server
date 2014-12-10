@@ -137,7 +137,7 @@ void CGuildManager::ParseResult(SQLResult * pRes)
 
 		TGuild & r_info = TouchGuild(GID);
 
-		strlcpymt(r_info.szName, row[1], sizeof(r_info.szName));
+		enhance_strlcpymt(r_info.szName, row[1], sizeof(r_info.szName));
 		str_to_number(r_info.ladder_point, row[2]);
 		str_to_number(r_info.win, row[3]);
 		str_to_number(r_info.draw, row[4]);
@@ -1228,7 +1228,7 @@ void CGuildWarReserve::Initialize()
 		while ((row = mysql_fetch_row(res)))
 		{
 			dwGuild = dwGold = 0;
-			strlcpymt(szLogin, row[0], sizeof(szLogin));
+			enhance_strlcpymt(szLogin, row[0], sizeof(szLogin));
 			str_to_number(dwGuild, row[1]);
 			str_to_number(dwGold, row[2]);
 
@@ -1254,7 +1254,7 @@ void CGuildWarReserve::OnSetup(CPeer * peer)
 
 	while (it != mapBet.end())
 	{
-		strlcpymt(pckBet.szLogin, it->first.c_str(), sizeof(pckBet.szLogin));
+		enhance_strlcpymt(pckBet.szLogin, it->first.c_str(), sizeof(pckBet.szLogin));
 		pckBet.dwGuild = it->second.first;
 		pckBet.dwGold = it->second.second;
 
@@ -1316,7 +1316,7 @@ bool CGuildWarReserve::Bet(const char * pszLogin, DWORD dwGold, DWORD dwGuild)
 
 	TPacketGDGuildWarBet pckBet;
 	pckBet.dwWarID = m_data.dwID;
-	strlcpymt(pckBet.szLogin, pszLogin, sizeof(pckBet.szLogin));
+	enhance_strlcpymt(pckBet.szLogin, pszLogin, sizeof(pckBet.szLogin));
 	pckBet.dwGuild = dwGuild;
 	pckBet.dwGold = dwGold;
 

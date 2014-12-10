@@ -404,7 +404,7 @@ void CClientManager::QUERY_PLAYER_LOAD(CPeer * peer, DWORD dwHandle, TPlayerLoad
 void CClientManager::ItemAward(CPeer * peer,char* login)
 {
 	char login_t[LOGIN_MAX_LEN + 1] = "";
-	strlcpymt(login_t,login,LOGIN_MAX_LEN + 1);	
+	enhance_strlcpymt(login_t,login,LOGIN_MAX_LEN + 1);	
 	std::set<TItemAward *> * pSet = ItemAwardManager::instance().GetByLogin(login_t);	
 	if(pSet == NULL)
 		return;
@@ -458,7 +458,7 @@ bool CreatePlayerTableFromRes(MYSQL_RES * res, TPlayerTable * pkTab)
 	// "stat_point,skill_point,sub_skill_point,stat_reset_count,part_base,part_hair,"
 	// "skill_level,quickslot,skill_group,alignment,mobile,horse_level,horse_riding,horse_hp,horse_stamina FROM player%s WHERE id=%d",
 	str_to_number(pkTab->id, row[col++]);
-	strlcpymt(pkTab->name, row[col++], sizeof(pkTab->name));
+	enhance_strlcpymt(pkTab->name, row[col++], sizeof(pkTab->name));
 	str_to_number(pkTab->job, row[col++]);
 	str_to_number(pkTab->voice, row[col++]);
 	str_to_number(pkTab->dir, row[col++]);
@@ -509,7 +509,7 @@ bool CreatePlayerTableFromRes(MYSQL_RES * res, TPlayerTable * pkTab)
 
 	if (row[col])
 	{
-		strlcpymt(pkTab->szMobile, row[col], sizeof(pkTab->szMobile));
+		enhance_strlcpymt(pkTab->szMobile, row[col], sizeof(pkTab->szMobile));
 	}
 
 	col++;
@@ -758,8 +758,8 @@ void CClientManager::RESULT_QUEST_LOAD(CPeer * peer, MYSQL_RES * pRes, DWORD dwH
 		row = mysql_fetch_row(pRes);
 
 		str_to_number(r.dwPID, row[0]);
-		strlcpymt(r.szName, row[1], sizeof(r.szName));
-		strlcpymt(r.szState, row[2], sizeof(r.szState));
+		enhance_strlcpymt(r.szName, row[1], sizeof(r.szName));
+		enhance_strlcpymt(r.szState, row[2], sizeof(r.szState));
 		str_to_number(r.lValue, row[3]);
 	}
 
@@ -938,7 +938,7 @@ void CClientManager::__QUERY_PLAYER_CREATE(CPeer *peer, DWORD dwHandle, TPlayerC
 	pack.bAccountCharacterIndex = packet->account_index;
 
 	pack.player.dwID			= player_id;
-	strlcpymt(pack.player.szName, packet->player_table.name, sizeof(pack.player.szName));
+	enhance_strlcpymt(pack.player.szName, packet->player_table.name, sizeof(pack.player.szName));
 	pack.player.byJob			= packet->player_table.job;
 	pack.player.byLevel			= 1;
 	pack.player.dwPlayMinutes	= 0;
@@ -1044,7 +1044,7 @@ void CClientManager::__RESULT_PLAYER_DELETE(CPeer *peer, SQLMsg* msg)
 		str_to_number(deletedLevelLimit, row[1]);
 
 		char szName[64];
-		strlcpymt(szName, row[2], sizeof(szName));
+		enhance_strlcpymt(szName, row[2], sizeof(szName));
 
 		if (deletedLevelLimit >= m_iPlayerDeleteLevelLimit && !IsChinaEventServer())
 		{
@@ -1219,7 +1219,7 @@ void CClientManager::QUERY_HIGHSCORE_REGISTER(CPeer* peer, TPacketGDHighscore * 
 	sys_log(0, "HEADER_GD_HIGHSCORE_REGISTER: PID %u", data->dwPID);
 
 	ClientHandleInfo * pi = new ClientHandleInfo(0);
-	strlcpymt(pi->login, data->szBoard, sizeof(pi->login));
+	enhance_strlcpymt(pi->login, data->szBoard, sizeof(pi->login));
 	pi->account_id = (DWORD)data->lValue;
 	pi->player_id = data->dwPID;
 	pi->account_index = (data->cDir > 0);
@@ -1234,7 +1234,7 @@ void CClientManager::RESULT_HIGHSCORE_REGISTER(CPeer * pkPeer, SQLMsg * msg)
 	//DWORD dwHandle = pi->dwHandle;
 
 	char szBoard[21];
-	strlcpymt(szBoard, pi->login, sizeof(szBoard));
+	enhance_strlcpymt(szBoard, pi->login, sizeof(szBoard));
 	int value = (int)pi->account_id;
 
 	SQLResult * res = msg->Get();

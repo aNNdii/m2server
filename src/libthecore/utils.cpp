@@ -473,3 +473,17 @@ DWORD get_dword_time()
     tv.tv_sec -= get_boot_sec();
     return (tv.tv_sec * 1000 + tv.tv_usec / 1000);
 }
+
+size_t enhance_strlcpymt(char* dst, const char* src, size_t size)
+{
+    --size;
+    size_t srcLen = strlen(src);
+
+    if (srcLen > size)
+        srcLen = size;
+
+    memcpy(dst, src, srcLen);
+    dst[srcLen] = '\0';
+
+    return srcLen;
+}

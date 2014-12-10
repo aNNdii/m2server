@@ -248,7 +248,7 @@ void Initialize()
 
 		do
 		{
-			strlcpymt(szCol2, start, MIN(sizeof(szCol2), (tab - start) + 1));
+			enhance_strlcpymt(szCol2, start, MIN(sizeof(szCol2), (tab - start) + 1));
 			szCol2[tab-start] = '\0';
 
 			trim_and_lower(szCol2, szCol, sizeof(szCol));
@@ -259,7 +259,7 @@ void Initialize()
 			{
 				switch (iColCount++)
 				{
-					case 0: strlcpymt(fish_info[idx].name, szCol, sizeof(fish_info[idx].name)); break;
+					case 0: enhance_strlcpymt(fish_info[idx].name, szCol, sizeof(fish_info[idx].name)); break;
 					case 1: str_to_number(fish_info[idx].vnum, szCol); break;
 					case 2: str_to_number(fish_info[idx].dead_vnum, szCol); break;
 					case 3: str_to_number(fish_info[idx].grill_vnum, szCol); break;
@@ -660,11 +660,11 @@ void Take(fishing_event_info* info, LPCHARACTER ch)
 
 							if (info->fish_id == 5)
 							{
-								strlcpymt(p.szBoard, LC_TEXT("³¬½ÃÀÌº¥Æ®¿ùÃ´ºØ¾î"), sizeof(p.szBoard));
+								enhance_strlcpymt(p.szBoard, LC_TEXT("³¬½ÃÀÌº¥Æ®¿ùÃ´ºØ¾î"), sizeof(p.szBoard));
 							}
 							else if (info->fish_id == 6)
 							{
-								strlcpymt(p.szBoard, LC_TEXT("³¬½ÃÀÌº¥Æ®À×¾î"), sizeof(p.szBoard));
+								enhance_strlcpymt(p.szBoard, LC_TEXT("³¬½ÃÀÌº¥Æ®À×¾î"), sizeof(p.szBoard));
 							}
 
 							db_clientdesc->DBPacket(HEADER_GD_HIGHSCORE_REGISTER, 0, &p, sizeof(TPacketGDHighscore));

@@ -1155,7 +1155,7 @@ namespace quest
 	void CQuestManager::RequestSetEventFlag(const string& name, int value)
 	{
 		TPacketSetEventFlag p;
-		strlcpymt(p.szFlagName, name.c_str(), sizeof(p.szFlagName));
+		enhance_strlcpymt(p.szFlagName, name.c_str(), sizeof(p.szFlagName));
 		p.lValue = value;
 		db_clientdesc->DBPacket(HEADER_GD_SET_EVENT_FLAG, 0, &p, sizeof(TPacketSetEventFlag));
 	}

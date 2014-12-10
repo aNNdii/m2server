@@ -594,7 +594,7 @@ void CHARACTER::OpenMyShop(const char * c_pszSign, TShopItemTable * pTable, BYTE
 	}
 
 	char szSign[SHOP_SIGN_MAX_LEN+1];
-	strlcpymt(szSign, c_pszSign, sizeof(szSign));
+	enhance_strlcpymt(szSign, c_pszSign, sizeof(szSign));
 
 	m_stShopSign = szSign;
 
@@ -695,7 +695,7 @@ void CHARACTER::OpenMyShop(const char * c_pszSign, TShopItemTable * pTable, BYTE
 
 	p.bHeader = HEADER_GC_SHOP_SIGN;
 	p.dwVID = GetVID();
-	strlcpymt(p.szSign, c_pszSign, sizeof(p.szSign));
+	enhance_strlcpymt(p.szSign, c_pszSign, sizeof(p.szSign));
 
 	PacketAround(&p, sizeof(TPacketGCShopSign));
 
@@ -891,7 +891,7 @@ void CHARACTER::EncodeInsertPacket(LPENTITY entity)
 		else
 		{
 		show_all_info:
-			strlcpymt(addPacket.name, GetName(), sizeof(addPacket.name));
+			enhance_strlcpymt(addPacket.name, GetName(), sizeof(addPacket.name));
 
 			if (GetGuild() != NULL)
 			{	
@@ -941,7 +941,7 @@ void CHARACTER::EncodeInsertPacket(LPENTITY entity)
 
 		p.bHeader = HEADER_GC_SHOP_SIGN;
 		p.dwVID = GetVID();
-		strlcpymt(p.szSign, m_stShopSign.c_str(), sizeof(p.szSign));
+		enhance_strlcpymt(p.szSign, m_stShopSign.c_str(), sizeof(p.szSign));
 
 		d->Packet(&p, sizeof(TPacketGCShopSign));
 	}
@@ -1124,14 +1124,14 @@ void CHARACTER::CreatePlayerProto(TPlayerTable & tab)
 
 	if (GetNewName().empty())
 	{
-		strlcpymt(tab.name, GetName(), sizeof(tab.name));
+		enhance_strlcpymt(tab.name, GetName(), sizeof(tab.name));
 	}
 	else
 	{
-		strlcpymt(tab.name, GetNewName().c_str(), sizeof(tab.name));
+		enhance_strlcpymt(tab.name, GetNewName().c_str(), sizeof(tab.name));
 	}
 
-	strlcpymt(tab.ip, GetDesc()->GetHostName(), sizeof(tab.ip));
+	enhance_strlcpymt(tab.ip, GetDesc()->GetHostName(), sizeof(tab.ip));
 
 	tab.id			= m_dwPlayerID;
 	tab.voice		= GetPoint(POINT_VOICE);
@@ -1221,7 +1221,7 @@ void CHARACTER::CreatePlayerProto(TPlayerTable & tab)
 		tab.quickslot[i] = m_quickslot[i];
 
 	if (m_stMobile.length() && !*m_szMobileAuth)
-		strlcpymt(tab.szMobile, m_stMobile.c_str(), sizeof(tab.szMobile));
+		enhance_strlcpymt(tab.szMobile, m_stMobile.c_str(), sizeof(tab.szMobile));
 
 	thecore_memcpy(tab.parts, m_pointsInstant.parts, sizeof(tab.parts));
 
@@ -1300,7 +1300,7 @@ void CHARACTER::Disconnect(const char * c_pszReason)
 	// P2P Logout
 	TPacketGGLogout p;
 	p.bHeader = HEADER_GG_LOGOUT;
-	strlcpymt(p.szName, GetName(), sizeof(p.szName));
+	enhance_strlcpymt(p.szName, GetName(), sizeof(p.szName));
 	P2P_MANAGER::instance().Send(&p, sizeof(TPacketGGLogout));
 	char buf[51];
 	snprintf(buf, sizeof(buf), "%s %d %d %ld %d", 
@@ -1528,10 +1528,10 @@ void CHARACTER::MainCharacterPacket()
 			mainChrPacket.lz = GetZ();
 			mainChrPacket.empire = GetDesc()->GetEmpire();
 			mainChrPacket.skill_group = GetSkillGroup();
-			strlcpymt(mainChrPacket.szChrName, GetName(), sizeof(mainChrPacket.szChrName));
+			enhance_strlcpymt(mainChrPacket.szChrName, GetName(), sizeof(mainChrPacket.szChrName));
 
 			mainChrPacket.fBGMVol = bgmInfo.vol;
-			strlcpymt(mainChrPacket.szBGMName, bgmInfo.name.c_str(), sizeof(mainChrPacket.szBGMName));
+			enhance_strlcpymt(mainChrPacket.szBGMName, bgmInfo.name.c_str(), sizeof(mainChrPacket.szBGMName));
 			GetDesc()->Packet(&mainChrPacket, sizeof(TPacketGCMainCharacter4_BGM_VOL));
 		}
 		else
@@ -1546,8 +1546,8 @@ void CHARACTER::MainCharacterPacket()
 			mainChrPacket.lz = GetZ();
 			mainChrPacket.empire = GetDesc()->GetEmpire();
 			mainChrPacket.skill_group = GetSkillGroup();
-			strlcpymt(mainChrPacket.szChrName, GetName(), sizeof(mainChrPacket.szChrName));
-			strlcpymt(mainChrPacket.szBGMName, bgmInfo.name.c_str(), sizeof(mainChrPacket.szBGMName));
+			enhance_strlcpymt(mainChrPacket.szChrName, GetName(), sizeof(mainChrPacket.szChrName));
+			enhance_strlcpymt(mainChrPacket.szBGMName, bgmInfo.name.c_str(), sizeof(mainChrPacket.szBGMName));
 			GetDesc()->Packet(&mainChrPacket, sizeof(TPacketGCMainCharacter3_BGM));
 		}
 		//if (m_stMobile.length())
@@ -1567,7 +1567,7 @@ void CHARACTER::MainCharacterPacket()
 		pack.lz = GetZ();
 		pack.empire = GetDesc()->GetEmpire();
 		pack.skill_group = GetSkillGroup();
-		strlcpymt(pack.szName, GetName(), sizeof(pack.szName));
+		enhance_strlcpymt(pack.szName, GetName(), sizeof(pack.szName));
 		GetDesc()->Packet(&pack, sizeof(TPacketGCMainCharacter));
 
 		if (m_stMobile.length())
@@ -5300,7 +5300,7 @@ void CHARACTER::WarpEnd()
 		TPacketGGLogin p;
 
 		p.bHeader = HEADER_GG_LOGIN;
-		strlcpymt(p.szName, GetName(), sizeof(p.szName));
+		enhance_strlcpymt(p.szName, GetName(), sizeof(p.szName));
 		p.dwPID = GetPlayerID();
 		p.bEmpire = GetEmpire();
 		p.lMapIndex = SECTREE_MANAGER::instance().GetMapIndex(GetX(), GetY());
@@ -5546,8 +5546,8 @@ void CHARACTER::ReqSafeboxLoad(const char* pszPassword)
 
 	TSafeboxLoadPacket p;
 	p.dwID = GetDesc()->GetAccountTable().id;
-	strlcpymt(p.szLogin, GetDesc()->GetAccountTable().login, sizeof(p.szLogin));
-	strlcpymt(p.szPassword, pszPassword, sizeof(p.szPassword));
+	enhance_strlcpymt(p.szLogin, GetDesc()->GetAccountTable().login, sizeof(p.szLogin));
+	enhance_strlcpymt(p.szPassword, pszPassword, sizeof(p.szPassword));
 
 	db_clientdesc->DBPacket(HEADER_GD_SAFEBOX_LOAD, GetDesc()->GetHandle(), &p, sizeof(p));
 }
@@ -6498,7 +6498,7 @@ void CHARACTER::ConfirmWithMsg(const char* szMsg, int iTimeout, DWORD dwRequestP
 	p.header = HEADER_GC_QUEST_CONFIRM;
 	p.requestPID = dwRequestPID;
 	p.timeout = iTimeout;
-	strlcpymt(p.msg, szMsg, sizeof(p.msg));
+	enhance_strlcpymt(p.msg, szMsg, sizeof(p.msg));
 
 	GetDesc()->Packet(&p, sizeof(p));
 }

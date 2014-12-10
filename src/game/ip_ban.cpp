@@ -114,7 +114,7 @@ class IP
 				if (!pDot)
 					break;
 
-				strlcpymt(szNum, p, sizeof(szNum));
+				enhance_strlcpymt(szNum, p, sizeof(szNum));
 
 				str_to_number(dest[bClass++], szNum);
 				p = pDot + 1;
@@ -157,7 +157,7 @@ bool LoadBanIP(const char * filename)
 
 		if (!p)
 		{
-			strlcpymt(start, buf, sizeof(start));
+			enhance_strlcpymt(start, buf, sizeof(start));
 			*end = '\0';
 		}
 		else
@@ -167,10 +167,10 @@ bool LoadBanIP(const char * filename)
 			if (p2)
 				*p2 = '\0';
 
-			strlcpymt(end, p + 1, sizeof(end));
+			enhance_strlcpymt(end, p + 1, sizeof(end));
 
 			*p = '\0';
-			strlcpymt(start, buf, sizeof(start));
+			enhance_strlcpymt(start, buf, sizeof(start));
 		}
 
 		IP ip(start, end);
@@ -340,14 +340,14 @@ int main(int argc, char **argv)
 
 		if (!p)
 		{
-			strlcpymt(start, buf, sizeof(start));
+			enhance_strlcpymt(start, buf, sizeof(start));
 			*end = '\0';
 		}
 		else
 		{
-			strlcpymt(end, p + 1, sizeof(end));
+			enhance_strlcpymt(end, p + 1, sizeof(end));
 			*p = '\0';
-			strlcpymt(start, buf, sizeof(start));
+			enhance_strlcpymt(start, buf, sizeof(start));
 		}
 
 		v.push_back(IP(start, end));

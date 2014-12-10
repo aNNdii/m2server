@@ -121,7 +121,7 @@ bool CClientManager::Initialize()
 	char szBindIP[128];
 
 	if (!CConfig::instance().GetValue("BIND_IP", szBindIP, 128))
-		strlcpymt(szBindIP, "0", sizeof(szBindIP));
+		enhance_strlcpymt(szBindIP, "0", sizeof(szBindIP));
 
 	m_fdAccept = socket_tcp_bind(szBindIP, tmpValue);
 
@@ -482,11 +482,11 @@ void CClientManager::QUERY_QUEST_SAVE(CPeer * pkPeer, TQuestTable * pTable, DWOR
 void CClientManager::QUERY_SAFEBOX_LOAD(CPeer * pkPeer, DWORD dwHandle, TSafeboxLoadPacket * packet, bool bMall)
 {
 	ClientHandleInfo * pi = new ClientHandleInfo(dwHandle);
-	strlcpymt(pi->safebox_password, packet->szPassword, sizeof(pi->safebox_password));
+	enhance_strlcpymt(pi->safebox_password, packet->szPassword, sizeof(pi->safebox_password));
 	pi->account_id = packet->dwID;
 	pi->account_index = 0;
 	pi->ip[0] = bMall ? 1 : 0;
-	strlcpymt(pi->login, packet->szLogin, sizeof(pi->login));
+	enhance_strlcpymt(pi->login, packet->szLogin, sizeof(pi->login));
 
 	char szQuery[QUERY_MAX_LEN];
 	snprintf(szQuery, sizeof(szQuery),
@@ -512,7 +512,7 @@ void CClientManager::RESULT_SAFEBOX_LOAD(CPeer * pkPeer, SQLMsg * msg)
 	if (pi->account_index == 0)
 	{
 		char szSafeboxPassword[SAFEBOX_PASSWORD_MAX_LEN + 1];
-		strlcpymt(szSafeboxPassword, pi->safebox_password, sizeof(szSafeboxPassword));
+		enhance_strlcpymt(szSafeboxPassword, pi->safebox_password, sizeof(szSafeboxPassword));
 
 		TSafeboxTable * pSafebox = new TSafeboxTable;
 		memset(pSafebox, 0, sizeof(TSafeboxTable));
@@ -852,8 +852,8 @@ void CClientManager::RESULT_SAFEBOX_CHANGE_SIZE(CPeer * pkPeer, SQLMsg * msg)
 void CClientManager::QUERY_SAFEBOX_CHANGE_PASSWORD(CPeer * pkPeer, DWORD dwHandle, TSafeboxChangePasswordPacket * p)
 {
 	ClientHandleInfo * pi = new ClientHandleInfo(dwHandle);
-	strlcpymt(pi->safebox_password, p->szNewPassword, sizeof(pi->safebox_password));
-	strlcpymt(pi->login, p->szOldPassword, sizeof(pi->login));
+	enhance_strlcpymt(pi->safebox_password, p->szNewPassword, sizeof(pi->safebox_password));
+	enhance_strlcpymt(pi->login, p->szOldPassword, sizeof(pi->login));
 	pi->account_id = p->dwID;
 
 	char szQuery[QUERY_MAX_LEN];
@@ -1079,7 +1079,7 @@ void CClientManager::QUERY_SETUP(CPeer * peer, DWORD dwHandle, const char * c_pD
 	//
 	TMapLocation kMapLocations;
 
-	strlcpymt(kMapLocations.szHost, peer->GetPublicIP(), sizeof(kMapLocations.szHost));
+	enhance_strlcpymt(kMapLocations.szHost, peer->GetPublicIP(), sizeof(kMapLocations.szHost));
 	kMapLocations.wPort = peer->GetListenPort();
 	thecore_memcpy(kMapLocations.alMaps, peer->GetMaps(), sizeof(kMapLocations.alMaps));
 
@@ -1102,7 +1102,7 @@ void CClientManager::QUERY_SETUP(CPeer * peer, DWORD dwHandle, const char * c_pD
 			if (tmp->GetChannel() == GUILD_WARP_WAR_CHANNEL || tmp->GetChannel() == peer->GetChannel())
 			{
 				TMapLocation kMapLocation2;
-				strlcpymt(kMapLocation2.szHost, tmp->GetPublicIP(), sizeof(kMapLocation2.szHost));
+				enhance_strlcpymt(kMapLocation2.szHost, tmp->GetPublicIP(), sizeof(kMapLocation2.szHost));
 				kMapLocation2.wPort = tmp->GetListenPort();
 				thecore_memcpy(kMapLocation2.alMaps, tmp->GetMaps(), sizeof(kMapLocation2.alMaps));
 				vec_kMapLocations.push_back(kMapLocation2);
@@ -1129,7 +1129,7 @@ void CClientManager::QUERY_SETUP(CPeer * peer, DWORD dwHandle, const char * c_pD
 			if (tmp->GetChannel() == 1 || tmp->GetChannel() == peer->GetChannel())
 			{
 				TMapLocation kMapLocation2;
-				strlcpymt(kMapLocation2.szHost, tmp->GetPublicIP(), sizeof(kMapLocation2.szHost));
+				enhance_strlcpymt(kMapLocation2.szHost, tmp->GetPublicIP(), sizeof(kMapLocation2.szHost));
 				kMapLocation2.wPort = tmp->GetListenPort();
 				thecore_memcpy(kMapLocation2.alMaps, tmp->GetMaps(), sizeof(kMapLocation2.alMaps));
 				vec_kMapLocations.push_back(kMapLocation2);
@@ -1157,7 +1157,7 @@ void CClientManager::QUERY_SETUP(CPeer * peer, DWORD dwHandle, const char * c_pD
 			{
 				TMapLocation kMapLocation2;
 
-				strlcpymt(kMapLocation2.szHost, tmp->GetPublicIP(), sizeof(kMapLocation2.szHost));
+				enhance_strlcpymt(kMapLocation2.szHost, tmp->GetPublicIP(), sizeof(kMapLocation2.szHost));
 				kMapLocation2.wPort = tmp->GetListenPort();
 				thecore_memcpy(kMapLocation2.alMaps, tmp->GetMaps(), sizeof(kMapLocation2.alMaps));
 
@@ -1189,7 +1189,7 @@ void CClientManager::QUERY_SETUP(CPeer * peer, DWORD dwHandle, const char * c_pD
 	TPacketDGP2P p2pSetupPacket;
 	p2pSetupPacket.wPort = peer->GetP2PPort();
 	p2pSetupPacket.bChannel = peer->GetChannel();
-	strlcpymt(p2pSetupPacket.szHost, peer->GetPublicIP(), sizeof(p2pSetupPacket.szHost));
+	enhance_strlcpymt(p2pSetupPacket.szHost, peer->GetPublicIP(), sizeof(p2pSetupPacket.szHost));
 
 	for (itertype(m_peerList) i = m_peerList.begin(); i != m_peerList.end();++i)
 	{
@@ -1223,8 +1223,8 @@ void CClientManager::QUERY_SETUP(CPeer * peer, DWORD dwHandle, const char * c_pD
 
 		r.id = pck->dwID;
 		trim_and_lower(pck->szLogin, r.login, sizeof(r.login));
-		strlcpymt(r.social_id, pck->szSocialID, sizeof(r.social_id));
-		strlcpymt(r.passwd, "TEMP", sizeof(r.passwd));
+		enhance_strlcpymt(r.social_id, pck->szSocialID, sizeof(r.social_id));
+		enhance_strlcpymt(r.passwd, "TEMP", sizeof(r.passwd));
 
 		InsertLoginData(pkLD);
 
@@ -1768,8 +1768,8 @@ void CClientManager::QUERY_AUTH_LOGIN(CPeer * pkPeer, DWORD dwHandle, TPacketGDA
 
 		r.id = p->dwID;
 		trim_and_lower(p->szLogin, r.login, sizeof(r.login));
-		strlcpymt(r.social_id, p->szSocialID, sizeof(r.social_id));
-		strlcpymt(r.passwd, "TEMP", sizeof(r.passwd));
+		enhance_strlcpymt(r.social_id, p->szSocialID, sizeof(r.social_id));
+		enhance_strlcpymt(r.passwd, "TEMP", sizeof(r.passwd));
 
 		sys_log(0, "AUTH_LOGIN id(%u) login(%s) social_id(%s) login_key(%u), client_key(%u %u %u %u)",
 				p->dwID, p->szLogin, p->szSocialID, p->dwLoginKey,
@@ -3150,8 +3150,8 @@ bool CClientManager::InitializeLocalization()
 		int col = 0;
 		tLocale locale;
 
-		strlcpymt(locale.szValue, row[col++], sizeof(locale.szValue));
-		strlcpymt(locale.szKey, row[col++], sizeof(locale.szKey));
+		enhance_strlcpymt(locale.szValue, row[col++], sizeof(locale.szValue));
+		enhance_strlcpymt(locale.szKey, row[col++], sizeof(locale.szKey));
 
 		//DB_NAME_COLUMN Setting		
 		if (strcmp(locale.szKey, "LOCALE") == 0)
@@ -3549,9 +3549,9 @@ bool CClientManager::__GetAdminInfo(const char *szIP, std::vector<tAdminInfo> & 
 
 		str_to_number(Info.m_ID, row[idx++]);
 		trim_and_lower(row[idx++], Info.m_szAccount, sizeof(Info.m_szAccount));
-		strlcpymt(Info.m_szName, row[idx++], sizeof(Info.m_szName));
-		strlcpymt(Info.m_szContactIP, row[idx++], sizeof(Info.m_szContactIP));
-		strlcpymt(Info.m_szServerIP, row[idx++], sizeof(Info.m_szServerIP));
+		enhance_strlcpymt(Info.m_szName, row[idx++], sizeof(Info.m_szName));
+		enhance_strlcpymt(Info.m_szContactIP, row[idx++], sizeof(Info.m_szContactIP));
+		enhance_strlcpymt(Info.m_szServerIP, row[idx++], sizeof(Info.m_szServerIP));
 		std::string stAuth = row[idx++];
 
 		if (!stAuth.compare("IMPLEMENTOR"))
@@ -3872,7 +3872,7 @@ void CClientManager::RMCandidacy(CPeer * peer, DWORD dwHandle, const char * data
 {
 	char szName[32];
 
-	strlcpymt(szName, data, sizeof(szName));
+	enhance_strlcpymt(szName, data, sizeof(szName));
 	sys_log(0, "[MONARCH_GM] Remove candidacy name(%s)", szName); 
 
 	int iRet = CMonarch::instance().DelCandidacy(szName) ? 1 : 0;
@@ -3913,7 +3913,7 @@ void CClientManager::SetMonarch(CPeer * peer, DWORD dwHandle, const char * data)
 {
 	char szName[32];
 
-	strlcpymt(szName, data, sizeof(szName));
+	enhance_strlcpymt(szName, data, sizeof(szName));
 
 	if (g_test_server)
 		sys_log(0, "[MONARCH_GM] Set Monarch name(%s)", szName); 
@@ -3956,7 +3956,7 @@ void CClientManager::RMMonarch(CPeer * peer, DWORD dwHandle, const char * data)
 {
 	char szName[32];
 
-	strlcpymt(szName, data, sizeof(szName));
+	enhance_strlcpymt(szName, data, sizeof(szName));
 	
 	if (g_test_server)
 		sys_log(0, "[MONARCH_GM] Remove Monarch name(%s)", szName); 
@@ -4015,8 +4015,8 @@ void CClientManager::ChangeMonarchLord(CPeer * peer, DWORD dwHandle, TPacketChan
 		ack.dwPID = info->dwPID;
 		
 		MYSQL_ROW row = mysql_fetch_row(pMsg->Get()->pSQLResult);
-		strlcpymt(ack.szName, row[0], sizeof(ack.szName));
-		strlcpymt(ack.szDate, row[1], sizeof(ack.szDate));
+		enhance_strlcpymt(ack.szName, row[0], sizeof(ack.szName));
+		enhance_strlcpymt(ack.szDate, row[1], sizeof(ack.szDate));
 		
 		snprintf(szQuery, sizeof(szQuery), "UPDATE monarch SET pid=%u, windate=NOW() WHERE empire=%d", ack.dwPID, ack.bEmpire);
 		SQLMsg* pMsg2 = CDBManager::instance().DirectQuery(szQuery, SQL_PLAYER);

@@ -45,7 +45,7 @@ namespace marriage
 		TPacketGCLoverInfo p;
 
 		p.header = HEADER_GC_LOVER_INFO;
-		strlcpymt(p.name, lover_name.c_str(), sizeof(p.name));
+		enhance_strlcpymt(p.name, lover_name.c_str(), sizeof(p.name));
 		p.love_point = love_point;
 		ch->GetDesc()->Packet(&p, sizeof(p));
 	}
@@ -552,8 +552,8 @@ namespace marriage
 
 		p.dwPID1 = dwPID1;
 		p.dwPID2 = dwPID2;
-		strlcpymt(p.szName1, szName1, sizeof(p.szName1));
-		strlcpymt(p.szName2, szName2, sizeof(p.szName2));
+		enhance_strlcpymt(p.szName1, szName1, sizeof(p.szName1));
+		enhance_strlcpymt(p.szName2, szName2, sizeof(p.szName2));
 		db_clientdesc->DBPacket(HEADER_GD_MARRIAGE_ADD, 0, &p, sizeof(p));
 	}
 

@@ -146,7 +146,7 @@ bool SpamBlockCheck(LPCHARACTER ch, const char* const buf, const size_t buflen)
 		if (it->second.first >= g_uiSpamBlockScore)
 		{
 			spam_event_info* info = AllocEventInfo<spam_event_info>();
-			strlcpymt(info->host, ch->GetDesc()->GetHostName(), sizeof(info->host));
+			enhance_strlcpymt(info->host, ch->GetDesc()->GetHostName(), sizeof(info->host));
 
 			it->second.second = event_create(block_chat_by_ip_event, info, PASSES_PER_SEC(g_uiSpamBlockDuration));
 			sys_log(0, "SPAM_IP: %s for %u seconds", info->host, g_uiSpamBlockDuration);
@@ -324,7 +324,7 @@ int CInputMain::Whisper(LPCHARACTER ch, const char * data, size_t uiBytes)
 			pack.bHeader = HEADER_GC_WHISPER;
 			pack.bType = WHISPER_TYPE_SENDER_BLOCKED;
 			pack.wSize = sizeof(TPacketGCWhisper);
-			strlcpymt(pack.szNameFrom, pinfo->szNameTo, sizeof(pack.szNameFrom));
+			enhance_strlcpymt(pack.szNameFrom, pinfo->szNameTo, sizeof(pack.szNameFrom));
 			ch->GetDesc()->Packet(&pack, sizeof(pack));
 		}
 		return iExtraLen;
@@ -359,7 +359,7 @@ int CInputMain::Whisper(LPCHARACTER ch, const char * data, size_t uiBytes)
 			pack.bHeader = HEADER_GC_WHISPER;
 			pack.bType = WHISPER_TYPE_NOT_EXIST;
 			pack.wSize = sizeof(TPacketGCWhisper);
-			strlcpymt(pack.szNameFrom, pinfo->szNameTo, sizeof(pack.szNameFrom));
+			enhance_strlcpymt(pack.szNameFrom, pinfo->szNameTo, sizeof(pack.szNameFrom));
 			ch->GetDesc()->Packet(&pack, sizeof(TPacketGCWhisper));
 			sys_log(0, "WHISPER: no player");
 		}
@@ -374,7 +374,7 @@ int CInputMain::Whisper(LPCHARACTER ch, const char * data, size_t uiBytes)
 				pack.bHeader = HEADER_GC_WHISPER;
 				pack.bType = WHISPER_TYPE_SENDER_BLOCKED;
 				pack.wSize = sizeof(TPacketGCWhisper);
-				strlcpymt(pack.szNameFrom, pinfo->szNameTo, sizeof(pack.szNameFrom));
+				enhance_strlcpymt(pack.szNameFrom, pinfo->szNameTo, sizeof(pack.szNameFrom));
 				ch->GetDesc()->Packet(&pack, sizeof(pack));
 			}
 		}
@@ -386,7 +386,7 @@ int CInputMain::Whisper(LPCHARACTER ch, const char * data, size_t uiBytes)
 				pack.bHeader = HEADER_GC_WHISPER;
 				pack.bType = WHISPER_TYPE_TARGET_BLOCKED;
 				pack.wSize = sizeof(TPacketGCWhisper);
-				strlcpymt(pack.szNameFrom, pinfo->szNameTo, sizeof(pack.szNameFrom));
+				enhance_strlcpymt(pack.szNameFrom, pinfo->szNameTo, sizeof(pack.szNameFrom));
 				ch->GetDesc()->Packet(&pack, sizeof(pack));
 			}
 		}
@@ -395,7 +395,7 @@ int CInputMain::Whisper(LPCHARACTER ch, const char * data, size_t uiBytes)
 			BYTE bType = WHISPER_TYPE_NORMAL;
 
 			char buf[CHAT_MAX_LEN + 1];
-			strlcpymt(buf, data + sizeof(TPacketCGWhisper), MIN(iExtraLen + 1, sizeof(buf)));
+			enhance_strlcpymt(buf, data + sizeof(TPacketCGWhisper), MIN(iExtraLen + 1, sizeof(buf)));
 			const size_t buflen = strlen(buf);
 
 			if (true == SpamBlockCheck(ch, buf, buflen))
@@ -462,7 +462,7 @@ int CInputMain::Whisper(LPCHARACTER ch, const char * data, size_t uiBytes)
 						pack.bHeader = HEADER_GC_WHISPER;
 						pack.bType = WHISPER_TYPE_ERROR;
 						pack.wSize = sizeof(TPacketGCWhisper) + len;
-						strlcpymt(pack.szNameFrom, pinfo->szNameTo, sizeof(pack.szNameFrom));
+						enhance_strlcpymt(pack.szNameFrom, pinfo->szNameTo, sizeof(pack.szNameFrom));
 
 						ch->GetDesc()->BufferedPacket(&pack, sizeof(pack));
 						ch->GetDesc()->Packet(buf, len);
@@ -486,7 +486,7 @@ int CInputMain::Whisper(LPCHARACTER ch, const char * data, size_t uiBytes)
 				pack.bHeader = HEADER_GC_WHISPER;
 				pack.wSize = sizeof(TPacketGCWhisper) + buflen;
 				pack.bType = bType;
-				strlcpymt(pack.szNameFrom, ch->GetName(), sizeof(pack.szNameFrom));
+				enhance_strlcpymt(pack.szNameFrom, ch->GetName(), sizeof(pack.szNameFrom));
 
 				// desc->BufferedPacket을 하지 않고 버퍼에 써야하는 이유는 
 				// P2P relay되어 패킷이 캡슐화 될 수 있기 때문이다.
@@ -565,7 +565,7 @@ struct FEmpireChatPacket
 		else
 		{
 			// 사람마다 스킬레벨이 다르니 매번 해야합니다
-			size_t len = strlcpymt(converted_msg, orig_msg, sizeof(converted_msg));
+			size_t len = enhance_strlcpymt(converted_msg, orig_msg, sizeof(converted_msg));
 
 			if (len >= sizeof(converted_msg))
 				len = sizeof(converted_msg) - 1;
@@ -657,7 +657,7 @@ int CInputMain::Chat(LPCHARACTER ch, const char * data, size_t uiBytes)
 	}
 
 	char buf[CHAT_MAX_LEN - (CHARACTER_NAME_MAX_LEN + 3) + 1];
-	strlcpymt(buf, data + sizeof(TPacketCGChat), MIN(iExtraLen + 1, sizeof(buf)));
+	enhance_strlcpymt(buf, data + sizeof(TPacketCGChat), MIN(iExtraLen + 1, sizeof(buf)));
 	const size_t buflen = strlen(buf);
 
 	if (buflen > 1 && *buf == '/')
@@ -743,7 +743,7 @@ int CInputMain::Chat(LPCHARACTER ch, const char * data, size_t uiBytes)
 
 		p.bHeader = HEADER_GG_SHOUT;
 		p.bEmpire = ch->GetEmpire();
-		strlcpymt(p.szText, chatbuf, sizeof(p.szText));
+		enhance_strlcpymt(p.szText, chatbuf, sizeof(p.szText));
 
 		P2P_MANAGER::instance().Send(&p, sizeof(TPacketGGShout));
 
@@ -963,7 +963,7 @@ int CInputMain::Messenger(LPCHARACTER ch, const char* c_pData, size_t uiBytes)
 					return -1;
 
 				char name[CHARACTER_NAME_MAX_LEN + 1];
-				strlcpymt(name, c_pData, sizeof(name));
+				enhance_strlcpymt(name, c_pData, sizeof(name));
 
 				if (ch->GetGMLevel() == GM_PLAYER && gm_get_level(name) != GM_PLAYER)
 				{
@@ -1000,7 +1000,7 @@ int CInputMain::Messenger(LPCHARACTER ch, const char* c_pData, size_t uiBytes)
 					return -1;
 
 				char char_name[CHARACTER_NAME_MAX_LEN + 1];
-				strlcpymt(char_name, c_pData, sizeof(char_name));
+				enhance_strlcpymt(char_name, c_pData, sizeof(char_name));
 				MessengerManager::instance().RemoveFromList(ch->GetName(), char_name);
 			}
 			return CHARACTER_NAME_MAX_LEN;
@@ -1950,7 +1950,7 @@ void CInputMain::QuestInputString(LPCHARACTER ch, const void* c_pData)
 	TPacketCGQuestInputString * p = (TPacketCGQuestInputString*) c_pData;
 
 	char msg[65];
-	strlcpymt(msg, p->msg, sizeof(msg));
+	enhance_strlcpymt(msg, p->msg, sizeof(msg));
 	sys_log(0, "QUEST InputString pid %u msg %s", ch->GetPlayerID(), msg);
 
 	quest::CQuestManager::Instance().Input(ch->GetPlayerID(), msg);
@@ -2377,7 +2377,7 @@ void CInputMain::AnswerMakeGuild(LPCHARACTER ch, const char* c_pData)
 	memset(&cp, 0, sizeof(cp));
 
 	cp.master = ch;
-	strlcpymt(cp.name, p->guild_name, sizeof(cp.name));
+	enhance_strlcpymt(cp.name, p->guild_name, sizeof(cp.name));
 
 	if (cp.name[0] == 0 || !check_name(cp.name))
 	{
@@ -2633,7 +2633,7 @@ int CInputMain::Guild(LPCHARACTER ch, const char * data, size_t uiBytes)
 		case GUILD_SUBHEADER_CG_CHANGE_GRADE_NAME:
 			{
 				char gradename[GUILD_GRADE_NAME_MAX_LEN + 1];
-				strlcpymt(gradename, c_pData + 1, sizeof(gradename));
+				enhance_strlcpymt(gradename, c_pData + 1, sizeof(gradename));
 
 				const TGuildMember * m = pGuild->GetMember(ch->GetPlayerID());
 
@@ -2866,7 +2866,7 @@ void CInputMain::Hack(LPCHARACTER ch, const char * c_pData)
 	TPacketCGHack * p = (TPacketCGHack *) c_pData;
 	
 	char buf[sizeof(p->szBuf)];
-	strlcpymt(buf, p->szBuf, sizeof(buf));
+	enhance_strlcpymt(buf, p->szBuf, sizeof(buf));
 
 	sys_err("HACK_DETECT: %s %s", ch->GetName(), buf);
 

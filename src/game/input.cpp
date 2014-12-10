@@ -228,7 +228,7 @@ void LoginFailure(LPDESC d, const char * c_pszStatus)
 	TPacketGCLoginFailure failurePacket;
 
 	failurePacket.header = HEADER_GC_LOGIN_FAILURE;
-	strlcpymt(failurePacket.szStatus, c_pszStatus, sizeof(failurePacket.szStatus));
+	enhance_strlcpymt(failurePacket.szStatus, c_pszStatus, sizeof(failurePacket.szStatus));
 
 	d->Packet(&failurePacket, sizeof(failurePacket));
 }
@@ -375,7 +375,7 @@ int CInputHandshake::Analyze(LPDESC d, BYTE bHeader, const char * c_pData)
 				p.dwID = (DWORD)(atoi(msg.c_str()));
 				snprintf(szTmp,sizeof(szTmp),"Sent to DB cache to delete ItemAward, id: %d",p.dwID);
 				//sys_log(0,"%d",p.dwID);
-				// strlcpymt(p.login, msg.c_str(), sizeof(p.login));
+				// enhance_strlcpymt(p.login, msg.c_str(), sizeof(p.login));
 				db_clientdesc->DBPacket(HEADER_GD_DELETE_AWARDID, 0, &p, sizeof(p));
 				stResult += szTmp;
 			}
@@ -416,14 +416,14 @@ dev_log(LOG_DEB0, "DC : '%s'", msg.c_str());
 					TPacketGGDisconnect pgg;
 
 					pgg.bHeader = HEADER_GG_DISCONNECT;
-					strlcpymt(pgg.szLogin, msg.c_str(), sizeof(pgg.szLogin));
+					enhance_strlcpymt(pgg.szLogin, msg.c_str(), sizeof(pgg.szLogin));
 
 					P2P_MANAGER::instance().Send(&pgg, sizeof(TPacketGGDisconnect));
 
 					// delete login key
 					{
 						TPacketDC p;
-						strlcpymt(p.login, msg.c_str(), sizeof(p.login));
+						enhance_strlcpymt(p.login, msg.c_str(), sizeof(p.login));
 						db_clientdesc->DBPacket(HEADER_GD_DC, 0, &p, sizeof(p));
 					}
 				}

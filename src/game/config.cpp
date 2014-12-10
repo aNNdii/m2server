@@ -642,7 +642,7 @@ void config_init(const string& st_localeServiceName)
 
 		TOKEN("db_addr")
 		{
-			strlcpymt(db_addr, value_string, sizeof(db_addr));
+			enhance_strlcpymt(db_addr, value_string, sizeof(db_addr));
 
 			for (int n =0; n < ADDRESS_MAX_LEN; ++n)
 			{
@@ -835,7 +835,7 @@ void config_init(const string& st_localeServiceName)
 
 		TOKEN("teen_addr")
 		{
-			strlcpymt(teen_addr, value_string, sizeof(teen_addr));
+			enhance_strlcpymt(teen_addr, value_string, sizeof(teen_addr));
 
 			for (int n =0; n < ADDRESS_MAX_LEN; ++n)
 			{
@@ -878,12 +878,12 @@ void config_init(const string& st_localeServiceName)
 
 		TOKEN("bind_ip")
 		{
-			strlcpymt(g_szPublicIP, value_string, sizeof(g_szPublicIP));
+			enhance_strlcpymt(g_szPublicIP, value_string, sizeof(g_szPublicIP));
 		}
 
 		TOKEN("internal_ip")
 		{
-			strlcpymt(g_szInternalIP, value_string, sizeof(g_szInternalIP));
+			enhance_strlcpymt(g_szInternalIP, value_string, sizeof(g_szInternalIP));
 		}
 
 		TOKEN("view_range")

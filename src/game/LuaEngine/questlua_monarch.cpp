@@ -706,7 +706,7 @@ namespace quest
 				TPacketGGTransfer pgg;
 
 				pgg.bHeader = HEADER_GG_TRANSFER;
-				strlcpymt(pgg.szName, name.c_str(), sizeof(pgg.szName));
+				enhance_strlcpymt(pgg.szName, name.c_str(), sizeof(pgg.szName));
 				pgg.lX = ch->GetX();
 				pgg.lY = ch->GetY();
 
@@ -793,7 +793,7 @@ namespace quest
 			return 0;
 
 		char vnum[256];
-		strlcpymt(vnum, lua_tostring(L, 1), sizeof(vnum));
+		enhance_strlcpymt(vnum, lua_tostring(L, 1), sizeof(vnum));
 		do_monarch_mob(ch, vnum, 0, 0);
 		return 0;
 	}

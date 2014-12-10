@@ -226,7 +226,7 @@ namespace quest
 
 		THighscoreRegisterQueryInfo * qi = M2_NEW THighscoreRegisterQueryInfo;
 
-		strlcpymt(qi->szBoard, lua_tostring(L, 1), sizeof(qi->szBoard));
+		enhance_strlcpymt(qi->szBoard, lua_tostring(L, 1), sizeof(qi->szBoard));
 		qi->dwPID = q.GetCurrentCharacterPtr()->GetPlayerID();
 		qi->iValue = (int) lua_tonumber(L, 2);
 		qi->bOrder = (int) lua_tonumber(L, 3);
