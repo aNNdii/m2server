@@ -60,6 +60,14 @@ if(WIN32)
 		set(OPENSSL_LIBRARIES C:/OpenSSL-Win32/lib)
 	endif()
 elseif(UNIX)
+    set(OPENSSL_EXPECTED_VERSION 1.0.1)
+    find_package(OpenSSL REQUIRED)
+    
+    set(CRYPTOPP_INCLUDE_DIRS /usr/include)
+    set(CRYPTOPP_LIBRARY_DIR /usr/lib)
+
+    set(MYSQL_INCLUDE_DIR /usr/include)
+    set(MYSQL_LIBRARIES /usr/lib)
 endif()
 
 # Boost
