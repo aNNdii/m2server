@@ -9,11 +9,13 @@
 #include <stack>
 #include <set>
 #ifdef __GNUC__
-#include <ext/functional>
+    #ifndef __clang__
+        #include <ext/functional>
+    #endif
 #endif
 
 #ifndef itertype
-#define itertype(v) typeof((v).begin())
+    #define itertype(v) typeof((v).begin())
 #endif
 
 inline void stl_lowers(std::string& rstRet)
