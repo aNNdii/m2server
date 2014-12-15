@@ -66,8 +66,13 @@ elseif(UNIX)
     set(CRYPTOPP_INCLUDE_DIRS /usr/include)
     set(CRYPTOPP_LIBRARY_DIR /usr/lib)
 
-    set(MYSQL_INCLUDE_DIR /usr/include)
-    set(MYSQL_LIBRARIES /usr/lib)
+    if (FREEBSD)
+        set(MYSQL_INCLUDE_DIR /usr/local/include)
+        set(MYSQL_LIBRARIES /usr/local/lib)
+    else()
+        set(MYSQL_INCLUDE_DIR /usr/include)
+        set(MYSQL_LIBRARIES /usr/lib)
+    endif()
 endif()
 
 # Boost
