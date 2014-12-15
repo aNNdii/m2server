@@ -21,7 +21,12 @@ include_directories(
 
 add_executable(db ${db_SRCS})
 
-find_library(MYSQL_LIBRARY mysqlclient ${MYSQL_INCLUDE_DIR}/lib)
+if(WIN32)
+    find_library(MYSQL_LIBRARY mysqlclient ${MYSQL_INCLUDE_DIR}/lib)
+elseif(UNIX)
+    find_library(MYSQL_LIBRARY mysqlclient ${MYSQL_LIBRARIES})
+endif()
+
 target_link_libraries(db
 	libthecore
 	shared

@@ -5,8 +5,10 @@
 file(GLOB_RECURSE sources_localdir *.cpp *.c *.h)
 
 # If not FreeBSD
-list(REMOVE_ITEM sources_localdir ${CMAKE_CURRENT_SOURCE_DIR}/FileMonitor_FreeBSD.h)
-list(REMOVE_ITEM sources_localdir ${CMAKE_CURRENT_SOURCE_DIR}/FileMonitor_FreeBSD.cpp)
+if (NOT FREEBSD)
+    list(REMOVE_ITEM sources_localdir ${CMAKE_CURRENT_SOURCE_DIR}/FileMonitor_FreeBSD.h)
+    list(REMOVE_ITEM sources_localdir ${CMAKE_CURRENT_SOURCE_DIR}/FileMonitor_FreeBSD.cpp)
+endif()
 
 SET(game_SRCS
 	${game_SRCS}
