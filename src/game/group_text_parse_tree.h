@@ -156,12 +156,12 @@ bool CGroupNode::GetValue(const std::string & c_rstrRowKey, int index, T& tValue
 	TMapRow::const_iterator row_it = m_map_rows.find(c_rstrRowKey);
 	if (m_map_rows.end() == row_it)
 	{
-		return FALSE;
+		return false;
 	}
 
 	if (row_it->second.GetSize() <= index)
 	{
-		return FALSE;
+		return false;
 	}
 	return row_it->second.GetValue(index, tValue);
 }

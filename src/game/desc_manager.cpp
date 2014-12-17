@@ -41,7 +41,7 @@ int IsValidIP(struct valid_ip* ip_table, const char *host)
 			snprintf(ip_addr, sizeof(ip_addr), "%s.%d", (ip_table + i)->ip, (ip_table + i)->network + j);
 
 			if (!strcmp(ip_addr, host))
-				return TRUE;
+				return true;
 
 			if (!j)
 				break;
@@ -49,7 +49,7 @@ int IsValidIP(struct valid_ip* ip_table, const char *host)
 		while (j--);
 	}
 
-	return FALSE;
+	return false;
 }
 
 DESC_MANAGER::DESC_MANAGER() : m_bDestroyed(false)

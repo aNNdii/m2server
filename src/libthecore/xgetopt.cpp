@@ -136,19 +136,19 @@
 //
 //                   case _T('?'):
 //                       TRACE(_T("ERROR: illegal option %s\n"), argv[optind-1]);
-//                       return FALSE;
+//                       return false;
 //                       break;
 //
 //                   default:
 //                       TRACE(_T("WARNING: no handler for option %c\n"), c);
-//                       return FALSE;
+//                       return false;
 //                       break;
 //               }
 //           }
 //           //
 //           // check for non-option args here
 //           //
-//           return TRUE;
+//           return true;
 //       }
 //
 ///////////////////////////////////////////////////////////////////////////////

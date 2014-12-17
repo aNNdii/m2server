@@ -168,7 +168,7 @@ BOOL CTextFileLoader::SetChildNode(const char * c_szKey)
 	if (!m_pcurNode)
 	{
 		assert(!"Node to access has not set!");
-		return FALSE;
+		return false;
 	}
 
 	for (DWORD i = 0; i < m_pcurNode->ChildNodeVector.size(); ++i)
@@ -177,11 +177,11 @@ BOOL CTextFileLoader::SetChildNode(const char * c_szKey)
 		if (0 == pGroupNode->strGroupName.compare(c_szKey))
 		{
 			m_pcurNode = pGroupNode;
-			return TRUE;
+			return true;
 		}
 	}
 
-	return FALSE;
+	return false;
 }
 
 BOOL CTextFileLoader::SetChildNode(const std::string & c_rstrKeyHead, DWORD dwIndex)
@@ -196,18 +196,18 @@ BOOL CTextFileLoader::SetChildNode(DWORD dwIndex)
 	if (!m_pcurNode)
 	{
 		assert(!"Node to access has not set!");
-		return FALSE;
+		return false;
 	}
 
 	if (dwIndex >= m_pcurNode->ChildNodeVector.size())
 	{
 		assert(!"Node index to set is too large to access!");
-		return FALSE;
+		return false;
 	}
 
 	m_pcurNode = m_pcurNode->ChildNodeVector[dwIndex];
 
-	return TRUE;
+	return true;
 }
 
 BOOL CTextFileLoader::SetParentNode()
@@ -215,30 +215,30 @@ BOOL CTextFileLoader::SetParentNode()
 	if (!m_pcurNode)
 	{
 		assert(!"Node to access has not set!");
-		return FALSE;
+		return false;
 	}
 
 	if (NULL == m_pcurNode->pParentNode)
 	{
 		assert(!"Current group node is already top!");
-		return FALSE;
+		return false;
 	}
 
 	m_pcurNode = m_pcurNode->pParentNode;
 
-	return TRUE;
+	return true;
 }
 
 BOOL CTextFileLoader::GetCurrentNodeName(std::string * pstrName)
 {
 	if (!m_pcurNode)
-		return FALSE;
+		return false;
 	if (NULL == m_pcurNode->pParentNode)
-		return FALSE;
+		return false;
 
 	*pstrName = m_pcurNode->strGroupName;
 
-	return TRUE;
+	return true;
 }
 
 BOOL CTextFileLoader::IsToken(const std::string & c_rstrKey)
@@ -246,7 +246,7 @@ BOOL CTextFileLoader::IsToken(const std::string & c_rstrKey)
 	if (!m_pcurNode)
 	{
 		assert(!"Node to access has not set!");
-		return FALSE;
+		return false;
 	}
 
 	return m_pcurNode->LocalTokenVectorMap.end() != m_pcurNode->LocalTokenVectorMap.find(c_rstrKey);
@@ -257,95 +257,95 @@ BOOL CTextFileLoader::GetTokenVector(const std::string & c_rstrKey, TTokenVector
 	if (!m_pcurNode)
 	{
 		assert(!"Node to access has not set!");
-		return FALSE;
+		return false;
 	}
 
 	TTokenVectorMap::iterator it = m_pcurNode->LocalTokenVectorMap.find(c_rstrKey);
 	if (m_pcurNode->LocalTokenVectorMap.end() == it)
 	{
 		sys_log(2, " CTextFileLoader::GetTokenVector - Failed to find the key %s [%s :: %s]", m_strFileName.c_str(), m_pcurNode->strGroupName.c_str(), c_rstrKey.c_str());
-		return FALSE;
+		return false;
 	}
 
 	*ppTokenVector = &it->second;
 
-	return TRUE;
+	return true;
 }
 
 BOOL CTextFileLoader::GetTokenBoolean(const std::string & c_rstrKey, BOOL * pData)
 {
 	TTokenVector * pTokenVector;
 	if (!GetTokenVector(c_rstrKey, &pTokenVector))
-		return FALSE;
+		return false;
 
 	if (pTokenVector->empty())
 	{
 		sys_log(2, " CTextFileLoader::GetTokenBoolean - Failed to find the value %s [%s : %s]", m_strFileName.c_str(), m_pcurNode->strGroupName.c_str(), c_rstrKey.c_str());
-		return FALSE;
+		return false;
 	}
 
 	BOOL out = 0;
 	str_to_number(out, pTokenVector->at(0).c_str());
 	*pData = out;
 
-	return TRUE;
+	return true;
 }
 
 BOOL CTextFileLoader::GetTokenByte(const std::string & c_rstrKey, BYTE * pData)
 {
 	TTokenVector * pTokenVector;
 	if (!GetTokenVector(c_rstrKey, &pTokenVector))
-		return FALSE;
+		return false;
 
 	if (pTokenVector->empty())
 	{
 		sys_log(2, " CTextFileLoader::GetTokenByte - Failed to find the value %s [%s : %s]", m_strFileName.c_str(), m_pcurNode->strGroupName.c_str(), c_rstrKey.c_str());
-		return FALSE;
+		return false;
 	}
 
 	BYTE out = 0;
 	str_to_number(out, pTokenVector->at(0).c_str());
 	*pData = out;
 
-	return TRUE;
+	return true;
 }
 
 BOOL CTextFileLoader::GetTokenWord(const std::string & c_rstrKey, WORD * pData)
 {
 	TTokenVector * pTokenVector;
 	if (!GetTokenVector(c_rstrKey, &pTokenVector))
-		return FALSE;
+		return false;
 
 	if (pTokenVector->empty())
 	{
 		sys_log(2, " CTextFileLoader::GetTokenWord - Failed to find the value %s [%s : %s]", m_strFileName.c_str(), m_pcurNode->strGroupName.c_str(), c_rstrKey.c_str());
-		return FALSE;
+		return false;
 	}
 
 	WORD out = 0;
 	str_to_number(out, pTokenVector->at(0).c_str());
 	*pData = out;
 
-	return TRUE;
+	return true;
 }
 
 BOOL CTextFileLoader::GetTokenInteger(const std::string & c_rstrKey, int * pData)
 {
 	TTokenVector * pTokenVector;
 	if (!GetTokenVector(c_rstrKey, &pTokenVector))
-		return FALSE;
+		return false;
 
 	if (pTokenVector->empty())
 	{
 		sys_log(2, " CTextFileLoader::GetTokenInteger - Failed to find the value %s [%s : %s]", m_strFileName.c_str(), m_pcurNode->strGroupName.c_str(), c_rstrKey.c_str());
-		return FALSE;
+		return false;
 	}
 
 	int out = 0;
 	str_to_number(out, pTokenVector->at(0).c_str());
 	*pData = out;
 
-	return TRUE;
+	return true;
 }
 
 BOOL CTextFileLoader::GetTokenDoubleWord(const std::string & c_rstrKey, DWORD * pData)
@@ -357,66 +357,66 @@ BOOL CTextFileLoader::GetTokenFloat(const std::string & c_rstrKey, float * pData
 {
 	TTokenVector * pTokenVector;
 	if (!GetTokenVector(c_rstrKey, &pTokenVector))
-		return FALSE;
+		return false;
 
 	if (pTokenVector->empty())
 	{
 		sys_log(2, " CTextFileLoader::GetTokenFloat - Failed to find the value %s [%s : %s]", m_strFileName.c_str(), m_pcurNode->strGroupName.c_str(), c_rstrKey.c_str());
-		return FALSE;
+		return false;
 	}
 
 	*pData = atof(pTokenVector->at(0).c_str());
 
-	return TRUE;
+	return true;
 }
 
 BOOL CTextFileLoader::GetTokenVector2(const std::string & c_rstrKey, D3DXVECTOR2 * pVector2)
 {
 	TTokenVector * pTokenVector;
 	if (!GetTokenVector(c_rstrKey, &pTokenVector))
-		return FALSE;
+		return false;
 
 	if (pTokenVector->size() != 2)
 	{
 		sys_log(2, " CTextFileLoader::GetTokenVector2 - This key should have 2 values %s [%s : %s]", m_strFileName.c_str(), m_pcurNode->strGroupName.c_str(), c_rstrKey.c_str());
-		return FALSE;
+		return false;
 	}
 
 	pVector2->x = atof(pTokenVector->at(0).c_str());
 	pVector2->y = atof(pTokenVector->at(1).c_str());
 
-	return TRUE;
+	return true;
 }
 
 BOOL CTextFileLoader::GetTokenVector3(const std::string & c_rstrKey, D3DXVECTOR3 * pVector3)
 {
 	TTokenVector * pTokenVector;
 	if (!GetTokenVector(c_rstrKey, &pTokenVector))
-		return FALSE;
+		return false;
 
 	if (pTokenVector->size() != 3)
 	{
 		sys_log(2, " CTextFileLoader::GetTokenVector3 - This key should have 3 values %s [%s : %s]", m_strFileName.c_str(), m_pcurNode->strGroupName.c_str(), c_rstrKey.c_str());
-		return FALSE;
+		return false;
 	}
 
 	pVector3->x = atof(pTokenVector->at(0).c_str());
 	pVector3->y = atof(pTokenVector->at(1).c_str());
 	pVector3->z = atof(pTokenVector->at(2).c_str());
 
-	return TRUE;
+	return true;
 }
 
 BOOL CTextFileLoader::GetTokenVector4(const std::string & c_rstrKey, D3DXVECTOR4 * pVector4)
 {
 	TTokenVector * pTokenVector;
 	if (!GetTokenVector(c_rstrKey, &pTokenVector))
-		return FALSE;
+		return false;
 
 	if (pTokenVector->size() != 4)
 	{
 		sys_log(2, " CTextFileLoader::GetTokenVector3 - This key should have 3 values %s [%s : %s]", m_strFileName.c_str(), m_pcurNode->strGroupName.c_str(), c_rstrKey.c_str());
-		return FALSE;
+		return false;
 	}
 
 	pVector4->x = atof(pTokenVector->at(0).c_str());
@@ -424,7 +424,7 @@ BOOL CTextFileLoader::GetTokenVector4(const std::string & c_rstrKey, D3DXVECTOR4
 	pVector4->z = atof(pTokenVector->at(2).c_str());
 	pVector4->w = atof(pTokenVector->at(3).c_str());
 
-	return TRUE;
+	return true;
 }
 
 
@@ -437,49 +437,49 @@ BOOL CTextFileLoader::GetTokenQuaternion(const std::string & c_rstrKey, D3DXQUAT
 {
 	TTokenVector * pTokenVector;
 	if (!GetTokenVector(c_rstrKey, &pTokenVector))
-		return FALSE;
+		return false;
 
 	if (pTokenVector->size() != 4)
 	{
 		sys_log(2, " CTextFileLoader::GetTokenVector3 - This key should have 3 values %s [%s : %s]", m_strFileName.c_str(), m_pcurNode->strGroupName.c_str(), c_rstrKey.c_str());
-		return FALSE;
+		return false;
 	}
 
 	pQ->x = atof(pTokenVector->at(0).c_str());
 	pQ->y = atof(pTokenVector->at(1).c_str());
 	pQ->z = atof(pTokenVector->at(2).c_str());
 	pQ->w = atof(pTokenVector->at(3).c_str());
-	return TRUE;
+	return true;
 }
 
 BOOL CTextFileLoader::GetTokenDirection(const std::string & c_rstrKey, D3DVECTOR * pVector)
 {
 	TTokenVector * pTokenVector;
 	if (!GetTokenVector(c_rstrKey, &pTokenVector))
-		return FALSE;
+		return false;
 
 	if (pTokenVector->size() != 3)
 	{
 		sys_log(2, " CTextFileLoader::GetTokenDirection - This key should have 3 values %s [%s : %s]", m_strFileName.c_str(), m_pcurNode->strGroupName.c_str(), c_rstrKey.c_str());
-		return FALSE;
+		return false;
 	}
 
 	pVector->x = atof(pTokenVector->at(0).c_str());
 	pVector->y = atof(pTokenVector->at(1).c_str());
 	pVector->z = atof(pTokenVector->at(2).c_str());
-	return TRUE;
+	return true;
 }
 
 BOOL CTextFileLoader::GetTokenColor(const std::string & c_rstrKey, D3DXCOLOR * pColor)
 {
 	TTokenVector * pTokenVector;
 	if (!GetTokenVector(c_rstrKey, &pTokenVector))
-		return FALSE;
+		return false;
 
 	if (pTokenVector->size() != 4)
 	{
 		sys_log(2, " CTextFileLoader::GetTokenColor - This key should have 4 values %s [%s : %s]", m_strFileName.c_str(), m_pcurNode->strGroupName.c_str(), c_rstrKey.c_str());
-		return FALSE;
+		return false;
 	}
 
 	pColor->r = atof(pTokenVector->at(0).c_str());
@@ -487,19 +487,19 @@ BOOL CTextFileLoader::GetTokenColor(const std::string & c_rstrKey, D3DXCOLOR * p
 	pColor->b = atof(pTokenVector->at(2).c_str());
 	pColor->a = atof(pTokenVector->at(3).c_str());
 
-	return TRUE;
+	return true;
 }
 
 BOOL CTextFileLoader::GetTokenColor(const std::string & c_rstrKey, D3DCOLORVALUE * pColor)
 {
 	TTokenVector * pTokenVector;
 	if (!GetTokenVector(c_rstrKey, &pTokenVector))
-		return FALSE;
+		return false;
 
 	if (pTokenVector->size() != 4)
 	{
 		sys_log(2, " CTextFileLoader::GetTokenColor - This key should have 4 values %s [%s : %s]", m_strFileName.c_str(), m_pcurNode->strGroupName.c_str(), c_rstrKey.c_str());
-		return FALSE;
+		return false;
 	}
 
 	pColor->r = atof(pTokenVector->at(0).c_str());
@@ -507,23 +507,23 @@ BOOL CTextFileLoader::GetTokenColor(const std::string & c_rstrKey, D3DCOLORVALUE
 	pColor->b = atof(pTokenVector->at(2).c_str());
 	pColor->a = atof(pTokenVector->at(3).c_str());
 
-	return TRUE;
+	return true;
 }
 
 BOOL CTextFileLoader::GetTokenString(const std::string & c_rstrKey, std::string * pString)
 {
 	TTokenVector * pTokenVector;
 	if (!GetTokenVector(c_rstrKey, &pTokenVector))
-		return FALSE;
+		return false;
 
 	if (pTokenVector->empty())
 	{
 		sys_log(2, " CTextFileLoader::GetTokenString - Failed to find the value %s [%s : %s]", m_strFileName.c_str(), m_pcurNode->strGroupName.c_str(), c_rstrKey.c_str());
-		return FALSE;
+		return false;
 	}
 
 	*pString = pTokenVector->at(0);
 
-	return TRUE;
+	return true;
 }
 
