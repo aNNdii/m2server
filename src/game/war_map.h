@@ -142,6 +142,9 @@ class CWarMap
 		CHARACTER_SET m_set_pkChr;
 };
 
+typedef std::map<long, CWarMap *> WarMapMap;
+typedef std::map<long, TWarMapInfo *> WarMapInfoMap;
+
 class CWarMapManager : public singleton<CWarMapManager>
 {
 	public:
@@ -162,8 +165,8 @@ class CWarMapManager : public singleton<CWarMapManager>
 		void		OnShutdown();
 
 	private:
-		std::map<long, TWarMapInfo *> m_map_kWarMapInfo;
-		std::map<long, CWarMap *> m_mapWarMap;
+		WarMapInfoMap m_map_kWarMapInfo;
+		WarMapMap m_mapWarMap;
 };
 
 template <typename Func> Func CWarMapManager::for_each(Func f)

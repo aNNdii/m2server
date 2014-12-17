@@ -852,7 +852,7 @@ namespace quest
 	///////////////////////////////////////////////////////////////////////////////////////////
 	void CQuestManager::LoadStartQuest(const string& quest_name, unsigned int idx)
 	{
-		for (itertype(g_setQuestObjectDir) it = g_setQuestObjectDir.begin(); it != g_setQuestObjectDir.end(); ++it)
+		for (std::set<string>::const_iterator it = g_setQuestObjectDir.begin(); it != g_setQuestObjectDir.end(); ++it)
 		{
 			const string& stQuestObjectDir = *it;
 			string full_name = stQuestObjectDir + "/begin_condition/" + quest_name;
@@ -1095,7 +1095,7 @@ namespace quest
 	{
 		assert(idx > 0);
 
-		itertype(m_hmQuestName) it;
+		THashMapQuestName::const_iterator it;
 
 		if ((it = m_hmQuestName.find(stQuestName)) != m_hmQuestName.end())
 			return;
@@ -1119,7 +1119,7 @@ namespace quest
 
 	const string & CQuestManager::GetQuestNameByIndex(unsigned int idx)
 	{
-		itertype(m_mapQuestNameByIndex) it;
+		QuestNameIndexMap::const_iterator it;
 
 		if ((it = m_mapQuestNameByIndex.find(idx)) == m_mapQuestNameByIndex.end())
 		{
@@ -1135,7 +1135,8 @@ namespace quest
 
 	void CQuestManager::SendEventFlagList(LPCHARACTER ch)
 	{
-		itertype(m_mapEventFlag) it;
+		std::map<string, int>::const_iterator it;
+
 		for (it = m_mapEventFlag.begin(); it != m_mapEventFlag.end(); ++it)
 		{
 			const string& flagname = it->first;
@@ -1224,9 +1225,9 @@ namespace quest
 		}
 		else if (name == "newyear_boom")
 		{
-			const DESC_MANAGER::DESC_SET & c_ref_set = DESC_MANAGER::instance().GetClientSet();
+			const DESC_MANAGER::DESC_SET& c_ref_set = DESC_MANAGER::instance().GetClientSet();
 
-			for (itertype(c_ref_set) it = c_ref_set.begin(); it != c_ref_set.end(); ++it)
+			for (DESC_MANAGER::DESC_SET::const_iterator it = c_ref_set.begin(); it != c_ref_set.end(); ++it)
 			{
 				LPCHARACTER ch = (*it)->GetCharacter();
 
@@ -1249,9 +1250,9 @@ namespace quest
 				mode = "light";
 			}
 			
-			const DESC_MANAGER::DESC_SET & c_ref_set = DESC_MANAGER::instance().GetClientSet();
+			const DESC_MANAGER::DESC_SET& c_ref_set = DESC_MANAGER::instance().GetClientSet();
 
-			for (itertype(c_ref_set) it = c_ref_set.begin(); it != c_ref_set.end(); ++it)
+			for (DESC_MANAGER::DESC_SET::const_iterator it = c_ref_set.begin(); it != c_ref_set.end(); ++it)
 			{
 				LPCHARACTER ch = (*it)->GetCharacter();
 				if (!ch)
@@ -1262,9 +1263,9 @@ namespace quest
 		}
 		else if (name == "day")
 		{
-			const DESC_MANAGER::DESC_SET & c_ref_set = DESC_MANAGER::instance().GetClientSet();
+			const DESC_MANAGER::DESC_SET& c_ref_set = DESC_MANAGER::instance().GetClientSet();
 
-			for (itertype(c_ref_set) it = c_ref_set.begin(); it != c_ref_set.end(); ++it)
+			for (DESC_MANAGER::DESC_SET::const_iterator it = c_ref_set.begin(); it != c_ref_set.end(); ++it)
 			{
 				LPCHARACTER ch = (*it)->GetCharacter();
 				if (!ch)
@@ -1531,7 +1532,7 @@ namespace quest
 		L = NULL;
 		Initialize();
 
-		for (itertype(m_registeredNPCVnum) it = m_registeredNPCVnum.begin(); it != m_registeredNPCVnum.end(); ++it)
+		for (std::set<unsigned int>::const_iterator it = m_registeredNPCVnum.begin(); it != m_registeredNPCVnum.end(); ++it)
 		{
 			char buf[256];
 			DWORD dwVnum = *it;
@@ -1615,7 +1616,7 @@ namespace quest
 		char buf[256];
 		DIR* dir;
 
-		for (itertype(g_setQuestObjectDir) it = g_setQuestObjectDir.begin(); it != g_setQuestObjectDir.end(); ++it)
+		for (std::set<string>::const_iterator it = g_setQuestObjectDir.begin(); it != g_setQuestObjectDir.end(); ++it)
 		{
 			const string& stQuestObjectDir = *it;
 			snprintf(buf, sizeof(buf), "%s/%u", stQuestObjectDir.c_str(), dwVnum);
@@ -1637,7 +1638,7 @@ namespace quest
 		const char * state_name = GetQuestStateName(GetCurrentQuestName(), GetCurrentState()->st);
 
 		string event_index_name = "";
-		for (itertype(m_mapEventName) it = m_mapEventName.begin(); it != m_mapEventName.end(); ++it)
+		for (TEventNameMap::const_iterator it = m_mapEventName.begin(); it != m_mapEventName.end(); ++it)
 		{
 			if (it->second == m_iRunningEventIndex)
 			{
@@ -1713,7 +1714,7 @@ namespace quest
 
 	void CQuestManager::ClearServerTimer(const std::string& name, DWORD arg)
 	{
-		itertype(m_mapServerTimer) it = m_mapServerTimer.find(make_pair(name, arg));
+		ServerTimerMap::const_iterator it = m_mapServerTimer.find(make_pair(name, arg));
 		if (it != m_mapServerTimer.end())
 		{
 			LPEVENT event = it->second;
@@ -1724,7 +1725,7 @@ namespace quest
 
 	void CQuestManager::CancelServerTimers(DWORD arg)
 	{
-		itertype(m_mapServerTimer) it = m_mapServerTimer.begin();
+		ServerTimerMap::const_iterator it = m_mapServerTimer.begin();
 		for ( ; it != m_mapServerTimer.end(); ++it) {
 			if (it->first.second == arg) {
 				LPEVENT event = it->second;

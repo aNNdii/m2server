@@ -18,14 +18,17 @@ enum OXEventStatus
 	OXEVENT_ERR = 0xff
 };
 
+typedef std::map<DWORD, DWORD> MapEventChar;
+typedef std::vector<std::vector<tag_Quiz>> QuizVector;
+
 class COXEventManager : public singleton<COXEventManager>
 {
 	private :
-		std::map<DWORD, DWORD> m_map_char;
-		std::map<DWORD, DWORD> m_map_attender;
-		std::map<DWORD, DWORD> m_map_miss;
+		MapEventChar m_map_char;
+		MapEventChar m_map_attender;
+		MapEventChar m_map_miss;
 
-		std::vector<std::vector<tag_Quiz> > m_vec_quiz;
+		QuizVector m_vec_quiz;
 
 		LPEVENT m_timedEvent;
 

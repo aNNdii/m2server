@@ -512,7 +512,7 @@ void CHARACTER::Destroy()
 	event_cancel(&m_pkMiningEvent);
 	// END_OF_MINING
 
-	for (itertype(m_mapMobSkillEvent) it = m_mapMobSkillEvent.begin(); it != m_mapMobSkillEvent.end(); ++it)
+	for (MobSkillEventMap::const_iterator it = m_mapMobSkillEvent.begin(); it != m_mapMobSkillEvent.end(); ++it)
 	{
 		LPEVENT pkEvent = it->second;
 		event_cancel(&pkEvent);
@@ -5967,9 +5967,9 @@ void CHARACTER::SetGuild(CGuild* pGuild)
 
 void CHARACTER::SendGreetMessage()
 {
-	typeof(DBManager::instance().GetGreetMessage()) v = DBManager::instance().GetGreetMessage();
+	std::vector<std::string> v = DBManager::instance().GetGreetMessage();
 
-	for (itertype(v) it = v.begin(); it != v.end(); ++it)
+	for (std::vector<std::string>::const_iterator it = v.begin(); it != v.end(); ++it)
 	{
 		ChatPacket(CHAT_TYPE_NOTICE, it->c_str());
 	}

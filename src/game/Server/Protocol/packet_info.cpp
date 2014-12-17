@@ -10,7 +10,7 @@ CPacketInfo::CPacketInfo()
 
 CPacketInfo::~CPacketInfo()
 {
-	itertype(m_pPacketMap) it = m_pPacketMap.begin();
+	PacketMap::const_iterator it = m_pPacketMap.begin();
 	for ( ; it != m_pPacketMap.end(); ++it) {
 		M2_DELETE(it->second);
 	}

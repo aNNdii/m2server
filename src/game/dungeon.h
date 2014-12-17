@@ -5,6 +5,9 @@
 
 class CParty;
 
+typedef std::map<std::string, int> FlagMap;
+typedef std::vector<LPREGEN> RegenVector;
+
 class CDungeon
 {
 	typedef TR1_NS::unordered_map<LPPARTY, int> TPartyMap;
@@ -125,7 +128,7 @@ class CDungeon
 	DWORD		m_lMapIndex;
 
 	CHARACTER_SET	    m_set_pkCharacter;
-	std::map<std::string, int>  m_map_Flag;
+	FlagMap  m_map_Flag;
 	typedef std::map<std::string, ItemGroup> ItemGroupMap;
 	ItemGroupMap m_map_ItemGroup;
 	TPartyMap	m_map_pkParty;
@@ -149,7 +152,7 @@ class CDungeon
 	long		m_lWarpY;
 	std::string	m_stRegenFile;
 
-	std::vector<LPREGEN> m_regen;
+	RegenVector m_regen;
 
 	LPEVENT		deadEvent;
 	// <Factor>

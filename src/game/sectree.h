@@ -186,8 +186,9 @@ class SECTREE
 	private:
 		template <class _Func> void for_each_entity(_Func & func)
 		{
-			itertype(m_set_entity) it = m_set_entity.begin();
-			for ( ; it != m_set_entity.end(); ++it) {
+			ENTITY_SET::const_iterator it = m_set_entity.begin();
+			for ( ; it != m_set_entity.end(); ++it)
+			{
 				LPENTITY entity = *it;
 				// <Factor> Sanity check
 				if (entity->GetSectree() != this) {

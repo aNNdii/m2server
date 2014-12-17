@@ -12,6 +12,8 @@ typedef struct SShopTableEx : SShopTable
 
 class CGroupNode;
 
+typedef std::vector <TShopTableEx> ShopTableExVector;
+
 // 확장 shop.
 // 명도전을 화폐로 쓸 수 있고, 아이템을 여러 탭에 나눠 배치할 수 있다.
 // 단, pc 샵은 구현하지 않음.
@@ -31,7 +33,7 @@ public:
 	
 	size_t			GetTabCount() { return m_vec_shopTabs.size(); }
 private:
-	std::vector <TShopTableEx> m_vec_shopTabs;
+	ShopTableExVector m_vec_shopTabs;
 };
 typedef CShopEx* LPSHOPEX;
 

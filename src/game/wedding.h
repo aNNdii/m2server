@@ -53,6 +53,8 @@ namespace marriage
 			std::string m_stMusicFileName;
 	};
 
+	typedef std::map<DWORD, WeddingMap*> WeddingMapMap;
+
 	class WeddingManager : public singleton<WeddingManager>
 	{
 		public:
@@ -72,8 +74,7 @@ namespace marriage
 			DWORD __CreateWeddingMap(DWORD dwPID1, DWORD dwPID2);
 
 		private:
-
-			std::map<DWORD, WeddingMap*> m_mapWedding;
+			WeddingMapMap m_mapWedding;
 	};
 }
 #endif

@@ -21,13 +21,14 @@
 
 template <class Func> Func CDungeon::ForEachMember(Func f)
 {
-	itertype(m_set_pkCharacter) it;
+	CHARACTER_SET::const_iterator it;
 
 	for (it = m_set_pkCharacter.begin(); it != m_set_pkCharacter.end(); ++it)
 	{
 		sys_log(0, "Dungeon ForEachMember %s", (*it)->GetName());
 		f(*it);
 	}
+
 	return f;
 }
 

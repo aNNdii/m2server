@@ -53,7 +53,7 @@ void CArena::Clear()
 bool CArenaManager::AddArena(DWORD mapIdx, WORD startA_X, WORD startA_Y, WORD startB_X, WORD startB_Y)
 {
 	CArenaMap *pArenaMap = NULL;
-	itertype(m_mapArenaMap) iter = m_mapArenaMap.find(mapIdx);
+	MapArenaMap::const_iterator iter = m_mapArenaMap.find(mapIdx);
 
 	if (iter == m_mapArenaMap.end())
 	{
@@ -76,7 +76,7 @@ bool CArenaManager::AddArena(DWORD mapIdx, WORD startA_X, WORD startA_Y, WORD st
 
 bool CArenaMap::AddArena(DWORD mapIdx, WORD startA_X, WORD startA_Y, WORD startB_X, WORD startB_Y)
 {
-	itertype(m_listArena) iter = m_listArena.begin();
+	ArenaList::const_iterator iter = m_listArena.begin();
 
 	for (; iter != m_listArena.end(); iter++)
 	{
@@ -97,7 +97,7 @@ bool CArenaMap::AddArena(DWORD mapIdx, WORD startA_X, WORD startA_Y, WORD startB
 
 void CArenaManager::Destroy()
 {
-	itertype(m_mapArenaMap) iter = m_mapArenaMap.begin();
+	MapArenaMap::const_iterator iter = m_mapArenaMap.begin();
 
 	for (; iter != m_mapArenaMap.end(); iter++)
 	{
@@ -111,7 +111,7 @@ void CArenaManager::Destroy()
 
 void CArenaMap::Destroy()
 {
-	itertype(m_listArena) iter = m_listArena.begin();
+	ArenaList::const_iterator iter = m_listArena.begin();
 
 	sys_log(0, "ARENA: ArenaMap will be destroy. mapIndex(%d)", m_dwMapIndex);
 
@@ -135,7 +135,7 @@ bool CArena::CheckArea(WORD startA_X, WORD startA_Y, WORD startB_X, WORD startB_
 
 void CArenaManager::SendArenaMapListTo(LPCHARACTER pChar)
 {
-	itertype(m_mapArenaMap) iter = m_mapArenaMap.begin();
+	MapArenaMap::const_iterator iter = m_mapArenaMap.begin();
 
 	for (; iter != m_mapArenaMap.end(); iter++)
 	{
@@ -148,7 +148,7 @@ void CArenaMap::SendArenaMapListTo(LPCHARACTER pChar, DWORD mapIdx)
 {
 	if (pChar == NULL) return;
 
-	itertype(m_listArena) iter = m_listArena.begin();
+	ArenaList::const_iterator iter = m_listArena.begin();
 
 	for (; iter != m_listArena.end(); iter++)
 	{
@@ -162,7 +162,7 @@ bool CArenaManager::StartDuel(LPCHARACTER pCharFrom, LPCHARACTER pCharTo, int nS
 {
 	if (pCharFrom == NULL || pCharTo == NULL) return false;
 
-	itertype(m_mapArenaMap) iter = m_mapArenaMap.begin();
+	MapArenaMap::const_iterator iter = m_mapArenaMap.begin();
 
 	for (; iter != m_mapArenaMap.end(); iter++)
 	{
@@ -178,7 +178,7 @@ bool CArenaManager::StartDuel(LPCHARACTER pCharFrom, LPCHARACTER pCharTo, int nS
 
 bool CArenaMap::StartDuel(LPCHARACTER pCharFrom, LPCHARACTER pCharTo, int nSetPoint, int nMinute)
 {
-	itertype(m_listArena) iter = m_listArena.begin();
+	ArenaList::const_iterator iter = m_listArena.begin();
 
 	for (; iter != m_listArena.end(); iter++)
 	{
@@ -506,7 +506,7 @@ bool CArena::StartDuel(LPCHARACTER pCharFrom, LPCHARACTER pCharTo, int nSetPoint
 
 void CArenaManager::EndAllDuel()
 {
-	itertype(m_mapArenaMap) iter = m_mapArenaMap.begin();
+	MapArenaMap::const_iterator iter = m_mapArenaMap.begin();
 
 	for (; iter != m_mapArenaMap.end(); iter++)
 	{
@@ -520,7 +520,7 @@ void CArenaManager::EndAllDuel()
 
 void CArenaMap::EndAllDuel()
 {
-	itertype(m_listArena) iter = m_listArena.begin();
+	ArenaList::const_iterator iter = m_listArena.begin();
 
 	for (; iter != m_listArena.end(); iter++)
 	{
@@ -568,7 +568,7 @@ void CArena::EndDuel()
 		playerB->WarpSet(ARENA_RETURN_POINT_X(playerB->GetEmpire()), ARENA_RETURN_POINT_Y(playerB->GetEmpire()));
 	}
 
-	itertype(m_mapObserver) iter = m_mapObserver.begin();
+	MapObserverMap::const_iterator iter = m_mapObserver.begin();
 
 	for (; iter != m_mapObserver.end(); iter++)
 	{
@@ -588,7 +588,7 @@ void CArena::EndDuel()
 
 void CArenaManager::GetDuelList(lua_State* L)
 {
-	itertype(m_mapArenaMap) iter = m_mapArenaMap.begin();
+	MapArenaMap::const_iterator iter = m_mapArenaMap.begin();
 
 	int index = 1;
 	lua_newtable(L);
@@ -603,7 +603,7 @@ void CArenaManager::GetDuelList(lua_State* L)
 
 int CArenaMap::GetDuelList(lua_State* L, int index)
 {
-	itertype(m_listArena) iter = m_listArena.begin();
+	ArenaList::const_iterator iter = m_listArena.begin();
 
 	for (; iter != m_listArena.end(); iter++)
 	{
@@ -652,7 +652,7 @@ bool CArenaManager::CanAttack(LPCHARACTER pCharAttacker, LPCHARACTER pCharVictim
 	long mapIndex = pCharAttacker->GetMapIndex();
 	if (mapIndex != pCharVictim->GetMapIndex()) return false;
 
-	itertype(m_mapArenaMap) iter = m_mapArenaMap.find(mapIndex);
+	MapArenaMap::const_iterator iter = m_mapArenaMap.find(mapIndex);
 
 	if (iter == m_mapArenaMap.end()) return false;
 
@@ -667,7 +667,7 @@ bool CArenaMap::CanAttack(LPCHARACTER pCharAttacker, LPCHARACTER pCharVictim)
 	DWORD dwPIDA = pCharAttacker->GetPlayerID();
 	DWORD dwPIDB = pCharVictim->GetPlayerID();
 
-	itertype(m_listArena) iter = m_listArena.begin();
+	ArenaList::const_iterator iter = m_listArena.begin();
 
 	for (; iter != m_listArena.end(); iter++)
 	{

@@ -116,22 +116,18 @@ template <typename T>
 bool CGroupNode::GetValue(size_t i, const std::string & c_rstrColKey, T& tValue) const
 {
 	if (i > m_map_rows.size())
-		return FALSE;
+		return false;
 	
 	TMapRow::const_iterator row_it = m_map_rows.begin();
 	std::advance(row_it, i);
 	
-	itertype(m_map_columnNameToIndex) col_idx_it = m_map_columnNameToIndex.find(c_rstrColKey);
+	TMapNameToIndex::const_iterator col_idx_it = m_map_columnNameToIndex.find(c_rstrColKey);
 	if (m_map_columnNameToIndex.end() == col_idx_it)
-	{
-		return FALSE;
-	}
+		return false;
 
 	int index = col_idx_it->second;
 	if (row_it->second.GetSize() <= index)
-	{
-		return FALSE;
-	}
+		return false;
 	
 	return row_it->second.GetValue(index, tValue);
 }
@@ -141,20 +137,15 @@ bool CGroupNode::GetValue(const std::string & c_rstrRowKey, const std::string & 
 {
 	TMapRow::const_iterator row_it = m_map_rows.find(c_rstrRowKey);
 	if (m_map_rows.end() == row_it)
-	{
-		return FALSE;
-	}
-	itertype(m_map_columnNameToIndex) col_idx_it = m_map_columnNameToIndex.find(c_rstrColKey);
+		return false;
+
+	TMapNameToIndex::const_iterator col_idx_it = m_map_columnNameToIndex.find(c_rstrColKey);
 	if (m_map_columnNameToIndex.end() == col_idx_it)
-	{
-		return FALSE;
-	}
+		return false;
 
 	int index = col_idx_it->second;
 	if (row_it->second.GetSize() <= index)
-	{
-		return FALSE;
-	}
+		return false;
 	
 	return row_it->second.GetValue(index, tValue);
 }

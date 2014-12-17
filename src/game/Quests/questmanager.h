@@ -180,11 +180,12 @@ namespace quest
 			LPDUNGEON			m_pSelectedDungeon;
 			DWORD			m_dwServerTimerArg;
 
-			map<pair<string, DWORD>, LPEVENT>	m_mapServerTimer;
+			typedef std::map<pair<string, DWORD>, LPEVENT> ServerTimerMap;
+			ServerTimerMap	m_mapServerTimer;
 
 			int				m_iRunningEventIndex;
 
-			map<string, int>		m_mapEventFlag;
+			std::map<string, int>		m_mapEventFlag;
 
 			void			GotoSelectState(QuestState& qs);
 			void			GotoPauseState(QuestState& qs);
@@ -197,10 +198,10 @@ namespace quest
 
 			bool			m_bNoSend;
 
-			set<unsigned int>			m_registeredNPCVnum;
-			map<unsigned int, NPC>		m_mapNPC;
-			map<string, unsigned int>	m_mapNPCNameID;
-			map<string, unsigned int>	m_mapTimerID;
+			std::set<unsigned int>			m_registeredNPCVnum;
+			std::map<unsigned int, NPC>		m_mapNPC;
+			std::map<string, unsigned int>	m_mapNPCNameID;
+			std::map<string, unsigned int>	m_mapTimerID;
 
 			QuestState *	m_CurrentRunningState;
 
@@ -236,10 +237,11 @@ namespace quest
 
 			typedef boost::unordered_map<string, int, stringhash> THashMapQuestName;
 			typedef boost::unordered_map<unsigned int, vector<char> > THashMapQuestStartScript;
+			typedef std::map<unsigned int, string> QuestNameIndexMap;
 
 			THashMapQuestName			m_hmQuestName;
 			THashMapQuestStartScript	m_hmQuestStartScript;
-			map<unsigned int, string>	m_mapQuestNameByIndex;
+			QuestNameIndexMap			m_mapQuestNameByIndex;
 
 			bool						m_bError;
 

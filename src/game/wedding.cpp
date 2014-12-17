@@ -199,7 +199,7 @@ namespace marriage
 
 	void WeddingMap::ShoutInMap(BYTE type, const char* msg)
 	{
-		for (itertype(m_set_pkChr) it = m_set_pkChr.begin(); it != m_set_pkChr.end(); ++it)
+		for (charset_t::const_iterator it = m_set_pkChr.begin(); it != m_set_pkChr.end(); ++it)
 		{
 			LPCHARACTER ch = *it;
 			ch->ChatPacket(CHAT_TYPE_COMMAND, msg);
@@ -296,7 +296,7 @@ namespace marriage
 
 	WeddingMap* WeddingManager::Find(DWORD dwMapIndex)
 	{
-		itertype(m_mapWedding) it = m_mapWedding.find(dwMapIndex);
+		WeddingMapMap::const_iterator it = m_mapWedding.find(dwMapIndex);
 
 		if (it == m_mapWedding.end())
 			return NULL;
@@ -353,7 +353,7 @@ namespace marriage
 
 	bool WeddingManager::End(DWORD dwMapIndex)
 	{
-		itertype(m_mapWedding) it = m_mapWedding.find(dwMapIndex);
+		WeddingMapMap::const_iterator it = m_mapWedding.find(dwMapIndex);
 
 		if (it == m_mapWedding.end())
 			return false;

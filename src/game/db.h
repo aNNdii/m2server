@@ -68,6 +68,7 @@ class CFuncAfterQueryInfo : public CQueryInfo
 
 class CLoginData;
 
+typedef std::map<std::string, std::string> DBStringMap;
 
 class DBManager : public singleton<DBManager>
 {
@@ -120,7 +121,7 @@ class DBManager : public singleton<DBManager>
 		CAsyncSQL				m_sql_direct;
 		bool					m_bIsConnect;
 
-		std::map<std::string, std::string>	m_map_dbstring;
+		DBStringMap	m_map_dbstring;
 		std::vector<std::string>		m_vec_GreetMessage;
 		std::map<DWORD, CLoginData *>		m_map_pkLoginData;
 		std::vector<TUseTime>			m_vec_kUseTime;

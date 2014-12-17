@@ -3217,8 +3217,7 @@ ACMD(do_affect_remove)
 		ch->ChatPacket(CHAT_TYPE_INFO, "-- Affect List of %s -------------------------------", tch->GetName());
 		ch->ChatPacket(CHAT_TYPE_INFO, "Type Point Modif Duration Flag");
 
-		AffectContainerList& cont = tch->GetAffectContainer();
-
+		const AffectContainerList& cont = tch->GetAffectContainer();
 		AffectContainerList::const_iterator it = cont.begin();
 
 		while (it != cont.end())

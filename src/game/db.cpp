@@ -650,7 +650,8 @@ void DBManager::LoadDBString()
 const std::string& DBManager::GetDBString(const std::string& key)
 {
 	static std::string null_str = "";
-	itertype(m_map_dbstring) it = m_map_dbstring.find(key);
+	DBStringMap::const_iterator it = m_map_dbstring.find(key);
+
 	if (it == m_map_dbstring.end())
 		return null_str;
 	return it->second;

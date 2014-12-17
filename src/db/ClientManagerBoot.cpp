@@ -956,7 +956,7 @@ bool CClientManager::InitializeMonarch()
 
 bool CClientManager::MirrorMobTableIntoDB()
 {
-	for (itertype(m_vec_mobTable) it = m_vec_mobTable.begin(); it != m_vec_mobTable.end(); it++)
+	for (MobTableVector::const_iterator it = m_vec_mobTable.begin(); it != m_vec_mobTable.end(); it++)
 	{
 		const TMobTable& t = *it;
 		char query[4096];
@@ -1072,7 +1072,7 @@ bool CClientManager::MirrorMobTableIntoDB()
 
 bool CClientManager::MirrorItemTableIntoDB()
 {
-	for (itertype(m_vec_itemTable) it = m_vec_itemTable.begin(); it != m_vec_itemTable.end(); it++)
+	for (ItemTableVector::const_iterator it = m_vec_itemTable.begin(); it != m_vec_itemTable.end(); it++)
 	{
 		if (g_stLocaleNameColumn != "name")
 		{

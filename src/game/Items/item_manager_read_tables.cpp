@@ -195,7 +195,7 @@ bool ITEM_MANAGER::ReadSpecialDropItemFile(const char * c_pszFileName)
 						M2_DELETE(pkGroup);
 						return false;
 					}
-					pkGroup->m_vecAttrs.push_back(CSpecialAttrGroup::CSpecialAttrInfo(apply_type, apply_value));
+					pkGroup->m_vecAttrs.push_back(CSpecialAttrInfo(apply_type, apply_value));
 				}
 				else
 				{
@@ -626,7 +626,8 @@ bool ITEM_MANAGER::ReadMonsterDropItemGroup(const char * c_pszFileName)
 		{
 			CDropItemGroup* pkGroup;
 			bool bNew = true;
-			itertype(m_map_pkDropItemGroup) it = m_map_pkDropItemGroup.find (iMobVnum);
+			pkDropItemGroupMap::const_iterator it = m_map_pkDropItemGroup.find(iMobVnum);
+
 			if (it == m_map_pkDropItemGroup.end())
 			{
 				pkGroup = M2_NEW CDropItemGroup(0, iMobVnum, stName);
@@ -833,7 +834,7 @@ bool ITEM_MANAGER::ReadDropItemGroup(const char * c_pszFileName)
 
 		TTokenVector * pTok;
 
-		itertype(m_map_pkDropItemGroup) it = m_map_pkDropItemGroup.find(iMobVnum);
+		pkDropItemGroupMap::const_iterator it = m_map_pkDropItemGroup.find(iMobVnum);
 
 		CDropItemGroup* pkGroup;
 

@@ -29,6 +29,7 @@ class CPacketInfo
 size_t CreatePlayerSaveQuery(char * pszQuery, size_t querySize, TPlayerTable * pkTab);
 
 typedef std::vector<TItemTable> ItemTableVector;
+typedef std::vector<TMobTable> MobTableVector;
 
 class CClientManager : public CNetBase, public singleton<CClientManager>
 {
@@ -411,7 +412,7 @@ class CClientManager : public CNetBase, public singleton<CClientManager>
 	int					m_iPlayerDeleteLevelLimitLower;
 	bool					m_bChinaEventServer;
 
-	std::vector<TMobTable>			m_vec_mobTable;
+	MobTableVector			m_vec_mobTable;
 	ItemTableVector			m_vec_itemTable;
 	std::map<DWORD, TItemTable *>		m_map_itemTableByVnum;
 

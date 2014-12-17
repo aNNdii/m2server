@@ -38,7 +38,7 @@ void CGuild::GuildWarPacket(DWORD dwOppGID, BYTE bWarType, BYTE bWarState)
 	pack2.bWarState	= bWarState;
 	pack2.bType		= bWarType;
 
-	for (itertype(m_memberOnline) it = m_memberOnline.begin(); it != m_memberOnline.end(); ++it)
+	for (TGuildMemberOnlineContainer::const_iterator it = m_memberOnline.begin(); it != m_memberOnline.end(); ++it)
 	{
 		LPCHARACTER ch = *it;
 
@@ -76,7 +76,7 @@ void CGuild::SendEnemyGuild(LPCHARACTER ch)
 	p.subheader = GUILD_SUBHEADER_GC_WAR_SCORE;
 	p.size = sizeof(p) + sizeof(DWORD) + sizeof(DWORD) + sizeof(long);
 
-	for (itertype(m_EnemyGuild) it = m_EnemyGuild.begin(); it != m_EnemyGuild.end(); ++it)
+	for (TEnemyGuildContainer::const_iterator it = m_EnemyGuild.begin(); it != m_EnemyGuild.end(); ++it)
 	{
 		ch->SendGuildName( it->first );
 
@@ -116,13 +116,13 @@ int CGuild::GetGuildWarState(DWORD dwOppGID)
 	if (dwOppGID == GetID())
 		return GUILD_WAR_NONE;
 
-	itertype(m_EnemyGuild) it = m_EnemyGuild.find(dwOppGID);
+	TEnemyGuildContainer::const_iterator it = m_EnemyGuild.find(dwOppGID);
 	return (it != m_EnemyGuild.end()) ? (it->second.state) : GUILD_WAR_NONE;
 } 
 
 int CGuild::GetGuildWarType(DWORD dwOppGID)
 {
-	itertype(m_EnemyGuild) git = m_EnemyGuild.find(dwOppGID);
+	TEnemyGuildContainer::const_iterator git = m_EnemyGuild.find(dwOppGID);
 
 	if (git == m_EnemyGuild.end())
 		return GUILD_WAR_TYPE_FIELD;
@@ -132,7 +132,7 @@ int CGuild::GetGuildWarType(DWORD dwOppGID)
 
 DWORD CGuild::GetGuildWarMapIndex(DWORD dwOppGID)
 {
-	itertype(m_EnemyGuild) git = m_EnemyGuild.find(dwOppGID);
+	TEnemyGuildContainer::const_iterator git = m_EnemyGuild.find(dwOppGID);
 
 	if (git == m_EnemyGuild.end())
 		return 0;
@@ -157,13 +157,13 @@ bool CGuild::UnderWar(DWORD dwOppGID)
 	if (dwOppGID == GetID())
 		return false;
 
-	itertype(m_EnemyGuild) it = m_EnemyGuild.find(dwOppGID);
+	TEnemyGuildContainer::const_iterator it = m_EnemyGuild.find(dwOppGID);
 	return (it != m_EnemyGuild.end()) && (it->second.IsWarBegin());
 } 
 
 DWORD CGuild::UnderAnyWar(BYTE bType)
 {
-	for (itertype(m_EnemyGuild) it = m_EnemyGuild.begin(); it != m_EnemyGuild.end(); ++it)
+	for (TEnemyGuildContainer::const_iterator it = m_EnemyGuild.begin(); it != m_EnemyGuild.end(); ++it)
 	{
 		if (bType < GUILD_WAR_TYPE_MAX_NUM)
 			if (it->second.type != bType)
@@ -181,7 +181,7 @@ void CGuild::SetWarScoreAgainstTo(DWORD dwOppGID, int iScore)
 	DWORD dwSelfGID = GetID();
 
 	sys_log(0, "GuildWarScore Set %u from %u %d", dwSelfGID, dwOppGID, iScore);
-	itertype(m_EnemyGuild) it = m_EnemyGuild.find(dwOppGID);
+	TEnemyGuildContainer::iterator it = m_EnemyGuild.find(dwOppGID);
 
 	if (it != m_EnemyGuild.end())
 	{
@@ -222,7 +222,7 @@ void CGuild::SetWarScoreAgainstTo(DWORD dwOppGID, int iScore)
 
 int CGuild::GetWarScoreAgainstTo(DWORD dwOppGID)
 {
-	itertype(m_EnemyGuild) it = m_EnemyGuild.find(dwOppGID);
+	TEnemyGuildContainer::const_iterator it = m_EnemyGuild.find(dwOppGID);
 
 	if (it != m_EnemyGuild.end())
 	{
@@ -239,7 +239,7 @@ DWORD CGuild::GetWarStartTime(DWORD dwOppGID)
 	if (dwOppGID == GetID())
 		return 0;
 
-	itertype(m_EnemyGuild) it = m_EnemyGuild.find(dwOppGID);
+	TEnemyGuildContainer::const_iterator it = m_EnemyGuild.find(dwOppGID);
 
 	if (it == m_EnemyGuild.end())
 		return 0;
@@ -304,7 +304,7 @@ void CGuild::RequestDeclareWar(DWORD dwOppGID, BYTE type)
 		return;
 	}
 
-	itertype(m_EnemyGuild) it = m_EnemyGuild.find(dwOppGID);
+	TEnemyGuildContainer::const_iterator it = m_EnemyGuild.find(dwOppGID);
 	if (it == m_EnemyGuild.end())
 	{
 		if (!GuildWar_IsWarMap(type))
@@ -405,12 +405,12 @@ bool CGuild::DeclareWar(DWORD dwOppGID, BYTE type, BYTE state)
 
 bool CGuild::CheckStartWar(DWORD dwOppGID)
 {
-	TEnemyGuildContainer::const_iterator it = m_EnemyGuild.find(dwOppGID);
+	TEnemyGuildContainer::iterator it = m_EnemyGuild.find(dwOppGID);
 
 	if (it == m_EnemyGuild.end())
 		return false;
 
-	TGuildWar & gw(it->second);
+	TGuildWar& gw(it->second);
 
 	if (gw.state == GUILD_WAR_ON_WAR)
 		return false;
@@ -420,12 +420,12 @@ bool CGuild::CheckStartWar(DWORD dwOppGID)
 
 void CGuild::StartWar(DWORD dwOppGID)
 {
-	TEnemyGuildContainer::const_iterator it = m_EnemyGuild.find(dwOppGID);
+	TEnemyGuildContainer::iterator it = m_EnemyGuild.find(dwOppGID);
 
 	if (it == m_EnemyGuild.end())
 		return;
 
-	TGuildWar & gw(it->second);
+	TGuildWar& gw(it->second);
 
 	if (gw.state == GUILD_WAR_ON_WAR)
 		return;
@@ -449,7 +449,7 @@ bool CGuild::WaitStartWar(DWORD dwOppGID)
 	}
 
 	//상대방 길드 TGuildWar 를 얻어온다.
-	TEnemyGuildContainer::const_iterator it = m_EnemyGuild.find(dwOppGID);
+	TEnemyGuildContainer::iterator it = m_EnemyGuild.find(dwOppGID);
 	if (it == m_EnemyGuild.end())
 	{
 		sys_log(0 ,"GuildWar.WaitStartWar.UNKNOWN_ENEMY id(%u -> %u)", GetID(), dwOppGID);
@@ -457,7 +457,7 @@ bool CGuild::WaitStartWar(DWORD dwOppGID)
 	}
 
 	//레퍼런스에 등록하고
-	TGuildWar & gw(it->second);
+	TGuildWar& gw(it->second);
 
 	if (gw.state == GUILD_WAR_WAIT_START)
 	{
@@ -542,7 +542,7 @@ void CGuild::RequestRefuseWar(DWORD dwOppGID)
 	if (dwOppGID == GetID())
 		return;
 
-	itertype(m_EnemyGuild) it = m_EnemyGuild.find(dwOppGID);
+	TEnemyGuildContainer::const_iterator it = m_EnemyGuild.find(dwOppGID);
 
 	if (it != m_EnemyGuild.end() && it->second.state == GUILD_WAR_RECV_DECLARE)
 	{

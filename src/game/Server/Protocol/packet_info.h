@@ -12,6 +12,8 @@ typedef struct SPacketElement
 	bool	bSequencePacket;
 } TPacketElement;
 
+typedef std::map<int, TPacketElement *> PacketMap;
+
 class CPacketInfo
 {
 	public:
@@ -33,7 +35,7 @@ class CPacketInfo
 		TPacketElement * GetElement(int header);
 
 	protected:
-		std::map<int, TPacketElement *> m_pPacketMap;
+		PacketMap m_pPacketMap;
 		TPacketElement * m_pCurrentPacket;
 		DWORD m_dwStartTime;
 };

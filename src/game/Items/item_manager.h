@@ -5,6 +5,18 @@
 #include "pool.h"
 #endif
 
+struct CSpecialAttrInfo
+{
+	CSpecialAttrInfo(DWORD _apply_type, DWORD _apply_value)
+		: apply_type(_apply_type), apply_value(_apply_value)
+	{}
+	DWORD apply_type;
+	DWORD apply_value;
+
+};
+
+typedef std::vector<CSpecialAttrInfo> SpecialAttrInfoVector;
+
 // special_item_group.txt에서 정의하는 속성 그룹
 // type attr로 선언할 수 있다.
 // 이 속성 그룹을 이용할 수 있는 것은 special_item_group.txt에서 Special type으로 정의된 그룹에 속한 UNIQUE ITEM이다.
@@ -14,18 +26,21 @@ public:
 	CSpecialAttrGroup(DWORD vnum)
 		: m_dwVnum(vnum)
 	{}
-	struct CSpecialAttrInfo
-	{
-		CSpecialAttrInfo (DWORD _apply_type, DWORD _apply_value)
-			: apply_type(_apply_type), apply_value(_apply_value)
-		{}
-		DWORD apply_type;
-		DWORD apply_value;
 
-	};
 	DWORD m_dwVnum;
 	std::string	m_stEffectFileName;
-	std::vector<CSpecialAttrInfo> m_vecAttrs;
+	SpecialAttrInfoVector m_vecAttrs;
+};
+
+struct CSpecialItemInfo
+{
+	DWORD vnum;
+	int count;
+	int rare;
+
+	CSpecialItemInfo(DWORD _vnum, int _count, int _rare)
+		: vnum(_vnum), count(_count), rare(_rare)
+	{}
 };
 
 typedef std::vector<CSpecialItemInfo> ItemsVector;
@@ -50,17 +65,6 @@ class CSpecialItemGroup
 		// SPECIAL 타입은 idx, item_vnum, attr_vnum을 입력한다. attr_vnum은 위에 CSpecialAttrGroup의 Vnum이다.
 		//		이 그룹에 들어있는 아이템은 같이 착용할 수 없다.
 		enum ESIGType { NORMAL, PCT, QUEST, SPECIAL };
-
-		struct CSpecialItemInfo
-		{
-			DWORD vnum;
-			int count;
-			int rare;
-
-			CSpecialItemInfo(DWORD _vnum, int _count, int _rare)
-				: vnum(_vnum), count(_count), rare(_rare)
-				{}
-		};
 
 		CSpecialItemGroup(DWORD vnum, BYTE type=0)
 			: m_dwVnum(vnum), m_bType(type)
@@ -116,7 +120,7 @@ class CSpecialItemGroup
 		int GetOneIndex() const
 		{
 			int n = number(1, m_vecProbs.back());
-			ItemsVector::const_iterator it = lower_bound(m_vecProbs.begin(), m_vecProbs.end(), n);
+			std::vector<int>::const_iterator it = lower_bound(m_vecProbs.begin(), m_vecProbs.end(), n);
 			return std::distance(m_vecProbs.begin(), it);
 		}
 
@@ -173,26 +177,26 @@ class CSpecialItemGroup
 		ItemsVector m_vecItems; // vnum, count
 };
 
+struct SMobItemGroupInfo
+{
+	DWORD dwItemVnum;
+	int iCount;
+	int iRarePct;
+
+	SMobItemGroupInfo(DWORD dwItemVnum, int iCount, int iRarePct)
+		: dwItemVnum(dwItemVnum),
+		iCount(iCount),
+		iRarePct(iRarePct)
+	{
+	}
+};
+
 typedef std::vector<int> ProbsVector;
 typedef std::vector<SMobItemGroupInfo> ItemGroupInfoVector;
 
 class CMobItemGroup
 {
 	public:
-		struct SMobItemGroupInfo
-		{
-			DWORD dwItemVnum;
-			int iCount;
-			int iRarePct;
-
-			SMobItemGroupInfo(DWORD dwItemVnum, int iCount, int iRarePct)
-				: dwItemVnum(dwItemVnum),
-			iCount(iCount),
-			iRarePct(iRarePct)
-			{
-			}
-		};
-
 		CMobItemGroup(DWORD dwMobVnum, int iKillDrop, const std::string& r_stName)
 			:
 			m_dwMobVnum(dwMobVnum),

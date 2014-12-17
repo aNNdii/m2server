@@ -85,6 +85,9 @@ namespace marriage
 		LPEVENT eventNearCheck;
 	};
 
+	typedef std::set<std::pair<DWORD, DWORD>> WeddingSet;
+	typedef std::map<DWORD, TMarriage *> MariageMap;
+
 	class CManager : public singleton<CManager>
 	{
 		public:
@@ -130,14 +133,14 @@ namespace marriage
 
 		private:
 			TR1_NS::unordered_set<TMarriage*> m_Marriages;
-			std::map<DWORD, TMarriage *> m_MarriageByPID;
-			std::set<std::pair<DWORD, DWORD> > m_setWedding;
+			MariageMap m_MarriageByPID;
+			WeddingSet m_setWedding;
 	};
 
 	template <typename Func>
 		Func CManager::for_each_wedding(Func f)
 		{
-			for (itertype(m_setWedding) it = m_setWedding.begin(); it!=m_setWedding.end(); ++it)
+			for (WeddingSet::const_iterator it = m_setWedding.begin(); it != m_setWedding.end(); ++it)
 			{
 				TMarriage* pMarriage = Get(it->first);
 				if (pMarriage)

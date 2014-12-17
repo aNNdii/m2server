@@ -108,6 +108,10 @@ enum EAttrRegionMode
 	ATTR_REGION_MODE_CHECK,
 };
 
+typedef std::map<int, TAreaMap> pkAreaMap;
+typedef std::vector<npc_info> NPCInfoVector;
+typedef std::map<DWORD, NPCInfoVector> NPCPositionMap;
+
 class SECTREE_MANAGER : public singleton<SECTREE_MANAGER>
 {
 	public:
@@ -220,9 +224,9 @@ class SECTREE_MANAGER : public singleton<SECTREE_MANAGER>
 
 		static WORD			current_sectree_version;
 		std::map<DWORD, LPSECTREE_MAP>	m_map_pkSectree;
-		std::map<int, TAreaMap>	m_map_pkArea;
+		pkAreaMap	m_map_pkArea;
 		std::vector<TMapRegion>		m_vec_mapRegion;
-		std::map<DWORD, std::vector<npc_info> > m_mapNPCPosition;
+		NPCPositionMap m_mapNPCPosition;
 
 		// <Factor> Circular private map indexing
 		typedef TR1_NS::unordered_map<long, int> PrivateIndexMapType;

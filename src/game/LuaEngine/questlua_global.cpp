@@ -587,7 +587,7 @@ namespace quest
 
 		for (int type = PRIV_NONE+1; type < MAX_PRIV_NUM; ++type)
 		{
-			const CPrivManager::SPrivGuildData* pPrivGuildData = CPrivManager::instance().GetPrivByGuildEx( guild, type );
+			const SPrivGuildData* pPrivGuildData = CPrivManager::instance().GetPrivByGuildEx( guild, type );
 
 			if (pPrivGuildData && pPrivGuildData->value)
 			{

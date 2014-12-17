@@ -978,7 +978,7 @@ void CInputLogin::GuildMarkCRCList(LPDESC d, const char* c_pData)
 	DWORD blockCount = 0;
 	TEMP_BUFFER buf(1024 * 1024); // 1M ¹öÆÛ
 
-	for (itertype(mapDiffBlocks) it = mapDiffBlocks.begin(); it != mapDiffBlocks.end(); ++it)
+	for (std::map<BYTE, const SGuildMarkBlock *>::const_iterator it = mapDiffBlocks.begin(); it != mapDiffBlocks.end(); ++it)
 	{
 		BYTE posBlock = it->first;
 		const SGuildMarkBlock & rkBlock = *it->second;

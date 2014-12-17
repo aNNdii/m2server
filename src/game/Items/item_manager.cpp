@@ -610,7 +610,7 @@ TItemTable * ITEM_MANAGER::GetTable(DWORD vnum)
 				return p;
 			}
 		}
-			
+
 		return NULL;
 	}
 
@@ -930,7 +930,7 @@ bool ITEM_MANAGER::CreateDropItem(LPCHARACTER pkChr, LPCHARACTER pkKiller, std::
 				int iPercent = 40000 * iDeltaPercent / pGroup->GetKillPerDrop();
 				if (iPercent >= number(1, iRandRange))
 				{
-					const CMobItemGroup::SMobItemGroupInfo& info = pGroup->GetOne();
+					const SMobItemGroupInfo& info = pGroup->GetOne();
 					item = CreateItem(info.dwItemVnum, info.iCount, 0, true, info.iRarePct);
 
 					if (item) vec_item.push_back(item);

@@ -1116,12 +1116,11 @@ void SECTREE_MANAGER::DestroyPrivateMap(long lMapIndex)
 
 TAreaMap& SECTREE_MANAGER::GetDungeonArea(long lMapIndex)
 {
-	itertype(m_map_pkArea) it = m_map_pkArea.find(lMapIndex);
+	pkAreaMap::iterator it = m_map_pkArea.find(lMapIndex);
 
 	if (it == m_map_pkArea.end())
-	{
 		return m_map_pkArea[-1]; // 임시로 빈 Area를 리턴
-	}
+
 	return it->second;
 }
 
@@ -1144,7 +1143,7 @@ void SECTREE_MANAGER::SendNPCPosition(LPCHARACTER ch)
 	TNPCPosition np;
 
 	// TODO m_mapNPCPosition[lMapIndex] 를 보내주세요
-	itertype(m_mapNPCPosition[lMapIndex]) it;
+	NPCInfoVector::const_iterator it;
 
 	for (it = m_mapNPCPosition[lMapIndex].begin(); it != m_mapNPCPosition[lMapIndex].end(); ++it)
 	{

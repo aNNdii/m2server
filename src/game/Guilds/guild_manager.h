@@ -100,7 +100,7 @@ class CGuildManager : public singleton<CGuildManager>
 
 template <typename Func> void CGuildManager::for_each_war(Func & f)
 {
-	for (itertype(m_GuildWar) it = m_GuildWar.begin(); it != m_GuildWar.end(); ++it)
+	for (TGuildWarContainer::const_iterator it = m_GuildWar.begin(); it != m_GuildWar.end(); ++it)
 	{
 		f(it->first, it->second);
 	}

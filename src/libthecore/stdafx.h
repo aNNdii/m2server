@@ -114,16 +114,6 @@ inline double rint(double x)
 
 #endif
 
-#ifndef false
-#define false	0
-#define true	(!false)
-#endif
-
-#ifndef FALSE
-#define FALSE	false
-#define TRUE	(!FALSE)
-#endif
-
 #include "typedef.h"
 #include "heart.h"
 #include "fdwatch.h"

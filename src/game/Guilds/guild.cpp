@@ -1372,7 +1372,7 @@ void CGuild::UseSkill(DWORD dwVnum, LPCHARACTER ch, DWORD pid)
 
 				SendDBSkillUpdate(-iNeededSP);
 
-				for (itertype(m_memberOnline) it = m_memberOnline.begin(); it != m_memberOnline.end(); ++it)
+				for (TGuildMemberOnlineContainer::const_iterator it = m_memberOnline.begin(); it != m_memberOnline.end(); ++it)
 				{
 					LPCHARACTER victim = *it;
 					victim->RemoveAffect(dwVnum);
@@ -1692,7 +1692,7 @@ LPCHARACTER CGuild::GetMasterCharacter()
 
 void CGuild::Packet(const void* buf, int size)
 {
-	for (itertype(m_memberOnline) it = m_memberOnline.begin(); it!=m_memberOnline.end();++it)
+	for (TGuildMemberOnlineContainer::const_iterator it = m_memberOnline.begin(); it != m_memberOnline.end(); ++it)
 	{
 		LPDESC d = (*it)->GetDesc();
 
@@ -1705,7 +1705,7 @@ int CGuild::GetTotalLevel() const
 {
 	int total = 0;
 
-	for (itertype(m_member) it = m_member.begin(); it != m_member.end(); ++it)
+	for (TGuildMemberContainer::const_iterator it = m_member.begin(); it != m_member.end(); ++it)
 	{
 		total += it->second.level;
 	}
@@ -1867,7 +1867,7 @@ void CGuild::RecvMoneyChange(int iGold)
 	p.size = sizeof(p) + sizeof(int);
 	p.subheader = GUILD_SUBHEADER_GC_MONEY_CHANGE;
 
-	for (itertype(m_memberOnline) it = m_memberOnline.begin(); it != m_memberOnline.end(); ++it)
+	for (TGuildMemberOnlineContainer::const_iterator it = m_memberOnline.begin(); it != m_memberOnline.end(); ++it)
 	{
 		LPCHARACTER ch = *it;
 		LPDESC d = ch->GetDesc();

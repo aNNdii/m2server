@@ -503,7 +503,8 @@ enum e_overtime
 	OT_5HOUR,
 };
 
-typedef const std::list<CAffect *> AffectContainerList;
+typedef std::list<CAffect *> AffectContainerList;
+typedef std::map<int, LPEVENT> MobSkillEventMap;
 
 class CHARACTER : public CEntity, public CFSM, public CHorseRider
 {
@@ -915,7 +916,7 @@ class CHARACTER : public CEntity, public CFSM, public CHorseRider
 		void			RemoveBadAffect();
 
 		CAffect *		FindAffect(DWORD dwType, BYTE bApply=APPLY_NONE) const;
-		AffectContainerList& GetAffectContainer() const	{ return m_list_pkAffect; }
+		const AffectContainerList& GetAffectContainer() const	{ return m_list_pkAffect; }
 		bool			RemoveAffect(CAffect * pkAff);
 
 	protected:
@@ -1730,7 +1731,7 @@ class CHARACTER : public CEntity, public CFSM, public CHorseRider
 		const CMob *		m_pkMobData;
 		CMobInstance *		m_pkMobInst;
 
-		std::map<int, LPEVENT> m_mapMobSkillEvent;
+		MobSkillEventMap m_mapMobSkillEvent;
 
 		friend struct FuncSplashDamage;
 		friend struct FuncSplashAffect;
