@@ -28,6 +28,8 @@ public:
 	std::vector<CSpecialAttrInfo> m_vecAttrs;
 };
 
+typedef std::vector<CSpecialItemInfo> ItemsVector;
+
 class CSpecialItemGroup
 {
 	public:
@@ -114,7 +116,7 @@ class CSpecialItemGroup
 		int GetOneIndex() const
 		{
 			int n = number(1, m_vecProbs.back());
-			itertype(m_vecProbs) it = lower_bound(m_vecProbs.begin(), m_vecProbs.end(), n);
+			ItemsVector::const_iterator it = lower_bound(m_vecProbs.begin(), m_vecProbs.end(), n);
 			return std::distance(m_vecProbs.begin(), it);
 		}
 
@@ -149,7 +151,7 @@ class CSpecialItemGroup
 		{
 			if (CSpecialItemGroup::SPECIAL != m_bType)
 				return 0;
-			for (itertype(m_vecItems) it = m_vecItems.begin(); it != m_vecItems.end(); it++)
+			for (ItemsVector::const_iterator it = m_vecItems.begin(); it != m_vecItems.end(); it++)
 			{
 				if (it->vnum == dwVnum)
 				{
@@ -168,8 +170,11 @@ class CSpecialItemGroup
 		DWORD m_dwVnum;
 		BYTE	m_bType;
 		std::vector<int> m_vecProbs;
-		std::vector<CSpecialItemInfo> m_vecItems; // vnum, count
+		ItemsVector m_vecItems; // vnum, count
 };
+
+typedef std::vector<int> ProbsVector;
+typedef std::vector<SMobItemGroupInfo> ItemGroupInfoVector;
 
 class CMobItemGroup
 {
@@ -218,7 +223,7 @@ class CMobItemGroup
 		int GetOneIndex() const
 		{
 			int n = number(1, m_vecProbs.back());
-			itertype(m_vecProbs) it = lower_bound(m_vecProbs.begin(), m_vecProbs.end(), n);
+			ProbsVector::const_iterator it = lower_bound(m_vecProbs.begin(), m_vecProbs.end(), n);
 			return std::distance(m_vecProbs.begin(), it);
 		}
 		// END_OF_MOB_DROP_ITEM_BUG_FIX
@@ -232,23 +237,25 @@ class CMobItemGroup
 		DWORD m_dwMobVnum;
 		int m_iKillDrop;
 		std::string m_stName;
-		std::vector<int> m_vecProbs;
-		std::vector<SMobItemGroupInfo> m_vecItems;
+		ProbsVector m_vecProbs;
+		ItemGroupInfoVector m_vecItems;
 };
+
+struct SDropItemGroupInfo
+{
+	DWORD	dwVnum;
+	DWORD	dwPct;
+	int	iCount;
+
+	SDropItemGroupInfo(DWORD dwVnum, DWORD dwPct, int iCount)
+		: dwVnum(dwVnum), dwPct(dwPct), iCount(iCount)
+	{}
+};
+
+typedef std::vector<SDropItemGroupInfo> DropItemGroupInfoVector;
 
 class CDropItemGroup
 {
-	struct SDropItemGroupInfo
-	{
-		DWORD	dwVnum;
-		DWORD	dwPct;
-		int	iCount;
-
-		SDropItemGroupInfo(DWORD dwVnum, DWORD dwPct, int iCount)
-			: dwVnum(dwVnum), dwPct(dwPct), iCount(iCount)
-			{}
-	};
-
 	public:
 	CDropItemGroup(DWORD dwVnum, DWORD dwMobVnum, const std::string& r_stName)
 		:
@@ -258,7 +265,7 @@ class CDropItemGroup
 	{
 	}
 
-	const std::vector<SDropItemGroupInfo> & GetVector()
+	const DropItemGroupInfoVector& GetVector()
 	{
 		return m_vec_items;
 	}
@@ -272,26 +279,28 @@ class CDropItemGroup
 	DWORD m_dwVnum;
 	DWORD m_dwMobVnum;
 	std::string m_stName;
-	std::vector<SDropItemGroupInfo> m_vec_items;
+	DropItemGroupInfoVector m_vec_items;
 };
+
+struct SLevelItemGroupInfo
+{
+	DWORD dwVNum;
+	DWORD dwPct;
+	int iCount;
+
+	SLevelItemGroupInfo(DWORD dwVnum, DWORD dwPct, int iCount)
+		: dwVNum(dwVnum), dwPct(dwPct), iCount(iCount)
+	{ }
+};
+
+typedef std::vector<SLevelItemGroupInfo> LevelItemGroupInfoVector;
 
 class CLevelItemGroup
 {
-	struct SLevelItemGroupInfo
-	{
-		DWORD dwVNum;
-		DWORD dwPct;
-		int iCount;
-
-		SLevelItemGroupInfo(DWORD dwVnum, DWORD dwPct, int iCount)
-			: dwVNum(dwVnum), dwPct(dwPct), iCount(iCount)
-		{ }
-	};
-
 	private :
 		DWORD m_dwLevelLimit;
 		std::string m_stName;
-		std::vector<SLevelItemGroupInfo> m_vec_items;
+		LevelItemGroupInfoVector m_vec_items;
 
 	public :
 		CLevelItemGroup(DWORD dwLevelLimit)
@@ -305,25 +314,27 @@ class CLevelItemGroup
 			m_vec_items.push_back(SLevelItemGroupInfo(dwItemVnum, dwPct, iCount));
 		}
 
-		const std::vector<SLevelItemGroupInfo> & GetVector()
+		const LevelItemGroupInfoVector& GetVector()
 		{
 			return m_vec_items;
 		}
 };
 
+struct SThiefGroupInfo
+{
+	DWORD	dwVnum;
+	DWORD	dwPct;
+	int	iCount;
+
+	SThiefGroupInfo(DWORD dwVnum, DWORD dwPct, int iCount)
+		: dwVnum(dwVnum), dwPct(dwPct), iCount(iCount)
+	{}
+};
+
+typedef std::vector<SThiefGroupInfo> ItemThiefGroupInfoVector;
+
 class CBuyerThiefGlovesItemGroup
 {
-	struct SThiefGroupInfo
-	{
-		DWORD	dwVnum;
-		DWORD	dwPct;
-		int	iCount;
-
-		SThiefGroupInfo(DWORD dwVnum, DWORD dwPct, int iCount)
-			: dwVnum(dwVnum), dwPct(dwPct), iCount(iCount)
-			{}
-	};
-
 	public:
 	CBuyerThiefGlovesItemGroup(DWORD dwVnum, DWORD dwMobVnum, const std::string& r_stName)
 		:
@@ -333,7 +344,7 @@ class CBuyerThiefGlovesItemGroup
 	{
 	}
 
-	const std::vector<SThiefGroupInfo> & GetVector()
+	const ItemThiefGroupInfoVector& GetVector()
 	{
 		return m_vec_items;
 	}
@@ -347,10 +358,21 @@ class CBuyerThiefGlovesItemGroup
 	DWORD m_dwVnum;
 	DWORD m_dwMobVnum;
 	std::string m_stName;
-	std::vector<SThiefGroupInfo> m_vec_items;
+	ItemThiefGroupInfoVector m_vec_items;
 };
 
 class ITEM;
+
+typedef std::map<DWORD, int> ItemToSpecialGroupMap;
+typedef std::map<DWORD, CDropItemGroup*> pkDropItemGroupMap;
+typedef std::map<DWORD, CLevelItemGroup*> pkLevelItemGroupMap;
+typedef std::map<DWORD, CMobItemGroup*> pkMobItemGroupMap;
+typedef std::map<DWORD, CBuyerThiefGlovesItemGroup*> pkGloveItemGroupMap;
+typedef std::map<DWORD, DWORD> EtcItemDropProbMap;
+typedef std::map<DWORD, DWORD> ItemRefineFromMap;
+typedef std::map<DWORD, CSpecialItemGroup*> SpecialItemGroupMap;
+typedef std::map<DWORD, CSpecialAttrGroup*> SpecialAttrGroupMap;
+typedef std::map<DWORD, LPITEM> ItemMap;
 
 class ITEM_MANAGER : public singleton<ITEM_MANAGER>
 {
@@ -412,7 +434,7 @@ class ITEM_MANAGER : public singleton<ITEM_MANAGER>
 		const std::vector<TItemTable> & GetTable() { return m_vec_prototype; }
 
 		// CHECK_UNIQUE_GROUP
-		int			GetSpecialGroupFromItem(DWORD dwVnum) const { itertype(m_ItemToSpecialGroup) it = m_ItemToSpecialGroup.find(dwVnum); return (it == m_ItemToSpecialGroup.end()) ? 0 : it->second; }
+		int			GetSpecialGroupFromItem(DWORD dwVnum) const { ItemToSpecialGroupMap::const_iterator it = m_ItemToSpecialGroup.find(dwVnum); return (it == m_ItemToSpecialGroup.end()) ? 0 : it->second; }
 		// END_OF_CHECK_UNIQUE_GROUP
 
 	protected:
@@ -424,7 +446,7 @@ class ITEM_MANAGER : public singleton<ITEM_MANAGER>
 
 		std::vector<TItemTable>		m_vec_prototype;
 		std::vector<TItemTable*> m_vec_item_vnum_range_info;
-		std::map<DWORD, DWORD>		m_map_ItemRefineFrom;
+		ItemRefineFromMap		m_map_ItemRefineFrom;
 		int				m_iTopOfTable;
 
 		ITEM_VID_MAP			m_VIDMap;			///< m_dwVIDCount 의 값단위로 아이템을 저장한다.
@@ -434,18 +456,18 @@ class ITEM_MANAGER : public singleton<ITEM_MANAGER>
 		TItemIDRangeTable	m_ItemIDSpareRange;
 
 		TR1_NS::unordered_set<LPITEM> m_set_pkItemForDelayedSave;
-		std::map<DWORD, LPITEM>		m_map_pkItemByID;
-		std::map<DWORD, DWORD>		m_map_dwEtcItemDropProb;
-		std::map<DWORD, CDropItemGroup*> m_map_pkDropItemGroup;
-		std::map<DWORD, CSpecialItemGroup*> m_map_pkSpecialItemGroup;
-		std::map<DWORD, CSpecialItemGroup*> m_map_pkQuestItemGroup;
-		std::map<DWORD, CSpecialAttrGroup*> m_map_pkSpecialAttrGroup;
-		std::map<DWORD, CMobItemGroup*> m_map_pkMobItemGroup;
-		std::map<DWORD, CLevelItemGroup*> m_map_pkLevelItemGroup;
-		std::map<DWORD, CBuyerThiefGlovesItemGroup*> m_map_pkGloveItemGroup;
+		ItemMap		m_map_pkItemByID;
+		EtcItemDropProbMap		m_map_dwEtcItemDropProb;
+		pkDropItemGroupMap m_map_pkDropItemGroup;
+		SpecialItemGroupMap m_map_pkSpecialItemGroup;
+		SpecialItemGroupMap m_map_pkQuestItemGroup;
+		SpecialAttrGroupMap m_map_pkSpecialAttrGroup;
+		pkMobItemGroupMap m_map_pkMobItemGroup;
+		pkLevelItemGroupMap		m_map_pkLevelItemGroup;
+		pkGloveItemGroupMap m_map_pkGloveItemGroup;
 
 		// CHECK_UNIQUE_GROUP
-		std::map<DWORD, int>		m_ItemToSpecialGroup;
+		ItemToSpecialGroupMap		m_ItemToSpecialGroup;
 		// END_OF_CHECK_UNIQUE_GROUP
 	
 	private:

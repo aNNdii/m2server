@@ -610,7 +610,7 @@ void CClientManager::RESULT_SAFEBOX_LOAD(CPeer * pkPeer, SQLMsg * msg)
 		static std::vector<TPlayerItem> s_items;
 		CreateItemTableFromRes(msg->Get()->pSQLResult, &s_items, pi->account_id);
 
-		std::set<TItemAward *> * pSet = ItemAwardManager::instance().GetByLogin(pi->login);
+		ItemAwardSet* pSet = ItemAwardManager::instance().GetByLogin(pi->login);
 
 		if (pSet && !m_vec_itemTable.empty())
 		{
@@ -637,9 +637,7 @@ void CClientManager::RESULT_SAFEBOX_LOAD(CPeer * pkPeer, SQLMsg * msg)
 			if (!bEscape)
 			{
 				std::vector<std::pair<DWORD, DWORD> > vec_dwFinishedAwardID;
-
-				typeof(pSet->begin()) it = pSet->begin();
-
+				ItemAwardSet::const_iterator it = pSet->begin();
 				char szQuery[512];
 
 				while (it != pSet->end())

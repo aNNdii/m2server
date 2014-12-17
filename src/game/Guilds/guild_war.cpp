@@ -405,7 +405,7 @@ bool CGuild::DeclareWar(DWORD dwOppGID, BYTE type, BYTE state)
 
 bool CGuild::CheckStartWar(DWORD dwOppGID)
 {
-	itertype(m_EnemyGuild) it = m_EnemyGuild.find(dwOppGID);
+	TEnemyGuildContainer::const_iterator it = m_EnemyGuild.find(dwOppGID);
 
 	if (it == m_EnemyGuild.end())
 		return false;
@@ -420,7 +420,7 @@ bool CGuild::CheckStartWar(DWORD dwOppGID)
 
 void CGuild::StartWar(DWORD dwOppGID)
 {
-	itertype(m_EnemyGuild) it = m_EnemyGuild.find(dwOppGID);
+	TEnemyGuildContainer::const_iterator it = m_EnemyGuild.find(dwOppGID);
 
 	if (it == m_EnemyGuild.end())
 		return;
@@ -449,7 +449,7 @@ bool CGuild::WaitStartWar(DWORD dwOppGID)
 	}
 
 	//상대방 길드 TGuildWar 를 얻어온다.
-	itertype(m_EnemyGuild) it = m_EnemyGuild.find(dwOppGID);
+	TEnemyGuildContainer::const_iterator it = m_EnemyGuild.find(dwOppGID);
 	if (it == m_EnemyGuild.end())
 	{
 		sys_log(0 ,"GuildWar.WaitStartWar.UNKNOWN_ENEMY id(%u -> %u)", GetID(), dwOppGID);
@@ -561,7 +561,7 @@ void CGuild::RefuseWar(DWORD dwOppGID)
 	if (dwOppGID == GetID())
 		return;
 
-	itertype(m_EnemyGuild) it = m_EnemyGuild.find(dwOppGID);
+	TEnemyGuildContainer::const_iterator it = m_EnemyGuild.find(dwOppGID);
 
 	if (it != m_EnemyGuild.end() && (it->second.state == GUILD_WAR_SEND_DECLARE || it->second.state == GUILD_WAR_RECV_DECLARE))
 	{
@@ -577,7 +577,7 @@ void CGuild::ReserveWar(DWORD dwOppGID, BYTE type)
 	if (dwOppGID == GetID())
 		return;
 
-	itertype(m_EnemyGuild) it = m_EnemyGuild.find(dwOppGID);
+	TEnemyGuildContainer::iterator it = m_EnemyGuild.find(dwOppGID);
 
 	if (it == m_EnemyGuild.end())
 	{
@@ -596,7 +596,7 @@ void CGuild::EndWar(DWORD dwOppGID)
 	if (dwOppGID == GetID())
 		return;
 
-	itertype(m_EnemyGuild) it = m_EnemyGuild.find(dwOppGID);
+	TEnemyGuildContainer::const_iterator it = m_EnemyGuild.find(dwOppGID);
 
 	if (it != m_EnemyGuild.end())
 	{
@@ -610,7 +610,7 @@ void CGuild::EndWar(DWORD dwOppGID)
 
 		if (!UnderAnyWar())
 		{
-			for (itertype(m_memberOnline) it = m_memberOnline.begin(); it != m_memberOnline.end(); ++it)
+			for (TGuildMemberOnlineContainer::const_iterator it = m_memberOnline.begin(); it != m_memberOnline.end(); ++it)
 			{
 				LPCHARACTER ch = *it;
 				ch->RemoveAffect(GUILD_SKILL_BLOOD);
@@ -628,7 +628,7 @@ void CGuild::EndWar(DWORD dwOppGID)
 
 void CGuild::SetGuildWarMapIndex(DWORD dwOppGID, long lMapIndex)
 {
-	itertype(m_EnemyGuild) it = m_EnemyGuild.find(dwOppGID);
+	TEnemyGuildContainer::iterator it = m_EnemyGuild.find(dwOppGID);
 
 	if (it == m_EnemyGuild.end())
 		return;
@@ -639,12 +639,12 @@ void CGuild::SetGuildWarMapIndex(DWORD dwOppGID, long lMapIndex)
 
 void CGuild::GuildWarEntryAccept(DWORD dwOppGID, LPCHARACTER ch)
 {
-	itertype(m_EnemyGuild) git = m_EnemyGuild.find(dwOppGID);
+	TEnemyGuildContainer::iterator git = m_EnemyGuild.find(dwOppGID);
 
 	if (git == m_EnemyGuild.end())
 		return;
 
-	TGuildWar & gw(git->second);
+	TGuildWar& gw(git->second);
 
 	if (gw.type == GUILD_WAR_TYPE_FIELD)
 		return;
@@ -672,14 +672,14 @@ void CGuild::GuildWarEntryAccept(DWORD dwOppGID, LPCHARACTER ch)
 
 void CGuild::GuildWarEntryAsk(DWORD dwOppGID)
 {
-	itertype(m_EnemyGuild) git = m_EnemyGuild.find(dwOppGID);
+	TEnemyGuildContainer::iterator git = m_EnemyGuild.find(dwOppGID);
 	if (git == m_EnemyGuild.end())
 	{
 		sys_err("GuildWar.GuildWarEntryAsk.UNKNOWN_ENEMY(%d)", dwOppGID);
 		return;
 	}
 
-	TGuildWar & gw(git->second);
+	TGuildWar& gw(git->second);
 
 	sys_log(0, "GuildWar.GuildWarEntryAsk id(%d vs %d), map(%d)", GetID(), dwOppGID, gw.map_index);
 	if (!gw.map_index)
@@ -697,7 +697,7 @@ void CGuild::GuildWarEntryAsk(DWORD dwOppGID)
 
 	sys_log(0, "GuildWar.GuildWarEntryAsk.OnlineMemberCount(%d)", m_memberOnline.size());
 
-	itertype(m_memberOnline) it = m_memberOnline.begin();
+	TGuildMemberOnlineContainer::const_iterator it = m_memberOnline.begin();
 
 	while (it != m_memberOnline.end())
 	{
@@ -728,7 +728,7 @@ void CGuild::SetLadderPoint(int point)
 	{
 		char buf[256];
 		snprintf(buf, sizeof(buf), LC_TEXT("<길드> 래더 점수가 %d 점이 되었습니다"), point);
-		for (itertype(m_memberOnline) it = m_memberOnline.begin(); it!=m_memberOnline.end();++it)
+		for (TGuildMemberOnlineContainer::const_iterator it = m_memberOnline.begin(); it != m_memberOnline.end(); ++it)
 		{
 			LPCHARACTER ch = (*it);
 			ch->ChatPacket(CHAT_TYPE_INFO, buf);

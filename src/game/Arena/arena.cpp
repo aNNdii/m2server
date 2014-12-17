@@ -696,7 +696,7 @@ bool CArenaManager::OnDead(LPCHARACTER pCharKiller, LPCHARACTER pCharVictim)
 	long mapIndex = pCharKiller->GetMapIndex();
 	if (mapIndex != pCharVictim->GetMapIndex()) return false;
 
-	itertype(m_mapArenaMap) iter = m_mapArenaMap.find(mapIndex);
+	MapArenaMap::const_iterator iter = m_mapArenaMap.find(mapIndex);
 	if (iter == m_mapArenaMap.end()) return false;
 
 	CArenaMap* pArenaMap = (CArenaMap*)(iter->second);
@@ -708,7 +708,7 @@ bool CArenaMap::OnDead(LPCHARACTER pCharKiller, LPCHARACTER pCharVictim)
 	DWORD dwPIDA = pCharKiller->GetPlayerID();
 	DWORD dwPIDB = pCharVictim->GetPlayerID();
 
-	itertype(m_listArena) iter = m_listArena.begin();
+	ArenaList::const_iterator iter = m_listArena.begin();
 
 	for (; iter != m_listArena.end(); iter++)
 	{
@@ -866,7 +866,7 @@ bool CArena::OnDead(DWORD dwPIDA, DWORD dwPIDB)
 
 bool CArenaManager::AddObserver(LPCHARACTER pChar, DWORD mapIdx, WORD ObserverX, WORD ObserverY)
 {
-	itertype(m_mapArenaMap) iter = m_mapArenaMap.find(mapIdx);
+	MapArenaMap::const_iterator iter = m_mapArenaMap.find(mapIdx);
 
 	if (iter == m_mapArenaMap.end()) return false;
 
@@ -876,7 +876,7 @@ bool CArenaManager::AddObserver(LPCHARACTER pChar, DWORD mapIdx, WORD ObserverX,
 
 bool CArenaMap::AddObserver(LPCHARACTER pChar, WORD ObserverX, WORD ObserverY)
 {
-	itertype(m_listArena) iter = m_listArena.begin();
+	ArenaList::const_iterator iter = m_listArena.begin();
 
 	for (; iter != m_listArena.end(); iter++)
 	{
@@ -916,7 +916,7 @@ bool CArenaManager::IsArenaMap(DWORD dwMapIndex)
 
 MEMBER_IDENTITY CArenaManager::IsMember(DWORD dwMapIndex, DWORD PID)
 {
-	itertype(m_mapArenaMap) iter = m_mapArenaMap.find(dwMapIndex);
+	MapArenaMap::const_iterator iter = m_mapArenaMap.find(dwMapIndex);
 
 	if (iter != m_mapArenaMap.end())
 	{
@@ -929,7 +929,7 @@ MEMBER_IDENTITY CArenaManager::IsMember(DWORD dwMapIndex, DWORD PID)
 
 MEMBER_IDENTITY CArenaMap::IsMember(DWORD PID)
 {
-	itertype(m_listArena) iter = m_listArena.begin();
+	ArenaList::const_iterator iter = m_listArena.begin();
 
 	for (; iter != m_listArena.end(); iter++)
 	{
@@ -943,7 +943,7 @@ MEMBER_IDENTITY CArenaMap::IsMember(DWORD PID)
 
 bool CArena::IsObserver(DWORD PID)
 {
-	itertype(m_mapObserver) iter = m_mapObserver.find(PID);
+	MapObserverMap::const_iterator iter = m_mapObserver.find(PID);
 
 	return iter != m_mapObserver.end();
 }
@@ -970,7 +970,7 @@ void CArena::OnDisconnect(DWORD pid)
 
 void CArena::RemoveObserver(DWORD pid)
 {
-	itertype(m_mapObserver) iter = m_mapObserver.find(pid);
+	MapObserverMap::const_iterator iter = m_mapObserver.find(pid);
 
 	if (iter != m_mapObserver.end())
 	{
@@ -981,7 +981,7 @@ void CArena::RemoveObserver(DWORD pid)
 void CArena::SendPacketToObserver(const void * c_pvData, int iSize)
 {
 	/*
-	itertype(m_mapObserver) iter = m_mapObserver.begin();
+	MapObserverMap::const_iterator iter = m_mapObserver.begin();
 
 	for (; iter != m_mapObserver.end(); iter++)
 	{
@@ -1008,7 +1008,7 @@ void CArena::SendChatPacketToObserver(BYTE type, const char * format, ...)
 	vsnprintf(chatbuf, sizeof(chatbuf), format, args);
 	va_end(args);
 
-	itertype(m_mapObserver) iter = m_mapObserver.begin();
+	MapObserverMap::const_iterator iter = m_mapObserver.begin();
 
 	for (; iter != m_mapObserver.end(); iter++)
 	{
@@ -1027,7 +1027,7 @@ void CArena::SendChatPacketToObserver(BYTE type, const char * format, ...)
 
 bool CArenaManager::EndDuel(DWORD pid)
 {
-	itertype(m_mapArenaMap) iter = m_mapArenaMap.begin();
+	MapArenaMap::const_iterator iter = m_mapArenaMap.begin();
 
 	for (; iter != m_mapArenaMap.end(); iter++)
 	{
@@ -1039,7 +1039,7 @@ bool CArenaManager::EndDuel(DWORD pid)
 
 bool CArenaMap::EndDuel(DWORD pid)
 {
-	itertype(m_listArena) iter = m_listArena.begin();
+	ArenaList::const_iterator iter = m_listArena.begin();
 
 	for (; iter != m_listArena.end(); iter++)
 	{
@@ -1057,7 +1057,7 @@ bool CArenaManager::RegisterObserverPtr(LPCHARACTER pChar, DWORD mapIdx, WORD Ob
 {
 	if (pChar == NULL) return false;
 
-	itertype(m_mapArenaMap) iter = m_mapArenaMap.find(mapIdx);
+	MapArenaMap::const_iterator iter = m_mapArenaMap.find(mapIdx);
 
 	if (iter == m_mapArenaMap.end())
 	{
@@ -1071,7 +1071,7 @@ bool CArenaManager::RegisterObserverPtr(LPCHARACTER pChar, DWORD mapIdx, WORD Ob
 
 bool CArenaMap::RegisterObserverPtr(LPCHARACTER pChar, DWORD mapIdx, WORD ObserverX, WORD ObserverY)
 {
-	itertype(m_listArena) iter = m_listArena.begin();
+	ArenaList::const_iterator iter = m_listArena.begin();
 
 	for (; iter != m_listArena.end(); ++iter)
 	{
@@ -1089,7 +1089,7 @@ bool CArenaMap::RegisterObserverPtr(LPCHARACTER pChar, DWORD mapIdx, WORD Observ
 bool CArena::RegisterObserverPtr(LPCHARACTER pChar)
 {
 	DWORD pid = pChar->GetPlayerID();
-	itertype(m_mapObserver) iter = m_mapObserver.find(pid);
+	MapObserverMap::const_iterator iter = m_mapObserver.find(pid);
 
 	if (iter == m_mapObserver.end())
 	{

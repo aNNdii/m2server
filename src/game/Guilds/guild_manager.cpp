@@ -186,8 +186,7 @@ CGuild* CGuildManager::FindGuild(DWORD guild_id)
 
 CGuild*	CGuildManager::FindGuildByName(const std::string guild_name)
 {
-	itertype(m_mapGuild) it;
-	for (it = m_mapGuild.begin(); it!=m_mapGuild.end(); ++it)
+	for (TGuildMap::const_iterator it = m_mapGuild.begin(); it != m_mapGuild.end(); ++it)
 	{
 		if (it->second->GetName()==guild_name)
 			return it->second;
@@ -273,7 +272,7 @@ int CGuildManager::GetRank(CGuild* g)
 	int point = g->GetLadderPoint();
 	int rank = 1;
 
-	for (itertype(m_mapGuild) it = m_mapGuild.begin(); it != m_mapGuild.end();++it)
+	for (TGuildMap::const_iterator it = m_mapGuild.begin(); it != m_mapGuild.end(); ++it)
 	{
 		CGuild * pg = it->second;
 
@@ -312,7 +311,7 @@ void CGuildManager::GetHighRankString(DWORD dwMyGuild, char * buffer, size_t buf
 	using namespace std;
 	vector<CGuild*> v;
 
-	for (itertype(m_mapGuild) it = m_mapGuild.begin(); it != m_mapGuild.end(); ++it)
+	for (TGuildMap::const_iterator it = m_mapGuild.begin(); it != m_mapGuild.end(); ++it)
 	{
 		if (it->second)
 			v.push_back(it->second);
@@ -386,7 +385,7 @@ void CGuildManager::GetAroundRankString(DWORD dwMyGuild, char * buffer, size_t b
 	using namespace std;
 	vector<CGuild*> v;
 
-	for (itertype(m_mapGuild) it = m_mapGuild.begin(); it != m_mapGuild.end(); ++it)
+	for (TGuildMap::const_iterator it = m_mapGuild.begin(); it != m_mapGuild.end(); ++it)
 	{
 		if (it->second)
 			v.push_back(it->second);
@@ -774,7 +773,7 @@ void CGuildManager::ReserveWar(DWORD dwGuild1, DWORD dwGuild2, BYTE bType) // fr
 
 void CGuildManager::ShowGuildWarList(LPCHARACTER ch)
 {
-	for (itertype(m_GuildWar) it = m_GuildWar.begin(); it != m_GuildWar.end(); ++it)
+	for (TGuildWarContainer::const_iterator it = m_GuildWar.begin(); it != m_GuildWar.end(); ++it)
 	{
 		CGuild * A = TouchGuild(it->first);
 		CGuild * B = TouchGuild(it->second);
@@ -801,9 +800,7 @@ void CGuildManager::SendGuildWar(LPCHARACTER ch)
 	p.size = sizeof(p) + (sizeof(DWORD) * 2) * m_GuildWar.size();
 	buf.write(&p, sizeof(p));
 
-	itertype(m_GuildWar) it;
-
-	for (it = m_GuildWar.begin(); it != m_GuildWar.end(); ++it)
+	for (TGuildWarContainer::const_iterator it = m_GuildWar.begin(); it != m_GuildWar.end(); ++it)
 	{
 		buf.write(&it->first, sizeof(DWORD));
 		buf.write(&it->second, sizeof(DWORD));
@@ -856,7 +853,7 @@ void CGuildManager::Kill(LPCHARACTER killer, LPCHARACTER victim)
 
 void CGuildManager::StopAllGuildWar()
 {
-	for (itertype(m_GuildWar) it = m_GuildWar.begin(); it != m_GuildWar.end(); ++it)
+	for (TGuildWarContainer::const_iterator it = m_GuildWar.begin(); it != m_GuildWar.end(); ++it)
 	{
 		CGuild * g = CGuildManager::instance().TouchGuild(it->first);
 		CGuild * pg = CGuildManager::instance().TouchGuild(it->second);
@@ -869,9 +866,8 @@ void CGuildManager::StopAllGuildWar()
 
 void CGuildManager::ReserveWarAdd(TGuildWarReserve * p)
 {
-	itertype(m_map_kReserveWar) it = m_map_kReserveWar.find(p->dwID);
-
 	CGuildWarReserveForGame * pkReserve;
+	ReserveWarMap::const_iterator it = m_map_kReserveWar.find(p->dwID);
 
 	if (it != m_map_kReserveWar.end())
 		pkReserve = it->second;
@@ -891,7 +887,7 @@ void CGuildManager::ReserveWarAdd(TGuildWarReserve * p)
 
 void CGuildManager::ReserveWarBet(TPacketGDGuildWarBet * p)
 {
-	itertype(m_map_kReserveWar) it = m_map_kReserveWar.find(p->dwWarID);
+	ReserveWarMap::const_iterator it = m_map_kReserveWar.find(p->dwWarID);
 
 	if (it == m_map_kReserveWar.end())
 		return;
@@ -901,7 +897,7 @@ void CGuildManager::ReserveWarBet(TPacketGDGuildWarBet * p)
 
 bool CGuildManager::IsBet(DWORD dwID, const char * c_pszLogin)
 {
-	itertype(m_map_kReserveWar) it = m_map_kReserveWar.find(dwID);
+	ReserveWarMap::const_iterator it = m_map_kReserveWar.find(dwID);
 
 	if (it == m_map_kReserveWar.end())
 		return true;
@@ -912,12 +908,12 @@ bool CGuildManager::IsBet(DWORD dwID, const char * c_pszLogin)
 void CGuildManager::ReserveWarDelete(DWORD dwID)
 {
 	sys_log(0, "ReserveWarDelete %u", dwID);
-	itertype(m_map_kReserveWar) it = m_map_kReserveWar.find(dwID);
+	ReserveWarMap::const_iterator it = m_map_kReserveWar.find(dwID);
 
 	if (it == m_map_kReserveWar.end())
 		return;
 
-	itertype(m_vec_kReserveWar) it_vec = m_vec_kReserveWar.begin();
+	ReserveWarVector::const_iterator it_vec = m_vec_kReserveWar.begin();
 
 	while (it_vec != m_vec_kReserveWar.end())
 	{

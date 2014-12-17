@@ -1453,7 +1453,7 @@ void CHARACTER::Dead(LPCHARACTER pkKiller, bool bImmediateDead)
 		//
 		// 클라이언트에 에펙트 패킷을 다시 보낸다.
 		//
-		itertype(m_list_pkAffect) it = m_list_pkAffect.begin();
+		AffectContainerList::const_iterator it = m_list_pkAffect.begin();
 
 		while (it != m_list_pkAffect.end())
 			SendAffectAddPacket(GetDesc(), *it++);

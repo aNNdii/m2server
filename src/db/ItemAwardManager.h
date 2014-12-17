@@ -19,6 +19,8 @@ typedef struct SItemAward
     bool	bMall;
 } TItemAward;
 
+typedef std::set<TItemAward *> ItemAwardSet;
+
 class ItemAwardManager : public singleton<ItemAwardManager>
 {
     public:
@@ -27,17 +29,17 @@ class ItemAwardManager : public singleton<ItemAwardManager>
 
 	void				RequestLoad();
 	void				Load(SQLMsg * pMsg);
-	std::set<TItemAward *> *	GetByLogin(const char * c_pszLogin);
+	ItemAwardSet*		GetByLogin(const char * c_pszLogin);
 
 	void				Taken(DWORD dwAwardID, DWORD dwItemID);
 	// gift notify
 	std::map<DWORD, TItemAward *>& GetMapAward();
-	std::map<std::string, std::set<TItemAward *> >& GetMapkSetAwardByLogin();
+	std::map<std::string, ItemAwardSet>& GetMapkSetAwardByLogin();
     private:
 	// ID, ItemAward pair
 	std::map<DWORD, TItemAward *>			m_map_award;
 	// PID, ItemAward pair
-	std::map<std::string, std::set<TItemAward *> >	m_map_kSetAwardByLogin;
+	std::map<std::string, ItemAwardSet>	m_map_kSetAwardByLogin;
 };
 
 #endif

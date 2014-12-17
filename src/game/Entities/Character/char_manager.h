@@ -14,6 +14,10 @@ class CDungeon;
 class CHARACTER;
 class CharacterVectorInteractor;
 
+typedef TR1_NS::unordered_map<DWORD, LPCHARACTER> pkCharMap;
+typedef std::map<DWORD, DWORD> MobKillCountMap;
+typedef std::map<DWORD, CHARACTER_SET> pkCharRaceSet;
+
 class CHARACTER_MANAGER : public singleton<CHARACTER_MANAGER>
 {
 	public:
@@ -119,8 +123,8 @@ class CHARACTER_MANAGER : public singleton<CHARACTER_MANAGER>
 		int					m_iUserDamageRatePremium;
 		int					m_iVIDCount;
 
-		TR1_NS::unordered_map<DWORD, LPCHARACTER> m_map_pkChrByVID;
-		TR1_NS::unordered_map<DWORD, LPCHARACTER> m_map_pkChrByPID;
+		pkCharMap m_map_pkChrByVID;
+		pkCharMap m_map_pkChrByPID;
 		NAME_MAP			m_map_pkPCChr;
 
 		char				dummy1[1024];	// memory barrier
@@ -130,10 +134,10 @@ class CHARACTER_MANAGER : public singleton<CHARACTER_MANAGER>
 
 		LPCHARACTER			m_pkChrSelectedStone;
 
-		std::map<DWORD, DWORD> m_map_dwMobKillCount;
+		MobKillCountMap		m_map_dwMobKillCount;
 
 		std::set<DWORD>		m_set_dwRegisteredRaceNum;
-		std::map<DWORD, CHARACTER_SET> m_map_pkChrByRaceNum;
+		pkCharRaceSet		m_map_pkChrByRaceNum;
 
 		bool				m_bUsePendingDestroy;
 		CHARACTER_SET		m_set_pkChrPendingDestroy;

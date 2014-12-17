@@ -1634,8 +1634,8 @@ BYTE CParty::GetMemberMaxLevel()
 {
 	BYTE bMax = 0;
 
-	itertype(m_memberMap) it = m_memberMap.begin();
-	while (it!=m_memberMap.end())
+	TMemberMap::const_iterator it = m_memberMap.begin();
+	while (it != m_memberMap.end())
 	{
 		if (!it->second.bLevel)
 		{
@@ -1656,8 +1656,8 @@ BYTE CParty::GetMemberMinLevel()
 {
 	BYTE bMin = PLAYER_MAX_LEVEL_CONST;
 
-	itertype(m_memberMap) it = m_memberMap.begin();
-	while (it!=m_memberMap.end())
+	TMemberMap::const_iterator it = m_memberMap.begin();
+	while (it != m_memberMap.end())
 	{
 		if (!it->second.bLevel)
 		{

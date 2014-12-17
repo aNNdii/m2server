@@ -24,7 +24,7 @@ void ItemAwardManager::RequestLoad()
 	CDBManager::instance().ReturnQuery(szQuery, QID_ITEM_AWARD_LOAD, 0, NULL);
 }
 
-void ItemAwardManager::Load(SQLMsg * pMsg)
+void ItemAwardManager::Load(SQLMsg* pMsg)
 {
 	MYSQL_RES * pRes = pMsg->Get()->pSQLResult;
 
@@ -75,7 +75,7 @@ void ItemAwardManager::Load(SQLMsg * pMsg)
 
 		printf("ITEM_AWARD load id %u bMall %d \n", kData->dwID, kData->bMall);
 		sys_log(0, "ITEM_AWARD: load id %lu login %s vnum %lu count %u socket %lu", kData->dwID, kData->szLogin, kData->dwVnum, kData->dwCount, kData->dwSocket0);
-		std::set<TItemAward *> & kSet = m_map_kSetAwardByLogin[kData->szLogin];
+		ItemAwardSet& kSet = m_map_kSetAwardByLogin[kData->szLogin];
 		kSet.insert(kData);
 
 		if (dwID > g_dwLastCachedItemAwardID)
@@ -83,7 +83,7 @@ void ItemAwardManager::Load(SQLMsg * pMsg)
 	}
 }
 
-std::set<TItemAward *> * ItemAwardManager::GetByLogin(const char * c_pszLogin)
+ItemAwardSet* ItemAwardManager::GetByLogin(const char * c_pszLogin)
 {
 	itertype(m_map_kSetAwardByLogin) it = m_map_kSetAwardByLogin.find(c_pszLogin);
 
@@ -123,7 +123,7 @@ std::map<DWORD, TItemAward *>& ItemAwardManager::GetMapAward()
 	return m_map_award;
 }
 
-std::map<std::string, std::set<TItemAward *> >& ItemAwardManager::GetMapkSetAwardByLogin()
+std::map<std::string, ItemAwardSet>& ItemAwardManager::GetMapkSetAwardByLogin()
 {
 	return m_map_kSetAwardByLogin;
 }

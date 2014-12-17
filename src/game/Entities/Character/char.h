@@ -503,6 +503,8 @@ enum e_overtime
 	OT_5HOUR,
 };
 
+typedef const std::list<CAffect *> AffectContainerList;
+
 class CHARACTER : public CEntity, public CFSM, public CHorseRider
 {
 	protected:
@@ -913,13 +915,13 @@ class CHARACTER : public CEntity, public CFSM, public CHorseRider
 		void			RemoveBadAffect();
 
 		CAffect *		FindAffect(DWORD dwType, BYTE bApply=APPLY_NONE) const;
-		const std::list<CAffect *> & GetAffectContainer() const	{ return m_list_pkAffect; }
+		AffectContainerList& GetAffectContainer() const	{ return m_list_pkAffect; }
 		bool			RemoveAffect(CAffect * pkAff);
 
 	protected:
 		bool			m_bIsLoadedAffect;
 		TAffectFlag		m_afAffectFlag;
-		std::list<CAffect *>	m_list_pkAffect;
+		AffectContainerList	m_list_pkAffect;
 
 	public:
 		// PARTY_JOIN_BUG_FIX

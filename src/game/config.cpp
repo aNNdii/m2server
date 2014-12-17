@@ -193,7 +193,7 @@ static void FN_add_adminpageIP(char *line)
 
 static void FN_log_adminpage()
 {
-	itertype(g_stAdminPageIP) iter = g_stAdminPageIP.begin();
+	std::vector<std::string>::const_iterator iter = g_stAdminPageIP.begin();
 
 	while (iter != g_stAdminPageIP.end())
 	{

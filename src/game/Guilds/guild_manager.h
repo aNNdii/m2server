@@ -13,6 +13,9 @@ class CGuildWarReserveForGame
 		std::map<std::string, std::pair<DWORD, DWORD> > mapBet;
 };
 
+typedef std::map<DWORD, CGuildWarReserveForGame *> ReserveWarMap;
+typedef std::vector<CGuildWarReserveForGame *> ReserveWarVector;
+
 class CGuildManager : public singleton<CGuildManager>
 {
 	public:
@@ -89,8 +92,8 @@ class CGuildManager : public singleton<CGuildManager>
 
 		TGuildMap				m_map_pkGuildByPID;
 
-		std::map<DWORD, CGuildWarReserveForGame *>	m_map_kReserveWar;
-		std::vector<CGuildWarReserveForGame *>		m_vec_kReserveWar;
+		ReserveWarMap			m_map_kReserveWar;
+		ReserveWarVector		m_vec_kReserveWar;
 
 		friend class CGuild;
 };

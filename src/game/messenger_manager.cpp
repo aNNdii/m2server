@@ -28,17 +28,17 @@ void MessengerManager::Destroy()
 {
 }
 
-void MessengerManager::P2PLogin(MessengerManager::keyA account)
+void MessengerManager::P2PLogin(const std::string& account)
 {
 	Login(account);
 }
 
-void MessengerManager::P2PLogout(MessengerManager::keyA account)
+void MessengerManager::P2PLogout(const std::string& account)
 {
 	Logout(account);
 }
 
-void MessengerManager::Login(MessengerManager::keyA account)
+void MessengerManager::Login(const std::string& account)
 {
 	if (m_set_loginAccount.find(account) != m_set_loginAccount.end())
 		return;
@@ -80,20 +80,20 @@ void MessengerManager::LoadList(SQLMsg * msg)
 
 	SendList(account);
 
-	std::set<MessengerManager::keyT>::iterator it;
+	KeyTSet::iterator it;
 
 	for (it = m_InverseRelation[account].begin(); it != m_InverseRelation[account].end(); ++it)
 		SendLogin(*it, account);
 }
 
-void MessengerManager::Logout(MessengerManager::keyA account)
+void MessengerManager::Logout(const std::string& account)
 {
 	if (m_set_loginAccount.find(account) == m_set_loginAccount.end())
 		return;
 
 	m_set_loginAccount.erase(account);
 
-	std::set<MessengerManager::keyT>::iterator it;
+	KeyTSet::iterator it;
 
 	for (it = m_InverseRelation[account].begin(); it != m_InverseRelation[account].end(); ++it)
 	{
@@ -138,7 +138,7 @@ void MessengerManager::RequestToAdd(LPCHARACTER ch, LPCHARACTER target)
 	target->ChatPacket(CHAT_TYPE_COMMAND, "messenger_auth %s", ch->GetName());
 }
 
-void MessengerManager::AuthToAdd(MessengerManager::keyA account, MessengerManager::keyA companion, bool bDeny)
+void MessengerManager::AuthToAdd(const std::string& account, const std::string& companion, bool bDeny)
 {
 	DWORD dw1 = GetCRC32(companion.c_str(), companion.length());
 	DWORD dw2 = GetCRC32(account.c_str(), account.length());
@@ -162,7 +162,7 @@ void MessengerManager::AuthToAdd(MessengerManager::keyA account, MessengerManage
 	}
 }
 
-void MessengerManager::__AddToList(MessengerManager::keyA account, MessengerManager::keyA companion)
+void MessengerManager::__AddToList(const std::string& account, const std::string& companion)
 {
 	m_Relation[account].insert(companion);
 	m_InverseRelation[companion].insert(account);
@@ -183,7 +183,7 @@ void MessengerManager::__AddToList(MessengerManager::keyA account, MessengerMana
 		SendLogout(account, companion);
 }
 
-void MessengerManager::AddToList(MessengerManager::keyA account, MessengerManager::keyA companion)
+void MessengerManager::AddToList(const std::string& account, const std::string& companion)
 {
 	if (companion.size() == 0)
 		return;
@@ -205,7 +205,7 @@ void MessengerManager::AddToList(MessengerManager::keyA account, MessengerManage
 	P2P_MANAGER::instance().Send(&p2ppck, sizeof(TPacketGGMessenger));
 }
 
-void MessengerManager::__RemoveFromList(MessengerManager::keyA account, MessengerManager::keyA companion)
+void MessengerManager::__RemoveFromList(const std::string& account, const std::string& companion)
 {
 	m_Relation[account].erase(companion);
 	m_InverseRelation[companion].erase(account);
@@ -217,7 +217,7 @@ void MessengerManager::__RemoveFromList(MessengerManager::keyA account, Messenge
 		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("<메신져> %s 님을 메신저에서 삭제하였습니다."), companion.c_str());
 }
 
-void MessengerManager::RemoveFromList(MessengerManager::keyA account, MessengerManager::keyA companion)
+void MessengerManager::RemoveFromList(const std::string& account, const std::string& companion)
 {
 	if (companion.size() == 0)
 		return;
@@ -236,7 +236,7 @@ void MessengerManager::RemoveFromList(MessengerManager::keyA account, MessengerM
 	P2P_MANAGER::instance().Send(&p2ppck, sizeof(TPacketGGMessenger));
 }
 
-void MessengerManager::RemoveAllList(keyA account)
+void MessengerManager::RemoveAllList(const std::string& account)
 {
 	std::set<keyT>	company(m_Relation[account]);
 
@@ -264,7 +264,7 @@ void MessengerManager::RemoveAllList(keyA account)
 }
 
 
-void MessengerManager::SendList(MessengerManager::keyA account)
+void MessengerManager::SendList(const std::string& account)
 {
 	LPCHARACTER ch = CHARACTER_MANAGER::instance().FindPC(account.c_str());
 
@@ -293,7 +293,7 @@ void MessengerManager::SendList(MessengerManager::keyA account)
 
 	TEMP_BUFFER buf(128 * 1024); // 128k
 
-	itertype(m_Relation[account]) it = m_Relation[account].begin(), eit = m_Relation[account].end();
+	KeyTSet::const_iterator it = m_Relation[account].begin(), eit = m_Relation[account].end();
 
 	while (it != eit)
 	{
@@ -327,7 +327,7 @@ void MessengerManager::SendList(MessengerManager::keyA account)
 	d->Packet(buf.read_peek(), buf.size());
 }
 
-void MessengerManager::SendLogin(MessengerManager::keyA account, MessengerManager::keyA companion)
+void MessengerManager::SendLogin(const std::string& account, const std::string& companion)
 {
 	LPCHARACTER ch = CHARACTER_MANAGER::instance().FindPC(account.c_str());
 	LPDESC d = ch ? ch->GetDesc() : NULL;
@@ -354,7 +354,7 @@ void MessengerManager::SendLogin(MessengerManager::keyA account, MessengerManage
 	d->Packet(companion.c_str(), companion.size());
 }
 
-void MessengerManager::SendLogout(MessengerManager::keyA account, MessengerManager::keyA companion)
+void MessengerManager::SendLogout(const std::string& account, const std::string& companion)
 {
 	if (!companion.size())
 		return;

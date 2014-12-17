@@ -110,7 +110,7 @@ void CInputDB::LoginSuccess(DWORD dwHandle, const char *data)
 
 	TAccountTable * pTab = (TAccountTable *) data;
 
-	itertype(g_sim) it = g_sim.find(pTab->id);
+	std::map<DWORD, CLoginSim *>::const_iterator it = g_sim.find(pTab->id);
 	if (g_sim.end() != it)
 	{
 		sys_log(0, "CInputDB::LoginSuccess - already exist sim [%s]", pTab->login);
@@ -1541,7 +1541,7 @@ void CInputDB::ItemLoad(LPDESC d, const char * c_pData)
 		item->SetSkipSave(false);
 	}
 
-	itertype(v) it = v.begin();
+	std::vector<LPITEM>::const_iterator it = v.begin();
 
 	while (it != v.end())
 	{

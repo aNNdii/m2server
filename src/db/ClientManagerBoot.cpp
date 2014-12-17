@@ -297,7 +297,7 @@ bool CClientManager::InitializeShopTable()
 	m_pShopTable = new TShopTable[map_shop.size()];
 	m_iShopTableSize = map_shop.size();
 
-	typeof(map_shop.begin()) it = map_shop.begin();
+	std::map<int, TShopTable *>::const_iterator it = map_shop.begin();
 
 	int i = 0;
 
@@ -428,7 +428,7 @@ bool CClientManager::InitializeItemTable()
 
 	m_map_itemTableByVnum.clear();
 
-	itertype(m_vec_itemTable) it = m_vec_itemTable.begin();
+	ItemTableVector::iterator it = m_vec_itemTable.begin();
 
 	while (it != m_vec_itemTable.end())
 	{

@@ -325,7 +325,7 @@ CLand::~CLand()
 
 void CLand::Destroy()
 {
-	itertype(m_map_pkObject) it = m_map_pkObject.begin();
+	pkObjectMap::const_iterator it = m_map_pkObject.begin();
 
 	while (it != m_map_pkObject.end())
 	{
@@ -637,7 +637,7 @@ CManager::~CManager()
 
 void CManager::Destroy()
 {
-	itertype(m_map_pkLand) it = m_map_pkLand.begin();
+	MapPkLandMap::const_iterator it = m_map_pkLand.begin();
 	for ( ; it != m_map_pkLand.end(); ++it) {
 		M2_DELETE(it->second);
 	}
@@ -680,7 +680,7 @@ bool CManager::LoadObjectProto(const TObjectProto * pProto, int size) // from DB
 
 TObjectProto * CManager::GetObjectProto(DWORD dwVnum)
 {
-	itertype(m_map_pkObjectProto) it = m_map_pkObjectProto.find(dwVnum);
+	MapPkObjectProtoMap::const_iterator it = m_map_pkObjectProto.find(dwVnum);
 
 	if (it == m_map_pkObjectProto.end())
 		return NULL;
@@ -718,9 +718,8 @@ void CManager::UpdateLand(TLand * pTable)
 
 	pkLand->PutData(pTable);
 
-	const DESC_MANAGER::DESC_SET & cont = DESC_MANAGER::instance().GetClientSet();
-
-	itertype(cont) it = cont.begin();
+	const DESC_MANAGER::DESC_SET& cont = DESC_MANAGER::instance().GetClientSet();
+	DESC_MANAGER::DESC_SET::const_iterator it = cont.begin();
 
 	TPacketGCLandList p;
 
@@ -776,7 +775,7 @@ CLand * CManager::FindLand(long lMapIndex, long x, long y)
 	x -= r->sx;
 	y -= r->sy;
 
-	itertype(m_map_pkLand) it = m_map_pkLand.begin();
+	MapPkLandMap::const_iterator it = m_map_pkLand.begin();
 
 	while (it != m_map_pkLand.end())
 	{
@@ -800,7 +799,7 @@ CLand * CManager::FindLand(long lMapIndex, long x, long y)
 
 CLand * CManager::FindLandByGuild(DWORD GID)
 {
-	itertype(m_map_pkLand) it = m_map_pkLand.begin();
+	MapPkLandMap::const_iterator it = m_map_pkLand.begin();
 
 	while (it != m_map_pkLand.end())
 	{
@@ -866,7 +865,7 @@ bool CManager::LoadObject(TObject * pTable, bool isBoot) // from DB
 
 void CManager::FinalizeBoot()
 {
-	itertype(m_map_pkObjByID) it = m_map_pkObjByID.begin();
+	pkObjectMap::const_iterator it = m_map_pkObjByID.begin();
 
 	while (it != m_map_pkObjByID.end())
 	{
@@ -883,7 +882,7 @@ void CManager::FinalizeBoot()
 	sys_log(0, "FinalizeBoot");
 	// END_OF_BUILDING_NPC
 
-	itertype(m_map_pkLand) it2 = m_map_pkLand.begin();
+	MapPkLandMap::const_iterator it2 = m_map_pkLand.begin();
 
 	while (it2 != m_map_pkLand.end())
 	{
@@ -913,7 +912,7 @@ void CManager::DeleteObject(DWORD dwID) // from DB
 {
 	sys_log(0, "OBJ_DEL: %u", dwID);
 
-	itertype(m_map_pkObjByID) it = m_map_pkObjByID.find(dwID);
+	pkObjectMap::const_iterator it = m_map_pkObjByID.find(dwID);
 
 	if (it == m_map_pkObjByID.end())
 		return;
@@ -923,7 +922,7 @@ void CManager::DeleteObject(DWORD dwID) // from DB
 
 LPOBJECT CManager::FindObjectByVID(DWORD dwVID)
 {
-	itertype(m_map_pkObjByVID) it = m_map_pkObjByVID.find(dwVID);
+	pkObjectMap::const_iterator it = m_map_pkObjByVID.find(dwVID);
 
 	if (it == m_map_pkObjByVID.end())
 		return NULL;
@@ -945,7 +944,7 @@ void CManager::SendLandList(LPDESC d, long lMapIndex)
 
 	WORD wCount = 0;
 
-	itertype(m_map_pkLand) it = m_map_pkLand.begin();
+	MapPkLandMap::const_iterator it = m_map_pkLand.begin();
 
 	while (it != m_map_pkLand.end())
 	{
@@ -1022,7 +1021,7 @@ void CManager::ClearLandByGuildID(DWORD dwGuildID)
 
 void CLand::ClearLand()
 {
-	itertype(m_map_pkObject) iter = m_map_pkObject.begin();
+	pkObjectMap::const_iterator iter = m_map_pkObject.begin();
 
 	while ( iter != m_map_pkObject.end() )
 	{
@@ -1142,7 +1141,7 @@ bool CLand::RequestCreateWall(long nMapIndex, float rot)
 
 void CLand::RequestDeleteWall()
 {
-	itertype(m_map_pkObject) iter = m_map_pkObject.begin();
+	pkObjectMap::const_iterator iter = m_map_pkObject.begin();
 
 	while (iter != m_map_pkObject.end())
 	{
@@ -1247,7 +1246,7 @@ bool CLand::RequestCreateWallBlocks(DWORD dwVnum, long nMapIndex, char wallSize,
 
 void CLand::RequestDeleteWallBlocks(DWORD dwID)
 {
-	itertype(m_map_pkObject) iter = m_map_pkObject.begin();
+	pkObjectMap::const_iterator iter = m_map_pkObject.begin();
 
 	DWORD corner = dwID - 4;
 	DWORD wall = dwID - 3;

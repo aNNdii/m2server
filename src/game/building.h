@@ -53,6 +53,8 @@ namespace building
 			LPCHARACTER		m_chNPC;
 	};
 
+	typedef std::map<DWORD, LPOBJECT> pkObjectMap;
+
 	class CLand
 	{
 		public:
@@ -98,14 +100,17 @@ namespace building
 
 		protected:
 			TLand			m_data;
-			std::map<DWORD, LPOBJECT>	m_map_pkObject;
-			std::map<DWORD, LPOBJECT>	m_map_pkObjectByVID;
+			pkObjectMap		m_map_pkObject;
+			pkObjectMap		m_map_pkObjectByVID;
 
 			// BUILD_WALL
 		private :
 			void DrawWall(DWORD dwVnum, long nMapIndex, long& centerX, long& centerY, char length, float zRot);
 			// END_BUILD_WALL
 	};
+
+	typedef std::map<DWORD, CLand *> MapPkLandMap;
+	typedef std::map<DWORD, TObjectProto *> MapPkObjectProtoMap;
 
 	class CManager : public singleton<CManager>
 	{
@@ -141,11 +146,11 @@ namespace building
 
 		protected:
 			std::vector<TObjectProto>		m_vec_kObjectProto;
-			std::map<DWORD, TObjectProto *>	m_map_pkObjectProto;
+			MapPkObjectProtoMap				m_map_pkObjectProto;
 
-			std::map<DWORD, CLand *>		m_map_pkLand;
-			std::map<DWORD, LPOBJECT>		m_map_pkObjByID;
-			std::map<DWORD, LPOBJECT>		m_map_pkObjByVID;
+			MapPkLandMap					m_map_pkLand;
+			pkObjectMap						m_map_pkObjByID;
+			pkObjectMap						m_map_pkObjByVID;
 	};
 }
 

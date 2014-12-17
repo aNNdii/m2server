@@ -672,7 +672,7 @@ void CHARACTER::OpenMyShop(const char * c_pszSign, TShopItemTable * pTable, BYTE
 		TEMP_BUFFER buf;
 		buf.write(&header, sizeof(header));
 
-		for (itertype(itemkind) it = itemkind.begin(); it != itemkind.end(); ++it)
+		for (std::map<DWORD, DWORD>::const_iterator it = itemkind.begin(); it != itemkind.end(); ++it)
 		{
 			info.dwVnum = it->first;
 			info.dwPrice = it->second;
@@ -719,7 +719,6 @@ void CHARACTER::OpenMyShop(const char * c_pszSign, TShopItemTable * pTable, BYTE
 	}
 	//if (!LC_IsNewCIBN())
 		SetPolymorph(30000, true);
-
 }
 
 void CHARACTER::CloseMyShop()

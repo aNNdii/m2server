@@ -135,7 +135,7 @@ class IP
 		DWORD dwMask;
 };
 
-std::map<int, std::vector<IP> > mapBanIP;
+std::map<int, std::vector<IP>> mapBanIP;
 
 bool LoadBanIP(const char * filename)
 {
@@ -174,8 +174,7 @@ bool LoadBanIP(const char * filename)
 		}
 
 		IP ip(start, end);
-
-		itertype(mapBanIP) it = mapBanIP.find(ip.hash());
+		std::map<int, std::vector<IP>>::iterator it = mapBanIP.find(ip.hash());
 
 		if (it == mapBanIP.end())
 		{
@@ -195,13 +194,12 @@ bool LoadBanIP(const char * filename)
 bool IsBanIP(struct in_addr in)
 {
 	IP ip(in);
-
-	itertype(mapBanIP) it = mapBanIP.find(ip.hash());
+	std::map<int, std::vector<IP>>::iterator it = mapBanIP.find(ip.hash());
 
 	if (it == mapBanIP.end())
 		return false;
 
-	itertype(it->second) it2 = it->second.begin();
+	std::vector<IP>::iterator it2 = it->second.begin();
 
 	while (it2 != it->second.end())
 		if (ip.IsChildOf(*(it2++)))

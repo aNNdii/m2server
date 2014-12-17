@@ -256,7 +256,7 @@ void heartbeat(LPHEART ht, int pulse)
 			DESC_MANAGER::instance().ProcessExpiredLoginKey();
 
 		int count = 0;
-		itertype(g_sim) it = g_sim.begin();
+		std::map<DWORD, CLoginSim *>::const_iterator it = g_sim.begin();
 
 		while (it != g_sim.end())
 		{

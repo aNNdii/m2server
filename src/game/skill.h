@@ -230,6 +230,8 @@ class CSkillProto
 		void SetSPCostVar(const std::string& strName, double dVar);
 };
 
+typedef std::map<DWORD, CSkillProto *> SkillProtoMap;
+
 class CSkillManager : public singleton<CSkillManager>
 {
 	public:
@@ -241,7 +243,7 @@ class CSkillManager : public singleton<CSkillManager>
 		CSkillProto * Get(const char * c_pszSkillName);
 
 	protected:
-		std::map<DWORD, CSkillProto *> m_map_pkSkillProto;
+		SkillProtoMap m_map_pkSkillProto;
 };
 
 #endif

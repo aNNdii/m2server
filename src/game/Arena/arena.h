@@ -12,6 +12,8 @@ enum MEMBER_IDENTITY
 	MEMBER_MAX
 };
 
+typedef std::map<DWORD, LPCHARACTER> MapObserverMap;
+
 class CArena
 {
 	friend class CArenaMap;
@@ -31,7 +33,7 @@ class CArena
 	DWORD m_dwSetPointOfA;
 	DWORD m_dwSetPointOfB;
 
-	std::map<DWORD, LPCHARACTER> m_mapObserver;
+	MapObserverMap m_mapObserver;
 
 	protected :
 	CArena(WORD startA_X, WORD startA_Y, WORD startB_X, WORD startB_Y);
@@ -73,13 +75,15 @@ class CArena
 	void SendChatPacketToObserver(BYTE type, const char * format, ...);
 };
 
+typedef std::list<CArena*> ArenaList;
+
 class CArenaMap
 {
 	friend class CArenaManager;
 
 	private :
 	DWORD m_dwMapIndex;
-	std::list<CArena*> m_listArena;
+	ArenaList m_listArena;
 
 	protected :
 	void Destroy();
@@ -102,10 +106,12 @@ class CArenaMap
 	MEMBER_IDENTITY IsMember(DWORD PID);
 };
 
+typedef std::map<DWORD, CArenaMap*> MapArenaMap;
+
 class CArenaManager : public singleton<CArenaManager>
 {
 	private :
-		std::map<DWORD, CArenaMap*> m_mapArenaMap;
+		MapArenaMap m_mapArenaMap;
 
 	public :
 		bool Initialize();

@@ -140,7 +140,7 @@ CWarMap::~CWarMap()
 
 	sys_log(0, "WarMap::~WarMap : map index %d", GetMapIndex());
 
-	itertype(m_set_pkChr) it = m_set_pkChr.begin();
+	CHARACTER_SET::const_iterator it = m_set_pkChr.begin();
 
 	while (it != m_set_pkChr.end())
 	{

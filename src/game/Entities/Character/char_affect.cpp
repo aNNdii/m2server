@@ -53,7 +53,7 @@ void SendAffectAddPacket(LPDESC d, CAffect * pkAff)
 // Affect
 CAffect * CHARACTER::FindAffect(DWORD dwType, BYTE bApply) const
 {
-	itertype(m_list_pkAffect) it = m_list_pkAffect.begin();
+	AffectContainerList::const_iterator it = m_list_pkAffect.begin();
 
 	while (it != m_list_pkAffect.end())
 	{
@@ -184,7 +184,7 @@ void CHARACTER::ClearAffect(bool bSave)
 	WORD	wMovSpd = GetPoint(POINT_MOV_SPEED);
 	WORD	wAttSpd = GetPoint(POINT_ATT_SPEED);
 
-	itertype(m_list_pkAffect) it = m_list_pkAffect.begin();
+	AffectContainerList::const_iterator it = m_list_pkAffect.begin();
 
 	while (it != m_list_pkAffect.end())
 	{
@@ -276,9 +276,7 @@ int CHARACTER::ProcessAffect()
 	long lMovSpd = GetPoint(POINT_MOV_SPEED);
 	long lAttSpd = GetPoint(POINT_ATT_SPEED);
 
-	itertype(m_list_pkAffect) it;
-
-	it = m_list_pkAffect.begin();
+	AffectContainerList::const_iterator it = m_list_pkAffect.begin();
 
 	while (it != m_list_pkAffect.end())
 	{
@@ -348,8 +346,7 @@ int CHARACTER::ProcessAffect()
 void CHARACTER::SaveAffect()
 {
 	TPacketGDAddAffect p;
-
-	itertype(m_list_pkAffect) it = m_list_pkAffect.begin();
+	AffectContainerList::const_iterator it = m_list_pkAffect.begin();
 
 	while (it != m_list_pkAffect.end())
 	{
@@ -631,7 +628,7 @@ bool CHARACTER::AddAffect(DWORD dwType, BYTE bApplyOn, long lApplyValue, DWORD d
 
 void CHARACTER::RefreshAffect()
 {
-	itertype(m_list_pkAffect) it = m_list_pkAffect.begin();
+	AffectContainerList::const_iterator it = m_list_pkAffect.begin();
 
 	while (it != m_list_pkAffect.end())
 	{

@@ -28,6 +28,8 @@ class CPacketInfo
 
 size_t CreatePlayerSaveQuery(char * pszQuery, size_t querySize, TPlayerTable * pkTab);
 
+typedef std::vector<TItemTable> ItemTableVector;
+
 class CClientManager : public CNetBase, public singleton<CClientManager>
 {
     public:
@@ -410,7 +412,7 @@ class CClientManager : public CNetBase, public singleton<CClientManager>
 	bool					m_bChinaEventServer;
 
 	std::vector<TMobTable>			m_vec_mobTable;
-	std::vector<TItemTable>			m_vec_itemTable;
+	ItemTableVector			m_vec_itemTable;
 	std::map<DWORD, TItemTable *>		m_map_itemTableByVnum;
 
 	int					m_iShopTableSize;
