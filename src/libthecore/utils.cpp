@@ -262,7 +262,7 @@ void parse_token(char *src, char *token, char *value)
 
 struct tm * tm_calc(const struct tm * curr_tm, int days)
 {
-    char                yoon = FALSE;
+    char                yoon = false;
     static struct tm    new_tm;
     int                 monthdays[12] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
@@ -281,10 +281,10 @@ struct tm * tm_calc(const struct tm * curr_tm, int days)
 	    if (!((new_tm.tm_year + 1900) % 100))
 	    {
 		if (!((new_tm.tm_year + 1900) % 400))
-		    yoon = TRUE;
+		    yoon = true;
 	    }   
 	    else
-		yoon = TRUE;
+		yoon = true;
 	}
 
 	if (yoon)

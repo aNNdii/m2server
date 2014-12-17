@@ -3111,7 +3111,7 @@ class CFuncShoot
 					break;
 			}
 
-			m_bSucceed = TRUE;
+			m_bSucceed = true;
 		}
 };
 

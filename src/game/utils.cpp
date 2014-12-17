@@ -70,7 +70,7 @@ void skip_spaces(const char **string)
 
 const char *one_argument(const char *argument, char *first_arg, size_t first_size)
 {
-	char mark = FALSE;
+	char mark = false;
 	size_t first_len = 0;
 
 	if (!argument || 0 == first_size)

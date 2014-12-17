@@ -38,8 +38,8 @@ LPEVENT event_create_ex(TEVENTFUNC func, event_info_data* info, long when)
 	new_event->func = func;
 	new_event->info	= info;
 	new_event->q_el	= cxx_q.Enqueue(new_event, when, thecore_heart->pulse);
-	new_event->is_processing = FALSE;
-	new_event->is_force_to_end = FALSE;
+	new_event->is_processing = false;
+	new_event->is_force_to_end = false;
 
 	return (new_event);
 }
@@ -60,10 +60,10 @@ void event_cancel(LPEVENT * ppevent)
 
 	if (event->is_processing)
 	{
-		event->is_force_to_end = TRUE;
+		event->is_force_to_end = true;
 
 		if (event->q_el)
-			event->q_el->bCancel = TRUE;
+			event->q_el->bCancel = true;
 
 		*ppevent = NULL;
 		return;
@@ -82,7 +82,7 @@ void event_cancel(LPEVENT * ppevent)
 		return;
 	}
 
-	event->q_el->bCancel = TRUE;
+	event->q_el->bCancel = true;
 
 	*ppevent = NULL;
 }
@@ -92,7 +92,7 @@ void event_reset_time(LPEVENT event, long when)
 	if (!event->is_processing)
 	{
 		if (event->q_el)
-			event->q_el->bCancel = TRUE;
+			event->q_el->bCancel = true;
 
 		event->q_el = cxx_q.Enqueue(event, when, thecore_heart->pulse);
 	}
@@ -127,7 +127,7 @@ int event_process(int pulse)
 		 * 리턴 값을 0 이상으로 할 경우 event 에 할당된 메모리 정보를 삭제하지 않도록
 		 * 주의한다.
 		 */
-		the_event->is_processing = TRUE;
+		the_event->is_processing = true;
 
 		if (!the_event->info)
 		{
@@ -146,7 +146,7 @@ int event_process(int pulse)
 			else
 			{
 				the_event->q_el = cxx_q.Enqueue(the_event, new_time, pulse);
-				the_event->is_processing = FALSE;
+				the_event->is_processing = false;
 			}
 		}
 

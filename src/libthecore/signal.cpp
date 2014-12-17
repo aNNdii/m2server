@@ -35,7 +35,7 @@ RETSIGTYPE checkpointing(int sig)
 
 RETSIGTYPE hupsig(int sig)
 {
-    shutdowned = TRUE;
+    shutdowned = true;
     sys_err("SIGHUP, SIGINT, SIGTERM signal has been received. shutting down.");
 }
 

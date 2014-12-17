@@ -12,7 +12,7 @@ extern void GOST_Init();
 
 LPHEART		thecore_heart = NULL;
 
-volatile int	shutdowned = FALSE;
+volatile int	shutdowned = false;
 volatile int	tics = 0;
 unsigned int	thecore_profiler[NUM_PF];
 
@@ -69,7 +69,7 @@ int thecore_init(int fps, HEARTFUNC heartbeat_func)
 
 void thecore_shutdown()
 {
-    shutdowned = TRUE;
+    shutdowned = true;
 }
 
 int thecore_idle(void)

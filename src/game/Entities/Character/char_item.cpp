@@ -2268,7 +2268,7 @@ bool CHARACTER::UseItemEx(LPITEM item, TItemPos DestCell)
 								{
 									PointChange(POINT_HP, item->GetValue(0) * (100 + GetPoint(POINT_POTION_BONUS)) / 100);
 									EffectPacket(SE_HPUP_RED);
-									used = TRUE;
+									used = true;
 								}
 							}
 
@@ -2278,7 +2278,7 @@ bool CHARACTER::UseItemEx(LPITEM item, TItemPos DestCell)
 								{
 									PointChange(POINT_SP, item->GetValue(1) * (100 + GetPoint(POINT_POTION_BONUS)) / 100);
 									EffectPacket(SE_SPUP_BLUE);
-									used = TRUE;
+									used = true;
 								}
 							}
 
@@ -2288,7 +2288,7 @@ bool CHARACTER::UseItemEx(LPITEM item, TItemPos DestCell)
 								{
 									PointChange(POINT_HP, item->GetValue(3) * GetMaxHP() / 100);
 									EffectPacket(SE_HPUP_RED);
-									used = TRUE;
+									used = true;
 								}
 							}
 
@@ -2298,7 +2298,7 @@ bool CHARACTER::UseItemEx(LPITEM item, TItemPos DestCell)
 								{
 									PointChange(POINT_SP, item->GetValue(4) * GetMaxSP() / 100);
 									EffectPacket(SE_SPUP_BLUE);
-									used = TRUE;
+									used = true;
 								}
 							}
 
@@ -4119,7 +4119,7 @@ bool CHARACTER::UseItemEx(LPITEM item, TItemPos DestCell)
 								{
 									PointChange(POINT_HP, item->GetValue(0) * (100 + GetPoint(POINT_POTION_BONUS)) / 100);
 									EffectPacket(SE_HPUP_RED);
-									used = TRUE;
+									used = true;
 								}
 							}
 
@@ -4129,7 +4129,7 @@ bool CHARACTER::UseItemEx(LPITEM item, TItemPos DestCell)
 								{
 									PointChange(POINT_SP, item->GetValue(1) * (100 + GetPoint(POINT_POTION_BONUS)) / 100);
 									EffectPacket(SE_SPUP_BLUE);
-									used = TRUE;
+									used = true;
 								}
 							}
 
@@ -4139,7 +4139,7 @@ bool CHARACTER::UseItemEx(LPITEM item, TItemPos DestCell)
 								{
 									PointChange(POINT_HP, item->GetValue(3) * GetMaxHP() / 100);
 									EffectPacket(SE_HPUP_RED);
-									used = TRUE;
+									used = true;
 								}
 							}
 
@@ -4149,7 +4149,7 @@ bool CHARACTER::UseItemEx(LPITEM item, TItemPos DestCell)
 								{
 									PointChange(POINT_SP, item->GetValue(4) * GetMaxSP() / 100);
 									EffectPacket(SE_SPUP_BLUE);
-									used = TRUE;
+									used = true;
 								}
 							}
 

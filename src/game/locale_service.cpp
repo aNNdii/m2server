@@ -463,7 +463,7 @@ static void __LocaleService_Init_JAPAN()
 	g_setQuestObjectDir.insert("locale/japan/quest/object");
 	g_stLocaleFilename = "locale/japan/sjis_string.txt";
 
-	g_iUseLocale = TRUE;
+	g_iUseLocale = true;
 
 	check_name = check_name_sjis;
 	is_twobyte = is_twobyte_sjis;
@@ -481,7 +481,7 @@ static void __LocaleService_Init_English()
 	g_setQuestObjectDir.insert("locale/english/quest/object");
 	g_stLocaleFilename = "locale/english/eng_string.txt";
 
-	g_iUseLocale = TRUE;
+	g_iUseLocale = true;
 	check_name = check_name_alphabet;
 }
 
@@ -496,7 +496,7 @@ static void __LocaleService_Init_HongKong()
 	g_setQuestObjectDir.insert("locale/hongkong/quest/object");
 	g_stLocaleFilename = "locale/hongkong/big5_string.txt";
 
-	g_iUseLocale = TRUE;
+	g_iUseLocale = true;
 
 	check_name = check_name_big5;
 	is_twobyte = is_twobyte_big5;
@@ -513,7 +513,7 @@ static void __LocaleService_Init_NewCIBN()
 	g_setQuestObjectDir.insert("locale/newcibn/quest/object");
 	g_stLocaleFilename = "locale/newcibn/locale_string.txt";
 
-	g_iUseLocale = TRUE;
+	g_iUseLocale = true;
 
 	check_name = check_name_gb2312;
 	is_twobyte = is_twobyte_gb2312;
@@ -531,7 +531,7 @@ static void __LocaleService_Init_Germany()
 	g_setQuestObjectDir.insert("locale/germany/quest/object");
 	g_stLocaleFilename = "locale/germany/locale_string.txt";
 
-	g_iUseLocale = TRUE;
+	g_iUseLocale = true;
 
 	check_name = check_name_alphabet;
 	
@@ -548,7 +548,7 @@ static void __LocaleService_Init_Korea()
 	g_setQuestObjectDir.clear();
 	g_setQuestObjectDir.insert("locale/korea/quest/object");
 
-	g_iUseLocale = TRUE;
+	g_iUseLocale = true;
 	exp_table = exp_table_euckr;
 }
 
@@ -563,7 +563,7 @@ static void __LocaleService_Init_France()
 	g_setQuestObjectDir.insert("locale/france/quest/object");
 	g_stLocaleFilename = "locale/france/locale_string.txt";
 
-	g_iUseLocale = TRUE;
+	g_iUseLocale = true;
 
 	check_name = check_name_alphabet;
 	
@@ -581,7 +581,7 @@ static void __LocaleService_Init_Italy()
 	g_setQuestObjectDir.insert("locale/italy/quest/object");
 	g_stLocaleFilename = "locale/italy/locale_string.txt";
 
-	g_iUseLocale = TRUE;
+	g_iUseLocale = true;
 
 	check_name = check_name_alphabet;
 	
@@ -599,7 +599,7 @@ static void __LocaleService_Init_spain()
 	g_setQuestObjectDir.insert("locale/spain/quest/object");
 	g_stLocaleFilename = "locale/spain/locale_string.txt";
 
-	g_iUseLocale = TRUE;
+	g_iUseLocale = true;
 
 	check_name = check_name_alphabet;
 	
@@ -617,7 +617,7 @@ static void __LocaleService_Init_greek()
 	g_setQuestObjectDir.insert("locale/greek/quest/object");
 	g_stLocaleFilename = "locale/greek/locale_string.txt";
 
-	g_iUseLocale = TRUE;
+	g_iUseLocale = true;
 
 	check_name = check_name_alphabet;
 	
@@ -635,7 +635,7 @@ static void __LocaleService_Init_UK()
 	g_setQuestObjectDir.insert("locale/uk/quest/object");
 	g_stLocaleFilename = "locale/uk/locale_string.txt";
 
-	g_iUseLocale = TRUE;
+	g_iUseLocale = true;
 
 	check_name = check_name_alphabet;
 	
@@ -653,7 +653,7 @@ static void __LocaleService_Init_Turkey()
 	g_setQuestObjectDir.insert("locale/turkey/quest/object");
 	g_stLocaleFilename = "locale/turkey/locale_string.txt";
 
-	g_iUseLocale = TRUE;
+	g_iUseLocale = true;
 
 	check_name = check_name_alphabet;
 	
@@ -671,7 +671,7 @@ static void __LocaleService_Init_Poland()
 	g_setQuestObjectDir.insert("locale/poland/quest/object");
 	g_stLocaleFilename = "locale/poland/locale_string.txt";
 
-	g_iUseLocale = TRUE;
+	g_iUseLocale = true;
 
 	check_name = check_name_alphabet;
 	
@@ -689,7 +689,7 @@ static void __LocaleService_Init_Portugal()
 	g_setQuestObjectDir.insert("locale/portugal/quest/object");
 	g_stLocaleFilename = "locale/portugal/locale_string.txt";
 
-	g_iUseLocale = TRUE;
+	g_iUseLocale = true;
 
 	check_name = check_name_alphabet;
 	
@@ -709,7 +709,7 @@ static void __LocaleService_Init_Canada()
 
 	check_name	= check_name_alphabet;
 
-	g_iUseLocale = TRUE;
+	g_iUseLocale = true;
 }
 
 static void __LocaleService_Init_Brazil()
@@ -725,7 +725,7 @@ static void __LocaleService_Init_Brazil()
 
 	check_name = check_name_alphabet;
 
-	g_iUseLocale = TRUE;
+	g_iUseLocale = true;
 }
 
 static void __LocaleService_Init_YMIR()
@@ -755,7 +755,7 @@ static void __LocaleService_Init_Russia()
 	g_setQuestObjectDir.insert("locale/russia/quest/object");
 	g_stLocaleFilename = "locale/russia/locale_string.txt";
 
-	g_iUseLocale = TRUE;
+	g_iUseLocale = true;
 
 	check_name = check_name_alphabet;
 	
@@ -773,7 +773,7 @@ static void __LocaleService_Init_Denmark()
 	g_setQuestObjectDir.insert("locale/denmark/quest/object");
 	g_stLocaleFilename = "locale/denmark/locale_string.txt";
 
-	g_iUseLocale = TRUE;
+	g_iUseLocale = true;
 
 	check_name = check_name_alphabet;
 	
@@ -791,7 +791,7 @@ static void __LocaleService_Init_Bulgaria()
 	g_setQuestObjectDir.insert("locale/bulgaria/quest/object");
 	g_stLocaleFilename = "locale/bulgaria/locale_string.txt";
 
-	g_iUseLocale = TRUE;
+	g_iUseLocale = true;
 
 	check_name = check_name_alphabet;
 	
@@ -809,7 +809,7 @@ static void __LocaleService_Init_Croatia()
 	g_setQuestObjectDir.insert("locale/croatia/quest/object");
 	g_stLocaleFilename = "locale/croatia/locale_string.txt";
 
-	g_iUseLocale = TRUE;
+	g_iUseLocale = true;
 
 	check_name = check_name_alphabet;
 	
@@ -827,7 +827,7 @@ static void __LocaleService_Init_Mexico()
 	g_setQuestObjectDir.insert("locale/mexico/quest/object");
 	g_stLocaleFilename = "locale/mexico/locale_string.txt";
 
-	g_iUseLocale = TRUE;
+	g_iUseLocale = true;
 
 	check_name = check_name_alphabet;
 	
@@ -845,7 +845,7 @@ static void __LocaleService_Init_Arabia()
 	g_setQuestObjectDir.insert("locale/arabia/quest/object");
 	g_stLocaleFilename = "locale/arabia/locale_string.txt";
 
-	g_iUseLocale = TRUE;
+	g_iUseLocale = true;
 
 	check_name = check_name_alphabet;
 	
@@ -863,7 +863,7 @@ static void __LocaleService_Init_Czech()
 	g_setQuestObjectDir.insert("locale/czech/quest/object");
 	g_stLocaleFilename = "locale/czech/locale_string.txt";
 
-	g_iUseLocale = TRUE;
+	g_iUseLocale = true;
 
 	check_name = check_name_alphabet;
 	
@@ -881,7 +881,7 @@ static void __LocaleService_Init_Hungary()
 	g_setQuestObjectDir.insert("locale/hungary/quest/object");
 	g_stLocaleFilename = "locale/hungary/locale_string.txt";
 
-	g_iUseLocale = TRUE;
+	g_iUseLocale = true;
 
 	check_name = check_name_alphabet;
 	
@@ -899,7 +899,7 @@ static void __LocaleService_Init_Romania()
 	g_setQuestObjectDir.insert("locale/romania/quest/object");
 	g_stLocaleFilename = "locale/romania/locale_string.txt";
 
-	g_iUseLocale = TRUE;
+	g_iUseLocale = true;
 
 	check_name = check_name_alphabet;
 	
@@ -917,7 +917,7 @@ static void __LocaleService_Init_Netherlands()
 	g_setQuestObjectDir.insert("locale/netherlands/quest/object");
 	g_stLocaleFilename = "locale/netherlands/locale_string.txt";
 
-	g_iUseLocale = TRUE;
+	g_iUseLocale = true;
 
 	check_name = check_name_alphabet;
 	
@@ -937,7 +937,7 @@ static void __LocaleService_Init_Singapore()
 
 	check_name	= check_name_alphabet;
 
-	g_iUseLocale = TRUE;
+	g_iUseLocale = true;
 	exp_table = exp_table_newcibn;
 }
 
@@ -954,7 +954,7 @@ static void __LocaleService_Init_Vietnam()
 
 	check_name	= check_name_alphabet;
 
-	g_iUseLocale = TRUE;
+	g_iUseLocale = true;
 	exp_table = exp_table_newcibn;
 
 }
@@ -972,7 +972,7 @@ static void __LocaleService_Init_Thailand()
 
 	check_name	= check_name_alphabet;
 
-	g_iUseLocale = TRUE;
+	g_iUseLocale = true;
 }
 
 static void __LocaleService_Init_USA()
@@ -986,7 +986,7 @@ static void __LocaleService_Init_USA()
 	g_setQuestObjectDir.insert("locale/usa/quest/object");
 	g_stLocaleFilename = "locale/usa/locale_string.txt";
 
-	g_iUseLocale = TRUE;
+	g_iUseLocale = true;
 	check_name = check_name_alphabet;
 }
 
@@ -1004,7 +1004,7 @@ static void __LocaleService_Init_WE_Korea()
 	g_setQuestObjectDir.clear();	
 	g_setQuestObjectDir.insert(g_stQuestDir + "/object");
 
-	g_iUseLocale = TRUE;
+	g_iUseLocale = true;
 
 	PK_PROTECT_LEVEL = 15;
 }
@@ -1023,7 +1023,7 @@ static void __LocaleService_Init_Taiwan()
 	check_name = check_name_big5;
 	is_twobyte = is_twobyte_big5;
 
-	g_iUseLocale = TRUE;
+	g_iUseLocale = true;
 	
 	PK_PROTECT_LEVEL = 15;
 }
