@@ -2833,7 +2833,7 @@ class CFuncShoot
 		BYTE		m_bType;
 		bool		m_bSucceed;
 
-		CFuncShoot(LPCHARACTER ch, BYTE bType) : m_me(ch), m_bType(bType), m_bSucceed(FALSE)
+		CFuncShoot(LPCHARACTER ch, BYTE bType) : m_me(ch), m_bType(bType), m_bSucceed(false)
 		{
 		}
 
