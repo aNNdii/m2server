@@ -34,7 +34,7 @@ bool PlayerHB::Initialize()
 //
 void PlayerHB::Put(DWORD id)
 {
-	itertype(m_map_data) it = m_map_data.find(id);
+	DataMap::const_iterator it = m_map_data.find(id);
 
 	if (it == m_map_data.end())
 	{

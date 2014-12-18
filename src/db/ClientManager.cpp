@@ -74,7 +74,7 @@ void CClientManager::SetPlayerIDStart(int iIDStart)
 void CClientManager::Destroy()
 {
 	m_mChannelStatus.clear();
-	for (itertype(m_peerList) i = m_peerList.begin(); i != m_peerList.end(); ++i)
+	for (TPeerList::const_iterator i = m_peerList.begin(); i != m_peerList.end(); ++i)
 		(*i)->Destroy();
 
 	m_peerList.clear();
@@ -200,7 +200,7 @@ void CClientManager::MainLoop()
 
 	signal_timer_disable();
 
-	itertype(m_map_playerCache) it = m_map_playerCache.begin();
+	TPlayerTableCacheMap::const_iterator it = m_map_playerCache.begin();
 
 	//플레이어 테이블 캐쉬 플러쉬	
 	while (it != m_map_playerCache.end())
@@ -213,7 +213,7 @@ void CClientManager::MainLoop()
 	m_map_playerCache.clear();
 
 	
-	itertype(m_map_itemCache) it2 = m_map_itemCache.begin();
+	TItemCacheMap::const_iterator it2 = m_map_itemCache.begin();
 	//아이템 플러쉬
 	while (it2 != m_map_itemCache.end())
 	{
@@ -228,7 +228,7 @@ void CClientManager::MainLoop()
 	//
 	// 개인상점 아이템 가격 리스트 Flush
 	//
-	for (itertype(m_mapItemPriceListCache) itPriceList = m_mapItemPriceListCache.begin(); itPriceList != m_mapItemPriceListCache.end(); ++itPriceList)
+	for (TItemPriceListCacheMap::const_iterator itPriceList = m_mapItemPriceListCache.begin(); itPriceList != m_mapItemPriceListCache.end(); ++itPriceList)
 	{
 		CItemPriceListTableCache* pCache = itPriceList->second;
 		pCache->Flush();
@@ -353,7 +353,7 @@ void CClientManager::QUERY_BOOT(CPeer* peer, TPacketGDBoot * p)
 	peer->EncodeWORD(sizeof(building::TObject));
 	peer->EncodeWORD(m_map_pkObjectTable.size());
 
-	itertype(m_map_pkObjectTable) it = m_map_pkObjectTable.begin();
+	pkObjectTableMap::const_iterator it = m_map_pkObjectTable.begin();
 
 	while (it != m_map_pkObjectTable.end())
 		peer->Encode((it++)->second, sizeof(building::TObject));
@@ -419,15 +419,15 @@ void CClientManager::QUERY_BOOT(CPeer* peer, TPacketGDBoot * p)
 
 void CClientManager::SendPartyOnSetup(CPeer* pkPeer)
 {
-	TPartyMap & pm = m_map_pkChannelParty[pkPeer->GetChannel()];
+	TPartyMap& pm = m_map_pkChannelParty[pkPeer->GetChannel()];
 
-	for (itertype(pm) it_party = pm.begin(); it_party != pm.end(); ++it_party)
+	for (TPartyMap::const_iterator it_party = pm.begin(); it_party != pm.end(); ++it_party)
 	{
 		sys_log(0, "PARTY SendPartyOnSetup Party [%u]", it_party->first);
 		pkPeer->EncodeHeader(HEADER_DG_PARTY_CREATE, 0, sizeof(TPacketPartyCreate));
 		pkPeer->Encode(&it_party->first, sizeof(DWORD));
 
-		for (itertype(it_party->second) it_member = it_party->second.begin(); it_member != it_party->second.end(); ++it_member)
+		for (TPartyMember::const_iterator it_member = it_party->second.begin(); it_member != it_party->second.end(); ++it_member)
 		{
 			sys_log(0, "PARTY SendPartyOnSetup Party [%u] Member [%u]", it_party->first, it_member->first);
 			pkPeer->EncodeHeader(HEADER_DG_PARTY_ADD, 0, sizeof(TPacketPartyAdd));
@@ -622,7 +622,7 @@ void CClientManager::RESULT_SAFEBOX_LOAD(CPeer * pkPeer, SQLMsg * msg)
 			{
 				TPlayerItem & r = s_items[i];
 
-				itertype(m_map_itemTableByVnum) it = m_map_itemTableByVnum.find(r.vnum);
+				ItemTableVNumMap::const_iterator it = m_map_itemTableByVnum.find(r.vnum);
 
 				if (it == m_map_itemTableByVnum.end())
 				{
@@ -654,7 +654,7 @@ void CClientManager::RESULT_SAFEBOX_LOAD(CPeer * pkPeer, SQLMsg * msg)
 					if (pi->ip[0] == 1 && !pItemAward->bMall)
 						continue;
 
-					itertype(m_map_itemTableByVnum) it = m_map_itemTableByVnum.find(pItemAward->dwVnum);
+					ItemTableVNumMap::const_iterator it = m_map_itemTableByVnum.find(pItemAward->dwVnum);
 
 					if (it == m_map_itemTableByVnum.end())
 					{
@@ -729,7 +729,7 @@ void CClientManager::RESULT_SAFEBOX_LOAD(CPeer * pkPeer, SQLMsg * msg)
 					}
 
 					{
-						itertype(m_map_itemTableByVnum) it = m_map_itemTableByVnum.find (dwItemVnum);
+						ItemTableVNumMap::const_iterator it = m_map_itemTableByVnum.find(dwItemVnum);
 						if (it == m_map_itemTableByVnum.end())
 						{
 							sys_err ("Invalid item(vnum : %d). It is not in m_map_itemTableByVnum.", dwItemVnum);
@@ -1087,7 +1087,7 @@ void CClientManager::QUERY_SETUP(CPeer * peer, DWORD dwHandle, const char * c_pD
 
 	if (peer->GetChannel() == 1)
 	{
-		for (itertype(m_peerList) i = m_peerList.begin(); i != m_peerList.end(); ++i)
+		for (TPeerList::const_iterator i = m_peerList.begin(); i != m_peerList.end(); ++i)
 		{
 			CPeer * tmp = *i;
 
@@ -1114,7 +1114,7 @@ void CClientManager::QUERY_SETUP(CPeer * peer, DWORD dwHandle, const char * c_pD
 	}
 	else if (peer->GetChannel() == GUILD_WARP_WAR_CHANNEL)
 	{
-		for (itertype(m_peerList) i = m_peerList.begin(); i != m_peerList.end(); ++i)
+		for (TPeerList::const_iterator i = m_peerList.begin(); i != m_peerList.end(); ++i)
 		{
 			CPeer * tmp = *i;
 
@@ -1141,7 +1141,7 @@ void CClientManager::QUERY_SETUP(CPeer * peer, DWORD dwHandle, const char * c_pD
 	}
 	else
 	{
-		for (itertype(m_peerList) i = m_peerList.begin(); i != m_peerList.end(); ++i)
+		for (TPeerList::const_iterator i = m_peerList.begin(); i != m_peerList.end(); ++i)
 		{
 			CPeer * tmp = *i;
 
@@ -1189,7 +1189,7 @@ void CClientManager::QUERY_SETUP(CPeer * peer, DWORD dwHandle, const char * c_pD
 	p2pSetupPacket.bChannel = peer->GetChannel();
 	enhance_strlcpymt(p2pSetupPacket.szHost, peer->GetPublicIP(), sizeof(p2pSetupPacket.szHost));
 
-	for (itertype(m_peerList) i = m_peerList.begin(); i != m_peerList.end();++i)
+	for (TPeerList::const_iterator i = m_peerList.begin(); i != m_peerList.end(); ++i)
 	{
 		CPeer * tmp = *i;
 
@@ -1854,7 +1854,7 @@ void CClientManager::DeleteObject(DWORD dwID)
 		return;
 	}
 
-	itertype(m_map_pkObjectTable) it = m_map_pkObjectTable.find(dwID);
+	pkObjectTableMap::const_iterator it = m_map_pkObjectTable.find(dwID);
 
 	if (it != m_map_pkObjectTable.end())
 	{
@@ -2064,7 +2064,7 @@ void CClientManager::MyshopPricelistRequest(CPeer* peer, DWORD dwHandle, DWORD d
 
 void CPacketInfo::Add(int header)
 {
-	itertype(m_map_info) it = m_map_info.find(header);
+	PacketInfoMap::iterator it = m_map_info.find(header);
 
 	if (it == m_map_info.end())
 		m_map_info.insert(std::map<int, int>::value_type(header, 1));
@@ -2612,7 +2612,7 @@ void CClientManager::RemovePeer(CPeer * pPeer)
 
 CPeer * CClientManager::GetPeer(IDENT ident)
 {
-	for (itertype(m_peerList) i = m_peerList.begin(); i != m_peerList.end();++i)
+	for (TPeerList::const_iterator i = m_peerList.begin(); i != m_peerList.end(); ++i)
 	{
 		CPeer * tmp = *i;
 
@@ -3049,7 +3049,7 @@ void CClientManager::SendTime()
 
 void CClientManager::ForwardPacket(BYTE header, const void* data, int size, BYTE bChannel, CPeer* except)
 {
-	for (itertype(m_peerList) it = m_peerList.begin(); it != m_peerList.end(); ++it)
+	for (TPeerList::const_iterator it = m_peerList.begin(); it != m_peerList.end(); ++it)
 	{
 		CPeer * peer = *it;
 
@@ -3618,7 +3618,7 @@ void CClientManager::ReloadAdmin(CPeer*, TPacketReloadAdmin* p)
 	DWORD dwPacketSize = sizeof(WORD) + sizeof (WORD) + sizeof(tAdminInfo) * vAdmin.size() + 
 		  sizeof(WORD) + sizeof(WORD) + 16 * vHost.size();	
 
-	for (itertype(m_peerList) it = m_peerList.begin(); it != m_peerList.end(); ++it)
+	for (TPeerList::const_iterator it = m_peerList.begin(); it != m_peerList.end(); ++it)
 	{
 		CPeer * peer = *it;
 
@@ -3661,7 +3661,7 @@ void CClientManager::BreakMarriage(CPeer * peer, const char * data)
 
 void CClientManager::UpdateItemCacheSet(DWORD pid)
 {
-	itertype(m_map_pkItemCacheSetPtr) it = m_map_pkItemCacheSetPtr.find(pid);
+	TItemCacheSetPtrMap::const_iterator it = m_map_pkItemCacheSetPtr.find(pid);
 
 	if (it == m_map_pkItemCacheSetPtr.end())
 	{
@@ -3736,7 +3736,7 @@ void CClientManager::Candidacy(CPeer *  peer, DWORD dwHandle, const char* data)
 		if (g_test_server)
 			sys_log(0, "[MONARCH_CANDIDACY] Success %d %s", pid, data);
 
-		for (itertype(m_peerList) it = m_peerList.begin(); it != m_peerList.end(); ++it)
+		for (TPeerList::const_iterator it = m_peerList.begin(); it != m_peerList.end(); ++it)
 		{
 			CPeer * p = *it;
 
@@ -3775,7 +3775,7 @@ void CClientManager::AddMonarchMoney(CPeer * peer, DWORD dwHandle, const char * 
 
 	CMonarch::instance().AddMoney(Empire, Money);
 	
-	for (itertype(m_peerList) it = m_peerList.begin(); it != m_peerList.end(); ++it)
+	for (TPeerList::const_iterator it = m_peerList.begin(); it != m_peerList.end(); ++it)
 	{
 		CPeer * p = *it;
 
@@ -3810,7 +3810,7 @@ void CClientManager::DecMonarchMoney(CPeer * peer, DWORD dwHandle, const char * 
 
 	CMonarch::instance().DecMoney(Empire, Money);
 	
-	for (itertype(m_peerList) it = m_peerList.begin(); it != m_peerList.end(); ++it)
+	for (TPeerList::const_iterator it = m_peerList.begin(); it != m_peerList.end(); ++it)
 	{
 		CPeer * p = *it;
 
@@ -3877,7 +3877,7 @@ void CClientManager::RMCandidacy(CPeer * peer, DWORD dwHandle, const char * data
 
 	if (1 == iRet)
 	{
-		for (itertype(m_peerList) it = m_peerList.begin(); it != m_peerList.end(); ++it)
+		for (TPeerList::const_iterator it = m_peerList.begin(); it != m_peerList.end(); ++it)
 		{
 			CPeer * p = *it;
 
@@ -3920,7 +3920,7 @@ void CClientManager::SetMonarch(CPeer * peer, DWORD dwHandle, const char * data)
 
 	if (1 == iRet)
 	{
-		for (itertype(m_peerList) it = m_peerList.begin(); it != m_peerList.end(); ++it)
+		for (TPeerList::const_iterator it = m_peerList.begin(); it != m_peerList.end(); ++it)
 		{
 			CPeer * p = *it;
 
@@ -3965,7 +3965,7 @@ void CClientManager::RMMonarch(CPeer * peer, DWORD dwHandle, const char * data)
 
 	if (1 == iRet)
 	{
-		for (itertype(m_peerList) it = m_peerList.begin(); it != m_peerList.end(); ++it)
+		for (TPeerList::const_iterator it = m_peerList.begin(); it != m_peerList.end(); ++it)
 		{
 			CPeer * p = *it;
 
@@ -4025,7 +4025,7 @@ void CClientManager::ChangeMonarchLord(CPeer * peer, DWORD dwHandle, TPacketChan
 
 			TMonarchInfo* newInfo = CMonarch::instance().GetMonarch();
 
-			for (itertype(m_peerList) it = m_peerList.begin(); it != m_peerList.end(); it++)
+			for (TPeerList::const_iterator it = m_peerList.begin(); it != m_peerList.end(); it++)
 			{
 				CPeer* client = *it;
 
@@ -4069,7 +4069,7 @@ void CClientManager::BlockException(TPacketBlockException *data)
 
 	}
 	
-	for (itertype(m_peerList) it = m_peerList.begin(); it != m_peerList.end(); ++it)
+	for (TPeerList::const_iterator it = m_peerList.begin(); it != m_peerList.end(); ++it)
 	{
 		CPeer	*peer = *it;
 

@@ -34,7 +34,7 @@ void CClientManager::SetEventFlag(TPacketSetEventFlag* p)
 
 	bool bChanged = false;
 
-	typeof(m_map_lEventFlag.begin()) it = m_map_lEventFlag.find(p->szFlagName);
+	TEventFlagMap::iterator it = m_map_lEventFlag.find(p->szFlagName);
 	if (it == m_map_lEventFlag.end())
 	{
 		bChanged = true;
@@ -64,7 +64,7 @@ void CClientManager::SetEventFlag(TPacketSetEventFlag* p)
 
 void CClientManager::SendEventFlagsOnSetup(CPeer* peer)
 {
-	typeof(m_map_lEventFlag.begin()) it;
+	TEventFlagMap::const_iterator it;
 	for (it = m_map_lEventFlag.begin(); it != m_map_lEventFlag.end(); ++it)
 	{
 		TPacketSetEventFlag p;

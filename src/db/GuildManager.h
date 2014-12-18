@@ -129,6 +129,8 @@ typedef struct SGuildWarInfo
     }
 } TGuildWarInfo;
 
+typedef std::map<std::string, std::pair<DWORD, DWORD>> GuildWarBetMap;
+
 class CGuildWarReserve
 {
     public:
@@ -154,9 +156,20 @@ class CGuildWarReserve
 
 	TGuildWarReserve				m_data;
 	// <login, <guild, gold>>
-	std::map<std::string, std::pair<DWORD, DWORD> > mapBet;
+	GuildWarBetMap mapBet;
 	int						m_iLastNoticeMin;
 };
+
+typedef std::set<TGuildDeclareInfo> GuildDeclareInfoSet;
+typedef std::map<DWORD, TGuildWarInfo> GuildWarInfoMap;
+typedef std::map<DWORD, GuildWarInfoMap> GuildWarMap;
+typedef std::map<DWORD, CGuildWarReserve *> WarReserveMap;
+typedef std::map<DWORD, TGuild> kGuildMap;
+typedef std::map<DWORD, time_t> EndTimeMap;
+typedef std::map<DWORD, EndTimeMap> GuildWarEndTimeMap;
+typedef std::set<TGuildDeclareInfo> GuildDeclareInfoSet;
+typedef std::map<DWORD, CGuildWarReserve *> WarReserverMap;
+typedef std::map<DWORD, int> kLadderPointRankingMap;
 
 class CGuildManager : public singleton<CGuildManager>
 {
@@ -232,11 +245,11 @@ class CGuildManager : public singleton<CGuildManager>
 
 	bool IsHalfWinLadderPoint(DWORD dwGuildWinner, DWORD dwGuildLoser);
 
-	std::map<DWORD, TGuild>					m_map_kGuild;
-	std::map<DWORD, std::map<DWORD, time_t> >		m_mapGuildWarEndTime;
+	kGuildMap					m_map_kGuild;
+	GuildWarEndTimeMap			m_mapGuildWarEndTime;
 
-	std::set<TGuildDeclareInfo>				m_DeclareMap; // 선전 포고 상태를 저장
-	std::map<DWORD, std::map<DWORD, TGuildWarInfo> >	m_WarMap;
+	GuildDeclareInfoSet				m_DeclareMap; // 선전 포고 상태를 저장
+	GuildWarMap	m_WarMap;
 
 	typedef std::pair<time_t, TGuildWarPQElement *>	stPairGuildWar;
 	typedef std::pair<time_t, TGuildSkillUsed>	stPairSkillUsed;
@@ -249,12 +262,12 @@ class CGuildManager : public singleton<CGuildManager>
 	std::priority_queue<stPairSkillUsed, std::vector<stPairSkillUsed>, std::greater<stPairSkillUsed> >
 	    m_pqSkill;
 
-	std::map<DWORD, CGuildWarReserve *>			m_map_kWarReserve;
+	WarReserverMap			m_map_kWarReserve;
 	CPoly							polyPower;
 	CPoly							polyHandicap;
 
 	// GID Ranking
-	std::map<DWORD, int>					map_kLadderPointRankingByGID;
+	kLadderPointRankingMap					map_kLadderPointRankingByGID;
 };
 
 #endif

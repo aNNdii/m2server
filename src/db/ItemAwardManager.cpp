@@ -85,7 +85,7 @@ void ItemAwardManager::Load(SQLMsg* pMsg)
 
 ItemAwardSet* ItemAwardManager::GetByLogin(const char * c_pszLogin)
 {
-	itertype(m_map_kSetAwardByLogin) it = m_map_kSetAwardByLogin.find(c_pszLogin);
+	kSetAwardMap::iterator it = m_map_kSetAwardByLogin.find(c_pszLogin);
 
 	if (it == m_map_kSetAwardByLogin.end())
 		return NULL;
@@ -95,7 +95,7 @@ ItemAwardSet* ItemAwardManager::GetByLogin(const char * c_pszLogin)
 
 void ItemAwardManager::Taken(DWORD dwAwardID, DWORD dwItemID)
 {
-	itertype(m_map_award) it = m_map_award.find(dwAwardID);
+	SetAwardMap::const_iterator it = m_map_award.find(dwAwardID);
 
 	if (it == m_map_award.end())
 	{

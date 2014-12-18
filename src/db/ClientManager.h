@@ -17,19 +17,23 @@ class CPlayerTableCache;
 class CItemCache;
 class CItemPriceListTableCache;
 
+typedef std::map<int, int> PacketInfoMap;
+
 class CPacketInfo
 {
     public:
 	void Add(int header);
 	void Reset();
 
-	std::map<int, int> m_map_info;
+	PacketInfoMap m_map_info;
 };
 
 size_t CreatePlayerSaveQuery(char * pszQuery, size_t querySize, TPlayerTable * pkTab);
 
 typedef std::vector<TItemTable> ItemTableVector;
 typedef std::vector<TMobTable> MobTableVector;
+typedef std::map<DWORD, building::TObject *> pkObjectTableMap;
+typedef std::map<DWORD, TItemTable *> ItemTableVNumMap;
 
 class CClientManager : public CNetBase, public singleton<CClientManager>
 {
@@ -414,7 +418,7 @@ class CClientManager : public CNetBase, public singleton<CClientManager>
 
 	MobTableVector			m_vec_mobTable;
 	ItemTableVector			m_vec_itemTable;
-	std::map<DWORD, TItemTable *>		m_map_itemTableByVnum;
+	ItemTableVNumMap		m_map_itemTableByVnum;
 
 	int					m_iShopTableSize;
 	TShopTable *				m_pShopTable;
@@ -429,7 +433,7 @@ class CClientManager : public CNetBase, public singleton<CClientManager>
 
 	std::vector<building::TLand>		m_vec_kLandTable;
 	std::vector<building::TObjectProto>	m_vec_kObjectProto;
-	std::map<DWORD, building::TObject *>	m_map_pkObjectTable;
+	pkObjectTableMap	m_map_pkObjectTable;
 
 	std::queue<TPacketGDVCard>		m_queue_vcard;
 

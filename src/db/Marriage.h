@@ -70,6 +70,10 @@ namespace marriage
 		}
 	};
 
+	typedef std::set<TMarriage *> MarriageSet;
+	typedef std::map<DWORD, TMarriage *> MarriageMap;
+	typedef std::map<std::pair<DWORD, DWORD>, TWedding> RunningWeddingMap;
+
 	class CManager : public singleton<CManager>
 	{
 		public:
@@ -99,14 +103,14 @@ namespace marriage
 			void	Update();
 
 		private:
-			std::set<TMarriage *> m_Marriages;
-			std::map<DWORD, TMarriage *> m_MarriageByPID;
+			MarriageSet m_Marriages;
+			MarriageMap m_MarriageByPID;
 
 			std::priority_queue<TWedding, std::vector<TWedding>, std::greater<TWedding> > m_pqWeddingStart;
 
 			std::priority_queue<TWeddingInfo, std::vector<TWeddingInfo>, std::greater<TWeddingInfo> > m_pqWeddingEnd;
 
-			std::map<std::pair<DWORD, DWORD>, TWedding> m_mapRunningWedding;
+			RunningWeddingMap m_mapRunningWedding;
 	};
 }
 

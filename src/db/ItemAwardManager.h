@@ -20,6 +20,8 @@ typedef struct SItemAward
 } TItemAward;
 
 typedef std::set<TItemAward *> ItemAwardSet;
+typedef std::map<DWORD, TItemAward *> SetAwardMap;
+typedef std::map<std::string, ItemAwardSet> kSetAwardMap;
 
 class ItemAwardManager : public singleton<ItemAwardManager>
 {
@@ -37,9 +39,9 @@ class ItemAwardManager : public singleton<ItemAwardManager>
 	std::map<std::string, ItemAwardSet>& GetMapkSetAwardByLogin();
     private:
 	// ID, ItemAward pair
-	std::map<DWORD, TItemAward *>			m_map_award;
+	SetAwardMap		m_map_award;
 	// PID, ItemAward pair
-	std::map<std::string, ItemAwardSet>	m_map_kSetAwardByLogin;
+	kSetAwardMap	m_map_kSetAwardByLogin;
 };
 
 #endif

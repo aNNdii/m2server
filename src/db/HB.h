@@ -2,6 +2,8 @@
 #ifndef __INC_METIN_II_PLAYERHB_H__
 #define __INC_METIN_II_PLAYERHB_H__
 
+typedef std::map<DWORD, time_t> DataMap;
+
 class PlayerHB : public singleton<PlayerHB>
 {
     public:
@@ -15,7 +17,7 @@ class PlayerHB : public singleton<PlayerHB>
     private:
 	bool	Query(DWORD id);
 
-	std::map<DWORD, time_t> m_map_data;
+	DataMap m_map_data;
 	std::string		m_stCreateTableQuery;
 	std::string		m_stTableName;
 	int			m_iExpireTime;

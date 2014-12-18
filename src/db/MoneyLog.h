@@ -4,6 +4,8 @@
 
 #include <map>
 
+typedef std::map<DWORD, int> MoneyLogMap;
+
 class CMoneyLog : public singleton<CMoneyLog>
 {
     public:
@@ -14,7 +16,7 @@ class CMoneyLog : public singleton<CMoneyLog>
 	void AddLog(BYTE bType, DWORD dwVnum, int iGold);
 
     private:
-	std::map<DWORD, int> m_MoneyLogContainer[MONEY_LOG_TYPE_MAX_NUM];
+		MoneyLogMap m_MoneyLogContainer[MONEY_LOG_TYPE_MAX_NUM];
 };
 
 #endif

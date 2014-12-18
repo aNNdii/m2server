@@ -52,6 +52,9 @@ struct TPrivCharData
     {}
 };
 
+typedef std::map<DWORD, TPrivGuildData*> PrivGuildDataMap;
+typedef std::map<DWORD, TPrivCharData*> PrivCharDataMap;
+
 /**
  * @version 05/06/08	Bang2ni - Guild privilege 관련 함수 지속 시간 추가
  */
@@ -99,8 +102,8 @@ class CPrivManager : public singleton<CPrivManager>
 	    m_pqPrivEmpire;
 
 	TPrivEmpireData* m_aaPrivEmpire[MAX_PRIV_NUM][EMPIRE_MAX_NUM];
-	std::map<DWORD, TPrivGuildData*> m_aPrivGuild[MAX_PRIV_NUM];
-	std::map<DWORD, TPrivCharData*> m_aPrivChar[MAX_PRIV_NUM];
+	PrivGuildDataMap m_aPrivGuild[MAX_PRIV_NUM];
+	PrivCharDataMap m_aPrivChar[MAX_PRIV_NUM];
 };
 
 #endif

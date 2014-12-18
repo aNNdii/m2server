@@ -115,9 +115,9 @@ CGuildManager::~CGuildManager()
 	}
 }
 
-TGuild & CGuildManager::TouchGuild(DWORD GID)
+TGuild& CGuildManager::TouchGuild(DWORD GID)
 {
-	itertype(m_map_kGuild) it = m_map_kGuild.find(GID);
+	kGuildMap::iterator it = m_map_kGuild.find(GID);
 
 	if (it != m_map_kGuild.end())
 		return it->second;
@@ -206,7 +206,7 @@ void CGuildManager::QueryRanking()
 
 int CGuildManager::GetRanking(DWORD dwGID)
 {
-	itertype(map_kLadderPointRankingByGID) it = map_kLadderPointRankingByGID.find(dwGID);
+	kLadderPointRankingMap::const_iterator it = map_kLadderPointRankingByGID.find(dwGID);
 
 	if (it == map_kLadderPointRankingByGID.end())
 		return GUILD_RANK_MAX_NUM;
@@ -315,8 +315,9 @@ void CGuildManager::Update()
 
 void CGuildManager::OnSetup(CPeer* peer)
 {
-	for_all(m_WarMap, it_cont)
-		for_all(it_cont->second, it)
+	for (GuildWarMap::const_iterator it_cont = m_WarMap.begin(); it_cont != m_WarMap.end(); ++it_cont)
+	{
+		for (GuildWarInfoMap::const_iterator it = it_cont->second.begin(); it != it_cont->second.end(); ++it)
 		{
 			DWORD g1 = it_cont->first;
 			DWORD g2 = it->first;
@@ -329,21 +330,18 @@ void CGuildManager::OnSetup(CPeer* peer)
 			FSendGuildWarScore(p->GID[0], p->GID[1], p->iScore[0], p->iBetScore[0]);
 			FSendGuildWarScore(p->GID[1], p->GID[0], p->iScore[1], p->iBetScore[1]);
 		}
+	}
 
-	for_all(m_DeclareMap, it)
-	{
+	for (GuildDeclareInfoSet::const_iterator it = m_DeclareMap.begin(); it != m_DeclareMap.end(); ++it)
 		FSendPeerWar(it->bType, GUILD_WAR_SEND_DECLARE, it->dwGuildID[0], it->dwGuildID[1]) (peer);
-	}
 
-	for_all(m_map_kWarReserve, it)
-	{
+	for (WarReserveMap::const_iterator it = m_map_kWarReserve.begin(); it != m_map_kWarReserve.end(); ++it)
 		it->second->OnSetup(peer);
-	}
 }
 
 void CGuildManager::GuildWarWin(DWORD GID)
 {
-	itertype(m_map_kGuild) it = m_map_kGuild.find(GID);
+	kGuildMap::iterator it = m_map_kGuild.find(GID);
 
 	if (it == m_map_kGuild.end())
 		return;
@@ -357,7 +355,7 @@ void CGuildManager::GuildWarWin(DWORD GID)
 
 void CGuildManager::GuildWarLose(DWORD GID)
 {
-	itertype(m_map_kGuild) it = m_map_kGuild.find(GID);
+	kGuildMap::iterator it = m_map_kGuild.find(GID);
 
 	if (it == m_map_kGuild.end())
 		return;
@@ -371,7 +369,7 @@ void CGuildManager::GuildWarLose(DWORD GID)
 
 void CGuildManager::GuildWarDraw(DWORD GID)
 {
-	itertype(m_map_kGuild) it = m_map_kGuild.find(GID);
+	kGuildMap::iterator it = m_map_kGuild.find(GID);
 
 	if (it == m_map_kGuild.end())
 		return;
@@ -391,7 +389,7 @@ bool CGuildManager::IsHalfWinLadderPoint(DWORD dwGuildWinner, DWORD dwGuildLoser
 	if (GID1 > GID2)
 		std::swap(GID1, GID2);
 
-	itertype(m_mapGuildWarEndTime[GID1]) it = m_mapGuildWarEndTime[GID1].find(GID2);
+	EndTimeMap::const_iterator it = m_mapGuildWarEndTime[GID1].find(GID2);
 
 	if (it != m_mapGuildWarEndTime[GID1].end() && 
 			it->second + GUILD_WAR_LADDER_HALF_PENALTY_TIME > CClientManager::instance().GetCurrentTime())
@@ -440,7 +438,7 @@ void CGuildManager::RemoveWar(DWORD GID1, DWORD GID2)
 	if (GID1 > GID2)
 		std::swap(GID2, GID1);
 
-	itertype(m_WarMap[GID1]) it = m_WarMap[GID1].find(GID2);
+	GuildWarInfoMap::const_iterator it = m_WarMap[GID1].find(GID2);
 
 	if (it == m_WarMap[GID1].end())
 	{
@@ -471,7 +469,7 @@ void CGuildManager::WarEnd(DWORD GID1, DWORD GID2, bool bForceDraw)
 
 	sys_log(0, "GuildWar: WarEnd %d %d", GID1, GID2);
 
-	itertype(m_WarMap[GID1]) itWarMap = m_WarMap[GID1].find(GID2);
+	GuildWarInfoMap::const_iterator itWarMap = m_WarMap[GID1].find(GID2);
 
 	if (itWarMap == m_WarMap[GID1].end())
 	{
@@ -535,12 +533,12 @@ void CGuildManager::RecvWarOver(DWORD dwGuildWinner, DWORD dwGuildLoser, bool bD
 	if (GID1 > GID2)
 		std::swap(GID1, GID2);
 
-	itertype(m_WarMap[GID1]) it = m_WarMap[GID1].find(GID2);
+	GuildWarInfoMap::iterator it = m_WarMap[GID1].find(GID2);
 
 	if (it == m_WarMap[GID1].end())
 		return;
 
-	TGuildWarInfo & gw = it->second;
+	TGuildWarInfo& gw = it->second;
 
 	// Award
 	if (bDraw)
@@ -581,7 +579,7 @@ void CGuildManager::StartWar(BYTE bType, DWORD GID1, DWORD GID2, CGuildWarReserv
 	if (GID1 > GID2)
 		std::swap(GID1, GID2);
 
-	TGuildWarInfo & gw = m_WarMap[GID1][GID2]; // map insert
+	TGuildWarInfo& gw = m_WarMap[GID1][GID2]; // map insert
 
 	if (bType == GUILD_WAR_TYPE_FIELD)
 		gw.tEndTime = CClientManager::instance().GetCurrentTime() + GUILD_WAR_DURATION;
@@ -602,7 +600,7 @@ void CGuildManager::UpdateScore(DWORD dwGainGID, DWORD dwOppGID, int iScoreDelta
 	if (GID1 > GID2)
 		std::swap(GID1, GID2);
 
-	itertype(m_WarMap[GID1]) it = m_WarMap[GID1].find(GID2);
+	GuildWarInfoMap::const_iterator it = m_WarMap[GID1].find(GID2);
 
 	if (it != m_WarMap[GID1].end())
 	{
@@ -653,7 +651,7 @@ void CGuildManager::AddDeclare(BYTE bType, DWORD guild_from, DWORD guild_to)
 
 void CGuildManager::RemoveDeclare(DWORD guild_from, DWORD guild_to)
 {
-	typeof(m_DeclareMap.begin()) it = m_DeclareMap.find(TGuildDeclareInfo(0, guild_from, guild_to));
+	GuildDeclareInfoSet::const_iterator it = m_DeclareMap.find(TGuildDeclareInfo(0, guild_from, guild_to));
 
 	if (it != m_DeclareMap.end())
 		m_DeclareMap.erase(it);
@@ -668,8 +666,8 @@ void CGuildManager::RemoveDeclare(DWORD guild_from, DWORD guild_to)
 
 bool CGuildManager::TakeBetPrice(DWORD dwGuildTo, DWORD dwGuildFrom, long lWarPrice)
 {
-	itertype(m_map_kGuild) it_from = m_map_kGuild.find(dwGuildFrom);
-	itertype(m_map_kGuild) it_to = m_map_kGuild.find(dwGuildTo);
+	kGuildMap::iterator it_from = m_map_kGuild.find(dwGuildFrom);
+	kGuildMap::iterator it_to = m_map_kGuild.find(dwGuildTo);
 
 	if (it_from == m_map_kGuild.end() || it_to == m_map_kGuild.end())
 	{
@@ -716,7 +714,7 @@ bool CGuildManager::WaitStart(TPacketGuildWar * p)
 
 int CGuildManager::GetLadderPoint(DWORD GID)
 {
-	itertype(m_map_kGuild) it = m_map_kGuild.find(GID);
+	kGuildMap::const_iterator it = m_map_kGuild.find(GID);
 
 	if (it == m_map_kGuild.end())
 		return 0;
@@ -726,12 +724,12 @@ int CGuildManager::GetLadderPoint(DWORD GID)
 
 void CGuildManager::ChangeLadderPoint(DWORD GID, int change)
 {
-	itertype(m_map_kGuild) it = m_map_kGuild.find(GID);
+	kGuildMap::iterator it = m_map_kGuild.find(GID);
 
 	if (it == m_map_kGuild.end())
 		return;
 
-	TGuild & r = it->second;
+	TGuild& r = it->second;
 
 	r.ladder_point += change;
 
@@ -784,7 +782,7 @@ void CGuildManager::DepositMoney(DWORD dwGuild, INT iGold)
 	if (iGold <= 0)
 		return;
 
-	itertype(m_map_kGuild) it = m_map_kGuild.find(dwGuild);
+	kGuildMap::iterator it = m_map_kGuild.find(dwGuild);
 
 	if (it == m_map_kGuild.end())
 	{
@@ -800,7 +798,7 @@ void CGuildManager::DepositMoney(DWORD dwGuild, INT iGold)
 
 void CGuildManager::WithdrawMoney(CPeer* peer, DWORD dwGuild, INT iGold)
 {
-	itertype(m_map_kGuild) it = m_map_kGuild.find(dwGuild);
+	kGuildMap::iterator it = m_map_kGuild.find(dwGuild);
 
 	if (it == m_map_kGuild.end())
 	{
@@ -825,7 +823,7 @@ void CGuildManager::WithdrawMoney(CPeer* peer, DWORD dwGuild, INT iGold)
 
 void CGuildManager::WithdrawMoneyReply(DWORD dwGuild, BYTE bGiveSuccess, INT iGold)
 {
-	itertype(m_map_kGuild) it = m_map_kGuild.find(dwGuild);
+	kGuildMap::iterator it = m_map_kGuild.find(dwGuild);
 
 	if (it == m_map_kGuild.end())
 		return;
@@ -1085,11 +1083,11 @@ void CGuildManager::ProcessReserveWar()
 {
 	DWORD dwCurTime = CClientManager::instance().GetCurrentTime();
 
-	itertype(m_map_kWarReserve) it = m_map_kWarReserve.begin();
+	WarReserverMap::const_iterator it = m_map_kWarReserve.begin();
 
 	while (it != m_map_kWarReserve.end())
 	{
-		itertype(m_map_kWarReserve) it2 = it++;
+		WarReserverMap::const_iterator it2 = it++;
 
 		CGuildWarReserve * pk = it2->second;
 		TGuildWarReserve & r = pk->GetDataRef();
@@ -1146,7 +1144,7 @@ void CGuildManager::ProcessReserveWar()
 
 bool CGuildManager::Bet(DWORD dwID, const char * c_pszLogin, DWORD dwGold, DWORD dwGuild)
 {
-	itertype(m_map_kWarReserve) it = m_map_kWarReserve.find(dwID);
+	WarReserverMap::const_iterator it = m_map_kWarReserve.find(dwID);
 
 	char szQuery[1024];
 
@@ -1179,7 +1177,7 @@ void CGuildManager::CancelWar(DWORD GID1, DWORD GID2)
 
 bool CGuildManager::ChangeMaster(DWORD dwGID, DWORD dwFrom, DWORD dwTo)
 {
-	itertype(m_map_kGuild) iter = m_map_kGuild.find(dwGID);
+	kGuildMap::const_iterator iter = m_map_kGuild.find(dwGID);
 
 	if (iter == m_map_kGuild.end())
 		return false;
@@ -1250,7 +1248,7 @@ void CGuildWarReserve::OnSetup(CPeer * peer)
 	TPacketGDGuildWarBet pckBet;
 	pckBet.dwWarID = m_data.dwID;
 
-	itertype(mapBet) it = mapBet.begin();
+	GuildWarBetMap::const_iterator it = mapBet.begin();
 
 	while (it != mapBet.end())
 	{
@@ -1340,7 +1338,7 @@ void CGuildWarReserve::Draw()
 
 	sys_log(0, "WAR_REWARD: Draw. war_id %u", m_data.dwID);
 
-	itertype(mapBet) it = mapBet.begin();
+	GuildWarBetMap::const_iterator it = mapBet.begin();
 
 	while (1)
 	{
@@ -1439,7 +1437,7 @@ void CGuildWarReserve::End(int iScoreFrom, int iScoreTo)
 
 	sys_log(0, "WAR_REWARD: End: Total bet: %u, Winner bet: %u", dwTotalBet, dwWinnerBet);
 
-	itertype(mapBet) it = mapBet.begin();
+	GuildWarBetMap::const_iterator it = mapBet.begin();
 
 	while (1)
 	{
