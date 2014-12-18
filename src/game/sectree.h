@@ -87,7 +87,7 @@ class SECTREE
 
 		template <class _Func> LPENTITY	find_if (_Func & func) const
 		{
-			LPSECTREE_LIST::iterator it_tree = m_neighbor_list.begin();
+			LPSECTREE_LIST::const_iterator it_tree = m_neighbor_list.begin();
 
 			while (it_tree != m_neighbor_list.end())
 			{
@@ -139,7 +139,7 @@ class SECTREE
 		}
 		template <class _Func> bool for_each_entity_for_find_victim(_Func & func)
 		{
-			itertype(m_set_entity) it = m_set_entity.begin();
+            ENTITY_SET::iterator it = m_set_entity.begin();
 
 			while (it != m_set_entity.end())
 			{

@@ -3884,7 +3884,7 @@ ACMD(do_set_stat)
 
 	two_arguments (argument, szName, sizeof (szName), szChangeAmount, sizeof(szChangeAmount));
 
-	if (*szName == NULL || *szChangeAmount == '\0')
+	if (*szName == '\0' || *szChangeAmount == '\0')
 	{
 		ch->ChatPacket (CHAT_TYPE_INFO, "Invalid argument.");
 		return;
