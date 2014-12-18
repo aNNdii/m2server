@@ -65,9 +65,15 @@ int main()
 {
 	WriteVersion();
 
+/**
+ * Fix FreeBSD compile.
+ * Is it really needed ?
+ */
+/*
 #ifdef __FreeBSD__
 	_malloc_options = "A";
 #endif
+*/
 
 	CConfig Config;
 	CNetPoller poller;
