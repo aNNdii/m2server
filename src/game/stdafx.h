@@ -21,7 +21,7 @@
 #include <string>
 #include <vector>
 
-#ifdef __GNUC__
+#if defined(__GNUC__) && !defined(__clang__)
 #include <float.h>
 #include <tr1/unordered_map>
 #include <tr1/unordered_set>
