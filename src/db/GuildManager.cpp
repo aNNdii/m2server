@@ -311,8 +311,6 @@ void CGuildManager::Update()
 	}
 }
 
-#define for_all(cont, it) for (typeof((cont).begin()) it = (cont).begin(); it != (cont).end(); ++it)
-
 void CGuildManager::OnSetup(CPeer* peer)
 {
 	for (GuildWarMap::const_iterator it_cont = m_WarMap.begin(); it_cont != m_WarMap.end(); ++it_cont)
