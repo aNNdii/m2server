@@ -50,7 +50,7 @@ CClientManager::CClientManager() :
 	m_pShopTable(NULL),
 	m_iRefineTableSize(0),
 	m_pRefineTable(NULL),
-	m_bShutdowned(FALSE),
+	m_bShutdowned(false),
 	m_iCacheFlushCount(0),
 	m_iCacheFlushCountLimit(200)
 {
