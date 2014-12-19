@@ -84,7 +84,7 @@ void SendPanamaList(LPDESC d)
 		DWORD* ivs = (DWORD*)pack.abIV;
 		for (int i = 0; i != 32 / sizeof(DWORD); i++)
 		{
-			ivs[i] ^= d->GetPanamaKey() + i * 16777619;	// ด๕บํฟ๖ตๅดÜภงทฮ บฏวüตศ ฦฤณชธถ ลฐธฆ XOR วุมุดู
+			ivs[i] ^= d->GetPanamaKey() + i * 16777619;	// า‘ั…ั”ะฝั—ัยตะตา‘ะฌะยงยทะ ั”ะะ—ัยตะ ะ–ะ”ั–ะั‘ยถ ะ•ยฐั‘ยฆ XOR ะ—ะจะ‘ะจา‘ะฉ
 		}
 		++it;
 

@@ -1,8 +1,8 @@
 /*
  *    Filename: signal.c
- * Description: �ñ׳� ���� �Լ�.
+ * Description: ЅГ±ЧіО °ь·Г ЗФјц.
  *
- *      Author: �� aka. Cronan
+ *      Author: єсї± aka. Cronan
  */
 #define __LIBTHECORE__
 #include "stdafx.h"

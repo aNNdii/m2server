@@ -14,11 +14,11 @@ class CGroupNode;
 
 typedef std::vector <TShopTableEx> ShopTableExVector;
 
-// Ȯ�� shop.
-// �������� ȭ��� �� �� �ְ�, �������� ���� �ǿ� ���� ��ġ�� �� �ִ�.
-// ��, pc ���� �������� ����.
-// Ŭ��� ����� ���� ���� pos 45 ������ ����.
-// ���� ���� m_itemVector�� ������� �ʴ´�.
+// И®Ае shop.
+// ёнµµАьА» И­Жу·О ѕµ јц АЦ°н, ѕЖАМЕЫА» ї©·Ї ЕЗїЎ іЄґІ №иДЎЗТ јц АЦґЩ.
+// ґЬ, pc јҐАє ±ёЗцЗПБц ѕКАЅ.
+// Е¬¶уїН ЕлЅЕЗТ ¶§їЎ ЕЗАє pos 45 ґЬА§·О ±ёєР.
+// ±вБё јҐАЗ m_itemVectorАє »зїлЗПБц ѕКґВґЩ.
 class CShopEx: public CShop
 {
 public:

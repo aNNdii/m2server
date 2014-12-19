@@ -49,7 +49,7 @@ bool timed_event_cancel(LPCHARACTER ch)
 	}
 
 	/* RECALL_DELAY
-	   Â÷ÈÄ ÀüÅõ·Î ÀÎÇØ ±ÍÈ¯ºÎ µô·¹ÀÌ°¡ Ãë¼Ò µÇ¾î¾ß ÇÒ °æ¿ì ÁÖ¼® ÇØÁ¦
+	   Ð’Ñ‡Ð˜Ð” ÐÑŒÐ•Ñ…Â·Ðž ÐÐžÐ—Ð¨ Â±ÐÐ˜Ð‡Ñ”Ðž ÂµÑ„Â·â„–ÐÐœÂ°ÐŽ Ð“Ð»Ñ˜Ð¢ ÂµÐ—Ñ•Ð¾Ñ•Ð¯ Ð—Ð¢ Â°Ð¶Ñ—Ð¼ Ð‘Ð¦Ñ˜Â® Ð—Ð¨Ð‘Â¦
 	   if (ch->m_pk_RecallEvent)
 	   {
 	   event_cancel(&ch->m_pkRecallEvent);
@@ -62,11 +62,11 @@ bool timed_event_cancel(LPCHARACTER ch)
 
 bool battle_is_attackable(LPCHARACTER ch, LPCHARACTER victim)
 {
-	// »ó´ë¹æÀÌ Á×¾úÀ¸¸é Áß´ÜÇÑ´Ù.
+	// Â»ÑƒÒ‘Ð»â„–Ð¶ÐÐœ Ð‘Ð§Ñ•ÑŠÐÑ‘Ñ‘Ð¹ Ð‘Ð¯Ò‘Ð¬Ð—Ð¡Ò‘Ð©.
 	if (victim->IsDead())
 		return false;
 
-	// ¾ÈÀüÁö´ë¸é Áß´Ü
+	// Ñ•Ð˜ÐÑŒÐ‘Ñ†Ò‘Ð»Ñ‘Ð¹ Ð‘Ð¯Ò‘Ð¬
 	{
 		SECTREE	*sectree = NULL;
 
@@ -80,7 +80,7 @@ bool battle_is_attackable(LPCHARACTER ch, LPCHARACTER victim)
 	}
 	
 
-	// ³»°¡ Á×¾úÀ¸¸é Áß´ÜÇÑ´Ù.
+	// Ñ–Â»Â°ÐŽ Ð‘Ð§Ñ•ÑŠÐÑ‘Ñ‘Ð¹ Ð‘Ð¯Ò‘Ð¬Ð—Ð¡Ò‘Ð©.
 	if (ch->IsStun() || ch->IsDead())
 		return false;
 
@@ -122,7 +122,7 @@ int battle_melee_attack(LPCHARACTER ch, LPCHARACTER victim)
 	if (test_server&&ch->IsPC())
 		sys_log(0, "battle_melee_attack : [%s] attack to [%s]", ch->GetName(), victim->GetName());
 
-	// °Å¸® Ã¼Å©
+	// Â°Ð•Ñ‘Â® Ð“Ñ˜Ð•Â©
 	int distance = DISTANCE_APPROX(ch->GetX() - victim->GetX(), ch->GetY() - victim->GetY());
 
 	if (!victim->IsBuilding())
@@ -131,12 +131,12 @@ int battle_melee_attack(LPCHARACTER ch, LPCHARACTER victim)
 	
 		if (false == ch->IsPC())
 		{
-			// ¸ó½ºÅÍÀÇ °æ¿ì ¸ó½ºÅÍ °ø°Ý °Å¸®¸¦ »ç¿ë
+			// Ñ‘ÑƒÐ…Ñ”Ð•ÐÐÐ— Â°Ð¶Ñ—Ð¼ Ñ‘ÑƒÐ…Ñ”Ð•Ð Â°ÑˆÂ°Ð­ Â°Ð•Ñ‘Â®Ñ‘Â¦ Â»Ð·Ñ—Ð»
 			max = (int) (ch->GetMobAttackRange() * 1.15f);
 		}
 		else
 		{
-			// PCÀÏ °æ¿ì »ó´ë°¡ melee ¸÷ÀÏ °æ¿ì ¸÷ÀÇ °ø°Ý °Å¸®°¡ ÃÖ´ë °ø°Ý °Å¸®
+			// PCÐÐŸ Â°Ð¶Ñ—Ð¼ Â»ÑƒÒ‘Ð»Â°ÐŽ melee Ñ‘Ñ‡ÐÐŸ Â°Ð¶Ñ—Ð¼ Ñ‘Ñ‡ÐÐ— Â°ÑˆÂ°Ð­ Â°Ð•Ñ‘Â®Â°ÐŽ Ð“Ð¦Ò‘Ð» Â°ÑˆÂ°Ð­ Â°Ð•Ñ‘Â®
 			if (false == victim->IsPC() && BATTLE_TYPE_MELEE == victim->GetMobBattleType())
 				max = MAX(300, (int) (victim->GetMobAttackRange() * 1.15f));
 		}
@@ -151,10 +151,10 @@ int battle_melee_attack(LPCHARACTER ch, LPCHARACTER victim)
 	}
 
 	if (timed_event_cancel(ch))
-		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("ÀüÅõ°¡ ½ÃÀÛ µÇ¾î Ãë¼Ò µÇ¾ú½À´Ï´Ù."));
+		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("ÐÑŒÐ•Ñ…Â°ÐŽ Ð…Ð“ÐÐ« ÂµÐ—Ñ•Ð¾ Ð“Ð»Ñ˜Ð¢ ÂµÐ—Ñ•ÑŠÐ…ÐÒ‘ÐŸÒ‘Ð©."));
 
 	if (timed_event_cancel(victim))
-		victim->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("ÀüÅõ°¡ ½ÃÀÛ µÇ¾î Ãë¼Ò µÇ¾ú½À´Ï´Ù."));
+		victim->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("ÐÑŒÐ•Ñ…Â°ÐŽ Ð…Ð“ÐÐ« ÂµÐ—Ñ•Ð¾ Ð“Ð»Ñ˜Ð¢ ÂµÐ—Ñ•ÑŠÐ…ÐÒ‘ÐŸÒ‘Ð©."));
 
 	ch->SetPosition(POS_FIGHTING);
 	ch->SetVictim(victim);
@@ -167,7 +167,7 @@ int battle_melee_attack(LPCHARACTER ch, LPCHARACTER victim)
 	return (ret);
 }
 
-// ½ÇÁ¦ GET_BATTLE_VICTIMÀ» NULL·Î ¸¸µé°í ÀÌº¥Æ®¸¦ Äµ½½ ½ÃÅ²´Ù.
+// Ð…Ð—Ð‘Â¦ GET_BATTLE_VICTIMÐÂ» NULLÂ·Ðž Ñ‘Ñ‘ÂµÐ¹Â°Ð½ ÐÐœÑ”ÒÐ–Â®Ñ‘Â¦ Ð”ÂµÐ…Ð… Ð…Ð“Ð•Ð†Ò‘Ð©.
 void battle_end_ex(LPCHARACTER ch)
 {
 	if (ch->IsPosition(POS_FIGHTING))
@@ -214,7 +214,7 @@ float CalcAttackRating(LPCHARACTER pkAttacker, LPCHARACTER pkVictim, bool bIgnor
 	int iARSrc;
 	int iERSrc;
 
-	if (LC_IsYMIR()) // Ãµ¸¶
+	if (LC_IsYMIR()) // Ð“ÂµÑ‘Â¶
 	{
 		iARSrc = MIN(90, pkAttacker->GetPolymorphPoint(POINT_DX));
 		iERSrc = MIN(90, pkVictim->GetPolymorphPoint(POINT_DX));
@@ -244,11 +244,11 @@ float CalcAttackRating(LPCHARACTER pkAttacker, LPCHARACTER pkVictim, bool bIgnor
 
 int CalcAttBonus(LPCHARACTER pkAttacker, LPCHARACTER pkVictim, int iAtk)
 {
-	// PvP¿¡´Â Àû¿ëÇÏÁö¾ÊÀ½
+	// PvPÑ—ÐŽÒ‘Ð’ ÐÑ‹Ñ—Ð»Ð—ÐŸÐ‘Ñ†Ñ•ÐšÐÐ…
 	if (!pkVictim->IsPC())
 		iAtk += pkAttacker->GetMarriageBonus(UNIQUE_ITEM_MARRIAGE_ATTACK_BONUS);
 
-	// PvP¿¡´Â Àû¿ëÇÏÁö¾ÊÀ½
+	// PvPÑ—ÐŽÒ‘Ð’ ÐÑ‹Ñ—Ð»Ð—ÐŸÐ‘Ñ†Ñ•ÐšÐÐ…
 	if (!pkAttacker->IsPC())
 	{
 		int iReduceDamagePct = pkVictim->GetMarriageBonus(UNIQUE_ITEM_MARRIAGE_TRANSFER_DAMAGE);
@@ -333,9 +333,9 @@ int CalcAttBonus(LPCHARACTER pkAttacker, LPCHARACTER pkVictim, int iAtk)
 		}
 	}
 
-	//[ mob -> PC ] ¿ø¼Ò ¼Ó¼º ¹æ¾î Àû¿ë
+	//[ mob -> PC ] Ñ—ÑˆÑ˜Ð¢ Ñ˜Ð£Ñ˜Ñ” â„–Ð¶Ñ•Ð¾ ÐÑ‹Ñ—Ð»
 	//2013/01/17
-	//¸ó½ºÅÍ ¼Ó¼º°ø°Ý µ¥¹ÌÁöÀÇ 30%¿¡ ÇØ´çÇÏ´Â ¼öÄ¡¿¡¸¸ ÀúÇ×ÀÌ Àû¿ëµÊ.
+	//Ñ‘ÑƒÐ…Ñ”Ð•Ð Ñ˜Ð£Ñ˜Ñ”Â°ÑˆÂ°Ð­ ÂµÒâ„–ÐœÐ‘Ñ†ÐÐ— 30%Ñ—ÐŽ Ð—Ð¨Ò‘Ð·Ð—ÐŸÒ‘Ð’ Ñ˜Ñ†Ð”ÐŽÑ—ÐŽÑ‘Ñ‘ ÐÑŠÐ—Ð§ÐÐœ ÐÑ‹Ñ—Ð»ÂµÐš.
 	if (pkAttacker->IsNPC() && pkVictim->IsPC())
 	{
 		if (pkAttacker->IsRaceFlag(RACE_FLAG_ATT_ELEC))
@@ -559,7 +559,7 @@ int CalcArrowDamage(LPCHARACTER pkAttacker, LPCHARACTER pkVictim, LPITEM pkBow, 
 	if (!pkArrow)
 		return 0;
 
-	// Å¸°ÝÄ¡ °è»êºÎ
+	// Ð•Ñ‘Â°Ð­Ð”ÐŽ Â°Ð¸Â»ÐºÑ”Ðž
 	int iDist = (int) (DISTANCE_SQRT(pkAttacker->GetX() - pkVictim->GetX(), pkAttacker->GetY() - pkVictim->GetY()));
 	//int iGap = (iDist / 100) - 5 - pkBow->GetValue(5) - pkAttacker->GetPoint(POINT_BOW_DISTANCE);
 	int iGap = (iDist / 100) - 5 - pkAttacker->GetPoint(POINT_BOW_DISTANCE);
@@ -619,7 +619,7 @@ int CalcArrowDamage(LPCHARACTER pkAttacker, LPCHARACTER pkVictim, LPITEM pkBow, 
 
 void NormalAttackAffect(LPCHARACTER pkAttacker, LPCHARACTER pkVictim)
 {
-	// µ¶ °ø°ÝÀº Æ¯ÀÌÇÏ¹Ç·Î Æ¯¼ö Ã³¸®
+	// ÂµÂ¶ Â°ÑˆÂ°Ð­ÐÑ” Ð–Ð‡ÐÐœÐ—ÐŸâ„–Ð—Â·Ðž Ð–Ð‡Ñ˜Ñ† Ð“Ñ–Ñ‘Â®
 	if (pkAttacker->GetPoint(POINT_POISON_PCT) && !pkVictim->IsAffectFlag(AFF_POISON))
 	{
 		if (number(1, 100) <= pkAttacker->GetPoint(POINT_POISON_PCT))
@@ -647,7 +647,7 @@ int battle_hit(LPCHARACTER pkAttacker, LPCHARACTER pkVictim, int & iRetDam)
 
 	NormalAttackAffect(pkAttacker, pkVictim);
 
-	// µ¥¹ÌÁö °è»ê
+	// ÂµÒâ„–ÐœÐ‘Ñ† Â°Ð¸Â»Ðº
 	//iDam = iDam * (100 - pkVictim->GetPoint(POINT_RESIST)) / 100;
 	LPITEM pkWeapon = pkAttacker->GetWear(WEAR_WEAPON);
 
@@ -680,7 +680,7 @@ int battle_hit(LPCHARACTER pkAttacker, LPCHARACTER pkVictim, int & iRetDam)
 		}
 
 
-	//ÃÖÁ¾ÀûÀÎ µ¥¹ÌÁö º¸Á¤. (2011³â 2¿ù ÇöÀç ´ë¿Õ°Å¹Ì¿¡°Ô¸¸ Àû¿ë.)
+	//Ð“Ð¦Ð‘Ñ•ÐÑ‹ÐÐž ÂµÒâ„–ÐœÐ‘Ñ† Ñ”Ñ‘Ð‘Â¤. (2011Ñ–Ð² 2Ñ—Ñ‰ Ð—Ñ†ÐÐ· Ò‘Ð»Ñ—Ð¥Â°Ð•â„–ÐœÑ—ÐŽÂ°Ð¤Ñ‘Ñ‘ ÐÑ‹Ñ—Ð».)
 	float attMul = pkAttacker->GetAttMul();
 	float tempIDam = iDam;
 	iDam = attMul * tempIDam + 0.5f;
@@ -700,19 +700,19 @@ DWORD GET_ATTACK_SPEED(LPCHARACTER ch)
         return 1000;
 
 	LPITEM item = ch->GetWear(WEAR_WEAPON);
-	DWORD default_bonus = SPEEDHACK_LIMIT_BONUS;    // À¯µÎ¸® °ø¼Ó(±âº» 80)
+	DWORD default_bonus = SPEEDHACK_LIMIT_BONUS;    // ÐÐ‡ÂµÐžÑ‘Â® Â°ÑˆÑ˜Ð£(Â±Ð²Ñ”Â» 80)
 	DWORD riding_bonus = 0;
 
 	if (ch->IsRiding())
 	{
-		// ¹º°¡¸¦ ÅÀÀ¸¸é Ãß°¡°ø¼Ó 50
+		// â„–Ñ”Â°ÐŽÑ‘Â¦ Ð•ÐÐÑ‘Ñ‘Ð¹ Ð“Ð¯Â°ÐŽÂ°ÑˆÑ˜Ð£ 50
 		riding_bonus = 50;
 	}
 
 	DWORD ani_speed = ani_attack_speed(ch);
     DWORD real_speed = (ani_speed * 100) / (default_bonus + ch->GetPoint(POINT_ATT_SPEED) + riding_bonus);
 
-	// ´Ü°ËÀÇ °æ¿ì °ø¼Ó 2¹è
+	// Ò‘Ð¬Â°Ð›ÐÐ— Â°Ð¶Ñ—Ð¼ Â°ÑˆÑ˜Ð£ 2â„–Ð¸
 	if (item && item->GetSubType() == WEAPON_DAGGER)
 		real_speed /= 2;
 

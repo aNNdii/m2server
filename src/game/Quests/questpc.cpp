@@ -311,10 +311,10 @@ namespace quest
 		{
 			LPCHARACTER npc = CQuestManager::instance().GetCurrentNPCCharacterPtr();
 			LPCHARACTER ch = CQuestManager::instance().GetCurrentCharacterPtr();
-			// npc �־��� ���
+			// npc АЦѕъґш °жїм
 			if (npc && !npc->IsPC())
 			{
-				// �� ���Ǿ��� ������ ���� ���
+				// ±Ч їЈЗЗѕѕ°Ў іЄїЎ°Ф ¶фАО °жїм
 				if (ch->GetPlayerID() == npc->GetQuestNPCID())
 				{
 					npc->SetQuestNPCID(0);
@@ -627,7 +627,7 @@ namespace quest
 	{
 		if (m_bIsGivenReward)
 		{
-			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("<����Ʈ> ������ ���� ������ ���� ���� �־� �ٽ� ���� �ʽ��ϴ�."));
+			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("<ДщЅєЖ®> АМАьїЎ °°Ає єё»уА» №ЮАє АыАМ АЦѕо ґЩЅГ №ЮБц ѕКЅАґПґЩ."));
 			m_bIsGivenReward = false;
 		}
 

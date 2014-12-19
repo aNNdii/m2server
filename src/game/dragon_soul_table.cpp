@@ -172,7 +172,7 @@ bool DragonSoulTable::ReadBasicApplys()
 		TVecApplys vecApplys;
 		int n = pChild->GetRowCount();
 		
-		// BasicApply Group�� Key�� 1���� ������.
+		// BasicApply GroupАє Key°Ў 1єОЕН ЅГАЫЗФ.
 		for (int j = 1; j <= n; j++)
 		{
 			std::stringstream ss;
@@ -654,7 +654,7 @@ bool DragonSoulTable::GetWeight(BYTE ds_type, BYTE grade_idx, BYTE step_index, B
 			return true;
 		}
 	}
-	// default group�� ���캽.
+	// default groupА» »мЖмєЅ.
 	pDragonSoulGroup = m_pWeightTableNode->GetChildNode("default");
 	if (NULL != pDragonSoulGroup)
 	{

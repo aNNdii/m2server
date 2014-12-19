@@ -15,7 +15,7 @@ void CGuildMarkManager::__DeleteImage(CGuildMarkImage * pkImgDel)
 
 CGuildMarkManager::CGuildMarkManager()
 {
-	// ³²Àº mark id ¼ÂÀ» ¸¸µç´Ù. (¼­¹ö¿ë)
+	// Ñ–Ğ†ĞÑ” mark id Ñ˜Ğ’ĞÂ» Ñ‘Ñ‘ÂµĞ·Ò‘Ğ©. (Ñ˜Â­â„–Ñ†Ñ—Ğ»)
 	for (DWORD i = 0; i < MAX_IMAGE_COUNT * CGuildMarkImage::MARK_TOTAL_COUNT; ++i)
 		m_setFreeMarkID.insert(i);
 }
@@ -44,7 +44,7 @@ void CGuildMarkManager::SetMarkPathPrefix(const char * prefix)
 	m_pathPrefix = prefix;
 }
 
-// ¸¶Å© ÀÎµ¦½º ºÒ·¯¿À±â (¼­¹ö¿¡¼­¸¸ »ç¿ë)
+// Ñ‘Â¶Ğ•Â© ĞĞÂµÂ¦Ğ…Ñ” Ñ”Ğ¢Â·Ğ‡Ñ—ĞÂ±Ğ² (Ñ˜Â­â„–Ñ†Ñ—ĞÑ˜Â­Ñ‘Ñ‘ Â»Ğ·Ñ—Ğ»)
 bool CGuildMarkManager::LoadMarkIndex()
 {
 	char buf[64];
@@ -178,7 +178,7 @@ DWORD CGuildMarkManager::__AllocMarkID(DWORD guildID)
 	DWORD markID = *it;
 	
 	DWORD imgIdx = markID / CGuildMarkImage::MARK_TOTAL_COUNT;
-	CGuildMarkImage * pkImage = __GetImage(imgIdx); // ÀÌ¹ÌÁö°¡ ¾ø´Ù¸é ¸¸µé±â À§ÇØ 
+	CGuildMarkImage * pkImage = __GetImage(imgIdx); // ĞĞœâ„–ĞœĞ‘Ñ†Â°Ğ Ñ•ÑˆÒ‘Ğ©Ñ‘Ğ¹ Ñ‘Ñ‘ÂµĞ¹Â±Ğ² ĞÂ§Ğ—Ğ¨ 
 
 	if (pkImage && AddMarkIDByGuildID(guildID, markID))
 		return markID;
@@ -264,7 +264,7 @@ void CGuildMarkManager::GetDiffBlocks(DWORD imgIdx, const DWORD * crcList, std::
 {
 	mapDiffBlocks.clear();
 
-	// Å¬¶óÀÌ¾ğÆ®¿¡¼­ ¼­¹ö¿¡ ¾ø´Â ÀÌ¹ÌÁö¸¦ ¿äÃ»ÇÒ ¼ö´Â ¾ø´Ù.
+	// Ğ•Â¬Â¶ÑƒĞĞœÑ•Ñ€Ğ–Â®Ñ—ĞÑ˜Â­ Ñ˜Â­â„–Ñ†Ñ—Ğ Ñ•ÑˆÒ‘Ğ’ ĞĞœâ„–ĞœĞ‘Ñ†Ñ‘Â¦ Ñ—Ğ´Ğ“Â»Ğ—Ğ¢ Ñ˜Ñ†Ò‘Ğ’ Ñ•ÑˆÒ‘Ğ©.
 	if (m_mapIdx_Image.end() == m_mapIdx_Image.find(imgIdx))
 	{
 		sys_err("invalid idx %u", imgIdx);
@@ -291,7 +291,7 @@ bool CGuildMarkManager::SaveBlockFromCompressedData(DWORD imgIdx, DWORD posBlock
 // CLIENT
 bool CGuildMarkManager::GetBlockCRCList(DWORD imgIdx, DWORD * crcList)
 {
-	// Å¬¶óÀÌ¾ğÆ®¿¡¼­ ¼­¹ö¿¡ ¾ø´Â ÀÌ¹ÌÁö¸¦ ¿äÃ»ÇÒ ¼ö´Â ¾ø´Ù.
+	// Ğ•Â¬Â¶ÑƒĞĞœÑ•Ñ€Ğ–Â®Ñ—ĞÑ˜Â­ Ñ˜Â­â„–Ñ†Ñ—Ğ Ñ•ÑˆÒ‘Ğ’ ĞĞœâ„–ĞœĞ‘Ñ†Ñ‘Â¦ Ñ—Ğ´Ğ“Â»Ğ—Ğ¢ Ñ˜Ñ†Ò‘Ğ’ Ñ•ÑˆÒ‘Ğ©.
 	if (m_mapIdx_Image.end() == m_mapIdx_Image.find(imgIdx))
 	{
 		sys_err("invalid idx %u", imgIdx);

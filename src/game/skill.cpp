@@ -299,7 +299,7 @@ bool CSkillManager::Initialize(TSkillTable * pTab, int iSize)
 
 	if (!bError)
 	{
-		// ±âÁ¸ Å×ÀÌºíÀÇ ³»¿ëÀ» Áö¿î´Ù.
+		// Â±Ğ²Ğ‘Ñ‘ Ğ•Ğ§ĞĞœÑ”Ğ½ĞĞ— Ñ–Â»Ñ—Ğ»ĞÂ» Ğ‘Ñ†Ñ—Ğ¾Ò‘Ğ©.
 		SkillProtoMap::const_iterator it = m_map_pkSkillProto.begin();
 
 		while (it != m_map_pkSkillProto.end()) {
@@ -309,7 +309,7 @@ bool CSkillManager::Initialize(TSkillTable * pTab, int iSize)
 
 		m_map_pkSkillProto.clear();
 
-		// »õ·Î¿î ³»¿ëÀ» »ğÀÔ
+		// Â»Ñ…Â·ĞÑ—Ğ¾ Ñ–Â»Ñ—Ğ»ĞÂ» Â»Ñ€ĞĞ¤
 		it = map_pkSkillProto.begin();
 
 		while (it != map_pkSkillProto.end())

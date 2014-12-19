@@ -20,7 +20,7 @@ void CItemAddonManager::ApplyAddonTo(int iAddonType, LPITEM pItem)
 		return;
 	}
 
-	// TODO �ϴ� �ϵ��ڵ����� ��Ÿ ��ų ��ġ ���游 ��츸 ����ް��Ѵ�.
+	// TODO АПґЬ ЗПµеДЪµщАё·О ЖтЕё ЅєЕі јцДЎ єЇ°жёё °жїмёё Аыїл№Ю°ФЗСґЩ.
 
 	int iSkillBonus = MINMAX(-30, (int) (gauss_random(0, 5) + 0.5f), 30);
 	int iNormalHitBonus = 0;

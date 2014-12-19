@@ -8,7 +8,7 @@ class CTableBySkill : public singleton<CTableBySkill>
 		CTableBySkill()
 			: m_aiSkillDamageByLevel(NULL)
 		{
-			//½ºÅ³ ·¹º§´ç Ãß°¡µ¥¹ÌÁö ÃÊ±âÈ­
+			//Ğ…Ñ”Ğ•Ñ– Â·â„–Ñ”Â§Ò‘Ğ· Ğ“Ğ¯Â°ĞÂµÒâ„–ĞœĞ‘Ñ† Ğ“ĞšÂ±Ğ²Ğ˜Â­
 			for ( int job = 0; job < JOB_MAX_NUM * 2; ++job )
 				m_aiSkillPowerByLevelFromType[job] = NULL;
 		}
@@ -18,18 +18,18 @@ class CTableBySkill : public singleton<CTableBySkill>
 			DeleteAll();
 		}
 
-		//Å×ÀÌºí ¼¼ÆÃ Ã¼Å©
+		//Ğ•Ğ§ĞĞœÑ”Ğ½ Ñ˜Ñ˜Ğ–Ğ“ Ğ“Ñ˜Ğ•Â©
 		bool 	Check() const;
 
-		//»èÁ¦
+		//Â»Ğ¸Ğ‘Â¦
 		void 	DeleteAll();
 
-		//½ºÅ³·¹º§´ÜÀ§ ½ºÅ³ÆÄ¿ö Å×ÀÌºí
+		//Ğ…Ñ”Ğ•Ñ–Â·â„–Ñ”Â§Ò‘Ğ¬ĞÂ§ Ğ…Ñ”Ğ•Ñ–Ğ–Ğ”Ñ—Ñ† Ğ•Ğ§ĞĞœÑ”Ğ½
 		int 	GetSkillPowerByLevelFromType( int job, int skillgroup, int skilllevel, bool bMob ) const;
 		void 	SetSkillPowerByLevelFromType( int idx, const int* aTable );
 		void	DeleteSkillPowerByLevelFromType( int idx );
 
-		//·¹º§´ç Ãß°¡ ½ºÅ³µ¥¹ÌÁö  Å×ÀÌºí
+		//Â·â„–Ñ”Â§Ò‘Ğ· Ğ“Ğ¯Â°Ğ Ğ…Ñ”Ğ•Ñ–ÂµÒâ„–ĞœĞ‘Ñ†  Ğ•Ğ§ĞĞœÑ”Ğ½
 		int 	GetSkillDamageByLevel( int Level ) const;
 		void	SetSkillDamageByLevelTable( const int* aTable );
 		void 	DeleteSkillDamageByLevelTable();

@@ -23,7 +23,7 @@ struct TPrivEmpireData
 };
 
 /**
- * @version 05/06/08	Bang2ni - ���ӽð� �߰�
+ * @version 05/06/08	Bang2ni - БцјУЅГ°Ј ГЯ°Ў
  */
 struct TPrivGuildData
 {
@@ -33,7 +33,7 @@ struct TPrivGuildData
     DWORD guild_id;
 
 	// ADD_GUILD_PRIV_TIME
-    time_t end_time_sec;	///< ���ӽð�
+    time_t end_time_sec;	///< БцјУЅГ°Ј
 
     TPrivGuildData(BYTE type, int value, DWORD guild_id, time_t _end_time_sec)
 	: type(type), value(value), bRemoved(false), guild_id(guild_id), end_time_sec(_end_time_sec )
@@ -56,7 +56,7 @@ typedef std::map<DWORD, TPrivGuildData*> PrivGuildDataMap;
 typedef std::map<DWORD, TPrivCharData*> PrivCharDataMap;
 
 /**
- * @version 05/06/08	Bang2ni - Guild privilege ���� �Լ� ���� �ð� �߰�
+ * @version 05/06/08	Bang2ni - Guild privilege °ь·Г ЗФјц БцјУ ЅГ°Ј ГЯ°Ў
  */
 class CPrivManager : public singleton<CPrivManager>
 {

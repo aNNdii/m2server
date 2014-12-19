@@ -29,7 +29,7 @@ class CPlayerTableCache : public cache<TPlayerTable>
 // MYSHOP_PRICE_LIST
 /**
  * @class	CItemPriceListTableCache
- * @brief	╟Ёюн╩Са║юг ╬фюлеш ╟║╟ща╓╨╦ ╦╝╫╨ф╝©║ ╢Кгя дЁ╫ц class
+ * @brief	б╟я√п░п·б╩я┐п▒п▌п░п≈ я∙п√п░п°п∙п╚ б╟п▌б╟п╜п▒б╓я■я▒ я▒б╝п┘я■п√б╝я≈п▌ р▒п╩п≈п║ п■я√п┘п⌠ class
  * @version	05/06/10 Bang2ni - First release.
  */
 class CItemPriceListTableCache : public cache< TItemPriceListTable >
@@ -38,20 +38,20 @@ class CItemPriceListTableCache : public cache< TItemPriceListTable >
 
 	/// Constructor
 	/**
-	 * дЁ╫ц ╦╦╥А ╫ц╟ёю╩ ╪Ёа╓гя╢ы.
+	 * п■я√п┘п⌠ я▒я▒б╥п╠ п┘п⌠б╟п┬п░б╩ я≤я√п▒б╓п≈п║р▒п╘.
 	 */
 	CItemPriceListTableCache(void);
 
-	/// ╦╝╫╨ф╝ ╟╩╫е
+	/// я▒б╝п┘я■п√б╝ б╟б╩п┘п∙
 	/**
-	 * @param [in]	pUpdateList ╟╩╫егр ╦╝╫╨ф╝
+	 * @param [in]	pUpdateList б╟б╩п┘п∙п≈п╒ я▒б╝п┘я■п√б╝
 	 *
-	 * дЁ╫ц╣х ╟║╟ща╓╨╦╦╕ ╟╩╫егя╢ы.
-	 * ╟║╟ща╓╨╦ ╦╝╫╨ф╝╟║ ╟║╣Ф ц║ю╩ ╟Ф©Л ╠Ба╦©║ дЁ╫л╣х а╓╨╦╣Ию╩ ╣з©║╪╜ ╨нем ╩Ха╕гя╢ы.
+	 * п■я√п┘п⌠б╣п≤ б╟п▌б╟п╜п▒б╓я■я▒я▒б╕ б╟б╩п┘п∙п≈п║р▒п╘.
+	 * б╟п▌б╟п╜п▒б╓я■я▒ я▒б╝п┘я■п√б╝б╟п▌ б╟п▌б╣п╤ п⌠п▌п░б╩ б╟п╤я≈п╪ б╠п╡п▒я▒я≈п▌ п■я√п┘п°б╣п≤ п▒б╓я■я▒б╣п╧п░б╩ б╣п╙я≈п▌я≤б╜ я■п·п∙п² б╩п╦п▒б╕п≈п║р▒п╘.
 	 */
 	void	UpdateList(const TItemPriceListTable* pUpdateList);
 
-	/// ╟║╟ща╓╨╦╦╕ DB ©║ ╠Б╥огя╢ы.
+	/// б╟п▌б╟п╜п▒б╓я■я▒я▒б╕ DB я≈п▌ б╠п╡б╥п÷п≈п║р▒п╘.
 	virtual void	OnFlush(void);
 
     private:

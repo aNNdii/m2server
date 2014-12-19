@@ -126,13 +126,13 @@ const char* __GetWarType(int n)
 	switch (n)
 	{
 		case 0 :
-			return "ÆÐ¿Õ";
+			return "Ð–Ð Ñ—Ð¥";
 		case 1 :
-			return "¸ÍÀå";
+			return "Ñ‘ÐÐÐµ";
 		case 2 :
-			return "¼öÈ£";
+			return "Ñ˜Ñ†Ð˜Ðˆ";
 		default :
-			return "¾ø´Â ¹øÈ£";
+			return "Ñ•ÑˆÒ‘Ð’ â„–ÑˆÐ˜Ðˆ";
 	}
 }
 
@@ -161,7 +161,7 @@ void CClientManager::GuildWar(CPeer* peer, TPacketGuildWar* p)
 
 		case GUILD_WAR_WAIT_START:
 			sys_log(0, "GuildWar: GUILD_WAR_WAIT_START type(%s) guild(%d - %d)", __GetWarType(p->bType), p->dwGuildFrom, p->dwGuildTo);
-		case GUILD_WAR_RESERVE:	// ±æµåÀü ¿¹¾à
+		case GUILD_WAR_RESERVE:	// Â±Ð¶ÂµÐµÐÑŒ Ñ—â„–Ñ•Ð°
 			if (p->bWar != GUILD_WAR_WAIT_START)
 				sys_log(0, "GuildWar: GUILD_WAR_RESERVE type(%s) guild(%d - %d)", __GetWarType(p->bType), p->dwGuildFrom, p->dwGuildTo);
 			CGuildManager::instance().RemoveDeclare(p->dwGuildFrom, p->dwGuildTo);
@@ -173,21 +173,21 @@ void CClientManager::GuildWar(CPeer* peer, TPacketGuildWar* p)
 
 			break;
 
-		case GUILD_WAR_ON_WAR:		// ±æµåÀüÀ» ½ÃÀÛ ½ÃÅ²´Ù. (ÇÊµåÀüÀº ¹Ù·Î ½ÃÀÛ µÊ)
+		case GUILD_WAR_ON_WAR:		// Â±Ð¶ÂµÐµÐÑŒÐÂ» Ð…Ð“ÐÐ« Ð…Ð“Ð•Ð†Ò‘Ð©. (Ð—ÐšÂµÐµÐÑŒÐÑ” â„–Ð©Â·Ðž Ð…Ð“ÐÐ« ÂµÐš)
 			sys_log(0, "GuildWar: GUILD_WAR_ON_WAR type(%s) guild(%d - %d)", __GetWarType(p->bType), p->dwGuildFrom, p->dwGuildTo);
 			CGuildManager::instance().RemoveDeclare(p->dwGuildFrom, p->dwGuildTo);
 			CGuildManager::instance().StartWar(p->bType, p->dwGuildFrom, p->dwGuildTo);
 			break;
 
-		case GUILD_WAR_OVER:		// ±æµåÀü Á¤»ó Á¾·á
+		case GUILD_WAR_OVER:		// Â±Ð¶ÂµÐµÐÑŒ Ð‘Â¤Â»Ñƒ Ð‘Ñ•Â·Ð±
 			sys_log(0, "GuildWar: GUILD_WAR_OVER type(%s) guild(%d - %d)", __GetWarType(p->bType), p->dwGuildFrom, p->dwGuildTo);
 			CGuildManager::instance().RecvWarOver(p->dwGuildFrom, p->dwGuildTo, p->bType, p->lWarPrice);
 			break;
 
-		case GUILD_WAR_END:		// ±æµåÀü ºñÁ¤»ó Á¾·á
+		case GUILD_WAR_END:		// Â±Ð¶ÂµÐµÐÑŒ Ñ”ÑÐ‘Â¤Â»Ñƒ Ð‘Ñ•Â·Ð±
 			sys_log(0, "GuildWar: GUILD_WAR_END type(%s) guild(%d - %d)", __GetWarType(p->bType), p->dwGuildFrom, p->dwGuildTo);
 			CGuildManager::instance().RecvWarEnd(p->dwGuildFrom, p->dwGuildTo);
-			return; // NOTE: RecvWarEnd¿¡¼­ ÆÐÅ¶À» º¸³»¹Ç·Î µû·Î ºê·ÎµåÄ³½ºÆÃ ÇÏÁö ¾Ê´Â´Ù.
+			return; // NOTE: RecvWarEndÑ—ÐŽÑ˜Â­ Ð–Ð Ð•Â¶ÐÂ» Ñ”Ñ‘Ñ–Â»â„–Ð—Â·Ðž ÂµÑ‹Â·Ðž Ñ”ÐºÂ·ÐžÂµÐµÐ”Ñ–Ð…Ñ”Ð–Ð“ Ð—ÐŸÐ‘Ñ† Ñ•ÐšÒ‘Ð’Ò‘Ð©.
 
 		case GUILD_WAR_CANCEL :
 			sys_log(0, "GuildWar: GUILD_WAR_CANCEL type(%s) guild(%d - %d)", __GetWarType(p->bType), p->dwGuildFrom, p->dwGuildTo);

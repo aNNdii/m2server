@@ -20,7 +20,7 @@ struct heart
 
 extern LPHEART	heart_new(int opt_usec, HEARTFUNC func);
 extern void	heart_delete(LPHEART ht);
-extern int	heart_idle(LPHEART ht);	// ¸î pulse°¡ Áö³µ³ª ¸®ÅÏÇÑ´Ù.
+extern int	heart_idle(LPHEART ht);	// Ñ‘Ð¾ pulseÂ°ÐŽ Ð‘Ñ†Ñ–ÂµÑ–Ð„ Ñ‘Â®Ð•ÐŸÐ—Ð¡Ò‘Ð©.
 extern void	heart_beat(LPHEART ht, int pulses);
 
 #endif

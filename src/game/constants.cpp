@@ -14,7 +14,7 @@ TJobInitialPoints JobInitialPoints[JOB_MAX_NUM] =
    }
  */
 {
-	// str con dex int �ʱ�HP �ʱ�SP  CON/HP INT/SP  HP����/lv   MP����/lv  �ʱ�stam  stam/con stam/lv
+	// str con dex int ГК±вHP ГК±вSP  CON/HP INT/SP  HP·Јґэ/lv   MP·Јґэ/lv  ГК±вstam  stam/con stam/lv
 	{   6,  4,  3,  3,  600,   200,     40,    20,    36, 44,     18, 22,     800,      5,      1, 3  }, // JOB_WARRIOR  16
 	{   4,  3,  6,  3,  650,   200,     40,    20,    36, 44,     18, 22,     800,      5,      1, 3  }, // JOB_ASSASSIN 16
 	{   5,  3,  3,  5,  650,   200,     40,    20,    36, 44,     18, 22,     800,      5,      1, 3  }, // JOB_SURA	 16
@@ -162,7 +162,7 @@ const DWORD exp_table_euckr[PLAYER_EXP_TABLE_MAX + 1] =
 	1676898443,
 	1844588288,
 	2029047116,
-	2100000000,	//	99		99������ �� �ʿ����ġ (100������ �Ǳ� ����)
+	2100000000,	//	99		99·№є§АП ¶§ ЗКїд°жЗиДЎ (100·№є§АМ µЗ±в А§ЗС)
 	2100000000,	//	100
 	2100000000,		
 	2100000000,		
@@ -287,7 +287,7 @@ const DWORD exp_table_common[PLAYER_EXP_TABLE_MAX + 1] =
 	1676898443,		
 	1844588288,		
 	2029047116,		
-	2050000000,	//	99���� �� �� �ʿ����ġ (100������ �Ǳ� ����)
+	2050000000,	//	99·№є§ АП ¶§ ЗКїд°жЗиДЎ (100·№є§АМ µЗ±в А§ЗС)
 	2150000000,	//	100
 	2210000000,		
 	2250000000,		
@@ -412,7 +412,7 @@ const DWORD exp_table_newcibn[PLAYER_EXP_TABLE_MAX + 1 ] =
 	2000000000,
 	2000000000,
 	2000000000,
-	2000000000,	//	99		99������ �� �ʿ����ġ (100������ �Ǳ� ����).. ���� CIBN�� ��� ��ϰ� �ִ� �� �𸣴� �ű� ���̺��� ���� �ʰ� ������ ��� ���� ����
+	2000000000,	//	99		99·№є§АП ¶§ ЗКїд°жЗиДЎ (100·№є§АМ µЗ±в А§ЗС).. ЗцАз CIBNАМ ѕо¶»°Ф їоїµЗП°н АЦґВ Бц ёрёЈґП ЅЕ±Ф ЕЧАМєнА» ѕІБц ѕК°н ±вБё°Є °ијУ ї¬Ае АЇБц
 	2000000000,	//	100
 	2000000000,		
 	2000000000,		
@@ -439,8 +439,8 @@ const DWORD exp_table_newcibn[PLAYER_EXP_TABLE_MAX + 1 ] =
 const int * aiPercentByDeltaLev = NULL;
 const int * aiPercentByDeltaLevForBoss = NULL;
 
-// ���� ������ �������̿� ���� ��꿡 ���Ǵ� ���̺�
-// MIN(MAX_EXP_DELTA_OF_LEV - 1, (���� + 15) - ����))
+// Аы°ъ іЄїНАЗ ·№є§ВчАМїЎ АЗЗС °и»кїЎ »зїлµЗґВ ЕЧАМєн
+// MIN(MAX_EXP_DELTA_OF_LEV - 1, (Аы·ѕ + 15) - і»·ѕ))
 const int aiPercentByDeltaLevForBoss_euckr[MAX_EXP_DELTA_OF_LEV] =
 {
 	1,      // -15  0
@@ -720,7 +720,7 @@ const DWORD guild_exp_table[GUILD_MAX_LEVEL+1] =
 	42000000UL
 };
 
-// INTERNATIONAL_VERSION ������ġ
+// INTERNATIONAL_VERSION ±жµе°жЗиДЎ
 const DWORD guild_exp_table2[GUILD_MAX_LEVEL+1] =
 {
 	0,	
@@ -745,7 +745,7 @@ const DWORD guild_exp_table2[GUILD_MAX_LEVEL+1] =
 	4000000UL,
 	16800000UL
 };
-// END_OF_INTERNATIONAL_VERSION ������ġ
+// END_OF_INTERNATIONAL_VERSION ±жµе°жЗиДЎ
 
 const int aiMobEnchantApplyIdx[MOB_ENCHANTS_MAX_NUM] =
 {
@@ -898,16 +898,16 @@ const TApplyInfo aApplyInfo[MAX_APPLY_NUM] =
 	{ POINT_PC_BANG_DROP_BONUS	},		// 76
 	// END_PC_BANG_ITEM_ADD
 
-	{ POINT_NONE,		},				// 77 ���� HP �Ҹ� APPLY_EXTRACT_HP_PCT
+	{ POINT_NONE,		},				// 77 »зїлЅГ HP јТёр APPLY_EXTRACT_HP_PCT
 
-	{ POINT_RESIST_WARRIOR,		},		// 78 ���翡�� ���� APPLY_RESIST_WARRIOR
-	{ POINT_RESIST_ASSASSIN,	},		// 79 �ڰ����� ���� APPLY_RESIST_ASSASSIN
-	{ POINT_RESIST_SURA,		},		// 80 ���󿡰� ���� APPLY_RESIST_SURA
-	{ POINT_RESIST_SHAMAN,		},		// 81 ���翡�� ���� APPLY_RESIST_SHAMAN
-	{ POINT_ENERGY				},		// 82 ��� 
-	{ POINT_DEF_GRADE			},		// 83 ����. DEF_GRADE_BONUS�� Ŭ�󿡼� �ι�� �������� �ǵ��� ����(...)�� �ִ�.
-	{ POINT_COSTUME_ATTR_BONUS	},		// 84 �ڽ�Ƭ�� ���� �Ӽ��� ���ؼ��� ���ʽ��� �ִ� ���
-	{ POINT_MAGIC_ATT_BONUS_PER },			// 85 ���� ���ݷ� +x%
+	{ POINT_RESIST_WARRIOR,		},		// 78 №«»зїЎ°Ф АъЗЧ APPLY_RESIST_WARRIOR
+	{ POINT_RESIST_ASSASSIN,	},		// 79 АЪ°ґїЎ°Ф АъЗЧ APPLY_RESIST_ASSASSIN
+	{ POINT_RESIST_SURA,		},		// 80 јц¶уїЎ°Ф АъЗЧ APPLY_RESIST_SURA
+	{ POINT_RESIST_SHAMAN,		},		// 81 №«ґзїЎ°Ф АъЗЧ APPLY_RESIST_SHAMAN
+	{ POINT_ENERGY				},		// 82 ±в·В 
+	{ POINT_DEF_GRADE			},		// 83 №жѕо·В. DEF_GRADE_BONUSґВ Е¬¶уїЎј­ µО№и·О єёї©БцґВ АЗµµµИ №ц±Ч(...)°Ў АЦґЩ.
+	{ POINT_COSTUME_ATTR_BONUS	},		// 84 ДЪЅєЖ¬їЎ єЩАє јУјєїЎ ґлЗШј­ёё єёіКЅєё¦ БЦґВ ±в·В
+	{ POINT_MAGIC_ATT_BONUS_PER },			// 85 ё¶№э °ш°Э·В +x%
 	{ POINT_MELEE_MAGIC_ATT_BONUS_PER		},			// 86 APPLY_MELEE_MAGIC_ATTBONUS_PER
 	{ POINT_RESIST_ICE,			},   // APPLY_RESIST_ICE,	87
 	{ POINT_RESIST_EARTH,		},   // APPLY_RESIST_EARTH,	88
@@ -1076,19 +1076,19 @@ const SStoneDropInfo aStoneDrop[STONE_INFO_MAX_NUM] =
 
 const char * c_apszEmpireNames[EMPIRE_MAX_NUM] =
 {
-	"������",
-	"�ż���",
-	"õ����",
-	"���뱹"
+	"АьБ¦±№",
+	"ЅЕјц±№",
+	"ГµБ¶±№",
+	"Бшіл±№"
 };
 
 const char * c_apszPrivNames[MAX_PRIV_NUM] =
 {
 	"",
-	"�������� ���� Ȯ��",
-	"���� ���� Ȯ��",
-	"�� ����� ���� Ȯ��",
-	"����ġ ����",
+	"ѕЖАМЕЫАМ іЄїГ И®·ь",
+	"µ·АМ іЄїГ И®·ь",
+	"µ· ґл№ЪАМ іЄїГ И®·ь",
+	"°жЗиДЎ №иАІ",
 };
 
 const int aiPolymorphPowerByLevel[SKILL_MAX_LEVEL + 1] =
@@ -1153,28 +1153,28 @@ TGuildWarInfo KOR_aGuildWarInfo[GUILD_WAR_TYPE_MAX_NUM] =
 };
 
 //
-// �Ǽ����� ���Ͽ� ��ġ��
+// ѕЗјјј­ё® јТДПїл јцДЎµй
 //
 
-// ���̾Ƹ��� ������ �߰��� �� Ȯ��
+// ґЩАМѕЖёуµе·О јТДПА» ГЯ°ЎЗТ ¶§ И®·ь
 const int aiAccessorySocketAddPct[ITEM_ACCESSORY_SOCKET_MAX_NUM] =
 {
 	50, 50, 50
 };
 
-// �Ǽ����� ��ġ ���� ��%��ŭ�� ������ �߰��ϴ���
+// ѕЗјјј­ё® јцДЎ °ЄАЗ ёо%ёёЕ­АЗ јєґЙА» ГЯ°ЎЗПґВБц
 const int aiAccessorySocketEffectivePct[ITEM_ACCESSORY_SOCKET_MAX_NUM + 1] = 
 {
 	0, 10, 20, 40
 };
 
-// ���� ���ӽð� 24, 12, 6
+// јТДП БцјУЅГ°Ј 24, 12, 6
 const int aiAccessorySocketDegradeTime[ITEM_ACCESSORY_SOCKET_MAX_NUM + 1] =
 {
 	0, 3600 * 24, 3600 * 12, 3600 * 6
 };
 
-// ���� ���� ������
+// јТДП АеВш јє°ш·ь
 const int aiAccessorySocketPutPct[ITEM_ACCESSORY_SOCKET_MAX_NUM + 1] =
 {
 	90, 80, 70, 0
@@ -1272,10 +1272,10 @@ TValueName c_aApplyTypeNames[] =
     { "RESIST_ASSASSIN",	APPLY_RESIST_ASSASSIN},
     { "RESIST_SURA",		APPLY_RESIST_SURA},
     { "RESIST_SHAMAN",	APPLY_RESIST_SHAMAN},
-    // by mhh game/affect.h ���ǵǾ�����. INFINITE_AFFECT_DURATION = 0x1FFFFFFF
+    // by mhh game/affect.h Б¤АЗµЗѕоАЦАЅ. INFINITE_AFFECT_DURATION = 0x1FFFFFFF
     { "INFINITE_AFFECT_DURATION", 0x1FFFFFFF	},
-	{ "ENERGY", APPLY_ENERGY },		//	���
-	{ "COSTUME_ATTR_BONUS", APPLY_COSTUME_ATTR_BONUS },		//	���
+	{ "ENERGY", APPLY_ENERGY },		//	±в·В
+	{ "COSTUME_ATTR_BONUS", APPLY_COSTUME_ATTR_BONUS },		//	±в·В
 	{ "MAGIC_ATTBONUS_PER",	APPLY_MAGIC_ATTBONUS_PER	},
     { "MELEE_MAGIC_ATTBONUS_PER",	APPLY_MELEE_MAGIC_ATTBONUS_PER	},
     

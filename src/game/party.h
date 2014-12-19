@@ -5,7 +5,7 @@
 
 enum // unit : minute
 {
-	PARTY_ENOUGH_MINUTE_FOR_EXP_BONUS = 60, // ��Ƽ �Ἲ �� 60�� �� ���� �߰� ����ġ ���ʽ�
+	PARTY_ENOUGH_MINUTE_FOR_EXP_BONUS = 60, // ЖДЖј °бјє ИД 60єР ИД єОЕН ГЯ°Ў °жЗиДЎ єёіКЅє
 	PARTY_HEAL_COOLTIME_LONG = 60,
 	PARTY_HEAL_COOLTIME_SHORT = 30,
 	PARTY_MAX_MEMBER = 8,
@@ -69,12 +69,12 @@ class CPartyManager : public singleton<CPartyManager>
 		void		P2PQuitParty(DWORD pid);
 
 	private:
-		TPartyMap	m_map_pkParty;		// PID�� ��� ��Ƽ�� �ֳ� �˻��ϱ� ���� �����̳�
-		TPartyMap	m_map_pkMobParty;	// Mob ��Ƽ�� PID ��� VID �� ���� �����Ѵ�.
+		TPartyMap	m_map_pkParty;		// PID·О ѕоґА ЖДЖјїЎ АЦіЄ °Л»цЗП±в А§ЗС ДБЕЧАМіК
+		TPartyMap	m_map_pkMobParty;	// Mob ЖДЖјґВ PID ґлЅЕ VID ·О µы·О °ьё®ЗСґЩ.
 
-		TPCPartySet	m_set_pkPCParty;	// ������� ��Ƽ ��ü ����
+		TPCPartySet	m_set_pkPCParty;	// »з¶чµйАЗ ЖДЖј АьГј БэЗХ
 
-		bool		m_bEnablePCParty;	// ��� �������� ������ ������� ��Ƽ ���°� ����Ұ�
+		bool		m_bEnablePCParty;	// µрєс°Ў ДСБ®АЦБц ѕКАёёй »з¶чµйАЗ ЖДЖј »уЕВ°Ў єЇ°жєТ°Ў
 };
 
 enum EPartyMessages
@@ -246,9 +246,9 @@ class CParty
 		TFlagMap	m_map_iFlag;
 
 		LPDUNGEON	m_pkDungeon;
-		// �Ʊ� ������ dungeon ��� ����.
-		// ���� �̷��Ա��� �ϰ� ���� �ʾҴµ�, �������� party ������ ������ �����̶�
-		// �װ� ��ġ�� �������� �̷��� �ӽ÷� �س��´�.
+		// ѕЖ±Н µї±јїл dungeon ёв№ц єЇјц.
+		// Б¤ё» АМ·ё°Ф±оБц ЗП°н ЅНБш ѕКѕТґВµҐ, ґшАьїЎј­ party °ьё®°Ў Б¤ё»·О °іЖЗАМ¶у
+		// ±Ч°Е °нДЎ±в Аь±оБцґВ АМ·ё°Ф АУЅГ·О ЗШіхґВґЩ.
 		LPDUNGEON	m_pkDungeon_for_Only_party;
 	public:
 		void SetDungeon_for_Only_party(LPDUNGEON pDungeon);

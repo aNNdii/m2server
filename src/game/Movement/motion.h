@@ -18,40 +18,40 @@ enum EMotionMode
 
 enum EPublicMotion
 {
-	MOTION_NONE,                // 0 ����
-	MOTION_WAIT,                // 1 ���          (00.msa)
-	MOTION_WALK,                // 2 �ȱ�          (02.msa)
-	MOTION_RUN,                 // 3 �ٱ�          (03.msa)
-	MOTION_CHANGE_WEAPON,       // 4 ����ٲٱ�
-	MOTION_DAMAGE,              // 5 ����±�      (30.msa)
-	MOTION_DAMAGE_FLYING,       // 6 ���鳯�ư���  (32.msa)
-	MOTION_STAND_UP,            // 7 �����Ͼ��  (33.msa)
-	MOTION_DAMAGE_BACK,         // 8 �ĸ�±�      (34.msa)
-	MOTION_DAMAGE_FLYING_BACK,  // 9 �ĸ鳯�ư���  (35.msa)
-	MOTION_STAND_UP_BACK,       // 10 �ĸ��Ͼ�� (26.msa)
-	MOTION_DEAD,                // 11 �ױ�         (31.msa)
-	MOTION_DEAD_BACK,           // 12 �ĸ��ױ�     (37.msa)
-	MOTION_NORMAL_ATTACK,		// 13 �⺻ ����
-	MOTION_COMBO_ATTACK_1,		// 14 �޺� ����
-	MOTION_COMBO_ATTACK_2,      // 15 �޺� ����
-	MOTION_COMBO_ATTACK_3,      // 16 �޺� ����
-	MOTION_COMBO_ATTACK_4,      // 17 �޺� ����
-	MOTION_COMBO_ATTACK_5,      // 18 �޺� ����
-	MOTION_COMBO_ATTACK_6,      // 19 �޺� ����
-	MOTION_COMBO_ATTACK_7,      // 20 �޺� ����
-	MOTION_COMBO_ATTACK_8,      // 21 �޺� ����
-	MOTION_INTRO_WAIT,          // 22 ����ȭ�� ���
-	MOTION_INTRO_SELECTED,      // 23 ����ȭ�� ����
-	MOTION_INTRO_NOT_SELECTED,  // 24 ����ȭ�� ����
-	MOTION_SPAWN,               // 25 ��ȯ
-	MOTION_FISHING_THROW,       // 26 ���� ������
-	MOTION_FISHING_WAIT,        // 27 ���� ���
-	MOTION_FISHING_STOP,        // 28 ���� �׸��α�
-	MOTION_FISHING_REACT,       // 29 ���� ����
-	MOTION_FISHING_CATCH,       // 30 ���� ���
-	MOTION_FISHING_FAIL,        // 31 ���� ����
-	MOTION_STOP,                // 32 �� ���߱�
-	MOTION_SPECIAL_1,           // 33 ���� ��ų
+	MOTION_NONE,                // 0 ѕшАЅ
+	MOTION_WAIT,                // 1 ґл±в          (00.msa)
+	MOTION_WALK,                // 2 °И±в          (02.msa)
+	MOTION_RUN,                 // 3 ¶Щ±в          (03.msa)
+	MOTION_CHANGE_WEAPON,       // 4 №«±в№ЩІЩ±в
+	MOTION_DAMAGE,              // 5 Б¤ёйёВ±в      (30.msa)
+	MOTION_DAMAGE_FLYING,       // 6 Б¤ёйіЇѕЖ°Ў±в  (32.msa)
+	MOTION_STAND_UP,            // 7 Б¤ёйАПѕоіЄ±в  (33.msa)
+	MOTION_DAMAGE_BACK,         // 8 ИДёйёВ±в      (34.msa)
+	MOTION_DAMAGE_FLYING_BACK,  // 9 ИДёйіЇѕЖ°Ў±в  (35.msa)
+	MOTION_STAND_UP_BACK,       // 10 ИДёйАПѕоіЄ±в (26.msa)
+	MOTION_DEAD,                // 11 БЧ±в         (31.msa)
+	MOTION_DEAD_BACK,           // 12 ИДёйБЧ±в     (37.msa)
+	MOTION_NORMAL_ATTACK,		// 13 ±вє» °ш°Э
+	MOTION_COMBO_ATTACK_1,		// 14 ДЮєё °ш°Э
+	MOTION_COMBO_ATTACK_2,      // 15 ДЮєё °ш°Э
+	MOTION_COMBO_ATTACK_3,      // 16 ДЮєё °ш°Э
+	MOTION_COMBO_ATTACK_4,      // 17 ДЮєё °ш°Э
+	MOTION_COMBO_ATTACK_5,      // 18 ДЮєё °ш°Э
+	MOTION_COMBO_ATTACK_6,      // 19 ДЮєё °ш°Э
+	MOTION_COMBO_ATTACK_7,      // 20 ДЮєё °ш°Э
+	MOTION_COMBO_ATTACK_8,      // 21 ДЮєё °ш°Э
+	MOTION_INTRO_WAIT,          // 22 ј±ЕГИ­ёй ґл±в
+	MOTION_INTRO_SELECTED,      // 23 ј±ЕГИ­ёй ј±ЕГ
+	MOTION_INTRO_NOT_SELECTED,  // 24 ј±ЕГИ­ёй єсј±ЕГ
+	MOTION_SPAWN,               // 25 јТИЇ
+	MOTION_FISHING_THROW,       // 26 і¬ЅГ ґшБц±в
+	MOTION_FISHING_WAIT,        // 27 і¬ЅГ ґл±в
+	MOTION_FISHING_STOP,        // 28 і¬ЅГ ±ЧёёµО±в
+	MOTION_FISHING_REACT,       // 29 і¬ЅГ №ЭАА
+	MOTION_FISHING_CATCH,       // 30 і¬ЅГ Ав±в
+	MOTION_FISHING_FAIL,        // 31 і¬ЅГ ЅЗЖР
+	MOTION_STOP,                // 32 ё» ёШГЯ±в
+	MOTION_SPECIAL_1,           // 33 ёуЅєЕН ЅєЕі
 	MOTION_SPECIAL_2,           // 34 
 	MOTION_SPECIAL_3,			// 35
 	MOTION_SPECIAL_4,			// 36

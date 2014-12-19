@@ -24,7 +24,7 @@ int CItem::GetAttributeSetIndex()
 		switch (GetSubType())
 		{
 			case ARMOR_BODY:
-//			case COSTUME_BODY: // �ڽ��� ������ �Ϲ� ���ʰ� ������ Attribute Set�� �̿��Ͽ� �����Ӽ� ���� (ARMOR_BODY == COSTUME_BODY)
+//			case COSTUME_BODY: // ДЪЅєГх °©їКАє АП№Э °©їК°ъ µїАПЗС Attribute SetА» АМїлЗПї© ·ЈґэјУјє єЩАЅ (ARMOR_BODY == COSTUME_BODY)
 				return ATTRIBUTE_SET_BODY;
 
 			case ARMOR_WRIST:
@@ -37,7 +37,7 @@ int CItem::GetAttributeSetIndex()
 				return ATTRIBUTE_SET_NECK;
 
 			case ARMOR_HEAD:
-//			case COSTUME_HAIR: // �ڽ��� ���� �Ϲ� ���� �����۰� ������ Attribute Set�� �̿��Ͽ� �����Ӽ� ���� (ARMOR_HEAD == COSTUME_HAIR)
+//			case COSTUME_HAIR: // ДЪЅєГх ЗмѕоґВ АП№Э Ех±ё ѕЖАМЕЫ°ъ µїАПЗС Attribute SetА» АМїлЗПї© ·ЈґэјУјє єЩАЅ (ARMOR_HEAD == COSTUME_HAIR)
 				return ATTRIBUTE_SET_HEAD;
 
 			case ARMOR_SHIELD:
@@ -125,7 +125,7 @@ void CItem::PutAttributeWithLevel(BYTE bLevel)
 
 	int total = 0;
 
-	// ���� �� �ִ� �Ӽ� �迭�� ����
+	// єЩАП јц АЦґВ јУјє №иї­А» ±ёГа
 	for (int i = 0; i < MAX_APPLY_NUM; ++i)
 	{
 		const TItemAttrTable & r = g_map_itemAttr[i];
@@ -137,7 +137,7 @@ void CItem::PutAttributeWithLevel(BYTE bLevel)
 		}
 	}
 
-	// ����� �迭�� Ȯ�� ����� ���� ���� �Ӽ� ����
+	// ±ёГаµИ №иї­·О И®·ь °и»кА» ЕлЗШ єЩАП јУјє ј±Б¤
 	unsigned int prob = number(1, total);
 	int attr_idx = APPLY_NONE;
 
@@ -162,7 +162,7 @@ void CItem::PutAttributeWithLevel(BYTE bLevel)
 
 	const TItemAttrTable & r = g_map_itemAttr[attr_idx];
 
-	// ������ �Ӽ� ���� �ִ밪 ����
+	// Бѕ·щє° јУјє ·№є§ ГЦґл°Є Б¦ЗС
 	if (bLevel > r.bMaxLevelBySet[iAttributeSet])
 		bLevel = r.bMaxLevelBySet[iAttributeSet];
 

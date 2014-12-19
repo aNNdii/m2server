@@ -3,7 +3,7 @@
 #include "banword.h"
 #include "config.h"
 
-extern void SendLog(const char * c_pszBuf);		// ��ڿ��Ը� ����
+extern void SendLog(const char * c_pszBuf);		// їоїµАЪїЎ°Фёё °шБц
 
 CBanwordManager::CBanwordManager()
 {

@@ -4,11 +4,11 @@
 #include "common/length.h"
 #include <list>
 
-// castle.cpp ¿¡ ÀÖ´Â °ÍÀ» º¹ºÙ ÇÏ¿´´Ù
-#define EMPIRE_NONE		0	// ¾Æ¹«±¹°¡ ¾Æ´Ô
-#define EMPIRE_RED		1	// ½Å¼ö
-#define EMPIRE_YELLOW	2	// ÃµÁ¶
-#define EMPIRE_BLUE		3	// Áø³ë
+// castle.cpp Ñ—Ğ ĞĞ¦Ò‘Ğ’ Â°ĞĞÂ» Ñ”â„–Ñ”Ğ© Ğ—ĞŸÑ—Ò‘Ò‘Ğ©
+#define EMPIRE_NONE		0	// Ñ•Ğ–â„–Â«Â±â„–Â°Ğ Ñ•Ğ–Ò‘Ğ¤
+#define EMPIRE_RED		1	// Ğ…Ğ•Ñ˜Ñ†
+#define EMPIRE_YELLOW	2	// Ğ“ÂµĞ‘Â¶
+#define EMPIRE_BLUE		3	// Ğ‘ÑˆÑ–Ğ»
 
 class HME
 {

@@ -9,13 +9,13 @@ enum EDataType
 };
 
 //
-// 甘 加己甸阑 贸府且 锭 荤侩
+// 褢袣 褬校褬褦碌泄袗禄 袚褨褢庐袟孝 露搂 禄蟹褩谢
 //
 class CAttribute
 {
     public:
-	CAttribute(DWORD width, DWORD height); // dword 鸥蕾栏肺 葛滴 0阑 盲款促.
-	CAttribute(DWORD * attr, DWORD width, DWORD height); // attr阑 佬绢辑 smart窍霸 加己阑 佬绢柯促.
+	CAttribute(DWORD width, DWORD height); // dword 袝褢袗些袗褢路袨 褢褉碌袨 0袗禄 袚陇褩芯覒些.
+	CAttribute(DWORD * attr, DWORD width, DWORD height); // attr袗禄 袗袪褧芯褬颅 smart袟袩掳肖 褬校褬褦袗禄 袗袪褧芯褩袙覒些.
 	~CAttribute();
 	void Alloc();
 	int GetDataType();

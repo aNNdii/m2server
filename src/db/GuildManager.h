@@ -152,7 +152,7 @@ class CGuildWarReserve
 	void	SetLastNoticeMin(int iMin) { m_iLastNoticeMin = iMin; }
 
     private:
-	CGuildWarReserve();  // ±âº» »ı¼ºÀÚ¸¦ »ç¿ëÇÏÁö ¸øÇÏµµ·Ï ÀÇµµÀûÀ¸·Î ±¸ÇöÇÏÁö ¾ÊÀ½
+	CGuildWarReserve();  // Â±Ğ²Ñ”Â» Â»ÑÑ˜Ñ”ĞĞªÑ‘Â¦ Â»Ğ·Ñ—Ğ»Ğ—ĞŸĞ‘Ñ† Ñ‘ÑˆĞ—ĞŸÂµÂµÂ·ĞŸ ĞĞ—ÂµÂµĞÑ‹ĞÑ‘Â·Ğ Â±Ñ‘Ğ—Ñ†Ğ—ĞŸĞ‘Ñ† Ñ•ĞšĞĞ…
 
 	TGuildWarReserve				m_data;
 	// <login, <guild, gold>>
@@ -248,7 +248,7 @@ class CGuildManager : public singleton<CGuildManager>
 	kGuildMap					m_map_kGuild;
 	GuildWarEndTimeMap			m_mapGuildWarEndTime;
 
-	GuildDeclareInfoSet				m_DeclareMap; // ¼±Àü Æ÷°í »óÅÂ¸¦ ÀúÀå
+	GuildDeclareInfoSet				m_DeclareMap; // Ñ˜Â±ĞÑŒ Ğ–Ñ‡Â°Ğ½ Â»ÑƒĞ•Ğ’Ñ‘Â¦ ĞÑŠĞĞµ
 	GuildWarMap	m_WarMap;
 
 	typedef std::pair<time_t, TGuildWarPQElement *>	stPairGuildWar;

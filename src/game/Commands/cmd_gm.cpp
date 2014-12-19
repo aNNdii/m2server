@@ -261,44 +261,44 @@ bool CHARACTER_GoToName(LPCHARACTER ch, BYTE empire, int mapIndex, const char* g
 
 /*
    = {
-   { "A1|¿µ¾ÈÀ¾¼º",		0, 1,  4693, 9642 },
-   { "A3|ÀÚ¾çÇö",		0, 3,  3608, 8776 },
+   { "A1|Ñ—ÂµÑ•Ğ˜ĞÑ•Ñ˜Ñ”",		0, 1,  4693, 9642 },
+   { "A3|ĞĞªÑ•Ğ·Ğ—Ñ†",		0, 3,  3608, 8776 },
 
-   { "B1|Á¶¾ÈÀ¾¼º",		0, 21,  557, 1579 },
-   { "B3|º¹Á¤Çö",		0, 23, 1385, 2349 },
+   { "B1|Ğ‘Â¶Ñ•Ğ˜ĞÑ•Ñ˜Ñ”",		0, 21,  557, 1579 },
+   { "B3|Ñ”â„–Ğ‘Â¤Ğ—Ñ†",		0, 23, 1385, 2349 },
 
-   { "C1|Æò¹«À¾¼º",		0, 41, 9696, 2784 },
-   { "C3|¹Ú¶óÇö",		0, 43, 8731, 2426 },
+   { "C1|Ğ–Ñ‚â„–Â«ĞÑ•Ñ˜Ñ”",		0, 41, 9696, 2784 },
+   { "C3|â„–ĞªÂ¶ÑƒĞ—Ñ†",		0, 43, 8731, 2426 },
 
 // Snow
-{ "Snow|¼­ÇÑ»ê",		1, 61, 4342, 2906 },
-{ "Snow|¼­ÇÑ»ê",		2, 61, 3752, 1749 },
-{ "Snow|¼­ÇÑ»ê",		3, 61, 4918, 1736 },
+{ "Snow|Ñ˜Â­Ğ—Ğ¡Â»Ğº",		1, 61, 4342, 2906 },
+{ "Snow|Ñ˜Â­Ğ—Ğ¡Â»Ğº",		2, 61, 3752, 1749 },
+{ "Snow|Ñ˜Â­Ğ—Ğ¡Â»Ğº",		3, 61, 4918, 1736 },
 
 // Flame
-{ "Flame|µµ¿°È­Áö|È­¿°",	1, 62, 5994, 7563 },
-{ "Flame|µµ¿°È­Áö|È­¿°",	2, 62, 5978, 6222 },
-{ "Flame|µµ¿°È­Áö|È­¿°",	3, 62, 7307, 6898 },
+{ "Flame|ÂµÂµÑ—Â°Ğ˜Â­Ğ‘Ñ†|Ğ˜Â­Ñ—Â°",	1, 62, 5994, 7563 },
+{ "Flame|ÂµÂµÑ—Â°Ğ˜Â­Ğ‘Ñ†|Ğ˜Â­Ñ—Â°",	2, 62, 5978, 6222 },
+{ "Flame|ÂµÂµÑ—Â°Ğ˜Â­Ğ‘Ñ†|Ğ˜Â­Ñ—Â°",	3, 62, 7307, 6898 },
 
 // Desert
-{ "Desert|¿µºñ»ç¸·|»ç¸·",	1, 63, 2178, 6272 },
-{ "Desert|¿µºñ»ç¸·|»ç¸·",	2, 63, 2219, 5027 },
-{ "Desert|¿µºñ»ç¸·|»ç¸·",	3, 63, 3440, 5025 },
+{ "Desert|Ñ—ÂµÑ”ÑÂ»Ğ·Ñ‘Â·|Â»Ğ·Ñ‘Â·",	1, 63, 2178, 6272 },
+{ "Desert|Ñ—ÂµÑ”ÑÂ»Ğ·Ñ‘Â·|Â»Ğ·Ñ‘Â·",	2, 63, 2219, 5027 },
+{ "Desert|Ñ—ÂµÑ”ÑÂ»Ğ·Ñ‘Â·|Â»Ğ·Ñ‘Â·",	3, 63, 3440, 5025 },
 
 // Threeway
-{ "Three|½Â·æ°î",		1, 64, 4021, 6739 },
-{ "Three|½Â·æ°î",		2, 64, 2704, 7399 },
-{ "Three|½Â·æ°î",		3, 64, 3213, 8080 },
+{ "Three|Ğ…Ğ’Â·Ğ¶Â°Ğ¾",		1, 64, 4021, 6739 },
+{ "Three|Ğ…Ğ’Â·Ğ¶Â°Ğ¾",		2, 64, 2704, 7399 },
+{ "Three|Ğ…Ğ’Â·Ğ¶Â°Ğ¾",		3, 64, 3213, 8080 },
 
-// ¹Ğ±³»ç¿ø
-{ "Milgyo|¹Ğ±³»ç¿ø",	1, 65, 5536, 1436 },
-{ "Milgyo|¹Ğ±³»ç¿ø",	2, 65, 5536, 1436 },
-{ "Milgyo|¹Ğ±³»ç¿ø",	3, 65, 5536, 1436 },
+// â„–Ğ Â±Ñ–Â»Ğ·Ñ—Ñˆ
+{ "Milgyo|â„–Ğ Â±Ñ–Â»Ğ·Ñ—Ñˆ",	1, 65, 5536, 1436 },
+{ "Milgyo|â„–Ğ Â±Ñ–Â»Ğ·Ñ—Ñˆ",	2, 65, 5536, 1436 },
+{ "Milgyo|â„–Ğ Â±Ñ–Â»Ğ·Ñ—Ñˆ",	3, 65, 5536, 1436 },
 
-// »ç±ÍÅ¸¿öÀÔ±¸
-{ "»ç±ÍÅ¸¿öÀÔ±¸",		1, 65, 5905, 1108 },
-{ "»ç±ÍÅ¸¿öÀÔ±¸",		2, 65, 5905, 1108 },
-{ "»ç±ÍÅ¸¿öÀÔ±¸",		3, 65, 5905, 1108 },
+// Â»Ğ·Â±ĞĞ•Ñ‘Ñ—Ñ†ĞĞ¤Â±Ñ‘
+{ "Â»Ğ·Â±ĞĞ•Ñ‘Ñ—Ñ†ĞĞ¤Â±Ñ‘",		1, 65, 5905, 1108 },
+{ "Â»Ğ·Â±ĞĞ•Ñ‘Ñ—Ñ†ĞĞ¤Â±Ñ‘",		2, 65, 5905, 1108 },
+{ "Â»Ğ·Â±ĞĞ•Ñ‘Ñ—Ñ†ĞĞ¤Â±Ñ‘",		3, 65, 5905, 1108 },
 
 { NULL,			0,  0,    0,    0 },
 };
@@ -500,7 +500,7 @@ ACMD(do_item)
 				M2_DESTROY_ITEM(item);
 				if (!ch->DragonSoul_IsQualified())
 				{
-					ch->ChatPacket(CHAT_TYPE_INFO, "ÀÎº¥ÀÌ È°¼ºÈ­ µÇÁö ¾ÊÀ½.");
+					ch->ChatPacket(CHAT_TYPE_INFO, "ĞĞÑ”ÒĞĞœ Ğ˜Â°Ñ˜Ñ”Ğ˜Â­ ÂµĞ—Ğ‘Ñ† Ñ•ĞšĞĞ….");
 				}
 				else
 					ch->ChatPacket(CHAT_TYPE_INFO, "Not enough inventory space.");
@@ -842,7 +842,7 @@ struct FuncPurge
 
 		int iDist = DISTANCE_APPROX(pkChr->GetX() - m_pkGM->GetX(), pkChr->GetY() - m_pkGM->GetY());
 
-		if (!m_bAll && iDist >= 1000)	// 10¹ÌÅÍ ÀÌ»ó¿¡ ÀÖ´Â °ÍµéÀº purge ÇÏÁö ¾Ê´Â´Ù.
+		if (!m_bAll && iDist >= 1000)	// 10â„–ĞœĞ•Ğ ĞĞœÂ»ÑƒÑ—Ğ ĞĞ¦Ò‘Ğ’ Â°ĞÂµĞ¹ĞÑ” purge Ğ—ĞŸĞ‘Ñ† Ñ•ĞšÒ‘Ğ’Ò‘Ğ©.
 			return;
 
 		sys_log(0, "PURGE: %s %d", pkChr->GetName(), iDist);
@@ -1216,7 +1216,7 @@ ACMD(do_monarch_notice)
 	}
 	else
 	{
-		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("±ºÁÖ¸¸ÀÌ »ç¿ë °¡´ÉÇÑ ±â´ÉÀÔ´Ï´Ù"));
+		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Â±Ñ”Ğ‘Ğ¦Ñ‘Ñ‘ĞĞœ Â»Ğ·Ñ—Ğ» Â°ĞÒ‘Ğ™Ğ—Ğ¡ Â±Ğ²Ò‘Ğ™ĞĞ¤Ò‘ĞŸÒ‘Ğ©"));
 	}
 }
 
@@ -1556,12 +1556,12 @@ ACMD(do_makeguild)
 
 	if (!check_name(cp.name))
 	{
-		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("ÀûÇÕÇÏÁö ¾ÊÀº ±æµå ÀÌ¸§ ÀÔ´Ï´Ù."));
+		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("ĞÑ‹Ğ—Ğ¥Ğ—ĞŸĞ‘Ñ† Ñ•ĞšĞÑ” Â±Ğ¶ÂµĞµ ĞĞœÑ‘Â§ ĞĞ¤Ò‘ĞŸÒ‘Ğ©."));
 		return;
 	}
 
 	gm.CreateGuild(cp);
-	ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("(%s) ±æµå°¡ »ı¼ºµÇ¾ú½À´Ï´Ù. [ÀÓ½Ã]"), cp.name);
+	ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("(%s) Â±Ğ¶ÂµĞµÂ°Ğ Â»ÑÑ˜Ñ”ÂµĞ—Ñ•ÑŠĞ…ĞÒ‘ĞŸÒ‘Ğ©. [ĞĞ£Ğ…Ğ“]"), cp.name);
 }
 
 ACMD(do_deleteguild)
@@ -1766,7 +1766,7 @@ LPCHARACTER chHori, chForge, chLib, chTemple, chTraining, chTree, chPortal, chBa
 
 ACMD(do_b1)
 {
-	//È£¸®º´ 478 579
+	//Ğ˜ĞˆÑ‘Â®Ñ”Ò‘ 478 579
 	chHori = CHARACTER_MANAGER::instance().SpawnMobRange(14017, ch->GetMapIndex(), 304222, 742858, 304222, 742858, true, false);
 	chHori->AddAffect(AFFECT_DUNGEON_UNIQUE, POINT_NONE, 0, AFF_BUILDING_CONSTRUCTION_SMALL, 65535, 0, true);
 	chHori->AddAffect(AFFECT_DUNGEON_UNIQUE, POINT_NONE, 0, AFF_DUNGEON_UNIQUE, 65535, 0, true);
@@ -1813,25 +1813,25 @@ ACMD(do_b2)
 
 ACMD(do_b3)
 {
-	// Æ÷Áö 492 547
+	// Ğ–Ñ‡Ğ‘Ñ† 492 547
 	chForge = CHARACTER_MANAGER::instance().SpawnMobRange(14003, ch->GetMapIndex(), 307500, 746300, 307500, 746300, true, false);
 	chForge->AddAffect(AFFECT_DUNGEON_UNIQUE, POINT_NONE, 0, AFF_DUNGEON_UNIQUE, 65535, 0, true);
-	//³ôÀºÅ¾ 509 589 -> µµ¼­°ü
+	//Ñ–Ñ„ĞÑ”Ğ•Ñ• 509 589 -> ÂµÂµÑ˜Â­Â°ÑŒ
 	chLib = CHARACTER_MANAGER::instance().SpawnMobRange(14007, ch->GetMapIndex(), 307900, 744500, 307900, 744500, true, false);
 	chLib->AddAffect(AFFECT_DUNGEON_UNIQUE, POINT_NONE, 0, AFF_DUNGEON_UNIQUE, 65535, 0, true);
-	//¿åÁ¶ 513 606 -> ÈûÀÇ½ÅÀü
+	//Ñ—ĞµĞ‘Â¶ 513 606 -> Ğ˜Ñ‹ĞĞ—Ğ…Ğ•ĞÑŒ
 	chTemple = CHARACTER_MANAGER::instance().SpawnMobRange(14004, ch->GetMapIndex(), 307700, 741600, 307700, 741600, true, false);
 	chTemple->AddAffect(AFFECT_DUNGEON_UNIQUE, POINT_NONE, 0, AFF_DUNGEON_UNIQUE, 65535, 0, true);
-	//±ÇÅõÀå 490 625
+	//Â±Ğ—Ğ•Ñ…ĞĞµ 490 625
 	chTraining= CHARACTER_MANAGER::instance().SpawnMobRange(14010, ch->GetMapIndex(), 307100, 739500, 307100, 739500, true, false);
 	chTraining->AddAffect(AFFECT_DUNGEON_UNIQUE, POINT_NONE, 0, AFF_DUNGEON_UNIQUE, 65535, 0, true);
-	//³ª¹« 466 614
+	//Ñ–Ğ„â„–Â« 466 614
 	chTree= CHARACTER_MANAGER::instance().SpawnMobRange(14013, ch->GetMapIndex(), 300800, 741600, 300800, 741600, true, false);
 	chTree->AddAffect(AFFECT_DUNGEON_UNIQUE, POINT_NONE, 0, AFF_DUNGEON_UNIQUE, 65535, 0, true);
-	//Æ÷Å» 439 615
+	//Ğ–Ñ‡Ğ•Â» 439 615
 	chPortal= CHARACTER_MANAGER::instance().SpawnMobRange(14001, ch->GetMapIndex(), 300900, 744500, 300900, 744500, true, false);
 	chPortal->AddAffect(AFFECT_DUNGEON_UNIQUE, POINT_NONE, 0, AFF_DUNGEON_UNIQUE, 65535, 0, true);
-	// ±¸½½ 436 600
+	// Â±Ñ‘Ğ…Ğ… 436 600
 	chBall = CHARACTER_MANAGER::instance().SpawnMobRange(14012, ch->GetMapIndex(), 302500, 746600, 302500, 746600, true, false);
 	chBall->AddAffect(AFFECT_DUNGEON_UNIQUE, POINT_NONE, 0, AFF_DUNGEON_UNIQUE, 65535, 0, true);
 }
@@ -2075,7 +2075,7 @@ ACMD(do_reload)
 				break;
 				//END_RELOAD_ADMIN
 			case 'c':	// cube
-				// ·ÎÄÃ ÇÁ·Î¼¼½º¸¸ °»»êÇÑ´Ù.
+				// Â·ĞĞ”Ğ“ Ğ—Ğ‘Â·ĞÑ˜Ñ˜Ğ…Ñ”Ñ‘Ñ‘ Â°Â»Â»ĞºĞ—Ğ¡Ò‘Ğ©.
 				Cube_init ();
 				break;
 		}
@@ -2119,7 +2119,7 @@ ACMD(do_level)
 
 ACMD(do_gwlist)
 {
-	ch->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("ÇöÀç ÀüÀïÁßÀÎ ±æµå ÀÔ´Ï´Ù"));
+	ch->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("Ğ—Ñ†ĞĞ· ĞÑŒĞĞ¿Ğ‘Ğ¯ĞĞ Â±Ğ¶ÂµĞµ ĞĞ¤Ò‘ĞŸÒ‘Ğ©"));
 	CGuildManager::instance().ShowGuildWarList(ch);
 }
 
@@ -2177,7 +2177,7 @@ ACMD(do_guild_state)
 	}
 	else
 	{
-		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("%s: Á¸ÀçÇÏÁö ¾Ê´Â ±æµå ÀÔ´Ï´Ù."), arg1);
+		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("%s: Ğ‘Ñ‘ĞĞ·Ğ—ĞŸĞ‘Ñ† Ñ•ĞšÒ‘Ğ’ Â±Ğ¶ÂµĞµ ĞĞ¤Ò‘ĞŸÒ‘Ğ©."), arg1);
 	}
 }
 
@@ -2199,7 +2199,7 @@ struct FuncWeaken
 
 		int iDist = DISTANCE_APPROX(pkChr->GetX() - m_pkGM->GetX(), pkChr->GetY() - m_pkGM->GetY());
 
-		if (!m_bAll && iDist >= 1000)	// 10¹ÌÅÍ ÀÌ»ó¿¡ ÀÖ´Â °ÍµéÀº purge ÇÏÁö ¾Ê´Â´Ù.
+		if (!m_bAll && iDist >= 1000)	// 10â„–ĞœĞ•Ğ ĞĞœÂ»ÑƒÑ—Ğ ĞĞ¦Ò‘Ğ’ Â°ĞÂµĞ¹ĞÑ” purge Ğ—ĞŸĞ‘Ñ† Ñ•ĞšÒ‘Ğ’Ò‘Ğ©.
 			return;
 
 		if (pkChr->IsNPC())
@@ -2481,7 +2481,7 @@ ACMD(do_priv_empire)
 	if (duration < 0)
 		goto USAGE;
 
-	// ½Ã°£ ´ÜÀ§·Î º¯°æ
+	// Ğ…Ğ“Â°Ğˆ Ò‘Ğ¬ĞÂ§Â·Ğ Ñ”Ğ‡Â°Ğ¶
 	duration = duration * (60*60);
 
 	sys_log(0, "_give_empire_privileage(empire=%d, type=%d, value=%d, duration=%d) by command", 
@@ -2498,8 +2498,8 @@ USAGE:
 }
 
 /**
- * @version 05/06/08	Bang2ni - ±æµå º¸³Ê½º Äù½ºÆ® ÁøÇà ¾ÈµÇ´Â ¹®Á¦ ¼öÁ¤.(½ºÅ©¸³Æ®°¡ ÀÛ¼º¾ÈµÊ.)
- * 			          quest/priv_guild.quest ·Î ºÎÅÍ ½ºÅ©¸³Æ® ÀĞ¾î¿À°Ô ¼öÁ¤µÊ
+ * @version 05/06/08	Bang2ni - Â±Ğ¶ÂµĞµ Ñ”Ñ‘Ñ–ĞšĞ…Ñ” Ğ”Ñ‰Ğ…Ñ”Ğ–Â® Ğ‘ÑˆĞ—Ğ° Ñ•Ğ˜ÂµĞ—Ò‘Ğ’ â„–Â®Ğ‘Â¦ Ñ˜Ñ†Ğ‘Â¤.(Ğ…Ñ”Ğ•Â©Ñ‘Ñ–Ğ–Â®Â°Ğ ĞĞ«Ñ˜Ñ”Ñ•Ğ˜ÂµĞš.)
+ * 			          quest/priv_guild.quest Â·Ğ Ñ”ĞĞ•Ğ Ğ…Ñ”Ğ•Â©Ñ‘Ñ–Ğ–Â® ĞĞ Ñ•Ğ¾Ñ—ĞÂ°Ğ¤ Ñ˜Ñ†Ğ‘Â¤ÂµĞš
  */
 ACMD(do_priv_guild)
 {
@@ -2520,7 +2520,7 @@ ACMD(do_priv_guild)
 		}
 
 		if (!g)
-			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("±×·± ÀÌ¸§ ¶Ç´Â ¹øÈ£ÀÇ ±æµå°¡ ¾ø½À´Ï´Ù."));
+			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Â±Ğ§Â·Â± ĞĞœÑ‘Â§ Â¶Ğ—Ò‘Ğ’ â„–ÑˆĞ˜ĞˆĞĞ— Â±Ğ¶ÂµĞµÂ°Ğ Ñ•ÑˆĞ…ĞÒ‘ĞŸÒ‘Ğ©."));
 		else
 		{
 			char buf[1024+1];
@@ -2632,10 +2632,10 @@ ACMD(do_xmas)
 // BLOCK_CHAT
 ACMD(do_block_chat_list)
 {
-	// GMÀÌ ¾Æ´Ï°Å³ª block_chat_privilege°¡ ¾ø´Â »ç¶÷Àº ¸í·É¾î »ç¿ë ºÒ°¡
+	// GMĞĞœ Ñ•Ğ–Ò‘ĞŸÂ°Ğ•Ñ–Ğ„ block_chat_privilegeÂ°Ğ Ñ•ÑˆÒ‘Ğ’ Â»Ğ·Â¶Ñ‡ĞÑ” Ñ‘Ğ½Â·Ğ™Ñ•Ğ¾ Â»Ğ·Ñ—Ğ» Ñ”Ğ¢Â°Ğ
 	if (!ch || (ch->GetGMLevel() < GM_HIGH_WIZARD && ch->GetQuestFlag("chat_privilege.block") <= 0))
 	{
-		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("±×·± ¸í·É¾î´Â ¾ø½À´Ï´Ù"));
+		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Â±Ğ§Â·Â± Ñ‘Ğ½Â·Ğ™Ñ•Ğ¾Ò‘Ğ’ Ñ•ÑˆĞ…ĞÒ‘ĞŸÒ‘Ğ©"));
 		return;
 	}
 
@@ -2698,10 +2698,10 @@ ACMD(do_vote_block_chat)
 
 ACMD(do_block_chat)
 {
-	// GMÀÌ ¾Æ´Ï°Å³ª block_chat_privilege°¡ ¾ø´Â »ç¶÷Àº ¸í·É¾î »ç¿ë ºÒ°¡
+	// GMĞĞœ Ñ•Ğ–Ò‘ĞŸÂ°Ğ•Ñ–Ğ„ block_chat_privilegeÂ°Ğ Ñ•ÑˆÒ‘Ğ’ Â»Ğ·Â¶Ñ‡ĞÑ” Ñ‘Ğ½Â·Ğ™Ñ•Ğ¾ Â»Ğ·Ñ—Ğ» Ñ”Ğ¢Â°Ğ
 	if (ch && (ch->GetGMLevel() < GM_HIGH_WIZARD && ch->GetQuestFlag("chat_privilege.block") <= 0))
 	{
-		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("±×·± ¸í·É¾î´Â ¾ø½À´Ï´Ù"));
+		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Â±Ğ§Â·Â± Ñ‘Ğ½Â·Ğ™Ñ•Ğ¾Ò‘Ğ’ Ñ•ÑˆĞ…ĞÒ‘ĞŸÒ‘Ğ©"));
 		return;
 	}
 
@@ -2723,8 +2723,8 @@ ACMD(do_block_chat)
 	{
 		if (ch)
 		{
-			ch->ChatPacket(CHAT_TYPE_INFO, "Àß¸øµÈ Çü½ÄÀÇ ½Ã°£ÀÔ´Ï´Ù. h, m, s¸¦ ºÙ¿©¼­ ÁöÁ¤ÇØ ÁÖ½Ê½Ã¿À.");
-			ch->ChatPacket(CHAT_TYPE_INFO, "¿¹) 10s, 10m, 1m 30s");
+			ch->ChatPacket(CHAT_TYPE_INFO, "ĞĞ¯Ñ‘ÑˆÂµĞ˜ Ğ—ÑŒĞ…Ğ”ĞĞ— Ğ…Ğ“Â°ĞˆĞĞ¤Ò‘ĞŸÒ‘Ğ©. h, m, sÑ‘Â¦ Ñ”Ğ©Ñ—Â©Ñ˜Â­ Ğ‘Ñ†Ğ‘Â¤Ğ—Ğ¨ Ğ‘Ğ¦Ğ…ĞšĞ…Ğ“Ñ—Ğ.");
+			ch->ChatPacket(CHAT_TYPE_INFO, "Ñ—â„–) 10s, 10m, 1m 30s");
 		}
 		return;
 	}
@@ -2777,8 +2777,8 @@ ACMD(do_build)
 
 	CLand * pkLand = CManager::instance().FindLand(ch->GetMapIndex(), ch->GetX(), ch->GetY());
 
-	// NOTE: Á¶°Ç Ã¼Å©µéÀº Å¬¶óÀÌ¾ğÆ®¿Í ¼­¹ö°¡ ÇÔ²² ÇÏ±â ¶§¹®¿¡ ¹®Á¦°¡ ÀÖÀ» ¶§´Â
-	//       ¸Ş¼¼Áö¸¦ Àü¼ÛÇÏÁö ¾Ê°í ¿¡·¯¸¦ Ãâ·ÂÇÑ´Ù.
+	// NOTE: Ğ‘Â¶Â°Ğ— Ğ“Ñ˜Ğ•Â©ÂµĞ¹ĞÑ” Ğ•Â¬Â¶ÑƒĞĞœÑ•Ñ€Ğ–Â®Ñ—Ğ Ñ˜Â­â„–Ñ†Â°Ğ Ğ—Ğ¤Ğ†Ğ† Ğ—ĞŸÂ±Ğ² Â¶Â§â„–Â®Ñ—Ğ â„–Â®Ğ‘Â¦Â°Ğ ĞĞ¦ĞÂ» Â¶Â§Ò‘Ğ’
+	//       Ñ‘Ğ®Ñ˜Ñ˜Ğ‘Ñ†Ñ‘Â¦ ĞÑŒÑ˜Ğ«Ğ—ĞŸĞ‘Ñ† Ñ•ĞšÂ°Ğ½ Ñ—ĞÂ·Ğ‡Ñ‘Â¦ Ğ“Ğ²Â·Ğ’Ğ—Ğ¡Ò‘Ğ©.
 	if (!pkLand)
 	{
 		sys_err("%s trying to build on not buildable area.", ch->GetName());
@@ -2791,17 +2791,17 @@ ACMD(do_build)
 		return;
 	}
 
-	// °Ç¼³ ±ÇÇÑ Ã¼Å©
+	// Â°Ğ—Ñ˜Ñ– Â±Ğ—Ğ—Ğ¡ Ğ“Ñ˜Ğ•Â©
 	if (GMLevel == GM_PLAYER)
 	{
-		// ÇÃ·¹ÀÌ¾î°¡ ÁıÀ» ÁöÀ» ¶§´Â ¶¥ÀÌ ³»²«Áö È®ÀÎÇØ¾ß ÇÑ´Ù.
+		// Ğ—Ğ“Â·â„–ĞĞœÑ•Ğ¾Â°Ğ Ğ‘ÑĞÂ» Ğ‘Ñ†ĞÂ» Â¶Â§Ò‘Ğ’ Â¶ÒĞĞœ Ñ–Â»Ğ†Â«Ğ‘Ñ† Ğ˜Â®ĞĞĞ—Ğ¨Ñ•Ğ¯ Ğ—Ğ¡Ò‘Ğ©.
 		if ((!ch->GetGuild() || ch->GetGuild()->GetID() != pkLand->GetOwner()))
 		{
 			sys_err("%s trying to build on not owned land.", ch->GetName());
 			return;
 		}
 
-		// ³»°¡ ±æ¸¶ÀÎ°¡?
+		// Ñ–Â»Â°Ğ Â±Ğ¶Ñ‘Â¶ĞĞÂ°Ğ?
 		if (ch->GetGuild()->GetMasterPID() != ch->GetPlayerID())
 		{
 			sys_err("%s trying to build while not the guild master.", ch->GetName());
@@ -2832,7 +2832,7 @@ ACMD(do_build)
 				const TObjectProto * t = CManager::instance().GetObjectProto(dwVnum);
 				if (!t)
 				{
-					ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Á¸ÀçÇÏÁö ¾Ê´Â °Ç¹°ÀÔ´Ï´Ù."));
+					ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Ğ‘Ñ‘ĞĞ·Ğ—ĞŸĞ‘Ñ† Ñ•ĞšÒ‘Ğ’ Â°Ğ—â„–Â°ĞĞ¤Ò‘ĞŸÒ‘Ğ©."));
 					return;
 				}
 
@@ -2842,21 +2842,21 @@ ACMD(do_build)
 				{
 					if (pkLand->FindObjectByGroup(t->dwGroupVnum))
 					{
-						ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("°°ÀÌ ÁöÀ» ¼ö ¾ø´Â Á¾·ùÀÇ °Ç¹°ÀÌ Áö¾îÁ® ÀÖ½À´Ï´Ù."));
+						ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Â°Â°ĞĞœ Ğ‘Ñ†ĞÂ» Ñ˜Ñ† Ñ•ÑˆÒ‘Ğ’ Ğ‘Ñ•Â·Ñ‰ĞĞ— Â°Ğ—â„–Â°ĞĞœ Ğ‘Ñ†Ñ•Ğ¾Ğ‘Â® ĞĞ¦Ğ…ĞÒ‘ĞŸÒ‘Ğ©."));
 						return;
 					}
 				}
 
-				// °Ç¹° Á¾¼Ó¼º Ã¼Å© (ÀÌ °Ç¹°ÀÌ Áö¾îÁ® ÀÖ¾î¾ßÇÔ)
+				// Â°Ğ—â„–Â° Ğ‘Ñ•Ñ˜Ğ£Ñ˜Ñ” Ğ“Ñ˜Ğ•Â© (ĞĞœ Â°Ğ—â„–Â°ĞĞœ Ğ‘Ñ†Ñ•Ğ¾Ğ‘Â® ĞĞ¦Ñ•Ğ¾Ñ•Ğ¯Ğ—Ğ¤)
 				if (t->dwDependOnGroupVnum)
 				{
 					//		const TObjectProto * dependent = CManager::instance().GetObjectProto(dwVnum);
 					//		if (dependent)
 					{
-						// Áö¾îÁ®ÀÖ´Â°¡?
+						// Ğ‘Ñ†Ñ•Ğ¾Ğ‘Â®ĞĞ¦Ò‘Ğ’Â°Ğ?
 						if (!pkLand->FindObjectByGroup(t->dwDependOnGroupVnum))
 						{
-							ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("°Ç¼³¿¡ ÇÊ¿äÇÑ °Ç¹°ÀÌ Áö¾îÁ® ÀÖÁö ¾Ê½À´Ï´Ù."));
+							ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Â°Ğ—Ñ˜Ñ–Ñ—Ğ Ğ—ĞšÑ—Ğ´Ğ—Ğ¡ Â°Ğ—â„–Â°ĞĞœ Ğ‘Ñ†Ñ•Ğ¾Ğ‘Â® ĞĞ¦Ğ‘Ñ† Ñ•ĞšĞ…ĞÒ‘ĞŸÒ‘Ğ©."));
 							return;
 						}
 					}
@@ -2864,21 +2864,21 @@ ACMD(do_build)
 
 				if (test_server || GMLevel == GM_PLAYER)
 				{
-					// GMÀÌ ¾Æ´Ò°æ¿ì¸¸ (Å×¼·¿¡¼­´Â GMµµ ¼Ò¸ğ)
-					// °Ç¼³ ºñ¿ë Ã¼Å©
+					// GMĞĞœ Ñ•Ğ–Ò‘Ğ¢Â°Ğ¶Ñ—Ğ¼Ñ‘Ñ‘ (Ğ•Ğ§Ñ˜Â·Ñ—ĞÑ˜Â­Ò‘Ğ’ GMÂµÂµ Ñ˜Ğ¢Ñ‘Ñ€)
+					// Â°Ğ—Ñ˜Ñ– Ñ”ÑÑ—Ğ» Ğ“Ñ˜Ğ•Â©
 					if (t->dwPrice > BUILDING_MAX_PRICE)
 					{
-						ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("°Ç¹° ºñ¿ë Á¤º¸ ÀÌ»óÀ¸·Î °Ç¼³ ÀÛ¾÷¿¡ ½ÇÆĞÇß½À´Ï´Ù."));
+						ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Â°Ğ—â„–Â° Ñ”ÑÑ—Ğ» Ğ‘Â¤Ñ”Ñ‘ ĞĞœÂ»ÑƒĞÑ‘Â·Ğ Â°Ğ—Ñ˜Ñ– ĞĞ«Ñ•Ñ‡Ñ—Ğ Ğ…Ğ—Ğ–Ğ Ğ—Ğ¯Ğ…ĞÒ‘ĞŸÒ‘Ğ©."));
 						return;
 					}
 
 					if (ch->GetGold() < (int)t->dwPrice)
 					{
-						ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("°Ç¼³ ºñ¿ëÀÌ ºÎÁ·ÇÕ´Ï´Ù."));
+						ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Â°Ğ—Ñ˜Ñ– Ñ”ÑÑ—Ğ»ĞĞœ Ñ”ĞĞ‘Â·Ğ—Ğ¥Ò‘ĞŸÒ‘Ğ©."));
 						return;
 					}
 
-					// ¾ÆÀÌÅÛ ÀÚÀç °³¼ö Ã¼Å©
+					// Ñ•Ğ–ĞĞœĞ•Ğ« ĞĞªĞĞ· Â°Ñ–Ñ˜Ñ† Ğ“Ñ˜Ğ•Â©
 
 					int i;
 					for (i = 0; i < OBJECT_MATERIAL_MAX_NUM; ++i)
@@ -2891,7 +2891,7 @@ ACMD(do_build)
 
 						if ((int) dwItemCount > ch->CountSpecifyItem(dwItemVnum))
 						{
-							ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("ÀÚÀç°¡ ºÎÁ·ÇÏ¿© °Ç¼³ÇÒ ¼ö ¾ø½À´Ï´Ù."));
+							ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("ĞĞªĞĞ·Â°Ğ Ñ”ĞĞ‘Â·Ğ—ĞŸÑ—Â© Â°Ğ—Ñ˜Ñ–Ğ—Ğ¢ Ñ˜Ñ† Ñ•ÑˆĞ…ĞÒ‘ĞŸÒ‘Ğ©."));
 							return;
 						}
 					}
@@ -2900,11 +2900,11 @@ ACMD(do_build)
 				float x_rot = atof(arg4);
 				float y_rot = atof(arg5);
 				float z_rot = atof(arg6);
-				// 20050811.myevan.°Ç¹° È¸Àü ±â´É ºÀÀÎ ÇØÁ¦
+				// 20050811.myevan.Â°Ğ—â„–Â° Ğ˜Ñ‘ĞÑŒ Â±Ğ²Ò‘Ğ™ Ñ”ĞĞĞ Ğ—Ğ¨Ğ‘Â¦
 				/*
 				   if (x_rot != 0.0f || y_rot != 0.0f || z_rot != 0.0f)
 				   {
-				   ch->ChatPacket(CHAT_TYPE_INFO, "°Ç¹° È¸Àü ±â´ÉÀº ¾ÆÁ÷ Á¦°øµÇÁö ¾Ê½À´Ï´Ù");
+				   ch->ChatPacket(CHAT_TYPE_INFO, "Â°Ğ—â„–Â° Ğ˜Ñ‘ĞÑŒ Â±Ğ²Ò‘Ğ™ĞÑ” Ñ•Ğ–Ğ‘Ñ‡ Ğ‘Â¦Â°ÑˆÂµĞ—Ğ‘Ñ† Ñ•ĞšĞ…ĞÒ‘ĞŸÒ‘Ğ©");
 				   return;
 				   }
 				 */
@@ -2925,17 +2925,17 @@ ACMD(do_build)
 				if (!isSuccess)
 				{
 					if (test_server)
-						ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("°Ç¹°À» ÁöÀ» ¼ö ¾ø´Â À§Ä¡ÀÔ´Ï´Ù."));
+						ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Â°Ğ—â„–Â°ĞÂ» Ğ‘Ñ†ĞÂ» Ñ˜Ñ† Ñ•ÑˆÒ‘Ğ’ ĞÂ§Ğ”ĞĞĞ¤Ò‘ĞŸÒ‘Ğ©."));
 					return;
 				}
 
 				if (test_server || GMLevel == GM_PLAYER)
-					// °Ç¼³ Àç·á ¼Ò¸ğÇÏ±â (Å×¼·¿¡¼­´Â GMµµ ¼Ò¸ğ)
+					// Â°Ğ—Ñ˜Ñ– ĞĞ·Â·Ğ± Ñ˜Ğ¢Ñ‘Ñ€Ğ—ĞŸÂ±Ğ² (Ğ•Ğ§Ñ˜Â·Ñ—ĞÑ˜Â­Ò‘Ğ’ GMÂµÂµ Ñ˜Ğ¢Ñ‘Ñ€)
 				{
-					// °Ç¼³ ºñ¿ë ¼Ò¸ğ
+					// Â°Ğ—Ñ˜Ñ– Ñ”ÑÑ—Ğ» Ñ˜Ğ¢Ñ‘Ñ€
 					ch->PointChange(POINT_GOLD, -t->dwPrice);
 
-					// ¾ÆÀÌÅÛ ÀÚÀç »ç¿ëÇÏ±â 
+					// Ñ•Ğ–ĞĞœĞ•Ğ« ĞĞªĞĞ· Â»Ğ·Ñ—Ğ»Ğ—ĞŸÂ±Ğ² 
 					{
 						int i;
 						for (i = 0; i < OBJECT_MATERIAL_MAX_NUM; ++i)
@@ -3014,8 +3014,8 @@ ACMD(do_build)
 			break;
 
 		case 'W' :
-			// ´ãÀå ¼¼¿ì±â
-			// build (w)all ´ãÀå¹øÈ£ ´ãÀåÅ©±â ´ë¹®µ¿ ´ë¹®¼­ ´ë¹®³² ´ë¹®ºÏ
+			// Ò‘Ğ³ĞĞµ Ñ˜Ñ˜Ñ—Ğ¼Â±Ğ²
+			// build (w)all Ò‘Ğ³ĞĞµâ„–ÑˆĞ˜Ğˆ Ò‘Ğ³ĞĞµĞ•Â©Â±Ğ² Ò‘Ğ»â„–Â®ÂµÑ— Ò‘Ğ»â„–Â®Ñ˜Â­ Ò‘Ğ»â„–Â®Ñ–Ğ† Ò‘Ğ»â„–Â®Ñ”ĞŸ
 
 			if (GMLevel >  GM_PLAYER) 
 			{
@@ -3049,8 +3049,8 @@ ACMD(do_build)
 			break;
 
 		case 'E' :
-			// ´ãÀå Áö¿ì±â
-			// build (e)rase ´ãÀå¼ÂID
+			// Ò‘Ğ³ĞĞµ Ğ‘Ñ†Ñ—Ğ¼Â±Ğ²
+			// build (e)rase Ò‘Ğ³ĞĞµÑ˜Ğ’ID
 			if (GMLevel > GM_PLAYER) 
 			{
 				one_argument(line, arg1, sizeof(arg1));
@@ -3107,7 +3107,7 @@ ACMD(do_horse_level)
 
 	if (NULL == victim)
 	{
-		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Á¸ÀçÇÏÁö ¾Ê´Â Ä³¸¯ÅÍ ÀÔ´Ï´Ù."));
+		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Ğ‘Ñ‘ĞĞ·Ğ—ĞŸĞ‘Ñ† Ñ•ĞšÒ‘Ğ’ Ğ”Ñ–Ñ‘Ğ‡Ğ•Ğ ĞĞ¤Ò‘ĞŸÒ‘Ğ©."));
 		return;
 	}
 
@@ -3290,17 +3290,17 @@ ACMD(do_end_duel)
 	LPCHARACTER pChar = CHARACTER_MANAGER::instance().FindPC(szName);
 	if (pChar == NULL)
 	{
-		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Á¸ÀçÇÏÁö ¾Ê´Â Ä³¸¯ÅÍ ÀÔ´Ï´Ù."));
+		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Ğ‘Ñ‘ĞĞ·Ğ—ĞŸĞ‘Ñ† Ñ•ĞšÒ‘Ğ’ Ğ”Ñ–Ñ‘Ğ‡Ğ•Ğ ĞĞ¤Ò‘ĞŸÒ‘Ğ©."));
 		return;
 	}
 
 	if (CArenaManager::instance().EndDuel(pChar->GetPlayerID()) == false)
 	{
-		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("´ë·Ã °­Á¦ Á¾·á ½ÇÆĞ"));
+		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Ò‘Ğ»Â·Ğ“ Â°Â­Ğ‘Â¦ Ğ‘Ñ•Â·Ğ± Ğ…Ğ—Ğ–Ğ "));
 	}
 	else
 	{
-		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("´ë·Ã °­Á¦ Á¾·á ¼º°ø"));
+		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Ò‘Ğ»Â·Ğ“ Â°Â­Ğ‘Â¦ Ğ‘Ñ•Â·Ğ± Ñ˜Ñ”Â°Ñˆ"));
 	}
 }
 
@@ -3323,7 +3323,7 @@ ACMD(do_duel)
 
 	if (!str_to_number(minute, szMinute))
 	{
-		// Ä³³ª´Ù´Â ±âº» 10ºĞ.
+		// Ğ”Ñ–Ñ–Ğ„Ò‘Ğ©Ò‘Ğ’ Â±Ğ²Ñ”Â» 10Ñ”Ğ .
 		if (LC_IsCanada() == true)
 		{
 			minute = 10;
@@ -3356,7 +3356,7 @@ ACMD(do_duel)
 			}
 			else
 			{
-				pChar1->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("<ÆÄÆ¼> ÆÄÆ¼¿¡¼­ ³ª°¡¼Ì½À´Ï´Ù."));
+				pChar1->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("<Ğ–Ğ”Ğ–Ñ˜> Ğ–Ğ”Ğ–Ñ˜Ñ—ĞÑ˜Â­ Ñ–Ğ„Â°ĞÑ˜ĞœĞ…ĞÒ‘ĞŸÒ‘Ğ©."));
 				pParty->Quit(pChar1->GetPlayerID());
 			}
 		}
@@ -3370,23 +3370,23 @@ ACMD(do_duel)
 			}
 			else
 			{
-				pChar2->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("<ÆÄÆ¼> ÆÄÆ¼¿¡¼­ ³ª°¡¼Ì½À´Ï´Ù."));
+				pChar2->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("<Ğ–Ğ”Ğ–Ñ˜> Ğ–Ğ”Ğ–Ñ˜Ñ—ĞÑ˜Â­ Ñ–Ğ„Â°ĞÑ˜ĞœĞ…ĞÒ‘ĞŸÒ‘Ğ©."));
 				pParty->Quit(pChar2->GetPlayerID());
 			}
 		}
 		
 		if (CArenaManager::instance().StartDuel(pChar1, pChar2, set, minute) == true)
 		{
-			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("´ë·ÃÀÌ ¼º°øÀûÀ¸·Î ½ÃÀÛ µÇ¾ú½À´Ï´Ù."));
+			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Ò‘Ğ»Â·Ğ“ĞĞœ Ñ˜Ñ”Â°ÑˆĞÑ‹ĞÑ‘Â·Ğ Ğ…Ğ“ĞĞ« ÂµĞ—Ñ•ÑŠĞ…ĞÒ‘ĞŸÒ‘Ğ©."));
 		}
 		else
 		{
-			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("´ë·Ã ½ÃÀÛ¿¡ ¹®Á¦°¡ ÀÖ½À´Ï´Ù."));
+			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Ò‘Ğ»Â·Ğ“ Ğ…Ğ“ĞĞ«Ñ—Ğ â„–Â®Ğ‘Â¦Â°Ğ ĞĞ¦Ğ…ĞÒ‘ĞŸÒ‘Ğ©."));
 		}
 	}
 	else
 	{
-		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("´ë·ÃÀÚ°¡ ¾ø½À´Ï´Ù."));
+		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Ò‘Ğ»Â·Ğ“ĞĞªÂ°Ğ Ñ•ÑˆĞ…ĞÒ‘ĞŸÒ‘Ğ©."));
 	}
 }
 
@@ -3401,7 +3401,7 @@ ACMD(do_stat_plus_amount)
 
 	if (ch->IsPolymorphed())
 	{
-		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("µĞ°© Áß¿¡´Â ´É·ÂÀ» ¿Ã¸± ¼ö ¾ø½À´Ï´Ù."));
+		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("ÂµĞ Â°Â© Ğ‘Ğ¯Ñ—ĞÒ‘Ğ’ Ò‘Ğ™Â·Ğ’ĞÂ» Ñ—Ğ“Ñ‘Â± Ñ˜Ñ† Ñ•ÑˆĞ…ĞÒ‘ĞŸÒ‘Ğ©."));
 		return;
 	}
 
@@ -3409,7 +3409,7 @@ ACMD(do_stat_plus_amount)
 
 	if (nRemainPoint <= 0)
 	{
-		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("³²Àº ½ºÅÈ Æ÷ÀÎÆ®°¡ ¾ø½À´Ï´Ù."));
+		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Ñ–Ğ†ĞÑ” Ğ…Ñ”Ğ•Ğ˜ Ğ–Ñ‡ĞĞĞ–Â®Â°Ğ Ñ•ÑˆĞ…ĞÒ‘ĞŸÒ‘Ğ©."));
 		return;
 	}
 
@@ -3418,40 +3418,40 @@ ACMD(do_stat_plus_amount)
 
 	if (nRemainPoint < nPoint)
 	{
-		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("³²Àº ½ºÅÈ Æ÷ÀÎÆ®°¡ Àû½À´Ï´Ù."));
+		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Ñ–Ğ†ĞÑ” Ğ…Ñ”Ğ•Ğ˜ Ğ–Ñ‡ĞĞĞ–Â®Â°Ğ ĞÑ‹Ğ…ĞÒ‘ĞŸÒ‘Ğ©."));
 		return;
 	}
 
 	if (nPoint < 0)
 	{
-		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("°ªÀ» Àß¸ø ÀÔ·ÂÇÏ¿´½À´Ï´Ù."));
+		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Â°Ğ„ĞÂ» ĞĞ¯Ñ‘Ñˆ ĞĞ¤Â·Ğ’Ğ—ĞŸÑ—Ò‘Ğ…ĞÒ‘ĞŸÒ‘Ğ©."));
 		return;
 	}
 	
 	switch (subcmd)
 	{
-		case POINT_HT : // Ã¼·Â
+		case POINT_HT : // Ğ“Ñ˜Â·Ğ’
 			if (nPoint + ch->GetPoint(POINT_HT) > 90)
 			{
 				nPoint = 90 - ch->GetPoint(POINT_HT);
 			}
 			break;
 
-		case POINT_IQ : // Áö´É
+		case POINT_IQ : // Ğ‘Ñ†Ò‘Ğ™
 			if (nPoint + ch->GetPoint(POINT_IQ) > 90)
 			{
 				nPoint = 90 - ch->GetPoint(POINT_IQ);
 			}
 			break;
 			
-		case POINT_ST : // ±Ù·Â
+		case POINT_ST : // Â±Ğ©Â·Ğ’
 			if (nPoint + ch->GetPoint(POINT_ST) > 90)
 			{
 				nPoint = 90 - ch->GetPoint(POINT_ST);
 			}
 			break;
 			
-		case POINT_DX : // ¹ÎÃ¸
+		case POINT_DX : // â„–ĞĞ“Ñ‘
 			if (nPoint + ch->GetPoint(POINT_DX) > 90)
 			{
 				nPoint = 90 - ch->GetPoint(POINT_DX);
@@ -3459,7 +3459,7 @@ ACMD(do_stat_plus_amount)
 			break;
 
 		default :
-			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("¸í·É¾îÀÇ ¼­ºê Ä¿¸Çµå°¡ Àß¸ø µÇ¾ú½À´Ï´Ù."));
+			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Ñ‘Ğ½Â·Ğ™Ñ•Ğ¾ĞĞ— Ñ˜Â­Ñ”Ğº Ğ”Ñ—Ñ‘Ğ—ÂµĞµÂ°Ğ ĞĞ¯Ñ‘Ñˆ ÂµĞ—Ñ•ÑŠĞ…ĞÒ‘ĞŸÒ‘Ğ©."));
 			return;
 			break;
 	}
@@ -3492,7 +3492,7 @@ ACMD(do_break_marriage)
 	str_to_number(pids.pid1, arg1);
 	str_to_number(pids.pid2, arg2);
 	
-	ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("ÇÃ·¹ÀÌ¾î %d ¿Í ÇÃ·¹ÀÌ¾î  %d¸¦ ÆÄÈ¥½ÃÅµ´Ï´Ù.."), pids.pid1, pids.pid2);
+	ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Ğ—Ğ“Â·â„–ĞĞœÑ•Ğ¾ %d Ñ—Ğ Ğ—Ğ“Â·â„–ĞĞœÑ•Ğ¾  %dÑ‘Â¦ Ğ–Ğ”Ğ˜ÒĞ…Ğ“Ğ•ÂµÒ‘ĞŸÒ‘Ğ©.."), pids.pid1, pids.pid2);
 	db_clientdesc->DBPacket(HEADER_GD_BREAK_MARRIAGE, 0, &pids, sizeof(pids));
 }
 
@@ -3526,8 +3526,8 @@ struct FCountInMap
 
 ACMD(do_threeway_war_info)
 {
-	ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("°¢Á¦±¹ ÁøÇà Á¤º¸"));
-	ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("¼±ÅÃ ¸Ê Á¤º¸ ¼ºÁö %d Åë·Î %d %d %d"), GetSungziMapIndex(), GetPassMapIndex(1), GetPassMapIndex(2), GetPassMapIndex(3)); 
+	ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Â°ÑĞ‘Â¦Â±â„– Ğ‘ÑˆĞ—Ğ° Ğ‘Â¤Ñ”Ñ‘"));
+	ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Ñ˜Â±Ğ•Ğ“ Ñ‘Ğš Ğ‘Â¤Ñ”Ñ‘ Ñ˜Ñ”Ğ‘Ñ† %d Ğ•Ğ»Â·Ğ %d %d %d"), GetSungziMapIndex(), GetPassMapIndex(1), GetPassMapIndex(2), GetPassMapIndex(3)); 
 	ch->ChatPacket(CHAT_TYPE_INFO, "ThreewayPhase %d", CThreeWayWar::instance().GetRegenFlag());
 
 	for (int n = 1; n < 4; ++n)
@@ -3550,7 +3550,7 @@ ACMD(do_threeway_war_info)
 
 ACMD(do_threeway_war_myinfo)
 {
-	ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("³ªÀÇ »ï°Å¸® ÁøÇàÁ¤º¸"));
+	ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Ñ–Ğ„ĞĞ— Â»Ğ¿Â°Ğ•Ñ‘Â® Ğ‘ÑˆĞ—Ğ°Ğ‘Â¤Ñ”Ñ‘"));
 	ch->ChatPacket(CHAT_TYPE_INFO, "Deadcount %d",
 			CThreeWayWar::instance().GetReviveTokenForPlayer(ch->GetPlayerID()));
 }
@@ -3632,7 +3632,7 @@ ACMD(do_check_monarch_money)
 	str_to_number(empire, arg1);
 	int NationMoney = CMonarch::instance().GetMoney(empire);
 
-	ch->ChatPacket(CHAT_TYPE_INFO, "±¹°í: %d ¿ø", NationMoney);
+	ch->ChatPacket(CHAT_TYPE_INFO, "Â±â„–Â°Ğ½: %d Ñ—Ñˆ", NationMoney);
 }
 
 ACMD(do_reset_subskill)
@@ -3911,13 +3911,13 @@ ACMD(do_set_stat)
 	{
 		if (tch->IsPolymorphed())
 		{
-			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("µĞ°© Áß¿¡´Â ´É·ÂÀ» ¿Ã¸± ¼ö ¾ø½À´Ï´Ù."));
+			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("ÂµĞ Â°Â© Ğ‘Ğ¯Ñ—ĞÒ‘Ğ’ Ò‘Ğ™Â·Ğ’ĞÂ» Ñ—Ğ“Ñ‘Â± Ñ˜Ñ† Ñ•ÑˆĞ…ĞÒ‘ĞŸÒ‘Ğ©."));
 			return;
 		}
 
 		if (subcmd != POINT_HT && subcmd != POINT_IQ && subcmd != POINT_ST && subcmd != POINT_DX)
 		{
-			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("¸í·É¾îÀÇ ¼­ºê Ä¿¸Çµå°¡ Àß¸ø µÇ¾ú½À´Ï´Ù."));
+			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Ñ‘Ğ½Â·Ğ™Ñ•Ğ¾ĞĞ— Ñ˜Â­Ñ”Ğº Ğ”Ñ—Ñ‘Ğ—ÂµĞµÂ°Ğ ĞĞ¯Ñ‘Ñˆ ÂµĞ—Ñ•ÑŠĞ…ĞÒ‘ĞŸÒ‘Ğ©."));
 			return;
 		}
 		int nRemainPoint = tch->GetPoint(POINT_STAT);
@@ -3971,7 +3971,7 @@ ACMD(do_set_stat)
 
 		if (nRemainPoint < nChangeAmount)
 		{
-			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("³²Àº ½ºÅÈ Æ÷ÀÎÆ®°¡ Àû½À´Ï´Ù."));
+			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Ñ–Ğ†ĞÑ” Ğ…Ñ”Ğ•Ğ˜ Ğ–Ñ‡ĞĞĞ–Â®Â°Ğ ĞÑ‹Ğ…ĞÒ‘ĞŸÒ‘Ğ©."));
 			return;
 		}
 
@@ -4208,8 +4208,8 @@ ACMD (do_attr_full_set)
 	case JOB_SURA:
 	case JOB_SHAMAN:
 		{
-			// ¹«»ç ¸ö»§ ¼ÂÆÃ.
-			// ÀÌ°Í¸¸ ³ª¿Í ÀÖ¾î¼­ ÀÓ½Ã·Î ¸ğµç Á÷±º ´Ù ÀÌ·± ¼Ó¼º µû¸§.
+			// â„–Â«Â»Ğ· Ñ‘Ñ†Â»Â§ Ñ˜Ğ’Ğ–Ğ“.
+			// ĞĞœÂ°ĞÑ‘Ñ‘ Ñ–Ğ„Ñ—Ğ ĞĞ¦Ñ•Ğ¾Ñ˜Â­ ĞĞ£Ğ…Ğ“Â·Ğ Ñ‘Ñ€ÂµĞ· Ğ‘Ñ‡Â±Ñ” Ò‘Ğ© ĞĞœÂ·Â± Ñ˜Ğ£Ñ˜Ñ” ÂµÑ‹Ñ‘Â§.
 			item = ch->GetWear(WEAR_HEAD);
 			if (item != NULL)
 			{
@@ -4316,7 +4316,7 @@ ACMD (do_use_item)
 	}
 	else
 	{
-		ch->ChatPacket(CHAT_TYPE_INFO, "¾ÆÀÌÅÛÀÌ ¾ø¾î¼­ Âø¿ëÇÒ ¼ö ¾ø¾î.");
+		ch->ChatPacket(CHAT_TYPE_INFO, "Ñ•Ğ–ĞĞœĞ•Ğ«ĞĞœ Ñ•ÑˆÑ•Ğ¾Ñ˜Â­ Ğ’ÑˆÑ—Ğ»Ğ—Ğ¢ Ñ˜Ñ† Ñ•ÑˆÑ•Ğ¾.");
 	}
 }
 

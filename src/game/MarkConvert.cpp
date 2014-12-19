@@ -30,14 +30,14 @@ static Pixel * LoadOldGuildMarkImageFile()
 
 bool GuildMarkConvert(const std::vector<DWORD> & vecGuildID)
 {
-	// Æú´õ »ı¼º
+	// Ğ–ÑŠÒ‘Ñ… Â»ÑÑ˜Ñ”
 #ifndef _WIN32
 	mkdir("mark", S_IRWXU);
 #else
 	_mkdir("mark");
 #endif
 
-	// ÀÎµ¦½º ÆÄÀÏÀÌ ÀÖ³ª? 
+	// ĞĞÂµÂ¦Ğ…Ñ” Ğ–Ğ”ĞĞŸĞĞœ ĞĞ¦Ñ–Ğ„? 
 #ifndef _WIN32
 	if (0 != access(OLD_MARK_INDEX_FILENAME, F_OK))
 #else
@@ -45,13 +45,13 @@ bool GuildMarkConvert(const std::vector<DWORD> & vecGuildID)
 #endif
 		return true;
 
-	// ÀÎµ¦½º ÆÄÀÏ ¿­±â
+	// ĞĞÂµÂ¦Ğ…Ñ” Ğ–Ğ”ĞĞŸ Ñ—Â­Â±Ğ²
 	FILE* fp = fopen(OLD_MARK_INDEX_FILENAME, "r");
 
 	if (NULL == fp)
 		return false;
 
-	// ÀÌ¹ÌÁö ÆÄÀÏ ¿­±â
+	// ĞĞœâ„–ĞœĞ‘Ñ† Ğ–Ğ”ĞĞŸ Ñ—Â­Â±Ğ²
 	Pixel * oldImagePtr = LoadOldGuildMarkImageFile();
 
 	if (NULL == oldImagePtr)
@@ -61,8 +61,8 @@ bool GuildMarkConvert(const std::vector<DWORD> & vecGuildID)
 	}
 
 	/*
-	// guild_mark.tga°¡ ½ÇÁ¦ targa ÆÄÀÏÀÌ ¾Æ´Ï°í, 512 * 512 * 4 Å©±âÀÇ raw ÆÄÀÏÀÌ´Ù.
-	// ´«À¸·Î È®ÀÎÇÏ±â À§ÇØ ½ÇÁ¦ targa ÆÄÀÏ·Î ¸¸µç´Ù.
+	// guild_mark.tgaÂ°Ğ Ğ…Ğ—Ğ‘Â¦ targa Ğ–Ğ”ĞĞŸĞĞœ Ñ•Ğ–Ò‘ĞŸÂ°Ğ½, 512 * 512 * 4 Ğ•Â©Â±Ğ²ĞĞ— raw Ğ–Ğ”ĞĞŸĞĞœÒ‘Ğ©.
+	// Ò‘Â«ĞÑ‘Â·Ğ Ğ˜Â®ĞĞĞ—ĞŸÂ±Ğ² ĞÂ§Ğ—Ğ¨ Ğ…Ğ—Ğ‘Â¦ targa Ğ–Ğ”ĞĞŸÂ·Ğ Ñ‘Ñ‘ÂµĞ·Ò‘Ğ©.
 	CGuildMarkImage * pkImage = new CGuildMarkImage;
 	pkImage->Build("guild_mark_real.tga");
 	pkImage->Load("guild_mark_real.tga");
@@ -86,7 +86,7 @@ bool GuildMarkConvert(const std::vector<DWORD> & vecGuildID)
 			continue;
 		}
 
-		// mark id -> ÀÌ¹ÌÁö¿¡¼­ÀÇ À§Ä¡ Ã£±â
+		// mark id -> ĞĞœâ„–ĞœĞ‘Ñ†Ñ—ĞÑ˜Â­ĞĞ— ĞÂ§Ğ”Ğ Ğ“ĞˆÂ±Ğ²
 		uint row = mark_id / 32;
 		uint col = mark_id % 32;
 
@@ -102,7 +102,7 @@ bool GuildMarkConvert(const std::vector<DWORD> & vecGuildID)
 		Pixel * src = oldImagePtr + sy * 512 + sx;
 		Pixel * dst = mark;
 
-		// ¿¾³¯ ÀÌ¹ÌÁö¿¡¼­ ¸¶Å© ÇÑ°³ º¹»ç
+		// Ñ—Ñ•Ñ–Ğ‡ ĞĞœâ„–ĞœĞ‘Ñ†Ñ—ĞÑ˜Â­ Ñ‘Â¶Ğ•Â© Ğ—Ğ¡Â°Ñ– Ñ”â„–Â»Ğ·
 		for (int y = 0; y != SGuildMark::HEIGHT; ++y)
 		{
 			for (int x = 0; x != SGuildMark::WIDTH; ++x)
@@ -111,7 +111,7 @@ bool GuildMarkConvert(const std::vector<DWORD> & vecGuildID)
 			src += 512;
 		}
 
-		// »õ ±æµå ¸¶Å© ½Ã½ºÅÛ¿¡ ³Ö´Â´Ù.
+		// Â»Ñ… Â±Ğ¶ÂµĞµ Ñ‘Â¶Ğ•Â© Ğ…Ğ“Ğ…Ñ”Ğ•Ğ«Ñ—Ğ Ñ–Ğ¦Ò‘Ğ’Ò‘Ğ©.
 		CGuildMarkManager::instance().SaveMark(guild_id, (BYTE *) mark);
 		line[0] = '\0';
 	}
@@ -119,7 +119,7 @@ bool GuildMarkConvert(const std::vector<DWORD> & vecGuildID)
 	free(oldImagePtr);
 	fclose(fp);
 
-	// ÄÁ¹öÆ®´Â ÇÑ¹ø¸¸ ÇÏ¸éµÇ¹Ç·Î ÆÄÀÏÀ» ¿Å°ÜÁØ´Ù.
+	// Ğ”Ğ‘â„–Ñ†Ğ–Â®Ò‘Ğ’ Ğ—Ğ¡â„–ÑˆÑ‘Ñ‘ Ğ—ĞŸÑ‘Ğ¹ÂµĞ—â„–Ğ—Â·Ğ Ğ–Ğ”ĞĞŸĞÂ» Ñ—Ğ•Â°Ğ¬Ğ‘Ğ¨Ò‘Ğ©.
 #ifndef _WIN32
 	system("mv -f guild_mark.idx guild_mark.idx.removable");
 	system("mv -f guild_mark.tga guild_mark.tga.removable");

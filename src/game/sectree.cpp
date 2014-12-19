@@ -149,7 +149,7 @@ bool SECTREE::InsertEntity(LPENTITY pkEnt)
 			if (pkCurTree)
 				pkCurTree->DecreasePC();
 		}
-		else if (m_iPCCount > 0 && !pkChr->IsWarp() && !pkChr->IsGoto()) // PC°¡ ¾Æ´Ï°í ÀÌ °÷¿¡ PC°¡ ÀÖ´Ù¸é Idle event¸¦ ½ÃÀÛ ½ÃÅ²´Ù.
+		else if (m_iPCCount > 0 && !pkChr->IsWarp() && !pkChr->IsGoto()) // PCÂ°ÐŽ Ñ•Ð–Ò‘ÐŸÂ°Ð½ ÐÐœ Â°Ñ‡Ñ—ÐŽ PCÂ°ÐŽ ÐÐ¦Ò‘Ð©Ñ‘Ð¹ Idle eventÑ‘Â¦ Ð…Ð“ÐÐ« Ð…Ð“Ð•Ð†Ò‘Ð©.
 		{
 			pkChr->StartStateMachine();
 		}

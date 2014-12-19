@@ -330,8 +330,8 @@ namespace quest
 		}
 	};
 	
-	// ÆÄÆ¼ ´ÜÀ§·Î ¹öÇÁ ÁÖ´Â ÇÔ¼ö.
-	// °°Àº ¸Ê¿¡ ÀÖ´Â ÆÄÆ¼¿ø¸¸ ¿µÇâÀ» ¹Ş´Â´Ù.
+	// Ğ–Ğ”Ğ–Ñ˜ Ò‘Ğ¬ĞÂ§Â·Ğ â„–Ñ†Ğ—Ğ‘ Ğ‘Ğ¦Ò‘Ğ’ Ğ—Ğ¤Ñ˜Ñ†.
+	// Â°Â°ĞÑ” Ñ‘ĞšÑ—Ğ ĞĞ¦Ò‘Ğ’ Ğ–Ğ”Ğ–Ñ˜Ñ—ÑˆÑ‘Ñ‘ Ñ—ÂµĞ—Ğ²ĞÂ» â„–Ğ®Ò‘Ğ’Ò‘Ğ©.
 	int party_give_buff (lua_State* L)
 	{
 		CQuestManager & q = CQuestManager::instance();
@@ -412,7 +412,7 @@ namespace quest
 			{ "is_in_dungeon",	party_is_in_dungeon	},
 			{ "give_buff",		party_give_buff		},
 			{ "is_map_member_flag_lt",	party_is_map_member_flag_lt	},
-			{ "get_member_pids",		party_get_member_pids	}, // ÆÄÆ¼¿øµéÀÇ pid¸¦ return
+			{ "get_member_pids",		party_get_member_pids	}, // Ğ–Ğ”Ğ–Ñ˜Ñ—ÑˆÂµĞ¹ĞĞ— pidÑ‘Â¦ return
 			{ NULL,				NULL				}
 		};
 

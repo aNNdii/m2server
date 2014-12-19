@@ -87,7 +87,7 @@ int check_name_independent(const char * str)
 	if (CBanwordManager::instance().CheckString(str, strlen(str)))
 		return 0;
 
-	// ���� �̸����δ� ���� �� ����.
+	// ёуЅєЕН АМё§Аё·ОґВ ёёµй јц ѕшґЩ.
 	char szTmp[256];
 	str_lower(str, szTmp, sizeof(szTmp));
 
@@ -128,12 +128,12 @@ int check_name_gb2312(const char * str)
 			b1 = str[i++];
 			b2 = str[i++];
 
-			// �߱� ��ü�� ù��° ����Ʈ ������ b0 -> f7 ������
-			// �ι�° ����Ʈ ������ a1 -> fe ��.
+			// БЯ±№ °ЈГјґВ Г№№шВ° №ЩАМЖ® №ьА§°Ў b0 -> f7 ±оБц°н
+			// µО№шВ° №ЩАМЖ® №ьА§°Ў a1 -> fe ґЩ.
 			if (b1 < 0xb0 || b1 > 0xf7 || b2 < 0xa1 || b2 > 0xfe)
 				return 0;
 
-			// ���ܰ� �ִ�.
+			// ї№їЬ°Ў АЦґЩ.
 			for (j = 0; j < 5; j++)
 				if (b1 == exceptions[j][0] && b2 == exceptions[j][1])
 					return 0;
@@ -180,8 +180,8 @@ int check_name_big5(const char * str )
 			b[0] = b2;
 			b[1] = b1;
 
-			// �߱� ��ü ( big5 : ȫ�� )
-			// ������ ������ ����.
+			// БЯ±№ №шГј ( big5 : И«Дб )
+			// №ьА§ґВ ґЩАЅ°ъ °°ґЩ.
 			//  big5: 0xA140--0xF9D5
 			//  extended big5: 0x40--0x7E and 0xA1--0xFE
 
@@ -240,15 +240,15 @@ int check_name_euckr(const char * str)
 
 	for (tmp = str; *tmp; ++tmp)
 	{
-		// �ѱ��� �ƴϰ� ��ĭ�̸� �߸��� ��
+		// ЗС±ЫАМ ѕЖґП°н єуД­АМёй АЯёшµИ °Н
 		if (isnhspace(*tmp))
 			return 0;
 
-		// �ѱ��� �ƴϰ� ���ڶ�� �����ϴ�.
+		// ЗС±ЫАМ ѕЖґП°н јэАЪ¶уёй АыЗХЗПґЩ.
 		if (isnhdigit(*tmp))
 			continue;
 
-		// �ѱ��� �ƴϰ� �����̶�� �����ϴ�.   
+		// ЗС±ЫАМ ѕЖґП°н їµ№®АМ¶уёй АыЗХЗПґЩ.   
 		if (!ishan(*tmp) && isalpha(*tmp))
 			continue;
 
@@ -280,15 +280,15 @@ int check_name_latin1(const char * str)
 
 	for (tmp = str; *tmp; ++tmp)
 	{
-		// �ѱ��� �ƴϰ� ��ĭ�̸� �߸��� ��
+		// ЗС±ЫАМ ѕЖґП°н єуД­АМёй АЯёшµИ °Н
 		if (isnhspace(*tmp))
 			return 0;
 
-		// �ѱ��� �ƴϰ� ���ڶ�� �����ϴ�.
+		// ЗС±ЫАМ ѕЖґП°н јэАЪ¶уёй АыЗХЗПґЩ.
 		if (isnhdigit(*tmp))
 			continue;
 
-		// �ѱ��� �ƴϰ� �����̶�� �����ϴ�.   
+		// ЗС±ЫАМ ѕЖґП°н їµ№®АМ¶уёй АыЗХЗПґЩ.   
 		if (!ishan(*tmp) && isalpha(*tmp))
 			continue;
 
@@ -325,7 +325,7 @@ int check_name_alphabet(const char * str)
 
 	for (tmp = str; *tmp; ++tmp)
 	{
-		// ���ĺ��� ���ڸ� ���
+		// ѕЛЖДєЄ°ъ јцАЪёё Згїл
 		if (isdigit(*tmp) || isalpha(*tmp))
 			continue;
 		else
@@ -374,7 +374,7 @@ int check_name_sjis(const char *str)
 	const char	*p = str;
 	const char	*e = str + strlen(str);	// NULL position
 
-	// �Ϻ��� ĳ���� �̸����� 16byte ����
+	// АПє»Ає ДіёЇЕН АМё§±жАМ 16byte ±оБц
 	if ( strlen(str) < 2 || strlen(str) > 16 )
 		return 0;
 
@@ -387,7 +387,7 @@ int check_name_sjis(const char *str)
 				return false;
 
 			// END_OF_DISABLE_SPECIAL_CHAR_NAMING
-			// �̹��ڴ� ������ �ʴ´�.
+			// АМ№®АЪґВ ЗгїлµЗБц ѕКґВґЩ.
 			if ((BYTE)p[0]==0x81 && (BYTE)p[1]==0x40) return false;
 
 			p += 2;
@@ -395,7 +395,7 @@ int check_name_sjis(const char *str)
 		}
 		else
 		{
-			// �����̳� ���ڴ� ����Ѵ�.
+			// їµ№®АМіЄ јцАЪґВ ЗгїлЗСґЩ.
 			if (isalpha(*p) || isdigit(*p))
 			{
 				p += 1;
@@ -1358,18 +1358,18 @@ bool LC_IsEurope()
 		case LC_DENMARK:
 		case LC_BULGARIA:
 		case LC_CROATIA:
-		case LC_MEXICO: // �������� GF���� ���� �ϹǷ� ���� ����
-		case LC_ARABIA: // �ߵ������� GF���� ���� �ϹǷ� ���� ����
+		case LC_MEXICO: // іІ№МБцёё GFїЎј­ ј­єсЅє ЗП№З·О ї©±в іЦАЅ
+		case LC_ARABIA: // БЯµїАМБцёё GFїЎј­ ј­єсЅє ЗП№З·О ї©±в іЦАЅ
 		case LC_CZECH:
 		case LC_ROMANIA:
 		case LC_HUNGARY:
 		case LC_NETHERLANDS:
 		case LC_USA:
-		case LC_WE_KOREA:	// �ѱ������� UK ���� ����̹Ƿ� ���� ����
-		case LC_TAIWAN:		// �븸������ WE_KOREA ���� ����̹Ƿ� ���� ����
-		case LC_JAPAN:		// �Ϻ������� WE(World Edition -_-) �����̹Ƿ� ���� ����
+		case LC_WE_KOREA:	// ЗС±№АМБцёё UK №цАь ±в№ЭАМ№З·О ї©±в іЦАЅ
+		case LC_TAIWAN:		// ґлёёАМБцёё WE_KOREA №цАь ±в№ЭАМ№З·О ї©±в іЦАЅ
+		case LC_JAPAN:		// АПє»АМБцёё WE(World Edition -_-) №цАьАМ№З·О ї©±в іЦАЅ
 		case LC_NEWCIBN:
-		case LC_CANADA:	// ĳ���� GF���� ���� ����
+		case LC_CANADA:	// ДііЄґЩ GFїЎј­ ј­єсЅє ЅГАЫ
 			return true;
 	}
 

@@ -97,7 +97,7 @@ void CEntity::PacketView(const void * data, int bytes, LPENTITY except)
 
 	FuncPacketView f(data, bytes, except);
 
-	// ©июЗ╧Ж ╩Себ©║╪╠ Ё╩ фпе╤ю╨ Ё╙╦╦ ╧ч╢б╢ы.
+	// я≈п≥п░я┼Б└√я├ б╩я┐п∙п▓я≈п▌я≤б╠ я√б╩ п√п═п∙б╤п░я■ я√п└я▒я▒ Б└√п╝р▒п▓р▒п╘.
 	if (!m_bIsObserver)
 		for_each(m_map_view.begin(), m_map_view.end(), f);
 

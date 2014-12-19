@@ -19,16 +19,16 @@ ACMD(do_oxevent_log)
 {
 	if ( COXEventManager::instance().LogWinner() == false )
 	{
-		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("OXÀÌº¥Æ®ÀÇ ³ª¸ÓÁö ÀÎ¿øÀ» ±â·ÏÇÏ¿´½À´Ï´Ù."));
+		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("OXĞĞœÑ”ÒĞ–Â®ĞĞ— Ñ–Ğ„Ñ‘Ğ£Ğ‘Ñ† ĞĞÑ—ÑˆĞÂ» Â±Ğ²Â·ĞŸĞ—ĞŸÑ—Ò‘Ğ…ĞÒ‘ĞŸÒ‘Ğ©."));
 	}
 	else
 	{
-		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("OXÀÌº¥Æ®ÀÇ ³ª¸ÓÁö ÀÎ¿ø ±â·ÏÀ» ½ÇÆĞÇß½À´Ï´Ù."));
+		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("OXĞĞœÑ”ÒĞ–Â®ĞĞ— Ñ–Ğ„Ñ‘Ğ£Ğ‘Ñ† ĞĞÑ—Ñˆ Â±Ğ²Â·ĞŸĞÂ» Ğ…Ğ—Ğ–Ğ Ğ—Ğ¯Ğ…ĞÒ‘ĞŸÒ‘Ğ©."));
 	}
 }
 
 ACMD(do_oxevent_get_attender)
 {
-	ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("ÇöÀç ³²Àº Âü°¡ÀÚ¼ö : %d"), COXEventManager::instance().GetAttenderCount());
+	ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Ğ—Ñ†ĞĞ· Ñ–Ğ†ĞÑ” Ğ’ÑŒÂ°ĞĞĞªÑ˜Ñ† : %d"), COXEventManager::instance().GetAttenderCount());
 }
 

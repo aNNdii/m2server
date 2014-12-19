@@ -24,19 +24,19 @@ class P2P_MANAGER : public singleton<P2P_MANAGER>
 		P2P_MANAGER();
 		~P2P_MANAGER();
 
-		// 酒贰 Register* Unregister* pair甸篮 郴何利栏肺 荤角 鞍篮 风凭阑 荤侩茄促.
-		// 窜瘤 疙矫利栏肺 钎矫窍扁 困茄 巴
+		// 褧袞路袔 Register* Unregister* pair碌泄袗褦 褨禄褦袨袗褘袗褢路袨 禄蟹袇袟 掳掳袗褦 路蟹袞褧袗禄 禄蟹褩谢袟小覒些.
+		// 覒鞋袘褑 褢薪袇袚袗褘袗褢路袨 袟覑袇袚袟袩卤胁 袗搂袟小 掳袧
 		void			RegisterAcceptor(LPDESC d);
 		void			UnregisterAcceptor(LPDESC d);
 
 		void			RegisterConnector(LPDESC d);
 		void			UnregisterConnector(LPDESC d);
 
-		void			EraseUserByDesc(LPDESC d);	// 秦寸 desc俊 乐绰 蜡历甸阑 瘤款促.
+		void			EraseUserByDesc(LPDESC d);	// 袟楔覒蟹 desc褩袔 袗笑覒袙 袗袊袗褗碌泄袗禄 袘褑褩芯覒些.
 
 		void			FlushOutput();
 
-		void			Boot(LPDESC d);	// p2p 贸府俊 鞘夸茄 沥焊甫 焊郴霖促. (傈 某腐磐狼 肺弊牢 沥焊 殿)
+		void			Boot(LPDESC d);	// p2p 袚褨褢庐褩袔 袟袣褩写袟小 袘陇褦褢褢娄 褦褢褨禄袘楔覒些. (袗褜 袛褨褢袊袝袧袗袟 路袨卤效袗袨 袘陇褦褢 碌芯)
 
 		void			Send(const void * c_pvData, int iSize, LPDESC except = NULL);
 

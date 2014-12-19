@@ -35,7 +35,7 @@ namespace quest
 		if (!q.ServerTimer(info->npc_id, info->arg))
 			return passes_per_sec / 2 + 1;
 
-		if (0 == info->time_cycle)	// ·çÇÁ°¡ ¾Æ´Ï¶ó¸é Á¾·á ½ÃÅ²´Ù.
+		if (0 == info->time_cycle)	// Â·Ð·Ð—Ð‘Â°ÐŽ Ñ•Ð–Ò‘ÐŸÂ¶ÑƒÑ‘Ð¹ Ð‘Ñ•Â·Ð± Ð…Ð“Ð•Ð†Ò‘Ð©.
 		{
 			q.ClearServerTimerNotCancel(info->name, info->arg);
 			M2_DELETE_ARRAY(info->name);
@@ -62,7 +62,7 @@ namespace quest
 			if (!CQuestManager::instance().Timer(info->player_id, info->npc_id))
 				return (passes_per_sec / 2 + 1);
 
-			if (0 == info->time_cycle)	// ·çÇÁ°¡ ¾Æ´Ï¶ó¸é Á¾·á ½ÃÅ²´Ù.
+			if (0 == info->time_cycle)	// Â·Ð·Ð—Ð‘Â°ÐŽ Ñ•Ð–Ò‘ÐŸÂ¶ÑƒÑ‘Ð¹ Ð‘Ñ•Â·Ð± Ð…Ð“Ð•Ð†Ò‘Ð©.
 				goto END_OF_TIMER_EVENT;
 		}
 		else

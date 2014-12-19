@@ -252,7 +252,7 @@ namespace marriage
 
 	void CManager::OnSetup(CPeer* peer)
 	{
-		// °áÈ¥ÇÑ »ç¶÷µé º¸³»±â
+		// Â°Ð±Ð˜ÒÐ—Ð¡ Â»Ð·Â¶Ñ‡ÂµÐ¹ Ñ”Ñ‘Ñ–Â»Â±Ð²
 		for (MarriageSet::const_iterator it = m_Marriages.begin(); it != m_Marriages.end(); ++it)
 		{
 			TMarriage* pMarriage = *it;
@@ -279,7 +279,7 @@ namespace marriage
 			}
 		}
 
-		// °áÈ¥½Ä º¸³»±â
+		// Â°Ð±Ð˜ÒÐ…Ð” Ñ”Ñ‘Ñ–Â»Â±Ð²
 		for (RunningWeddingMap::const_iterator it = m_mapRunningWedding.begin(); it != m_mapRunningWedding.end(); ++it)
 		{
 			const TWedding& t = it->second;

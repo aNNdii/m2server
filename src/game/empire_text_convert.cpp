@@ -56,7 +56,7 @@ void ConvertEmpireText(DWORD dwEmpireID, char* szText, size_t len, int iPct)
 			{
 				if (g_iUseLocale)
 				{
-					static char s_cChinaTable[][3] = {"¡ò","££","£¤","¡ù","¡ð" };
+					static char s_cChinaTable[][3] = {"ÐŽÑ‚","ÐˆÐˆ","ÐˆÂ¤","ÐŽÑ‰","ÐŽÑ€" };
 					int n = number(0, 4);
 					pbText[0] = s_cChinaTable[n][0];
 					pbText[1] = s_cChinaTable[n][1];

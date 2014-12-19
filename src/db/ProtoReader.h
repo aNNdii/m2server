@@ -6,8 +6,8 @@
 
 #include "CsvReader.h"
 
-//csv ÆÄÀÏÀ» ÀĞ¾î¿Í¼­ ¾ÆÀÌÅÛ Å×ÀÌºí¿¡ ³Ö¾îÁØ´Ù.
-void putItemIntoTable(); //(Å×ÀÌºí, Å×½ºÆ®¿©ºÎ)
+//csv Ğ–Ğ”ĞĞŸĞÂ» ĞĞ Ñ•Ğ¾Ñ—ĞÑ˜Â­ Ñ•Ğ–ĞĞœĞ•Ğ« Ğ•Ğ§ĞĞœÑ”Ğ½Ñ—Ğ Ñ–Ğ¦Ñ•Ğ¾Ğ‘Ğ¨Ò‘Ğ©.
+void putItemIntoTable(); //(Ğ•Ğ§ĞĞœÑ”Ğ½, Ğ•Ğ§Ğ…Ñ”Ğ–Â®Ñ—Â©Ñ”Ğ)
 
 int get_Item_Type_Value(std::string inputString);
 int get_Item_SubType_Value(unsigned int type_value, std::string inputString);
@@ -19,7 +19,7 @@ int get_Item_LimitType_Value(std::string inputString);
 int get_Item_ApplyType_Value(std::string inputString);
 
 
-//¸ó½ºÅÍ ÇÁ·ÎÅäµµ ÀĞÀ» ¼ö ÀÖ´Ù.
+//Ñ‘ÑƒĞ…Ñ”Ğ•Ğ Ğ—Ğ‘Â·ĞĞ•Ğ´ÂµÂµ ĞĞ ĞÂ» Ñ˜Ñ† ĞĞ¦Ò‘Ğ©.
 int get_Mob_Rank_Value(std::string inputString);
 int get_Mob_Type_Value(std::string inputString);
 int get_Mob_BattleType_Value(std::string inputString);

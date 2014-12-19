@@ -51,11 +51,11 @@ enum SCMD_XMAS
 };
 
 extern void Shutdown(int iSec);
-extern void SendNotice(const char * c_pszBuf);		// ÀÌ °ÔÀÓ¼­¹ö¿¡¸¸ °øÁö
-extern void SendLog(const char * c_pszBuf);		// ¿î¿µÀÚ¿¡°Ô¸¸ °øÁö
-extern void BroadcastNotice(const char * c_pszBuf);	// Àü ¼­¹ö¿¡ °øÁö
-extern void SendNoticeMap(const char* c_pszBuf, int nMapIndex, bool bBigFont); // ÁöÁ¤ ¸Ê¿¡¸¸ °øÁö
-extern void SendMonarchNotice(BYTE bEmpire, const char * c_pszBuf);		// °°Àº Á¦±¹¿¡°Ô °øÁö
+extern void SendNotice(const char * c_pszBuf);		// ĞĞœ Â°Ğ¤ĞĞ£Ñ˜Â­â„–Ñ†Ñ—ĞÑ‘Ñ‘ Â°ÑˆĞ‘Ñ†
+extern void SendLog(const char * c_pszBuf);		// Ñ—Ğ¾Ñ—ÂµĞĞªÑ—ĞÂ°Ğ¤Ñ‘Ñ‘ Â°ÑˆĞ‘Ñ†
+extern void BroadcastNotice(const char * c_pszBuf);	// ĞÑŒ Ñ˜Â­â„–Ñ†Ñ—Ğ Â°ÑˆĞ‘Ñ†
+extern void SendNoticeMap(const char* c_pszBuf, int nMapIndex, bool bBigFont); // Ğ‘Ñ†Ğ‘Â¤ Ñ‘ĞšÑ—ĞÑ‘Ñ‘ Â°ÑˆĞ‘Ñ†
+extern void SendMonarchNotice(BYTE bEmpire, const char * c_pszBuf);		// Â°Â°ĞÑ” Ğ‘Â¦Â±â„–Ñ—ĞÂ°Ğ¤ Â°ÑˆĞ‘Ñ†
 
 // LUA_ADD_BGM_INFO
 void CHARACTER_SetBGMVolumeEnable();

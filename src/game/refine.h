@@ -5,8 +5,8 @@
 
 enum
 {
-	BLACKSMITH_MOB = 20016, // È®·ü °³·®
-	ALCHEMIST_MOB = 20001, // 100% °³·® ¼º°ø 
+	BLACKSMITH_MOB = 20016, // Ð˜Â®Â·ÑŒ Â°Ñ–Â·Â®
+	ALCHEMIST_MOB = 20001, // 100% Â°Ñ–Â·Â® Ñ˜Ñ”Â°Ñˆ 
 
 	BLACKSMITH_WEAPON_MOB = 20044,
 	BLACKSMITH_ARMOR_MOB = 20045,

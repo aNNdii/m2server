@@ -12,28 +12,28 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 /// \class cCsvAlias
-/// \brief CSV ������ �������� �� �߻��ϴ� �ε��� ������ ���̱� ���� 
-/// ���� ��ü.
+/// \brief CSV ЖДАПА» јцБ¤ЗЯА» ¶§ №Я»эЗПґВ АОµ¦Ѕє №®Б¦ё¦ БЩАМ±в А§ЗС 
+/// є°ён °ґГј.
 ///
-/// ���� ��� 0�� �÷��� A�� ���� ������ �����ϰ�, 1�� �÷��� B�� ���� ������ 
-/// �����ϰ� �־��µ�...
+/// ї№ё¦ µйѕо 0№ш ДГ·іАМ AїЎ °ьЗС і»їлА» ЖчЗФЗП°н, 1№ш ДГ·іАМ BїЎ °ьЗС і»їлА» 
+/// ЖчЗФЗП°н АЦѕъґВµҐ...
 ///
 /// <pre>
 /// int a = row.AsInt(0);
 /// int b = row.AsInt(1);
 /// </pre>
 ///
-/// �� ���̿� C�� ���� ������ �����ϴ� �÷��� ����� ���, �ϵ��ڵ��Ǿ� �ִ� 
-/// 1���� ã�Ƽ� ���ľ� �ϴµ�, ����� ������ �߻��ϱ� ���� �۾��̴�. 
+/// ±Ч »зАМїЎ CїЎ °ьЗС і»їлА» ЖчЗФЗПґВ ДГ·іАМ іўѕоµз °жїм, ЗПµеДЪµщµЗѕо АЦґВ 
+/// 1№шА» ГЈѕЖј­ °нГДѕЯ ЗПґВµҐ, »уґзИч їЎ·Ї°Ў №Я»эЗП±в Ѕ¬їо АЫѕчАМґЩ. 
 ///
 /// <pre>
 /// int a = row.AsInt(0);
 /// int c = row.AsInt(1);
-/// int b = row.AsInt(2); <-- �� �κ��� ������ �Ű��� �Ѵ�.
+/// int b = row.AsInt(2); <-- АМ єОєРА» АПАПАМ ЅЕ°жЅбѕЯ ЗСґЩ.
 /// </pre>
 /// 
-/// �� �κ��� ���ڿ��� ó���ϸ� ���������� ���� ������ �ణ�̳��� ���� �� 
-/// �ִ�.
+/// АМ єОєРА» №®АЪї­·О Гіё®ЗПёй АЇБцєёјцїЎ µйѕо°ЎґВ јц°нё¦ ѕа°ЈАМіЄё¶ БЩАП јц 
+/// АЦґЩ.
 ////////////////////////////////////////////////////////////////////////////////
 
 class cCsvAlias
@@ -47,51 +47,51 @@ private:
     typedef std::map<size_t, std::string> INDEX2NAME_MAP;
 #endif
 
-    NAME2INDEX_MAP m_Name2Index;  ///< �� �ε��� ������� ����ϱ� ���� �̸���
-    INDEX2NAME_MAP m_Index2Name;  ///< �߸��� alias�� �˻��ϱ� ���� �߰����� ��
+    NAME2INDEX_MAP m_Name2Index;  ///< јї АОµ¦Ѕє ґлЅЕАё·О »зїлЗП±в А§ЗС АМё§µй
+    INDEX2NAME_MAP m_Index2Name;  ///< АЯёшµИ aliasё¦ °Л»зЗП±в А§ЗС ГЯ°ЎАыАО ёК
 
 
 public:
-    /// \brief ������
+    /// \brief »эјєАЪ
     cCsvAlias() {} 
 
-    /// \brief �Ҹ���
+    /// \brief јТёкАЪ
     virtual ~cCsvAlias() {}
 
 
 public:
-    /// \brief ���� �׼����� ��, ���� ��� ����� �̸��� ����Ѵ�.
+    /// \brief јїА» ѕЧјјЅєЗТ ¶§, јэАЪ ґлЅЕ »зїлЗТ АМё§А» µо·ПЗСґЩ.
     void AddAlias(const char* name, size_t index);
 
-    /// \brief ��� �����͸� �����Ѵ�.
+    /// \brief ёрµз µҐАМЕНё¦ »иБ¦ЗСґЩ.
     void Destroy();
 
-    /// \brief ���� �ε����� �̸����� ��ȯ�Ѵ�.
+    /// \brief јэАЪ АОµ¦Ѕєё¦ АМё§Аё·О єЇИЇЗСґЩ.
     const char* operator [] (size_t index) const;
 
-    /// \brief �̸��� ���� �ε����� ��ȯ�Ѵ�.
+    /// \brief АМё§А» јэАЪ АОµ¦Ѕє·О єЇИЇЗСґЩ.
     size_t operator [] (const char* name) const;
 
 
 private:
-    /// \brief ���� ������ ����
+    /// \brief є№»з »эјєАЪ ±ЭБц
     cCsvAlias(const cCsvAlias&) {}
 
-    /// \brief ���� ������ ����
+    /// \brief ґлАФ ї¬»кАЪ ±ЭБц
     const cCsvAlias& operator = (const cCsvAlias&) { return *this; }
 };
 
 
 ////////////////////////////////////////////////////////////////////////////////
 /// \class cCsvRow 
-/// \brief CSV ������ �� ���� ĸ��ȭ�� Ŭ����
+/// \brief CSV ЖДАПАЗ ЗС ЗаА» ДёЅ¶И­ЗС Е¬·ЎЅє
 ///
-/// CSV�� �⺻ ������ �������� ���̴� �ϳ��� ���� ',' ���ڷ� ������ ���̴�.
-/// ������, �� �ȿ� Ư�� ���ڷ� ���̴� ',' ���ڳ� '"' ���ڰ� �� ���, 
-/// ����� �ణ �̻��ϰ� ���Ѵ�. ������ �� ��ȭ�� ���̴�.
+/// CSVАЗ ±вє» ЖчёЛАє їўјїїЎј­ єёАМґВ ЗПіЄАЗ јїА» ',' №®АЪ·О ±ёєРЗС °НАМґЩ.
+/// ЗПБцёё, јї ѕИїЎ ЖЇјц №®АЪ·О ѕІАМґВ ',' №®АЪіЄ '"' №®АЪ°Ў µйѕо°Ґ °жїм, 
+/// ёрѕзАМ ѕа°Ј АМ»уЗП°Ф єЇЗСґЩ. ґЩАЅАє ±Ч єЇИ­АЗ ї№АМґЩ.
 /// 
 /// <pre>
-/// �������� ���̴� ��� | ���� CSV ���Ͽ� ���ִ� ���
+/// їўјїїЎј­ єёАМґВ ёрѕз | ЅЗБ¦ CSV ЖДАПїЎ µйѕо°ЎАЦґВ ёрѕз
 /// ---------------------+----------------------------------------------------
 /// ItemPrice            | ItemPrice
 /// Item,Price           | "Item,Price"
@@ -101,9 +101,9 @@ private:
 /// Item",Price          | "Item"",Price"
 /// </pre>
 /// 
-/// �� ���μ� ������ ���� ������ �� �� �ִ�.
-/// - �� ���ο� ',' �Ǵ� '"' ���ڰ� �� ���, �� �¿쿡 '"' ���ڰ� �����.
-/// - �� ������ '"' ���ڴ� 2���� ġȯ�ȴ�.
+/// АМ ї№·Ој­ ґЩАЅ°ъ °°Ає »зЗЧА» ѕЛ јц АЦґЩ.
+/// - јї і»єОїЎ ',' ¶ЗґВ '"' №®АЪ°Ў µйѕо°Ґ °жїм, јї БВїмїЎ '"' №®АЪ°Ў »э±дґЩ.
+/// - јї і»єОАЗ '"' №®АЪґВ 2°і·О ДЎИЇµИґЩ.
 ///
 /// \sa cCsvFile
 ////////////////////////////////////////////////////////////////////////////////
@@ -111,51 +111,51 @@ private:
 class cCsvRow : public std::vector<std::string>
 {
 public:
-    /// \brief �⺻ ������
+    /// \brief ±вє» »эјєАЪ
     cCsvRow() {}
 
-    /// \brief �Ҹ���
+    /// \brief јТёкАЪ
     ~cCsvRow() {}
 
 
 public:
-    /// \brief �ش� ���� �����͸� int ������ ��ȯ�Ѵ�.
+    /// \brief ЗШґз јїАЗ µҐАМЕНё¦ int ЗьАё·О №ЭИЇЗСґЩ.
     int AsInt(size_t index) const { return atoi(at(index).c_str()); }
 
-    /// \brief �ش� ���� �����͸� double ������ ��ȯ�Ѵ�.
+    /// \brief ЗШґз јїАЗ µҐАМЕНё¦ double ЗьАё·О №ЭИЇЗСґЩ.
     double AsDouble(size_t index) const { return atof(at(index).c_str()); }
 
-    /// \brief �ش� ���� �����͸� ���ڿ��� ��ȯ�Ѵ�.
+    /// \brief ЗШґз јїАЗ µҐАМЕНё¦ №®АЪї­·О №ЭИЇЗСґЩ.
     const char* AsString(size_t index) const { return at(index).c_str(); }
 
-    /// \brief �ش��ϴ� �̸��� �� �����͸� int ������ ��ȯ�Ѵ�.
+    /// \brief ЗШґзЗПґВ АМё§АЗ јї µҐАМЕНё¦ int ЗьАё·О №ЭИЇЗСґЩ.
     int AsInt(const char* name, const cCsvAlias& alias) const {
         return atoi( at(alias[name]).c_str() ); 
     }
 
-    /// \brief �ش��ϴ� �̸��� �� �����͸� int ������ ��ȯ�Ѵ�.
+    /// \brief ЗШґзЗПґВ АМё§АЗ јї µҐАМЕНё¦ int ЗьАё·О №ЭИЇЗСґЩ.
     double AsDouble(const char* name, const cCsvAlias& alias) const {
         return atof( at(alias[name]).c_str() ); 
     }
 
-    /// \brief �ش��ϴ� �̸��� �� �����͸� ���ڿ��� ��ȯ�Ѵ�.
+    /// \brief ЗШґзЗПґВ АМё§АЗ јї µҐАМЕНё¦ №®АЪї­·О №ЭИЇЗСґЩ.
     const char* AsString(const char* name, const cCsvAlias& alias) const { 
         return at(alias[name]).c_str(); 
     }
 
 
 private:
-    /// \brief ���� ������ ����
+    /// \brief є№»з »эјєАЪ ±ЭБц
     cCsvRow(const cCsvRow&) {}
 
-    /// \brief ���� ������ ����
+    /// \brief ґлАФ ї¬»кАЪ ±ЭБц
     const cCsvRow& operator = (const cCsvRow&) { return *this; }
 };
 
 
 ////////////////////////////////////////////////////////////////////////////////
 /// \class cCsvFile
-/// \brief CSV(Comma Seperated Values) ������ read/write�ϱ� ���� Ŭ����
+/// \brief CSV(Comma Seperated Values) ЖДАПА» read/writeЗП±в А§ЗС Е¬·ЎЅє
 ///
 /// <b>sample</b>
 /// <pre>
@@ -179,8 +179,8 @@ private:
 /// file.save("test.csv", false);
 /// </pre>
 ///
-/// \todo ���Ͽ����� �о���� ���� �ƴ϶�, �޸� �ҽ��κ��� �д� �Լ��� 
-/// �־�� �� �� �ϴ�.
+/// \todo ЖДАПїЎј­ёё АРѕоµйАП °НАМ ѕЖґП¶у, ёЮёрё® јТЅє·ОєОЕН АРґВ ЗФјцµµ 
+/// АЦѕоѕЯ ЗТ µн ЗПґЩ.
 ////////////////////////////////////////////////////////////////////////////////
 
 class cCsvFile
@@ -188,55 +188,55 @@ class cCsvFile
 private:
     typedef std::vector<cCsvRow*> ROWS;
 
-    ROWS m_Rows; ///< �� �÷���
+    ROWS m_Rows; ///< За ДГ·єјЗ
 
 
 public:
-    /// \brief ������
+    /// \brief »эјєАЪ
     cCsvFile() {}
 
-    /// \brief �Ҹ���
+    /// \brief јТёкАЪ
     virtual ~cCsvFile() { Destroy(); }
 
 
 public:
-    /// \brief ������ �̸��� CSV ������ �ε��Ѵ�.
+    /// \brief БцБ¤µИ АМё§АЗ CSV ЖДАПА» ·ОµеЗСґЩ.
     bool Load(const char* fileName, const char seperator=',', const char quote='"');
 
-    /// \brief ������ �ִ� ������ CSV ���Ͽ��� �����Ѵ�.
+    /// \brief °ЎБц°н АЦґВ і»їлА» CSV ЖДАПїЎґЩ АъАеЗСґЩ.
     bool Save(const char* fileName, bool append=false, char seperator=',', char quote='"') const;
 
-    /// \brief ��� �����͸� �޸𸮿��� �����Ѵ�.
+    /// \brief ёрµз µҐАМЕНё¦ ёЮёрё®їЎј­ »иБ¦ЗСґЩ.
     void Destroy();
 
-    /// \brief �ش��ϴ� �ε����� ���� ��ȯ�Ѵ�.
+    /// \brief ЗШґзЗПґВ АОµ¦ЅєАЗ ЗаА» №ЭИЇЗСґЩ.
     cCsvRow* operator [] (size_t index);
 
-    /// \brief �ش��ϴ� �ε����� ���� ��ȯ�Ѵ�.
+    /// \brief ЗШґзЗПґВ АОµ¦ЅєАЗ ЗаА» №ЭИЇЗСґЩ.
     const cCsvRow* operator [] (size_t index) const;
 
-    /// \brief ���� ������ ��ȯ�Ѵ�.
+    /// \brief ЗаАЗ °№јцё¦ №ЭИЇЗСґЩ.
     size_t GetRowCount() const { return m_Rows.size(); }
 
 
 private:
-    /// \brief ���� ������ ����
+    /// \brief є№»з »эјєАЪ ±ЭБц
     cCsvFile(const cCsvFile&) {}
 
-    /// \brief ���� ������ ����
+    /// \brief ґлАФ ї¬»кАЪ ±ЭБц
     const cCsvFile& operator = (const cCsvFile&) { return *this; }
 };
 
 
 ////////////////////////////////////////////////////////////////////////////////
 /// \class cCsvTable
-/// \brief CSV ������ �̿��� ���̺� �����͸� �ε��ϴ� ��찡 ������, �� Ŭ������ 
-/// �� �۾��� �� �� ���� �ϱ� ���� ���� ��ƿ��Ƽ Ŭ������.
+/// \brief CSV ЖДАПА» АМїлЗШ ЕЧАМєн µҐАМЕНё¦ ·ОµеЗПґВ °жїм°Ў ё№АєµҐ, АМ Е¬·ЎЅєґВ 
+/// ±Ч АЫѕчА» Б» ґх Ѕ±°Ф ЗП±в А§ЗШ ёёµз АЇЖїё®Жј Е¬·ЎЅєґЩ.
 ///
-/// CSV ������ �ε��ϴ� ���, ���ڸ� �̿��� ���� �׼����ؾ� �ϴµ�, CSV 
-/// ������ ������ �ٲ�� ���, �� ���ڵ��� ����������Ѵ�. �� �۾��� �� 
-/// �Ű� ������ �䱸�ϴ� ���ٰ�, ������ �߻��ϱ� ����. �׷��Ƿ� ���ڷ� 
-/// �׼����ϱ⺸�ٴ� ���ڿ��� �׼����ϴ� ���� �ణ �������� ���ٰ� �� �� �ִ�.
+/// CSV ЖДАПА» ·ОµеЗПґВ °жїм, јэАЪё¦ АМїлЗШ јїА» ѕЧјјЅєЗШѕЯ ЗПґВµҐ, CSV 
+/// ЖДАПАЗ ЖчёЛАМ №ЩІоґВ °жїм, АМ јэАЪµйА» єЇ°жЗШБаѕЯЗСґЩ. АМ АЫѕчАМ ІП 
+/// ЅЕ°ж БэБЯА» їд±ёЗПґВ µҐґЩ°Ў, їЎ·Ї°Ў №Я»эЗП±в Ѕ±ґЩ. ±Ч·Ї№З·О јэАЪ·О 
+/// ѕЧјјЅєЗП±вєёґЩґВ №®АЪї­·О ѕЧјјЅєЗПґВ °НАМ ѕа°Ј ґАё®Бцёё іґґЩ°н ЗТ јц АЦґЩ.
 ///
 /// <b>sample</b>
 /// <pre>
@@ -259,63 +259,63 @@ private:
 class cCsvTable
 {
 public :
-    cCsvFile  m_File;   ///< CSV ���� ��ü
+    cCsvFile  m_File;   ///< CSV ЖДАП °ґГј
 private:
-    cCsvAlias m_Alias;  ///< ���ڿ��� �� �ε����� ��ȯ�ϱ� ���� ��ü
-    int       m_CurRow; ///< ���� Ⱦ�� ���� �� ��ȣ
+    cCsvAlias m_Alias;  ///< №®АЪї­А» јї АОµ¦Ѕє·О єЇИЇЗП±в А§ЗС °ґГј
+    int       m_CurRow; ///< ЗцАз ИѕґЬ БЯАО За №шИЈ
 
 
 public:
-    /// \brief ������
+    /// \brief »эјєАЪ
     cCsvTable();
 
-    /// \brief �Ҹ���
+    /// \brief јТёкАЪ
     virtual ~cCsvTable();
 
 
 public:
-    /// \brief ������ �̸��� CSV ������ �ε��Ѵ�.
+    /// \brief БцБ¤µИ АМё§АЗ CSV ЖДАПА» ·ОµеЗСґЩ.
     bool Load(const char* fileName, const char seperator=',', const char quote='"');
 
-    /// \brief ���� �׼����� ��, ���� ��� ����� �̸��� ����Ѵ�.
+    /// \brief јїА» ѕЧјјЅєЗТ ¶§, јэАЪ ґлЅЕ »зїлЗТ АМё§А» µо·ПЗСґЩ.
     void AddAlias(const char* name, size_t index) { m_Alias.AddAlias(name, index); }
 
-    /// \brief ���� ������ �Ѿ��.
+    /// \brief ґЩАЅ ЗаАё·О іСѕо°ЈґЩ.
     bool Next();
 
-    /// \brief ���� ���� �� ���ڸ� ��ȯ�Ѵ�.
+    /// \brief ЗцАз ЗаАЗ јї јэАЪё¦ №ЭИЇЗСґЩ.
     size_t ColCount() const;
 
-    /// \brief �ε����� �̿��� int ������ ������ ��ȯ�Ѵ�.
+    /// \brief АОµ¦Ѕєё¦ АМїлЗШ int ЗьАё·О јї°ЄА» №ЭИЇЗСґЩ.
     int AsInt(size_t index) const;
 
-    /// \brief �ε����� �̿��� double ������ ������ ��ȯ�Ѵ�.
+    /// \brief АОµ¦Ѕєё¦ АМїлЗШ double ЗьАё·О јї°ЄА» №ЭИЇЗСґЩ.
     double AsDouble(size_t index) const;
 
-    /// \brief �ε����� �̿��� std::string ������ ������ ��ȯ�Ѵ�.
+    /// \brief АОµ¦Ѕєё¦ АМїлЗШ std::string ЗьАё·О јї°ЄА» №ЭИЇЗСґЩ.
     const char* AsStringByIndex(size_t index) const;
 
-    /// \brief �� �̸��� �̿��� int ������ ������ ��ȯ�Ѵ�.
+    /// \brief јї АМё§А» АМїлЗШ int ЗьАё·О јї°ЄА» №ЭИЇЗСґЩ.
     int AsInt(const char* name) const { return AsInt(m_Alias[name]); }
 
-    /// \brief �� �̸��� �̿��� double ������ ������ ��ȯ�Ѵ�.
+    /// \brief јї АМё§А» АМїлЗШ double ЗьАё·О јї°ЄА» №ЭИЇЗСґЩ.
     double AsDouble(const char* name) const { return AsDouble(m_Alias[name]); }
 
-    /// \brief �� �̸��� �̿��� std::string ������ ������ ��ȯ�Ѵ�.
+    /// \brief јї АМё§А» АМїлЗШ std::string ЗьАё·О јї°ЄА» №ЭИЇЗСґЩ.
     const char* AsString(const char* name) const { return AsStringByIndex(m_Alias[name]); }
 
-    /// \brief alias�� ������ ��� �����͸� �����Ѵ�.
+    /// \brief aliasё¦ ЖчЗФЗШ ёрµз µҐАМЕНё¦ »иБ¦ЗСґЩ.
     void Destroy();
 
 
 private:
-    /// \brief ���� ���� ��ȯ�Ѵ�.
+    /// \brief ЗцАз ЗаА» №ЭИЇЗСґЩ.
     const cCsvRow* const CurRow() const;
 
-    /// \brief ���� ������ ����
+    /// \brief є№»з »эјєАЪ ±ЭБц
     cCsvTable(const cCsvTable&) {}
 
-    /// \brief ���� ������ ����
+    /// \brief ґлАФ ї¬»кАЪ ±ЭБц
     const cCsvTable& operator = (const cCsvTable&) { return *this; }
 };
 

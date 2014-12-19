@@ -1,8 +1,8 @@
 /*
  *    Filename: kstbl.h
- * Description: KS ¿Ï¼ºÇü 2350ÀÚÀÇ Á¶ÇÕÇü ÄÚµå
+ * Description: KS Ñ—ĞŸÑ˜Ñ”Ğ—ÑŒ 2350ĞĞªĞĞ— Ğ‘Â¶Ğ—Ğ¥Ğ—ÑŒ Ğ”ĞªÂµĞµ
  *
- *      Author: ºñ¿± (server), myevan (Client)
+ *      Author: Ñ”ÑÑ—Â± (server), myevan (Client)
  */
 #ifndef __KSTBL_H__
 #define __KSTBL_H__

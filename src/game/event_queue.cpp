@@ -1,8 +1,8 @@
 /*
  *    Filename: queue.c
- * Description: 钮 贸府
+ * Description: 袝覑 袚褨褢庐
  *
- *      Author: 辫茄林 (aka. 厚勘, Cronan), 价康柳 (aka. myevan, 壶磊风)
+ *      Author: 卤懈袟小袘笑 (aka. 褦褋褩卤, Cronan), 褬蝎褩碌袘褕 (aka. myevan, 褦褕袗歇路蟹)
  */
 #include "stdafx.h"
 

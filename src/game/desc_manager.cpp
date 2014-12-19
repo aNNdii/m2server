@@ -55,7 +55,7 @@ int IsValidIP(struct valid_ip* ip_table, const char *host)
 DESC_MANAGER::DESC_MANAGER() : m_bDestroyed(false)
 {
 	Initialize();
-	//NOTE : Destroy ³¡¿¡¼­ Initialize ¸¦ ºÎ¸£´Â°Ç ¶Ç ¹«½¼ ÁþÀÌ³Ä..-_-; Á¤¸» 
+	//NOTE : Destroy Ñ–ÐŽÑ—ÐŽÑ˜Â­ Initialize Ñ‘Â¦ Ñ”ÐžÑ‘ÐˆÒ‘Ð’Â°Ð— Â¶Ð— â„–Â«Ð…Ñ˜ Ð‘ÑŽÐÐœÑ–Ð”..-_-; Ð‘Â¤Ñ‘Â» 
 
 	m_pPackageCrypt = new CClientPackageCryptInfo;
 }
@@ -168,7 +168,7 @@ LPDESC DESC_MANAGER::AcceptDesc(LPFDWATCH fdw, socket_t s)
 		}
 	}
 
-	if (!IsValidIP(admin_ip, host)) // admin_ip ¿¡ µî·ÏµÈ IP ´Â ÃÖ´ë »ç¿ëÀÚ ¼ö¿¡ ±¸¾Ö¹ÞÁö ¾Ê´Â´Ù.
+	if (!IsValidIP(admin_ip, host)) // admin_ip Ñ—ÐŽ ÂµÐ¾Â·ÐŸÂµÐ˜ IP Ò‘Ð’ Ð“Ð¦Ò‘Ð» Â»Ð·Ñ—Ð»ÐÐª Ñ˜Ñ†Ñ—ÐŽ Â±Ñ‘Ñ•Ð¦â„–Ð®Ð‘Ñ† Ñ•ÐšÒ‘Ð’Ò‘Ð©.
 	{
 		if (m_iSocketsConnected >= MAX_ALLOW_USER)
 		{

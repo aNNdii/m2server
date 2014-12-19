@@ -246,7 +246,7 @@ TAccountTable * CreateAccountTableFromRes(MYSQL_RES * res)
 	TAccountTable * pkTab = new TAccountTable;
 	memset(pkTab, 0, sizeof(TAccountTable));
 
-	// Ã¹¹øÂ° ÄÃ·³ °Í¸¸ Âü°í ÇÑ´Ù (JOIN QUERY¸¦ À§ÇÑ °Í ÀÓ)
+	// Ð“â„–â„–ÑˆÐ’Â° Ð”Ð“Â·Ñ– Â°ÐÑ‘Ñ‘ Ð’ÑŒÂ°Ð½ Ð—Ð¡Ò‘Ð© (JOIN QUERYÑ‘Â¦ ÐÂ§Ð—Ð¡ Â°Ð ÐÐ£)
 	enhance_strlcpymt(input_pwd, row[col++], sizeof(input_pwd));
 	str_to_number(pkTab->id, row[col++]);
 	enhance_strlcpymt(pkTab->login, row[col++], sizeof(pkTab->login));
@@ -370,7 +370,7 @@ void CClientManager::RESULT_LOGIN(CPeer * peer, SQLMsg * msg)
 
 	if (info->account_index == 0)
 	{
-		// °èÁ¤ÀÌ ¾ø³×?
+		// Â°Ð¸Ð‘Â¤ÐÐœ Ñ•ÑˆÑ–Ð§?
 		if (msg->Get()->uiNumRows == 0)
 		{
 			sys_log(0, "RESULT_LOGIN: no account");
@@ -412,14 +412,14 @@ void CClientManager::RESULT_LOGIN(CPeer * peer, SQLMsg * msg)
 	}
 	else
 	{
-		if (!info->pAccountTable) // ÀÌ·²¸®´Â ¾ø°ÚÁö¸¸;;
+		if (!info->pAccountTable) // ÐÐœÂ·Ð†Ñ‘Â®Ò‘Ð’ Ñ•ÑˆÂ°ÐªÐ‘Ñ†Ñ‘Ñ‘;;
 		{
 			peer->EncodeReturn(HEADER_DG_LOGIN_WRONG_PASSWD, info->dwHandle);
 			delete info;
 			return;
 		}
 
-		// ´Ù¸¥ ÄÁ³Ø¼ÇÀÌ ÀÌ¹Ì ·Î±×ÀÎ ÇØ¹ö·È´Ù¸é.. ÀÌ¹Ì Á¢¼ÓÇß´Ù°í º¸³»¾ß ÇÑ´Ù.
+		// Ò‘Ð©Ñ‘Ò Ð”Ð‘Ñ–Ð¨Ñ˜Ð—ÐÐœ ÐÐœâ„–Ðœ Â·ÐžÂ±Ð§ÐÐž Ð—Ð¨â„–Ñ†Â·Ð˜Ò‘Ð©Ñ‘Ð¹.. ÐÐœâ„–Ðœ Ð‘ÑžÑ˜Ð£Ð—Ð¯Ò‘Ð©Â°Ð½ Ñ”Ñ‘Ñ–Â»Ñ•Ð¯ Ð—Ð¡Ò‘Ð©.
 		if (!InsertLogonAccount(info->pAccountTable->login, peer->GetHandle(), info->ip))
 		{
 			sys_log(0, "RESULT_LOGIN: already logon %s", info->pAccountTable->login);

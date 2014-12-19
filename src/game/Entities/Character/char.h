@@ -83,7 +83,7 @@ enum EDamageType
 	DAMAGE_TYPE_NONE,
 	DAMAGE_TYPE_NORMAL,
 	DAMAGE_TYPE_NORMAL_RANGE,
-	//��ų
+	//ЅєЕі
 	DAMAGE_TYPE_MELEE,
 	DAMAGE_TYPE_RANGE,
 	DAMAGE_TYPE_FIRE,
@@ -105,103 +105,103 @@ enum EPointTypes
 	POINT_MAX_HP,               // 6
 	POINT_SP,                   // 7
 	POINT_MAX_SP,               // 8  
-	POINT_STAMINA,              // 9  ���׹̳�
-	POINT_MAX_STAMINA,          // 10 �ִ� ���׹̳�
+	POINT_STAMINA,              // 9  ЅєЕЧ№МіК
+	POINT_MAX_STAMINA,          // 10 ГЦґл ЅєЕЧ№МіК
 
 	POINT_GOLD,                 // 11
-	POINT_ST,                   // 12 �ٷ�
-	POINT_HT,                   // 13 ü��
-	POINT_DX,                   // 14 ��ø��
-	POINT_IQ,                   // 15 ���ŷ�
+	POINT_ST,                   // 12 ±Щ·В
+	POINT_HT,                   // 13 Гј·В
+	POINT_DX,                   // 14 №ОГёјє
+	POINT_IQ,                   // 15 Б¤ЅЕ·В
 	POINT_DEF_GRADE,		// 16 ...
-	POINT_ATT_SPEED,            // 17 ���ݼӵ�
-	POINT_ATT_GRADE,		// 18 ���ݷ� MAX
-	POINT_MOV_SPEED,            // 19 �̵��ӵ�
-	POINT_CLIENT_DEF_GRADE,	// 20 �����
-	POINT_CASTING_SPEED,        // 21 �ֹ��ӵ� (��ٿ�Ÿ��*100) / (100 + �̰�) = ���� ��ٿ� Ÿ��
-	POINT_MAGIC_ATT_GRADE,      // 22 �������ݷ�
-	POINT_MAGIC_DEF_GRADE,      // 23 ��������
-	POINT_EMPIRE_POINT,         // 24 ��������
-	POINT_LEVEL_STEP,           // 25 �� ���������� �ܰ�.. (1 2 3 �� �� ����, 4 �Ǹ� ���� ��)
-	POINT_STAT,                 // 26 �ɷ�ġ �ø� �� �ִ� ����
-	POINT_SUB_SKILL,		// 27 ���� ��ų ����Ʈ
-	POINT_SKILL,		// 28 ��Ƽ�� ��ų ����Ʈ
-	POINT_WEAPON_MIN,		// 29 ���� �ּ� ������
-	POINT_WEAPON_MAX,		// 30 ���� �ִ� ������
-	POINT_PLAYTIME,             // 31 �÷��̽ð�
-	POINT_HP_REGEN,             // 32 HP ȸ����
-	POINT_SP_REGEN,             // 33 SP ȸ����
+	POINT_ATT_SPEED,            // 17 °ш°ЭјУµµ
+	POINT_ATT_GRADE,		// 18 °ш°Э·В MAX
+	POINT_MOV_SPEED,            // 19 АМµїјУµµ
+	POINT_CLIENT_DEF_GRADE,	// 20 №жѕоµо±Ю
+	POINT_CASTING_SPEED,        // 21 БЦ№®јУµµ (ДрґЩїоЕёАУ*100) / (100 + АМ°Є) = ГЦБѕ ДрґЩїо ЕёАУ
+	POINT_MAGIC_ATT_GRADE,      // 22 ё¶№э°ш°Э·В
+	POINT_MAGIC_DEF_GRADE,      // 23 ё¶№э№жѕо·В
+	POINT_EMPIRE_POINT,         // 24 Б¦±№БЎјц
+	POINT_LEVEL_STEP,           // 25 ЗС ·№є§їЎј­АЗ ґЬ°и.. (1 2 3 µЙ ¶§ єё»у, 4 µЗёй ·№є§ ѕч)
+	POINT_STAT,                 // 26 ґЙ·ВДЎ їГё± јц АЦґВ °іјц
+	POINT_SUB_SKILL,		// 27 єёБ¶ ЅєЕі ЖчАОЖ®
+	POINT_SKILL,		// 28 ѕЧЖјєк ЅєЕі ЖчАОЖ®
+	POINT_WEAPON_MIN,		// 29 №«±в ГЦјТ µҐ№МБц
+	POINT_WEAPON_MAX,		// 30 №«±в ГЦґл µҐ№МБц
+	POINT_PLAYTIME,             // 31 ЗГ·№АМЅГ°Ј
+	POINT_HP_REGEN,             // 32 HP Иёє№·ь
+	POINT_SP_REGEN,             // 33 SP Иёє№·ь
 
-	POINT_BOW_DISTANCE,         // 34 Ȱ �����Ÿ� ����ġ (meter)
+	POINT_BOW_DISTANCE,         // 34 И° »зБ¤°Её® Бх°ЎДЎ (meter)
 
-	POINT_HP_RECOVERY,          // 35 ü�� ȸ�� ������
-	POINT_SP_RECOVERY,          // 36 ���ŷ� ȸ�� ������
+	POINT_HP_RECOVERY,          // 35 Гј·В Иёє№ Бх°Ў·®
+	POINT_SP_RECOVERY,          // 36 Б¤ЅЕ·В Иёє№ Бх°Ў·®
 
-	POINT_POISON_PCT,           // 37 �� Ȯ��
-	POINT_STUN_PCT,             // 38 ���� Ȯ��
-	POINT_SLOW_PCT,             // 39 ���ο� Ȯ��
-	POINT_CRITICAL_PCT,         // 40 ũ��Ƽ�� Ȯ��
-	POINT_PENETRATE_PCT,        // 41 ����Ÿ�� Ȯ��
-	POINT_CURSE_PCT,            // 42 ���� Ȯ��
+	POINT_POISON_PCT,           // 37 µ¶ И®·ь
+	POINT_STUN_PCT,             // 38 ±вАэ И®·ь
+	POINT_SLOW_PCT,             // 39 ЅЅ·Оїм И®·ь
+	POINT_CRITICAL_PCT,         // 40 Е©ё®ЖјДГ И®·ь
+	POINT_PENETRATE_PCT,        // 41 °ьЕлЕё°Э И®·ь
+	POINT_CURSE_PCT,            // 42 АъБЦ И®·ь
 
-	POINT_ATTBONUS_HUMAN,       // 43 �ΰ����� ����
-	POINT_ATTBONUS_ANIMAL,      // 44 �������� ������ % ����
-	POINT_ATTBONUS_ORC,         // 45 ���Ϳ��� ������ % ����
-	POINT_ATTBONUS_MILGYO,      // 46 �б����� ������ % ����
-	POINT_ATTBONUS_UNDEAD,      // 47 ��ü���� ������ % ����
-	POINT_ATTBONUS_DEVIL,       // 48 ����(�Ǹ�)���� ������ % ����
-	POINT_ATTBONUS_INSECT,      // 49 ������
-	POINT_ATTBONUS_FIRE,        // 50 ȭ����
-	POINT_ATTBONUS_ICE,         // 51 ������
-	POINT_ATTBONUS_DESERT,      // 52 �縷��
-	POINT_ATTBONUS_MONSTER,     // 53 ��� ���Ϳ��� ����
-	POINT_ATTBONUS_WARRIOR,     // 54 ���翡�� ����
-	POINT_ATTBONUS_ASSASSIN,	// 55 �ڰ����� ����
-	POINT_ATTBONUS_SURA,		// 56 ���󿡰� ����
-	POINT_ATTBONUS_SHAMAN,		// 57 ���翡�� ����
-	POINT_ATTBONUS_TREE,     	// 58 �������� ���� 20050729.myevan UNUSED5 
+	POINT_ATTBONUS_HUMAN,       // 43 АО°ЈїЎ°Ф °­ЗФ
+	POINT_ATTBONUS_ANIMAL,      // 44 µї№°їЎ°Ф µҐ№МБц % Бх°Ў
+	POINT_ATTBONUS_ORC,         // 45 їх±НїЎ°Ф µҐ№МБц % Бх°Ў
+	POINT_ATTBONUS_MILGYO,      // 46 №Р±іїЎ°Ф µҐ№МБц % Бх°Ў
+	POINT_ATTBONUS_UNDEAD,      // 47 ЅГГјїЎ°Ф µҐ№МБц % Бх°Ў
+	POINT_ATTBONUS_DEVIL,       // 48 ё¶±Н(ѕЗё¶)їЎ°Ф µҐ№МБц % Бх°Ў
+	POINT_ATTBONUS_INSECT,      // 49 №ъ·№Б·
+	POINT_ATTBONUS_FIRE,        // 50 И­ї°Б·
+	POINT_ATTBONUS_ICE,         // 51 єщјіБ·
+	POINT_ATTBONUS_DESERT,      // 52 »зё·Б·
+	POINT_ATTBONUS_MONSTER,     // 53 ёрµз ёуЅєЕНїЎ°Ф °­ЗФ
+	POINT_ATTBONUS_WARRIOR,     // 54 №«»зїЎ°Ф °­ЗФ
+	POINT_ATTBONUS_ASSASSIN,	// 55 АЪ°ґїЎ°Ф °­ЗФ
+	POINT_ATTBONUS_SURA,		// 56 јц¶уїЎ°Ф °­ЗФ
+	POINT_ATTBONUS_SHAMAN,		// 57 №«ґзїЎ°Ф °­ЗФ
+	POINT_ATTBONUS_TREE,     	// 58 іЄ№«їЎ°Ф °­ЗФ 20050729.myevan UNUSED5 
 
-	POINT_RESIST_WARRIOR,		// 59 ���翡�� ����
-	POINT_RESIST_ASSASSIN,		// 60 �ڰ����� ����
-	POINT_RESIST_SURA,			// 61 ���󿡰� ����
-	POINT_RESIST_SHAMAN,		// 62 ���翡�� ����
+	POINT_RESIST_WARRIOR,		// 59 №«»зїЎ°Ф АъЗЧ
+	POINT_RESIST_ASSASSIN,		// 60 АЪ°ґїЎ°Ф АъЗЧ
+	POINT_RESIST_SURA,			// 61 јц¶уїЎ°Ф АъЗЧ
+	POINT_RESIST_SHAMAN,		// 62 №«ґзїЎ°Ф АъЗЧ
 
-	POINT_STEAL_HP,             // 63 ������ ����
-	POINT_STEAL_SP,             // 64 ���ŷ� ����
+	POINT_STEAL_HP,             // 63 »эён·В Инјц
+	POINT_STEAL_SP,             // 64 Б¤ЅЕ·В Инјц
 
-	POINT_MANA_BURN_PCT,        // 65 ���� ��
+	POINT_MANA_BURN_PCT,        // 65 ё¶іЄ №ш
 
-	/// ���ؽ� ���ʽ� ///
+	/// ЗЗЗШЅГ єёіКЅє ///
 
-	POINT_DAMAGE_SP_RECOVER,    // 66 ���ݴ��� �� ���ŷ� ȸ�� Ȯ��
+	POINT_DAMAGE_SP_RECOVER,    // 66 °ш°ЭґзЗТ ЅГ Б¤ЅЕ·В Иёє№ И®·ь
 
-	POINT_BLOCK,                // 67 ������
-	POINT_DODGE,                // 68 ȸ����
+	POINT_BLOCK,                // 67 єн·°АІ
+	POINT_DODGE,                // 68 ИёЗЗАІ
 
 	POINT_RESIST_SWORD,         // 69
 	POINT_RESIST_TWOHAND,       // 70
 	POINT_RESIST_DAGGER,        // 71
 	POINT_RESIST_BELL,          // 72
 	POINT_RESIST_FAN,           // 73
-	POINT_RESIST_BOW,           // 74  ȭ��   ����   : ����� ����
-	POINT_RESIST_FIRE,          // 75  ȭ��   ����   : ȭ�����ݿ� ���� ����� ����
-	POINT_RESIST_ELEC,          // 76  ����   ����   : ������ݿ� ���� ����� ����
-	POINT_RESIST_MAGIC,         // 77  ����   ����   : �������� ���� ����� ����
-	POINT_RESIST_WIND,          // 78  �ٶ�   ����   : �ٶ����ݿ� ���� ����� ����
+	POINT_RESIST_BOW,           // 74  И­»м   АъЗЧ   : ґл№МБц °ЁјТ
+	POINT_RESIST_FIRE,          // 75  И­ї°   АъЗЧ   : И­ї°°ш°ЭїЎ ґлЗС ґл№МБц °ЁјТ
+	POINT_RESIST_ELEC,          // 76  Аь±в   АъЗЧ   : Аь±в°ш°ЭїЎ ґлЗС ґл№МБц °ЁјТ
+	POINT_RESIST_MAGIC,         // 77  јъ№э   АъЗЧ   : ёрµзјъ№эїЎ ґлЗС ґл№МБц °ЁјТ
+	POINT_RESIST_WIND,          // 78  №Щ¶ч   АъЗЧ   : №Щ¶ч°ш°ЭїЎ ґлЗС ґл№МБц °ЁјТ
 
-	POINT_REFLECT_MELEE,        // 79 ���� �ݻ�
+	POINT_REFLECT_MELEE,        // 79 °ш°Э №Э»з
 
-	/// Ư�� ���ؽ� ///
-	POINT_REFLECT_CURSE,		// 80 ���� �ݻ�
-	POINT_POISON_REDUCE,		// 81 �������� ����
+	/// ЖЇјц ЗЗЗШЅГ ///
+	POINT_REFLECT_CURSE,		// 80 АъБЦ №Э»з
+	POINT_POISON_REDUCE,		// 81 µ¶µҐ№МБц °ЁјТ
 
-	/// �� �Ҹ�� ///
-	POINT_KILL_SP_RECOVER,		// 82 �� �Ҹ�� MP ȸ��
+	/// Аы јТёкЅГ ///
+	POINT_KILL_SP_RECOVER,		// 82 Аы јТёкЅГ MP Иёє№
 	POINT_EXP_DOUBLE_BONUS,		// 83
 	POINT_GOLD_DOUBLE_BONUS,		// 84
 	POINT_ITEM_DROP_BONUS,		// 85
 
-	/// ȸ�� ���� ///
+	/// Иёє№ °ь·Г ///
 	POINT_POTION_BONUS,			// 86
 	POINT_KILL_HP_RECOVERY,		// 87
 
@@ -225,7 +225,7 @@ enum EPointTypes
 
 	POINT_HIT_HP_RECOVERY,		// 100
 	POINT_HIT_SP_RECOVERY, 		// 101
-	POINT_MANASHIELD,			// 102 ��ż�ȣ ��ų�� ���� �������� ȿ�� ����
+	POINT_MANASHIELD,			// 102 ИжЅЕјцИЈ ЅєЕіїЎ АЗЗС ё¶іЄЅЇµе Иї°ъ Б¤µµ
 
 	POINT_PARTY_BUFFER_BONUS,		// 103
 	POINT_PARTY_SKILL_MASTER_BONUS,	// 104
@@ -234,56 +234,56 @@ enum EPointTypes
 	POINT_SP_RECOVER_CONTINUE,		// 106
 
 	POINT_STEAL_GOLD,			// 107 
-	POINT_POLYMORPH,			// 108 ������ ���� ��ȣ
-	POINT_MOUNT,			// 109 Ÿ���ִ� ���� ��ȣ
+	POINT_POLYMORPH,			// 108 єЇЅЕЗС ёуЅєЕН №шИЈ
+	POINT_MOUNT,			// 109 Её°нАЦґВ ёуЅєЕН №шИЈ
 
 	POINT_PARTY_HASTE_BONUS,		// 110
 	POINT_PARTY_DEFENDER_BONUS,		// 111
-	POINT_STAT_RESET_COUNT,		// 112 ���� �ܾ� ����� ���� ���� ���� ����Ʈ (1�� 1����Ʈ ���°���)
+	POINT_STAT_RESET_COUNT,		// 112 ЗЗАЗ ґЬѕа »зїлА» ЕлЗС ЅєЕЭ ё®јВ ЖчАОЖ® (1ґз 1ЖчАОЖ® ё®јВ°ЎґЙ)
 
 	POINT_HORSE_SKILL,			// 113
 
-	POINT_MALL_ATTBONUS,		// 114 ���ݷ� +x%
-	POINT_MALL_DEFBONUS,		// 115 ���� +x%
-	POINT_MALL_EXPBONUS,		// 116 ����ġ +x%
-	POINT_MALL_ITEMBONUS,		// 117 ������ ����� x/10��
-	POINT_MALL_GOLDBONUS,		// 118 �� ����� x/10��
+	POINT_MALL_ATTBONUS,		// 114 °ш°Э·В +x%
+	POINT_MALL_DEFBONUS,		// 115 №жѕо·В +x%
+	POINT_MALL_EXPBONUS,		// 116 °жЗиДЎ +x%
+	POINT_MALL_ITEMBONUS,		// 117 ѕЖАМЕЫ µе·УАІ x/10№и
+	POINT_MALL_GOLDBONUS,		// 118 µ· µе·УАІ x/10№и
 
-	POINT_MAX_HP_PCT,			// 119 �ִ������ +x%
-	POINT_MAX_SP_PCT,			// 120 �ִ����ŷ� +x%
+	POINT_MAX_HP_PCT,			// 119 ГЦґл»эён·В +x%
+	POINT_MAX_SP_PCT,			// 120 ГЦґлБ¤ЅЕ·В +x%
 
-	POINT_SKILL_DAMAGE_BONUS,		// 121 ��ų ������ *(100+x)%
-	POINT_NORMAL_HIT_DAMAGE_BONUS,	// 122 ��Ÿ ������ *(100+x)%
+	POINT_SKILL_DAMAGE_BONUS,		// 121 ЅєЕі µҐ№МБц *(100+x)%
+	POINT_NORMAL_HIT_DAMAGE_BONUS,	// 122 ЖтЕё µҐ№МБц *(100+x)%
 
 	// DEFEND_BONUS_ATTRIBUTES
-	POINT_SKILL_DEFEND_BONUS,		// 123 ��ų ��� ������
-	POINT_NORMAL_HIT_DEFEND_BONUS,	// 124 ��Ÿ ��� ������
+	POINT_SKILL_DEFEND_BONUS,		// 123 ЅєЕі №жѕо µҐ№МБц
+	POINT_NORMAL_HIT_DEFEND_BONUS,	// 124 ЖтЕё №жѕо µҐ№МБц
 	// END_OF_DEFEND_BONUS_ATTRIBUTES
 
 	// PC_BANG_ITEM_ADD 
-	POINT_PC_BANG_EXP_BONUS,		// 125 PC�� ���� ����ġ ���ʽ�
-	POINT_PC_BANG_DROP_BONUS,		// 126 PC�� ���� ��ӷ� ���ʽ�
+	POINT_PC_BANG_EXP_BONUS,		// 125 PC№ж Аьїл °жЗиДЎ єёіКЅє
+	POINT_PC_BANG_DROP_BONUS,		// 126 PC№ж Аьїл µе·У·ь єёіКЅє
 	// END_PC_BANG_ITEM_ADD
-	POINT_RAMADAN_CANDY_BONUS_EXP,			// �󸶴� ���� ����ġ ������
+	POINT_RAMADAN_CANDY_BONUS_EXP,			// ¶уё¶ґЬ »зЕБ °жЗиДЎ Бх°Ўїл
 
-	POINT_ENERGY = 128,					// 128 ���
+	POINT_ENERGY = 128,					// 128 ±в·В
 
-	// ��� ui ��.
-	// �������� ���� �ʱ⸸, Ŭ���̾�Ʈ���� ����� �� �ð��� POINT�� �����ϱ� ������ �̷��� �Ѵ�.
-	// �� �β�����
-	POINT_ENERGY_END_TIME = 129,					// 129 ��� ���� �ð�
+	// ±в·В ui їл.
+	// ј­№цїЎј­ ѕІБц ѕК±вёё, Е¬¶уАМѕрЖ®їЎј­ ±в·ВАЗ іЎ ЅГ°ЈА» POINT·О °ьё®ЗП±в ¶§№®їЎ АМ·ё°Ф ЗСґЩ.
+	// ѕЖ єОІф·ґґЩ
+	POINT_ENERGY_END_TIME = 129,					// 129 ±в·В Бѕ·б ЅГ°Ј
 
 	POINT_COSTUME_ATTR_BONUS = 130,
 	POINT_MAGIC_ATT_BONUS_PER = 131,
 	POINT_MELEE_MAGIC_ATT_BONUS_PER = 132,
 
-	// �߰� �Ӽ� ����
-	POINT_RESIST_ICE = 133,          //   �ñ� ����   : �������ݿ� ���� ����� ����
-	POINT_RESIST_EARTH = 134,        //   ���� ����   : �������ݿ� ���� ����� ����
-	POINT_RESIST_DARK = 135,         //   ��� ����   : �������ݿ� ���� ����� ����
+	// ГЯ°Ў јУјє АъЗЧ
+	POINT_RESIST_ICE = 133,          //   іГ±в АъЗЧ   : ѕуАЅ°ш°ЭїЎ ґлЗС ґл№МБц °ЁјТ
+	POINT_RESIST_EARTH = 134,        //   ґлБц АъЗЧ   : ѕуАЅ°ш°ЭїЎ ґлЗС ґл№МБц °ЁјТ
+	POINT_RESIST_DARK = 135,         //   ѕоµТ АъЗЧ   : ѕуАЅ°ш°ЭїЎ ґлЗС ґл№МБц °ЁјТ
 
-	POINT_RESIST_CRITICAL = 136,		// ũ��Ƽ�� ����	: ����� ũ��Ƽ�� Ȯ���� ����
-	POINT_RESIST_PENETRATE = 137,		// ����Ÿ�� ����	: ����� ����Ÿ�� Ȯ���� ����
+	POINT_RESIST_CRITICAL = 136,		// Е©ё®ЖјДГ АъЗЧ	: »уґлАЗ Е©ё®ЖјДГ И®·ьА» °ЁјТ
+	POINT_RESIST_PENETRATE = 137,		// °ьЕлЕё°Э АъЗЧ	: »уґлАЗ °ьЕлЕё°Э И®·ьА» °ЁјТ
 
 	//POINT_MAX_NUM = 129	common/length.h
 };
@@ -352,7 +352,7 @@ struct DynamicCharacterPtr {
 	uint32_t id;
 };
 
-/* �����ϴ� ������ */
+/* АъАеЗПґВ µҐАМЕН */
 typedef struct character_point
 {
 	long			points[POINT_MAX_NUM];
@@ -375,7 +375,7 @@ typedef struct character_point
 	BYTE			skill_group;
 } CHARACTER_POINT;
 
-/* ������� �ʴ� ĳ���� ������ */
+/* АъАеµЗБц ѕКґВ ДіёЇЕН µҐАМЕН */
 typedef struct character_point_instant
 {
 	long			points[POINT_MAX_NUM];
@@ -397,7 +397,7 @@ typedef struct character_point_instant
 	LPITEM			pItems[INVENTORY_AND_EQUIP_SLOT_MAX];
 	BYTE			bItemGrid[INVENTORY_AND_EQUIP_SLOT_MAX];
 
-	// ��ȥ�� �κ��丮.
+	// їлИҐј® АОєҐЕдё®.
 	LPITEM			pDSItems[DRAGON_SOUL_INVENTORY_MAX_NUM];
 	WORD			wDSItemGrid[DRAGON_SOUL_INVENTORY_MAX_NUM];
 
@@ -409,7 +409,7 @@ typedef struct character_point_instant
 
 	BYTE			gm_level;
 
-	BYTE			bBasePart;	// ��� ��ȣ
+	BYTE			bBasePart;	// Жт»ує№ №шИЈ
 
 	int				iMaxStamina;
 
@@ -510,7 +510,7 @@ class CHARACTER : public CEntity, public CFSM, public CHorseRider
 {
 	protected:
 		//////////////////////////////////////////////////////////////////////////////////
-		// Entity ����
+		// Entity °ь·Г
 		virtual void	EncodeInsertPacket(LPENTITY entity);
 		virtual void	EncodeRemovePacket(LPENTITY entity);
 		//////////////////////////////////////////////////////////////////////////////////
@@ -520,7 +520,7 @@ class CHARACTER : public CEntity, public CFSM, public CHorseRider
 		void				UpdatePacket();
 
 		//////////////////////////////////////////////////////////////////////////////////
-		// FSM (Finite State Machine) ����
+		// FSM (Finite State Machine) °ь·Г
 	protected:
 		CStateTemplate<CHARACTER>	m_stateMove;
 		CStateTemplate<CHARACTER>	m_stateBattle;
@@ -590,13 +590,13 @@ class CHARACTER : public CEntity, public CFSM, public CHorseRider
 		DWORD			GetPlayerID() const	{ return m_dwPlayerID; }
 
 		void			SetPlayerProto(const TPlayerTable * table);
-		void			CreatePlayerProto(TPlayerTable & tab);	// ���� �� ���
+		void			CreatePlayerProto(TPlayerTable & tab);	// АъАе ЅГ »зїл
 
 		void			SetProto(const CMob * c_pkMob);
 		WORD			GetRaceNum() const;
 
 		void			Save();		// DelayedSave
-		void			SaveReal();	// ���� ����
+		void			SaveReal();	// ЅЗБ¦ АъАе
 		void			FlushDelayedSaveItem();
 
 		const char *	GetName() const;
@@ -637,7 +637,7 @@ class CHARACTER : public CEntity, public CFSM, public CHorseRider
 		DWORD			GetExp() const		{ return m_points.exp;	}
 		void			SetExp(DWORD exp)	{ m_points.exp = exp;	}
 		DWORD			GetNextExp() const;
-		LPCHARACTER		DistributeExp();	// ���� ���� ���� ����� �����Ѵ�.
+		LPCHARACTER		DistributeExp();	// Б¦АП ё№АМ ¶§ё° »з¶чА» ё®ЕПЗСґЩ.
 		void			DistributeHP(LPCHARACTER pkKiller);
 		void			DistributeSP(LPCHARACTER pkKiller, int iMethod=0);
 
@@ -720,14 +720,14 @@ class CHARACTER : public CEntity, public CFSM, public CHorseRider
 		DWORD			GetPolymorphItemVnum() const;
 		DWORD			GetMonsterDrainSPPoint() const;
 
-		void			MainCharacterPacket();	// ���� ����ĳ���Ͷ�� �����ش�.
+		void			MainCharacterPacket();	// і»°Ў ёЮАОДіёЇЕН¶у°н єёі»БШґЩ.
 
 		void			ComputePoints();
 		void			ComputeBattlePoints();
 		void			PointChange(BYTE type, int amount, bool bAmount = false, bool bBroadcast = false);
 		void			PointsPacket();
 		void			ApplyPoint(BYTE bApplyType, int iVal);
-		void			CheckMaximumPoints();	// HP, SP ���� ���� ���� �ִ밪 ���� ������ �˻��ϰ� ���ٸ� �����.
+		void			CheckMaximumPoints();	// HP, SP µоАЗ ЗцАз °ЄАМ ГЦґл°Є єёґЩ іфАєБц °Л»зЗП°н іфґЩёй і·ГбґЩ.
 
 		bool			Show(long lMapIndex, long x, long y, long z = LONG_MAX, bool bShowSpawnMotion = false);
 
@@ -752,7 +752,7 @@ class CHARACTER : public CEntity, public CFSM, public CHorseRider
 		bool			IsBlockMode(BYTE bFlag) const	{ return (m_pointsInstant.bBlockMode & bFlag)?true:false; }
 
 		bool			IsPolymorphed() const		{ return m_dwPolymorphRace>0; }
-		bool			IsPolyMaintainStat() const	{ return m_bPolyMaintainStat; } // ���� ������ �����ϴ� ��������.
+		bool			IsPolyMaintainStat() const	{ return m_bPolyMaintainStat; } // АМАь ЅєЕЭА» АЇБцЗПґВ Жъё®ёрЗБ.
 		void			SetPolymorph(DWORD dwRaceNum, bool bMaintainStat = false);
 		DWORD			GetPolymorphVnum() const	{ return m_dwPolymorphRace; }
 		int				GetPolymorphPower() const;
@@ -809,15 +809,15 @@ class CHARACTER : public CEntity, public CFSM, public CHorseRider
 		void			SetNowWalking(bool bWalkFlag);	
 		void			ResetWalking()			{ SetNowWalking(m_bWalking); }
 
-		bool			Goto(long x, long y);	// �ٷ� �̵� ��Ű�� �ʰ� ��ǥ ��ġ�� BLENDING ��Ų��.
+		bool			Goto(long x, long y);	// №Щ·О АМµї ЅГЕ°Бц ѕК°н ёсЗҐ А§ДЎ·О BLENDING ЅГЕІґЩ.
 		void			Stop();
 
-		bool			CanMove() const;		// �̵��� �� �ִ°�?
+		bool			CanMove() const;		// АМµїЗТ јц АЦґВ°Ў?
 
 		void			SyncPacket();
-		bool			Sync(long x, long y);	// ���� �� �޼ҵ�� �̵� �Ѵ� (�� �� ���ǿ� ���� �̵� �Ұ��� ����)
-		bool			Move(long x, long y);	// ������ �˻��ϰ� Sync �޼ҵ带 ���� �̵� �Ѵ�.
-		void			OnMove(bool bIsAttack = false);	// �����϶� �Ҹ���. Move() �޼ҵ� �̿ܿ����� �Ҹ� �� �ִ�.
+		bool			Sync(long x, long y);	// ЅЗБ¦ АМ ёЮјТµе·О АМµї ЗСґЩ (°ў Бѕ Б¶°ЗїЎ АЗЗС АМµї єТ°Ў°Ў ѕшАЅ)
+		bool			Move(long x, long y);	// Б¶°ЗА» °Л»зЗП°н Sync ёЮјТµеё¦ ЕлЗШ АМµї ЗСґЩ.
+		void			OnMove(bool bIsAttack = false);	// їтБчАП¶§ єТё°ґЩ. Move() ёЮјТµе АМїЬїЎј­µµ єТё± јц АЦґЩ.
 		DWORD			GetMotionMode() const;
 		float			GetMoveMotionSpeed() const;
 		float			GetMoveSpeed() const;
@@ -828,7 +828,7 @@ class CHARACTER : public CEntity, public CFSM, public CHorseRider
 		DWORD			GetLastMoveTime() const		{ return m_dwLastMoveTime; }
 		DWORD			GetLastAttackTime() const	{ return m_dwLastAttackTime; }
 
-		void			SetLastAttacked(DWORD time);	// ���������� ���ݹ��� �ð� �� ��ġ�� ������
+		void			SetLastAttacked(DWORD time);	// ё¶Бцё·Аё·О °ш°Э№ЮАє ЅГ°Ј №Ч А§ДЎё¦ АъАеЗФ
 
 		bool			SetSyncOwner(LPCHARACTER ch, bool bRemoveFromList = true);
 		bool			IsSyncOwner(LPCHARACTER ch) const;
@@ -855,7 +855,7 @@ class CHARACTER : public CEntity, public CFSM, public CHorseRider
 
 		float			m_fSyncTime;
 		LPCHARACTER		m_pkChrSyncOwner;
-		CHARACTER_LIST	m_kLst_pkChrSyncOwned;	// ���� SyncOwner�� �ڵ�
+		CHARACTER_LIST	m_kLst_pkChrSyncOwned;	// і»°Ў SyncOwnerАО АЪµй
 
 		PIXEL_POSITION	m_posDest;
 		PIXEL_POSITION	m_posStart;
@@ -878,7 +878,7 @@ class CHARACTER : public CEntity, public CFSM, public CHorseRider
 		bool			m_bStaminaConsume;
 		// End
 
-		// Quickslot ����
+		// Quickslot °ь·Г
 	public:
 		void			SyncQuickslot(BYTE bType, BYTE bOldPos, BYTE bNewPos);
 		bool			GetQuickslot(BYTE pos, TQuickslot ** ppSlot);
@@ -907,7 +907,7 @@ class CHARACTER : public CEntity, public CFSM, public CHorseRider
 		void			LoadAffect(DWORD dwCount, TPacketAffectElement * pElements);
 		void			SaveAffect();
 
-		// Affect loading�� ���� �����ΰ�?
+		// Affect loadingАМ іЎі­ »уЕВАО°Ў?
 		bool			IsLoadedAffect() const	{ return m_bIsLoadedAffect; }		
 
 		bool			IsGoodAffect(BYTE bAffectType) const;
@@ -933,25 +933,25 @@ class CHARACTER : public CEntity, public CFSM, public CHorseRider
 		void			DenyToParty(LPCHARACTER member);
 		void			AcceptToParty(LPCHARACTER member);
 
-		/// �ڽ��� ��Ƽ�� �ٸ� character �� �ʴ��Ѵ�.
+		/// АЪЅЕАЗ ЖДЖјїЎ ґЩёҐ character ё¦ ГКґлЗСґЩ.
 		/**
-		 * @param	pchInvitee �ʴ��� ��� character. ��Ƽ�� ���� ������ �����̾�� �Ѵ�.
+		 * @param	pchInvitee ГКґлЗТ ґл»у character. ЖДЖјїЎ Вьї© °ЎґЙЗС »уЕВАМѕоѕЯ ЗСґЩ.
 		 *
-		 * ���� character �� ���°� ��Ƽ�� �ʴ��ϰ� �ʴ���� �� �ִ� ���°� �ƴ϶�� �ʴ��ϴ� ĳ���Ϳ��� �ش��ϴ� ä�� �޼����� �����Ѵ�.
+		 * ѕзГш character АЗ »уЕВ°Ў ЖДЖјїЎ ГКґлЗП°н ГКґл№ЮА» јц АЦґВ »уЕВ°Ў ѕЖґП¶уёй ГКґлЗПґВ ДіёЇЕНїЎ°Ф ЗШґзЗПґВ Г¤ЖГ ёЮјјБцё¦ АьјЫЗСґЩ.
 		 */
 		void			PartyInvite(LPCHARACTER pchInvitee);
 
-		/// �ʴ��ߴ� character �� ������ ó���Ѵ�.
+		/// ГКґлЗЯґш character АЗ јц¶фА» Гіё®ЗСґЩ.
 		/**
-		 * @param	pchInvitee ��Ƽ�� ������ character. ��Ƽ�� ���������� �����̾�� �Ѵ�.
+		 * @param	pchInvitee ЖДЖјїЎ Вьї©ЗТ character. ЖДЖјїЎ Вьї©°ЎґЙЗС »уЕВАМѕоѕЯ ЗСґЩ.
 		 *
-		 * pchInvitee �� ��Ƽ�� ������ �� �ִ� ��Ȳ�� �ƴ϶�� �ش��ϴ� ä�� �޼����� �����Ѵ�.
+		 * pchInvitee °Ў ЖДЖјїЎ °ЎАФЗТ јц АЦґВ »уИІАМ ѕЖґП¶уёй ЗШґзЗПґВ Г¤ЖГ ёЮјјБцё¦ АьјЫЗСґЩ.
 		 */
 		void			PartyInviteAccept(LPCHARACTER pchInvitee);
 
-		/// �ʴ��ߴ� character �� �ʴ� �źθ� ó���Ѵ�.
+		/// ГКґлЗЯґш character АЗ ГКґл °ЕєОё¦ Гіё®ЗСґЩ.
 		/**
-		 * @param [in]	dwPID �ʴ� �ߴ� character �� PID
+		 * @param [in]	dwPID ГКґл ЗЯґш character АЗ PID
 		 */
 		void			PartyInviteDeny(DWORD dwPID);
 
@@ -964,45 +964,45 @@ class CHARACTER : public CEntity, public CFSM, public CHorseRider
 
 	protected:
 
-		/// ��Ƽ�� �����Ѵ�.
+		/// ЖДЖјїЎ °ЎАФЗСґЩ.
 		/**
-		 * @param	pkLeader ������ ��Ƽ�� ����
+		 * @param	pkLeader °ЎАФЗТ ЖДЖјАЗ ё®ґх
 		 */
 		void			PartyJoin(LPCHARACTER pkLeader);
 
 		/**
-		 * ��Ƽ ������ �� �� ���� ����� �����ڵ�.
-		 * Error code �� �ð��� �������ΰ��� ���� ���氡����(mutable) type �� ����(static) type ���� ������.
-		 * Error code �� ���� PERR_SEPARATOR ���� ������ ���氡���� type �̰� ������ ���� type �̴�.
+		 * ЖДЖј °ЎАФА» ЗТ јц ѕшА» °жїмАЗ їЎ·ЇДЪµе.
+		 * Error code ґВ ЅГ°ЈїЎ АЗБёАыАО°ЎїЎ µы¶у єЇ°ж°ЎґЙЗС(mutable) type °ъ Б¤Аы(static) type Аё·О іЄґ¶ґЩ.
+		 * Error code АЗ °ЄАМ PERR_SEPARATOR єёґЩ і·Аёёй єЇ°ж°ЎґЙЗС type АМ°н іфАёёй Б¤Аы type АМґЩ.
 		 */
 		enum PartyJoinErrCode {
-			PERR_NONE		= 0,	///< ó������
-			PERR_SERVER,			///< ���������� ��Ƽ���� ó�� �Ұ�
-			PERR_DUNGEON,			///< ĳ���Ͱ� ������ ����
-			PERR_OBSERVER,			///< ���������
-			PERR_LVBOUNDARY,		///< ��� ĳ���Ϳ� �������̰� ��
-			PERR_LOWLEVEL,			///< �����Ƽ�� �ְ��������� 30���� ����
-			PERR_HILEVEL,			///< �����Ƽ�� ������������ 30���� ����
-			PERR_ALREADYJOIN,		///< ��Ƽ���� ��� ĳ���Ͱ� �̹� ��Ƽ��
-			PERR_PARTYISFULL,		///< ��Ƽ�ο� ���� �ʰ�
+			PERR_NONE		= 0,	///< Гіё®јє°ш
+			PERR_SERVER,			///< ј­№ц№®Б¦·О ЖДЖј°ь·Г Гіё® єТ°Ў
+			PERR_DUNGEON,			///< ДіёЇЕН°Ў ґшАьїЎ АЦАЅ
+			PERR_OBSERVER,			///< °ьАьёрµеАУ
+			PERR_LVBOUNDARY,		///< »уґл ДіёЇЕНїН ·№є§ВчАМ°Ў іІ
+			PERR_LOWLEVEL,			///< »уґлЖДЖјАЗ ГЦ°н·№є§єёґЩ 30·№є§ і·АЅ
+			PERR_HILEVEL,			///< »уґлЖДЖјАЗ ГЦАъ·№є§єёґЩ 30·№є§ іфАЅ
+			PERR_ALREADYJOIN,		///< ЖДЖј°ЎАФ ґл»у ДіёЇЕН°Ў АМ№М ЖДЖјБЯ
+			PERR_PARTYISFULL,		///< ЖДЖјАОїш Б¦ЗС ГК°ъ
 			PERR_SEPARATOR,			///< Error type separator.
-			PERR_DIFFEMPIRE,		///< ��� ĳ���Ϳ� �ٸ� ������
-			PERR_MAX				///< Error code �ְ�ġ. �� �տ� Error code �� �߰��Ѵ�.
+			PERR_DIFFEMPIRE,		///< »уґл ДіёЇЕНїН ґЩёҐ Б¦±№АУ
+			PERR_MAX				///< Error code ГЦ°нДЎ. АМ ѕХїЎ Error code ё¦ ГЯ°ЎЗСґЩ.
 		};
 
-		/// ��Ƽ �����̳� �Ἲ ������ ������ �˻��Ѵ�.
+		/// ЖДЖј °ЎАФАМіЄ °бјє °ЎґЙЗС Б¶°ЗА» °Л»зЗСґЩ.
 		/**
-		 * @param 	pchLeader ��Ƽ�� leader �̰ų� �ʴ��� character
-		 * @param	pchGuest �ʴ�޴� character
-		 * @return	��� PartyJoinErrCode �� ��ȯ�� �� �ִ�.
+		 * @param 	pchLeader ЖДЖјАЗ leader АМ°ЕіЄ ГКґлЗС character
+		 * @param	pchGuest ГКґл№ЮґВ character
+		 * @return	ёрµз PartyJoinErrCode °Ў №ЭИЇµЙ јц АЦґЩ.
 		 */
 		static PartyJoinErrCode	IsPartyJoinableCondition(const LPCHARACTER pchLeader, const LPCHARACTER pchGuest);
 
-		/// ��Ƽ �����̳� �Ἲ ������ ������ ������ �˻��Ѵ�.
+		/// ЖДЖј °ЎАФАМіЄ °бјє °ЎґЙЗС µїАыАО Б¶°ЗА» °Л»зЗСґЩ.
 		/**
-		 * @param 	pchLeader ��Ƽ�� leader �̰ų� �ʴ��� character
-		 * @param	pchGuest �ʴ�޴� character
-		 * @return	mutable type �� code �� ��ȯ�Ѵ�.
+		 * @param 	pchLeader ЖДЖјАЗ leader АМ°ЕіЄ ГКґлЗС character
+		 * @param	pchGuest ГКґл№ЮґВ character
+		 * @return	mutable type АЗ code ёё №ЭИЇЗСґЩ.
 		 */
 		static PartyJoinErrCode	IsPartyJoinableMutableCondition(const LPCHARACTER pchLeader, const LPCHARACTER pchGuest);
 
@@ -1011,11 +1011,11 @@ class CHARACTER : public CEntity, public CFSM, public CHorseRider
 		LPEVENT			m_pkPartyRequestEvent;
 
 		/**
-		 * ��Ƽ��û Event map.
-		 * key: �ʴ���� ĳ������ PID
-		 * value: event�� pointer
+		 * ЖДЖјГКГ» Event map.
+		 * key: ГКґл№ЮАє ДіёЇЕНАЗ PID
+		 * value: eventАЗ pointer
 		 *
-		 * �ʴ��� ĳ���͵鿡 ���� event map.
+		 * ГКґлЗС ДіёЇЕНµйїЎ ґлЗС event map.
 		 */
 		typedef std::map< DWORD, LPEVENT >	EventMap;
 		EventMap		m_PartyInviteEventMap;
@@ -1049,7 +1049,7 @@ class CHARACTER : public CEntity, public CFSM, public CHorseRider
 		////////////////////////////////////////////////////////////////////////////////////////
 		// Item related
 	public:
-		bool			CanHandleItem(bool bSkipRefineCheck = false, bool bSkipObserver = false); // ������ ���� ������ �� �� �ִ°�?
+		bool			CanHandleItem(bool bSkipRefineCheck = false, bool bSkipObserver = false); // ѕЖАМЕЫ °ь·Г ЗаА§ё¦ ЗТ јц АЦґВ°Ў?
 
 		bool			IsItemLoaded() const	{ return m_bItemLoaded; }
 		void			SetItemLoaded()	{ m_bItemLoaded = true; }
@@ -1064,14 +1064,14 @@ class CHARACTER : public CEntity, public CFSM, public CHorseRider
 		LPITEM			GetWear(BYTE bCell) const;
 
 		// MYSHOP_PRICE_LIST
-		void			UseSilkBotary(void); 		/// ��� ������ �������� ���
+		void			UseSilkBotary(void); 		/// єсґЬ єёµыё® ѕЖАМЕЫАЗ »зїл
 
-		/// DB ĳ�÷� ���� �޾ƿ� �������� ����Ʈ�� �������� �����ϰ� ������ ������ ����� ó���Ѵ�.
+		/// DB ДіЅГ·О єОЕН №ЮѕЖїВ °Ў°ЭБ¤єё ё®ЅєЖ®ё¦ АЇАъїЎ°Ф АьјЫЗП°н єёµыё® ѕЖАМЕЫ »зїлА» Гіё®ЗСґЩ.
 		/**
-		 * @param [in] p	�������� ����Ʈ ��Ŷ
+		 * @param [in] p	°Ў°ЭБ¤єё ё®ЅєЖ® ЖРЕ¶
 		 *
-		 * ������ �� ó�� ��� ������ ������ ��� �� UseSilkBotary ���� DB ĳ�÷� �������� ����Ʈ�� ��û�ϰ�
-		 * ������� ������ �� �Լ����� ���� ��ܺ����� ����� ó���Ѵ�.
+		 * БўјУЗС ИД ГіАЅ єсґЬ єёµыё® ѕЖАМЕЫ »зїл ЅГ UseSilkBotary їЎј­ DB ДіЅГ·О °Ў°ЭБ¤єё ё®ЅєЖ®ё¦ їдГ»ЗП°н
+		 * ААґд№ЮАє ЅГБЎїЎ АМ ЗФјцїЎј­ ЅЗБ¦ єсґЬєёµыё® »зїлА» Гіё®ЗСґЩ.
 		 */
 		void			UseSilkBotaryReal(const TPacketMyshopPricelistHeader* p);
 		// END_OF_MYSHOP_PRICE_LIST
@@ -1117,10 +1117,10 @@ class CHARACTER : public CEntity, public CFSM, public CHorseRider
 		bool			EquipItem(LPITEM item, int iCandidateCell = -1);
 		bool			UnequipItem(LPITEM item);
 
-		// ���� item�� ������ �� �ִ� �� Ȯ���ϰ�, �Ұ��� �ϴٸ� ĳ���Ϳ��� ������ �˷��ִ� �Լ�
+		// ЗцАз itemА» ВшїлЗТ јц АЦґВ Бц И®АОЗП°н, єТ°ЎґЙ ЗПґЩёй ДіёЇЕНїЎ°Ф АМАЇё¦ ѕЛ·ББЦґВ ЗФјц
 		bool			CanEquipNow(const LPITEM item, const TItemPos& srcCell = NPOS, const TItemPos& destCell = NPOS);
 
-		// �������� item�� ���� �� �ִ� �� Ȯ���ϰ�, �Ұ��� �ϴٸ� ĳ���Ϳ��� ������ �˷��ִ� �Լ�
+		// ВшїлБЯАО itemА» №юА» јц АЦґВ Бц И®АОЗП°н, єТ°ЎґЙ ЗПґЩёй ДіёЇЕНїЎ°Ф АМАЇё¦ ѕЛ·ББЦґВ ЗФјц
 		bool			CanUnequipNow(const LPITEM item, const TItemPos& srcCell = NPOS, const TItemPos& destCell = NPOS);
 
 		bool			SwapItem(BYTE bCell, BYTE bDestCell);
@@ -1152,14 +1152,14 @@ class CHARACTER : public CEntity, public CFSM, public CHorseRider
 
 	protected:
 
-		/// �� �����ۿ� ���� ���������� �����Ѵ�.
+		/// ЗС ѕЖАМЕЫїЎ ґлЗС °Ў°ЭБ¤єёё¦ АьјЫЗСґЩ.
 		/**
-		 * @param [in]	dwItemVnum ������ vnum
-		 * @param [in]	dwItemPrice ������ ����
+		 * @param [in]	dwItemVnum ѕЖАМЕЫ vnum
+		 * @param [in]	dwItemPrice ѕЖАМЕЫ °Ў°Э
 		 */
 		void			SendMyShopPriceListCmd(DWORD dwItemVnum, DWORD dwItemPrice);
 
-		bool			m_bNoOpenedShop;	///< �̹� ���� �� ���λ����� �� ���� �ִ����� ����(������ ���� ���ٸ� true)
+		bool			m_bNoOpenedShop;	///< АМ№ш БўјУ ИД °іАО»уБЎА» ї¬ АыАМ АЦґВБцАЗ ї©єО(ї­ѕъґш АыАМ ѕшґЩёй true)
 
 		bool			m_bItemLoaded;
 		int				m_iRefineAdditionalCell;
@@ -1173,7 +1173,7 @@ class CHARACTER : public CEntity, public CFSM, public CHorseRider
 		void			SetGold(INT gold)	{ m_points.gold = gold;	}
 		bool			DropGold(INT gold);
 		INT				GetAllowedGold() const;
-		void			GiveGold(INT iAmount);	// ��Ƽ�� ������ ��Ƽ �й�, �α� ���� ó��
+		void			GiveGold(INT iAmount);	// ЖДЖј°Ў АЦАёёй ЖДЖј єР№и, ·О±Ч µоАЗ Гіё®
 		// End of Money
 
 		////////////////////////////////////////////////////////////////////////////////////////
@@ -1239,9 +1239,9 @@ class CHARACTER : public CEntity, public CFSM, public CHorseRider
 		bool				CanFight() const;
 
 		bool				CanBeginFight() const;
-		void				BeginFight(LPCHARACTER pkVictim); // pkVictimr�� �ο�� �����Ѵ�. (��������, ������ �� �ֳ� üũ�Ϸ��� CanBeginFight�� ���)
+		void				BeginFight(LPCHARACTER pkVictim); // pkVictimr°ъ ЅОїм±в ЅГАЫЗСґЩ. (°­Б¦АыАУ, ЅГАЫЗТ јц АЦіЄ ГјЕ©ЗП·Бёй CanBeginFightА» »зїл)
 
-		bool				CounterAttack(LPCHARACTER pkChr); // �ݰ��ϱ� (���͸� ���)
+		bool				CounterAttack(LPCHARACTER pkChr); // №Э°ЭЗП±в (ёуЅєЕНёё »зїл)
 
 		bool				IsStun() const;
 		void				Stun();
@@ -1271,7 +1271,7 @@ class CHARACTER : public CEntity, public CFSM, public CHorseRider
 		void				UpdateAlignment(int iAmount);
 		int					GetAlignment() const;
 
-		//����ġ ��� 
+		//ј±ѕЗДЎ ѕт±в 
 		int					GetRealAlignment() const;
 		void				ShowAlignment(bool bShow);
 
@@ -1320,7 +1320,7 @@ class CHARACTER : public CEntity, public CFSM, public CHorseRider
 
 		DWORD				m_dwFlyTargetID;
 		std::vector<DWORD>	m_vec_dwFlyTargets;
-		TDamageMap			m_map_kDamage;	// � ĳ���Ͱ� ������ �󸶸�ŭ�� �������� �־��°�?
+		TDamageMap			m_map_kDamage;	// ѕо¶І ДіёЇЕН°Ў іЄїЎ°Ф ѕуё¶ёёЕ­АЗ µҐ№МБцё¦ БЦѕъґВ°Ў?
 //		AttackLog			m_kAttackLog;
 		DWORD				m_dwKillerPID;
 
@@ -1343,8 +1343,8 @@ class CHARACTER : public CEntity, public CFSM, public CHorseRider
 		BYTE				GetDropMetinStonePct() const { return m_bDropMetinStonePct; }
 
 	protected:
-		LPCHARACTER			m_pkChrStone;		// ���� ������ ��
-		CHARACTER_SET		m_set_pkChrSpawnedBy;	// ���� ������ ���
+		LPCHARACTER			m_pkChrStone;		// іЄё¦ ЅєЖщЗС µ№
+		CHARACTER_SET		m_set_pkChrSpawnedBy;	// і»°Ў ЅєЖщЗС ірµй
 		DWORD				m_dwDropMetinStone;
 		BYTE				m_bDropMetinStonePct;
 		// End of Stone
@@ -1402,7 +1402,7 @@ class CHARACTER : public CEntity, public CFSM, public CHorseRider
 
 	private:
 		bool				m_bDisableCooltime;
-		DWORD				m_dwLastSkillTime;	///< ���������� skill �� �� �ð�(millisecond).
+		DWORD				m_dwLastSkillTime;	///< ё¶Бцё·Аё·О skill А» ѕґ ЅГ°Ј(millisecond).
 		// End of Skill
 
 		// MOB_SKILL
@@ -1459,10 +1459,10 @@ class CHARACTER : public CEntity, public CFSM, public CHorseRider
 		// AI related
 	public:
 		void			AssignTriggers(const TMobTable * table);
-		LPCHARACTER		GetVictim() const;	// ������ ��� ����
+		LPCHARACTER		GetVictim() const;	// °ш°ЭЗТ ґл»у ё®ЕП
 		void			SetVictim(LPCHARACTER pkVictim);
 		LPCHARACTER		GetNearestVictim(LPCHARACTER pkChr);
-		LPCHARACTER		GetProtege() const;	// ��ȣ�ؾ� �� ��� ����
+		LPCHARACTER		GetProtege() const;	// єёИЈЗШѕЯ ЗТ ґл»у ё®ЕП
 
 		bool			Follow(LPCHARACTER pkChr, float fMinimumDistance = 150.0f);
 		bool			Return();
@@ -1486,8 +1486,8 @@ class CHARACTER : public CEntity, public CFSM, public CHorseRider
 		////////////////////////////////////////////////////////////////////////////////////////
 		// Target
 	protected:
-		LPCHARACTER				m_pkChrTarget;		// �� Ÿ��
-		CHARACTER_SET	m_set_pkChrTargetedBy;	// ���� Ÿ������ ������ �ִ� �����
+		LPCHARACTER				m_pkChrTarget;		// і» Её°Щ
+		CHARACTER_SET	m_set_pkChrTargetedBy;	// іЄё¦ Её°ЩАё·О °ЎБц°н АЦґВ »з¶чµй
 
 	public:
 		void				SetTarget(LPCHARACTER pkChrTarget);
@@ -1508,19 +1508,19 @@ class CHARACTER : public CEntity, public CFSM, public CHorseRider
 		void				ChangeSafeboxSize(BYTE bSize);
 		void				CloseSafebox();
 
-		/// â�� ���� ��û
+		/// Гў°н ї­±в їдГ»
 		/**
-		 * @param [in]	pszPassword 1�� �̻� 6�� ������ â�� ��й�ȣ
+		 * @param [in]	pszPassword 1АЪ АМ»у 6АЪ АМЗПАЗ Гў°н єс№Р№шИЈ
 		 *
-		 * DB �� â�����⸦ ��û�Ѵ�.
-		 * â���� �ߺ����� ���� ���ϸ�, �ֱ� â���� ���� �ð����� ���� 10�� �̳����� �� �� ���Ѵ�.
+		 * DB їЎ Гў°нї­±вё¦ їдГ»ЗСґЩ.
+		 * Гў°нґВ БЯє№Аё·О ї­Бц ёшЗПёз, ГЦ±Щ Гў°нё¦ ґЭАє ЅГ°ЈАё·О єОЕН 10ГК АМі»їЎґВ ї­ Бц ёшЗСґЩ.
 		 */
 		void				ReqSafeboxLoad(const char* pszPassword);
 
-		/// â�� ���� ��û�� ���
+		/// Гў°н ї­±в їдГ»АЗ ГлјТ
 		/**
-		 * ReqSafeboxLoad �� ȣ���ϰ� CloseSafebox ���� �ʾ��� �� �� �Լ��� ȣ���ϸ� â���� �� �� �ִ�.
-		 * â�������� ��û�� DB �������� ���������� �޾��� ��� �� �Լ��� ����ؼ� ��û�� �� �� �ְ� ���ش�.
+		 * ReqSafeboxLoad ё¦ ИЈГвЗП°н CloseSafebox ЗПБц ѕКѕТА» ¶§ АМ ЗФјцё¦ ИЈГвЗПёй Гў°нё¦ ї­ јц АЦґЩ.
+		 * Гў°нї­±вАЗ їдГ»АМ DB ј­№цїЎј­ ЅЗЖРААґдА» №ЮѕТА» °жїм АМ ЗФјцё¦ »зїлЗШј­ їдГ»А» ЗТ јц АЦ°Ф ЗШБШґЩ.
 		 */
 		void				CancelSafeboxLoad( void ) { m_bOpeningSafebox = false; }
 
@@ -1538,7 +1538,7 @@ class CHARACTER : public CEntity, public CFSM, public CHorseRider
 		CSafebox *			m_pkSafebox;
 		int					m_iSafeboxSize;
 		int					m_iSafeboxLoadTime;
-		bool				m_bOpeningSafebox;	///< â���� ���� ��û ���̰ų� �����ִ°� ����, true �� ��� �����û�̰ų� ��������.
+		bool				m_bOpeningSafebox;	///< Гў°н°Ў ї­±в їдГ» БЯАМ°ЕіЄ ї­·БАЦґВ°Ў ї©єО, true АП °жїм ї­±вїдГ»АМ°ЕіЄ ї­·БАЦАЅ.
 
 		CSafebox *			m_pkMall;
 		int					m_iMallLoadTime;
@@ -1572,7 +1572,7 @@ class CHARACTER : public CEntity, public CFSM, public CHorseRider
 
 		void				HorseSummon(bool bSummon, bool bFromFar = false, DWORD dwVnum = 0, const char* name = 0);
 
-		LPCHARACTER			GetHorse() const			{ return m_chHorse; }	 // ���� ��ȯ���� ��
+		LPCHARACTER			GetHorse() const			{ return m_chHorse; }	 // ЗцАз јТИЇБЯАО ё»
 		LPCHARACTER			GetRider() const; // rider on horse
 		void				SetRider(LPCHARACTER ch);
 
@@ -1634,7 +1634,7 @@ class CHARACTER : public CEntity, public CFSM, public CHorseRider
 		////////////////////////////////////////////////////////////////////////////////////////
 		// Resists & Proofs
 	public:
-		bool				CannotMoveByAffect() const;	// Ư�� ȿ���� ���� ������ �� ���� �����ΰ�?
+		bool				CannotMoveByAffect() const;	// ЖЇБ¤ Иї°ъїЎ АЗЗШ їтБчАП јц ѕшґВ »уЕВАО°Ў?
 		bool				IsImmune(DWORD dwImmuneFlag);
 		void				SetImmuneFlag(DWORD dw) { m_pointsInstant.dwImmuneFlag = dw; }
 
@@ -1674,7 +1674,7 @@ class CHARACTER : public CEntity, public CFSM, public CHorseRider
 		void				UpdateStateMachine(DWORD dwPulse);
 		void				SetNextStatePulse(int iPulseNext);
 
-		// ĳ���� �ν��Ͻ� ������Ʈ �Լ�. ������ �̻��� ��ӱ����� CFSM::Update �Լ��� ȣ���ϰų� UpdateStateMachine �Լ��� ����ߴµ�, ������ ������Ʈ �Լ� �߰���.
+		// ДіёЇЕН АОЅєЕПЅє ѕчµҐАМЖ® ЗФјц. ±вБёїЈ АМ»уЗС »ујУ±ёБ¶·О CFSM::Update ЗФјцё¦ ИЈГвЗП°ЕіЄ UpdateStateMachine ЗФјцё¦ »зїлЗЯґВµҐ, є°°іАЗ ѕчµҐАМЖ® ЗФјц ГЯ°ЎЗФ.
 		void				UpdateCharacter(DWORD dwPulse);
 
 	protected:
@@ -1744,9 +1744,9 @@ class CHARACTER : public CEntity, public CFSM, public CHorseRider
 		int				m_aiPremiumTimes[PREMIUM_MAX_NUM];
 
 		// CHANGE_ITEM_ATTRIBUTES
-		static const DWORD		msc_dwDefaultChangeItemAttrCycle;	///< ����Ʈ ������ �Ӽ����� ���� �ֱ�
-		static const char		msc_szLastChangeItemAttrFlag[];		///< �ֱ� ������ �Ӽ��� ������ �ð��� Quest Flag �̸�
-		static const char		msc_szChangeItemAttrCycleFlag[];		///< ������ �Ӽ����� ���� �ֱ��� Quest Flag �̸�
+		static const DWORD		msc_dwDefaultChangeItemAttrCycle;	///< µрЖъЖ® ѕЖАМЕЫ јУјєєЇ°ж °ЎґЙ БЦ±в
+		static const char		msc_szLastChangeItemAttrFlag[];		///< ГЦ±Щ ѕЖАМЕЫ јУјєА» єЇ°жЗС ЅГ°ЈАЗ Quest Flag АМё§
+		static const char		msc_szChangeItemAttrCycleFlag[];		///< ѕЖАМЕЫ јУјєєґ°ж °ЎґЙ БЦ±вАЗ Quest Flag АМё§
 		// END_OF_CHANGE_ITEM_ATTRIBUTES
 
 		// NEW_HAIR_STYLE_ADD
@@ -1818,7 +1818,7 @@ class CHARACTER : public CEntity, public CFSM, public CHorseRider
 		int		GetMyShopTime() const	{ return m_iMyShopTime; }
 		void	SetMyShopTime() { m_iMyShopTime = thecore_pulse(); }
 
-		// Hack ������ ���� üũ.
+		// Hack №жБцё¦ А§ЗС ГјЕ©.
 		bool	IsHack(bool bSendMsg = true, bool bCheckShopOwner = true, int limittime = g_nPortalLimitTime);
 
 		// MONARCH
@@ -1868,9 +1868,9 @@ class CHARACTER : public CEntity, public CFSM, public CHorseRider
 		bool IsSiegeNPC() const;
 
 	private:
-		//�߱� ����
-		//18�� �̸� ����
-		//3�ð� : 50 % 5 �ð� 0%
+		//БЯ±№ Аьїл
+		//18јј №Мёё Аьїл
+		//3ЅГ°Ј : 50 % 5 ЅГ°Ј 0%
 		e_overtime m_eOverTime;
 
 	public:
@@ -1946,7 +1946,7 @@ class CHARACTER : public CEntity, public CFSM, public CHorseRider
 
 		typedef std::map <BYTE, CBuffOnAttributes*> TMapBuffOnAttrs;
 		TMapBuffOnAttrs m_map_buff_on_attrs;
-		// ���� : ��Ȱ�� �׽�Ʈ�� ���Ͽ�.
+		// №«Аы : їшИ°ЗС ЕЧЅєЖ®ё¦ А§ЗПї©.
 	public:
 		void SetArmada() { cannot_dead = true; }
 		void ResetArmada() { cannot_dead = false; }
@@ -1961,7 +1961,7 @@ class CHARACTER : public CEntity, public CFSM, public CHorseRider
 		bool IsPet() { return m_bIsPet; }
 #endif
 
-	//���� ������ ����.
+	//ГЦБѕ µҐ№МБц єёБ¤.
 	private:
 		float m_fAttMul;
 		float m_fDamMul;
@@ -1974,7 +1974,7 @@ class CHARACTER : public CEntity, public CFSM, public CHorseRider
 	private:
 		bool IsValidItemPosition(TItemPos Pos) const;
 
-		//���� ���� ��� ��Ŷ �ӽ� ����
+		//µ¶АП ј±№° ±вґЙ ЖРЕ¶ АУЅГ АъАе
 	private:
 		unsigned int itemAward_vnum;
 		char		 itemAward_cmd[20];
@@ -1988,10 +1988,10 @@ class CHARACTER : public CEntity, public CFSM, public CHorseRider
 		//void		 SetItemAward_flag(bool flag) { itemAward_flag = flag; }
 
 	public:
-		//��ȥ��
+		//їлИҐј®
 		
-		// ĳ������ affect, quest�� load �Ǳ� ���� DragonSoul_Initialize�� ȣ���ϸ� �ȵȴ�.
-		// affect�� ���� �������� �ε�Ǿ� LoadAffect���� ȣ����.
+		// ДіёЇЕНАЗ affect, quest°Ў load µЗ±в АьїЎ DragonSoul_Initializeё¦ ИЈГвЗПёй ѕИµИґЩ.
+		// affect°Ў °ЎАе ё¶Бцё·їЎ ·ОµеµЗѕо LoadAffectїЎј­ ИЈГвЗФ.
 		void	DragonSoul_Initialize();
 
 		bool	DragonSoul_IsQualified() const;
@@ -2002,17 +2002,17 @@ class CHARACTER : public CEntity, public CFSM, public CHorseRider
 		bool	DragonSoul_ActivateDeck(int deck_idx);
 
 		void	DragonSoul_DeactivateAll();
-		// �ݵ�� ClearItem ���� �ҷ��� �Ѵ�.
-		// �ֳ��ϸ�....
-		// ��ȥ�� �ϳ� �ϳ��� deactivate�� ������ ���� active�� ��ȥ���� �ִ��� Ȯ���ϰ�,
-		// active�� ��ȥ���� �ϳ��� ���ٸ�, ĳ������ ��ȥ�� affect��, Ȱ�� ���¸� �����Ѵ�.
+		// №ЭµеЅГ ClearItem АьїЎ єТ·ЇѕЯ ЗСґЩ.
+		// їЦіДЗПёй....
+		// їлИҐј® ЗПіЄ ЗПіЄё¦ deactivateЗТ ¶§ё¶ґЩ µ¦їЎ activeАО їлИҐј®АМ АЦґВБц И®АОЗП°н,
+		// activeАО їлИҐј®АМ ЗПіЄµµ ѕшґЩёй, ДіёЇЕНАЗ їлИҐј® affectїН, И°јє »уЕВё¦ Б¦°ЕЗСґЩ.
 		// 
-		// ������ ClearItem ��, ĳ���Ͱ� �����ϰ� �ִ� ��� �������� unequip�ϴ� �ٶ���,
-		// ��ȥ�� Affect�� ���ŵǰ�, �ᱹ �α��� ��, ��ȥ���� Ȱ��ȭ���� �ʴ´�.
-		// (Unequip�� ������ �α׾ƿ� ��������, �ƴ��� �� �� ����.)
-		// ��ȥ���� deactivate��Ű�� ĳ������ ��ȥ�� �� Ȱ�� ���´� �ǵ帮�� �ʴ´�.
+		// ЗПБцёё ClearItem ЅГ, ДіёЇЕН°Ў ВшїлЗП°н АЦґВ ёрµз ѕЖАМЕЫА» unequipЗПґВ №Щ¶чїЎ,
+		// їлИҐј® Affect°Ў Б¦°ЕµЗ°н, °б±№ ·О±ЧАО ЅГ, їлИҐј®АМ И°јєИ­µЗБц ѕКґВґЩ.
+		// (UnequipЗТ ¶§їЎґВ ·О±ЧѕЖїф »уЕВАОБц, ѕЖґСБц ѕЛ јц ѕшґЩ.)
+		// їлИҐј®ёё deactivateЅГЕ°°н ДіёЇЕНАЗ їлИҐј® µ¦ И°јє »уЕВґВ °Зµеё®Бц ѕКґВґЩ.
 		void	DragonSoul_CleanUp();
-		// ��ȥ�� ��ȭâ
+		// їлИҐј® °­И­Гў
 	public:
 		bool		DragonSoul_RefineWindow_Open(LPENTITY pEntity);
 		bool		DragonSoul_RefineWindow_Close();
@@ -2020,8 +2020,8 @@ class CHARACTER : public CEntity, public CFSM, public CHorseRider
 		bool		DragonSoul_RefineWindow_CanRefine();
 
 	private:
-		// SyncPosition�� �ǿ��Ͽ� Ÿ������ �̻��� ������ ������ �� ����ϱ� ���Ͽ�,
-		// SyncPosition�� �Ͼ ���� ���.
+		// SyncPositionА» ѕЗїлЗПї© ЕёАЇАъё¦ АМ»уЗС °чАё·О єёі»ґВ ЗЩ №жѕоЗП±в А§ЗПї©,
+		// SyncPositionАМ АПѕоіЇ ¶§ё¦ ±в·П.
 		timeval		m_tvLastSyncTime;
 		int			m_iSyncHackCount;
 	public:

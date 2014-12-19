@@ -295,7 +295,7 @@ LPITEM CItem::RemoveFromCharacter()
 
 	LPCHARACTER pOwner = m_pOwner;
 
-	if (m_bEquipped)	// �����Ǿ��°�?
+	if (m_bEquipped)	// АеВшµЗѕъґВ°Ў?
 	{
 		Unequip();
 		//pOwner->UpdatePacket();
@@ -319,7 +319,7 @@ LPITEM CItem::RemoveFromCharacter()
 			{
 				TItemPos cell(INVENTORY, m_wCell);
 
-				if (false == cell.IsDefaultInventoryPosition() && false == cell.IsBeltInventoryPosition()) // �ƴϸ� ����ǰ��?
+				if (false == cell.IsDefaultInventoryPosition() && false == cell.IsBeltInventoryPosition()) // ѕЖґПёй јТБцЗ°їЎ?
 					sys_err("CItem::RemoveFromCharacter: Invalid Item Position");
 				else
 				{
@@ -471,16 +471,16 @@ bool CItem::CanUsedBy(LPCHARACTER ch)
 
 int CItem::FindEquipCell(LPCHARACTER ch, int iCandidateCell)
 {
-	// �ڽ��� ������(ITEM_COSTUME)�� WearFlag ��� ��. (sub type���� ������ġ ����. ������ �� wear flag �� �ʿ䰡 �ֳ�..)
-	// ��ȥ��(ITEM_DS, ITEM_SPECIAL_DS)��  SUB_TYPE���� ����. �ű� ����, ��Ʈ�� ITEM_TYPE���� ���� -_-
+	// ДЪЅєГх ѕЖАМЕЫ(ITEM_COSTUME)Ає WearFlag ѕшѕоµµ µК. (sub typeАё·О ВшїлА§ДЎ ±ёєР. ±НВъ°Ф ¶З wear flag БЩ ЗКїд°Ў АЦіЄ..)
+	// їлИҐј®(ITEM_DS, ITEM_SPECIAL_DS)µµ  SUB_TYPEАё·О ±ёєР. ЅЕ±Ф №ЭБц, є§Ж®ґВ ITEM_TYPEАё·О ±ёєР -_-
 	if ((0 == GetWearFlag() || ITEM_TOTEM == GetType()) && ITEM_COSTUME != GetType() && ITEM_DS != GetType() && ITEM_SPECIAL_DS != GetType() && ITEM_RING != GetType() && ITEM_BELT != GetType())
 		return -1;
 
-	// ��ȥ�� ������ WEAR�� ó���� ���� ���(WEAR�� �ִ� 32������ �����ѵ� ��ȥ���� �߰��ϸ� 32�� �Ѵ´�.)
-	// �κ��丮�� Ư�� ��ġ((INVENTORY_MAX_NUM + WEAR_MAX_NUM)���� (INVENTORY_MAX_NUM + WEAR_MAX_NUM + DRAGON_SOUL_DECK_MAX_NUM * DS_SLOT_MAX - 1)����)��
-	// ��ȥ�� �������� ����.
-	// return �� ����, INVENTORY_MAX_NUM�� �� ������,
-	// ���� WearCell�� INVENTORY_MAX_NUM�� ���� return �ϱ� ����.
+	// їлИҐј® ЅЅ·ФА» WEAR·О Гіё®ЗТ јц°Ў ѕшѕој­(WEARґВ ГЦґл 32°і±оБц °ЎґЙЗСµҐ їлИҐј®А» ГЯ°ЎЗПёй 32°Ў іСґВґЩ.)
+	// АОєҐЕдё®АЗ ЖЇБ¤ А§ДЎ((INVENTORY_MAX_NUM + WEAR_MAX_NUM)єОЕН (INVENTORY_MAX_NUM + WEAR_MAX_NUM + DRAGON_SOUL_DECK_MAX_NUM * DS_SLOT_MAX - 1)±оБц)ё¦
+	// їлИҐј® ЅЅ·ФАё·О Б¤ЗФ.
+	// return ЗТ ¶§їЎ, INVENTORY_MAX_NUMА» »« АМАЇґВ,
+	// є»·Ў WearCellАМ INVENTORY_MAX_NUMё¦ »©°н return ЗП±в ¶§№®.
 	if (GetType() == ITEM_DS || GetType() == ITEM_SPECIAL_DS)
 	{
 		if (iCandidateCell < 0)
@@ -541,7 +541,7 @@ int CItem::FindEquipCell(LPCHARACTER ch, int iCandidateCell)
 			return WEAR_UNIQUE1;		
 	}
 
-	// ���� ����Ʈ�� ���� �������� �����°����� �ѹ� ������ ���� �E�� ����.
+	// јцБэ ДщЅєЖ®ё¦ А§ЗС ѕЖАМЕЫАМ №ЪИчґВ°чАё·О ЗС№ш №ЪИчёй Аэґл –Eјц ѕшґЩ.
 	else if (GetWearFlag() & WEARABLE_ABILITY)
 	{
 		if (!ch->GetWear(WEAR_ABILITY1))
@@ -588,12 +588,12 @@ void CItem::ModifyPoints(bool bAdd)
 {
 	int accessoryGrade;
 
-	// ����� ���ʸ� ������ �����Ų��.
+	// №«±вїН °©їКёё јТДПА» АыїлЅГЕІґЩ.
 	if (false == IsAccessoryForSocket())
 	{
 		if (m_pProto->bType == ITEM_WEAPON || m_pProto->bType == ITEM_ARMOR)
 		{
-			// ������ �Ӽ���ȭ�� ���Ǵ� ��� �������� �ʴ´� (ARMOR_WRIST ARMOR_NECK ARMOR_EAR)
+			// јТДПАМ јУјє°­И­їЎ »зїлµЗґВ °жїм АыїлЗПБц ѕКґВґЩ (ARMOR_WRIST ARMOR_NECK ARMOR_EAR)
 			for (int i = 0; i < ITEM_SOCKET_MAX_NUM; ++i)
 			{
 				DWORD dwVnum;
@@ -652,12 +652,12 @@ void CItem::ModifyPoints(bool bAdd)
 			m_pOwner->ApplyPoint(m_pProto->aApplies[i].bType, bAdd ? value : -value);
 		}
 	}
-	// �ʽ´��� ����, �ҷ��� ����, �ູ�� ����, ������ ����� ���Ʈ�� ���
-	// ������ �ϵ� �ڵ����� ������ �Ӽ��� �ο�������,
-	// �� �κ��� �����ϰ� special item group ���̺����� �Ӽ��� �ο��ϵ��� �����Ͽ���.
-	// ������ �ϵ� �ڵ��Ǿ����� �� ������ �������� �������� ���� �־ Ư��ó�� �س��´�.
-	// �� �����۵��� ���, �ؿ� ITEM_UNIQUE�� ���� ó���� �Ӽ��� �ο��Ǳ� ������,
-	// �����ۿ� �����ִ� attribute�� �������� �ʰ� �Ѿ��.
+	// ГКЅВґЮАЗ №ЭБц, ЗТ·ОА© »зЕБ, Зає№АЗ №ЭБц, їµїшЗС »з¶ыАЗ ЖжґшЖ®АЗ °жїм
+	// ±вБёАЗ ЗПµе ДЪµщАё·О °­Б¦·О јУјєА» єОї©ЗЯБцёё,
+	// ±Ч єОєРА» Б¦°ЕЗП°н special item group ЕЧАМєнїЎј­ јУјєА» єОї©ЗПµµ·П єЇ°жЗПїґґЩ.
+	// ЗПБцёё ЗПµе ДЪµщµЗѕоАЦА» ¶§ »эјєµИ ѕЖАМЕЫАМ іІѕЖАЦА» јцµµ АЦѕој­ ЖЇјцГіё® ЗШіхґВґЩ.
+	// АМ ѕЖАМЕЫµйАЗ °жїм, №ШїЎ ITEM_UNIQUEАП ¶§АЗ Гіё®·О јУјєАМ єОї©µЗ±в ¶§№®їЎ,
+	// ѕЖАМЕЫїЎ №ЪЗфАЦґВ attributeґВ АыїлЗПБц ѕК°н іСѕо°ЈґЩ.
 	if (true == CItemVnumHelper::IsRamadanMoonRing(GetVnum()) || true == CItemVnumHelper::IsHalloweenCandy(GetVnum())
 		|| true == CItemVnumHelper::IsHappinessRing(GetVnum()) || true == CItemVnumHelper::IsLovePendant(GetVnum()))
 	{
@@ -714,7 +714,7 @@ void CItem::ModifyPoints(bool bAdd)
 
 		case ITEM_ARMOR:
 			{
-				// �ڽ��� body�� �԰��ִٸ� armor�� ���� �Դ� ��� ���� ���־� ������ �ָ� �� ��.
+				// ДЪЅєГх bodyё¦ АФ°нАЦґЩёй armorґВ №юґш АФґш »у°ь ѕшАМ єсБЦѕуїЎ їµЗвА» БЦёй ѕИ µК.
 				if (0 != m_pOwner->GetWear(WEAR_COSTUME_BODY))
 					break;
 
@@ -734,33 +734,33 @@ void CItem::ModifyPoints(bool bAdd)
 			}
 			break;
 
-		// �ڽ��� ������ �Ծ��� �� ĳ���� parts ���� ����. ���� ��Ÿ�ϴ�� �߰���..
+		// ДЪЅєГх ѕЖАМЕЫ АФѕъА» ¶§ ДіёЇЕН parts Б¤єё јјЖГ. ±вБё ЅєЕёАПґл·О ГЯ°ЎЗФ..
 		case ITEM_COSTUME:
 			{
 				DWORD toSetValue = this->GetVnum();
 				EParts toSetPart = PART_MAX_NUM;
 
-				// ���� �ڽ���
+				// °©їК ДЪЅєГх
 				if (GetSubType() == COSTUME_BODY)
 				{
 					toSetPart = PART_MAIN;
 
 					if (false == bAdd)
 					{
-						// �ڽ��� ������ ������ �� ���� ������ �԰� �־��ٸ� �� �������� look ����, ���� �ʾҴٸ� default look
+						// ДЪЅєГх °©їКА» №юѕъА» ¶§ їш·Ў °©їКА» АФ°н АЦѕъґЩёй ±Ч °©їКАё·О look јјЖГ, АФБц ѕКѕТґЩёй default look
 						const CItem* pArmor = m_pOwner->GetWear(WEAR_BODY);
 						toSetValue = (NULL != pArmor) ? pArmor->GetVnum() : m_pOwner->GetOriginalPart(PART_MAIN);						
 					}
 					
 				}
 
-				// ��� �ڽ���
+				// Змѕо ДЪЅєГх
 				else if (GetSubType() == COSTUME_HAIR)
 				{
 					toSetPart = PART_HAIR;
 
-					// �ڽ��� ���� shape���� item proto�� value3�� �����ϵ��� ��. Ư���� ������ ���� ���� ����(ARMOR_BODY)�� shape���� �������� value3�� �־ �� ���� value3���� ��.
-					// [NOTE] ������ ������ vnum�� ������ ���� shape(value3)���� ������ ������.. ���� �ý����� �׷��� �Ǿ�����...
+					// ДЪЅєГх ЗмѕоґВ shape°ЄА» item protoАЗ value3їЎ јјЖГЗПµµ·П ЗФ. ЖЇє°ЗС АМАЇґВ ѕш°н ±вБё °©їК(ARMOR_BODY)АЗ shape°ЄАМ ЗБ·ОЕдАЗ value3їЎ АЦѕој­ Змѕоµµ °°АМ value3Аё·О ЗФ.
+					// [NOTE] °©їКАє ѕЖАМЕЫ vnumА» єёі»°н ЗмѕоґВ shape(value3)°ЄА» єёі»ґВ АМАЇґВ.. ±вБё ЅГЅєЕЫАМ ±Ч·ё°Ф µЗѕоАЦАЅ...
 					toSetValue = (true == bAdd) ? this->GetValue(3) : 0;
 				}
 
@@ -821,7 +821,7 @@ bool CItem::EquipTo(LPCHARACTER ch, BYTE bWearCell)
 		return false;
 	}
 
-	// ��ȥ�� ���� index�� WEAR_MAX_NUM ���� ŭ.
+	// їлИҐј® ЅЅ·Ф indexґВ WEAR_MAX_NUM єёґЩ Е­.
 	if (IsDragonSoul())
 	{
 		if (bWearCell < WEAR_MAX_NUM || bWearCell >= WEAR_MAX_NUM + DRAGON_SOUL_DECK_MAX_NUM * DS_SLOT_MAX)
@@ -848,7 +848,7 @@ bool CItem::EquipTo(LPCHARACTER ch, BYTE bWearCell)
 	if (GetOwner())
 		RemoveFromCharacter();
 
-	ch->SetWear(bWearCell, this); // ���⼭ ��Ŷ ����
+	ch->SetWear(bWearCell, this); // ї©±вј­ ЖРЕ¶ іЄ°Ё
 
 	m_pOwner = ch;
 	m_bEquipped = true;
@@ -906,7 +906,7 @@ bool CItem::Unequip()
 		return false;
 	}
 
-	//�ű� �� ������ ���Ž� ó��
+	//ЅЕ±Ф ё» ѕЖАМЕЫ Б¦°ЕЅГ Гіё®
 	if (IsRideItem())
 		ClearMountAttributeAndAffect();
 
@@ -1210,7 +1210,7 @@ void CItem::AlterToMagicItem()
 		}
 	}
 
-	// 100% Ȯ���� ���� �Ӽ� �ϳ�
+	// 100% И®·ь·О ББАє јУјє ЗПіЄ
 	PutAttribute(aiItemMagicAttributePercentHigh);
 
 	if (number(1, 100) <= iSecondPct)
@@ -1296,8 +1296,8 @@ EVENTFUNC(unique_expire_event)
 		}
 		else
 		{
-			// ���� ���� �ð��� �����۵��� ���������ϰ� ������� �ʴ� ���װ� �־�
-			// ����
+			// °ФАУ і»їЎ ЅГ°ЈБ¦ ѕЖАМЕЫµйАМ єьёґєьёґЗП°Ф »з¶уБцБц ѕКґВ №ц±Ч°Ў АЦѕо
+			// јцБ¤
 			// by rtsummit
 			if (pkItem->GetSocket(ITEM_SOCKET_UNIQUE_REMAIN_TIME) - cur < 600)
 				return PASSES_PER_SEC(pkItem->GetSocket(ITEM_SOCKET_UNIQUE_REMAIN_TIME) - cur);
@@ -1307,9 +1307,9 @@ EVENTFUNC(unique_expire_event)
 	}
 }
 
-// �ð� �ĺ���
-// timer�� ������ ���� �ð� �����ϴ� ���� �ƴ϶�, 
-// timer�� ��ȭ�� ���� timer�� ������ �ð� ��ŭ �ð� ������ �Ѵ�.
+// ЅГ°Ј ИДєТБ¦
+// timerё¦ ЅГАЫЗТ ¶§їЎ ЅГ°Ј Вч°ЁЗПґВ °НАМ ѕЖґП¶у, 
+// timer°Ў №ЯИ­ЗТ ¶§їЎ timer°Ў µїАЫЗС ЅГ°Ј ёёЕ­ ЅГ°Ј Вч°ЁА» ЗСґЩ.
 EVENTFUNC(timer_based_on_wear_expire_event)
 {
 	item_event_info* info = dynamic_cast<item_event_info*>( event->info );
@@ -1328,7 +1328,7 @@ EVENTFUNC(timer_based_on_wear_expire_event)
 		pkItem->SetTimerBasedOnWearExpireEvent(NULL);
 		pkItem->SetSocket(ITEM_SOCKET_REMAIN_SEC, 0);
 	
-		// �ϴ� timer based on wear ��ȥ���� �ð� �� �Ǿ��ٰ� ������ �ʴ´�.
+		// АПґЬ timer based on wear їлИҐј®Ає ЅГ°Ј ґЩ µЗѕъґЩ°н ѕшѕЦБц ѕКґВґЩ.
 		if (pkItem->IsDragonSoul())
 		{
 			DSManager::instance().DeactivateDragonSoul(pkItem);
@@ -1427,7 +1427,7 @@ void CItem::StartUniqueExpireEvent()
 	if (m_pkUniqueExpireEvent)
 		return;
 
-	//�Ⱓ�� �������� ��� �ð��� �������� �������� �ʴ´�
+	//±в°ЈБ¦ ѕЖАМЕЫАП °жїм ЅГ°ЈБ¦ ѕЖАМЕЫАє µїАЫЗПБц ѕКґВґЩ
 	if (IsRealTimeItem())
 		return;
 
@@ -1450,14 +1450,14 @@ void CItem::StartUniqueExpireEvent()
 	SetUniqueExpireEvent(event_create(unique_expire_event, info, PASSES_PER_SEC(iSec)));
 }
 
-// �ð� �ĺ���
-// timer_based_on_wear_expire_event ���� ����
+// ЅГ°Ј ИДєТБ¦
+// timer_based_on_wear_expire_event јіён ВьБ¶
 void CItem::StartTimerBasedOnWearExpireEvent()
 {
 	if (m_pkTimerBasedOnWearExpireEvent)
 		return;
 
-	//�Ⱓ�� �������� ��� �ð��� �������� �������� �ʴ´�
+	//±в°ЈБ¦ ѕЖАМЕЫАП °жїм ЅГ°ЈБ¦ ѕЖАМЕЫАє µїАЫЗПБц ѕКґВґЩ
 	if (IsRealTimeItem())
 		return;
 
@@ -1466,7 +1466,7 @@ void CItem::StartTimerBasedOnWearExpireEvent()
 
 	int iSec = GetSocket(0);
 	
-	// ���� �ð��� �д����� ���� ����...
+	// іІАє ЅГ°ЈА» єРґЬА§·О Іч±в А§ЗШ...
 	if (0 != iSec)
 	{
 		iSec %= 60;
@@ -1485,7 +1485,7 @@ void CItem::StopUniqueExpireEvent()
 	if (!m_pkUniqueExpireEvent)
 		return;
 
-	if (GetValue(2) != 0) // ���ӽð��� �̿��� �������� UniqueExpireEvent�� �ߴ��� �� ����.
+	if (GetValue(2) != 0) // °ФАУЅГ°ЈБ¦ АМїЬАЗ ѕЖАМЕЫАє UniqueExpireEventё¦ БЯґЬЗТ јц ѕшґЩ.
 		return;
 
 	// HARD CODING
@@ -1522,12 +1522,12 @@ int CItem::GetSpecialGroup() const
 }
 
 //
-// �Ǽ����� ���� ó��.
+// ѕЗјјј­ё® јТДП Гіё®.
 //
 bool CItem::IsAccessoryForSocket()
 {
 	return (m_pProto->bType == ITEM_ARMOR && (m_pProto->bSubType == ARMOR_WRIST || m_pProto->bSubType == ARMOR_NECK || m_pProto->bSubType == ARMOR_EAR)) ||
-		(m_pProto->bType == ITEM_BELT);				// 2013�� 2�� ���� �߰��� '��Ʈ' �������� ��� ��ȹ������ �Ǽ����� ���� �ý����� �״�� �̿����ڰ� ��.
+		(m_pProto->bType == ITEM_BELT);				// 2013ів 2їщ »х·О ГЯ°ЎµИ 'є§Ж®' ѕЖАМЕЫАЗ °жїм ±вИ№ЖАїЎј­ ѕЗјјј­ё® јТДП ЅГЅєЕЫА» ±Чґл·О АМїлЗПАЪ°н ЗФ.
 }
 
 void CItem::SetAccessorySocketGrade(int iGrade) 
@@ -1552,7 +1552,7 @@ void CItem::SetAccessorySocketDownGradeTime(DWORD time)
 	SetSocket(2, time); 
 
 	if (test_server && GetOwner())
-		GetOwner()->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("%s���� ���� ���������� ���� �ð� %d"), GetName(), time);
+		GetOwner()->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("%sїЎј­ јТДП єьБъ¶§±оБц іІАє ЅГ°Ј %d"), GetName(), time);
 }
 
 EVENTFUNC(accessory_socket_expire_event)
@@ -1672,7 +1672,7 @@ void CItem::ClearMountAttributeAndAffect()
 }
 
 // fixme
-// �̰� ������ �Ⱦ���... �ٵ� Ȥ�ó� �; ���ܵ�.
+// АМ°Е Бц±ЭАє ѕИѕґµҐ... ±ЩµҐ И¤ЅГіЄ ЅНѕој­ іІ°ЬµТ.
 // by rtsummit
 bool CItem::IsNewMountItem()
 {
@@ -1700,7 +1700,7 @@ void CItem::AccessorySocketDegrade()
 
 		if (ch)
 		{
-			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("%s�� �����ִ� ������ ������ϴ�."), GetName());
+			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("%sїЎ №ЪЗфАЦґш єёј®АМ »з¶уБэґПґЩ."), GetName());
 		}
 
 		ModifyPoints(false);
@@ -1719,7 +1719,7 @@ void CItem::AccessorySocketDegrade()
 	}
 }
 
-// ring�� item�� ���� �� �ִ��� ���θ� üũ�ؼ� ����
+// ringїЎ itemА» №ЪА» јц АЦґВБц ї©єОё¦ ГјЕ©ЗШј­ ё®ЕП
 static const bool CanPutIntoRing(LPITEM ring, LPITEM item)
 {
 	const DWORD vnum = item->GetVnum();
@@ -1928,10 +1928,10 @@ int CItem::GetLevelLimit()
 
 bool CItem::OnAfterCreatedItem()
 {
-	// �������� �� ���̶� ����ߴٸ�, �� ���Ŀ� ��� ������ �ʾƵ� �ð��� �����Ǵ� ���
+	// ѕЖАМЕЫА» ЗС №шАМ¶уµµ »зїлЗЯґЩёй, ±Ч АМИДїЈ »зїл БЯАМБц ѕКѕЖµµ ЅГ°ЈАМ Вч°ЁµЗґВ №жЅД
 	if (-1 != this->GetProto()->cLimitRealTimeFirstUseIndex)
 	{
-		// Socket1�� �������� ��� Ƚ���� ��ϵǾ� ������, �� ���̶� ����� �������� Ÿ�̸Ӹ� �����Ѵ�.
+		// Socket1їЎ ѕЖАМЕЫАЗ »зїл ИЅјц°Ў ±в·ПµЗѕо АЦАёґП, ЗС №шАМ¶уµµ »зїлЗС ѕЖАМЕЫАє ЕёАМёУё¦ ЅГАЫЗСґЩ.
 		if (0 != GetSocket(1))
 		{
 			StartRealTimeExpireEvent();
@@ -1944,8 +1944,8 @@ bool CItem::OnAfterCreatedItem()
 
 #ifdef __AUCTION__
 
-// �����
-// window�� ��������� �Ѵ�.
+// °жёЕАе
+// windowё¦ °жёЕАеАё·О ЗСґЩ.
 
 bool CItem::MoveToAuction()
 {
@@ -2012,7 +2012,7 @@ int CItem::GiveMoreTime_Per(float fPercent)
 			return given_time;
 		}
 	}
-	// �켱 ��ȥ���� ���ؼ��� �ϵ��� �Ѵ�.
+	// їмј± їлИҐј®їЎ °ьЗШј­ёё ЗПµµ·П ЗСґЩ.
 	else
 		return 0;
 }
@@ -2036,7 +2036,7 @@ int CItem::GiveMoreTime_Fix(DWORD dwTime)
 			return dwTime;
 		}
 	}
-	// �켱 ��ȥ���� ���ؼ��� �ϵ��� �Ѵ�.
+	// їмј± їлИҐј®їЎ °ьЗШј­ёё ЗПµµ·П ЗСґЩ.
 	else
 		return 0;
 }
@@ -2061,7 +2061,7 @@ int	CItem::GetDuration()
 
 bool CItem::IsSameSpecialGroup(const LPITEM item) const
 {
-	// ���� VNUM�� ���ٸ� ���� �׷��� ������ ����
+	// ј­·О VNUMАМ °°ґЩёй °°Ає ±Ч·мАО °НАё·О °ЈБЦ
 	if (this->GetVnum() == item->GetVnum())
 		return true;
 

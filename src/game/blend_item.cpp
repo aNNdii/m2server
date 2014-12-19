@@ -171,10 +171,10 @@ static int FN_random_index()
 	return 0;
 }
 
-// ���ȯ�� Ȯ�� ���̺�
-// blend.txt���� Ȯ���� �޵��� ��ġ�� ����ϰ�����
-// �� ���󺰷� item proto ���� ���� �����ϹǷ�,
-// ȥ���� �� �� �־� �̷��� �߰��Ѵ�.
+// Гж±вИЇАЗ И®·ь ЕЧАМєн
+// blend.txtїЎј­ И®·ьµµ №Юµµ·П °нДЎёй ±тІыЗП°ЪБцёё
+// °ў іЄ¶ує°·О item proto µоА» µы·О °ьё®ЗП№З·О,
+// ИҐ¶хАМ їГ јц АЦѕо АМ·ё°Ф ГЯ°ЎЗСґЩ.
 // by rtsummit
 
 static int FN_ECS_random_index()

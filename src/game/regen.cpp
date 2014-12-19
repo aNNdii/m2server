@@ -24,7 +24,7 @@ enum ERegenModes
 	MODE_VNUM
 };
 
-static bool get_word(FILE *fp, char *buf) // ¿öµå´ÜÀ§·Î ¹Ş´Â´Ù.
+static bool get_word(FILE *fp, char *buf) // Ñ—Ñ†ÂµĞµÒ‘Ğ¬ĞÂ§Â·Ğ â„–Ğ®Ò‘Ğ’Ò‘Ğ©.
 {
 	int i = 0;
 	int c;
@@ -172,7 +172,7 @@ static bool read_line(FILE *fp, LPREGEN regen)
 			case MODE_Z_SECTION:
 				str_to_number(regen->z_section, szTmp);
 
-				// ÀÍ¼Á¼Ç ÀÌ¸é ³ª°¡ÁÖÀÚ.
+				// ĞĞÑ˜Ğ‘Ñ˜Ğ— ĞĞœÑ‘Ğ¹ Ñ–Ğ„Â°ĞĞ‘Ğ¦ĞĞª.
 				if (regen->type == REGEN_TYPE_EXCEPTION)
 					return true;
 
@@ -500,7 +500,7 @@ bool regen_do(const char* filename, long lMapIndex, int base_x, int base_y, LPDU
 				// before the call to CHARACTER::SetRegen()
 			}
 
-			// Ã³À½¿£ ¹«Á¶°Ç ¸®Á¨ ÇØÁØ´Ù.
+			// Ğ“Ñ–ĞĞ…Ñ—Ğˆ â„–Â«Ğ‘Â¶Â°Ğ— Ñ‘Â®Ğ‘Ğ Ğ—Ğ¨Ğ‘Ğ¨Ò‘Ğ©.
 			regen_spawn_dungeon(regen, pDungeon, bOnce);
 
 		}
@@ -576,7 +576,7 @@ bool regen_load_in_file(const char* filename, long lMapIndex, int base_x, int ba
 				}
 			}
 
-			// Ã³À½¿£ ¹«Á¶°Ç ¸®Á¨ ÇØÁØ´Ù.
+			// Ğ“Ñ–ĞĞ…Ñ—Ğˆ â„–Â«Ğ‘Â¶Â°Ğ— Ñ‘Â®Ğ‘Ğ Ğ—Ğ¨Ğ‘Ğ¨Ò‘Ğ©.
 			regen_spawn(regen, true);
 		}
 	}
@@ -683,11 +683,11 @@ bool regen_load(const char* filename, long lMapIndex, int base_x, int base_y)
 			}
 
 			//NO_REGEN
-			// Desc: 	regen.txt (¿Ü ¸®Á¨°ü·Ã ÅØ½ºÆ® ) ¿¡¼­ ¸®Á¨ ½Ã°£À» 0À¸·Î ¼¼ÆÃÇÒ½Ã 
-			// 			¸®Á¨À» ÇÏÁö ¾ÈÇÑ´Ù.
+			// Desc: 	regen.txt (Ñ—Ğ¬ Ñ‘Â®Ğ‘ĞÂ°ÑŒÂ·Ğ“ Ğ•Ğ¨Ğ…Ñ”Ğ–Â® ) Ñ—ĞÑ˜Â­ Ñ‘Â®Ğ‘Ğ Ğ…Ğ“Â°ĞˆĞÂ» 0ĞÑ‘Â·Ğ Ñ˜Ñ˜Ğ–Ğ“Ğ—Ğ¢Ğ…Ğ“ 
+			// 			Ñ‘Â®Ğ‘ĞĞÂ» Ğ—ĞŸĞ‘Ñ† Ñ•Ğ˜Ğ—Ğ¡Ò‘Ğ©.
 			if (regen->time != 0)
 			{
-				// Ã³À½¿£ ¹«Á¶°Ç ¸®Á¨ ÇØÁØ´Ù.
+				// Ğ“Ñ–ĞĞ…Ñ—Ğˆ â„–Â«Ğ‘Â¶Â°Ğ— Ñ‘Â®Ğ‘Ğ Ğ—Ğ¨Ğ‘Ğ¨Ò‘Ğ©.
 				regen_spawn(regen, false);
 
 				regen_event_info* info = AllocEventInfo<regen_event_info>();
@@ -752,14 +752,14 @@ void regen_reset(int x, int y)
 		if (!regen->event)
 			continue;
 
-		// ÁÂÇ¥°¡ ÀÖÀ¸¸é ÁÂÇ¥ ³»¿¡ ÀÖ´Â ¸®Á¨ ¸®½ºÆ®¸¸ ¸®Á¨ ½ÃÅ²´Ù.
+		// Ğ‘Ğ’Ğ—ÒÂ°Ğ ĞĞ¦ĞÑ‘Ñ‘Ğ¹ Ğ‘Ğ’Ğ—Ò Ñ–Â»Ñ—Ğ ĞĞ¦Ò‘Ğ’ Ñ‘Â®Ğ‘Ğ Ñ‘Â®Ğ…Ñ”Ğ–Â®Ñ‘Ñ‘ Ñ‘Â®Ğ‘Ğ Ğ…Ğ“Ğ•Ğ†Ò‘Ğ©.
 		if (x != 0 || y != 0)
 		{
 			if (x >= regen->sx && x <= regen->ex)
 				if (y >= regen->sy && y <= regen->ey)
 					event_reset_time(regen->event, 1);
 		}
-		// ¾øÀ¸¸é ÀüºÎ ¸®Á¨
+		// Ñ•ÑˆĞÑ‘Ñ‘Ğ¹ ĞÑŒÑ”Ğ Ñ‘Â®Ğ‘Ğ
 		else
 			event_reset_time(regen->event, 1);
 	}

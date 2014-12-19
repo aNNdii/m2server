@@ -65,7 +65,7 @@ BYTE gm_new_get_level( const char * name, const char * host, const char* account
 		return GM_PLAYER;
 
 	// GERMAN_GM_NOT_CHECK_HOST
-	// µ¶ÀÏ ¹öÀüÀº È£½ºÆ® Ã¼Å©¸¦ ÇÏÁö ¾Ê´Â´Ù.
+	// ÂµÂ¶ĞĞŸ â„–Ñ†ĞÑŒĞÑ” Ğ˜ĞˆĞ…Ñ”Ğ–Â® Ğ“Ñ˜Ğ•Â©Ñ‘Â¦ Ğ—ĞŸĞ‘Ñ† Ñ•ĞšÒ‘Ğ’Ò‘Ğ©.
 	if ( LC_IsEurope() && !LC_IsTaiwan() || LC_IsSingapore() )
 	{
 	    if (account)

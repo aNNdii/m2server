@@ -237,17 +237,17 @@ EVENTFUNC(ready_to_start_event)
 
 		if (chA != NULL)
 		{
-			chA->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("´ë·Ã »ó´ë°¡ »ç¶óÁ® ´ë·ÃÀ» Á¾·áÇÕ´Ï´Ù."));
+			chA->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Ò‘Ğ»Â·Ğ“ Â»ÑƒÒ‘Ğ»Â°Ğ Â»Ğ·Â¶ÑƒĞ‘Â® Ò‘Ğ»Â·Ğ“ĞÂ» Ğ‘Ñ•Â·Ğ±Ğ—Ğ¥Ò‘ĞŸÒ‘Ğ©."));
 			sys_log(0, "ARENA: Oppernent is disappered. MyPID(%d) OppPID(%d)", pArena->GetPlayerAPID(), pArena->GetPlayerBPID());
 		}
 
 		if (chB != NULL)
 		{
-			chB->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("´ë·Ã »ó´ë°¡ »ç¶óÁ® ´ë·ÃÀ» Á¾·áÇÕ´Ï´Ù."));
+			chB->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Ò‘Ğ»Â·Ğ“ Â»ÑƒÒ‘Ğ»Â°Ğ Â»Ğ·Â¶ÑƒĞ‘Â® Ò‘Ğ»Â·Ğ“ĞÂ» Ğ‘Ñ•Â·Ğ±Ğ—Ğ¥Ò‘ĞŸÒ‘Ğ©."));
 			sys_log(0, "ARENA: Oppernent is disappered. MyPID(%d) OppPID(%d)", pArena->GetPlayerBPID(), pArena->GetPlayerAPID());
 		}
 
-		pArena->SendChatPacketToObserver(CHAT_TYPE_NOTICE, LC_TEXT("´ë·Ã »ó´ë°¡ »ç¶óÁ® ´ë·ÃÀ» Á¾·áÇÕ´Ï´Ù."));
+		pArena->SendChatPacketToObserver(CHAT_TYPE_NOTICE, LC_TEXT("Ò‘Ğ»Â·Ğ“ Â»ÑƒÒ‘Ğ»Â°Ğ Â»Ğ·Â¶ÑƒĞ‘Â® Ò‘Ğ»Â·Ğ“ĞÂ» Ğ‘Ñ•Â·Ğ±Ğ—Ğ¥Ò‘ĞŸÒ‘Ğ©."));
 
 		pArena->EndDuel();
 		return 0;
@@ -264,20 +264,20 @@ EVENTFUNC(ready_to_start_event)
 
 				if (count > 10000)
 				{
-					chA->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("¹°¾à Á¦ÇÑÀÌ ¾ø½À´Ï´Ù."));
-					chB->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("¹°¾à Á¦ÇÑÀÌ ¾ø½À´Ï´Ù."));
+					chA->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("â„–Â°Ñ•Ğ° Ğ‘Â¦Ğ—Ğ¡ĞĞœ Ñ•ÑˆĞ…ĞÒ‘ĞŸÒ‘Ğ©."));
+					chB->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("â„–Â°Ñ•Ğ° Ğ‘Â¦Ğ—Ğ¡ĞĞœ Ñ•ÑˆĞ…ĞÒ‘ĞŸÒ‘Ğ©."));
 				}
 				else
 				{
 					chA->SetPotionLimit(count);
 					chB->SetPotionLimit(count);
 
-					chA->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("¹°¾àÀ» %d °³ ±îÁö »ç¿ë °¡´ÉÇÕ´Ï´Ù."), chA->GetPotionLimit());
-					chB->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("¹°¾àÀ» %d °³ ±îÁö »ç¿ë °¡´ÉÇÕ´Ï´Ù."), chB->GetPotionLimit());
+					chA->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("â„–Â°Ñ•Ğ°ĞÂ» %d Â°Ñ– Â±Ğ¾Ğ‘Ñ† Â»Ğ·Ñ—Ğ» Â°ĞÒ‘Ğ™Ğ—Ğ¥Ò‘ĞŸÒ‘Ğ©."), chA->GetPotionLimit());
+					chB->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("â„–Â°Ñ•Ğ°ĞÂ» %d Â°Ñ– Â±Ğ¾Ğ‘Ñ† Â»Ğ·Ñ—Ğ» Â°ĞÒ‘Ğ™Ğ—Ğ¥Ò‘ĞŸÒ‘Ğ©."), chB->GetPotionLimit());
 				}
-				chA->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("10ÃÊµÚ ´ë·ÃÀÌ ½ÃÀÛµË´Ï´Ù."));
-				chB->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("10ÃÊµÚ ´ë·ÃÀÌ ½ÃÀÛµË´Ï´Ù."));
-				pArena->SendChatPacketToObserver(CHAT_TYPE_INFO, LC_TEXT("10ÃÊµÚ ´ë·ÃÀÌ ½ÃÀÛµË´Ï´Ù."));
+				chA->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("10Ğ“ĞšÂµĞª Ò‘Ğ»Â·Ğ“ĞĞœ Ğ…Ğ“ĞĞ«ÂµĞ›Ò‘ĞŸÒ‘Ğ©."));
+				chB->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("10Ğ“ĞšÂµĞª Ò‘Ğ»Â·Ğ“ĞĞœ Ğ…Ğ“ĞĞ«ÂµĞ›Ò‘ĞŸÒ‘Ğ©."));
+				pArena->SendChatPacketToObserver(CHAT_TYPE_INFO, LC_TEXT("10Ğ“ĞšÂµĞª Ò‘Ğ»Â·Ğ“ĞĞœ Ğ…Ğ“ĞĞ«ÂµĞ›Ò‘ĞŸÒ‘Ğ©."));
 
 				info->state++;
 				return PASSES_PER_SEC(10);
@@ -286,15 +286,15 @@ EVENTFUNC(ready_to_start_event)
 
 		case 1:
 			{
-				chA->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("´ë·ÃÀÌ ½ÃÀÛµÇ¾ú½À´Ï´Ù."));
-				chB->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("´ë·ÃÀÌ ½ÃÀÛµÇ¾ú½À´Ï´Ù."));
-				pArena->SendChatPacketToObserver(CHAT_TYPE_INFO, LC_TEXT("´ë·ÃÀÌ ½ÃÀÛµÇ¾ú½À´Ï´Ù."));
+				chA->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Ò‘Ğ»Â·Ğ“ĞĞœ Ğ…Ğ“ĞĞ«ÂµĞ—Ñ•ÑŠĞ…ĞÒ‘ĞŸÒ‘Ğ©."));
+				chB->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Ò‘Ğ»Â·Ğ“ĞĞœ Ğ…Ğ“ĞĞ«ÂµĞ—Ñ•ÑŠĞ…ĞÒ‘ĞŸÒ‘Ğ©."));
+				pArena->SendChatPacketToObserver(CHAT_TYPE_INFO, LC_TEXT("Ò‘Ğ»Â·Ğ“ĞĞœ Ğ…Ğ“ĞĞ«ÂµĞ—Ñ•ÑŠĞ…ĞÒ‘ĞŸÒ‘Ğ©."));
 
 				TPacketGCDuelStart duelStart;
 				duelStart.header = HEADER_GC_DUEL_START;
 				duelStart.wSize = sizeof(TPacketGCDuelStart) + 4;
 
-				DWORD dwOppList[8]; // ÃÖ´ë ÆÄÆ¼¿ø 8¸í ÀÌ¹Ç·Î..
+				DWORD dwOppList[8]; // Ğ“Ğ¦Ò‘Ğ» Ğ–Ğ”Ğ–Ñ˜Ñ—Ñˆ 8Ñ‘Ğ½ ĞĞœâ„–Ğ—Â·Ğ..
 
 				dwOppList[0] = (DWORD)chB->GetVID();
 				TEMP_BUFFER buf;
@@ -343,7 +343,7 @@ EVENTFUNC(ready_to_start_event)
 
 				TEMP_BUFFER buf;
 				TEMP_BUFFER buf2;
-				DWORD dwOppList[8]; // ÃÖ´ë ÆÄÆ¼¿ø 8¸í ÀÌ¹Ç·Î..
+				DWORD dwOppList[8]; // Ğ“Ğ¦Ò‘Ğ» Ğ–Ğ”Ğ–Ñ˜Ñ—Ñˆ 8Ñ‘Ğ½ ĞĞœâ„–Ğ—Â·Ğ..
 				TPacketGCDuelStart duelStart;
 				duelStart.header = HEADER_GC_DUEL_START;
 				duelStart.wSize = sizeof(TPacketGCDuelStart) + 4;
@@ -358,9 +358,9 @@ EVENTFUNC(ready_to_start_event)
 				buf2.write(&dwOppList[0], 4);
 				chB->GetDesc()->Packet(buf2.read_peek(), buf2.size());
 
-				chA->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("´ë·ÃÀÌ ½ÃÀÛµÇ¾ú½À´Ï´Ù."));
-				chB->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("´ë·ÃÀÌ ½ÃÀÛµÇ¾ú½À´Ï´Ù."));
-				pArena->SendChatPacketToObserver(CHAT_TYPE_INFO, LC_TEXT("´ë·ÃÀÌ ½ÃÀÛµÇ¾ú½À´Ï´Ù."));
+				chA->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Ò‘Ğ»Â·Ğ“ĞĞœ Ğ…Ğ“ĞĞ«ÂµĞ—Ñ•ÑŠĞ…ĞÒ‘ĞŸÒ‘Ğ©."));
+				chB->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Ò‘Ğ»Â·Ğ“ĞĞœ Ğ…Ğ“ĞĞ«ÂµĞ—Ñ•ÑŠĞ…ĞÒ‘ĞŸÒ‘Ğ©."));
+				pArena->SendChatPacketToObserver(CHAT_TYPE_INFO, LC_TEXT("Ò‘Ğ»Â·Ğ“ĞĞœ Ğ…Ğ“ĞĞ«ÂµĞ—Ñ•ÑŠĞ…ĞÒ‘ĞŸÒ‘Ğ©."));
 
 				pArena->ClearEvent();
 
@@ -370,9 +370,9 @@ EVENTFUNC(ready_to_start_event)
 
 		default:
 			{
-				chA->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("´ë·ÃÀå ¹®Á¦·Î ÀÎÇÏ¿© ´ë·ÃÀ» Á¾·áÇÕ´Ï´Ù."));
-				chB->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("´ë·ÃÀå ¹®Á¦·Î ÀÎÇÏ¿© ´ë·ÃÀ» Á¾·áÇÕ´Ï´Ù."));
-				pArena->SendChatPacketToObserver(CHAT_TYPE_INFO, LC_TEXT("´ë·ÃÀå ¹®Á¦·Î ÀÎÇÏ¿© ´ë·ÃÀ» Á¾·áÇÕ´Ï´Ù."));
+				chA->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Ò‘Ğ»Â·Ğ“ĞĞµ â„–Â®Ğ‘Â¦Â·Ğ ĞĞĞ—ĞŸÑ—Â© Ò‘Ğ»Â·Ğ“ĞÂ» Ğ‘Ñ•Â·Ğ±Ğ—Ğ¥Ò‘ĞŸÒ‘Ğ©."));
+				chB->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Ò‘Ğ»Â·Ğ“ĞĞµ â„–Â®Ğ‘Â¦Â·Ğ ĞĞĞ—ĞŸÑ—Â© Ò‘Ğ»Â·Ğ“ĞÂ» Ğ‘Ñ•Â·Ğ±Ğ—Ğ¥Ò‘ĞŸÒ‘Ğ©."));
+				pArena->SendChatPacketToObserver(CHAT_TYPE_INFO, LC_TEXT("Ò‘Ğ»Â·Ğ“ĞĞµ â„–Â®Ğ‘Â¦Â·Ğ ĞĞĞ—ĞŸÑ—Â© Ò‘Ğ»Â·Ğ“ĞÂ» Ğ‘Ñ•Â·Ğ±Ğ—Ğ¥Ò‘ĞŸÒ‘Ğ©."));
 
 				sys_log(0, "ARENA: Something wrong in event func. info->state(%d)", info->state);
 
@@ -411,17 +411,17 @@ EVENTFUNC(duel_time_out)
 	{
 		if (chA != NULL)
 		{
-			chA->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("´ë·Ã »ó´ë°¡ »ç¶óÁ® ´ë·ÃÀ» Á¾·áÇÕ´Ï´Ù."));
+			chA->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Ò‘Ğ»Â·Ğ“ Â»ÑƒÒ‘Ğ»Â°Ğ Â»Ğ·Â¶ÑƒĞ‘Â® Ò‘Ğ»Â·Ğ“ĞÂ» Ğ‘Ñ•Â·Ğ±Ğ—Ğ¥Ò‘ĞŸÒ‘Ğ©."));
 			sys_log(0, "ARENA: Oppernent is disappered. MyPID(%d) OppPID(%d)", pArena->GetPlayerAPID(), pArena->GetPlayerBPID());
 		}
 
 		if (chB != NULL)
 		{
-			chB->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("´ë·Ã »ó´ë°¡ »ç¶óÁ® ´ë·ÃÀ» Á¾·áÇÕ´Ï´Ù."));
+			chB->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Ò‘Ğ»Â·Ğ“ Â»ÑƒÒ‘Ğ»Â°Ğ Â»Ğ·Â¶ÑƒĞ‘Â® Ò‘Ğ»Â·Ğ“ĞÂ» Ğ‘Ñ•Â·Ğ±Ğ—Ğ¥Ò‘ĞŸÒ‘Ğ©."));
 			sys_log(0, "ARENA: Oppernent is disappered. MyPID(%d) OppPID(%d)", pArena->GetPlayerBPID(), pArena->GetPlayerAPID());
 		}
 
-		pArena->SendChatPacketToObserver(CHAT_TYPE_INFO, LC_TEXT("´ë·Ã »ó´ë°¡ »ç¶óÁ® ´ë·ÃÀ» Á¾·áÇÕ´Ï´Ù."));
+		pArena->SendChatPacketToObserver(CHAT_TYPE_INFO, LC_TEXT("Ò‘Ğ»Â·Ğ“ Â»ÑƒÒ‘Ğ»Â°Ğ Â»Ğ·Â¶ÑƒĞ‘Â® Ò‘Ğ»Â·Ğ“ĞÂ» Ğ‘Ñ•Â·Ğ±Ğ—Ğ¥Ò‘ĞŸÒ‘Ğ©."));
 
 		pArena->EndDuel();
 		return 0;
@@ -431,14 +431,14 @@ EVENTFUNC(duel_time_out)
 		switch (info->state)
 		{
 			case 0:
-				pArena->SendChatPacketToObserver(CHAT_TYPE_NOTICE, LC_TEXT("´ë·Ã ½Ã°£ ÃÊ°ú·Î ´ë·ÃÀ» Áß´ÜÇÕ´Ï´Ù."));
-				pArena->SendChatPacketToObserver(CHAT_TYPE_NOTICE, LC_TEXT("10ÃÊµÚ ¸¶À»·Î ÀÌµ¿ÇÕ´Ï´Ù."));
+				pArena->SendChatPacketToObserver(CHAT_TYPE_NOTICE, LC_TEXT("Ò‘Ğ»Â·Ğ“ Ğ…Ğ“Â°Ğˆ Ğ“ĞšÂ°ÑŠÂ·Ğ Ò‘Ğ»Â·Ğ“ĞÂ» Ğ‘Ğ¯Ò‘Ğ¬Ğ—Ğ¥Ò‘ĞŸÒ‘Ğ©."));
+				pArena->SendChatPacketToObserver(CHAT_TYPE_NOTICE, LC_TEXT("10Ğ“ĞšÂµĞª Ñ‘Â¶ĞÂ»Â·Ğ ĞĞœÂµÑ—Ğ—Ğ¥Ò‘ĞŸÒ‘Ğ©."));
 
-				chA->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("´ë·Ã ½Ã°£ ÃÊ°ú·Î ´ë·ÃÀ» Áß´ÜÇÕ´Ï´Ù."));
-				chA->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("10ÃÊµÚ ¸¶À»·Î ÀÌµ¿ÇÕ´Ï´Ù."));
+				chA->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("Ò‘Ğ»Â·Ğ“ Ğ…Ğ“Â°Ğˆ Ğ“ĞšÂ°ÑŠÂ·Ğ Ò‘Ğ»Â·Ğ“ĞÂ» Ğ‘Ğ¯Ò‘Ğ¬Ğ—Ğ¥Ò‘ĞŸÒ‘Ğ©."));
+				chA->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("10Ğ“ĞšÂµĞª Ñ‘Â¶ĞÂ»Â·Ğ ĞĞœÂµÑ—Ğ—Ğ¥Ò‘ĞŸÒ‘Ğ©."));
 
-				chB->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("´ë·Ã ½Ã°£ ÃÊ°ú·Î ´ë·ÃÀ» Áß´ÜÇÕ´Ï´Ù."));
-				chB->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("10ÃÊµÚ ¸¶À»·Î ÀÌµ¿ÇÕ´Ï´Ù."));
+				chB->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("Ò‘Ğ»Â·Ğ“ Ğ…Ğ“Â°Ğˆ Ğ“ĞšÂ°ÑŠÂ·Ğ Ò‘Ğ»Â·Ğ“ĞÂ» Ğ‘Ğ¯Ò‘Ğ¬Ğ—Ğ¥Ò‘ĞŸÒ‘Ğ©."));
+				chB->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("10Ğ“ĞšÂµĞª Ñ‘Â¶ĞÂ»Â·Ğ ĞĞœÂµÑ—Ğ—Ğ¥Ò‘ĞŸÒ‘Ğ©."));
 
 				TPacketGCDuelStart duelStart;
 				duelStart.header = HEADER_GC_DUEL_START;
@@ -682,7 +682,7 @@ bool CArenaMap::CanAttack(LPCHARACTER pCharAttacker, LPCHARACTER pCharVictim)
 
 bool CArena::CanAttack(DWORD dwPIDA, DWORD dwPIDB)
 {
-	// 1:1 Àü¿ë ´Ù´ë´Ù ÇÒ °æ¿ì ¼öÁ¤ ÇÊ¿ä
+	// 1:1 ĞÑŒÑ—Ğ» Ò‘Ğ©Ò‘Ğ»Ò‘Ğ© Ğ—Ğ¢ Â°Ğ¶Ñ—Ğ¼ Ñ˜Ñ†Ğ‘Â¤ Ğ—ĞšÑ—Ğ´
 	if (m_dwPIDA == dwPIDA && m_dwPIDB == dwPIDB) return true;
 	if (m_dwPIDA == dwPIDB && m_dwPIDB == dwPIDA) return true;
 
@@ -732,20 +732,20 @@ bool CArena::OnDead(DWORD dwPIDA, DWORD dwPIDB)
 
 	if (pCharA == NULL && pCharB == NULL)
 	{
-		// µÑ´Ù Á¢¼ÓÀÌ ²÷¾îÁ³´Ù ?!
-		SendChatPacketToObserver(CHAT_TYPE_NOTICE, LC_TEXT("´ë·ÃÀÚ ¹®Á¦·Î ÀÎÇÏ¿© ´ë·ÃÀ» Áß´ÜÇÕ´Ï´Ù."));
+		// ÂµĞ¡Ò‘Ğ© Ğ‘ÑÑ˜Ğ£ĞĞœ Ğ†Ñ‡Ñ•Ğ¾Ğ‘Ñ–Ò‘Ğ© ?!
+		SendChatPacketToObserver(CHAT_TYPE_NOTICE, LC_TEXT("Ò‘Ğ»Â·Ğ“ĞĞª â„–Â®Ğ‘Â¦Â·Ğ ĞĞĞ—ĞŸÑ—Â© Ò‘Ğ»Â·Ğ“ĞÂ» Ğ‘Ğ¯Ò‘Ğ¬Ğ—Ğ¥Ò‘ĞŸÒ‘Ğ©."));
 		restart = false;
 	}
 	else if (pCharA == NULL && pCharB != NULL)
 	{
-		pCharB->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("»ó´ë¹æ Ä³¸¯ÅÍÀÇ ¹®Á¦·Î ÀÎÇÏ¿© ´ë·ÃÀ» Á¾·áÇÕ´Ï´Ù."));
-		SendChatPacketToObserver(CHAT_TYPE_NOTICE, LC_TEXT("´ë·ÃÀÚ ¹®Á¦·Î ÀÎÇÏ¿© ´ë·ÃÀ» Á¾·áÇÕ´Ï´Ù."));
+		pCharB->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("Â»ÑƒÒ‘Ğ»â„–Ğ¶ Ğ”Ñ–Ñ‘Ğ‡Ğ•ĞĞĞ— â„–Â®Ğ‘Â¦Â·Ğ ĞĞĞ—ĞŸÑ—Â© Ò‘Ğ»Â·Ğ“ĞÂ» Ğ‘Ñ•Â·Ğ±Ğ—Ğ¥Ò‘ĞŸÒ‘Ğ©."));
+		SendChatPacketToObserver(CHAT_TYPE_NOTICE, LC_TEXT("Ò‘Ğ»Â·Ğ“ĞĞª â„–Â®Ğ‘Â¦Â·Ğ ĞĞĞ—ĞŸÑ—Â© Ò‘Ğ»Â·Ğ“ĞÂ» Ğ‘Ñ•Â·Ğ±Ğ—Ğ¥Ò‘ĞŸÒ‘Ğ©."));
 		restart = false;
 	}
 	else if (pCharA != NULL && pCharB == NULL)
 	{
-		pCharA->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("»ó´ë¹æ Ä³¸¯ÅÍÀÇ ¹®Á¦·Î ÀÎÇÏ¿© ´ë·ÃÀ» Á¾·áÇÕ´Ï´Ù."));
-		SendChatPacketToObserver(CHAT_TYPE_NOTICE, LC_TEXT("´ë·ÃÀÚ ¹®Á¦·Î ÀÎÇÏ¿© ´ë·ÃÀ» Á¾·áÇÕ´Ï´Ù."));
+		pCharA->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("Â»ÑƒÒ‘Ğ»â„–Ğ¶ Ğ”Ñ–Ñ‘Ğ‡Ğ•ĞĞĞ— â„–Â®Ğ‘Â¦Â·Ğ ĞĞĞ—ĞŸÑ—Â© Ò‘Ğ»Â·Ğ“ĞÂ» Ğ‘Ñ•Â·Ğ±Ğ—Ğ¥Ò‘ĞŸÒ‘Ğ©."));
+		SendChatPacketToObserver(CHAT_TYPE_NOTICE, LC_TEXT("Ò‘Ğ»Â·Ğ“ĞĞª â„–Â®Ğ‘Â¦Â·Ğ ĞĞĞ—ĞŸÑ—Â© Ò‘Ğ»Â·Ğ“ĞÂ» Ğ‘Ñ•Â·Ğ±Ğ—Ğ¥Ò‘ĞŸÒ‘Ğ©."));
 		restart = false;
 	}
 	else if (pCharA != NULL && pCharB != NULL)
@@ -756,9 +756,9 @@ bool CArena::OnDead(DWORD dwPIDA, DWORD dwPIDB)
 
 			if (m_dwSetPointOfA >= m_dwSetCount)
 			{
-				pCharA->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("%s ´ÔÀÌ ´ë·Ã¿¡¼­ ½Â¸®ÇÏ¿´½À´Ï´Ù."), pCharA->GetName());
-				pCharB->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("%s ´ÔÀÌ ´ë·Ã¿¡¼­ ½Â¸®ÇÏ¿´½À´Ï´Ù."), pCharA->GetName());
-				SendChatPacketToObserver(CHAT_TYPE_NOTICE, LC_TEXT("%s ´ÔÀÌ ´ë·Ã¿¡¼­ ½Â¸®ÇÏ¿´½À´Ï´Ù."), pCharA->GetName());
+				pCharA->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("%s Ò‘Ğ¤ĞĞœ Ò‘Ğ»Â·Ğ“Ñ—ĞÑ˜Â­ Ğ…Ğ’Ñ‘Â®Ğ—ĞŸÑ—Ò‘Ğ…ĞÒ‘ĞŸÒ‘Ğ©."), pCharA->GetName());
+				pCharB->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("%s Ò‘Ğ¤ĞĞœ Ò‘Ğ»Â·Ğ“Ñ—ĞÑ˜Â­ Ğ…Ğ’Ñ‘Â®Ğ—ĞŸÑ—Ò‘Ğ…ĞÒ‘ĞŸÒ‘Ğ©."), pCharA->GetName());
+				SendChatPacketToObserver(CHAT_TYPE_NOTICE, LC_TEXT("%s Ò‘Ğ¤ĞĞœ Ò‘Ğ»Â·Ğ“Ñ—ĞÑ˜Â­ Ğ…Ğ’Ñ‘Â®Ğ—ĞŸÑ—Ò‘Ğ…ĞÒ‘ĞŸÒ‘Ğ©."), pCharA->GetName());
 
 				sys_log(0, "ARENA: Duel is end. Winner %s(%d) Loser %s(%d)",
 						pCharA->GetName(), GetPlayerAPID(), pCharB->GetName(), GetPlayerBPID());
@@ -766,10 +766,10 @@ bool CArena::OnDead(DWORD dwPIDA, DWORD dwPIDB)
 			else
 			{
 				restart = true;
-				pCharA->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("%s ´ÔÀÌ ½Â¸®ÇÏ¿´½À´Ï´Ù."), pCharA->GetName());
+				pCharA->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("%s Ò‘Ğ¤ĞĞœ Ğ…Ğ’Ñ‘Â®Ğ—ĞŸÑ—Ò‘Ğ…ĞÒ‘ĞŸÒ‘Ğ©."), pCharA->GetName());
 				pCharA->ChatPacket(CHAT_TYPE_NOTICE, "%s %d : %d %s", pCharA->GetName(), m_dwSetPointOfA, m_dwSetPointOfB, pCharB->GetName());
 
-				pCharB->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("%s ´ÔÀÌ ½Â¸®ÇÏ¿´½À´Ï´Ù."), pCharA->GetName());
+				pCharB->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("%s Ò‘Ğ¤ĞĞœ Ğ…Ğ’Ñ‘Â®Ğ—ĞŸÑ—Ò‘Ğ…ĞÒ‘ĞŸÒ‘Ğ©."), pCharA->GetName());
 				pCharB->ChatPacket(CHAT_TYPE_NOTICE, "%s %d : %d %s", pCharA->GetName(), m_dwSetPointOfA, m_dwSetPointOfB, pCharB->GetName());
 
 				SendChatPacketToObserver(CHAT_TYPE_NOTICE, "%s %d : %d %s", pCharA->GetName(), m_dwSetPointOfA, m_dwSetPointOfB, pCharB->GetName());
@@ -783,19 +783,19 @@ bool CArena::OnDead(DWORD dwPIDA, DWORD dwPIDB)
 			m_dwSetPointOfB++;
 			if (m_dwSetPointOfB >= m_dwSetCount)
 			{
-				pCharA->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("%s ´ÔÀÌ ´ë·Ã¿¡¼­ ½Â¸®ÇÏ¿´½À´Ï´Ù."), pCharB->GetName());
-				pCharB->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("%s ´ÔÀÌ ´ë·Ã¿¡¼­ ½Â¸®ÇÏ¿´½À´Ï´Ù."), pCharB->GetName());
-				SendChatPacketToObserver(CHAT_TYPE_NOTICE, LC_TEXT("%s ´ÔÀÌ ´ë·Ã¿¡¼­ ½Â¸®ÇÏ¿´½À´Ï´Ù."), pCharB->GetName());
+				pCharA->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("%s Ò‘Ğ¤ĞĞœ Ò‘Ğ»Â·Ğ“Ñ—ĞÑ˜Â­ Ğ…Ğ’Ñ‘Â®Ğ—ĞŸÑ—Ò‘Ğ…ĞÒ‘ĞŸÒ‘Ğ©."), pCharB->GetName());
+				pCharB->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("%s Ò‘Ğ¤ĞĞœ Ò‘Ğ»Â·Ğ“Ñ—ĞÑ˜Â­ Ğ…Ğ’Ñ‘Â®Ğ—ĞŸÑ—Ò‘Ğ…ĞÒ‘ĞŸÒ‘Ğ©."), pCharB->GetName());
+				SendChatPacketToObserver(CHAT_TYPE_NOTICE, LC_TEXT("%s Ò‘Ğ¤ĞĞœ Ò‘Ğ»Â·Ğ“Ñ—ĞÑ˜Â­ Ğ…Ğ’Ñ‘Â®Ğ—ĞŸÑ—Ò‘Ğ…ĞÒ‘ĞŸÒ‘Ğ©."), pCharB->GetName());
 
 				sys_log(0, "ARENA: Duel is end. Winner(%d) Loser(%d)", GetPlayerBPID(), GetPlayerAPID());
 			}
 			else
 			{
 				restart = true;
-				pCharA->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("%s ´ÔÀÌ ½Â¸®ÇÏ¿´½À´Ï´Ù."), pCharB->GetName());
+				pCharA->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("%s Ò‘Ğ¤ĞĞœ Ğ…Ğ’Ñ‘Â®Ğ—ĞŸÑ—Ò‘Ğ…ĞÒ‘ĞŸÒ‘Ğ©."), pCharB->GetName());
 				pCharA->ChatPacket(CHAT_TYPE_NOTICE, "%s %d : %d %s", pCharA->GetName(), m_dwSetPointOfA, m_dwSetPointOfB, pCharB->GetName());
 
-				pCharB->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("%s ´ÔÀÌ ½Â¸®ÇÏ¿´½À´Ï´Ù."), pCharB->GetName());
+				pCharB->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("%s Ò‘Ğ¤ĞĞœ Ğ…Ğ’Ñ‘Â®Ğ—ĞŸÑ—Ò‘Ğ…ĞÒ‘ĞŸÒ‘Ğ©."), pCharB->GetName());
 				pCharB->ChatPacket(CHAT_TYPE_NOTICE, "%s %d : %d %s", pCharA->GetName(), m_dwSetPointOfA, m_dwSetPointOfB, pCharB->GetName());
 
 				SendChatPacketToObserver(CHAT_TYPE_NOTICE, "%s %d : %d %s", pCharA->GetName(), m_dwSetPointOfA, m_dwSetPointOfB, pCharB->GetName());
@@ -815,18 +815,18 @@ bool CArena::OnDead(DWORD dwPIDA, DWORD dwPIDB)
 	}
 	else
 	{
-		// ¿À¸é ¾ÈµÈ´Ù ?!
+		// Ñ—ĞÑ‘Ğ¹ Ñ•Ğ˜ÂµĞ˜Ò‘Ğ© ?!
 	}
 
 	if (restart == false)
 	{
 		if (pCharA != NULL)
-			pCharA->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("10ÃÊµÚ ¸¶À»·Î µÇµ¹¾Æ°©´Ï´Ù."));
+			pCharA->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("10Ğ“ĞšÂµĞª Ñ‘Â¶ĞÂ»Â·Ğ ÂµĞ—Âµâ„–Ñ•Ğ–Â°Â©Ò‘ĞŸÒ‘Ğ©."));
 
 		if (	pCharB != NULL)
-			pCharB->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("10ÃÊµÚ ¸¶À»·Î µÇµ¹¾Æ°©´Ï´Ù."));
+			pCharB->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("10Ğ“ĞšÂµĞª Ñ‘Â¶ĞÂ»Â·Ğ ÂµĞ—Âµâ„–Ñ•Ğ–Â°Â©Ò‘ĞŸÒ‘Ğ©."));
 
-		SendChatPacketToObserver(CHAT_TYPE_INFO, LC_TEXT("10ÃÊµÚ ¸¶À»·Î µÇµ¹¾Æ°©´Ï´Ù."));
+		SendChatPacketToObserver(CHAT_TYPE_INFO, LC_TEXT("10Ğ“ĞšÂµĞª Ñ‘Â¶ĞÂ»Â·Ğ ÂµĞ—Âµâ„–Ñ•Ğ–Â°Â©Ò‘ĞŸÒ‘Ğ©."));
 
 		if (m_pEvent != NULL) {
 			event_cancel(&m_pEvent);
@@ -842,12 +842,12 @@ bool CArena::OnDead(DWORD dwPIDA, DWORD dwPIDB)
 	else
 	{
 		if (pCharA != NULL)
-			pCharA->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("10ÃÊµÚ ´ÙÀ½ ÆÇÀ» ½ÃÀÛÇÕ´Ï´Ù."));
+			pCharA->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("10Ğ“ĞšÂµĞª Ò‘Ğ©ĞĞ… Ğ–Ğ—ĞÂ» Ğ…Ğ“ĞĞ«Ğ—Ğ¥Ò‘ĞŸÒ‘Ğ©."));
 
 		if (pCharB != NULL)
-			pCharB->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("10ÃÊµÚ ´ÙÀ½ ÆÇÀ» ½ÃÀÛÇÕ´Ï´Ù."));
+			pCharB->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("10Ğ“ĞšÂµĞª Ò‘Ğ©ĞĞ… Ğ–Ğ—ĞÂ» Ğ…Ğ“ĞĞ«Ğ—Ğ¥Ò‘ĞŸÒ‘Ğ©."));
 
-		SendChatPacketToObserver(CHAT_TYPE_INFO, LC_TEXT("10ÃÊµÚ ´ÙÀ½ ÆÇÀ» ½ÃÀÛÇÕ´Ï´Ù."));
+		SendChatPacketToObserver(CHAT_TYPE_INFO, LC_TEXT("10Ğ“ĞšÂµĞª Ò‘Ğ©ĞĞ… Ğ–Ğ—ĞÂ» Ğ…Ğ“ĞĞ«Ğ—Ğ¥Ò‘ĞŸÒ‘Ğ©."));
 
 		if (m_pEvent != NULL) {
 			event_cancel(&m_pEvent);
@@ -953,7 +953,7 @@ void CArena::OnDisconnect(DWORD pid)
 	if (m_dwPIDA == pid)
 	{
 		if (GetPlayerB() != NULL)
-			GetPlayerB()->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("»ó´ë¹æ Ä³¸¯ÅÍ°¡ Á¢¼ÓÀ» Á¾·áÇÏ¿© ´ë·ÃÀ» ÁßÁöÇÕ´Ï´Ù."));
+			GetPlayerB()->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Â»ÑƒÒ‘Ğ»â„–Ğ¶ Ğ”Ñ–Ñ‘Ğ‡Ğ•ĞÂ°Ğ Ğ‘ÑÑ˜Ğ£ĞÂ» Ğ‘Ñ•Â·Ğ±Ğ—ĞŸÑ—Â© Ò‘Ğ»Â·Ğ“ĞÂ» Ğ‘Ğ¯Ğ‘Ñ†Ğ—Ğ¥Ò‘ĞŸÒ‘Ğ©."));
 
 		sys_log(0, "ARENA : Duel is end because of Opp(%d) is disconnect. MyPID(%d)", GetPlayerAPID(), GetPlayerBPID());
 		EndDuel();
@@ -961,7 +961,7 @@ void CArena::OnDisconnect(DWORD pid)
 	else if (m_dwPIDB == pid)
 	{
 		if (GetPlayerA() != NULL)
-			GetPlayerA()->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("»ó´ë¹æ Ä³¸¯ÅÍ°¡ Á¢¼ÓÀ» Á¾·áÇÏ¿© ´ë·ÃÀ» ÁßÁöÇÕ´Ï´Ù."));
+			GetPlayerA()->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Â»ÑƒÒ‘Ğ»â„–Ğ¶ Ğ”Ñ–Ñ‘Ğ‡Ğ•ĞÂ°Ğ Ğ‘ÑÑ˜Ğ£ĞÂ» Ğ‘Ñ•Â·Ğ±Ğ—ĞŸÑ—Â© Ò‘Ğ»Â·Ğ“ĞÂ» Ğ‘Ğ¯Ğ‘Ñ†Ğ—Ğ¥Ò‘ĞŸÒ‘Ğ©."));
 
 		sys_log(0, "ARENA : Duel is end because of Opp(%d) is disconnect. MyPID(%d)", GetPlayerBPID(), GetPlayerAPID());
 		EndDuel();

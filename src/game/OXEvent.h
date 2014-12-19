@@ -10,10 +10,10 @@ struct tag_Quiz
 
 enum OXEventStatus
 {
-	OXEVENT_FINISH = 0, // OX�̺�Ʈ�� ������ ���� ����
-	OXEVENT_OPEN = 1,	// OX�̺�Ʈ�� ���۵�. ������(20012)�� ���ؼ� ���尡��
-	OXEVENT_CLOSE = 2,	// OX�̺�Ʈ�� ������ ����. ������(20012)�� ���� ������ ���ܵ�
-	OXEVENT_QUIZ = 3,	// ��� ������.
+	OXEVENT_FINISH = 0, // OXАМєҐЖ®°Ў їПАьИч іЎі­ »уЕВ
+	OXEVENT_OPEN = 1,	// OXАМєҐЖ®°Ў ЅГАЫµК. А»µОБц(20012)ё¦ ЕлЗШј­ АФАе°ЎґЙ
+	OXEVENT_CLOSE = 2,	// OXАМєҐЖ®АЗ Вь°Ў°Ў іЎіІ. А»µОБц(20012)ё¦ ЕлЗС АФАеАМ ВчґЬµК
+	OXEVENT_QUIZ = 3,	// ДыБоё¦ ГвБ¦ЗФ.
 
 	OXEVENT_ERR = 0xff
 };
