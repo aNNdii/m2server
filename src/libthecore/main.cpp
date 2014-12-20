@@ -1,8 +1,8 @@
 /*
  *    Filename: main.c
- * Description: ���̺귯�� �ʱ�ȭ/���� ��
+ * Description: ¶уАМєк·Їё® ГК±вИ­/»иБ¦ µо
  *
- *      Author: �� aka. Cronan
+ *      Author: єсї± aka. Cronan
  */
 #define __LIBTHECORE__
 #include "stdafx.h"

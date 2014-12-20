@@ -105,13 +105,13 @@ void CPrivManager::GiveGuildPriv(DWORD guild_id, BYTE type, int value, BYTE bLog
 		if (value)
 		{
 			char buf[100];
-			snprintf(buf, sizeof(buf), LC_TEXT("%s ±æµåÀÇ %sÀÌ %d%% Áõ°¡Çß½À´Ï´Ù!"), g->GetName(), GetPrivName(type), value);
+			snprintf(buf, sizeof(buf), LC_TEXT("%s Â±Ð¶ÂµÐµÐÐ— %sÐÐœ %d%% Ð‘Ñ…Â°ÐŽÐ—Ð¯Ð…ÐÒ‘ÐŸÒ‘Ð©!"), g->GetName(), GetPrivName(type), value);
 			SendNotice(buf);
 		}
 		else
 		{
 			char buf[100];
-			snprintf(buf, sizeof(buf), LC_TEXT("%s ±æµåÀÇ %sÀÌ Á¤»óÀ¸·Î µ¹¾Æ¿Ô½À´Ï´Ù."), g->GetName(), GetPrivName(type));
+			snprintf(buf, sizeof(buf), LC_TEXT("%s Â±Ð¶ÂµÐµÐÐ— %sÐÐœ Ð‘Â¤Â»ÑƒÐÑ‘Â·Ðž Âµâ„–Ñ•Ð–Ñ—Ð¤Ð…ÐÒ‘ÐŸÒ‘Ð©."), g->GetName(), GetPrivName(type));
 			SendNotice(buf);
 		}
 
@@ -160,7 +160,7 @@ void CPrivManager::GiveEmpirePriv(BYTE empire, BYTE type, int value, BYTE bLog, 
 	if (value)
 	{
 		char buf[100];
-		snprintf(buf, sizeof(buf), LC_TEXT("%sÀÇ %sÀÌ %d%% Áõ°¡Çß½À´Ï´Ù!"), GetEmpireName(empire), GetPrivName(type), value);
+		snprintf(buf, sizeof(buf), LC_TEXT("%sÐÐ— %sÐÐœ %d%% Ð‘Ñ…Â°ÐŽÐ—Ð¯Ð…ÐÒ‘ÐŸÒ‘Ð©!"), GetEmpireName(empire), GetPrivName(type), value);
 
 		if (empire)
 			SendNotice(buf);
@@ -170,7 +170,7 @@ void CPrivManager::GiveEmpirePriv(BYTE empire, BYTE type, int value, BYTE bLog, 
 	else
 	{
 		char buf[100];
-		snprintf(buf, sizeof(buf), LC_TEXT("%sÀÇ %sÀÌ Á¤»óÀ¸·Î µ¹¾Æ¿Ô½À´Ï´Ù."), GetEmpireName(empire), GetPrivName(type));
+		snprintf(buf, sizeof(buf), LC_TEXT("%sÐÐ— %sÐÐœ Ð‘Â¤Â»ÑƒÐÑ‘Â·Ðž Âµâ„–Ñ•Ð–Ñ—Ð¤Ð…ÐÒ‘ÐŸÒ‘Ð©."), GetEmpireName(empire), GetPrivName(type));
 
 		if (empire)
 			SendNotice(buf);
@@ -225,7 +225,7 @@ void CPrivManager::RemoveCharacterPriv(DWORD pid, BYTE type)
 
 int CPrivManager::GetPriv(LPCHARACTER ch, BYTE type)
 {
-	// Ä³¸¯ÅÍÀÇ º¯°æ ¼öÄ¡°¡ -¶ó¸é ¹«Á¶°Ç -¸¸ Àû¿ëµÇ°Ô
+	// Ð”Ñ–Ñ‘Ð‡Ð•ÐÐÐ— Ñ”Ð‡Â°Ð¶ Ñ˜Ñ†Ð”ÐŽÂ°ÐŽ -Â¶ÑƒÑ‘Ð¹ â„–Â«Ð‘Â¶Â°Ð— -Ñ‘Ñ‘ ÐÑ‹Ñ—Ð»ÂµÐ—Â°Ð¤
 	int val_ch = GetPrivByCharacter(ch->GetPlayerID(), type);
 
 	if (val_ch < 0 && !ch->IsEquipUniqueItem(UNIQUE_ITEM_NO_BAD_LUCK_EFFECT))
@@ -234,7 +234,7 @@ int CPrivManager::GetPriv(LPCHARACTER ch, BYTE type)
 	{
 		int val;
 
-		// °³ÀÎ, Á¦±¹, ±æµå, ÀüÃ¼ Áß Å« °ªÀ» ÃëÇÑ´Ù.
+		// Â°Ñ–ÐÐž, Ð‘Â¦Â±â„–, Â±Ð¶ÂµÐµ, ÐÑŒÐ“Ñ˜ Ð‘Ð¯ Ð•Â« Â°Ð„ÐÂ» Ð“Ð»Ð—Ð¡Ò‘Ð©.
 		val = MAX(val_ch, GetPrivByEmpire(0, type));
 		val = MAX(val, GetPrivByEmpire(ch->GetEmpire(), type));
 

@@ -17,8 +17,8 @@ EVENTINFO(TargetInfo)
 	DWORD       dwPID;
 	DWORD       dwQuestIndex;
 
-	char        szTargetName[32+1]; // Äù½ºÆ®¿¡¼­ »ç¿ëÇÏ´Â ÀÌ¸§
-	char        szTargetDesc[32+1]; // ½ÇÁ¦ Å¬¶óÀÌ¾ğÆ®¿¡ Àü¼ÛµÇ´Â ÀÌ¸§
+	char        szTargetName[32+1]; // Ğ”Ñ‰Ğ…Ñ”Ğ–Â®Ñ—ĞÑ˜Â­ Â»Ğ·Ñ—Ğ»Ğ—ĞŸÒ‘Ğ’ ĞĞœÑ‘Â§
+	char        szTargetDesc[32+1]; // Ğ…Ğ—Ğ‘Â¦ Ğ•Â¬Â¶ÑƒĞĞœÑ•Ñ€Ğ–Â®Ñ—Ğ ĞÑŒÑ˜Ğ«ÂµĞ—Ò‘Ğ’ ĞĞœÑ‘Â§
 
 	int         iType;
 	int         iArg1;

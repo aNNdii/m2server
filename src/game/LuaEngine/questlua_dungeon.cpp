@@ -1000,7 +1000,7 @@ namespace quest
 		return 0;
 	}
 
-	int dungeon_exit(lua_State* L) // ´øÀü¿¡ µé¾î¿À±â Àü À§Ä¡·Î º¸³¿
+	int dungeon_exit(lua_State* L) // Ò‘ÑˆĞÑŒÑ—Ğ ÂµĞ¹Ñ•Ğ¾Ñ—ĞÂ±Ğ² ĞÑŒ ĞÂ§Ğ”ĞÂ·Ğ Ñ”Ñ‘Ñ–Ñ—
 	{
 		LPCHARACTER ch = CQuestManager::instance().GetCurrentCharacterPtr();
 
@@ -1008,7 +1008,7 @@ namespace quest
 		return 0;
 	}
 
-	int dungeon_exit_all(lua_State* L) // ´øÀü¿¡ ÀÖ´Â ¸ğµç »ç¶÷À» ´øÀü¿¡ µé¾î¿À±â Àü À§Ä¡·Î º¸³¿
+	int dungeon_exit_all(lua_State* L) // Ò‘ÑˆĞÑŒÑ—Ğ ĞĞ¦Ò‘Ğ’ Ñ‘Ñ€ÂµĞ· Â»Ğ·Â¶Ñ‡ĞÂ» Ò‘ÑˆĞÑŒÑ—Ğ ÂµĞ¹Ñ•Ğ¾Ñ—ĞÂ±Ğ² ĞÑŒ ĞÂ§Ğ”ĞÂ·Ğ Ñ”Ñ‘Ñ–Ñ—
 	{
 		CQuestManager& q = CQuestManager::instance();
 		LPDUNGEON pDungeon = q.GetCurrentDungeon();
@@ -1136,7 +1136,7 @@ namespace quest
 		}
 	};
 	
-	int dungeon_exit_all_by_item_group (lua_State* L) // Æ¯Á¤ ¾ÆÀÌÅÛ ±×·ì¿¡ ¼ÓÇÑ ¾ÆÀÌÅÛÀÌ ¾ø´Â»ç¶÷Àº °­Åğ
+	int dungeon_exit_all_by_item_group (lua_State* L) // Ğ–Ğ‡Ğ‘Â¤ Ñ•Ğ–ĞĞœĞ•Ğ« Â±Ğ§Â·Ğ¼Ñ—Ğ Ñ˜Ğ£Ğ—Ğ¡ Ñ•Ğ–ĞĞœĞ•Ğ«ĞĞœ Ñ•ÑˆÒ‘Ğ’Â»Ğ·Â¶Ñ‡ĞÑ” Â°Â­Ğ•Ñ€
 	{
 		if (!lua_isstring(L, 1))
 		{
@@ -1201,7 +1201,7 @@ namespace quest
 		}
 	};
 	
-	int dungeon_delete_item_in_item_group_from_all(lua_State* L) // Æ¯Á¤ ¾ÆÀÌÅÛÀ» ´øÀü ³» pc¿¡°Ô¼­ »èÁ¦.
+	int dungeon_delete_item_in_item_group_from_all(lua_State* L) // Ğ–Ğ‡Ğ‘Â¤ Ñ•Ğ–ĞĞœĞ•Ğ«ĞÂ» Ò‘ÑˆĞÑŒ Ñ–Â» pcÑ—ĞÂ°Ğ¤Ñ˜Â­ Â»Ğ¸Ğ‘Â¦.
 	{
 		if (!lua_isstring(L, 1))
 		{

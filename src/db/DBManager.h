@@ -2,9 +2,9 @@
 #ifndef __INC_METIN2_DB_DBMANAGER_H__
 #define __INC_METIN2_DB_DBMANAGER_H__
 
-// ��� Ŀ�ؼ� Ŭ������ ������...  ��� �����ؼ� ���������� ��� �޾ƿ���
-// ��� �ϵ��� ó���Ѵ�.
-//                             �ڵ� by ���� �ķα׷��� �Ƴ��~ = _=)b
+// µрєс ДїіШјЗ Е¬·ЎЅєАЗ ёсАыАє...  µрєсїЎ БўјУЗШј­ Дхё®єёі»°н °б°ъ №ЮѕЖїАґВ
+// ёрµз АПµйА» Гіё®ЗСґЩ.
+//                             ДЪµе by ІїєШ ИД·О±Ч·ЎёУ ѕЖілѕЖ~ = _=)b
 #include <mysql/mysql.h>
 
 #include "libsql/AsyncSQL.h"

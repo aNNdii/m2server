@@ -114,7 +114,7 @@ bool CBlockCountry::IsBlockedCountryIp(const char *user_ip)
 	st_addr.s_addr = in_address;
 	if (INADDR_NONE == in_address)
 #endif
-		return true;  // ¾ÆÀÌÇÇ°¡ ±«»óÇÏ´Ï ÀÏ´Ü ºí·°Ã³¸®
+		return true;  // Ñ•Ğ–ĞĞœĞ—Ğ—Â°Ğ Â±Â«Â»ÑƒĞ—ĞŸÒ‘ĞŸ ĞĞŸÒ‘Ğ¬ Ñ”Ğ½Â·Â°Ğ“Ñ–Ñ‘Â®
 
 	DO_ALL_BLOCK_IP(iter)
 	{

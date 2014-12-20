@@ -35,12 +35,12 @@ namespace quest
 			enum 
 			{
 				QUEST_SEND_ISBEGIN		= (1 << 0),
-				QUEST_SEND_TITLE		= (1 << 1),  // 30¿⁄ ±Ó¡ˆ 
-				QUEST_SEND_CLOCK_NAME		= (1 << 2),  // 16¿⁄ ±Ó¡ˆ		
+				QUEST_SEND_TITLE		= (1 << 1),  // 30–ê–™ ¬±–æ–ë—Ü 
+				QUEST_SEND_CLOCK_NAME		= (1 << 2),  // 16–ê–™ ¬±–æ–ë—Ü		
 				QUEST_SEND_CLOCK_VALUE		= (1 << 3),
-				QUEST_SEND_COUNTER_NAME		= (1 << 4),  // 16¿⁄ ±Ó¡ˆ	
+				QUEST_SEND_COUNTER_NAME		= (1 << 4),  // 16–ê–™ ¬±–æ–ë—Ü	
 				QUEST_SEND_COUNTER_VALUE	= (1 << 5),
-				QUEST_SEND_ICON_FILE		= (1 << 6),  // 24¿⁄ ±Ó¡ˆ
+				QUEST_SEND_ICON_FILE		= (1 << 6),  // 24–ê–™ ¬±–æ–ë—Ü
 			};
 
 			typedef map<unsigned int, QuestState>	QuestInfo;
@@ -122,7 +122,7 @@ namespace quest
 			bool		IsLoaded() const	{ return m_bLoaded; }
 			void		SetLoaded()	{ m_bLoaded = true; }
 			void		Build();
-			// DBø° ¿˙¿Â
+			// DB—ó–é –ê—ä–ê–µ
 			void		Save();
 
 			bool		HasReward() { return !m_vRewardData.empty() || m_bIsGivenReward; }
@@ -176,7 +176,7 @@ namespace quest
 			TTimerMap		m_TimerMap;
 
 			int			m_iSendToClient;
-			bool		m_bLoaded; // ∑ŒµÂ¥¬ «—π¯∏∏ «—¥Ÿ.
+			bool		m_bLoaded; // ¬∑–û¬µ–µ“ë–í –ó–°‚Ññ—à—ë—ë –ó–°“ë–©.
 
 			int			m_iLastState;
 

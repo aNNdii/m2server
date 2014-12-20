@@ -22,10 +22,10 @@ enum EMisc
 
 	GUILD_NAME_MAX_LEN		= 12,
 
-	SHOP_HOST_ITEM_MAX_NUM	= 40,	/* ȣ��Ʈ�� �ִ� ������ ���� */
-	SHOP_GUEST_ITEM_MAX_NUM = 18,	/* �Խ�Ʈ�� �ִ� ������ ���� */
+	SHOP_HOST_ITEM_MAX_NUM	= 40,	/* ИЈЅєЖ®АЗ ГЦґл ѕЖАМЕЫ °іјц */
+	SHOP_GUEST_ITEM_MAX_NUM = 18,	/* °ФЅєЖ®АЗ ГЦґл ѕЖАМЕЫ °іјц */
 
-	SHOP_PRICELIST_MAX_NUM	= 40,	///< ���λ��� �������� ����Ʈ���� ������ ���������� �ִ� ����
+	SHOP_PRICELIST_MAX_NUM	= 40,	///< °іАО»уБЎ °Ў°ЭБ¤єё ё®ЅєЖ®їЎј­ АЇБцЗТ °Ў°ЭБ¤єёАЗ ГЦґл °№јц
 
 	CHAT_MAX_LEN			= 512,
 
@@ -78,19 +78,19 @@ enum EMisc
 
 
 /**
-	 **** ������� �Ҵ� �� ������ ���� ���� (DB�� Item Position) ****
+	 **** ЗцАз±оБц ЗТґз µИ ѕЖАМЕЫ їµїЄ Б¤ё® (DB»у Item Position) ****
 	+------------------------------------------------------+ 0
-	| ĳ���� �⺻ �κ��丮 (45ĭ * 2������) 90ĭ           | 
+	| ДіёЇЕН ±вє» АОєҐЕдё® (45Д­ * 2ЖдАМБц) 90Д­           | 
 	+------------------------------------------------------+ 90 = INVENTORY_MAX_NUM(90)
-	| ĳ���� ��� â (�������� ������) 32ĭ                |
+	| ДіёЇЕН Аеєс Гў (ВшїлБЯАО ѕЖАМЕЫ) 32Д­                |
 	+------------------------------------------------------+ 122 = INVENTORY_MAX_NUM(90) + WEAR_MAX_NUM(32)
-	| ��ȥ�� ��� â (�������� ��ȥ��) 12ĭ                | 
+	| їлИҐј® Аеєс Гў (ВшїлБЯАО їлИҐј®) 12Д­                | 
 	+------------------------------------------------------+ 134 = 122 + DS_SLOT_MAX(6) * DRAGON_SOUL_DECK_MAX_NUM(2)
-	| ��ȥ�� ��� â ���� (���� �̻��) 18ĭ               | 
+	| їлИҐј® Аеєс Гў ї№ѕа (ѕЖБч №М»зїл) 18Д­               | 
 	+------------------------------------------------------+ 152 = 134 + DS_SLOT_MAX(6) * DRAGON_SOUL_DECK_RESERVED_MAX_NUM(3)
-	| ��Ʈ �κ��丮 (��Ʈ ����ÿ��� ��Ʈ ������ ���� Ȱ��)|
+	| є§Ж® АОєҐЕдё® (є§Ж® ВшїлЅГїЎёё є§Ж® ·№є§їЎ µы¶у И°јє)|
 	+------------------------------------------------------+ 168 = 152 + BELT_INVENTORY_SLOT_COUNT(16) = INVENTORY_AND_EQUIP_CELL_MAX
-	| �̻��                                               |
+	| №М»зїл                                               |
 	+------------------------------------------------------+ ??
 */
 };
@@ -119,10 +119,10 @@ enum EWearPositions
 	WEAR_COSTUME_BODY,	// 19
 	WEAR_COSTUME_HAIR,	// 20
 	
-	WEAR_RING1,			// 21	: �ű� ��������1 (����)
-	WEAR_RING2,			// 22	: �ű� ��������2 (������)
+	WEAR_RING1,			// 21	: ЅЕ±Ф №ЭБцЅЅ·Ф1 (їЮВК)
+	WEAR_RING2,			// 22	: ЅЕ±Ф №ЭБцЅЅ·Ф2 (їАёҐВК)
 
-	WEAR_BELT,			// 23	: �ű� ��Ʈ����
+	WEAR_BELT,			// 23	: ЅЕ±Ф є§Ж®ЅЅ·Ф
 
 	WEAR_MAX = 32	// 
 };
@@ -133,7 +133,7 @@ enum EDragonSoulDeckType
 	DRAGON_SOUL_DECK_1,
 	DRAGON_SOUL_DECK_MAX_NUM = 2,
 
-	DRAGON_SOUL_DECK_RESERVED_MAX_NUM = 3,	// NOTE: �߿�! ���� ��������� ������, 3������ �з��� ���� �� ��. DS DECK�� �ø� ��� �ݵ�� �� ����ŭ RESERVED���� �����ؾ� ��!
+	DRAGON_SOUL_DECK_RESERVED_MAX_NUM = 3,	// NOTE: БЯїд! ѕЖБч »зїлБЯАМБш ѕКБцёё, 3ЖдАМБц єР·®А» ї№ѕа ЗШ µТ. DS DECKА» ґГё± °жїм №ЭµеЅГ ±Ч јцёёЕ­ RESERVEDїЎј­ Вч°ЁЗШѕЯ ЗФ!
 };
 
 enum ESex
@@ -155,7 +155,7 @@ enum EDirection
 	DIR_MAX_NUM
 };
 
-#define ABILITY_MAX_LEVEL	10  /* ��� �ִ� ���� */
+#define ABILITY_MAX_LEVEL	10  /* ±вјъ ГЦґл ·№є§ */
 
 enum EAbilityDifficulty
 {
@@ -168,9 +168,9 @@ enum EAbilityDifficulty
 
 enum EAbilityCategory
 {
-	CATEGORY_PHYSICAL,	/* ��ü�� �����Ƽ */
-	CATEGORY_MENTAL,	/* ������ �����Ƽ */
-	CATEGORY_ATTRIBUTE,	/* �ɷ� �����Ƽ */
+	CATEGORY_PHYSICAL,	/* ЅЕГјАы ѕоєфё®Жј */
+	CATEGORY_MENTAL,	/* Б¤ЅЕАы ѕоєфё®Жј */
+	CATEGORY_ATTRIBUTE,	/* ґЙ·В ѕоєфё®Жј */
 	CATEGORY_NUM_TYPES
 };
 
@@ -240,13 +240,13 @@ enum EParts
 
 enum EChatType
 {
-	CHAT_TYPE_TALKING,	/* �׳� ä�� */
-	CHAT_TYPE_INFO,	/* ���� (�������� ������, ����ġ�� �����. ��) */
-	CHAT_TYPE_NOTICE,	/* �������� */
-	CHAT_TYPE_PARTY,	/* ��Ƽ�� */
-	CHAT_TYPE_GUILD,	/* ��帻 */
-	CHAT_TYPE_COMMAND,	/* �Ϲ� ���� */
-	CHAT_TYPE_SHOUT,	/* ��ġ�� */
+	CHAT_TYPE_TALKING,	/* ±ЧіЙ Г¤ЖГ */
+	CHAT_TYPE_INFO,	/* Б¤єё (ѕЖАМЕЫА» БэѕъґЩ, °жЗиДЎё¦ ѕтѕъґЩ. µо) */
+	CHAT_TYPE_NOTICE,	/* °шБц»зЗЧ */
+	CHAT_TYPE_PARTY,	/* ЖДЖјё» */
+	CHAT_TYPE_GUILD,	/* ±жµеё» */
+	CHAT_TYPE_COMMAND,	/* АП№Э ён·Й */
+	CHAT_TYPE_SHOUT,	/* їЬДЎ±в */
 	CHAT_TYPE_WHISPER,
 	CHAT_TYPE_BIG_NOTICE,
 	CHAT_TYPE_MONARCH_NOTICE,
@@ -389,38 +389,38 @@ enum EApplyTypes
 	APPLY_ATTBONUS_SURA,	// 61
 	APPLY_ATTBONUS_SHAMAN,	// 62
 	APPLY_ATTBONUS_MONSTER,	// 63
-	APPLY_MALL_ATTBONUS,			// 64 ���ݷ� +x%
-	APPLY_MALL_DEFBONUS,			// 65 ���� +x%
-	APPLY_MALL_EXPBONUS,			// 66 ����ġ +x%
-	APPLY_MALL_ITEMBONUS,			// 67 ������ ����� x/10��
-	APPLY_MALL_GOLDBONUS,			// 68 �� ����� x/10��
-	APPLY_MAX_HP_PCT,				// 69 �ִ� ������ +x%
-	APPLY_MAX_SP_PCT,				// 70 �ִ� ���ŷ� +x%
-	APPLY_SKILL_DAMAGE_BONUS,		// 71 ��ų ������ * (100+x)%
-	APPLY_NORMAL_HIT_DAMAGE_BONUS,	// 72 ��Ÿ ������ * (100+x)%
-	APPLY_SKILL_DEFEND_BONUS,		// 73 ��ų ������ ��� * (100-x)%
-	APPLY_NORMAL_HIT_DEFEND_BONUS,	// 74 ��Ÿ ������ ��� * (100-x)%
-	APPLY_PC_BANG_EXP_BONUS,		// 75 PC�� ������ EXP ���ʽ�
-	APPLY_PC_BANG_DROP_BONUS,		// 76 PC�� ������ ����� ���ʽ�
+	APPLY_MALL_ATTBONUS,			// 64 °ш°Э·В +x%
+	APPLY_MALL_DEFBONUS,			// 65 №жѕо·В +x%
+	APPLY_MALL_EXPBONUS,			// 66 °жЗиДЎ +x%
+	APPLY_MALL_ITEMBONUS,			// 67 ѕЖАМЕЫ µе·УАІ x/10№и
+	APPLY_MALL_GOLDBONUS,			// 68 µ· µе·УАІ x/10№и
+	APPLY_MAX_HP_PCT,				// 69 ГЦґл »эён·В +x%
+	APPLY_MAX_SP_PCT,				// 70 ГЦґл Б¤ЅЕ·В +x%
+	APPLY_SKILL_DAMAGE_BONUS,		// 71 ЅєЕі µҐ№МБц * (100+x)%
+	APPLY_NORMAL_HIT_DAMAGE_BONUS,	// 72 ЖтЕё µҐ№МБц * (100+x)%
+	APPLY_SKILL_DEFEND_BONUS,		// 73 ЅєЕі µҐ№МБц №жѕо * (100-x)%
+	APPLY_NORMAL_HIT_DEFEND_BONUS,	// 74 ЖтЕё µҐ№МБц №жѕо * (100-x)%
+	APPLY_PC_BANG_EXP_BONUS,		// 75 PC№ж ѕЖАМЕЫ EXP єёіКЅє
+	APPLY_PC_BANG_DROP_BONUS,		// 76 PC№ж ѕЖАМЕЫ µе·УАІ єёіКЅє
 
-	APPLY_EXTRACT_HP_PCT,			// 77 ���� HP �Ҹ�
+	APPLY_EXTRACT_HP_PCT,			// 77 »зїлЅГ HP јТёр
 
-	APPLY_RESIST_WARRIOR,			// 78 ���翡�� ����
-	APPLY_RESIST_ASSASSIN,			// 79 �ڰ����� ����
-	APPLY_RESIST_SURA,				// 80 ���󿡰� ����
-	APPLY_RESIST_SHAMAN,			// 81 ���翡�� ����
-	APPLY_ENERGY,					// 82 ���
-	APPLY_DEF_GRADE,				// 83 ����. DEF_GRADE_BONUS�� Ŭ�󿡼� �ι�� �������� �ǵ��� ����(...)�� �ִ�.
-	APPLY_COSTUME_ATTR_BONUS,		// 84 �ڽ�Ƭ �����ۿ� ���� �Ӽ�ġ ���ʽ�
-	APPLY_MAGIC_ATTBONUS_PER,		// 85 ���� ���ݷ� +x%
-	APPLY_MELEE_MAGIC_ATTBONUS_PER,			// 86 ���� + �и� ���ݷ� +x%
+	APPLY_RESIST_WARRIOR,			// 78 №«»зїЎ°Ф АъЗЧ
+	APPLY_RESIST_ASSASSIN,			// 79 АЪ°ґїЎ°Ф АъЗЧ
+	APPLY_RESIST_SURA,				// 80 јц¶уїЎ°Ф АъЗЧ
+	APPLY_RESIST_SHAMAN,			// 81 №«ґзїЎ°Ф АъЗЧ
+	APPLY_ENERGY,					// 82 ±в·В
+	APPLY_DEF_GRADE,				// 83 №жѕо·В. DEF_GRADE_BONUSґВ Е¬¶уїЎј­ µО№и·О єёї©БцґВ АЗµµµИ №ц±Ч(...)°Ў АЦґЩ.
+	APPLY_COSTUME_ATTR_BONUS,		// 84 ДЪЅєЖ¬ ѕЖАМЕЫїЎ єЩАє јУјєДЎ єёіКЅє
+	APPLY_MAGIC_ATTBONUS_PER,		// 85 ё¶№э °ш°Э·В +x%
+	APPLY_MELEE_MAGIC_ATTBONUS_PER,			// 86 ё¶№э + №Рё® °ш°Э·В +x%
 	
-	APPLY_RESIST_ICE,		// 87 �ñ� ����
-	APPLY_RESIST_EARTH,		// 88 ���� ����
-	APPLY_RESIST_DARK,		// 89 ��� ����
+	APPLY_RESIST_ICE,		// 87 іГ±в АъЗЧ
+	APPLY_RESIST_EARTH,		// 88 ґлБц АъЗЧ
+	APPLY_RESIST_DARK,		// 89 ѕоµТ АъЗЧ
 
-	APPLY_ANTI_CRITICAL_PCT,	//90 ũ��Ƽ�� ����
-	APPLY_ANTI_PENETRATE_PCT,	//91 ����Ÿ�� ����
+	APPLY_ANTI_CRITICAL_PCT,	//90 Е©ё®ЖјДГ АъЗЧ
+	APPLY_ANTI_PENETRATE_PCT,	//91 °ьЕлЕё°Э АъЗЧ
 
 
 	MAX_APPLY_NUM,              // 
@@ -572,7 +572,7 @@ enum EGuildWarState
 	GUILD_WAR_OVER,
 	GUILD_WAR_RESERVE,
 
-	GUILD_WAR_DURATION = 30*60, // 1�ð�
+	GUILD_WAR_DURATION = 30*60, // 1ЅГ°Ј
 	GUILD_WAR_WIN_POINT = 1000,
 	GUILD_WAR_LADDER_HALF_PENALTY_TIME = 12*60*60,
 };
@@ -616,13 +616,13 @@ enum EMoneyLogType
 
 enum EPremiumTypes
 {
-	PREMIUM_EXP,		// ����ġ�� 1.2��
-	PREMIUM_ITEM,		// ������ ������� 2��
-	PREMIUM_SAFEBOX,		// â���� 1ĭ���� 3ĭ
-	PREMIUM_AUTOLOOT,		// �� �ڵ� �ݱ�
-	PREMIUM_FISH_MIND,		// ���� ������ ���� Ȯ�� ���
-	PREMIUM_MARRIAGE_FAST,	// �ݽ� ���� ���� �������մϴ�.
-	PREMIUM_GOLD,		// �� ������� 1.5��
+	PREMIUM_EXP,		// °жЗиДЎ°Ў 1.2№и
+	PREMIUM_ITEM,		// ѕЖАМЕЫ µе·УАІАМ 2№и
+	PREMIUM_SAFEBOX,		// Гў°н°Ў 1Д­їЎј­ 3Д­
+	PREMIUM_AUTOLOOT,		// µ· АЪµї БЭ±в
+	PREMIUM_FISH_MIND,		// °н±Ю №°°н±в і¬АП И®·ь »уЅВ
+	PREMIUM_MARRIAGE_FAST,	// ±ЭЅЗ Бх°Ў ѕзА» єьёЈ°ФЗХґПґЩ.
+	PREMIUM_GOLD,		// µ· µе·УАІАМ 1.5№и
 	PREMIUM_MAX_NUM = 9
 };
 
@@ -652,10 +652,10 @@ enum SPECIAL_EFFECT
 	SE_AUTO_HPUP,
 	SE_AUTO_SPUP,
 
-	SE_EQUIP_RAMADAN_RING,		// �󸶴� �ʽ´��� ����(71135) ������ �� ����Ʈ (�ߵ�����Ʈ��, ��������Ʈ �ƴ�)
-	SE_EQUIP_HALLOWEEN_CANDY,		// �ҷ��� ������ ����(-_-;)�� ������ �ߵ��ϴ� ����Ʈ
-	SE_EQUIP_HAPPINESS_RING,		// ũ�������� �ູ�� ����(71143) ������ �� ����Ʈ (�ߵ�����Ʈ��, ��������Ʈ �ƴ�)
-	SE_EQUIP_LOVE_PENDANT,		// �߷�Ÿ�� ����� �Ҵ�Ʈ(71145) ������ �� ����Ʈ (�ߵ�����Ʈ��, ��������Ʈ �ƴ�)
+	SE_EQUIP_RAMADAN_RING,		// ¶уё¶ґЬ ГКЅВґЮАЗ №ЭБц(71135) ВшїлЗТ ¶§ АМЖеЖ® (№ЯµїАМЖеЖ®АУ, БцјУАМЖеЖ® ѕЖґФ)
+	SE_EQUIP_HALLOWEEN_CANDY,		// ЗТ·ОА© »зЕБА» Вшїл(-_-;)ЗС јш°ЈїЎ №ЯµїЗПґВ АМЖеЖ®
+	SE_EQUIP_HAPPINESS_RING,		// Е©ё®Ѕєё¶Ѕє Зає№АЗ №ЭБц(71143) ВшїлЗТ ¶§ АМЖеЖ® (№ЯµїАМЖеЖ®АУ, БцјУАМЖеЖ® ѕЖґФ)
+	SE_EQUIP_LOVE_PENDANT,		// №Я·»ЕёАО »з¶ыАЗ ЖТґшЖ®(71145) ВшїлЗТ ¶§ АМЖеЖ® (№ЯµїАМЖеЖ®АУ, БцјУАМЖеЖ® ѕЖґФ)
 } ;
 
 enum ETeenFlags
@@ -670,10 +670,10 @@ enum ETeenFlags
 
 #include "item_length.h"
 
-// inventory�� position�� ��Ÿ���� ����ü
-// int���� �Ͻ��� ����ȯ�� �ִ� ������,
-// �κ� ���õ� ��� �Լ��� window_type�� ���� �ʰ�, cell �ϳ��� �޾ұ� ������,(�������� �κ��� �ϳ� ���̾ inventory type�̶��� �ʿ������ ������,)
-// �κ� ���� ��� �Լ� ȣ��κ��� �����ϴ� ���� �����ϱ� �����̴�.
+// inventoryАЗ positionА» іЄЕёі»ґВ ±ёБ¶Гј
+// intїНАЗ ѕПЅГАы ЗьєЇИЇАМ АЦґВ АМАЇґВ,
+// АОєҐ °ь·ГµИ ёрµз ЗФјц°Ў window_typeАє №ЮБц ѕК°н, cell ЗПіЄёё №ЮѕТ±в ¶§№®їЎ,(±вБёїЎґВ АОєҐАМ ЗПіЄ »УАМѕој­ inventory typeАМ¶х°Ф ЗКїдѕшѕъ±в ¶§№®їЎ,)
+// АОєҐ °ь·Г ёрµз ЗФјц ИЈГвєОєРА» јцБ¤ЗПґВ °НАМ і­°ЁЗП±в ‹љ№®АМґЩ.
 
 enum EDragonSoulRefineWindowSize
 {
@@ -722,7 +722,7 @@ typedef struct SItemPos
 			return cell < INVENTORY_AND_EQUIP_SLOT_MAX;
 		case DRAGON_SOUL_INVENTORY:
 			return cell < (DRAGON_SOUL_INVENTORY_MAX_NUM);
-		// �������� ũ�Ⱑ �������� window�� valid üũ�� �� ���� ����.
+		// µїАыАё·О Е©±в°Ў Б¤ЗШБцґВ windowґВ valid ГјЕ©ё¦ ЗТ јц°Ў ѕшґЩ.
 		case SAFEBOX:
 		case MALL:
 			return false;

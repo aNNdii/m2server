@@ -54,23 +54,23 @@ enum EAffectTypes
 	AFFECT_DEF_GRADE,		// 226
 
 	AFFECT_PREMIUM_START	= 500,
-	AFFECT_EXP_BONUS		= 500,	// ������ ����
-	AFFECT_ITEM_BONUS		= 501,	// ������ �尩
+	AFFECT_EXP_BONUS		= 500,	// °жЗиАЗ №ЭБц
+	AFFECT_ITEM_BONUS		= 501,	// µµµПАЗ Ае°©
 	AFFECT_SAFEBOX		= 502,  // PREMIUM_SAFEBOX,
 	AFFECT_AUTOLOOT		= 503,	// PREMIUM_AUTOLOOT,
 	AFFECT_FISH_MIND		= 504,	// PREMIUM_FISH_MIND,
-	AFFECT_MARRIAGE_FAST	= 505,	// ������ ����
-	AFFECT_GOLD_BONUS		= 506,	// �� ���Ȯ�� 50%����
+	AFFECT_MARRIAGE_FAST	= 505,	// їшѕУАЗ ±кЕР
+	AFFECT_GOLD_BONUS		= 506,	// µ· µе·УИ®·ь 50%Бх°Ў
 	AFFECT_PREMIUM_END		= 509,
 
-	AFFECT_MALL			= 510,	// �� ������ ����Ʈ
-	AFFECT_NO_DEATH_PENALTY	= 511,	// ����� ��ȣ (����ġ�� �г�Ƽ�� �ѹ� �����ش�)
-	AFFECT_SKILL_BOOK_BONUS	= 512,	// ������ ���� (å ���� ���� Ȯ���� 50% ����)
-	AFFECT_SKILL_NO_BOOK_DELAY	= 513,	// �־ȼ���
+	AFFECT_MALL			= 510,	// ёф ѕЖАМЕЫ їЎЖеЖ®
+	AFFECT_NO_DEATH_PENALTY	= 511,	// їлЅЕАЗ °ЎИЈ (°жЗиДЎ°Ў ЖРіОЖјё¦ ЗС№ш ё·ѕЖБШґЩ)
+	AFFECT_SKILL_BOOK_BONUS	= 512,	// ј±АОАЗ ±іИЖ (ГҐ јц·Г јє°ш И®·ьАМ 50% Бх°Ў)
+	AFFECT_SKILL_NO_BOOK_DELAY	= 513,	// БЦѕИјъј­
 
-	AFFECT_HAIR	= 514,	// ��� ȿ��
-	AFFECT_COLLECT = 515, //��������Ʈ 
-	AFFECT_EXP_BONUS_EURO_FREE = 516, // ������ ���� (���� ���� 14 ���� ���� �⺻ ȿ��)
+	AFFECT_HAIR	= 514,	// Змѕо Иї°ъ
+	AFFECT_COLLECT = 515, //јцБэДщЅєЖ® 
+	AFFECT_EXP_BONUS_EURO_FREE = 516, // °жЗиАЗ №ЭБц (АЇ·ґ №цАь 14 ·№є§ АМЗП ±вє» Иї°ъ)
 	AFFECT_EXP_BONUS_EURO_FREE_UNDER_15 = 517,
 	AFFECT_UNIQUE_ABILITY = 518,
 
@@ -121,8 +121,8 @@ enum EAffectBits
 	AFF_SLOW,
 	AFF_STUN,
 
-	AFF_DUNGEON_READY,		// �������� �غ� ����
-	AFF_DUNGEON_UNIQUE,		// ���� ����ũ (Ŭ���̾�Ʈ���� �ø���������)
+	AFF_DUNGEON_READY,		// ґшАьїЎј­ БШєс »уЕВ
+	AFF_DUNGEON_UNIQUE,		// ґшАь АЇґПЕ© (Е¬¶уАМѕрЖ®їЎј­ ДГёµµЗБцѕКАЅ)
 
 	AFF_BUILDING_CONSTRUCTION_SMALL,
 	AFF_BUILDING_CONSTRUCTION_LARGE,
@@ -133,34 +133,34 @@ enum EAffectBits
 
 	AFF_FISH_MIND,
 
-	AFF_JEONGWIHON,		// ����ȥ
-	AFF_GEOMGYEONG,		// �˰�
-	AFF_CHEONGEUN,		// õ����
-	AFF_GYEONGGONG,		// �����
-	AFF_EUNHYUNG,		// ������
-	AFF_GWIGUM,			// �Ͱ�
-	AFF_TERROR,			// ����
-	AFF_JUMAGAP,		// �ָ���
-	AFF_HOSIN,			// ȣ��
-	AFF_BOHO,			// ��ȣ
-	AFF_KWAESOK,		// ���
-	AFF_MANASHIELD,		// ��������
-	AFF_MUYEONG,		// ������ affect
-	AFF_REVIVE_INVISIBLE,	// ��Ȱ�� ��õ��� ����
-	AFF_FIRE,			// ���� �� ������
-	AFF_GICHEON,		// ��õ���
-	AFF_JEUNGRYEOK,		// ���¼�
-	AFF_TANHWAN_DASH,		// źȯ�ݿ� �޸������Ʈ
-	AFF_PABEOP,			// �Ĺ���
-	AFF_CHEONGEUN_WITH_FALL,	// õ����
+	AFF_JEONGWIHON,		// Аь±НИҐ
+	AFF_GEOMGYEONG,		// °Л°ж
+	AFF_CHEONGEUN,		// Гµ±ЩГЯ
+	AFF_GYEONGGONG,		// °ж°шјъ
+	AFF_EUNHYUNG,		// АєЗь№э
+	AFF_GWIGUM,			// ±Н°Л
+	AFF_TERROR,			// °шЖч
+	AFF_JUMAGAP,		// БЦё¶°©
+	AFF_HOSIN,			// ИЈЅЕ
+	AFF_BOHO,			// єёИЈ
+	AFF_KWAESOK,		// ДијУ
+	AFF_MANASHIELD,		// ё¶іЄЅЇµе
+	AFF_MUYEONG,		// №«їµБш affect
+	AFF_REVIVE_INVISIBLE,	// єОИ°ЅГ АбЅГµїѕИ №«Аы
+	AFF_FIRE,			// БцјУ єТ µҐ№МБц
+	AFF_GICHEON,		// ±вГµґл°ш
+	AFF_JEUNGRYEOK,		// Бх·Вјъ
+	AFF_TANHWAN_DASH,		// ЕєИЇ°Эїл ґЮё®±вѕоЖеЖ®
+	AFF_PABEOP,			// ЖД№эјъ
+	AFF_CHEONGEUN_WITH_FALL,	// Гµ±ЩГЯ
 	AFF_POLYMORPH,
 	AFF_WAR_FLAG1,
 	AFF_WAR_FLAG2,
 	AFF_WAR_FLAG3,
 
 	AFF_CHINA_FIREWORK,
-	AFF_HAIR,	// ���
-	AFF_GERMANY, // ���� 
+	AFF_HAIR,	// Змѕо
+	AFF_GERMANY, // µ¶АП 
 
 	AFF_BITS_MAX
 };
@@ -170,11 +170,11 @@ extern void SendAffectAddPacket(LPDESC d, CAffect * pkAff);
 // AFFECT_DURATION_BUG_FIX
 enum AffectVariable
 {
-	// Affect�� ���Ѵ�� �� �־�� �� ��� ���.
-	// �ð��� ��� ���̱� ������ �ſ� ū������ ���Ѵ븦 ���ķ��̼���.
-	//// 24��Ʈ�� �����Ƿ� 25��Ʈ�� ���.
-	// ... 25��Ʈ ����Ѵٰ� �س����� 29bit ����ϰ� �ִ� ��û�� �ּ��̶�...
-	// collect quest���� ���� �ð��� 60������ ����ϰ� �����Ƿ�, ���⵵ 60������ ����.
+	// Affect°Ў №«ЗСґл·О µйѕо°Ў АЦѕоѕЯ ЗТ °жїм »зїл.
+	// ЅГ°ЈА» °ијУ БЩАМ±в ¶§№®їЎ ёЕїм Е«°ЄАё·О №«ЗСґлё¦ їЎ№Д·№АМјЗЗФ.
+	//// 24єсЖ®ґВ АыАё№З·О 25єсЖ®ё¦ »зїл.
+	// ... 25єсЖ® »зїлЗСґЩ°н ЗШіх°нј± 29bit »зїлЗП°н АЦґВ ѕцГ»і­ БЦј®АМ¶х...
+	// collect questїЎј­ №«ЗС ЅГ°ЈА» 60івАё·О »зїлЗП°н АЦАё№З·О, ї©±вµµ 60івАё·О ЗПАЪ.
 
 	INFINITE_AFFECT_DURATION = 60 * 365 * 24 * 60 * 60
 };

@@ -169,16 +169,16 @@ class SECTREE_MANAGER : public singleton<SECTREE_MANAGER>
 		size_t		GetMonsterCountInMap(long lMapIndex);
 		size_t		GetMonsterCountInMap(long lMpaIndex, DWORD dwVnum);
 
-		/// ¿µ¿ª¿¡ ´ëÇØ Sectree ÀÇ Attribute ¿¡ ´ëÇØ Æ¯Á¤ÇÑ Ã³¸®¸¦ ¼öÇàÇÑ´Ù.
+		/// Ñ—ÂµÑ—Ğ„Ñ—Ğ Ò‘Ğ»Ğ—Ğ¨ Sectree ĞĞ— Attribute Ñ—Ğ Ò‘Ğ»Ğ—Ğ¨ Ğ–Ğ‡Ğ‘Â¤Ğ—Ğ¡ Ğ“Ñ–Ñ‘Â®Ñ‘Â¦ Ñ˜Ñ†Ğ—Ğ°Ğ—Ğ¡Ò‘Ğ©.
 		/**
-		 * @param [in]	lMapIndex Àû¿ëÇÒ Map index
-		 * @param [in]	lStartX »ç°¢Çü ¿µ¿ªÀÇ °¡Àå ¿ŞÂÊ ÁÂÇ¥
-		 * @param [in]	lStartY »ç°¢Çü ¿µ¿ªÀÇ °¡Àå À§ÂÊ ÁÂÇ¥
-		 * @param [in]	lEndX »ç°¢Çü ¿µ¿ªÀÇ °¡Àå ¿À¸¥ÂÊ ÁÂÇ¥
-		 * @param [in]	lEndY »ç°¢Çü ¿µ¿ªÀÇ °¡Àå ¾Æ·§ÂÊ ÁÂÇ¥
-		 * @param [in]	lRotate ¿µ¿ª¿¡ ´ëÇØ È¸ÀüÇÒ °¢
-		 * @param [in]	dwAttr Àû¿ëÇÒ Attribute
-		 * @param [in]	mode Attribute ¿¡ ´ëÇØ Ã³¸®ÇÒ type
+		 * @param [in]	lMapIndex ĞÑ‹Ñ—Ğ»Ğ—Ğ¢ Map index
+		 * @param [in]	lStartX Â»Ğ·Â°ÑĞ—ÑŒ Ñ—ÂµÑ—Ğ„ĞĞ— Â°ĞĞĞµ Ñ—Ğ®Ğ’Ğš Ğ‘Ğ’Ğ—Ò
+		 * @param [in]	lStartY Â»Ğ·Â°ÑĞ—ÑŒ Ñ—ÂµÑ—Ğ„ĞĞ— Â°ĞĞĞµ ĞÂ§Ğ’Ğš Ğ‘Ğ’Ğ—Ò
+		 * @param [in]	lEndX Â»Ğ·Â°ÑĞ—ÑŒ Ñ—ÂµÑ—Ğ„ĞĞ— Â°ĞĞĞµ Ñ—ĞÑ‘ÒĞ’Ğš Ğ‘Ğ’Ğ—Ò
+		 * @param [in]	lEndY Â»Ğ·Â°ÑĞ—ÑŒ Ñ—ÂµÑ—Ğ„ĞĞ— Â°ĞĞĞµ Ñ•Ğ–Â·Â§Ğ’Ğš Ğ‘Ğ’Ğ—Ò
+		 * @param [in]	lRotate Ñ—ÂµÑ—Ğ„Ñ—Ğ Ò‘Ğ»Ğ—Ğ¨ Ğ˜Ñ‘ĞÑŒĞ—Ğ¢ Â°Ñ
+		 * @param [in]	dwAttr ĞÑ‹Ñ—Ğ»Ğ—Ğ¢ Attribute
+		 * @param [in]	mode Attribute Ñ—Ğ Ò‘Ğ»Ğ—Ğ¨ Ğ“Ñ–Ñ‘Â®Ğ—Ğ¢ type
 		 */
 		bool		ForAttrRegion(long lMapIndex, long lStartX, long lStartY, long lEndX, long lEndY, long lRotate, DWORD dwAttr, EAttrRegionMode mode);
 
@@ -186,39 +186,39 @@ class SECTREE_MANAGER : public singleton<SECTREE_MANAGER>
 
 	private:
 
-		/// Á÷°¢ÀÇ »ç°¢Çü ¿µ¿ª¿¡ ´ëÇØ Sectree ÀÇ Attribute ¿¡ ´ëÇØ Æ¯Á¤ÇÑ Ã³¸®¸¦ ¼öÇàÇÑ´Ù.
+		/// Ğ‘Ñ‡Â°ÑĞĞ— Â»Ğ·Â°ÑĞ—ÑŒ Ñ—ÂµÑ—Ğ„Ñ—Ğ Ò‘Ğ»Ğ—Ğ¨ Sectree ĞĞ— Attribute Ñ—Ğ Ò‘Ğ»Ğ—Ğ¨ Ğ–Ğ‡Ğ‘Â¤Ğ—Ğ¡ Ğ“Ñ–Ñ‘Â®Ñ‘Â¦ Ñ˜Ñ†Ğ—Ğ°Ğ—Ğ¡Ò‘Ğ©.
 		/**
-		 * @param [in]	lMapIndex Àû¿ëÇÒ Map index
-		 * @param [in]	lCX »ç°¢Çü ¿µ¿ªÀÇ °¡Àå ¿ŞÂÊ Cell ÀÇ ÁÂÇ¥
-		 * @param [in]	lCY »ç°¢Çü ¿µ¿ªÀÇ °¡Àå À§ÂÊ Cell ÀÇ ÁÂÇ¥
-		 * @param [in]	lCW »ç°¢Çü ¿µ¿ªÀÇ Cell ´ÜÀ§ Æø
-		 * @param [in]	lCH »ç°¢Çü ¿µ¿ªÀÇ Cell ´ÜÀ§ ³ôÀÌ
-		 * @param [in]	lRotate È¸ÀüÇÒ °¢(Á÷°¢)
-		 * @param [in]	dwAttr Àû¿ëÇÒ Attribute
-		 * @param [in]	mode Attribute ¿¡ ´ëÇØ Ã³¸®ÇÒ type
+		 * @param [in]	lMapIndex ĞÑ‹Ñ—Ğ»Ğ—Ğ¢ Map index
+		 * @param [in]	lCX Â»Ğ·Â°ÑĞ—ÑŒ Ñ—ÂµÑ—Ğ„ĞĞ— Â°ĞĞĞµ Ñ—Ğ®Ğ’Ğš Cell ĞĞ— Ğ‘Ğ’Ğ—Ò
+		 * @param [in]	lCY Â»Ğ·Â°ÑĞ—ÑŒ Ñ—ÂµÑ—Ğ„ĞĞ— Â°ĞĞĞµ ĞÂ§Ğ’Ğš Cell ĞĞ— Ğ‘Ğ’Ğ—Ò
+		 * @param [in]	lCW Â»Ğ·Â°ÑĞ—ÑŒ Ñ—ÂµÑ—Ğ„ĞĞ— Cell Ò‘Ğ¬ĞÂ§ Ğ–Ñˆ
+		 * @param [in]	lCH Â»Ğ·Â°ÑĞ—ÑŒ Ñ—ÂµÑ—Ğ„ĞĞ— Cell Ò‘Ğ¬ĞÂ§ Ñ–Ñ„ĞĞœ
+		 * @param [in]	lRotate Ğ˜Ñ‘ĞÑŒĞ—Ğ¢ Â°Ñ(Ğ‘Ñ‡Â°Ñ)
+		 * @param [in]	dwAttr ĞÑ‹Ñ—Ğ»Ğ—Ğ¢ Attribute
+		 * @param [in]	mode Attribute Ñ—Ğ Ò‘Ğ»Ğ—Ğ¨ Ğ“Ñ–Ñ‘Â®Ğ—Ğ¢ type
 		 */
 		bool		ForAttrRegionRightAngle( long lMapIndex, long lCX, long lCY, long lCW, long lCH, long lRotate, DWORD dwAttr, EAttrRegionMode mode );
 
-		/// Á÷°¢ ÀÌ¿ÜÀÇ »ç°¢Çü ¿µ¿ª¿¡ ´ëÇØ Sectree ÀÇ Attribute ¿¡ ´ëÇØ Æ¯Á¤ÇÑ Ã³¸®¸¦ ¼öÇàÇÑ´Ù.
+		/// Ğ‘Ñ‡Â°Ñ ĞĞœÑ—Ğ¬ĞĞ— Â»Ğ·Â°ÑĞ—ÑŒ Ñ—ÂµÑ—Ğ„Ñ—Ğ Ò‘Ğ»Ğ—Ğ¨ Sectree ĞĞ— Attribute Ñ—Ğ Ò‘Ğ»Ğ—Ğ¨ Ğ–Ğ‡Ğ‘Â¤Ğ—Ğ¡ Ğ“Ñ–Ñ‘Â®Ñ‘Â¦ Ñ˜Ñ†Ğ—Ğ°Ğ—Ğ¡Ò‘Ğ©.
 		/**
-		 * @param [in]	lMapIndex Àû¿ëÇÒ Map index
-		 * @param [in]	lCX »ç°¢Çü ¿µ¿ªÀÇ °¡Àå ¿ŞÂÊ Cell ÀÇ ÁÂÇ¥
-		 * @param [in]	lCY »ç°¢Çü ¿µ¿ªÀÇ °¡Àå À§ÂÊ Cell ÀÇ ÁÂÇ¥
-		 * @param [in]	lCW »ç°¢Çü ¿µ¿ªÀÇ Cell ´ÜÀ§ Æø
-		 * @param [in]	lCH »ç°¢Çü ¿µ¿ªÀÇ Cell ´ÜÀ§ ³ôÀÌ
-		 * @param [in]	lRotate È¸ÀüÇÒ °¢(Á÷°¢ ÀÌ¿ÜÀÇ °¢)
-		 * @param [in]	dwAttr Àû¿ëÇÒ Attribute
-		 * @param [in]	mode Attribute ¿¡ ´ëÇØ Ã³¸®ÇÒ type
+		 * @param [in]	lMapIndex ĞÑ‹Ñ—Ğ»Ğ—Ğ¢ Map index
+		 * @param [in]	lCX Â»Ğ·Â°ÑĞ—ÑŒ Ñ—ÂµÑ—Ğ„ĞĞ— Â°ĞĞĞµ Ñ—Ğ®Ğ’Ğš Cell ĞĞ— Ğ‘Ğ’Ğ—Ò
+		 * @param [in]	lCY Â»Ğ·Â°ÑĞ—ÑŒ Ñ—ÂµÑ—Ğ„ĞĞ— Â°ĞĞĞµ ĞÂ§Ğ’Ğš Cell ĞĞ— Ğ‘Ğ’Ğ—Ò
+		 * @param [in]	lCW Â»Ğ·Â°ÑĞ—ÑŒ Ñ—ÂµÑ—Ğ„ĞĞ— Cell Ò‘Ğ¬ĞÂ§ Ğ–Ñˆ
+		 * @param [in]	lCH Â»Ğ·Â°ÑĞ—ÑŒ Ñ—ÂµÑ—Ğ„ĞĞ— Cell Ò‘Ğ¬ĞÂ§ Ñ–Ñ„ĞĞœ
+		 * @param [in]	lRotate Ğ˜Ñ‘ĞÑŒĞ—Ğ¢ Â°Ñ(Ğ‘Ñ‡Â°Ñ ĞĞœÑ—Ğ¬ĞĞ— Â°Ñ)
+		 * @param [in]	dwAttr ĞÑ‹Ñ—Ğ»Ğ—Ğ¢ Attribute
+		 * @param [in]	mode Attribute Ñ—Ğ Ò‘Ğ»Ğ—Ğ¨ Ğ“Ñ–Ñ‘Â®Ğ—Ğ¢ type
 		 */
 		bool		ForAttrRegionFreeAngle( long lMapIndex, long lCX, long lCY, long lCW, long lCH, long lRotate, DWORD dwAttr, EAttrRegionMode mode );
 
-		/// ÇÑ Cell ÀÇ Attribute ¿¡ ´ëÇØ Æ¯Á¤ÇÑ Ã³¸®¸¦ ¼öÇàÇÑ´Ù.
+		/// Ğ—Ğ¡ Cell ĞĞ— Attribute Ñ—Ğ Ò‘Ğ»Ğ—Ğ¨ Ğ–Ğ‡Ğ‘Â¤Ğ—Ğ¡ Ğ“Ñ–Ñ‘Â®Ñ‘Â¦ Ñ˜Ñ†Ğ—Ğ°Ğ—Ğ¡Ò‘Ğ©.
 		/**
-		 * @param [in]	lMapIndex Àû¿ëÇÒ Map index
-		 * @param [in]	lCX Àû¿ëÇÒ Cell ÀÇ X ÁÂÇ¥
-		 * @param [in]	lCY Àû¿ëÇÒ Cell ÀÇ Y ÁÂÇ¥
-		 * @param [in]	dwAttr Àû¿ëÇÒ Attribute
-		 * @param [in]	mode Attribute ¿¡ ´ëÇØ Ã³¸®ÇÒ type
+		 * @param [in]	lMapIndex ĞÑ‹Ñ—Ğ»Ğ—Ğ¢ Map index
+		 * @param [in]	lCX ĞÑ‹Ñ—Ğ»Ğ—Ğ¢ Cell ĞĞ— X Ğ‘Ğ’Ğ—Ò
+		 * @param [in]	lCY ĞÑ‹Ñ—Ğ»Ğ—Ğ¢ Cell ĞĞ— Y Ğ‘Ğ’Ğ—Ò
+		 * @param [in]	dwAttr ĞÑ‹Ñ—Ğ»Ğ—Ğ¢ Attribute
+		 * @param [in]	mode Attribute Ñ—Ğ Ò‘Ğ»Ğ—Ğ¨ Ğ“Ñ–Ñ‘Â®Ğ—Ğ¢ type
 		 */
 		bool		ForAttrRegionCell( long lMapIndex, long lCX, long lCY, DWORD dwAttr, EAttrRegionMode mode );
 

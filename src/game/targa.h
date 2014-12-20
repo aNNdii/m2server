@@ -6,11 +6,11 @@
 struct TGA_HEADER
 {
     char idLen;		// 0
-    char palType;	// ÆÄ·¹Æ®ÀÖÀ¸¸é 1, ¾øÀ½ 0
-    char imgType;	// ÆÄ·¹Æ®ÀÖÀ¸¸é 1, ¾øÀ½ 2
+    char palType;	// Ğ–Ğ”Â·â„–Ğ–Â®ĞĞ¦ĞÑ‘Ñ‘Ğ¹ 1, Ñ•ÑˆĞĞ… 0
+    char imgType;	// Ğ–Ğ”Â·â„–Ğ–Â®ĞĞ¦ĞÑ‘Ñ‘Ğ¹ 1, Ñ•ÑˆĞĞ… 2
     WORD colorBegin;	// 0
-    WORD colorCount;	// ÆÄ·¹Æ® ÀÖÀ¸¸é 256, ¾øÀ½ 0
-    char palEntrySize;	// ÆÄ·¹Æ® ÀÖÀ¸¸é 24, ¾øÀ½ 0
+    WORD colorCount;	// Ğ–Ğ”Â·â„–Ğ–Â® ĞĞ¦ĞÑ‘Ñ‘Ğ¹ 256, Ñ•ÑˆĞĞ… 0
+    char palEntrySize;	// Ğ–Ğ”Â·â„–Ğ–Â® ĞĞ¦ĞÑ‘Ñ‘Ğ¹ 24, Ñ•ÑˆĞĞ… 0
     WORD left;
     WORD top;
     WORD width;

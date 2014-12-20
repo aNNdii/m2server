@@ -119,7 +119,7 @@ void MessengerManager::RequestToAdd(LPCHARACTER ch, LPCHARACTER target)
 	
 	if (quest::CQuestManager::instance().GetPCForce(ch->GetPlayerID())->IsRunning() == true)
 	{
-	    ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("»ó´ë¹æÀÌ Ä£±¸ Ãß°¡¸¦ ¹ŞÀ» ¼ö ¾ø´Â »óÅÂÀÔ´Ï´Ù."));
+	    ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Â»ÑƒÒ‘Ğ»â„–Ğ¶ĞĞœ Ğ”ĞˆÂ±Ñ‘ Ğ“Ğ¯Â°ĞÑ‘Â¦ â„–Ğ®ĞÂ» Ñ˜Ñ† Ñ•ÑˆÒ‘Ğ’ Â»ÑƒĞ•Ğ’ĞĞ¤Ò‘ĞŸÒ‘Ğ©."));
 	    return;
 	}
 
@@ -172,7 +172,7 @@ void MessengerManager::__AddToList(const std::string& account, const std::string
 
 	if (d)
 	{
-		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("<¸Ş½ÅÁ®> %s ´ÔÀ» Ä£±¸·Î Ãß°¡ÇÏ¿´½À´Ï´Ù."), companion.c_str());
+		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("<Ñ‘Ğ®Ğ…Ğ•Ğ‘Â®> %s Ò‘Ğ¤ĞÂ» Ğ”ĞˆÂ±Ñ‘Â·Ğ Ğ“Ğ¯Â°ĞĞ—ĞŸÑ—Ò‘Ğ…ĞÒ‘ĞŸÒ‘Ğ©."), companion.c_str());
 	}
 
 	LPCHARACTER tch = CHARACTER_MANAGER::instance().FindPC(companion.c_str());
@@ -214,7 +214,7 @@ void MessengerManager::__RemoveFromList(const std::string& account, const std::s
 	LPDESC d = ch ? ch->GetDesc() : NULL;
 
 	if (d)
-		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("<¸Ş½ÅÁ®> %s ´ÔÀ» ¸Ş½ÅÀú¿¡¼­ »èÁ¦ÇÏ¿´½À´Ï´Ù."), companion.c_str());
+		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("<Ñ‘Ğ®Ğ…Ğ•Ğ‘Â®> %s Ò‘Ğ¤ĞÂ» Ñ‘Ğ®Ğ…Ğ•ĞÑŠÑ—ĞÑ˜Â­ Â»Ğ¸Ğ‘Â¦Ğ—ĞŸÑ—Ò‘Ğ…ĞÒ‘ĞŸÒ‘Ğ©."), companion.c_str());
 }
 
 void MessengerManager::RemoveFromList(const std::string& account, const std::string& companion)
@@ -240,11 +240,11 @@ void MessengerManager::RemoveAllList(const std::string& account)
 {
 	std::set<keyT>	company(m_Relation[account]);
 
-	/* SQL Data »èÁ¦ */
+	/* SQL Data Â»Ğ¸Ğ‘Â¦ */
 	DBManager::instance().Query("DELETE FROM messenger_list%s WHERE account='%s' OR companion='%s'",
 			get_table_postfix(), account.c_str(), account.c_str());
 
-	/* ³»°¡ °¡Áö°íÀÖ´Â ¸®½ºÆ® »èÁ¦ */
+	/* Ñ–Â»Â°Ğ Â°ĞĞ‘Ñ†Â°Ğ½ĞĞ¦Ò‘Ğ’ Ñ‘Â®Ğ…Ñ”Ğ–Â® Â»Ğ¸Ğ‘Â¦ */
 	for (std::set<keyT>::iterator iter = company.begin();
 			iter != company.end();
 			iter++ )
@@ -252,7 +252,7 @@ void MessengerManager::RemoveAllList(const std::string& account)
 		this->RemoveFromList(account, *iter);
 	}
 
-	/* º¹»çÇÑ µ¥ÀÌÅ¸ »èÁ¦ */
+	/* Ñ”â„–Â»Ğ·Ğ—Ğ¡ ÂµÒĞĞœĞ•Ñ‘ Â»Ğ¸Ğ‘Â¦ */
 	for (std::set<keyT>::iterator iter = company.begin();
 			iter != company.end();
 			)

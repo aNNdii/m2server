@@ -2,15 +2,15 @@
 #define	__HEADER_VNUM_HELPER__
 
 /**
-	�̹� �����ϰų� ������ �߰��� ������, �� ���� �ҽ����� �ĺ��� �� ����� ���
-	�ĺ���(����=VNum)�� �ϵ��ڵ��ϴ� ������� �Ǿ��־ �������� �ſ� �������µ�
+	АМ№М БёАзЗП°ЕіЄ ѕХАё·О ГЯ°ЎµЙ ѕЖАМЕЫ, ёч µоА» јТЅєїЎј­ ЅДє°ЗТ ¶§ ЗцАзґВ ёрµО
+	ЅДє°АЪ(јэАЪ=VNum)ё¦ ЗПµеДЪµщЗПґВ №жЅДАё·О µЗѕоАЦѕој­ °Ўµ¶јєАМ ёЕїм ¶іѕоБцґВµҐ
 
-	�����δ� �ҽ��� ���� � ������(Ȥ�� ��)���� �� �� �ְ� ���ڴ� ��ö���� �������� �߰�.
+	ѕХАё·ОґВ јТЅєёё єБµµ ѕо¶І ѕЖАМЕЫ(И¤Ає ёч)АОБц ѕЛ јц АЦ°Ф ЗПАЪґВ ЅВГ¶ґФАЗ Б¦ѕИАё·О ГЯ°Ў.
 
-		* �� ������ ������ ���������� ����Ǵµ� PCH�� ������ �ٲ� ������ ��ü ������ �ؾ��ϴ� 
-		�ϴ��� �ʿ��� cpp���Ͽ��� include �ؼ� ������ ����.
+		* АМ ЖДАПАє єЇ°жАМ АжА»°НАё·О ї№»уµЗґВµҐ PCHїЎ іЦАёёй №ЩІр ¶§ё¶ґЩ АьГј ДДЖДАП ЗШѕЯЗПґП 
+		АПґЬАє ЗКїдЗС cppЖДАПїЎј­ include ЗШј­ ѕІµµ·П ЗЯАЅ.
 
-		* cpp���� �����ϸ� ������ ~ ��ũ�ؾ��ϴ� �׳� common�� ����� �־���. (game, db������Ʈ �� �� ��� ����)
+		* cppїЎј­ ±ёЗцЗПёй ДДЖДАП ~ ёµЕ©ЗШѕЯЗПґП ±ЧіЙ commonїЎ Змґхёё іЦѕъАЅ. (game, dbЗБ·ОБ§Ж® µС ґЩ »зїл ї№Б¤)
 
 	@date	2011. 8. 29.
 */
@@ -19,35 +19,35 @@
 class CItemVnumHelper
 {
 public:
-	/// ���� DVD�� �һ��� ��ȯ��
-	static	const bool	IsPhoenix(DWORD vnum)				{ return 53001 == vnum; }		// NOTE: �һ��� ��ȯ �������� 53001 ������ mob-vnum�� 34001 �Դϴ�.
+	/// µ¶АП DVDїл єТ»зБ¶ јТИЇ±З
+	static	const bool	IsPhoenix(DWORD vnum)				{ return 53001 == vnum; }		// NOTE: єТ»зБ¶ јТИЇ ѕЖАМЕЫАє 53001 АМБцёё mob-vnumАє 34001 АФґПґЩ.
 
-	/// �󸶴� �̺�Ʈ �ʽ´��� ���� (������ �󸶴� �̺�Ʈ�� Ư�� �������̾����� ������ ���� �������� ��Ȱ���ؼ� ��� ���ٰ� ��)
+	/// ¶уё¶ґЬ АМєҐЖ® ГКЅВґЮАЗ №ЭБц (їш·ЎґВ ¶уё¶ґЬ АМєҐЖ®їл ЖЇјц ѕЖАМЕЫАМѕъАёіЄ ѕХАё·О ї©·Ї №жЗвАё·О АзИ°їлЗШј­ °ијУ ѕґґЩ°н ЗФ)
 	static	const bool	IsRamadanMoonRing(DWORD vnum)		{ return 71135 == vnum; }
 
-	/// �ҷ��� ���� (������ �ʽ´��� ������ ����)
+	/// ЗТ·ОА© »зЕБ (ЅєЖеАє ГКЅВґЮАЗ №ЭБцїН µїАП)
 	static	const bool	IsHalloweenCandy(DWORD vnum)		{ return 71136 == vnum; }
 
-	/// ũ�������� �ູ�� ����
+	/// Е©ё®Ѕєё¶Ѕє Зає№АЗ №ЭБц
 	static	const bool	IsHappinessRing(DWORD vnum)		{ return 71143 == vnum; }
 
-	/// �߷�Ÿ�� ����� �Ҵ�Ʈ 
+	/// №Я·»ЕёАО »з¶ыАЗ ЖТґшЖ® 
 	static	const bool	IsLovePendant(DWORD vnum)		{ return 71145 == vnum; }
 };
 
 class CMobVnumHelper
 {
 public:
-	/// ���� DVD�� �һ��� �� ��ȣ
+	/// µ¶АП DVDїл єТ»зБ¶ ёч №шИЈ
 	static	bool	IsPhoenix(DWORD vnum)				{ return 34001 == vnum; }
 	static	bool	IsIcePhoenix(DWORD vnum)				{ return 34003 == vnum; }
-	/// PetSystem�� �����ϴ� ���ΰ�?
+	/// PetSystemАМ °ьё®ЗПґВ ЖкАО°Ў?
 	static	bool	IsPetUsingPetSystem(DWORD vnum)	{ return (IsPhoenix(vnum) || IsReindeerYoung(vnum)) || IsIcePhoenix(vnum); }
 
-	/// 2011�� ũ�������� �̺�Ʈ�� �� (�Ʊ� ����)
+	/// 2011ів Е©ё®Ѕєё¶Ѕє АМєҐЖ®їл Жк (ѕЖ±в јш·П)
 	static	bool	IsReindeerYoung(DWORD vnum)	{ return 34002 == vnum; }
 
-	/// �󸶴� �̺�Ʈ ����� �渶(20119) .. �ҷ��� �̺�Ʈ�� �󸶴� �渶 Ŭ��(������ ����, 20219)
+	/// ¶уё¶ґЬ АМєҐЖ® єё»уїл Ижё¶(20119) .. ЗТ·ОА© АМєҐЖ®їл ¶уё¶ґЬ Ижё¶ Е¬·Р(ЅєЖеАє °°АЅ, 20219)
 	static	bool	IsRamadanBlackHorse(DWORD vnum)		{ return 20119 == vnum || 20219 == vnum || 22022 == vnum; }
 };
 

@@ -112,7 +112,7 @@ void CObject::EncodeInsertPacket(LPENTITY entity)
 	pack.z              = GetZ();
 	pack.wRaceNum       = m_data.dwVnum;
 
-	// ºôµù È¸Àü Á¤º¸(º®ÀÏ¶§´Â ¹® À§Ä¡)¸¦ º¯È¯
+	// Ñ”Ñ„ÂµÑ‰ Ð˜Ñ‘ÐÑŒ Ð‘Â¤Ñ”Ñ‘(Ñ”Â®ÐÐŸÂ¶Â§Ò‘Ð’ â„–Â® ÐÂ§Ð”ÐŽ)Ñ‘Â¦ Ñ”Ð‡Ð˜Ð‡
 	pack.dwAffectFlag[0] = unsigned(m_data.xRot);
 	pack.dwAffectFlag[1] = unsigned(m_data.yRot);
 
@@ -298,7 +298,7 @@ void CObject::RegenNPC()
 
 	m_chNPC->SetGuild(pGuild);
 
-	// ÈûÀÇ ½ÅÀüÀÏ °æ¿ì ±æµå ·¹º§À» ±æ¸¶¿¡°Ô ÀúÀåÇØ³õ´Â´Ù
+	// Ð˜Ñ‹ÐÐ— Ð…Ð•ÐÑŒÐÐŸ Â°Ð¶Ñ—Ð¼ Â±Ð¶ÂµÐµ Â·â„–Ñ”Â§ÐÂ» Â±Ð¶Ñ‘Â¶Ñ—ÐŽÂ°Ð¤ ÐÑŠÐÐµÐ—Ð¨Ñ–Ñ…Ò‘Ð’Ò‘Ð©
 	if ( m_pProto->dwVnum == 14061 || m_pProto->dwVnum == 14062 || m_pProto->dwVnum == 14063 )
 	{
 		quest::PC* pPC = quest::CQuestManager::instance().GetPC(pGuild->GetMasterPID());
@@ -690,10 +690,10 @@ TObjectProto * CManager::GetObjectProto(DWORD dwVnum)
 
 bool CManager::LoadLand(TLand * pTable) // from DB
 {
-	// MapAllow¿¡ ¾ø´Â ¸ÊÀÇ ¶¥ÀÏÁö¶óµµ load¸¦ ÇØ¾ßÇÑ´Ù.
-	//	°Ç¹°(object)ÀÌ ¾î´À ±æµå¿¡ ¼ÓÇØ ÀÖ´ÂÁö ¾Ë±â À§ÇØ¼­´Â °Ç¹°ÀÌ ¼¼À§Áø ¶¥ÀÌ ¾î´À ±æµå ¼Ò¼ÓÀÎÁö ¾Ë¾ÆÇÑ´Ù.
-	//	¸¸¾à ¶¥À» loadÇØ ³õÁö ¾ÊÀ¸¸é ±æµå °Ç¹°ÀÌ ¾î´À ±æµå¿¡ ¼Ò¼ÓµÈ °ÇÁö ¾ËÁö ¸øÇØ¼­
-	//	±æµå °Ç¹°¿¡ ÀÇÇÑ ±æµå ¹öÇÁ¸¦ ¹ÞÁö ¸øÇÑ´Ù.
+	// MapAllowÑ—ÐŽ Ñ•ÑˆÒ‘Ð’ Ñ‘ÐšÐÐ— Â¶ÒÐÐŸÐ‘Ñ†Â¶ÑƒÂµÂµ loadÑ‘Â¦ Ð—Ð¨Ñ•Ð¯Ð—Ð¡Ò‘Ð©.
+	//	Â°Ð—â„–Â°(object)ÐÐœ Ñ•Ð¾Ò‘Ð Â±Ð¶ÂµÐµÑ—ÐŽ Ñ˜Ð£Ð—Ð¨ ÐÐ¦Ò‘Ð’Ð‘Ñ† Ñ•Ð›Â±Ð² ÐÂ§Ð—Ð¨Ñ˜Â­Ò‘Ð’ Â°Ð—â„–Â°ÐÐœ Ñ˜Ñ˜ÐÂ§Ð‘Ñˆ Â¶ÒÐÐœ Ñ•Ð¾Ò‘Ð Â±Ð¶ÂµÐµ Ñ˜Ð¢Ñ˜Ð£ÐÐžÐ‘Ñ† Ñ•Ð›Ñ•Ð–Ð—Ð¡Ò‘Ð©.
+	//	Ñ‘Ñ‘Ñ•Ð° Â¶ÒÐÂ» loadÐ—Ð¨ Ñ–Ñ…Ð‘Ñ† Ñ•ÐšÐÑ‘Ñ‘Ð¹ Â±Ð¶ÂµÐµ Â°Ð—â„–Â°ÐÐœ Ñ•Ð¾Ò‘Ð Â±Ð¶ÂµÐµÑ—ÐŽ Ñ˜Ð¢Ñ˜Ð£ÂµÐ˜ Â°Ð—Ð‘Ñ† Ñ•Ð›Ð‘Ñ† Ñ‘ÑˆÐ—Ð¨Ñ˜Â­
+	//	Â±Ð¶ÂµÐµ Â°Ð—â„–Â°Ñ—ÐŽ ÐÐ—Ð—Ð¡ Â±Ð¶ÂµÐµ â„–Ñ†Ð—Ð‘Ñ‘Â¦ â„–Ð®Ð‘Ñ† Ñ‘ÑˆÐ—Ð¡Ò‘Ð©.
 	//if (!map_allow_find(pTable->lMapIndex))
 	//	return false;
 
@@ -1092,7 +1092,7 @@ bool CLand::RequestCreateWall(long nMapIndex, float rot)
 	int wall_half_w = 1000;
 	int wall_half_h = 1362;
 
-	if (rot == 0.0f) 		// ³²ÂÊ ¹®
+	if (rot == 0.0f) 		// Ñ–Ð†Ð’Ðš â„–Â®
 	{
 		int door_x = wall_x;
 		int door_y = wall_y + wall_half_h;
@@ -1101,7 +1101,7 @@ bool CLand::RequestCreateWall(long nMapIndex, float rot)
 		RequestCreateObject(WALL_LEFT_VNUM,	nMapIndex, wall_x - wall_half_w, wall_y, door_x, door_y,   0.0f, WALL_ANOTHER_CHECKING_ENABLE);
 		RequestCreateObject(WALL_RIGHT_VNUM,	nMapIndex, wall_x + wall_half_w, wall_y, door_x, door_y,   0.0f, WALL_ANOTHER_CHECKING_ENABLE);
 	}	
-	else if (rot == 180.0f)		// ºÏÂÊ ¹®
+	else if (rot == 180.0f)		// Ñ”ÐŸÐ’Ðš â„–Â®
 	{
 		int door_x = wall_x;
 		int door_y = wall_y - wall_half_h;
@@ -1110,7 +1110,7 @@ bool CLand::RequestCreateWall(long nMapIndex, float rot)
 		RequestCreateObject(WALL_LEFT_VNUM,	nMapIndex, wall_x - wall_half_w, wall_y, door_x, door_y,   0.0f, WALL_ANOTHER_CHECKING_ENABLE);
 		RequestCreateObject(WALL_RIGHT_VNUM,	nMapIndex, wall_x + wall_half_w, wall_y, door_x, door_y,   0.0f, WALL_ANOTHER_CHECKING_ENABLE);
 	}
-	else if (rot == 90.0f)		// µ¿ÂÊ ¹® 
+	else if (rot == 90.0f)		// ÂµÑ—Ð’Ðš â„–Â® 
 	{
 		int door_x = wall_x + wall_half_h;
 		int door_y = wall_y;
@@ -1119,7 +1119,7 @@ bool CLand::RequestCreateWall(long nMapIndex, float rot)
 		RequestCreateObject(WALL_LEFT_VNUM,	nMapIndex, wall_x, wall_y - wall_half_w, door_x, door_y,  90.0f, WALL_ANOTHER_CHECKING_ENABLE);
 		RequestCreateObject(WALL_RIGHT_VNUM,	nMapIndex, wall_x, wall_y + wall_half_w, door_x, door_y,  90.0f, WALL_ANOTHER_CHECKING_ENABLE);
 	}
-	else if (rot == 270.0f)		// ¼­ÂÊ ¹® 
+	else if (rot == 270.0f)		// Ñ˜Â­Ð’Ðš â„–Â® 
 	{
 		int door_x = wall_x - wall_half_h;
 		int door_y = wall_y;

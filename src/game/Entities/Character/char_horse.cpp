@@ -17,22 +17,22 @@ bool CHARACTER::StartRiding()
 {
 	if (IsDead() == true)
 	{
-		ChatPacket(CHAT_TYPE_INFO, LC_TEXT("¾²·¯Áø »óÅÂ¿¡¼­´Â ¸»¿¡ Å» ¼ö ¾ø½À´Ï´Ù."));
+		ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Ñ•Ğ†Â·Ğ‡Ğ‘Ñˆ Â»ÑƒĞ•Ğ’Ñ—ĞÑ˜Â­Ò‘Ğ’ Ñ‘Â»Ñ—Ğ Ğ•Â» Ñ˜Ñ† Ñ•ÑˆĞ…ĞÒ‘ĞŸÒ‘Ğ©."));
 		return false;
 	}
 	
 	if (IsPolymorphed())
 	{
-		ChatPacket(CHAT_TYPE_INFO, LC_TEXT("º¯½Å »óÅÂ¿¡¼­´Â ¸»¿¡ Å» ¼ö ¾ø½À´Ï´Ù."));
+		ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Ñ”Ğ‡Ğ…Ğ• Â»ÑƒĞ•Ğ’Ñ—ĞÑ˜Â­Ò‘Ğ’ Ñ‘Â»Ñ—Ğ Ğ•Â» Ñ˜Ñ† Ñ•ÑˆĞ…ĞÒ‘ĞŸÒ‘Ğ©."));
 		return false;
 	}
 
-	// ÅÎ½Ãµµ ÀÔÀº »óÅÂÀÇ ¸» Å¸±â ±İÁö
+	// Ğ•ĞĞ…Ğ“ÂµÂµ ĞĞ¤ĞÑ” Â»ÑƒĞ•Ğ’ĞĞ— Ñ‘Â» Ğ•Ñ‘Â±Ğ² Â±Ğ­Ğ‘Ñ†
 	LPITEM armor = GetWear(WEAR_BODY);
 
 	if (armor && (armor->GetVnum() >= 11901 && armor->GetVnum() <= 11904))
 	{
-		ChatPacket(CHAT_TYPE_INFO, LC_TEXT("¿¹º¹À» ÀÔÀº »óÅÂ¿¡¼­ ¸»À» Å» ¼ö ¾ø½À´Ï´Ù."));
+		ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Ñ—â„–Ñ”â„–ĞÂ» ĞĞ¤ĞÑ” Â»ÑƒĞ•Ğ’Ñ—ĞÑ˜Â­ Ñ‘Â»ĞÂ» Ğ•Â» Ñ˜Ñ† Ñ•ÑˆĞ…ĞÒ‘ĞŸÒ‘Ğ©."));
 		return false;
 	}
 
@@ -48,16 +48,16 @@ bool CHARACTER::StartRiding()
 	if (false == CHorseRider::StartRiding())
 	{
 		if (GetHorseLevel() <= 0)
-			ChatPacket(CHAT_TYPE_INFO, LC_TEXT("¸»À» ¼ÒÀ¯ÇÏ°í ÀÖÁö ¾Ê½À´Ï´Ù."));
+			ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Ñ‘Â»ĞÂ» Ñ˜Ğ¢ĞĞ‡Ğ—ĞŸÂ°Ğ½ ĞĞ¦Ğ‘Ñ† Ñ•ĞšĞ…ĞÒ‘ĞŸÒ‘Ğ©."));
 		else if (GetHorseHealth() <= 0)
-			ChatPacket(CHAT_TYPE_INFO, LC_TEXT("¸»ÀÌ Á×¾îÀÖ´Â »óÅÂ ÀÔ´Ï´Ù."));
+			ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Ñ‘Â»ĞĞœ Ğ‘Ğ§Ñ•Ğ¾ĞĞ¦Ò‘Ğ’ Â»ÑƒĞ•Ğ’ ĞĞ¤Ò‘ĞŸÒ‘Ğ©."));
 		else if (GetHorseStamina() <= 0)
-			ChatPacket(CHAT_TYPE_INFO, LC_TEXT("¸»ÀÇ ½ºÅ×¹Ì³Ê°¡ ºÎÁ·ÇÏ¿© ¸»À» Å» ¼ö ¾ø½À´Ï´Ù."));
+			ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Ñ‘Â»ĞĞ— Ğ…Ñ”Ğ•Ğ§â„–ĞœÑ–ĞšÂ°Ğ Ñ”ĞĞ‘Â·Ğ—ĞŸÑ—Â© Ñ‘Â»ĞÂ» Ğ•Â» Ñ˜Ñ† Ñ•ÑˆĞ…ĞÒ‘ĞŸÒ‘Ğ©."));
 
 		return false;
 	}
 
-	// ¼ÒÈ¯ÇÑ ¸» ¾ø¾Ö°í
+	// Ñ˜Ğ¢Ğ˜Ğ‡Ğ—Ğ¡ Ñ‘Â» Ñ•ÑˆÑ•Ğ¦Â°Ğ½
 	HorseSummon(false);
 
 	MountVnum(dwMountVnum);
@@ -79,7 +79,7 @@ bool CHARACTER::StopRiding()
 			DWORD dwOldVnum = GetMountVnum();
 			MountVnum(0);
 
-			// [NOTE] ¸»¿¡¼­ ³»¸± ¶© ÀÚ±â°¡ ÅÀ´ø°É ¼ÒÈ¯ÇÏµµ·Ï ¼öÁ¤
+			// [NOTE] Ñ‘Â»Ñ—ĞÑ˜Â­ Ñ–Â»Ñ‘Â± Â¶Â© ĞĞªÂ±Ğ²Â°Ğ Ğ•ĞÒ‘ÑˆÂ°Ğ™ Ñ˜Ğ¢Ğ˜Ğ‡Ğ—ĞŸÂµÂµÂ·ĞŸ Ñ˜Ñ†Ğ‘Â¤
 			HorseSummon(true, false, dwOldVnum);
 		}
 		else
@@ -140,14 +140,14 @@ void CHARACTER::HorseSummon(bool bSummon, bool bFromFar, DWORD dwVnum, const cha
 {
 	if ( bSummon )
 	{
-		//NOTE : summonÇß´Âµ¥ ÀÌ¹Ì horse°¡ ÀÖÀ¸¸é ¾Æ¹«°Íµµ ¾ÈÇÑ´Ù.
+		//NOTE : summonĞ—Ğ¯Ò‘Ğ’ÂµÒ ĞĞœâ„–Ğœ horseÂ°Ğ ĞĞ¦ĞÑ‘Ñ‘Ğ¹ Ñ•Ğ–â„–Â«Â°ĞÂµÂµ Ñ•Ğ˜Ğ—Ğ¡Ò‘Ğ©.
 		if( m_chHorse != NULL )
 			return;
 
 		if (GetHorseLevel() <= 0)
 			return;
 
-		// ¹«¾ğ°¡¸¦ Å¸°í ÀÖ´Ù¸é ½ÇÆĞ
+		// â„–Â«Ñ•Ñ€Â°ĞÑ‘Â¦ Ğ•Ñ‘Â°Ğ½ ĞĞ¦Ò‘Ğ©Ñ‘Ğ¹ Ğ…Ğ—Ğ–Ğ 
 		if (IsRiding())
 			return;
 
@@ -178,16 +178,16 @@ void CHARACTER::HorseSummon(bool bSummon, bool bFromFar, DWORD dwVnum, const cha
 
 		if (!m_chHorse)
 		{
-			ChatPacket(CHAT_TYPE_INFO, LC_TEXT("¸» ¼ÒÈ¯¿¡ ½ÇÆĞÇÏ¿´½À´Ï´Ù."));
+			ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Ñ‘Â» Ñ˜Ğ¢Ğ˜Ğ‡Ñ—Ğ Ğ…Ğ—Ğ–Ğ Ğ—ĞŸÑ—Ò‘Ğ…ĞÒ‘ĞŸÒ‘Ğ©."));
 			return;
 		}
 
 		if (GetHorseHealth() <= 0)
 		{
-			// Á×Àº°ÅÃ³·³ ÀÖ°Ô ÇÏ´Â Ã³¸®
+			// Ğ‘Ğ§ĞÑ”Â°Ğ•Ğ“Ñ–Â·Ñ– ĞĞ¦Â°Ğ¤ Ğ—ĞŸÒ‘Ğ’ Ğ“Ñ–Ñ‘Â®
 			m_chHorse->SetPosition(POS_DEAD);
 
-			// ÀÏÁ¤½Ã°£ÀÖ´Ù »ç¶óÁö°Ô ÇÏÀÚ.
+			// ĞĞŸĞ‘Â¤Ğ…Ğ“Â°ĞˆĞĞ¦Ò‘Ğ© Â»Ğ·Â¶ÑƒĞ‘Ñ†Â°Ğ¤ Ğ—ĞŸĞĞª.
 			char_event_info* info = AllocEventInfo<char_event_info>();
 			info->ch = this;
 			m_chHorse->m_pkDeadEvent = event_create(horse_dead_event, info, PASSES_PER_SEC(60));
@@ -204,7 +204,7 @@ void CHARACTER::HorseSummon(bool bSummon, bool bFromFar, DWORD dwVnum, const cha
 		else
 		{
 			m_chHorse->m_stName = GetName();
-			m_chHorse->m_stName += LC_TEXT("´ÔÀÇ ¸»");
+			m_chHorse->m_stName += LC_TEXT("Ò‘Ğ¤ĞĞ— Ñ‘Â»");
 		}
 
 		if (!m_chHorse->Show(GetMapIndex(), x, y, GetZ()))
@@ -240,7 +240,7 @@ void CHARACTER::HorseSummon(bool bSummon, bool bFromFar, DWORD dwVnum, const cha
 		}
 		else
 		{
-			// ¸Ö¾îÁö¸é¼­ »ç¶óÁö´Â Ã³¸® ÇÏ±â
+			// Ñ‘Ğ¦Ñ•Ğ¾Ğ‘Ñ†Ñ‘Ğ¹Ñ˜Â­ Â»Ğ·Â¶ÑƒĞ‘Ñ†Ò‘Ğ’ Ğ“Ñ–Ñ‘Â® Ğ—ĞŸÂ±Ğ²
 			chHorse->SetNowWalking(false);
 			float fx, fy;
 			chHorse->SetRotation(GetDegreeFromPositionXY(chHorse->GetX(), chHorse->GetY(), GetX(), GetY())+180);
@@ -311,7 +311,7 @@ void CHARACTER::SendHorseInfo()
 3: 70% < ~ <= 100%
 2: 30% < ~ <= 70%
 1:  0% < ~ <= 30%
-0: »ç¸Á
+0: Â»Ğ·Ñ‘Ğ‘
 
 STM
 
@@ -344,8 +344,8 @@ STM
 		{
 			ChatPacket(CHAT_TYPE_COMMAND, "horse_state %d %d %d", GetHorseLevel(), iHealthGrade, iStaminaGrade);
 
-			// FIX : Å¬¶óÀÌ¾ğÆ®¿¡ "¸» »óÅÂ ¹öÇÁ" ¾ÆÀÌÄÜÀ» Ç¥½ÃÇÏÁö ¾ÊÀ» ¸ñÀûÀ¸·Î ÇÔ¼ö ÃÊÀÔ¿¡ returnÇÔÀ¸·Î½á ¾Æ·¡ ÄÚµå¸¦ ¹«½ÃÇÑ´Ù¸é
-			// ¸»À» ¹«ÇÑ´ë·Î ¼ÒÈ¯ÇÏ´Â ¹«½Ã¹«½ÃÇÑ ¹ö±×°¡ »ı±è.. Á¤È®ÇÑ ¿øÀÎÀº ÆÄ¾Ç ¾ÈÇØºÁ¼­ ¸ğ¸§.
+			// FIX : Ğ•Â¬Â¶ÑƒĞĞœÑ•Ñ€Ğ–Â®Ñ—Ğ "Ñ‘Â» Â»ÑƒĞ•Ğ’ â„–Ñ†Ğ—Ğ‘" Ñ•Ğ–ĞĞœĞ”Ğ¬ĞÂ» Ğ—ÒĞ…Ğ“Ğ—ĞŸĞ‘Ñ† Ñ•ĞšĞÂ» Ñ‘ÑĞÑ‹ĞÑ‘Â·Ğ Ğ—Ğ¤Ñ˜Ñ† Ğ“ĞšĞĞ¤Ñ—Ğ returnĞ—Ğ¤ĞÑ‘Â·ĞĞ…Ğ± Ñ•Ğ–Â·Ğ Ğ”ĞªÂµĞµÑ‘Â¦ â„–Â«Ğ…Ğ“Ğ—Ğ¡Ò‘Ğ©Ñ‘Ğ¹
+			// Ñ‘Â»ĞÂ» â„–Â«Ğ—Ğ¡Ò‘Ğ»Â·Ğ Ñ˜Ğ¢Ğ˜Ğ‡Ğ—ĞŸÒ‘Ğ’ â„–Â«Ğ…Ğ“â„–Â«Ğ…Ğ“Ğ—Ğ¡ â„–Ñ†Â±Ğ§Â°Ğ Â»ÑÂ±Ğ¸.. Ğ‘Â¤Ğ˜Â®Ğ—Ğ¡ Ñ—ÑˆĞĞĞÑ” Ğ–Ğ”Ñ•Ğ— Ñ•Ğ˜Ğ—Ğ¨Ñ”Ğ‘Ñ˜Â­ Ñ‘Ñ€Ñ‘Â§.
 			m_bSendHorseLevel = GetHorseLevel();
 			m_bSendHorseHealthGrade = iHealthGrade;
 			m_bSendHorseStaminaGrade = iStaminaGrade;
@@ -367,7 +367,7 @@ bool CHARACTER::CanUseHorseSkill()
 			if (GetMountVnum() >= 20209 && GetMountVnum() <= 20212)
 				return true;
 
-			//¶ó¸¶´Ü Èæ¸¶
+			//Â¶ÑƒÑ‘Â¶Ò‘Ğ¬ Ğ˜Ğ¶Ñ‘Â¶
 			if (CMobVnumHelper::IsRamadanBlackHorse(GetMountVnum()))
 				return true;
 		}

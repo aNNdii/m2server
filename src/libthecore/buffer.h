@@ -1,8 +1,8 @@
 /*
  *    Filename: buffer.h
- * Description: Buffer Ã³¸® ¸ğµâ
+ * Description: Buffer Ğ“Ñ–Ñ‘Â® Ñ‘Ñ€ÂµĞ²
  *
- *      Author: ±èÇÑÁÖ (aka. ºñ¿±, Cronan), ¼Û¿µÁø (aka. myevan, ºøÀÚ·ç)
+ *      Author: Â±Ğ¸Ğ—Ğ¡Ğ‘Ğ¦ (aka. Ñ”ÑÑ—Â±, Cronan), Ñ˜Ğ«Ñ—ÂµĞ‘Ñˆ (aka. myevan, Ñ”ÑˆĞĞªÂ·Ğ·)
  */
 #ifndef __INC_LIBTHECORE_BUFFER_H__
 #define __INC_LIBTHECORE_BUFFER_H__
@@ -28,30 +28,30 @@
 	long            flag;
     };
 
-	extern LPBUFFER	buffer_new(int size);				// »õ ¹öÆÛ »ı¼º
-    extern void		buffer_delete(LPBUFFER buffer);					// ¹öÆÛ »èÁ¦
-    extern void		buffer_reset(LPBUFFER buffer);					// ¹öÆÛ ±æÀÌµéÀ» ÃÊ±âÈ­
+	extern LPBUFFER	buffer_new(int size);				// Â»Ñ… â„–Ñ†Ğ–Ğ« Â»ÑÑ˜Ñ”
+    extern void		buffer_delete(LPBUFFER buffer);					// â„–Ñ†Ğ–Ğ« Â»Ğ¸Ğ‘Â¦
+    extern void		buffer_reset(LPBUFFER buffer);					// â„–Ñ†Ğ–Ğ« Â±Ğ¶ĞĞœÂµĞ¹ĞÂ» Ğ“ĞšÂ±Ğ²Ğ˜Â­
 
-    extern DWORD	buffer_size(LPBUFFER buffer);					// ¹öÆÛ¿¡ ³²Àº ±æÀÌ
-    extern int		buffer_has_space(LPBUFFER buffer);				// ¾µ ¼ö ÀÖ´Â ±æÀÌ¸¦ ¸®ÅÏ
+    extern DWORD	buffer_size(LPBUFFER buffer);					// â„–Ñ†Ğ–Ğ«Ñ—Ğ Ñ–Ğ†ĞÑ” Â±Ğ¶ĞĞœ
+    extern int		buffer_has_space(LPBUFFER buffer);				// Ñ•Âµ Ñ˜Ñ† ĞĞ¦Ò‘Ğ’ Â±Ğ¶ĞĞœÑ‘Â¦ Ñ‘Â®Ğ•ĞŸ
 
-    extern void		buffer_write (LPBUFFER& buffer, const void* src, int length);	// ¹öÆÛ¿¡ ¾´´Ù.
-    extern void		buffer_read(LPBUFFER buffer, void * buf, int bytes);		// ¹öÆÛ¿¡¼­ ÀĞ´Â´Ù.
+    extern void		buffer_write (LPBUFFER& buffer, const void* src, int length);	// â„–Ñ†Ğ–Ğ«Ñ—Ğ Ñ•Ò‘Ò‘Ğ©.
+    extern void		buffer_read(LPBUFFER buffer, void * buf, int bytes);		// â„–Ñ†Ğ–Ğ«Ñ—ĞÑ˜Â­ ĞĞ Ò‘Ğ’Ò‘Ğ©.
     extern BYTE		buffer_get_byte(LPBUFFER buffer);
     extern WORD		buffer_get_word(LPBUFFER buffer);
     extern DWORD	buffer_get_dword(LPBUFFER buffer);
 
-    // buffer_proceed ÇÔ¼ö´Â buffer_peekÀ¸·Î ÀĞ±â¿ë Æ÷ÀÎÅÍ¸¦ ¸®ÅÏ ¹Ş¾Æ¼­ ¾µ ÇÊ¿ä°¡
-    // ÀÖÀ» ¶§ Ã³¸®°¡ ³¡³ª¸é ¾ó¸¶³ª Ã³¸®°¡ ³¡³µ´Ù°í Åëº¸ÇØ¾ß ÇÒ ¶§ ¾´´Ù. 
-    // (buffer_read, buffer_get_* ½Ã¸®ÁîÀÇ °æ¿ì¿¡´Â ¾Ë¾Æ¼­ Ã³¸®µÇÁö¸¸ peekÀ¸·Î Ã³¸®ÇßÀ»
-    //  ¶§´Â ±×·¸°Ô µÉ ¼ö°¡ ¾øÀ¸¹Ç·Î)
-    extern const void *	buffer_read_peek(LPBUFFER buffer);				// ÀĞ´Â À§Ä¡¸¦ ¸®ÅÏ
-    extern void		buffer_read_proceed(LPBUFFER buffer, int length);		// length¸¸Å­ÀÇ Ã³¸®°¡ ³¡³²
+    // buffer_proceed Ğ—Ğ¤Ñ˜Ñ†Ò‘Ğ’ buffer_peekĞÑ‘Â·Ğ ĞĞ Â±Ğ²Ñ—Ğ» Ğ–Ñ‡ĞĞĞ•ĞÑ‘Â¦ Ñ‘Â®Ğ•ĞŸ â„–Ğ®Ñ•Ğ–Ñ˜Â­ Ñ•Âµ Ğ—ĞšÑ—Ğ´Â°Ğ
+    // ĞĞ¦ĞÂ» Â¶Â§ Ğ“Ñ–Ñ‘Â®Â°Ğ Ñ–ĞÑ–Ğ„Ñ‘Ğ¹ Ñ•ÑƒÑ‘Â¶Ñ–Ğ„ Ğ“Ñ–Ñ‘Â®Â°Ğ Ñ–ĞÑ–ÂµÒ‘Ğ©Â°Ğ½ Ğ•Ğ»Ñ”Ñ‘Ğ—Ğ¨Ñ•Ğ¯ Ğ—Ğ¢ Â¶Â§ Ñ•Ò‘Ò‘Ğ©. 
+    // (buffer_read, buffer_get_* Ğ…Ğ“Ñ‘Â®Ğ‘Ğ¾ĞĞ— Â°Ğ¶Ñ—Ğ¼Ñ—ĞÒ‘Ğ’ Ñ•Ğ›Ñ•Ğ–Ñ˜Â­ Ğ“Ñ–Ñ‘Â®ÂµĞ—Ğ‘Ñ†Ñ‘Ñ‘ peekĞÑ‘Â·Ğ Ğ“Ñ–Ñ‘Â®Ğ—Ğ¯ĞÂ»
+    //  Â¶Â§Ò‘Ğ’ Â±Ğ§Â·Ñ‘Â°Ğ¤ ÂµĞ™ Ñ˜Ñ†Â°Ğ Ñ•ÑˆĞÑ‘â„–Ğ—Â·Ğ)
+    extern const void *	buffer_read_peek(LPBUFFER buffer);				// ĞĞ Ò‘Ğ’ ĞÂ§Ğ”ĞÑ‘Â¦ Ñ‘Â®Ğ•ĞŸ
+    extern void		buffer_read_proceed(LPBUFFER buffer, int length);		// lengthÑ‘Ñ‘Ğ•Â­ĞĞ— Ğ“Ñ–Ñ‘Â®Â°Ğ Ñ–ĞÑ–Ğ†
 
-    // ¸¶Âù°¡Áö·Î write_peekÀ¸·Î ¾²±â À§Ä¡¸¦ ¾ò¾î¿Â ´ÙÀ½ ¾ó¸¶³ª ½è³ª Åëº¸ÇÒ ¶§
-    // buffer_write_proceed¸¦ »ç¿ëÇÑ´Ù.
-    extern void *	buffer_write_peek(LPBUFFER buffer);				// ¾²´Â À§Ä¡¸¦ ¸®ÅÏ
-    extern void		buffer_write_proceed(LPBUFFER buffer, int length);		// length¸¸ Áõ°¡ ½ÃÅ²´Ù.
+    // Ñ‘Â¶Ğ’Ñ‰Â°ĞĞ‘Ñ†Â·Ğ write_peekĞÑ‘Â·Ğ Ñ•Ğ†Â±Ğ² ĞÂ§Ğ”ĞÑ‘Â¦ Ñ•Ñ‚Ñ•Ğ¾Ñ—Ğ’ Ò‘Ğ©ĞĞ… Ñ•ÑƒÑ‘Â¶Ñ–Ğ„ Ğ…Ğ¸Ñ–Ğ„ Ğ•Ğ»Ñ”Ñ‘Ğ—Ğ¢ Â¶Â§
+    // buffer_write_proceedÑ‘Â¦ Â»Ğ·Ñ—Ğ»Ğ—Ğ¡Ò‘Ğ©.
+    extern void *	buffer_write_peek(LPBUFFER buffer);				// Ñ•Ğ†Ò‘Ğ’ ĞÂ§Ğ”ĞÑ‘Â¦ Ñ‘Â®Ğ•ĞŸ
+    extern void		buffer_write_proceed(LPBUFFER buffer, int length);		// lengthÑ‘Ñ‘ Ğ‘Ñ…Â°Ğ Ğ…Ğ“Ğ•Ğ†Ò‘Ğ©.
 
-    extern void		buffer_adjust_size(LPBUFFER & buffer, int add_size);		// add_size¸¸Å­ Ãß°¡ÇÒ Å©±â¸¦ È®º¸
+    extern void		buffer_adjust_size(LPBUFFER & buffer, int add_size);		// add_sizeÑ‘Ñ‘Ğ•Â­ Ğ“Ğ¯Â°ĞĞ—Ğ¢ Ğ•Â©Â±Ğ²Ñ‘Â¦ Ğ˜Â®Ñ”Ñ‘
 #endif

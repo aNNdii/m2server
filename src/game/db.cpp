@@ -300,7 +300,7 @@ void DBManager::AnalyzeReturnQuery(SQLMsg * pMsg)
 					M2_DELETE(pinfo);
 					break;
 				}
-				//À§Ä¡ º¯°æ - By SeMinZ
+				//ÐÂ§Ð”ÐŽ Ñ”Ð‡Â°Ð¶ - By SeMinZ
 				d->SetLogin(pinfo->login);
 
 				sys_log(0, "QID_AUTH_LOGIN: START %u %p", qi->dwIdent, get_pointer(d));
@@ -441,7 +441,7 @@ void DBManager::AnalyzeReturnQuery(SQLMsg * pMsg)
 					{
 						if (LC_IsEurope())
 						{
-							//stBlockData >= 0 == ³¯Â¥°¡ BlockDate º¸´Ù ¹Ì·¡ 
+							//stBlockData >= 0 == Ñ–Ð‡Ð’ÒÂ°ÐŽ BlockDate Ñ”Ñ‘Ò‘Ð© â„–ÐœÂ·ÐŽ 
 							if (strncmp(szCreateDate, g_stBlockDate.c_str(), 8) >= 0)
 							{
 								LoginFailure(d, "BLKLOGIN");
@@ -532,7 +532,7 @@ void DBManager::AnalyzeReturnQuery(SQLMsg * pMsg)
 						if (pkItem)
 						{
 							sys_log(0, "GIVE LOTTO SUCCESS TO %s (pid %u)", ch->GetName(), qi->dwIdent);
-							//ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("¾ÆÀÌÅÛ È¹µæ: %s"), pkItem->GetName());
+							//ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Ñ•Ð–ÐÐœÐ•Ð« Ð˜â„–ÂµÐ¶: %s"), pkItem->GetName());
 
 							pkItem->SetSocket(0, pMsg->Get()->uiInsertID);
 							pkItem->SetSocket(1, pdw[2]);
@@ -685,7 +685,7 @@ void VCardUse(LPCHARACTER CardOwner, LPCHARACTER CardTaker, LPITEM item)
 
 	db_clientdesc->DBPacket(HEADER_GD_VCARD, 0, &p, sizeof(TPacketGDVCard));
 
-	CardTaker->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("%dºÐÀÇ °áÁ¦½Ã°£ÀÌ Ãß°¡ µÇ¾ú½À´Ï´Ù. (°áÁ¦¹øÈ£ %d)"), item->GetSocket(1) / 60, item->GetSocket(0));
+	CardTaker->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("%dÑ”Ð ÐÐ— Â°Ð±Ð‘Â¦Ð…Ð“Â°ÐˆÐÐœ Ð“Ð¯Â°ÐŽ ÂµÐ—Ñ•ÑŠÐ…ÐÒ‘ÐŸÒ‘Ð©. (Â°Ð±Ð‘Â¦â„–ÑˆÐ˜Ðˆ %d)"), item->GetSocket(1) / 60, item->GetSocket(0));
 
 	LogManager::instance().VCardLog(p.dwID, CardTaker->GetX(), CardTaker->GetY(), g_stHostname.c_str(),
 			CardOwner->GetName(), CardOwner->GetDesc()->GetHostName(),
@@ -813,7 +813,7 @@ enum EAccountQID
 	QID_SPAM_DB,
 };
 
-// 10ºÐ¸¶´Ù ¸®·Îµå
+// 10Ñ”Ð Ñ‘Â¶Ò‘Ð© Ñ‘Â®Â·ÐžÂµÐµ
 static LPEVENT s_pkReloadSpamEvent = NULL;
 
 EVENTINFO(reload_spam_event_info)

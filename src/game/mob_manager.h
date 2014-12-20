@@ -3,8 +3,8 @@
 
 typedef struct SMobSplashAttackInfo
 {
-	DWORD	dwTiming; // ½ºÅ³ »ç¿ë ÈÄ ½ÇÁ¦·Î µ¥¹ÌÁö ¸ÔÈú¶§±îÁö ±â´Ù¸®´Â ½Ã°£ (ms)
-	DWORD	dwHitDistance; // ½ºÅ³ »ç¿ë½Ã ½ÇÁ¦·Î ½ºÅ³ °è»êÀÌ µÇ´Â °Å¸® (Àü¹æ ¸îcm)
+	DWORD	dwTiming; // Ğ…Ñ”Ğ•Ñ– Â»Ğ·Ñ—Ğ» Ğ˜Ğ” Ğ…Ğ—Ğ‘Â¦Â·Ğ ÂµÒâ„–ĞœĞ‘Ñ† Ñ‘Ğ¤Ğ˜ÑŠÂ¶Â§Â±Ğ¾Ğ‘Ñ† Â±Ğ²Ò‘Ğ©Ñ‘Â®Ò‘Ğ’ Ğ…Ğ“Â°Ğˆ (ms)
+	DWORD	dwHitDistance; // Ğ…Ñ”Ğ•Ñ– Â»Ğ·Ñ—Ğ»Ğ…Ğ“ Ğ…Ğ—Ğ‘Â¦Â·Ğ Ğ…Ñ”Ğ•Ñ– Â°Ğ¸Â»ĞºĞĞœ ÂµĞ—Ò‘Ğ’ Â°Ğ•Ñ‘Â® (ĞÑŒâ„–Ğ¶ Ñ‘Ğ¾cm)
 
 	SMobSplashAttackInfo(DWORD dwTiming, DWORD dwHitDistance)
 		: dwTiming(dwTiming)
@@ -37,8 +37,8 @@ class CMobInstance
 	public:
 		CMobInstance();
 
-		PIXEL_POSITION	m_posLastAttacked;	// ¸¶Áö¸· ¸ÂÀº À§Ä¡
-		DWORD		m_dwLastAttackedTime;	// ¸¶Áö¸· ¸ÂÀº ½Ã°£
+		PIXEL_POSITION	m_posLastAttacked;	// Ñ‘Â¶Ğ‘Ñ†Ñ‘Â· Ñ‘Ğ’ĞÑ” ĞÂ§Ğ”Ğ
+		DWORD		m_dwLastAttackedTime;	// Ñ‘Â¶Ğ‘Ñ†Ñ‘Â· Ñ‘Ğ’ĞÑ” Ğ…Ğ“Â°Ğˆ
 		DWORD		m_dwLastWarpTime;
 
 		bool m_IsBerserk;

@@ -17,9 +17,9 @@ struct CSpecialAttrInfo
 
 typedef std::vector<CSpecialAttrInfo> SpecialAttrInfoVector;
 
-// special_item_group.txt���� �����ϴ� �Ӽ� �׷�
-// type attr�� ������ �� �ִ�.
-// �� �Ӽ� �׷��� �̿��� �� �ִ� ���� special_item_group.txt���� Special type���� ���ǵ� �׷쿡 ���� UNIQUE ITEM�̴�.
+// special_item_group.txtїЎј­ Б¤АЗЗПґВ јУјє ±Ч·м
+// type attr·О ј±ѕрЗТ јц АЦґЩ.
+// АМ јУјє ±Ч·мА» АМїлЗТ јц АЦґВ °НАє special_item_group.txtїЎј­ Special typeАё·О Б¤АЗµИ ±Ч·мїЎ јУЗС UNIQUE ITEMАМґЩ.
 class CSpecialAttrGroup
 {
 public:
@@ -60,10 +60,10 @@ class CSpecialItemGroup
 			MOB_GROUP,
 		};
 
-		// QUEST Ÿ���� ����Ʈ ��ũ��Ʈ���� vnum.sig_use�� ����� �� �ִ� �׷��̴�.
-		//		��, �� �׷쿡 ���� ���ؼ��� ITEM ��ü�� TYPE�� QUEST���� �Ѵ�.
-		// SPECIAL Ÿ���� idx, item_vnum, attr_vnum�� �Է��Ѵ�. attr_vnum�� ���� CSpecialAttrGroup�� Vnum�̴�.
-		//		�� �׷쿡 ����ִ� �������� ���� ������ �� ����.
+		// QUEST ЕёАФАє ДщЅєЖ® ЅєЕ©ёіЖ®їЎј­ vnum.sig_useё¦ »зїлЗТ јц АЦґВ ±Ч·мАМґЩ.
+		//		ґЬ, АМ ±Ч·мїЎ µйѕо°Ў±в А§ЗШј­ґВ ITEM АЪГјАЗ TYPEАМ QUESTї©ѕЯ ЗСґЩ.
+		// SPECIAL ЕёАФАє idx, item_vnum, attr_vnumА» АФ·ВЗСґЩ. attr_vnumАє А§їЎ CSpecialAttrGroupАЗ VnumАМґЩ.
+		//		АМ ±Ч·мїЎ µйѕоАЦґВ ѕЖАМЕЫАє °°АМ ВшїлЗТ јц ѕшґЩ.
 		enum ESIGType { NORMAL, PCT, QUEST, SPECIAL };
 
 		CSpecialItemGroup(DWORD vnum, BYTE type=0)
@@ -85,9 +85,9 @@ class CSpecialItemGroup
 			return m_vecProbs.empty();
 		}
 
-		// Type Multi, �� m_bType == PCT �� ���,
-		// Ȯ���� ���ذ��� �ʰ�, ���������� ����Ͽ� �������� �����Ѵ�.
-		// ���� ���� ���� �������� ������ �� �ִ�.
+		// Type Multi, Бп m_bType == PCT АО °жїм,
+		// И®·ьА» ґхЗШ°ЎБц ѕК°н, µ¶ёіАыАё·О °и»кЗПї© ѕЖАМЕЫА» »эјєЗСґЩ.
+		// µы¶уј­ ї©·Ї °іАЗ ѕЖАМЕЫАМ »эјєµЙ јц АЦґЩ.
 		// by rtsummit
 		int GetMultiIndex(std::vector <int> &idx_vec) const
 		{
@@ -149,8 +149,8 @@ class CSpecialItemGroup
 			return false;
 		}
 		
-		// Group�� Type�� Special�� ��쿡
-		// dwVnum�� ��Ī�Ǵ� AttrVnum�� return���ش�.
+		// GroupАЗ TypeАМ SpecialАО °жїмїЎ
+		// dwVnumїЎ ёЕДЄµЗґВ AttrVnumА» returnЗШБШґЩ.
 		DWORD GetAttrVnum(DWORD dwVnum) const
 		{
 			if (CSpecialItemGroup::SPECIAL != m_bType)
@@ -165,7 +165,7 @@ class CSpecialItemGroup
 			return 0;
 		}
 
-		// Group�� Size�� return���ش�.
+		// GroupАЗ Sizeё¦ returnЗШБШґЩ.
 		int GetGroupSize() const
 		{
 			return m_vecProbs.size();
@@ -386,18 +386,18 @@ class ITEM_MANAGER : public singleton<ITEM_MANAGER>
 
 		bool                    Initialize(TItemTable * table, int size);
 		void			Destroy();
-		void			Update();	// �� �������� �θ���.
+		void			Update();	// ёЕ ·зЗБё¶ґЩ єОёҐґЩ.
 		void			GracefulShutdown();
 
 		DWORD			GetNewID();
-		bool			SetMaxItemID(TItemIDRangeTable range); // �ִ� ���� ���̵� ����
+		bool			SetMaxItemID(TItemIDRangeTable range); // ГЦґл °нАЇ ѕЖАМµрё¦ БцБ¤
 		bool			SetMaxSpareItemID(TItemIDRangeTable range);
 
-		// DelayedSave: ��� ��ƾ ������ ������ �ؾ� �� ���� ���� �ϸ� ����
-		// ������ �ʹ� �������Ƿ� "������ �Ѵ�" ��� ǥ�ø� �صΰ� ���
-		// (��: 1 frame) �Ŀ� �����Ų��.
+		// DelayedSave: ѕо¶°ЗС ·зЖѕ і»їЎј­ АъАеА» ЗШѕЯ ЗТ БюА» ё№АМ ЗПёй АъАе
+		// Дхё®°Ў іК№« ё№ѕЖБц№З·О "АъАеА» ЗСґЩ" ¶у°н ЗҐЅГёё ЗШµО°н Аб±с
+		// (ї№: 1 frame) ИДїЎ АъАеЅГЕІґЩ.
 		void			DelayedSave(LPITEM item);
-		void			FlushDelayedSave(LPITEM item); // Delayed ����Ʈ�� �ִٸ� ����� �����Ѵ�. ���� ó���� ��� ��.
+		void			FlushDelayedSave(LPITEM item); // Delayed ё®ЅєЖ®їЎ АЦґЩёй Бцїм°н АъАеЗСґЩ. Іч±и Гіё®ЅГ »зїл µК.
 		void			SaveSingleItem(LPITEM item);
 
 		LPITEM                  CreateItem(DWORD vnum, DWORD count = 1, DWORD dwID = 0, bool bTryMagic = false, int iRarePct = -1, bool bSkipSave = false);
@@ -406,7 +406,7 @@ class ITEM_MANAGER : public singleton<ITEM_MANAGER>
 #else
 		void DestroyItem(LPITEM item, const char* file, size_t line);
 #endif
-		void			RemoveItem(LPITEM item, const char * c_pszReason=NULL); // ����ڷ� ���� �������� ����
+		void			RemoveItem(LPITEM item, const char * c_pszReason=NULL); // »зїлАЪ·О єОЕН ѕЖАМЕЫА» Б¦°Е
 
 		LPITEM			Find(DWORD id);
 		LPITEM                  FindByVID(DWORD vid);
@@ -429,7 +429,7 @@ class ITEM_MANAGER : public singleton<ITEM_MANAGER>
 
 		DWORD			GetRefineFromVnum(DWORD dwVnum);
 
-		static void		CopyAllAttrTo(LPITEM pkOldItem, LPITEM pkNewItem);		// pkNewItem���� ��� �Ӽ��� ���� ������ ����ϴ� �Լ�.
+		static void		CopyAllAttrTo(LPITEM pkOldItem, LPITEM pkNewItem);		// pkNewItemАё·О ёрµз јУјє°ъ јТДП °ЄµйА» ёс»зЗПґВ ЗФјц.
 
 
 		const CSpecialItemGroup* GetSpecialItemGroup(DWORD dwVnum);
@@ -453,8 +453,8 @@ class ITEM_MANAGER : public singleton<ITEM_MANAGER>
 		ItemRefineFromMap		m_map_ItemRefineFrom;
 		int				m_iTopOfTable;
 
-		ITEM_VID_MAP			m_VIDMap;			///< m_dwVIDCount �� �������� �������� �����Ѵ�.
-		DWORD				m_dwVIDCount;			///< �̳༮ VID�� �ƴ϶� �׳� ���μ��� ���� ����ũ ��ȣ��.
+		ITEM_VID_MAP			m_VIDMap;			///< m_dwVIDCount АЗ °ЄґЬА§·О ѕЖАМЕЫА» АъАеЗСґЩ.
+		DWORD				m_dwVIDCount;			///< АМіај® VID°Ў ѕЖґП¶у ±ЧіЙ ЗБ·ОјјЅє ґЬА§ АЇґПЕ© №шИЈґЩ.
 		DWORD				m_dwCurrentID;
 		TItemIDRangeTable	m_ItemIDRange;
 		TItemIDRangeTable	m_ItemIDSpareRange;
@@ -475,15 +475,15 @@ class ITEM_MANAGER : public singleton<ITEM_MANAGER>
 		// END_OF_CHECK_UNIQUE_GROUP
 	
 	private:
-		// ���Ͽ��� ���� ĳ�� �����۰� ������, ��ȯ ������ ĳ�� �������� ����ٰ� �Ͽ�,
-		// �������� �����ۿ� ��ȯ ���� �÷��׸� ������ ���ο� �����۵��� �����,
-		// ���ο� ������ �뿪�� �Ҵ��Ͽ���.
-		// ������ ���ο� �����۵� �������� �����۰� ���� ȿ���� �����ϴµ�,
-		// ������, Ŭ���, vnum ������� �Ǿ��־�
-		// ���ο� vnum�� �˴� ������ ���� �� �ھƾ��ϴ� ��Ÿ��� ��Ȳ�� �´�Ҵ�.
-		// �׷��� �� vnum�� �������̸�, �������� ���ư� ���� �������� ������ vnum���� �ٲ㼭 ���� �ϰ�,
-		// ������ ���� ���� vnum���� �ٲ��ֵ��� �Ѵ�.
-		// �̸� ���� �������� vnum�� ���ο� vnum�� ��������ִ� ���� ����.
+		// µ¶АПїЎј­ ±вБё ДіЅГ ѕЖАМЕЫ°ъ °°Бцёё, ±іИЇ °ЎґЙЗС ДіЅГ ѕЖАМЕЫА» ёёµзґЩ°н ЗПї©,
+		// їАё®БціО ѕЖАМЕЫїЎ ±іИЇ ±ЭБц ЗГ·Ў±Чёё »иБ¦ЗС »х·Оїо ѕЖАМЕЫµйА» ёёµйѕо,
+		// »х·Оїо ѕЖАМЕЫ ґлїЄА» ЗТґзЗПїґґЩ.
+		// №®Б¦ґВ »х·Оїо ѕЖАМЕЫµµ їАё®БціО ѕЖАМЕЫ°ъ °°Ає Иї°ъё¦ і»ѕЯЗПґВµҐ,
+		// ј­№ц°З, Е¬¶у°З, vnum ±в№ЭАё·О µЗѕоАЦѕо
+		// »х·Оїо vnumА» БЛґЩ ј­№цїЎ »х·О ґЩ №ЪѕЖѕЯЗПґВ ѕИЕё±оїо »уИІїЎ ёВґкѕТґЩ.
+		// ±Ч·Ўј­ »х vnumАЗ ѕЖАМЕЫАМёй, ј­№цїЎј­ µ№ѕЖ°Ґ ¶§ґВ їАё®БціО ѕЖАМЕЫ vnumАё·О №ЩІгј­ µ№°н ЗП°н,
+		// АъАеЗТ ¶§їЎ є»·Ў vnumАё·О №ЩІгБЦµµ·П ЗСґЩ.
+		// АМё¦ А§ЗШ їАё®БціО vnum°ъ »х·Оїо vnumА» ї¬°бЅГДСБЦґВ ёКА» ёёµк.
 		typedef std::map <DWORD, DWORD> TMapDW2DW;
 		TMapDW2DW	m_map_new_to_ori;
 

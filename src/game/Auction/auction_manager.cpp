@@ -215,7 +215,7 @@ void AuctionBoard::YourItemInfoList (TItemInfoVec& vec, DWORD player_id, int sta
 }
 
 // 0~1, 2~3, 4~5, 6~7, 8~9
-// Â¦¼ö¸é descending, È¦¼ö¸é accending.
+// Ð’Â¦Ñ˜Ñ†Ñ‘Ð¹ descending, Ð˜Â¦Ñ˜Ñ†Ñ‘Ð¹ accending.
 struct FCheckGradeSatisfied
 {
 	BYTE grade;
@@ -796,7 +796,7 @@ void AuctionManager::YourBidItemInfoList (AuctionBoard::TItemInfoVec& vec, DWORD
 		}
 		else
 		{
-			// expired ¸¸µé°í ¿©±â¼­ ³Ö¾î¾ßÇÑ´Ù.
+			// expired Ñ‘Ñ‘ÂµÐ¹Â°Ð½ Ñ—Â©Â±Ð²Ñ˜Â­ Ñ–Ð¦Ñ•Ð¾Ñ•Ð¯Ð—Ð¡Ò‘Ð©.
 		}
 	}
 }
@@ -881,21 +881,21 @@ void AuctionManager::enroll_auction (LPCHARACTER ch, LPITEM item, BYTE empire, i
 	}
 	if (item->IsEquipped())
 	{
-		ch->ChatPacket(CHAT_TYPE_INFO, "ÀåÂøÇÑ °Ç µî·ÏÇÒ ¼ö ¾ø¾î.");
+		ch->ChatPacket(CHAT_TYPE_INFO, "ÐÐµÐ’ÑˆÐ—Ð¡ Â°Ð— ÂµÐ¾Â·ÐŸÐ—Ð¢ Ñ˜Ñ† Ñ•ÑˆÑ•Ð¾.");
 		return;
 	}
 
 	if (GetAuctionItemInfo (item->GetID()))
 	{
 		sys_err ("Item %d is already in auction.", item->GetID());
-		ch->ChatPacket(CHAT_TYPE_INFO, "ÀÌ¹Ì µî·ÏÇÑ °Å¾ß. µµ´ëÃ¼ ¹¹Áö?");
+		ch->ChatPacket(CHAT_TYPE_INFO, "ÐÐœâ„–Ðœ ÂµÐ¾Â·ÐŸÐ—Ð¡ Â°Ð•Ñ•Ð¯. ÂµÂµÒ‘Ð»Ð“Ñ˜ â„–â„–Ð‘Ñ†?");
 		return;
 	}
 
 	if (item->GetWindow() == AUCTION)
 	{
 		sys_err ("Item %d is already in auction.", item->GetID());
-		ch->ChatPacket(CHAT_TYPE_INFO, "¾ë ¶Ç ¹¹³Ä..");
+		ch->ChatPacket(CHAT_TYPE_INFO, "Ñ•Ð» Â¶Ð— â„–â„–Ñ–Ð”..");
 		return;
 	}
 
@@ -918,21 +918,21 @@ void AuctionManager::enroll_sale (LPCHARACTER ch, LPITEM item, DWORD wisher_id, 
 	}
 	if (item->IsEquipped())
 	{
-		ch->ChatPacket(CHAT_TYPE_INFO, "ÀåÂøÇÑ °Ç µî·ÏÇÒ ¼ö ¾ø¾î.");
+		ch->ChatPacket(CHAT_TYPE_INFO, "ÐÐµÐ’ÑˆÐ—Ð¡ Â°Ð— ÂµÐ¾Â·ÐŸÐ—Ð¢ Ñ˜Ñ† Ñ•ÑˆÑ•Ð¾.");
 		return;
 	}
 
 	if (GetSaleItemInfo (item->GetID()))
 	{
 		sys_err ("Item %d is already in auction.", item->GetID());
-		ch->ChatPacket(CHAT_TYPE_INFO, "ÀÌ¹Ì µî·ÏÇÑ °Å¾ß. µµ´ëÃ¼ ¹¹Áö?");
+		ch->ChatPacket(CHAT_TYPE_INFO, "ÐÐœâ„–Ðœ ÂµÐ¾Â·ÐŸÐ—Ð¡ Â°Ð•Ñ•Ð¯. ÂµÂµÒ‘Ð»Ð“Ñ˜ â„–â„–Ð‘Ñ†?");
 		return;
 	}
 
 	if (item->GetWindow() == AUCTION)
 	{
 		sys_err ("Item %d is already in auction.", item->GetID());
-		ch->ChatPacket(CHAT_TYPE_INFO, "¾ë ¶Ç ¹¹³Ä..");
+		ch->ChatPacket(CHAT_TYPE_INFO, "Ñ•Ð» Â¶Ð— â„–â„–Ñ–Ð”..");
 		return;
 	}
 
@@ -959,11 +959,11 @@ void AuctionManager::bid (LPCHARACTER ch, DWORD item_id, int bid_price)
 	std::pair <int, bool> mb = MyBid.GetMoney(ch->GetPlayerID(), item_id);
 	if (mb.first != -1)
 	{
-		ch->ChatPacket (CHAT_TYPE_INFO, "ÀçÀÔÂûÀ» ÇÏ¶õ ¸»ÀÌ´Ù.");
+		ch->ChatPacket (CHAT_TYPE_INFO, "ÐÐ·ÐÐ¤Ð’Ñ‹ÐÂ» Ð—ÐŸÂ¶Ñ… Ñ‘Â»ÐÐœÒ‘Ð©.");
 	}
 	if (ch->GetGold() < bid_price)
 	{
-		ch->ChatPacket(CHAT_TYPE_INFO, "µ·ÀÌ ºÎÁ·ÇØ");
+		ch->ChatPacket(CHAT_TYPE_INFO, "ÂµÂ·ÐÐœ Ñ”ÐžÐ‘Â·Ð—Ð¨");
 		return;
 	}
 
@@ -975,7 +975,7 @@ void AuctionManager::bid (LPCHARACTER ch, DWORD item_id, int bid_price)
 }
 
 // fixme
-// ¹Ýµå½Ã µ·!!!
+// â„–Ð­ÂµÐµÐ…Ð“ ÂµÂ·!!!
 void AuctionManager::immediate_purchase (LPCHARACTER ch, DWORD item_id)
 {
 	TAuctionItemInfo* item_info = GetAuctionItemInfo (item_id);
@@ -988,13 +988,13 @@ void AuctionManager::immediate_purchase (LPCHARACTER ch, DWORD item_id)
 
 	if (item_info->get_impur_price() == 0)
 	{
-		ch->ChatPacket(CHAT_TYPE_INFO, "Áï±¸ ÇÒ ¼ö ¾ö¼­");
+		ch->ChatPacket(CHAT_TYPE_INFO, "Ð‘Ð¿Â±Ñ‘ Ð—Ð¢ Ñ˜Ñ† Ñ•Ñ†Ñ˜Â­");
 		return;
 	}
 
 	if (ch->GetGold() < item_info->get_impur_price())
 	{
-		ch->ChatPacket(CHAT_TYPE_INFO, "µ·ÀÌ ºÎÁ·ÇØ");
+		ch->ChatPacket(CHAT_TYPE_INFO, "ÂµÂ·ÐÐœ Ñ”ÐžÐ‘Â·Ð—Ð¨");
 		return;
 	}
 
@@ -1005,7 +1005,7 @@ void AuctionManager::immediate_purchase (LPCHARACTER ch, DWORD item_id)
 	db_clientdesc->DBPacket(HEADER_GD_COMMAND_AUCTION, ch->GetPlayerID(), &pack_impur, sizeof(TPacketGDCommnadAuction));
 }
 
-// ½ÃÀÛ
+// Ð…Ð“ÐÐ«
 void AuctionManager::get_auctioned_item (LPCHARACTER ch, DWORD item_id, DWORD item_num)
 {
 	TItemTable* proto = ITEM_MANAGER::instance().GetTable(item_num);
@@ -1013,7 +1013,7 @@ void AuctionManager::get_auctioned_item (LPCHARACTER ch, DWORD item_id, DWORD it
 
 	if (pos == -1)
 	{
-		ch->ChatPacket(CHAT_TYPE_INFO, "ÀÚ¸®°¡ ¾ö¼­");
+		ch->ChatPacket(CHAT_TYPE_INFO, "ÐÐªÑ‘Â®Â°ÐŽ Ñ•Ñ†Ñ˜Â­");
 		return;
 	}
 
@@ -1069,13 +1069,13 @@ void AuctionManager::rebid (LPCHARACTER ch, DWORD item_id, int bid_price)
 	
 	if (lock)
 	{
-		ch->ChatPacket(CHAT_TYPE_INFO, "ÀÔÂû ÁßÀÌ¾ß.");
+		ch->ChatPacket(CHAT_TYPE_INFO, "ÐÐ¤Ð’Ñ‹ Ð‘Ð¯ÐÐœÑ•Ð¯.");
 		return;
 	}
 
 	if (ch->GetGold() + money < bid_price)
 	{
-		ch->ChatPacket(CHAT_TYPE_INFO, "µ·ÀÌ ºÎÁ·ÇØ");
+		ch->ChatPacket(CHAT_TYPE_INFO, "ÂµÂ·ÐÐœ Ñ”ÐžÐ‘Â·Ð—Ð¨");
 		return;
 	}
 
@@ -1101,14 +1101,14 @@ void AuctionManager::bid_cancel (LPCHARACTER ch, DWORD item_id)
 	
 	if (lock)
 	{
-		ch->ChatPacket(CHAT_TYPE_INFO, "ÀÔÂû ÁßÀÌ¾ß.");
+		ch->ChatPacket(CHAT_TYPE_INFO, "ÐÐ¤Ð’Ñ‹ Ð‘Ð¯ÐÐœÑ•Ð¯.");
 		return;
 	}
 
 	TAuctionItemInfo* item_info = GetAuctionItemInfo(item_id);
 	if (item_info->get_bidder_id() == ch->GetPlayerID())
 	{
-		ch->ChatPacket(CHAT_TYPE_INFO, "´Ï°¡ ÃÖ°í ÀÔÂûÀÚ¾ß. Ãë¼Ò ¸øÇØ.");
+		ch->ChatPacket(CHAT_TYPE_INFO, "Ò‘ÐŸÂ°ÐŽ Ð“Ð¦Â°Ð½ ÐÐ¤Ð’Ñ‹ÐÐªÑ•Ð¯. Ð“Ð»Ñ˜Ð¢ Ñ‘ÑˆÐ—Ð¨.");
 		return;
 	}
 
@@ -1120,7 +1120,7 @@ void AuctionManager::bid_cancel (LPCHARACTER ch, DWORD item_id)
 	db_clientdesc->DBPacket(HEADER_GD_COMMAND_AUCTION, ch->GetPlayerID(), &pack_bc, sizeof(TPacketGDCommnadAuction));
 }
 
-// ³¡
+// Ñ–ÐŽ
 void AuctionManager::recv_result_auction (DWORD commander_id, TPacketDGResultAuction* cmd_result)
 {
 	LPCHARACTER ch = CHARACTER_MANAGER::instance().FindByPID(commander_id);
@@ -1142,7 +1142,7 @@ void AuctionManager::recv_result_auction (DWORD commander_id, TPacketDGResultAuc
 				Auction.InsertItemInfo (item_info);
 				if (ch != NULL)
 				{
-					ch->ChatPacket(CHAT_TYPE_INFO, "°æ¸ÅÀå¿¡ µî·ÏÇß¾î.");
+					ch->ChatPacket(CHAT_TYPE_INFO, "Â°Ð¶Ñ‘Ð•ÐÐµÑ—ÐŽ ÂµÐ¾Â·ÐŸÐ—Ð¯Ñ•Ð¾.");
 				}
 				break;
 			}
@@ -1157,7 +1157,7 @@ void AuctionManager::recv_result_auction (DWORD commander_id, TPacketDGResultAuc
 					LPCHARACTER ch = CHARACTER_MANAGER::instance().FindByPID (player_item->owner);
 
 					ch->AutoGiveItem (item, true);
-					ch->ChatPacket(CHAT_TYPE_INFO, "°æ¸ÅÀå¿¡ µî·ÏÇÏÁö ¸øÇß¾î.");
+					ch->ChatPacket(CHAT_TYPE_INFO, "Â°Ð¶Ñ‘Ð•ÐÐµÑ—ÐŽ ÂµÐ¾Â·ÐŸÐ—ÐŸÐ‘Ñ† Ñ‘ÑˆÐ—Ð¯Ñ•Ð¾.");
 				}
 				break;
 			}
@@ -1179,7 +1179,7 @@ void AuctionManager::recv_result_auction (DWORD commander_id, TPacketDGResultAuc
 				Sale.InsertItemInfo (item_info);
 				if (ch != NULL)
 				{
-					ch->ChatPacket(CHAT_TYPE_INFO, "ÆÇ¸ÅÀå¿¡ µî·ÏÇß¾î.");
+					ch->ChatPacket(CHAT_TYPE_INFO, "Ð–Ð—Ñ‘Ð•ÐÐµÑ—ÐŽ ÂµÐ¾Â·ÐŸÐ—Ð¯Ñ•Ð¾.");
 				}
 				break;
 			}
@@ -1193,7 +1193,7 @@ void AuctionManager::recv_result_auction (DWORD commander_id, TPacketDGResultAuc
 
 
 					ch->AutoGiveItem (item, true);
-					ch->ChatPacket(CHAT_TYPE_INFO, "ÆÇ¸ÅÀå¿¡ µî·ÏÇÏÁö ¸øÇß¾î.");
+					ch->ChatPacket(CHAT_TYPE_INFO, "Ð–Ð—Ñ‘Ð•ÐÐµÑ—ÐŽ ÂµÐ¾Â·ÐŸÐ—ÐŸÐ‘Ñ† Ñ‘ÑˆÐ—Ð¯Ñ•Ð¾.");
 				}
 				break;
 			}
@@ -1210,7 +1210,7 @@ void AuctionManager::recv_result_auction (DWORD commander_id, TPacketDGResultAuc
 				Wish.InsertItemInfo (item_info);
 				if (ch != NULL)
 				{
-					ch->ChatPacket(CHAT_TYPE_INFO, "»ð´Ï´Ù¿¡ µî·ÏÇß¾î.");
+					ch->ChatPacket(CHAT_TYPE_INFO, "Â»Ñ€Ò‘ÐŸÒ‘Ð©Ñ—ÐŽ ÂµÐ¾Â·ÐŸÐ—Ð¯Ñ•Ð¾.");
 				}
 				break;
 			}
@@ -1218,7 +1218,7 @@ void AuctionManager::recv_result_auction (DWORD commander_id, TPacketDGResultAuc
 			{
 				if (ch != NULL)
 				{
-					ch->ChatPacket(CHAT_TYPE_INFO, "»ð´Ï´Ù¿¡ µî·ÏÇÏÁö ¸øÇß¾î.");
+					ch->ChatPacket(CHAT_TYPE_INFO, "Â»Ñ€Ò‘ÐŸÒ‘Ð©Ñ—ÐŽ ÂµÐ¾Â·ÐŸÐ—ÐŸÐ‘Ñ† Ñ‘ÑˆÐ—Ð¯Ñ•Ð¾.");
 				}
 				break;
 			}
@@ -1238,7 +1238,7 @@ void AuctionManager::recv_result_auction (DWORD commander_id, TPacketDGResultAuc
 			MyBid.Insert(new_item_info->bidder_id, new_item_info->item_id, new_item_info->get_bid_price());
 			if (ch != NULL)
 			{
-				ch->ChatPacket(CHAT_TYPE_INFO, "ÀÔÂûÇß¾î.");
+				ch->ChatPacket(CHAT_TYPE_INFO, "ÐÐ¤Ð’Ñ‹Ð—Ð¯Ñ•Ð¾.");
 			}
 		}
 		break;
@@ -1254,7 +1254,7 @@ void AuctionManager::recv_result_auction (DWORD commander_id, TPacketDGResultAuc
 			thecore_memcpy (old_item_info, new_item_info, sizeof(TAuctionItemInfo));
 			if (ch != NULL)
 			{
-				ch->ChatPacket(CHAT_TYPE_INFO, "Áï±¸ ÇØ¹ö·È¾î.");
+				ch->ChatPacket(CHAT_TYPE_INFO, "Ð‘Ð¿Â±Ñ‘ Ð—Ð¨â„–Ñ†Â·Ð˜Ñ•Ð¾.");
 			}
 		}
 		break;
@@ -1277,7 +1277,7 @@ void AuctionManager::recv_result_auction (DWORD commander_id, TPacketDGResultAuc
 			{
 				LPITEM item = ITEM_MANAGER::instance().CreateItem(player_item->vnum, player_item->count, item_id);
 				ch->AutoGiveItem (item, true);
-				ch->ChatPacket(CHAT_TYPE_INFO, "°¡Á®¿Ô¾î.");
+				ch->ChatPacket(CHAT_TYPE_INFO, "Â°ÐŽÐ‘Â®Ñ—Ð¤Ñ•Ð¾.");
 				if (cmd == AUCTION_GET_AUC || cmd == AUCTION_CANCEL_AUC)
 				{
 					TPacketGDCommnadAuction pack_dai;
@@ -1337,7 +1337,7 @@ void AuctionManager::recv_result_auction (DWORD commander_id, TPacketDGResultAuc
 			}
 			else if (ch != NULL)
 			{
-				ch->ChatPacket(CHAT_TYPE_INFO, "Ãë¼ÒÇß¾î.");
+				ch->ChatPacket(CHAT_TYPE_INFO, "Ð“Ð»Ñ˜Ð¢Ð—Ð¯Ñ•Ð¾.");
 			}
 		}
 		break;
@@ -1354,7 +1354,7 @@ void AuctionManager::recv_result_auction (DWORD commander_id, TPacketDGResultAuc
 		}
 		else
 		{
-			// insertÇÏ¸é lockÀÌ Ç®¸°´Ù.
+			// insertÐ—ÐŸÑ‘Ð¹ lockÐÐœ Ð—Â®Ñ‘Â°Ò‘Ð©.
 			DWORD item_id = cmd_result->target;
 			cmd_result++;
 			TAuctionItemInfo* auction_info = (TAuctionItemInfo*)cmd_result;

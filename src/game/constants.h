@@ -13,7 +13,7 @@ enum EMonsterChatState
 
 typedef struct SMobRankStat
 {
-	int iGoldPercent;   // µ·ÀÌ ³ª¿Ã È®·ü
+	int iGoldPercent;   // ÂµÂ·ĞĞœ Ñ–Ğ„Ñ—Ğ“ Ğ˜Â®Â·ÑŒ
 } TMobRankStat;
 
 typedef struct SMobStat
@@ -124,7 +124,7 @@ extern const int		aiMobResistsApplyIdx[MOB_RESISTS_MAX_NUM];
 
 extern const int		aSkillAttackAffectProbByRank[MOB_RANK_MAX_NUM];
 
-extern const int aiItemMagicAttributePercentHigh[ITEM_ATTRIBUTE_MAX_LEVEL]; // 1°³±îÁö
+extern const int aiItemMagicAttributePercentHigh[ITEM_ATTRIBUTE_MAX_LEVEL]; // 1Â°Ñ–Â±Ğ¾Ğ‘Ñ†
 extern const int aiItemMagicAttributePercentLow[ITEM_ATTRIBUTE_MAX_LEVEL];
 
 extern const int aiItemAttributeAddPercent[ITEM_ATTRIBUTE_MAX_NUM];

@@ -26,7 +26,7 @@ public:
 	int get_price () { return offer_price; }
 } TAuctionSimpleItemInfo;
 
-// °¢ auction Á¤º¸µé.
+// Â°Ñ auction Ğ‘Â¤Ñ”Ñ‘ÂµĞ¹.
 // primary key (item_id)
 typedef struct _auction : public _base_auction
 {
@@ -49,8 +49,8 @@ public:
 		empire = _empire;
 	}
 
-	// ÀÌ ¸Ş¼ÒµåµéÀº ¾î¶² º¯¼ö°¡ auction¿¡¼­ ¾î¶² ¿ªÇÒÀ» ÇÏ´ÂÁö ±î¸ÔÀ» ±îºÁ
-	// ¸¸µé¾î³õ¾Ò´Ù.
+	// ĞĞœ Ñ‘Ğ®Ñ˜Ğ¢ÂµĞµÂµĞ¹ĞÑ” Ñ•Ğ¾Â¶Ğ† Ñ”Ğ‡Ñ˜Ñ†Â°Ğ auctionÑ—ĞÑ˜Â­ Ñ•Ğ¾Â¶Ğ† Ñ—Ğ„Ğ—Ğ¢ĞÂ» Ğ—ĞŸÒ‘Ğ’Ğ‘Ñ† Â±Ğ¾Ñ‘Ğ¤ĞÂ» Â±Ğ¾Ñ”Ğ‘
+	// Ñ‘Ñ‘ÂµĞ¹Ñ•Ğ¾Ñ–Ñ…Ñ•Ğ¢Ò‘Ğ©.
 	// by rtsummit
 	DWORD get_item_id () { return item_id; }
 	DWORD get_bidder_id () { return bidder_id; }
@@ -89,7 +89,7 @@ typedef struct _sale : public _base_auction
 
 } TSaleItemInfo;
 
-// wish´Â ½ÇÁ¦ÇÏ´Â ¾ÆÀÌÅÛÀº ¾ø´Ù.
+// wishÒ‘Ğ’ Ğ…Ğ—Ğ‘Â¦Ğ—ĞŸÒ‘Ğ’ Ñ•Ğ–ĞĞœĞ•Ğ«ĞÑ” Ñ•ÑˆÒ‘Ğ©.
 // primary key (item_num, wisher_id)
 typedef struct _wish : public _base_auction
 {
@@ -118,9 +118,9 @@ enum AuctionCmd {OPEN_AUCTION, OPEN_WISH_AUCTION, OPEN_MY_AUCTION, OPEN_MY_WISH_
 	AUCTION_REBID, AUCTION_BID_CANCEL,
 };
 
-// ¹İµå½Ã FAIL ¾Õ¿¡, ½ÇÆĞ ·ù µéÀÌ ¿Í¾ßÇÑ´Ù.
-// ¿Ö³Ä, <= AUCTION_FAIL ÀÌ·± CHECKÀ» ÇÒ °Å°Åµç
-// ¹İ´ë·Î SUCCESS µÚ¿¡, ¼º°ø ·ù µéÀÌ ¿Í¾ßÇÑ´Ù. ±Ùµ¥ ¼º°ø·ù°¡ ÀÖ±ä ÇÏ·Á³ª...
+// â„–Ğ­ÂµĞµĞ…Ğ“ FAIL Ñ•Ğ¥Ñ—Ğ, Ğ…Ğ—Ğ–Ğ  Â·Ñ‰ ÂµĞ¹ĞĞœ Ñ—ĞÑ•Ğ¯Ğ—Ğ¡Ò‘Ğ©.
+// Ñ—Ğ¦Ñ–Ğ”, <= AUCTION_FAIL ĞĞœÂ·Â± CHECKĞÂ» Ğ—Ğ¢ Â°Ğ•Â°Ğ•ÂµĞ·
+// â„–Ğ­Ò‘Ğ»Â·Ğ SUCCESS ÂµĞªÑ—Ğ, Ñ˜Ñ”Â°Ñˆ Â·Ñ‰ ÂµĞ¹ĞĞœ Ñ—ĞÑ•Ğ¯Ğ—Ğ¡Ò‘Ğ©. Â±Ğ©ÂµÒ Ñ˜Ñ”Â°ÑˆÂ·Ñ‰Â°Ğ ĞĞ¦Â±Ğ´ Ğ—ĞŸÂ·Ğ‘Ñ–Ğ„...
 
 enum AuctionResult { AUCTION_EXPIRED, AUCTION_NOT_EXPIRED, AUCTION_NOT_ENOUGH_MONEY,
 	AUCTION_SOLD, AUCTION_CANCEL, AUCTION_ALREADY_IN, AUCTION_NOT_IN, AUCTION_FAIL, AUCTION_SUCCESS };
@@ -218,7 +218,7 @@ typedef struct command_auction
 		cmd = AUCTION_CHANGING_MONEY;
 		price1 = _money;
 	}
-	// bid¶û cmd¸¸ ´Ù¸£´Ù.
+	// bidÂ¶Ñ‹ cmdÑ‘Ñ‘ Ò‘Ğ©Ñ‘ĞˆÒ‘Ğ©.
 	void rebid (DWORD _item_id, int _bidPrice)
 	{
 		cmd = AUCTION_REBID;
@@ -322,7 +322,7 @@ typedef struct auction_impur : public command_auction
 //	auction_type;
 //	start_idx;
 //	size;
-//	conditions; Á¤·ÄÀº ½ÂÃ¶´Ô²² Á¶¾ğÀ» ±¸ÇØº¸ÀÚ.¤·¤·
+//	conditions; Ğ‘Â¤Â·Ğ”ĞÑ” Ğ…Ğ’Ğ“Â¶Ò‘Ğ¤Ğ†Ğ† Ğ‘Â¶Ñ•Ñ€ĞÂ» Â±Ñ‘Ğ—Ğ¨Ñ”Ñ‘ĞĞª.Â¤Â·Â¤Â·
 //}
 //
 //get_auction_detail_item_info

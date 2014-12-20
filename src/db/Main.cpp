@@ -30,11 +30,11 @@ std::string g_stPlayerDBName = "";
 bool g_bHotBackup = false;
 BOOL g_test_server = false;
 
-//´ÜÀ§ ÃÊ
+//Ò‘Ğ¬ĞÂ§ Ğ“Ğš
 int g_iPlayerCacheFlushSeconds = 60*7;
 int g_iItemCacheFlushSeconds = 60*5;
 
-//g_iLogoutSeconds ¼öÄ¡´Â g_iPlayerCacheFlushSeconds ¿Í g_iItemCacheFlushSeconds º¸´Ù ±æ¾î¾ß ÇÑ´Ù.
+//g_iLogoutSeconds Ñ˜Ñ†Ğ”ĞÒ‘Ğ’ g_iPlayerCacheFlushSeconds Ñ—Ğ g_iItemCacheFlushSeconds Ñ”Ñ‘Ò‘Ğ© Â±Ğ¶Ñ•Ğ¾Ñ•Ğ¯ Ğ—Ğ¡Ò‘Ğ©.
 int g_iLogoutSeconds = 60*10;
 
 int g_log = 1;
@@ -128,13 +128,13 @@ char *_malloc_options = "A";
 
 void emptybeat(LPHEART heart, int pulse)
 {
-	if (!(pulse % heart->passes_per_sec))	// 1ÃÊ¿¡ ÇÑ¹ø
+	if (!(pulse % heart->passes_per_sec))	// 1Ğ“ĞšÑ—Ğ Ğ—Ğ¡â„–Ñˆ
 	{
 	}
 }
 
 //
-// @version	05/06/13 Bang2ni - ¾ÆÀÌÅÛ °¡°İÁ¤º¸ Ä³½Ã flush timeout ¼³Á¤ Ãß°¡.
+// @version	05/06/13 Bang2ni - Ñ•Ğ–ĞĞœĞ•Ğ« Â°ĞÂ°Ğ­Ğ‘Â¤Ñ”Ñ‘ Ğ”Ñ–Ğ…Ğ“ flush timeout Ñ˜Ñ–Ğ‘Â¤ Ğ“Ğ¯Â°Ğ.
 //
 int Start()
 {

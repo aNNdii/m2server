@@ -109,8 +109,8 @@ class DBManager : public singleton<DBManager>
 		const std::string &	GetDBString(const std::string& key);
 		const std::vector<std::string> & GetGreetMessage();
 
-		template<class Functor> void FuncQuery(Functor f, const char * c_pszFormat, ...); // °á°ú¸¦ fÀÎÀÚ·Î È£ÃâÇÔ (SQLMsg *) ¾Ë¾Æ¼­ ÇØÁ¦µÊ
-		template<class Functor> void FuncAfterQuery(Functor f, const char * c_pszFormat, ...); // ³¡³ª°í ³ª¸é f°¡ È£ÃâµÊ void			f(void) ÇüÅÂ
+		template<class Functor> void FuncQuery(Functor f, const char * c_pszFormat, ...); // Â°Ğ±Â°ÑŠÑ‘Â¦ fĞĞĞĞªÂ·Ğ Ğ˜ĞˆĞ“Ğ²Ğ—Ğ¤ (SQLMsg *) Ñ•Ğ›Ñ•Ğ–Ñ˜Â­ Ğ—Ğ¨Ğ‘Â¦ÂµĞš
+		template<class Functor> void FuncAfterQuery(Functor f, const char * c_pszFormat, ...); // Ñ–ĞÑ–Ğ„Â°Ğ½ Ñ–Ğ„Ñ‘Ğ¹ fÂ°Ğ Ğ˜ĞˆĞ“Ğ²ÂµĞš void			f(void) Ğ—ÑŒĞ•Ğ’
 
 		size_t EscapeString(char* dst, size_t dstSize, const char *src, size_t srcSize);
 

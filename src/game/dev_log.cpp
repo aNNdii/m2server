@@ -31,7 +31,7 @@ static int	s_log_mask = 0xffffffff;
 
 void dev_log(const char *file, int line, const char *function, int level, const char *fmt, ...)
 {
-	// Å×½ºÆ® ¼­¹ö¿¡¼­¸¸ ³²±â¸ç, ¸¶½ºÅ©°¡ ²¨Á®ÀÖÀ¸¸é ³²±âÁö ¾Ê´Â´Ù.
+	// Ğ•Ğ§Ğ…Ñ”Ğ–Â® Ñ˜Â­â„–Ñ†Ñ—ĞÑ˜Â­Ñ‘Ñ‘ Ñ–Ğ†Â±Ğ²Ñ‘Ğ·, Ñ‘Â¶Ğ…Ñ”Ğ•Â©Â°Ğ Ğ†ĞĞ‘Â®ĞĞ¦ĞÑ‘Ñ‘Ğ¹ Ñ–Ğ†Â±Ğ²Ğ‘Ñ† Ñ•ĞšÒ‘Ğ’Ò‘Ğ©.
 	if (!test_server || !IS_SET(s_log_mask, level))
 		return;
 

@@ -243,7 +243,7 @@ private:
 	TItemInfoCacheMap item_cache_map;
 };
 
-// pc°¡ ÀÔÂû¿¡ Âü¿©Çß´ø °æ¸Å¸¦ °ü¸®.
+// pcÂ°Ğ ĞĞ¤Ğ’Ñ‹Ñ—Ğ Ğ’ÑŒÑ—Â©Ğ—Ğ¯Ò‘Ñˆ Â°Ğ¶Ñ‘Ğ•Ñ‘Â¦ Â°ÑŒÑ‘Â®.
 class MyBidBoard
 {
 public:
@@ -255,7 +255,7 @@ public:
 	
 	int GetMoney (DWORD player_id, DWORD item_id);
 	bool Delete (DWORD player_id, DWORD item_id);
-	// ÀÌ¹Ì ÀÖÀ¸¸é µ¤¾î ¾º¿î´Ù.
+	// ĞĞœâ„–Ğœ ĞĞ¦ĞÑ‘Ñ‘Ğ¹ ÂµÂ¤Ñ•Ğ¾ Ñ•Ñ”Ñ—Ğ¾Ò‘Ğ©.
 	void Insert (DWORD player_id, DWORD item_id, int money);
 
 private:
@@ -267,11 +267,11 @@ private:
 class AuctionManager : public singleton <AuctionManager>
 {
 private:
-	// auction¿¡ µî·ÏµÈ ¾ÆÀÌÅÛµé.
+	// auctionÑ—Ğ ÂµĞ¾Â·ĞŸÂµĞ˜ Ñ•Ğ–ĞĞœĞ•Ğ«ÂµĞ¹.
 	typedef boost::unordered_map<DWORD, CItemCache *> TItemCacheMap;
 	TItemCacheMap auction_item_cache_map;
 
-	// auction¿¡ µî·ÏµÈ Á¤º¸ Áß °¡°İ, µîµî ¾ÆÀÌÅÛ Å×ÀÌºí¿¡ Æ÷ÇÔµÇÁö ¾Ê´Â Á¤º¸µéÀ» °ü¸®ÇÏ´Â °Íµé
+	// auctionÑ—Ğ ÂµĞ¾Â·ĞŸÂµĞ˜ Ğ‘Â¤Ñ”Ñ‘ Ğ‘Ğ¯ Â°ĞÂ°Ğ­, ÂµĞ¾ÂµĞ¾ Ñ•Ğ–ĞĞœĞ•Ğ« Ğ•Ğ§ĞĞœÑ”Ğ½Ñ—Ğ Ğ–Ñ‡Ğ—Ğ¤ÂµĞ—Ğ‘Ñ† Ñ•ĞšÒ‘Ğ’ Ğ‘Â¤Ñ”Ñ‘ÂµĞ¹ĞÂ» Â°ÑŒÑ‘Â®Ğ—ĞŸÒ‘Ğ’ Â°ĞÂµĞ¹
 	AuctionBoard Auction;
 	SaleBoard Sale;
 	WishBoard Wish;

@@ -3,8 +3,8 @@
  * file        : castle.cpp
  * author      : mhh
  * description : 
- * ∫¿»≠ π¯»£   : 11506 - 11510
- * ∏ﬁ∆æºÆ π¯»£ : 8012 - 8014, 8024-8027
+ * —î–ê–ò¬≠ ‚Ññ—à–ò–à   : 11506 - 11510
+ * —ë–Æ–ñ—ï—ò¬Æ ‚Ññ—à–ò–à : 8012 - 8014, 8024-8027
  */
 
 #define _castle_cpp_
@@ -21,13 +21,13 @@
 #include "char.h"
 #include "sectree_manager.h"
 
-#define EMPIRE_NONE		0	// æ∆π´±π∞° æ∆¥‘
-#define EMPIRE_RED		1	// Ω≈ºˆ
-#define EMPIRE_YELLOW	2	// √µ¡∂
-#define EMPIRE_BLUE		3	// ¡¯≥Î
+#define EMPIRE_NONE		0	// —ï–ñ‚Ññ¬´¬±‚Ññ¬∞–é —ï–ñ“ë–§
+#define EMPIRE_RED		1	// –Ö–ï—ò—Ü
+#define EMPIRE_YELLOW	2	// –ì¬µ–ë¬∂
+#define EMPIRE_BLUE		3	// –ë—à—ñ–ª
 
 
-#define SIEGE_EVENT_PULSE	PASSES_PER_SEC(60*5)	// 5∫–
+#define SIEGE_EVENT_PULSE	PASSES_PER_SEC(60*5)	// 5—î–†
 
 
 #define GET_CAHR_MANAGER()								CHARACTER_MANAGER::instance()
@@ -171,7 +171,7 @@ static POSITION	s_frog_pos[4][MAX_CASTLE_FROG] = {
 };
 
 
-/* ∞Ê∫Ò∫¥ ∞Ê∫Ò±∏ø™ */
+/* ¬∞–∂—î—Å—î“ë ¬∞–∂—î—Å¬±—ë—ó–Ñ */
 struct GUARD_REGION
 {
 	int	sx, sy, ex, ey;
@@ -247,10 +247,10 @@ EVENTFUNC(castle_siege_event)
 
 	info->pulse += SIEGE_EVENT_PULSE;
 
-	// ∞¯º∫ Ω√¿€»ƒ 30∫– ¿Ã≥ª∂Û∏È æ»≥ª∏∏ «œ¿⁄
+	// ¬∞—à—ò—î –Ö–ì–ê–´–ò–î 30—î–† –ê–ú—ñ¬ª¬∂—É—ë–π —ï–ò—ñ¬ª—ë—ë –ó–ü–ê–™
 	if (info->pulse < PASSES_PER_SEC(30*60))
 	{
-		snprintf(buf, sizeof(buf), LC_TEXT("%sø°º≠ ∫¿»≠∏¶ µ—∑ØΩŒ∞Ì ¿¸≈ı∞° ¡¯«‡¡ﬂ¿‘¥œ¥Ÿ."),
+		snprintf(buf, sizeof(buf), LC_TEXT("%s—ó–é—ò¬≠ —î–ê–ò¬≠—ë¬¶ ¬µ–°¬∑–á–Ö–û¬∞–Ω –ê—å–ï—Ö¬∞–é –ë—à–ó–∞–ë–Ø–ê–§“ë–ü“ë–©."),
 				EMPIRE_NAME(GET_SIEGE_EMPIRE()));
 		BroadcastNotice(buf);
 
@@ -264,19 +264,19 @@ EVENTFUNC(castle_siege_event)
 
 		case CASTLE_SIEGE_STRUGGLE:
 			{
-				snprintf(buf, sizeof(buf), LC_TEXT("%s¿Ã ºˆº∫ø° º∫∞¯«ﬂΩ¿¥œ¥Ÿ."), EMPIRE_NAME(GET_SIEGE_EMPIRE()));
+				snprintf(buf, sizeof(buf), LC_TEXT("%s–ê–ú —ò—Ü—ò—î—ó–é —ò—î¬∞—à–ó–Ø–Ö–ê“ë–ü“ë–©."), EMPIRE_NAME(GET_SIEGE_EMPIRE()));
 				BroadcastNotice(buf);
 
-				snprintf(buf, sizeof(buf), LC_TEXT("¡ˆ±›∫Œ≈Õ %s¿∫ 30∫–∞£ ∫¿»≠∏¶ ∆ƒ±´«œø© ∫∏ªÛ¿ª »πµÊ «“ ºˆ ¿÷Ω¿¥œ¥Ÿ."), EMPIRE_NAME(GET_SIEGE_EMPIRE()));
+				snprintf(buf, sizeof(buf), LC_TEXT("–ë—Ü¬±–≠—î–û–ï–ù %s–ê—î 30—î–†¬∞–à —î–ê–ò¬≠—ë¬¶ –ñ–î¬±¬´–ó–ü—ó¬© —î—ë¬ª—É–ê¬ª –ò‚Ññ¬µ–∂ –ó–¢ —ò—Ü –ê–¶–Ö–ê“ë–ü“ë–©."), EMPIRE_NAME(GET_SIEGE_EMPIRE()));
 				BroadcastNotice(buf);
 
 				GET_SIEGE_STATE() = CASTLE_SIEGE_END;
 
-				return PASSES_PER_SEC(60*30);	// 30∫–
+				return PASSES_PER_SEC(60*30);	// 30—î–†
 			}
 			break;
 		case CASTLE_SIEGE_END:
-			BroadcastNotice(LC_TEXT("30∫–¿Ã ∞Ê∞˙«ﬂΩ¿¥œ¥Ÿ.. ∫¿»≠∞° ªÁ∂Û¡˝¥œ¥Ÿ."));
+			BroadcastNotice(LC_TEXT("30—î–†–ê–ú ¬∞–∂¬∞—ä–ó–Ø–Ö–ê“ë–ü“ë–©.. —î–ê–ò¬≠¬∞–é ¬ª–∑¬∂—É–ë—ç“ë–ü“ë–©."));
 			castle_end_siege();
 			break;
 	}
@@ -331,7 +331,7 @@ EVENTFUNC(castle_stone_event)
 	if (NULL == sectree_map)
 		return 0;
 
-	/* 15∏∂∏Ææø  2π¯ º“»Ø */
+	/* 15—ë¬∂—ë¬Æ—ï—ó  2‚Ññ—à —ò–¢–ò–á */
 	const int SPAWN_COUNT = 15;
 
 	if (info->spawn_count < (SPAWN_COUNT * 2))
@@ -351,7 +351,7 @@ EVENTFUNC(castle_stone_event)
 		info->spawn_count += SPAWN_COUNT;
 
 		if (info->spawn_count < (SPAWN_COUNT * 2))
-			return PASSES_PER_SEC(30 * 60);	// 30∫–
+			return PASSES_PER_SEC(30 * 60);	// 30—î–†
 		else
 			return 0;
 	}
@@ -598,24 +598,24 @@ void castle_start_siege(int empire, int tower_count)
 
 	castle_spawn_tower(empire, tower_count);
 
-	/* ∞¯º∫ ≈∏¿Ã∏” Ω√¿€ */
+	/* ¬∞—à—ò—î –ï—ë–ê–ú—ë–£ –Ö–ì–ê–´ */
 	{
 		castle_event_info* info = AllocEventInfo<castle_event_info>();
 
 		info->empire = empire;
 		info->pulse	= 0;
 
-		GET_SIEGE_EVENT(empire) = event_create(castle_siege_event, info, /*5∫–*/SIEGE_EVENT_PULSE);
+		GET_SIEGE_EVENT(empire) = event_create(castle_siege_event, info, /*5—î–†*/SIEGE_EVENT_PULSE);
 	}
 
-	/* ∏ﬁ∆æºÆ º“»Ø ≈∏¿Ã∏” Ω√¿€ */
+	/* —ë–Æ–ñ—ï—ò¬Æ —ò–¢–ò–á –ï—ë–ê–ú—ë–£ –Ö–ì–ê–´ */
 	{
 		castle_stone_event_info* info = AllocEventInfo<castle_stone_event_info>();
 
 		info->spawn_count = 0;
 		info->empire = empire;
 
-		GET_STONE_EVENT(empire) = event_create(castle_stone_event, info, /* 1√  */PASSES_PER_SEC(1));
+		GET_STONE_EVENT(empire) = event_create(castle_stone_event, info, /* 1–ì–ö */PASSES_PER_SEC(1));
 	}
 }
 
@@ -649,7 +649,7 @@ LPCHARACTER castle_spawn_frog(int empire)
 	int		dir = 1;
 	long	map_index	= FN_castle_map_index(empire);
 
-	/* »≤±›µŒ≤®∫Ò º“»Ø«“ ∞˜¿Ã ¿÷≥™? */
+	/* –ò–Ü¬±–≠¬µ–û–Ü–Å—î—Å —ò–¢–ò–á–ó–¢ ¬∞—á–ê–ú –ê–¶—ñ–Ñ? */
 	POSITION	*empty_pos = FN_empty_frog_pos(empire);
 	if (NULL == empty_pos)
 		return NULL;
@@ -667,7 +667,7 @@ LPCHARACTER castle_spawn_frog(int empire)
 	{
 		frog->SetEmpire(empire);
 		int empty_index	= FN_empty_frog_index(empire);
-		// Ω∫∆˘º∫∞¯
+		// –Ö—î–ñ—â—ò—î¬∞—à
 		GET_FROG(empire, empty_index) = frog;
 		return frog;
 	}
@@ -778,7 +778,7 @@ bool castle_spawn_tower(int empire, int tower_count)
 	if (NULL == sectree_map)
 		return false;
 
-	// √ ±‚»≠
+	// –ì–ö¬±–≤–ò¬≠
 	DO_ALL_TOWER(i)
 	{
 		if (GET_TOWER(empire, i))
@@ -786,7 +786,7 @@ bool castle_spawn_tower(int empire, int tower_count)
 		GET_TOWER(empire, i) = NULL;
 	}
 
-	int	spawn_count = MINMAX(MIN_CASTLE_TOWER, tower_count, MAX_CASTLE_TOWER);	// 5 ~ 10∏∂∏Æ
+	int	spawn_count = MINMAX(MIN_CASTLE_TOWER, tower_count, MAX_CASTLE_TOWER);	// 5 ~ 10—ë¬∂—ë¬Æ
 
 	for (int j = 0; j < spawn_count; ++j)
 	{
@@ -796,13 +796,13 @@ bool castle_spawn_tower(int empire, int tower_count)
 	// broad cast
 	{
 		char buf[1024];
-		snprintf(buf, sizeof(buf), LC_TEXT("%sø° ¿¸¿Ô¿« Ω√¿€¿ª æÀ∏Æ¥¬ ∫¿»≠∞° ≥™≈∏≥µΩ¿¥œ¥Ÿ."), EMPIRE_NAME(empire));
+		snprintf(buf, sizeof(buf), LC_TEXT("%s—ó–é –ê—å–ê–ø–ê–ó –Ö–ì–ê–´–ê¬ª —ï–õ—ë¬Æ“ë–í —î–ê–ò¬≠¬∞–é —ñ–Ñ–ï—ë—ñ¬µ–Ö–ê“ë–ü“ë–©."), EMPIRE_NAME(empire));
 		BroadcastNotice(buf);
 	}
 	return true;
 }
 
-/* ∞Ê∫Ò∫¥∏Æ¥ı∞° ¡◊¿∏∏È ¥‹º¯«œ∞‘ ΩΩ∑‘∏∏ ∫ÒøÓ¥Ÿ. */
+/* ¬∞–∂—î—Å—î“ë—ë¬Æ“ë—Ö¬∞–é –ë–ß–ê—ë—ë–π “ë–¨—ò—à–ó–ü¬∞–§ –Ö–Ö¬∑–§—ë—ë —î—Å—ó–æ“ë–©. */
 void castle_guard_die(LPCHARACTER ch, LPCHARACTER killer)
 {
 	int	empire = ch->GetEmpire();
@@ -823,7 +823,7 @@ void castle_guard_die(LPCHARACTER ch, LPCHARACTER killer)
 }
 
 
-/* »≤±› µŒ≤®∫Ò∞° ¡◊¿∏∏È killerø°∞‘ 1√µ∏∏≥… */
+/* –ò–Ü¬±–≠ ¬µ–û–Ü–Å—î—Å¬∞–é –ë–ß–ê—ë—ë–π killer—ó–é¬∞–§ 1–ì¬µ—ë—ë—ñ–ô */
 void castle_frog_die(LPCHARACTER ch, LPCHARACTER killer)
 {
 	if (NULL == ch || NULL == killer)
@@ -837,15 +837,15 @@ void castle_frog_die(LPCHARACTER ch, LPCHARACTER killer)
 		{
 			GET_FROG(empire, i) = NULL;
 
-			killer->PointChange(POINT_GOLD, 10000000 /*1√µ∏∏*/, true);
-			//CMonarch::instance().SendtoDBAddMoney(30000000/*3√µ∏∏*/, killer->GetEmpire(), killer);
+			killer->PointChange(POINT_GOLD, 10000000 /*1–ì¬µ—ë—ë*/, true);
+			//CMonarch::instance().SendtoDBAddMoney(30000000/*3–ì¬µ—ë—ë*/, killer->GetEmpire(), killer);
 			castle_save();
 			return;
 		}
 	}
 }
 
-/* ∫¿»≠∞° ∏µŒ ¡◊¿∏∏È(?) ∞¯º∫¿¸¿Ã ≥°≥≠¥Ÿ */
+/* —î–ê–ò¬≠¬∞–é —ë—Ä¬µ–û –ë–ß–ê—ë—ë–π(?) ¬∞—à—ò—î–ê—å–ê–ú —ñ–é—ñ¬≠“ë–© */
 void castle_tower_die(LPCHARACTER ch, LPCHARACTER killer)
 {
 	char	buf[1024] = {0};
@@ -864,7 +864,7 @@ void castle_tower_die(LPCHARACTER ch, LPCHARACTER killer)
 		case CASTLE_SIEGE_END:
 			{
 				int	siege_end = true;
-				snprintf(buf, sizeof(buf), LC_TEXT("%s¿Ã ∫¿»≠∏¶ ∆ƒ±´«ﬂΩ¿¥œ¥Ÿ."), EMPIRE_NAME(killer_empire));
+				snprintf(buf, sizeof(buf), LC_TEXT("%s–ê–ú —î–ê–ò¬≠—ë¬¶ –ñ–î¬±¬´–ó–Ø–Ö–ê“ë–ü“ë–©."), EMPIRE_NAME(killer_empire));
 				BroadcastNotice(buf);
 
 				LogManager::instance().CharLog(killer, 0, "CASTLE_TORCH_KILL", "");
@@ -885,12 +885,12 @@ void castle_tower_die(LPCHARACTER ch, LPCHARACTER killer)
 				{
 					if (GET_SIEGE_STATE() == CASTLE_SIEGE_STRUGGLE)
 					{
-						snprintf(buf, sizeof(buf), LC_TEXT("%s¿Ã ºˆº∫ø° Ω«∆–«œø© ¿¸¿Ôø° ∆–πË«œø¥Ω¿¥œ¥Ÿ.."), EMPIRE_NAME(GET_SIEGE_EMPIRE()));
+						snprintf(buf, sizeof(buf), LC_TEXT("%s–ê–ú —ò—Ü—ò—î—ó–é –Ö–ó–ñ–†–ó–ü—ó¬© –ê—å–ê–ø—ó–é –ñ–†‚Ññ–∏–ó–ü—ó“ë–Ö–ê“ë–ü“ë–©.."), EMPIRE_NAME(GET_SIEGE_EMPIRE()));
 						BroadcastNotice(buf);
 					}
 					else
 					{
-						snprintf(buf, sizeof(buf), LC_TEXT("%s¿Ã ∏µÁ ∫¿»≠∏¶ ∆ƒ±´«œø¥Ω¿¥œ¥Ÿ."), EMPIRE_NAME(GET_SIEGE_EMPIRE()));
+						snprintf(buf, sizeof(buf), LC_TEXT("%s–ê–ú —ë—Ä¬µ–∑ —î–ê–ò¬≠—ë¬¶ –ñ–î¬±¬´–ó–ü—ó“ë–Ö–ê“ë–ü“ë–©."), EMPIRE_NAME(GET_SIEGE_EMPIRE()));
 						BroadcastNotice(buf);
 					}
 					castle_end_siege();
@@ -929,27 +929,27 @@ bool castle_is_guard_vnum(DWORD vnum)
 {
 	switch (vnum)
 	{
-		/* ªÛ±ﬁ √¢∞Ê∫Ò∫¥ */
+		/* ¬ª—É¬±–Æ –ì—û¬∞–∂—î—Å—î“ë */
 		case 11112:
 		case 11114:
 		case 11116:
-		/* ¡ﬂ±ﬁ √¢∞Ê∫Ò∫¥ */
+		/* –ë–Ø¬±–Æ –ì—û¬∞–∂—î—Å—î“ë */
 		case 11106:
 		case 11108:
 		case 11110:
-		/* «œ±ﬁ √¢∞Ê∫Ò∫¥ */
+		/* –ó–ü¬±–Æ –ì—û¬∞–∂—î—Å—î“ë */
 		case 11100:
 		case 11102:
 		case 11104:
-		/* ªÛ±ﬁ »∞∞Ê∫Ò∫¥ */
+		/* ¬ª—É¬±–Æ –ò¬∞¬∞–∂—î—Å—î“ë */
 		case 11113:
 		case 11115:
 		case 11117:
-		/* ¡ﬂ±ﬁ »∞∞Ê∫Ò∫¥ */
+		/* –ë–Ø¬±–Æ –ò¬∞¬∞–∂—î—Å—î“ë */
 		case 11107:
 		case 11109:
 		case 11111:
-		/* «œ±ﬁ »∞∞Ê∫Ò∫¥ */
+		/* –ó–ü¬±–Æ –ò¬∞¬∞–∂—î—Å—î“ë */
 		case 11101:
 		case 11103:
 		case 11105:
@@ -963,34 +963,34 @@ int castle_cost_of_hiring_guard(DWORD group_vnum)
 {
 	switch (group_vnum)
 	{
-		/* «œ±ﬁ */
-		case 9501:	/* Ω≈ºˆ √¢∞Ê∫Ò */
-		case 9511:	/* ¡¯≥Î √¢∞Ê∫Ò */
-		case 9521:	/* √µ¡∂ √¢∞Ê∫Ò */
+		/* –ó–ü¬±–Æ */
+		case 9501:	/* –Ö–ï—ò—Ü –ì—û¬∞–∂—î—Å */
+		case 9511:	/* –ë—à—ñ–ª –ì—û¬∞–∂—î—Å */
+		case 9521:	/* –ì¬µ–ë¬∂ –ì—û¬∞–∂—î—Å */
 
-		case 9502:	/* Ω≈ºˆ »∞∞Ê∫Ò */
-		case 9512:	/* ¡¯≥Î »∞∞Ê∫Ò */
-		case 9522:	/* √µ¡∂ »∞∞Ê∫Ò */
+		case 9502:	/* –Ö–ï—ò—Ü –ò¬∞¬∞–∂—î—Å */
+		case 9512:	/* –ë—à—ñ–ª –ò¬∞¬∞–∂—î—Å */
+		case 9522:	/* –ì¬µ–ë¬∂ –ò¬∞¬∞–∂—î—Å */
 			return (100*10000);
 
-		/* ¡ﬂ±ﬁ */
-		case 9503:	/* Ω≈ºˆ √¢∞Ê∫Ò */
-		case 9513:	/* ¡¯≥Î √¢∞Ê∫Ò */
-		case 9523:	/* √µ¡∂ √¢∞Ê∫Ò */
+		/* –ë–Ø¬±–Æ */
+		case 9503:	/* –Ö–ï—ò—Ü –ì—û¬∞–∂—î—Å */
+		case 9513:	/* –ë—à—ñ–ª –ì—û¬∞–∂—î—Å */
+		case 9523:	/* –ì¬µ–ë¬∂ –ì—û¬∞–∂—î—Å */
 
-		case 9504:	/* Ω≈ºˆ »∞∞Ê∫Ò */
-		case 9514:	/* ¡¯≥Î »∞∞Ê∫Ò */
-		case 9524:	/* √µ¡∂ »∞∞Ê∫Ò */
+		case 9504:	/* –Ö–ï—ò—Ü –ò¬∞¬∞–∂—î—Å */
+		case 9514:	/* –ë—à—ñ–ª –ò¬∞¬∞–∂—î—Å */
+		case 9524:	/* –ì¬µ–ë¬∂ –ò¬∞¬∞–∂—î—Å */
 			return (300*10000);
 
-		/* ªÛ±ﬁ */
-		case 9505:	/* Ω≈ºˆ √¢∞Ê∫Ò */
-		case 9515:	/* ¡¯≥Î √¢∞Ê∫Ò */
-		case 9525:	/* √µ¡∂ √¢∞Ê∫Ò */
+		/* ¬ª—É¬±–Æ */
+		case 9505:	/* –Ö–ï—ò—Ü –ì—û¬∞–∂—î—Å */
+		case 9515:	/* –ë—à—ñ–ª –ì—û¬∞–∂—î—Å */
+		case 9525:	/* –ì¬µ–ë¬∂ –ì—û¬∞–∂—î—Å */
 
-		case 9506:	/* Ω≈ºˆ »∞∞Ê∫Ò */
-		case 9516:	/* ¡¯≥Î »∞∞Ê∫Ò */
-		case 9526:	/* √µ¡∂ »∞∞Ê∫Ò */
+		case 9506:	/* –Ö–ï—ò—Ü –ò¬∞¬∞–∂—î—Å */
+		case 9516:	/* –ë—à—ñ–ª –ò¬∞¬∞–∂—î—Å */
+		case 9526:	/* –ì¬µ–ë¬∂ –ò¬∞¬∞–∂—î—Å */
 			return (1000*10000);
 	}
 
@@ -1010,7 +1010,7 @@ bool castle_can_attack(LPCHARACTER ch, LPCHARACTER victim)
 
 	if (CASTLE_SIEGE_END == GET_SIEGE_STATE())
 	{
-		// ºˆº∫ø° º∫∞¯«ﬂ¿ª∂ß ∞∞¿∫ ¡¶±π∏∏ ∫¿»≠∏¶ ƒ• ºˆ ¿÷¿Ω
+		// —ò—Ü—ò—î—ó–é —ò—î¬∞—à–ó–Ø–ê¬ª¬∂¬ß ¬∞¬∞–ê—î –ë¬¶¬±‚Ññ—ë—ë —î–ê–ò¬≠—ë¬¶ –î“ê —ò—Ü –ê–¶–ê–Ö
 		if (castle_is_tower_vnum(victim->GetRaceNum()))
 		{
 			if (ch->GetEmpire() == victim->GetEmpire())
@@ -1020,7 +1020,7 @@ bool castle_can_attack(LPCHARACTER ch, LPCHARACTER victim)
 		}
 	}
 
-	// ∞∞¿∫ ¡¶±π¿∫ ∆ƒ±´ ∫“∞°
+	// ¬∞¬∞–ê—î –ë¬¶¬±‚Ññ–ê—î –ñ–î¬±¬´ —î–¢¬∞–é
 	if (ch->GetEmpire() == victim->GetEmpire())
 		return false;
 
@@ -1044,7 +1044,7 @@ bool castle_frog_to_empire_money(LPCHARACTER ch)
 		if (false == CMonarch::instance().SendtoDBAddMoney(CASTLE_FROG_PRICE, empire, ch))
 			return false;
 
-		GET_FROG(empire, i) = NULL; // µÓ∑œ«ÿ¡¶
+		GET_FROG(empire, i) = NULL; // ¬µ–æ¬∑–ü–ó–®–ë¬¶
 		npc->Dead(/*killer*/NULL, /*immediate_dead*/true);
 		return true;
 	}

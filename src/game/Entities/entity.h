@@ -28,7 +28,7 @@ class CEntity
 		void			ViewCleanup();
 		void			ViewInsert(LPENTITY entity, bool recursive = true);
 		void			ViewRemove(LPENTITY entity, bool recursive = true);
-		void			ViewReencode();	// ¡÷¿ß Entityø° ∆–≈∂¿ª ¥ŸΩ√ ∫∏≥Ω¥Ÿ.
+		void			ViewReencode();	// –ë–¶–ê¬ß Entity—ó–é –ñ–†–ï¬∂–ê¬ª “ë–©–Ö–ì —î—ë—ñ–Ö“ë–©.
 
 		int				GetViewAge() const	{ return m_iViewAge;	}
 

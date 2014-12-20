@@ -5,14 +5,14 @@
 #include "DragonSoul.h"
 #include "log.h"
 
-// ��ȥ�� �ʱ�ȭ
-// ��ȥ�� on/off�� Affect�� ����Ǳ� ������,
-// ��ȥ�� Affect�� �ִٸ� ���� �ִ� ��ȥ���� activate�ؾ��Ѵ�.
-// ���� ��ȥ�� ��� �ڰ��� QuestFlag�� ������ ���ұ� ������, 
-// ����Ʈ Flag���� ��ȥ�� ��� �ڰ��� �о�´�.
+// їлИҐј® ГК±вИ­
+// їлИҐј® on/offґВ Affect·О АъАеµЗ±в ¶§№®їЎ,
+// їлИҐј® Affect°Ў АЦґЩёй µ¦їЎ АЦґВ їлИҐј®А» activateЗШѕЯЗСґЩ.
+// ¶ЗЗС їлИҐј® »зїл АЪ°ЭАє QuestFlag·О АъАеЗШ іхѕТ±в ¶§№®їЎ, 
+// ДщЅєЖ® FlagїЎј­ їлИҐј® »зїл АЪ°ЭА» АРѕоїВґЩ.
 
-// ĳ������ affect, quest�� load �Ǳ� ���� DragonSoul_Initialize�� ȣ���ϸ� �ȵȴ�.
-// affect�� ���� �������� �ε�Ǿ� LoadAffect���� ȣ����.
+// ДіёЇЕНАЗ affect, quest°Ў load µЗ±в АьїЎ DragonSoul_Initializeё¦ ИЈГвЗПёй ѕИµИґЩ.
+// affect°Ў °ЎАе ё¶Бцё·їЎ ·ОµеµЗѕо LoadAffectїЎј­ ИЈГвЗФ.
 void CHARACTER::DragonSoul_Initialize()
 {
 	for (int i = INVENTORY_MAX_NUM + WEAR_MAX_NUM; i < DRAGON_SOUL_EQUIP_SLOT_END; i++)
@@ -55,7 +55,7 @@ void CHARACTER::DragonSoul_GiveQualification()
 	}
 	AddAffect(AFFECT_DRAGON_SOUL_QUALIFIED, APPLY_NONE, 0, AFF_NONE, INFINITE_AFFECT_DURATION, 0, false, false);
 	//SetQuestFlag("dragon_soul.is_qualified", 1);
-	//// �ڰ��ִٸ� POINT_DRAGON_SOUL_IS_QUALIFIED�� ������ 1
+	//// АЪ°ЭАЦґЩёй POINT_DRAGON_SOUL_IS_QUALIFIEDґВ №«Б¶°З 1
 	//PointChange(POINT_DRAGON_SOUL_IS_QUALIFIED, 1 - GetPoint(POINT_DRAGON_SOUL_IS_QUALIFIED));
 }
 
@@ -73,7 +73,7 @@ bool CHARACTER::DragonSoul_ActivateDeck(int deck_idx)
 
 	if (!DragonSoul_IsQualified())
 	{
-		ChatPacket(CHAT_TYPE_INFO, LC_TEXT("��ȥ�� ���ڰ� Ȱ��ȭ���� �ʾҽ��ϴ�."));
+		ChatPacket(CHAT_TYPE_INFO, LC_TEXT("їлИҐј® »уАЪ°Ў И°јєИ­µЗБц ѕКѕТЅАґПґЩ."));
 		return false;
 	}
 

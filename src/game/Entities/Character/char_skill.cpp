@@ -62,7 +62,7 @@ void CHARACTER::SetSkillNextReadTime(DWORD dwVnum, time_t time)
 
 bool TSkillUseInfo::HitOnce(DWORD dwVnum)
 {
-	// �������ʾ����� �������� ���Ѵ�.
+	// ѕІБцµµѕКѕТАёёй ¶§ё®Бцµµ ёшЗСґЩ.
 	if (!bUsed)
 		return false;
 
@@ -97,7 +97,7 @@ bool TSkillUseInfo::UseSkill(bool isGrandMaster, DWORD vid, DWORD dwCooltime, in
 	this->isGrandMaster = isGrandMaster;
 	DWORD dwCur = get_dword_time();
 
-	// ���� ��Ÿ���� ������ �ʾҴ�.
+	// ѕЖБч ДрЕёАУАМ іЎіЄБц ѕКѕТґЩ.
 	if (bUsed && dwNextSkillUsableTime > dwCur)
 	{
 		sys_log(0, "cooltime is not over delta %u", dwNextSkillUsableTime - dwCur);
@@ -268,7 +268,7 @@ bool CHARACTER::LearnGrandMasterSkill(DWORD dwSkillVnum)
 
 	if (!IsLearnableSkill(dwSkillVnum))
 	{
-		ChatPacket(CHAT_TYPE_INFO, LC_TEXT("������ �� ���� ��ų�Դϴ�."));
+		ChatPacket(CHAT_TYPE_INFO, LC_TEXT("јц·ГЗТ јц ѕшґВ ЅєЕіАФґПґЩ."));
 		return false;
 	}
 
@@ -281,9 +281,9 @@ bool CHARACTER::LearnGrandMasterSkill(DWORD dwSkillVnum)
 	   {
 	   if (FindAffect(AFFECT_SKILL_NO_BOOK_DELAY))
 	   {
-	// �־ȼ��� ����߿��� �ð� ���� ����
+	// БЦѕИјъј­ »зїлБЯїЎґВ ЅГ°Ј Б¦ЗС №«ЅГ
 	RemoveAffect(AFFECT_SKILL_NO_BOOK_DELAY);
-	ChatPacket(CHAT_TYPE_INFO, LC_TEXT("�־ȼ����� ���� ��ȭ�Ը����� �������Խ��ϴ�."));
+	ChatPacket(CHAT_TYPE_INFO, LC_TEXT("БЦѕИјъј­ё¦ ЕлЗШ БЦИ­АФё¶їЎј­ єьБ®іЄїФЅАґПґЩ."));
 	}
 	else 	    
 	{
@@ -294,19 +294,19 @@ bool CHARACTER::LearnGrandMasterSkill(DWORD dwSkillVnum)
 	}
 	 */
 
-	// bType�� 0�̸� ó������ å���� ���� ����
+	// bTypeАМ 0АМёй ГіАЅєОЕН ГҐАё·О јц·Г °ЎґЙ
 	if (pkSk->dwType == 0)
 	{
-		ChatPacket(CHAT_TYPE_INFO, LC_TEXT("�׷��� ������ ������ �� �� ���� ��ų�Դϴ�."));
+		ChatPacket(CHAT_TYPE_INFO, LC_TEXT("±Ч·Јµе ё¶ЅєЕН јц·ГА» ЗТ јц ѕшґВ ЅєЕіАФґПґЩ."));
 		return false;
 	}
 
 	if (GetSkillMasterType(dwSkillVnum) != SKILL_GRAND_MASTER)
 	{
 		if (GetSkillMasterType(dwSkillVnum) > SKILL_GRAND_MASTER)
-			ChatPacket(CHAT_TYPE_INFO, LC_TEXT("����Ʈ �����͵� ��ų�Դϴ�. �� �̻� ���� �� �� �����ϴ�."));
+			ChatPacket(CHAT_TYPE_INFO, LC_TEXT("ЖЫЖеЖ® ё¶ЅєЕНµИ ЅєЕіАФґПґЩ. ґх АМ»у јц·Г ЗТ јц ѕшЅАґПґЩ."));
 		else
-			ChatPacket(CHAT_TYPE_INFO, LC_TEXT("�� ��ų�� ���� �׷��� ������ ������ �� ������ �̸��� �ʾҽ��ϴ�."));
+			ChatPacket(CHAT_TYPE_INFO, LC_TEXT("АМ ЅєЕіАє ѕЖБч ±Ч·Јµе ё¶ЅєЕН јц·ГА» ЗТ °жБцїЎ АМёЈБц ѕКѕТЅАґПґЩ."));
 		return false;
 	}
 
@@ -317,7 +317,7 @@ bool CHARACTER::LearnGrandMasterSkill(DWORD dwSkillVnum)
 		strTrainSkill = os.str();
 	}
 
-	// ���⼭ Ȯ���� ����մϴ�.
+	// ї©±вј­ И®·ьА» °и»кЗХґПґЩ.
 	BYTE bLastLevel = GetSkillLevel(dwSkillVnum);
 
 	int idx = MIN(9, GetSkillLevel(dwSkillVnum) - 30);
@@ -387,15 +387,15 @@ bool CHARACTER::LearnGrandMasterSkill(DWORD dwSkillVnum)
 
 	if (bLastLevel == GetSkillLevel(dwSkillVnum))
 	{
-		ChatPacket(CHAT_TYPE_TALKING, LC_TEXT("ũ��, �Ⱑ �����ϰ� �־�! �̰� ���� ��ȭ�Ը��ΰ�!? ����!"));
-		ChatPacket(CHAT_TYPE_INFO, LC_TEXT("������ ���з� �������ϴ�. �ٽ� �������ֽñ� �ٶ��ϴ�."));
+		ChatPacket(CHAT_TYPE_TALKING, LC_TEXT("Е©А№, ±в°Ў їЄ·щЗП°н АЦѕо! АМ°Е јіё¶ БЦИ­АФё¶АО°Ў!? БЁАе!"));
+		ChatPacket(CHAT_TYPE_INFO, LC_TEXT("јц·ГАМ ЅЗЖР·О іЎіµЅАґПґЩ. ґЩЅГ µµАьЗШБЦЅГ±в №Щ¶шґПґЩ."));
 		LogManager::instance().CharLog(this, dwSkillVnum, "GM_READ_FAIL", "");
 		return false;
 	}
 
-	ChatPacket(CHAT_TYPE_TALKING, LC_TEXT("������ ���� ���� ���� ������ ����̾�!"));
-	ChatPacket(CHAT_TYPE_TALKING, LC_TEXT("�߰ſ� ������ ��� �����ġ�� �־�! �̰�, �̰���!"));
-	ChatPacket(CHAT_TYPE_INFO, LC_TEXT("�� ���� ������ ������ ���������� �����̽��ϴ�."));
+	ChatPacket(CHAT_TYPE_TALKING, LC_TEXT("ёцїЎј­ №є°Ў ИыАМ ЕНБ® іЄїАґВ ±вєРАМѕЯ!"));
+	ChatPacket(CHAT_TYPE_TALKING, LC_TEXT("¶Я°Еїо №«ѕщАМ °ијУ їлјЪАЅДЎ°н АЦѕо! АМ°З, АМ°НАє!"));
+	ChatPacket(CHAT_TYPE_INFO, LC_TEXT("ґх іфАє °жБцАЗ јц·ГА» јє°шАыАё·О іЎі»јМЅАґПґЩ."));
 	LogManager::instance().CharLog(this, dwSkillVnum, "GM_READ_SUCCESS", "");
 	return true;
 }
@@ -422,7 +422,7 @@ bool CHARACTER::LearnSkillByBook(DWORD dwSkillVnum, BYTE bProb)
 
 	if (!IsLearnableSkill(dwSkillVnum))
 	{
-		ChatPacket(CHAT_TYPE_INFO, LC_TEXT("������ �� ���� ��ų�Դϴ�."));
+		ChatPacket(CHAT_TYPE_INFO, LC_TEXT("јц·ГЗТ јц ѕшґВ ЅєЕіАФґПґЩ."));
 		return false;
 	}
 
@@ -434,20 +434,20 @@ bool CHARACTER::LearnSkillByBook(DWORD dwSkillVnum, BYTE bProb)
 
 		if ( GetExp() < need_exp )
 		{
-			ChatPacket(CHAT_TYPE_INFO, LC_TEXT("����ġ�� �����Ͽ� å�� ���� �� �����ϴ�."));
+			ChatPacket(CHAT_TYPE_INFO, LC_TEXT("°жЗиДЎ°Ў єОБ·ЗПї© ГҐА» АРА» јц ѕшЅАґПґЩ."));
 			return false;
 		}
 	}
 
-	// bType�� 0�̸� ó������ å���� ���� ����
+	// bTypeАМ 0АМёй ГіАЅєОЕН ГҐАё·О јц·Г °ЎґЙ
 	if (pkSk->dwType != 0)
 	{
 		if (GetSkillMasterType(dwSkillVnum) != SKILL_MASTER)
 		{
 			if (GetSkillMasterType(dwSkillVnum) > SKILL_MASTER)
-				ChatPacket(CHAT_TYPE_INFO, LC_TEXT("�� ��ų�� å���� ���̻� ������ �� �����ϴ�."));
+				ChatPacket(CHAT_TYPE_INFO, LC_TEXT("АМ ЅєЕіАє ГҐАё·О ґхАМ»у јц·ГЗТ јц ѕшЅАґПґЩ."));
 			else
-				ChatPacket(CHAT_TYPE_INFO, LC_TEXT("�� ��ų�� ���� å���� ������ ������ �̸��� �ʾҽ��ϴ�."));
+				ChatPacket(CHAT_TYPE_INFO, LC_TEXT("АМ ЅєЕіАє ѕЖБч ГҐАё·О јц·ГЗТ °жБцїЎ АМёЈБц ѕКѕТЅАґПґЩ."));
 			return false;
 		}
 	}
@@ -458,9 +458,9 @@ bool CHARACTER::LearnSkillByBook(DWORD dwSkillVnum, BYTE bProb)
 		{
 			if (FindAffect(AFFECT_SKILL_NO_BOOK_DELAY))
 			{
-				// �־ȼ��� ����߿��� �ð� ���� ����
+				// БЦѕИјъј­ »зїлБЯїЎґВ ЅГ°Ј Б¦ЗС №«ЅГ
 				RemoveAffect(AFFECT_SKILL_NO_BOOK_DELAY);
-				ChatPacket(CHAT_TYPE_INFO, LC_TEXT("�־ȼ����� ���� ��ȭ�Ը����� �������Խ��ϴ�."));
+				ChatPacket(CHAT_TYPE_INFO, LC_TEXT("БЦѕИјъј­ё¦ ЕлЗШ БЦИ­АФё¶їЎј­ єьБ®іЄїФЅАґПґЩ."));
 			}
 			else 	    
 			{
@@ -470,7 +470,7 @@ bool CHARACTER::LearnSkillByBook(DWORD dwSkillVnum, BYTE bProb)
 		}
 	}
 
-	// ���⼭ Ȯ���� ����մϴ�.
+	// ї©±вј­ И®·ьА» °и»кЗХґПґЩ.
 	BYTE bLastLevel = GetSkillLevel(dwSkillVnum);
 
 	if (bProb != 0)
@@ -530,13 +530,13 @@ bool CHARACTER::LearnSkillByBook(DWORD dwSkillVnum, BYTE bProb)
 
 				if (number(1, 100) > percent)
 				{
-					// å�б⿡ ����
+					// ГҐАР±вїЎ јє°ш
 					if (read_count >= need_bookcount)
 					{
 						SkillLevelUp(dwSkillVnum, SKILL_UP_BY_BOOK);
 						pPC->SetFlag(flag, 0);
 
-						ChatPacket(CHAT_TYPE_INFO, LC_TEXT("å���� �� ���� ������ ������ ���������� �����̽��ϴ�."));
+						ChatPacket(CHAT_TYPE_INFO, LC_TEXT("ГҐАё·О ґх іфАє °жБцАЗ јц·ГА» јє°шАыАё·О іЎі»јМЅАґПґЩ."));
 						LogManager::instance().CharLog(this, dwSkillVnum, "READ_SUCCESS", "");
 						return true;
 					}
@@ -547,27 +547,27 @@ bool CHARACTER::LearnSkillByBook(DWORD dwSkillVnum, BYTE bProb)
 						switch (number(1, 3))
 						{
 							case 1:
-								ChatPacket(CHAT_TYPE_TALKING, LC_TEXT("������� �� ����� ���� ���ذ� �Ǿ����� ���� �����ѵ� �ѵ�.."));
+								ChatPacket(CHAT_TYPE_TALKING, LC_TEXT("ѕоґАБ¤µµ АМ ±вјъїЎ ґлЗШ АМЗШ°Ў µЗѕъБцёё Б¶±Э єОБ·ЗСµн ЗСµҐ.."));
 								break;
 											
 							case 2:
-								ChatPacket(CHAT_TYPE_TALKING, LC_TEXT("���� ���� ���̴� �ǰ�...  �� ����� �����ϱⰡ �ʹ� �����.."));
+								ChatPacket(CHAT_TYPE_TALKING, LC_TEXT("µеµрѕо іЎАМ єёАМґВ °З°Ў...  АМ ±вјъАє АМЗШЗП±в°Ў іК№« Иыµйѕо.."));
 								break;
 
 							case 3:
 							default:
-								ChatPacket(CHAT_TYPE_TALKING, LC_TEXT("������ �ϴ� ����� ������ �͸��� ����� ���� �ִ� ������ ���̴�.."));
+								ChatPacket(CHAT_TYPE_TALKING, LC_TEXT("ї­ЅЙИч ЗПґВ №иїтА» °ЎБцґВ °НёёАМ ±вјъА» №иїпјц АЦґВ АЇАПЗС ±жАМґЩ.."));
 								break;
 						}
 
-						ChatPacket(CHAT_TYPE_INFO, LC_TEXT("%d ���� �� �о�� ������ �Ϸ� �� �� �ֽ��ϴ�."), need_bookcount - read_count);
+						ChatPacket(CHAT_TYPE_INFO, LC_TEXT("%d ±ЗА» ґх АРѕоѕЯ јц·ГА» їП·б ЗТ јц АЦЅАґПґЩ."), need_bookcount - read_count);
 						return true;
 					}
 				}
 			}
 			else
 			{
-				// ������� ����Ʈ ���� �ε� ����
+				// »зїлАЪАЗ ДщЅєЖ® Б¤єё ·Оµе ЅЗЖР
 			}
 		}
 		// INTERNATIONAL_VERSION
@@ -605,15 +605,15 @@ bool CHARACTER::LearnSkillByBook(DWORD dwSkillVnum, BYTE bProb)
 
 	if (bLastLevel != GetSkillLevel(dwSkillVnum))
 	{
-		ChatPacket(CHAT_TYPE_TALKING, LC_TEXT("������ ���� ���� ���� ������ ����̾�!"));
-		ChatPacket(CHAT_TYPE_TALKING, LC_TEXT("�߰ſ� ������ ��� �����ġ�� �־�! �̰�, �̰���!"));
-		ChatPacket(CHAT_TYPE_INFO, LC_TEXT("å���� �� ���� ������ ������ ���������� �����̽��ϴ�."));
+		ChatPacket(CHAT_TYPE_TALKING, LC_TEXT("ёцїЎј­ №є°Ў ИыАМ ЕНБ® іЄїАґВ ±вєРАМѕЯ!"));
+		ChatPacket(CHAT_TYPE_TALKING, LC_TEXT("¶Я°Еїо №«ѕщАМ °ијУ їлјЪАЅДЎ°н АЦѕо! АМ°З, АМ°НАє!"));
+		ChatPacket(CHAT_TYPE_INFO, LC_TEXT("ГҐАё·О ґх іфАє °жБцАЗ јц·ГА» јє°шАыАё·О іЎі»јМЅАґПґЩ."));
 		LogManager::instance().CharLog(this, dwSkillVnum, "READ_SUCCESS", "");
 	}
 	else
 	{
-		ChatPacket(CHAT_TYPE_TALKING, LC_TEXT("ũ��, �Ⱑ �����ϰ� �־�! �̰� ���� ��ȭ�Ը��ΰ�!? ����!"));
-		ChatPacket(CHAT_TYPE_INFO, LC_TEXT("������ ���з� �������ϴ�. �ٽ� �������ֽñ� �ٶ��ϴ�."));
+		ChatPacket(CHAT_TYPE_TALKING, LC_TEXT("Е©А№, ±в°Ў їЄ·щЗП°н АЦѕо! АМ°Е јіё¶ БЦИ­АФё¶АО°Ў!? БЁАе!"));
+		ChatPacket(CHAT_TYPE_INFO, LC_TEXT("јц·ГАМ ЅЗЖР·О іЎіµЅАґПґЩ. ґЩЅГ µµАьЗШБЦЅГ±в №Щ¶шґПґЩ."));
 		LogManager::instance().CharLog(this, dwSkillVnum, "READ_FAIL", "");
 	}
 
@@ -697,7 +697,7 @@ void CHARACTER::SkillLevelUp(DWORD dwVnum, BYTE bMethod)
 
 	if (IsPolymorphed())
 	{
-		ChatPacket(CHAT_TYPE_INFO, LC_TEXT("�а� �߿��� �ɷ��� �ø� �� �����ϴ�."));
+		ChatPacket(CHAT_TYPE_INFO, LC_TEXT("µР°© БЯїЎґВ ґЙ·ВА» їГё± јц ѕшЅАґПґЩ."));
 		return;
 	}
 
@@ -724,7 +724,7 @@ void CHARACTER::SkillLevelUp(DWORD dwVnum, BYTE bMethod)
 	if (!IsLearnableSkill(dwVnum))
 		return;
 
-	// �׷��� �����ʹ� ����Ʈ�θ� ���డ��
+	// ±Ч·Јµе ё¶ЅєЕНґВ ДщЅєЖ®·Оёё јцЗа°ЎґЙ
 	if (pkSk->dwType != 0)
 	{
 		switch (GetSkillMasterType(pkSk->dwVnum))
@@ -741,7 +741,7 @@ void CHARACTER::SkillLevelUp(DWORD dwVnum, BYTE bMethod)
 
 	if (bMethod == SKILL_UP_BY_POINT)
 	{
-		// �����Ͱ� �ƴ� ���¿����� ���ð���
+		// ё¶ЅєЕН°Ў ѕЖґС »уЕВїЎј­ёё јц·Г°ЎґЙ
 		if (GetSkillMasterType(pkSk->dwVnum) != SKILL_NORMAL)
 			return;
 
@@ -750,7 +750,7 @@ void CHARACTER::SkillLevelUp(DWORD dwVnum, BYTE bMethod)
 	}
 	else if (bMethod == SKILL_UP_BY_BOOK)
 	{
-		if (pkSk->dwType != 0) // ������ ������ �ʾҰų� ����Ʈ�� �ø��� ���� ��ų�� ó������ å���� ��� �� �ִ�.
+		if (pkSk->dwType != 0) // БчѕчїЎ јУЗПБц ѕКѕТ°ЕіЄ ЖчАОЖ®·О їГё±јц ѕшґВ ЅєЕіАє ГіАЅєОЕН ГҐАё·О №иїп јц АЦґЩ.
 			if (GetSkillMasterType(pkSk->dwVnum) != SKILL_MASTER)
 				return;
 	}
@@ -804,11 +804,11 @@ void CHARACTER::SkillLevelUp(DWORD dwVnum, BYTE bMethod)
 
 	if (pkSk->dwType != 0)
 	{
-		// ���ڱ� �׷��̵� ���ϴ� �ڵ�
+		// °©АЪ±в ±Ч·№АМµе ѕчЗПґВ ДЪµщ
 		switch (GetSkillMasterType(pkSk->dwVnum))
 		{
 			case SKILL_NORMAL:
-				// ������ ��ų ���׷��̵� 17~20 ���� ���� ������ ����
+				// №шј·Ає ЅєЕі ѕч±Ч·№АМµе 17~20 »зАМ ·Јґэ ё¶ЅєЕН јц·Г
 				if (GetSkillLevel(pkSk->dwVnum) >= 17)
 				{
 					if (GetQuestFlag("reset_scroll.force_to_master_skill") > 0)
@@ -866,7 +866,7 @@ void CHARACTER::ResetSkill()
 	if (NULL == m_pSkillLevels)
 		return;
 
-	// ���� ��ų�� ���½�Ű�� �ʴ´�
+	// єёБ¶ ЅєЕіАє ё®јВЅГЕ°Бц ѕКґВґЩ
 	std::vector<std::pair<DWORD, TPlayerSkill> > vec;
 	size_t count = sizeof(s_adwSubSkillVnums) / sizeof(s_adwSubSkillVnums[0]);
 
@@ -997,7 +997,7 @@ EVENTFUNC(ChainLightningEvent)
 
 	sys_log(1, "chainlighting event %s", pkChr->GetName());
 
-	if (pkChrVictim->GetParty()) // ��Ƽ ����
+	if (pkChrVictim->GetParty()) // ЖДЖј ёХАъ
 	{
 		pkTarget = pkChrVictim->GetParty()->GetNextOwnership(NULL, pkChrVictim->GetX(), pkChrVictim->GetY());
 		if (pkTarget == pkChrVictim || !number(0, 2) || pkChr->GetChainLightingExcept().find(pkTarget) != pkChr->GetChainLightingExcept().end())
@@ -1096,7 +1096,7 @@ struct FuncSplashDamage
 		}
 
 		if (m_pkChr->IsPC())
-			// ��� ��ų�� ��Ÿ�� ó���� ���� �ʴ´�.
+			// ±жµе ЅєЕіАє ДрЕёАУ Гіё®ё¦ ЗПБц ѕКґВґЩ.
 			if (!(m_pkSk->dwVnum >= GUILD_SKILL_START && m_pkSk->dwVnum <= GUILD_SKILL_END))
 				if (!m_bDisableCooltime && m_pInfo && !m_pInfo->HitOnce(m_pkSk->dwVnum) && m_pkSk->dwVnum != SKILL_MUYEONG)
 				{
@@ -1166,7 +1166,7 @@ struct FuncSplashDamage
 		m_pkSk->SetPointVar("chain", m_pkChr->GetChainLightningIndex());
 		m_pkChr->IncChainLightningIndex();
 
-		bool bUnderEunhyung = m_pkChr->GetAffectedEunhyung() > 0; // �̰� �� ���⼭ ����??
+		bool bUnderEunhyung = m_pkChr->GetAffectedEunhyung() > 0; // АМ°З їЦ ї©±вј­ ЗПБц??
 
 		m_pkSk->SetPointVar("ek", m_pkChr->GetAffectedEunhyung()*1./100);
 		//m_pkChr->ClearAffectedEunhyung();
@@ -1185,7 +1185,7 @@ struct FuncSplashDamage
 
 		if (test_server && iAmount == 0 && m_pkSk->bPointOn != POINT_NONE)
 		{
-			m_pkChr->ChatPacket(CHAT_TYPE_INFO, "ȿ���� �����ϴ�. ��ų ������ Ȯ���ϼ���");
+			m_pkChr->ChatPacket(CHAT_TYPE_INFO, "Иї°ъ°Ў ѕшЅАґПґЩ. ЅєЕі °шЅДА» И®АОЗПјјїд");
 		}
 		////////////////////////////////////////////////////////////////////////////////
 		iAmount = -iAmount;
@@ -1249,11 +1249,11 @@ struct FuncSplashDamage
 
 		if (m_pkChr->IsPC() && m_pkChr->m_SkillUseInfo[m_pkSk->dwVnum].GetMainTargetVID() != (DWORD) pkChrVictim->GetVID())
 		{
-			// ������ ����
+			// µҐ№МБц °ЁјТ
 			iDam = (int) (iDam * m_pkSk->kSplashAroundDamageAdjustPoly.Eval());
 		}
 
-		// TODO ��ų�� ���� ������ Ÿ�� ����ؾ��Ѵ�.
+		// TODO ЅєЕіїЎ µыёҐ µҐ№МБц ЕёАФ ±в·ПЗШѕЯЗСґЩ.
 		EDamageType dt = DAMAGE_TYPE_NONE;
 
 		switch (m_pkSk->bSkillAttrType)
@@ -1276,7 +1276,7 @@ struct FuncSplashDamage
 
 							case WEAPON_TWO_HANDED:
 								iDam = iDam * (100 - pkChrVictim->GetPoint(POINT_RESIST_TWOHAND)) / 100;
-								// ��հ� ���Ƽ 10%
+								// ѕзјХ°Л ЖдіОЖј 10%
 								//iDam = iDam * 95 / 100;
 
 								break;
@@ -1301,8 +1301,8 @@ struct FuncSplashDamage
 
 			case SKILL_ATTR_TYPE_RANGE:
 				dt = DAMAGE_TYPE_RANGE;
-				// ���ƾƾƾ�
-				// ������ ������ߴ� ���װ� �־ ���� ����� �ٽ��ϸ� ������ ������
+				// АёѕЖѕЖѕЖѕЗ
+				// ї№АьїЎ АыїлѕИЗЯґш №ц±Ч°Ў АЦѕој­ №жѕо·В °и»кА» ґЩЅГЗПёй АЇАъ°Ў і­ё®іІ
 				//iDam -= pkChrVictim->GetPoint(POINT_DEF_GRADE);
 				iDam = iDam * (100 - pkChrVictim->GetPoint(POINT_RESIST_BOW)) / 100;
 				break;
@@ -1310,8 +1310,8 @@ struct FuncSplashDamage
 			case SKILL_ATTR_TYPE_MAGIC:
 				dt = DAMAGE_TYPE_MAGIC;
 				iDam = CalcAttBonus(m_pkChr, pkChrVictim, iDam);
-				// ���ƾƾƾ�
-				// ������ ������ߴ� ���װ� �־ ���� ����� �ٽ��ϸ� ������ ������
+				// АёѕЖѕЖѕЖѕЗ
+				// ї№АьїЎ АыїлѕИЗЯґш №ц±Ч°Ў АЦѕој­ №жѕо·В °и»кА» ґЩЅГЗПёй АЇАъ°Ў і­ё®іІ
 				//iDam -= pkChrVictim->GetPoint(POINT_MAGIC_DEF_GRADE);
 				iDam = iDam * (100 - pkChrVictim->GetPoint(POINT_RESIST_MAGIC)) / 100;
 				break;
@@ -1322,13 +1322,13 @@ struct FuncSplashDamage
 		}
 
 		//
-		// 20091109 ���� ��ų �Ӽ� ��û �۾�
-		// ���� ��ų ���̺��� SKILL_FLAG_WIND, SKILL_FLAG_ELEC, SKILL_FLAG_FIRE�� ���� ��ų��
-		// ���� �������Ƿ� ������ RESIST_WIND, RESIST_ELEC, RESIST_FIRE�� ������ �ʰ� �־���.
+		// 20091109 µ¶АП ЅєЕі јУјє їдГ» АЫѕч
+		// ±вБё ЅєЕі ЕЧАМєнїЎ SKILL_FLAG_WIND, SKILL_FLAG_ELEC, SKILL_FLAG_FIREё¦ °ЎБш ЅєЕіАМ
+		// АьЗф ѕшѕъАё№З·О ёуЅєЕНАЗ RESIST_WIND, RESIST_ELEC, RESIST_FIREµµ »зїлµЗБц ѕК°н АЦѕъґЩ.
 		//
-		// PvP�� PvE�뷱�� �и��� ���� �ǵ������� NPC�� �����ϵ��� ������ ���� �뷱���� ��������
-		// ������ ���ϱ� ���� mob_proto�� RESIST_MAGIC�� RESIST_WIND, RESIST_ELEC, RESIST_FIRE��
-		// �����Ͽ���.
+		// PvPїН PvE№л·±Ѕє єРё®ё¦ А§ЗШ АЗµµАыАё·О NPCёё АыїлЗПµµ·П ЗЯАёёз ±вБё №л·±ЅєїН ВчАМБЎА»
+		// ґАіўБц ёшЗП±в А§ЗШ mob_protoАЗ RESIST_MAGICА» RESIST_WIND, RESIST_ELEC, RESIST_FIRE·О
+		// є№»зЗПїґґЩ.
 		//
 		if (pkChrVictim->IsNPC())
 		{
@@ -1638,7 +1638,7 @@ EVENTFUNC(skill_gwihwan_event)
 	{
 		PIXEL_POSITION pos;
 
-		// ����
+		// јє°ш
 		if (SECTREE_MANAGER::instance().GetRecallPositionByEmpire(ch->GetMapIndex(), ch->GetEmpire(), pos))
 		{
 			sys_log(1, "Recall: %s %d %d -> %d %d", ch->GetName(), ch->GetX(), ch->GetY(), pos.x, pos.y);
@@ -1652,8 +1652,8 @@ EVENTFUNC(skill_gwihwan_event)
 	}
 	else
 	{
-		//����
-		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("��ȯ�� �����Ͽ����ϴ�."));
+		//ЅЗЖР
+		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("±НИЇїЎ ЅЗЖРЗПїґЅАґПґЩ."));
 	}
 	return 0;
 }
@@ -1680,11 +1680,11 @@ int CHARACTER::ComputeSkillAtPosition(DWORD dwVnum, const PIXEL_POSITION& posTar
 				GetName(), dwVnum, posTarget.x, posTarget.y, bSkillLevel); 
 	}
 
-	// ������ ���� ��ų�� �� ��ġ�� ����.
+	// іЄїЎ°Ф ѕІґВ ЅєЕіАє і» А§ДЎё¦ ѕґґЩ.
 	//if (IS_SET(pkSk->dwFlag, SKILL_FLAG_SELFONLY))
 	//	posTarget = GetXYZ();
 
-	// ���÷����� �ƴ� ��ų�� �����̸� �̻��ϴ�
+	// ЅєЗГ·ЎЅ¬°Ў ѕЖґС ЅєЕіАє БЦА§АМёй АМ»уЗПґЩ
 	if (!IS_SET(pkSk->dwFlag, SKILL_FLAG_SPLASH))
 		return BATTLE_NONE;
 
@@ -1768,7 +1768,7 @@ int CHARACTER::ComputeSkillAtPosition(DWORD dwVnum, const PIXEL_POSITION& posTar
 
 	if (test_server && iAmount == 0 && pkSk->bPointOn != POINT_NONE)
 	{
-		ChatPacket(CHAT_TYPE_INFO, "ȿ���� �����ϴ�. ��ų ������ Ȯ���ϼ���");
+		ChatPacket(CHAT_TYPE_INFO, "Иї°ъ°Ў ѕшЅАґПґЩ. ЅєЕі °шЅДА» И®АОЗПјјїд");
 	}
 
 	if (IS_SET(pkSk->dwFlag, SKILL_FLAG_REMOVE_BAD_AFFECT))
@@ -1783,7 +1783,7 @@ int CHARACTER::ComputeSkillAtPosition(DWORD dwVnum, const PIXEL_POSITION& posTar
 	if (IS_SET(pkSk->dwFlag, SKILL_FLAG_ATTACK | SKILL_FLAG_USE_MELEE_DAMAGE | SKILL_FLAG_USE_MAGIC_DAMAGE))
 	{
 		//
-		// ���� ��ų�� ���
+		// °ш°Э ЅєЕіАП °жїм
 		//
 		bool bAdded = false;
 
@@ -1810,7 +1810,7 @@ int CHARACTER::ComputeSkillAtPosition(DWORD dwVnum, const PIXEL_POSITION& posTar
 			int iDur = (int) pkSk->kDurationPoly.Eval();
 
 			if (IsPC())
-				if (!(dwVnum >= GUILD_SKILL_START && dwVnum <= GUILD_SKILL_END)) // ��� ��ų�� ��Ÿ�� ó���� ���� �ʴ´�.
+				if (!(dwVnum >= GUILD_SKILL_START && dwVnum <= GUILD_SKILL_END)) // ±жµе ЅєЕіАє ДрЕёАУ Гіё®ё¦ ЗПБц ѕКґВґЩ.
 					if (!m_bDisableCooltime && !m_SkillUseInfo[dwVnum].HitOnce(dwVnum) && dwVnum != SKILL_MUYEONG)
 					{
 						//if (dwVnum == SKILL_CHAIN) sys_log(0, "CHAIN skill cannot hit %s", GetName());
@@ -1901,7 +1901,7 @@ int CHARACTER::ComputeSkillAtPosition(DWORD dwVnum, const PIXEL_POSITION& posTar
 		if (iDur > 0)
 		{
 			iDur += GetPoint(POINT_PARTY_BUFFER_BONUS);
-			// AffectFlag�� ���ų�, toggle �ϴ� ���� �ƴ϶��..
+			// AffectFlag°Ў ѕш°ЕіЄ, toggle ЗПґВ °НАМ ѕЖґП¶уёй..
 			pkSk->kDurationSPCostPoly.SetVar("k", k/*bSkillLevel*/);
 
 			AddAffect(pkSk->dwVnum,
@@ -1956,13 +1956,13 @@ int CHARACTER::ComputeSkillAtPosition(DWORD dwVnum, const PIXEL_POSITION& posTar
 	}
 }
 
-// bSkillLevel ���ڰ� 0�� �ƴ� ��쿡�� m_abSkillLevels�� ������� �ʰ� ������
-// bSkillLevel�� ����Ѵ�.
+// bSkillLevel АОАЪ°Ў 0АМ ѕЖґТ °жїмїЎґВ m_abSkillLevelsё¦ »зїлЗПБц ѕК°н °­Б¦·О
+// bSkillLevel·О °и»кЗСґЩ.
 int CHARACTER::ComputeSkill(DWORD dwVnum, LPCHARACTER pkVictim, BYTE bSkillLevel)
 {
 	const bool bCanUseHorseSkill = CanUseHorseSkill();
 
-	// ���� Ÿ�������� ��ų�� ����� �� ���� ���¶�� return
+	// ё»А» Её°нАЦБцёё ЅєЕіАє »зїлЗТ јц ѕшґВ »уЕВ¶уёй return
 	if (false == bCanUseHorseSkill && true == IsRiding())
 		return BATTLE_NONE;
 
@@ -1984,7 +1984,7 @@ int CHARACTER::ComputeSkill(DWORD dwVnum, LPCHARACTER pkVictim, BYTE bSkillLevel
 		return BATTLE_NONE;
 	
 
-	// ���濡�� ���� ���� �ƴϸ� ������ ��� �Ѵ�.
+	// »уґл№жїЎ°Ф ѕІґВ °НАМ ѕЖґПёй іЄїЎ°Ф ЅбѕЯ ЗСґЩ.
 	if (IS_SET(pkSk->dwFlag, SKILL_FLAG_SELFONLY))
 		pkVictim = this;
 
@@ -2113,7 +2113,7 @@ int CHARACTER::ComputeSkill(DWORD dwVnum, LPCHARACTER pkVictim, BYTE bSkillLevel
 
 	if (test_server && iAmount == 0 && pkSk->bPointOn != POINT_NONE)
 	{
-		ChatPacket(CHAT_TYPE_INFO, "ȿ���� �����ϴ�. ��ų ������ Ȯ���ϼ���");
+		ChatPacket(CHAT_TYPE_INFO, "Иї°ъ°Ў ѕшЅАґПґЩ. ЅєЕі °шЅДА» И®АОЗПјјїд");
 	}
 	// END_OF_ADD_GRANDMASTER_SKILL
 
@@ -2157,7 +2157,7 @@ int CHARACTER::ComputeSkill(DWORD dwVnum, LPCHARACTER pkVictim, BYTE bSkillLevel
 			
 
 			if (IsPC())
-				if (!(dwVnum >= GUILD_SKILL_START && dwVnum <= GUILD_SKILL_END)) // ��� ��ų�� ��Ÿ�� ó���� ���� �ʴ´�.
+				if (!(dwVnum >= GUILD_SKILL_START && dwVnum <= GUILD_SKILL_END)) // ±жµе ЅєЕіАє ДрЕёАУ Гіё®ё¦ ЗПБц ѕКґВґЩ.
 					if (!m_bDisableCooltime && !m_SkillUseInfo[dwVnum].HitOnce(dwVnum) && dwVnum != SKILL_MUYEONG)
 					{
 						return BATTLE_NONE;
@@ -2270,7 +2270,7 @@ int CHARACTER::ComputeSkill(DWORD dwVnum, LPCHARACTER pkVictim, BYTE bSkillLevel
 		if (iDur > 0)
 		{
 			iDur += GetPoint(POINT_PARTY_BUFFER_BONUS);
-			// AffectFlag�� ���ų�, toggle �ϴ� ���� �ƴ϶��..
+			// AffectFlag°Ў ѕш°ЕіЄ, toggle ЗПґВ °НАМ ѕЖґП¶уёй..
 			pkSk->kDurationSPCostPoly.SetVar("k", k/*bSkillLevel*/);
 
 			if (pkSk->bPointOn2 != POINT_NONE)
@@ -2445,14 +2445,14 @@ bool CHARACTER::UseSkill(DWORD dwVnum, LPCHARACTER pkVictim, bool bUseGrandMaste
 			return false;
 
 		if (GetHorseLevel() <= 0)
-			ChatPacket(CHAT_TYPE_INFO, LC_TEXT("���� �����ϴ�. ���°� ����� ã�ư�����."));
+			ChatPacket(CHAT_TYPE_INFO, LC_TEXT("ё»АМ ѕшЅАґПґЩ. ё¶±В°Ј °жєсєґА» ГЈѕЖ°Ўјјїд."));
 		else
-			ChatPacket(CHAT_TYPE_INFO, LC_TEXT("�� ��ȯ �������� ����ϼ���."));
+			ChatPacket(CHAT_TYPE_INFO, LC_TEXT("ё» јТИЇ ѕЖАМЕЫА» »зїлЗПјјїд."));
 
 		return true;
 	}
 
-	// ���� Ÿ�������� ��ų�� ����� �� ���� ���¶�� return false
+	// ё»А» Её°нАЦБцёё ЅєЕіАє »зїлЗТ јц ѕшґВ »уЕВ¶уёй return false
 	if (false == bCanUseHorseSkill && true == IsRiding())
 		return false;
 
@@ -2498,7 +2498,7 @@ bool CHARACTER::UseSkill(DWORD dwVnum, LPCHARACTER pkVictim, bool bUseGrandMaste
 			}
 
 			m_SkillUseInfo[dwVnum].SetMainTargetVID(pkVictim->GetVID());
-			// DASH ������ źȯ���� ���ݱ��
+			// DASH »уЕВАЗ ЕєИЇ°ЭАє °ш°Э±вјъ
 			ComputeSkill(dwVnum, pkVictim);
 			RemoveAffect(dwVnum);
 			return true;
@@ -2516,7 +2516,7 @@ bool CHARACTER::UseSkill(DWORD dwVnum, LPCHARACTER pkVictim, bool bUseGrandMaste
 		return true;
 	}
 
-	// Toggle �� ���� SP�� ���� ���� (SelfOnly�� ����)
+	// Toggle ЗТ ¶§ґВ SPё¦ ѕІБц ѕКАЅ (SelfOnly·О ±ёєР)
 	if ((0 != pkSk->dwAffectFlag || pkSk->dwVnum == SKILL_MUYEONG) && (pkSk->dwFlag & SKILL_FLAG_TOGGLE) && RemoveAffect(pkSk->dwVnum))
 	{
 		return true;
@@ -2530,7 +2530,7 @@ bool CHARACTER::UseSkill(DWORD dwVnum, LPCHARACTER pkVictim, bool bUseGrandMaste
 	pkSk->SetPointVar("k", k);
 	pkSk->kSplashAroundDamageAdjustPoly.SetVar("k", k);
 
-	// ��Ÿ�� üũ
+	// ДрЕёАУ ГјЕ©
 	pkSk->kCooldownPoly.SetVar("k", k);
 	int iCooltime = (int) pkSk->kCooldownPoly.Eval();
 	int lMaxHit = pkSk->lMaxHit ? pkSk->lMaxHit : -1;
@@ -2584,7 +2584,7 @@ bool CHARACTER::UseSkill(DWORD dwVnum, LPCHARACTER pkVictim, bool bUseGrandMaste
 			return false;
 
 		if (test_server)
-			ChatPacket(CHAT_TYPE_INFO, LC_TEXT("%s SP�Ҹ�: %d"), pkSk->szName, iNeededSP);
+			ChatPacket(CHAT_TYPE_INFO, LC_TEXT("%s SPјТёр: %d"), pkSk->szName, iNeededSP);
 
 		PointChange(POINT_SP, -iNeededSP);
 	}
@@ -2594,7 +2594,7 @@ bool CHARACTER::UseSkill(DWORD dwVnum, LPCHARACTER pkVictim, bool bUseGrandMaste
 
 	if (pkSk->dwVnum == SKILL_MUYEONG || pkSk->IsChargeSkill() && !IsAffectFlag(AFF_TANHWAN_DASH) && !pkVictim)
 	{
-		// ó�� ����ϴ� �������� �ڽſ��� Affect�� ���δ�.
+		// ГіАЅ »зїлЗПґВ №«їµБшАє АЪЅЕїЎ°Ф Affectё¦ єЩАОґЩ.
 		pkVictim = this;
 	}
 
@@ -2667,7 +2667,7 @@ int CHARACTER::GetSkillMasterType(DWORD dwVnum) const
 
 int CHARACTER::GetSkillPower(DWORD dwVnum, BYTE bLevel) const
 {
-	// �ξ���� ������
+	// АОѕо№ЭБц ѕЖАМЕЫ
 	if (dwVnum >= SKILL_LANGUAGE1 && dwVnum <= SKILL_LANGUAGE3 && IsEquipUniqueGroup(UNIQUE_GROUP_RING_OF_LANGUAGE))
 	{
 		return 100;
@@ -2770,41 +2770,41 @@ void CHARACTER::SkillLearnWaitMoreTimeMessage(DWORD ms)
 	//const char* str = "";
 	//
 	if (ms < 3 * 60)
-		ChatPacket(CHAT_TYPE_TALKING, "%s", LC_TEXT("�� ���� �̱߰�. ������ ���� ������. �̴�� �⸦ ������Ű��."));
+		ChatPacket(CHAT_TYPE_TALKING, "%s", LC_TEXT("ёц јУАМ ¶Я°М±є. ЗПБцёё ѕЖБЦ ЖнѕИЗШ. АМґл·О ±вё¦ ѕИБ¤ЅГЕ°АЪ."));
 	else if (ms < 5 * 60)
-		ChatPacket(CHAT_TYPE_TALKING, "%s", LC_TEXT("�׷�, õõ��. ���� õõ��, �׷��� ���� ���� ������!"));
-	else if (ms < 10 * 60) // 10��
-		ChatPacket(CHAT_TYPE_TALKING, "%s", LC_TEXT("�׷�, �� �����̾�. ü���� �Ⱑ ���� �游��."));
-	else if (ms < 30 * 60) // 30��
+		ChatPacket(CHAT_TYPE_TALKING, "%s", LC_TEXT("±Ч·Ў, ГµГµИч. Б»ґх ГµГµИч, ±Ч·ЇіЄ ё·Иы ѕшАМ єьёЈ°Ф!"));
+	else if (ms < 10 * 60) // 10єР
+		ChatPacket(CHAT_TYPE_TALKING, "%s", LC_TEXT("±Ч·Ў, АМ ґАі¦АМѕЯ. Гјі»їЎ ±в°Ў ѕЖБЦ ГжёёЗШ."));
+	else if (ms < 30 * 60) // 30єР
 	{
-		ChatPacket(CHAT_TYPE_TALKING, "%s", LC_TEXT("�� �о���! ���� ��޿� �����ִ� ��� ���ſ� �⸦ �����⸸ �ϸ�,"));
-		ChatPacket(CHAT_TYPE_TALKING, "%s", LC_TEXT("�װ����� ������ ���� �ž�!"));
+		ChatPacket(CHAT_TYPE_TALKING, "%s", LC_TEXT("ґЩ АРѕъґЩ! АМБ¦ єс±ЮїЎ АыЗфАЦґВ ґл·О АьЅЕїЎ ±вё¦ µ№ё®±вёё ЗПёй,"));
+		ChatPacket(CHAT_TYPE_TALKING, "%s", LC_TEXT("±Ч°НАё·О јц·ГАє іЎі­ °ЕѕЯ!"));
 	}
-	else if (ms < 1 * 3600) // 1�ð�
-		ChatPacket(CHAT_TYPE_TALKING, "%s", LC_TEXT("���� å�� ������ ���̾�! ������ ���� ���� ���̰� �־�!"));
-	else if (ms < 2 * 3600) // 2�ð�
-		ChatPacket(CHAT_TYPE_TALKING, "%s", LC_TEXT("�� �� ���Ҿ�! ���ݸ� ��!"));
+	else if (ms < 1 * 3600) // 1ЅГ°Ј
+		ChatPacket(CHAT_TYPE_TALKING, "%s", LC_TEXT("АМБ¦ ГҐАЗ ё¶Бцё· АеАМѕЯ! јц·ГАЗ іЎАМ ґ«їЎ єёАМ°н АЦѕо!"));
+	else if (ms < 2 * 3600) // 2ЅГ°Ј
+		ChatPacket(CHAT_TYPE_TALKING, "%s", LC_TEXT("ѕуё¶ ѕИ іІѕТѕо! Б¶±Эёё ґх!"));
 	else if (ms < 3 * 3600)
-		ChatPacket(CHAT_TYPE_TALKING, "%s", LC_TEXT("���Ҿ�! ���ݸ� �� ������ ���̴�!"));
+		ChatPacket(CHAT_TYPE_TALKING, "%s", LC_TEXT("ББѕТѕо! Б¶±Эёё ґх АРАёёй іЎАМґЩ!"));
 	else if (ms < 6 * 3600)
 	{
-		ChatPacket(CHAT_TYPE_TALKING, "%s", LC_TEXT("å�嵵 ���� �� ���� �ʾұ�."));
-		ChatPacket(CHAT_TYPE_TALKING, "%s", LC_TEXT("���� �� �ȿ� ���� ����� ����� ��."));
+		ChatPacket(CHAT_TYPE_TALKING, "%s", LC_TEXT("ГҐАеµµ АМБ¦ ѕуё¶ іІБц ѕКѕТ±є."));
+		ChatPacket(CHAT_TYPE_TALKING, "%s", LC_TEXT("№є°Ў ёц ѕИїЎ ИыАМ »э±вґВ ±вєРАО °Й."));
 	}
 	else if (ms < 12 * 3600)
 	{
-		ChatPacket(CHAT_TYPE_TALKING, "%s", LC_TEXT("���� �� ���� ������ ������ �� ������."));
-		ChatPacket(CHAT_TYPE_TALKING, "%s", LC_TEXT("����, �� �⼼�� ��� ������!"));
+		ChatPacket(CHAT_TYPE_TALKING, "%s", LC_TEXT("АМБ¦ Б» ЅЅЅЅ °ЎґЪАМ АвИчґВ °Н °°АєµҐ."));
+		ChatPacket(CHAT_TYPE_TALKING, "%s", LC_TEXT("ББѕЖ, АМ ±вјј·О °ијУ іЄ°ЈґЩ!"));
 	}
 	else if (ms < 18 * 3600)
 	{
-		ChatPacket(CHAT_TYPE_TALKING, "%s", LC_TEXT("�ƴ� ��� �� �� ���� �о �Ӹ��� �� ������."));
-		ChatPacket(CHAT_TYPE_TALKING, "%s", LC_TEXT("�����ϱ� �Ⱦ�����."));
+		ChatPacket(CHAT_TYPE_TALKING, "%s", LC_TEXT("ѕЖґП ѕо¶»°Ф µИ °Ф БѕАП АРѕоµµ ёУё®їЎ ѕИ µйѕоїАіД."));
+		ChatPacket(CHAT_TYPE_TALKING, "%s", LC_TEXT("°шєОЗП±в ЅИѕоБціЧ."));
 	}
 	else //if (ms < 2 * 86400)
 	{
-		ChatPacket(CHAT_TYPE_TALKING, "%s", LC_TEXT("������ŭ �бⰡ ������ �ʱ�. ���ص� ��ư� ���뵵 ������."));
-		ChatPacket(CHAT_TYPE_TALKING, "%s", LC_TEXT("�̷����� ���ΰ� �ȵȴٱ�."));
+		ChatPacket(CHAT_TYPE_TALKING, "%s", LC_TEXT("»э°ўёёЕ­ АР±в°Ў Ѕ±Бц°Ў ѕК±є. АМЗШµµ ѕо·Ж°н і»їлµµ і­ЗШЗШ."));
+		ChatPacket(CHAT_TYPE_TALKING, "%s", LC_TEXT("АМ·Ўј­ѕЯ °шєО°Ў ѕИµИґЩ±ё."));
 	}
 	/*
 	   str = "30%";
@@ -3166,10 +3166,10 @@ bool CHARACTER::IsUsableSkillMotion(DWORD dwMotionIndex) const
 
 	static DWORD s_anMotion2SkillVnumList[MOTION_MAX_NUM][SKILL_LIST_MAX_COUNT] =
 	{
-		// ��ų��   ���罺ųID  �ڰ���ųID  ����ųID  ���罺ųID
+		// ЅєЕіјц   №«»зЅєЕіID  АЪ°ґЅєЕіID  јц¶уЅєЕіID  №«ґзЅєЕіID
 		{   0,		0,			0,			0,			0		}, //  0
 
-		// 1�� ���� �⺻ ��ų
+		// 1№ш Бч±є ±вє» ЅєЕі
 		{   4,		1,			31,			61,			91		}, //  1
 		{   4,		2,			32,			62,			92		}, //  2
 		{   4,		3,			33,			63,			93		}, //  3
@@ -3178,9 +3178,9 @@ bool CHARACTER::IsUsableSkillMotion(DWORD dwMotionIndex) const
 		{   4,		6,			36,			66,			96		}, //  6
 		{   0,		0,			0,			0,			0		}, //  7
 		{   0,		0,			0,			0,			0		}, //  8
-		// 1�� ���� �⺻ ��ų ��
+		// 1№ш Бч±є ±вє» ЅєЕі іЎ
 
-		// ������
+		// ї©АЇєР
 		{   0,		0,			0,			0,			0		}, //  9
 		{   0,		0,			0,			0,			0		}, //  10
 		{   0,		0,			0,			0,			0		}, //  11
@@ -3188,9 +3188,9 @@ bool CHARACTER::IsUsableSkillMotion(DWORD dwMotionIndex) const
 		{   0,		0,			0,			0,			0		}, //  13
 		{   0,		0,			0,			0,			0		}, //  14
 		{   0,		0,			0,			0,			0		}, //  15
-		// ������ ��
+		// ї©АЇєР іЎ
 
-		// 2�� ���� �⺻ ��ų
+		// 2№ш Бч±є ±вє» ЅєЕі
 		{   4,		16,			46,			76,			106		}, //  16
 		{   4,		17,			47,			77,			107		}, //  17
 		{   4,		18,			48,			78,			108		}, //  18
@@ -3199,14 +3199,14 @@ bool CHARACTER::IsUsableSkillMotion(DWORD dwMotionIndex) const
 		{   4,		21,			51,			81,			111		}, //  21
 		{   0,		0,			0,			0,			0		}, //  22
 		{   0,		0,			0,			0,			0		}, //  23
-		// 2�� ���� �⺻ ��ų ��
+		// 2№ш Бч±є ±вє» ЅєЕі іЎ
 
-		// ������
+		// ї©АЇєР
 		{   0,		0,			0,			0,			0		}, //  24
 		{   0,		0,			0,			0,			0		}, //  25
-		// ������ ��
+		// ї©АЇєР іЎ
 
-		// 1�� ���� ������ ��ų
+		// 1№ш Бч±є ё¶ЅєЕН ЅєЕі
 		{   4,		1,			31,			61,			91		}, //  26
 		{   4,		2,			32,			62,			92		}, //  27
 		{   4,		3,			33,			63,			93		}, //  28
@@ -3215,9 +3215,9 @@ bool CHARACTER::IsUsableSkillMotion(DWORD dwMotionIndex) const
 		{   4,		6,			36,			66,			96		}, //  31
 		{   0,		0,			0,			0,			0		}, //  32
 		{   0,		0,			0,			0,			0		}, //  33
-		// 1�� ���� ������ ��ų ��
+		// 1№ш Бч±є ё¶ЅєЕН ЅєЕі іЎ
 
-		// ������
+		// ї©АЇєР
 		{   0,		0,			0,			0,			0		}, //  34
 		{   0,		0,			0,			0,			0		}, //  35
 		{   0,		0,			0,			0,			0		}, //  36
@@ -3225,9 +3225,9 @@ bool CHARACTER::IsUsableSkillMotion(DWORD dwMotionIndex) const
 		{   0,		0,			0,			0,			0		}, //  38
 		{   0,		0,			0,			0,			0		}, //  39
 		{   0,		0,			0,			0,			0		}, //  40
-		// ������ ��
+		// ї©АЇєР іЎ
 
-		// 2�� ���� ������ ��ų
+		// 2№ш Бч±є ё¶ЅєЕН ЅєЕі
 		{   4,		16,			46,			76,			106		}, //  41
 		{   4,		17,			47,			77,			107		}, //  42
 		{   4,		18,			48,			78,			108		}, //  43
@@ -3236,14 +3236,14 @@ bool CHARACTER::IsUsableSkillMotion(DWORD dwMotionIndex) const
 		{   4,		21,			51,			81,			111		}, //  46
 		{   0,		0,			0,			0,			0		}, //  47
 		{   0,		0,			0,			0,			0		}, //  48
-		// 2�� ���� ������ ��ų ��
+		// 2№ш Бч±є ё¶ЅєЕН ЅєЕі іЎ
 
-		// ������
+		// ї©АЇєР
 		{   0,		0,			0,			0,			0		}, //  49
 		{   0,		0,			0,			0,			0		}, //  50
-		// ������ ��
+		// ї©АЇєР іЎ
 
-		// 1�� ���� �׷��� ������ ��ų
+		// 1№ш Бч±є ±Ч·Јµе ё¶ЅєЕН ЅєЕі
 		{   4,		1,			31,			61,			91		}, //  51
 		{   4,		2,			32,			62,			92		}, //  52
 		{   4,		3,			33,			63,			93		}, //  53
@@ -3252,9 +3252,9 @@ bool CHARACTER::IsUsableSkillMotion(DWORD dwMotionIndex) const
 		{   4,		6,			36,			66,			96		}, //  56
 		{   0,		0,			0,			0,			0		}, //  57
 		{   0,		0,			0,			0,			0		}, //  58
-		// 1�� ���� �׷��� ������ ��ų ��
+		// 1№ш Бч±є ±Ч·Јµе ё¶ЅєЕН ЅєЕі іЎ
 
-		// ������
+		// ї©АЇєР
 		{   0,		0,			0,			0,			0		}, //  59
 		{   0,		0,			0,			0,			0		}, //  60
 		{   0,		0,			0,			0,			0		}, //  61
@@ -3262,9 +3262,9 @@ bool CHARACTER::IsUsableSkillMotion(DWORD dwMotionIndex) const
 		{   0,		0,			0,			0,			0		}, //  63
 		{   0,		0,			0,			0,			0		}, //  64
 		{   0,		0,			0,			0,			0		}, //  65
-		// ������ ��
+		// ї©АЇєР іЎ
 
-		// 2�� ���� �׷��� ������ ��ų
+		// 2№ш Бч±є ±Ч·Јµе ё¶ЅєЕН ЅєЕі
 		{   4,		16,			46,			76,			106		}, //  66
 		{   4,		17,			47,			77,			107		}, //  67
 		{   4,		18,			48,			78,			108		}, //  68
@@ -3273,14 +3273,14 @@ bool CHARACTER::IsUsableSkillMotion(DWORD dwMotionIndex) const
 		{   4,		21,			51,			81,			111		}, //  71
 		{   0,		0,			0,			0,			0		}, //  72
 		{   0,		0,			0,			0,			0		}, //  73
-		// 2�� ���� �׷��� ������ ��ų ��
+		// 2№ш Бч±є ±Ч·Јµе ё¶ЅєЕН ЅєЕі іЎ
 
-		//������
+		//ї©АЇєР
 		{   0,		0,			0,			0,			0		}, //  74
 		{   0,		0,			0,			0,			0		}, //  75
-		// ������ ��
+		// ї©АЇєР іЎ
 
-		// 1�� ���� ����Ʈ ������ ��ų
+		// 1№ш Бч±є ЖЫЖеЖ® ё¶ЅєЕН ЅєЕі
 		{   4,		1,			31,			61,			91		}, //  76
 		{   4,		2,			32,			62,			92		}, //  77
 		{   4,		3,			33,			63,			93		}, //  78
@@ -3289,9 +3289,9 @@ bool CHARACTER::IsUsableSkillMotion(DWORD dwMotionIndex) const
 		{   4,		6,			36,			66,			96		}, //  81
 		{   0,		0,			0,			0,			0		}, //  82
 		{   0,		0,			0,			0,			0		}, //  83
-		// 1�� ���� ����Ʈ ������ ��ų ��
+		// 1№ш Бч±є ЖЫЖеЖ® ё¶ЅєЕН ЅєЕі іЎ
 
-		// ������
+		// ї©АЇєР
 		{   0,		0,			0,			0,			0		}, //  84
 		{   0,		0,			0,			0,			0		}, //  85
 		{   0,		0,			0,			0,			0		}, //  86
@@ -3299,9 +3299,9 @@ bool CHARACTER::IsUsableSkillMotion(DWORD dwMotionIndex) const
 		{   0,		0,			0,			0,			0		}, //  88
 		{   0,		0,			0,			0,			0		}, //  89
 		{   0,		0,			0,			0,			0		}, //  90
-		// ������ ��
+		// ї©АЇєР іЎ
 
-		// 2�� ���� ����Ʈ ������ ��ų
+		// 2№ш Бч±є ЖЫЖеЖ® ё¶ЅєЕН ЅєЕі
 		{   4,		16,			46,			76,			106		}, //  91
 		{   4,		17,			47,			77,			107		}, //  92
 		{   4,		18,			48,			78,			108		}, //  93
@@ -3310,23 +3310,23 @@ bool CHARACTER::IsUsableSkillMotion(DWORD dwMotionIndex) const
 		{   4,		21,			51,			81,			111		}, //  96
 		{   0,		0,			0,			0,			0		}, //  97
 		{   0,		0,			0,			0,			0		}, //  98
-		// 2�� ���� ����Ʈ ������ ��ų ��
+		// 2№ш Бч±є ЖЫЖеЖ® ё¶ЅєЕН ЅєЕі іЎ
 
-		// ������
+		// ї©АЇєР
 		{   0,		0,			0,			0,			0		}, //  99
 		{   0,		0,			0,			0,			0		}, //  100
-		// ������ ��
+		// ї©АЇєР іЎ
 
-		// ��� ��ų
+		// ±жµе ЅєЕі
 		{   1,  152,    0,    0,    0}, //  101
 		{   1,  153,    0,    0,    0}, //  102
 		{   1,  154,    0,    0,    0}, //  103
 		{   1,  155,    0,    0,    0}, //  104
 		{   1,  156,    0,    0,    0}, //  105
 		{   1,  157,    0,    0,    0}, //  106
-		// ��� ��ų ��
+		// ±жµе ЅєЕі іЎ
 
-		// ������
+		// ї©АЇєР
 		{   0,    0,    0,    0,    0}, //  107
 		{   0,    0,    0,    0,    0}, //  108
 		{   0,    0,    0,    0,    0}, //  109
@@ -3341,13 +3341,13 @@ bool CHARACTER::IsUsableSkillMotion(DWORD dwMotionIndex) const
 		{   0,    0,    0,    0,    0}, //  118
 		{   0,    0,    0,    0,    0}, //  119
 		{   0,    0,    0,    0,    0}, //  120
-		// ������ ��
+		// ї©АЇєР іЎ
 
-		// �¸� ��ų
+		// ЅВё¶ ЅєЕі
 		{   2,  137,  140,    0,    0}, //  121
 		{   1,  138,    0,    0,    0}, //  122
 		{   1,  139,    0,    0,    0}, //  123
-		// �¸� ��ų ��
+		// ЅВё¶ ЅєЕі іЎ
 	};
 
 	if (dwMotionIndex >= MOTION_MAX_NUM)
@@ -3501,7 +3501,7 @@ bool CHARACTER::CanUseSkill(DWORD dwSkillVnum) const
 	
 	if (true == IsRiding())
 	{
-		//����Ʈ Ż���� ���޸��� ��ų ��밡��
+		//ё¶їоЖ® Е»°НБЯ °н±Юё»ёё ЅєЕі »зїл°ЎґЙ
 		if(GetMountVnum())
 		{
 			if( !((GetMountVnum() >= 20209 && GetMountVnum() <= 20212)	||

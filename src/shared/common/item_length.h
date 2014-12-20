@@ -31,8 +31,8 @@ enum EItemDragonSoulSockets
 	ITEM_SOCKET_DRAGON_SOUL_ACTIVE_IDX = 2,
 	ITEM_SOCKET_CHARGING_AMOUNT_IDX = 2,
 };
-// �� �̰� ��ģ�� �ƴϾ�?
-// ���߿� ���� Ȯ���ϸ� ��¼���� ������ -_-;;;
+// Зж АМ°Е №МДЈ°Е ѕЖґПѕЯ?
+// іЄБЯїЎ јТДП И®АеЗПёй ѕоВј·Б°н АМБц¶ц -_-;;;
 enum EItemUniqueSockets
 {
 	ITEM_SOCKET_UNIQUE_SAVE_TIME = ITEM_SOCKET_MAX_NUM - 2,
@@ -42,18 +42,18 @@ enum EItemUniqueSockets
 enum EItemTypes
 {
     ITEM_NONE,              //0
-    ITEM_WEAPON,            //1//����
-    ITEM_ARMOR,             //2//����
-    ITEM_USE,               //3//������ ���
+    ITEM_WEAPON,            //1//№«±в
+    ITEM_ARMOR,             //2//°©їК
+    ITEM_USE,               //3//ѕЖАМЕЫ »зїл
     ITEM_AUTOUSE,           //4
     ITEM_MATERIAL,          //5
-    ITEM_SPECIAL,           //6 //����� ������
+    ITEM_SPECIAL,           //6 //ЅєЖдјИ ѕЖАМЕЫ
     ITEM_TOOL,              //7
-    ITEM_LOTTERY,           //8//����
-    ITEM_ELK,               //9//��
+    ITEM_LOTTERY,           //8//є№±З
+    ITEM_ELK,               //9//µ·
     ITEM_METIN,             //10
     ITEM_CONTAINER,         //11
-    ITEM_FISH,              //12//����
+    ITEM_FISH,              //12//і¬ЅГ
     ITEM_ROD,               //13
     ITEM_RESOURCE,          //14
     ITEM_CAMPFIRE,          //15
@@ -61,21 +61,21 @@ enum EItemTypes
     ITEM_SKILLBOOK,         //17
     ITEM_QUEST,             //18
     ITEM_POLYMORPH,         //19
-    ITEM_TREASURE_BOX,      //20//��������
-    ITEM_TREASURE_KEY,      //21//�������� ����
+    ITEM_TREASURE_BOX,      //20//єё№°»уАЪ
+    ITEM_TREASURE_KEY,      //21//єё№°»уАЪ ї­ји
     ITEM_SKILLFORGET,       //22
     ITEM_GIFTBOX,           //23
     ITEM_PICK,              //24
-    ITEM_HAIR,              //25//�Ӹ�
-    ITEM_TOTEM,             //26//����
-	ITEM_BLEND,				//27//�����ɶ� �����ϰ� �Ӽ��� �ٴ� �๰
-	ITEM_COSTUME,			//28//�ڽ��� ������ (2011�� 8�� �߰��� �ڽ��� �ý��ۿ� ������)
-	ITEM_DS,				//29 //��ȥ��
-	ITEM_SPECIAL_DS,		//30 // Ư���� ��ȥ�� (DS_SLOT�� �����ϴ� UNIQUE �������̶� �����ϸ� ��)
-	ITEM_EXTRACT,			//31 ���⵵��.
-	ITEM_SECONDARY_COIN,	//32 ?? ������??
-	ITEM_RING,				//33 ����
-	ITEM_BELT,				//34 ��Ʈ
+    ITEM_HAIR,              //25//ёУё®
+    ITEM_TOTEM,             //26//ЕдЕЫ
+	ITEM_BLEND,				//27//»эјєµЙ¶§ ·ЈґэЗП°Ф јУјєАМ єЩґВ ѕа№°
+	ITEM_COSTUME,			//28//ДЪЅєГх ѕЖАМЕЫ (2011ів 8їщ ГЯ°ЎµИ ДЪЅєГх ЅГЅєЕЫїл ѕЖАМЕЫ)
+	ITEM_DS,				//29 //їлИҐј®
+	ITEM_SPECIAL_DS,		//30 // ЖЇјцЗС їлИҐј® (DS_SLOTїЎ ВшїлЗПґВ UNIQUE ѕЖАМЕЫАМ¶у »э°ўЗПёй µК)
+	ITEM_EXTRACT,			//31 ГЯГвµµ±ё.
+	ITEM_SECONDARY_COIN,	//32 ?? ёнµµАь??
+	ITEM_RING,				//33 №ЭБц
+	ITEM_BELT,				//34 є§Ж®
 };
 
 enum EMetinSubTypes
@@ -111,8 +111,8 @@ enum EArmorSubTypes
 
 enum ECostumeSubTypes
 {
-	COSTUME_BODY = ARMOR_BODY,			// [�߿�!!] ECostumeSubTypes enum value��  �������� EArmorSubTypes�� �װͰ� ���ƾ� ��.
-	COSTUME_HAIR = ARMOR_HEAD,			// �̴� �ڽ��� �����ۿ� �߰� �Ӽ��� ���̰ڴٴ� ������� ��û�� ���� ���� ������ Ȱ���ϱ� ������.
+	COSTUME_BODY = ARMOR_BODY,			// [БЯїд!!] ECostumeSubTypes enum valueґВ  Бѕ·щє°·О EArmorSubTypesАЗ ±Ч°Н°ъ °°ѕЖѕЯ ЗФ.
+	COSTUME_HAIR = ARMOR_HEAD,			// АМґВ ДЪЅєГх ѕЖАМЕЫїЎ ГЯ°Ў јУјєА» єЩАМ°ЪґЩґВ »зѕчєОАЗ їдГ»їЎ µы¶уј­ ±вБё ·ОБчА» И°їлЗП±в А§ЗФАУ.
 	COSTUME_NUM_TYPES,
 };
 
@@ -215,8 +215,8 @@ enum EUseSubTypes
 	USE_UNBIND,
 	USE_TIME_CHARGE_PER,
 	USE_TIME_CHARGE_FIX,				// 28
-	USE_PUT_INTO_BELT_SOCKET,			// 29 ��Ʈ ���Ͽ� ����� �� �ִ� ������ 
-	USE_PUT_INTO_RING_SOCKET,			// 30 ���� ���Ͽ� ����� �� �ִ� ������ (����ũ ���� ����, ���� �߰��� ���� ����)
+	USE_PUT_INTO_BELT_SOCKET,			// 29 є§Ж® јТДПїЎ »зїлЗТ јц АЦґВ ѕЖАМЕЫ 
+	USE_PUT_INTO_RING_SOCKET,			// 30 №ЭБц јТДПїЎ »зїлЗТ јц АЦґВ ѕЖАМЕЫ (АЇґПЕ© №ЭБц ё»°н, »х·О ГЯ°ЎµИ №ЭБц ЅЅ·Ф)
 };
 
 enum EExtractSubTypes
@@ -270,7 +270,7 @@ enum EItemFlag
 {
 	ITEM_FLAG_REFINEABLE		= (1 << 0),
 	ITEM_FLAG_SAVE			= (1 << 1),
-	ITEM_FLAG_STACKABLE		= (1 << 2),	// ������ ��ĥ �� ����
+	ITEM_FLAG_STACKABLE		= (1 << 2),	// ї©·Ї°і ЗХДҐ јц АЦАЅ
 	ITEM_FLAG_COUNT_PER_1GOLD	= (1 << 3),
 	ITEM_FLAG_SLOW_QUERY		= (1 << 4),
 	ITEM_FLAG_UNUSED01		= (1 << 5),	// UNUSED
@@ -287,24 +287,24 @@ enum EItemFlag
 
 enum EItemAntiFlag
 {
-	ITEM_ANTIFLAG_FEMALE	= (1 << 0), // ���� ��� �Ұ�
-	ITEM_ANTIFLAG_MALE		= (1 << 1), // ���� ��� �Ұ�
-	ITEM_ANTIFLAG_WARRIOR	= (1 << 2), // ���� ��� �Ұ�
-	ITEM_ANTIFLAG_ASSASSIN	= (1 << 3), // �ڰ� ��� �Ұ�
-	ITEM_ANTIFLAG_SURA		= (1 << 4), // ���� ��� �Ұ� 
-	ITEM_ANTIFLAG_SHAMAN	= (1 << 5), // ���� ��� �Ұ�
-	ITEM_ANTIFLAG_GET		= (1 << 6), // ���� �� ����
-	ITEM_ANTIFLAG_DROP		= (1 << 7), // ���� �� ����
-	ITEM_ANTIFLAG_SELL		= (1 << 8), // �� �� ����
-	ITEM_ANTIFLAG_EMPIRE_A	= (1 << 9), // A ���� ��� �Ұ�
-	ITEM_ANTIFLAG_EMPIRE_B	= (1 << 10), // B ���� ��� �Ұ�
-	ITEM_ANTIFLAG_EMPIRE_C	= (1 << 11), // C ���� ��� �Ұ�
-	ITEM_ANTIFLAG_SAVE		= (1 << 12), // ������� ����
-	ITEM_ANTIFLAG_GIVE		= (1 << 13), // �ŷ� �Ұ�
-	ITEM_ANTIFLAG_PKDROP	= (1 << 14), // PK�� �������� ����
-	ITEM_ANTIFLAG_STACK		= (1 << 15), // ��ĥ �� ����
-	ITEM_ANTIFLAG_MYSHOP	= (1 << 16), // ���� ������ �ø� �� ����
-	ITEM_ANTIFLAG_SAFEBOX	= (1 << 17), // â���� ���� �� ����
+	ITEM_ANTIFLAG_FEMALE	= (1 << 0), // ї©јє »зїл єТ°Ў
+	ITEM_ANTIFLAG_MALE		= (1 << 1), // іІјє »зїл єТ°Ў
+	ITEM_ANTIFLAG_WARRIOR	= (1 << 2), // №«»з »зїл єТ°Ў
+	ITEM_ANTIFLAG_ASSASSIN	= (1 << 3), // АЪ°ґ »зїл єТ°Ў
+	ITEM_ANTIFLAG_SURA		= (1 << 4), // јц¶у »зїл єТ°Ў 
+	ITEM_ANTIFLAG_SHAMAN	= (1 << 5), // №«ґз »зїл єТ°Ў
+	ITEM_ANTIFLAG_GET		= (1 << 6), // БэА» јц ѕшАЅ
+	ITEM_ANTIFLAG_DROP		= (1 << 7), // №цё± јц ѕшАЅ
+	ITEM_ANTIFLAG_SELL		= (1 << 8), // ЖИ јц ѕшАЅ
+	ITEM_ANTIFLAG_EMPIRE_A	= (1 << 9), // A Б¦±№ »зїл єТ°Ў
+	ITEM_ANTIFLAG_EMPIRE_B	= (1 << 10), // B Б¦±№ »зїл єТ°Ў
+	ITEM_ANTIFLAG_EMPIRE_C	= (1 << 11), // C Б¦±№ »зїл єТ°Ў
+	ITEM_ANTIFLAG_SAVE		= (1 << 12), // АъАеµЗБц ѕКАЅ
+	ITEM_ANTIFLAG_GIVE		= (1 << 13), // °Е·Ў єТ°Ў
+	ITEM_ANTIFLAG_PKDROP	= (1 << 14), // PKЅГ ¶іѕоБцБц ѕКАЅ
+	ITEM_ANTIFLAG_STACK		= (1 << 15), // ЗХДҐ јц ѕшАЅ
+	ITEM_ANTIFLAG_MYSHOP	= (1 << 16), // °іАО »уБЎїЎ їГё± јц ѕшАЅ
+	ITEM_ANTIFLAG_SAFEBOX	= (1 << 17), // Гў°нїЎ іЦА» јц ѕшАЅ
 };
 
 enum EItemWearableFlag
@@ -334,16 +334,16 @@ enum ELimitTypes
 	LIMIT_INT,
 	LIMIT_CON,
 
-	/// ���� ���ο� ��� ���� �ǽð����� �ð� ���� (socket0�� �Ҹ� �ð��� ����: unix_timestamp Ÿ��)
+	/// Вшїл ї©єОїН »у°ь ѕшАМ ЅЗЅГ°ЈАё·О ЅГ°Ј Вч°Ё (socket0їЎ јТёк ЅГ°ЈАМ №ЪИы: unix_timestamp ЕёАФ)
 	LIMIT_REAL_TIME,						
 
-	/// �������� �� ó�� ���(Ȥ�� ����) �� �������� ����Ÿ�� Ÿ�̸� ���� 
-	/// ���� ��� ������ socket0�� ��밡�ɽð�(�ʴ���, 0�̸� �������� limit value�� ���) ���� �����ִٰ� 
-	/// ������ ���� socket1�� ��� Ƚ���� ������ socket0�� unix_timestamp Ÿ���� �Ҹ�ð��� ����.
+	/// ѕЖАМЕЫА» ёЗ ГіАЅ »зїл(И¤Ає Вшїл) ЗС јш°ЈєОЕН ё®ѕуЕёАУ ЕёАМёУ ЅГАЫ 
+	/// ГЦГК »зїл АьїЎґВ socket0їЎ »зїл°ЎґЙЅГ°Ј(ГКґЬА§, 0АМёй ЗБ·ОЕдАЗ limit value°Є »зїл) °ЄАМ ѕІї©АЦґЩ°Ў 
+	/// ѕЖАМЕЫ »зїлЅГ socket1їЎ »зїл ИЅјц°Ў №ЪИч°н socket0їЎ unix_timestamp ЕёАФАЗ јТёкЅГ°ЈАМ №ЪИы.
 	LIMIT_REAL_TIME_START_FIRST_USE,
 
-	/// �������� ���� ���� ���� ��� �ð��� �����Ǵ� ������
-	/// socket0�� ���� �ð��� �ʴ����� ����. (������ ���� ���� �ش� ���� 0�̸� �������� limit value���� socket0�� ����)
+	/// ѕЖАМЕЫА» Вшїл БЯАП ¶§ёё »зїл ЅГ°ЈАМ Вч°ЁµЗґВ ѕЖАМЕЫ
+	/// socket0їЎ іІАє ЅГ°ЈАМ ГКґЬА§·О №ЪИы. (ѕЖАМЕЫ ГЦГК »зїлЅГ ЗШґз °ЄАМ 0АМёй ЗБ·ОЕдАЗ limit value°ЄА» socket0їЎ є№»з)
 	LIMIT_TIMER_BASED_ON_WEAR,
 
 	LIMIT_MAX_NUM

@@ -68,7 +68,7 @@ class CWarMap
 		DWORD	GetWinnerGuild();
 		void	UsePotion(LPCHARACTER ch, LPITEM item);
 
-		void	Draw();	// °­Á¦ ¹«½ÂºÎ Ã³¸®
+		void	Draw();	// Â°Â­Ğ‘Â¦ â„–Â«Ğ…Ğ’Ñ”Ğ Ğ“Ñ–Ñ‘Â®
 		void	Timeout();
 		void	CheckWarEnd();
 		bool	SetEnded();
@@ -125,8 +125,8 @@ class CWarMap
 
 			void Initialize();
 
-			int GetAccumulatedJoinerCount(); // ´©ÀûµÈ Âü°¡ÀÚ ¼ö
-			int GetCurJointerCount(); // ÇöÀç Âü°¡ÀÚ ¼ö
+			int GetAccumulatedJoinerCount(); // Ò‘Â©ĞÑ‹ÂµĞ˜ Ğ’ÑŒÂ°ĞĞĞª Ñ˜Ñ†
+			int GetCurJointerCount(); // Ğ—Ñ†ĞĞ· Ğ’ÑŒÂ°ĞĞĞª Ñ˜Ñ†
 
 			void AppendMember(LPCHARACTER ch);
 			void RemoveMember(LPCHARACTER ch);

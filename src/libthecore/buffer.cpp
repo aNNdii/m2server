@@ -1,8 +1,8 @@
 /*
  *    Filename: buffer.c
- * Description: Buffer ó�� ���
+ * Description: Buffer Гіё® ёрµв
  *
- *      Author: ������ (aka. ��, Cronan)
+ *      Author: ±иЗСБЦ (aka. єсї±, Cronan)
  */
 #define __LIBTHECORE__
 #include "stdafx.h"
@@ -32,7 +32,7 @@ static int buffer_get_exac_pool_index(int size) {
 	}
 	return -1; // too big... not pooled
 }
-// ��� buffer pool ����.
+// ёрµз buffer pool ЗШБ¦.
 static void buffer_pool_free ()
 {
 	for (int i = 31; i >= 0; i--)
@@ -50,7 +50,7 @@ static void buffer_pool_free ()
 		}
 	}
 }
-// n���� ū buffer pool �ϳ��� ����.
+// nєёґЩ Е« buffer pool ЗПіЄё¦ ЗШБ¦.
 static bool buffer_larger_pool_free (int n)
 {
 	for (int i = 31; i > n; i--)
@@ -102,13 +102,13 @@ LPBUFFER buffer_new(int size)
 	{
 		CREATE(buffer, BUFFER, 1);
 		buffer->mem_size = size;
-		// buffer_new���� calloc failed�� ���� �߻��Ͽ�(��Ű�� ����� �ӽſ��� �ַ� �߻�),
-		// calloc�� �����ϸ�, buffer pool�� ���� �ٽ� �õ��Ѵ�.
+		// buffer_newїЎј­ calloc failed°Ў АЪБЦ №Я»эЗПї©(ЕНЕ°АЗ єуѕаЗС ёУЅЕїЎј­ БЦ·О №Я»э),
+		// callocАМ ЅЗЖРЗПёй, buffer poolА» єсїм°н ґЩЅГ ЅГµµЗСґЩ.
 		if (!safe_create(&buffer->mem_data, size))
 		{
-			// �ʿ��� buffer���� ū buffer pool���� �ϳ��� ����.
+			// ЗКїдЗС bufferєёґЩ Е« buffer poolїЎј­ ЗПіЄё¦ ЗШБ¦.
 			if (!buffer_larger_pool_free(pool_index))
-				// �����ϸ� ������ ��������, ��� pool�� �����Ѵ�.
+				// ЅЗЖРЗПёй ГЦИДАЗ јцґЬАё·О, ёрµз poolА» ЗШБ¦ЗСґЩ.
 				buffer_pool_free();
 			CREATE(buffer->mem_data, char, size);
 			sys_err ("buffer pool free success.");
@@ -213,10 +213,10 @@ void buffer_read_proceed(LPBUFFER buffer, int length)
 		length = buffer->length;
 	}
 
-	// ó���� ���̰� ���� ���̺��� �۴ٸ�, ���۸� ���ܵξ�� �Ѵ�.
+	// Гіё®ЗТ ±жАМ°Ў №цЖЫ ±жАМєёґЩ АЫґЩёй, №цЖЫё¦ іІ°ЬµОѕоѕЯ ЗСґЩ.
 	if (length < buffer->length)
 	{
-		// write_point �� pos �� �״�� �ΰ� read_point �� ���� ��Ų��.
+		// write_point їН pos ґВ ±Чґл·О µО°н read_point ёё Бх°Ў ЅГЕІґЩ.
 		if (buffer->read_point + length - buffer->mem_data > buffer->mem_size)
 		{
 			sys_err("buffer_read_proceed: buffer overflow! length %d read_point %d", length, buffer->read_point - buffer->mem_data);
@@ -268,8 +268,8 @@ void buffer_realloc(LPBUFFER& buffer, int length)
 	if (buffer->mem_size >= length)
 		return;
 
-	// i �� ���� �Ҵ�� ũ��� ����ũ���� ��, ������ ���� ����
-	// �޸��� ũ�⸦ ���Ѵ�.
+	// i ґВ »х·О ЗТґзµИ Е©±вїН АМАьЕ©±вАЗ Вч, ЅЗБ¦·О »х·О »э±д
+	// ёЮёрё®АЗ Е©±вё¦ ¶жЗСґЩ.
 	i = length - buffer->mem_size;
 
 	if (i <= 0)
@@ -281,7 +281,7 @@ void buffer_realloc(LPBUFFER& buffer, int length)
 
 	read_point_pos = buffer->read_point - buffer->mem_data;
 
-	// write_point �� read_point �� �� ���� ��Ų��.
+	// write_point їН read_point ё¦ Аз ї¬°б ЅГЕІґЩ.
 	temp->write_point = temp->mem_data + buffer->write_point_pos;
 	temp->write_point_pos = buffer->write_point_pos;
 	temp->read_point = temp->mem_data + read_point_pos;

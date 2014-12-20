@@ -230,7 +230,7 @@ bool DESC::Setup(LPFDWATCH _fdw, socket_t _fd, const struct sockaddr_in & c_rSoc
 	//if (LC_IsEurope() == true || LC_IsNewCIBN())
 	//	m_lpOutputBuffer = buffer_new(DEFAULT_PACKET_BUFFER_SIZE * 2);
 	//else
-	//NOTE: �̰� ���󺰷� �ٸ��� ��ƾ��� ������ �ֳ�?
+	//NOTE: АМ°Й іЄ¶ує°·О ґЩёЈ°Ф АвѕЖѕЯЗТ АМАЇ°Ў АЦіЄ?
 	m_lpOutputBuffer = buffer_new(DEFAULT_PACKET_BUFFER_SIZE * 2);
 
 	m_iMinInputBufferLen = MAX_INPUT_LEN >> 1;
@@ -303,7 +303,7 @@ int DESC::ProcessInput()
 
 		int iBytesProceed = 0;
 
-		// false�� ���� �Ǹ� �ٸ� phase�� �ٲ� ���̹Ƿ� �ٽ� ���μ����� �����Ѵ�!
+		// false°Ў ё®ЕП µЗёй ґЩёҐ phase·О №ЩІп °НАМ№З·О ґЩЅГ ЗБ·ОјјЅє·О µ№АФЗСґЩ!
 		while (!m_pInputProcessor->Process(this, buffer_read_peek(m_lpInputBuffer), buffer_size(m_lpInputBuffer), iBytesProceed))
 		{
 			buffer_read_proceed(m_lpInputBuffer, iBytesProceed);
@@ -317,7 +317,7 @@ int DESC::ProcessInput()
 	{
 		int iBytesProceed = 0;
 
-		// false�� ���� �Ǹ� �ٸ� phase�� �ٲ� ���̹Ƿ� �ٽ� ���μ����� �����Ѵ�!
+		// false°Ў ё®ЕП µЗёй ґЩёҐ phase·О №ЩІп °НАМ№З·О ґЩЅГ ЗБ·ОјјЅє·О µ№АФЗСґЩ!
 		while (!m_pInputProcessor->Process(this, buffer_read_peek(m_lpInputBuffer), buffer_size(m_lpInputBuffer), iBytesProceed))
 		{
 			buffer_read_proceed(m_lpInputBuffer, iBytesProceed);
@@ -330,9 +330,9 @@ int DESC::ProcessInput()
 	{
 		int iSizeBuffer = buffer_size(m_lpInputBuffer);
 
-		// 8����Ʈ �����θ� ó���Ѵ�. 8����Ʈ ������ �����ϸ� �߸��� ��ȣȭ ���۸� ��ȣȭ
-		// �� ���ɼ��� �����Ƿ� ©�� ó���ϱ�� �Ѵ�.
-		if (iSizeBuffer & 7) // & 7�� % 8�� ����. 2�� �¼������� ����
+		// 8№ЩАМЖ® ґЬА§·Оёё Гіё®ЗСґЩ. 8№ЩАМЖ® ґЬА§їЎ єОБ·ЗПёй АЯёшµИ ѕПИЈИ­ №цЖЫё¦ є№ИЈИ­
+		// ЗТ °ЎґЙјєАМ АЦАё№З·О В©¶уј­ Гіё®ЗП±в·О ЗСґЩ.
+		if (iSizeBuffer & 7) // & 7Ає % 8°ъ °°ґЩ. 2АЗ ЅВјцїЎј­ёё °ЎґЙ
 			iSizeBuffer -= iSizeBuffer & 7;
 
 		if (iSizeBuffer > 0)
@@ -350,7 +350,7 @@ int DESC::ProcessInput()
 
 			int iBytesProceed = 0;
 
-			// false�� ���� �Ǹ� �ٸ� phase�� �ٲ� ���̹Ƿ� �ٽ� ���μ����� �����Ѵ�!
+			// false°Ў ё®ЕП µЗёй ґЩёҐ phase·О №ЩІп °НАМ№З·О ґЩЅГ ЗБ·ОјјЅє·О µ№АФЗСґЩ!
 			while (!m_pInputProcessor->Process(this, buffer_read_peek(lpBufferDecrypt), buffer_size(lpBufferDecrypt), iBytesProceed))
 			{
 				if (iBytesProceed > iSizeBuffer)
@@ -426,12 +426,12 @@ void DESC::Packet(const void * c_pvData, int iSize)
 {
 	assert(iSize > 0);
 
-	if (m_iPhase == PHASE_CLOSE) // ���� ���¸� ������ �ʴ´�.
+	if (m_iPhase == PHASE_CLOSE) // ІчґВ »уЕВёй єёі»Бц ѕКґВґЩ.
 		return;
 
 	if (m_stRelayName.length() != 0)
 	{
-		// Relay ��Ŷ�� ��ȣȭ���� �ʴ´�.
+		// Relay ЖРЕ¶Ає ѕПИЈИ­ЗПБц ѕКґВґЩ.
 		TPacketGGRelay p;
 
 		p.bHeader = HEADER_GG_RELAY;
@@ -500,7 +500,7 @@ void DESC::Packet(const void * c_pvData, int iSize)
 			}
 			else
 			{
-				// ��ȣȭ�� �ʿ��� ����� ���� ũ�⸦ Ȯ���Ѵ�.
+				// ѕПИЈИ­їЎ ЗКїдЗС ГжєРЗС №цЖЫ Е©±вё¦ И®єёЗСґЩ.
 				/* buffer_adjust_size(m_lpOutputBuffer, iSize + 8); */
 				DWORD * pdwWritePoint = (DWORD *) buffer_write_peek(m_lpOutputBuffer);
 
@@ -543,7 +543,7 @@ void DESC::SetPhase(int _phase)
 	switch (m_iPhase)
 	{
 		case PHASE_CLOSE:
-			// �޽����� ĳ���ʹ����� �Ǹ鼭 ����
+			// ёЮЅЕАъ°Ў ДіёЇЕНґЬА§°Ў µЗёйј­ »иБ¦
 			//MessengerManager::instance().Logout(GetAccountTable().login);
 			m_pInputProcessor = &m_inputClose;
 			break;
@@ -553,8 +553,8 @@ void DESC::SetPhase(int _phase)
 			break;
 
 		case PHASE_SELECT:
-			// �޽����� ĳ���ʹ����� �Ǹ鼭 ����
-			//MessengerManager::instance().Logout(GetAccountTable().login); // �ǵ������� break �Ȱ�
+			// ёЮЅЕАъ°Ў ДіёЇЕНґЬА§°Ў µЗёйј­ »иБ¦
+			//MessengerManager::instance().Logout(GetAccountTable().login); // АЗµµАыАё·О break ѕИ°Л
 		case PHASE_LOGIN:
 		case PHASE_LOADING:
 #ifndef _IMPROVED_PACKET_ENCRYPTION_
@@ -886,7 +886,7 @@ void DESC::DisconnectOfSameLogin()
 		if (m_pkDisconnectEvent)
 			return;
 
-		GetCharacter()->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("�ٸ� ��ǻ�Ϳ��� �α��� �Ͽ� ������ ���� �մϴ�."));
+		GetCharacter()->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("ґЩёҐ ДДЗ»ЕНїЎј­ ·О±ЧАО ЗПї© БўјУА» Бѕ·б ЗХґПґЩ."));
 		DelayedDisconnect(5);
 	}
 	else

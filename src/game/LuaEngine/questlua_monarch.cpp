@@ -145,7 +145,7 @@ namespace quest
 		{
 			if (!ch->IsGM())
 			{
-				ch->ChatPacket(CHAT_TYPE_INFO ,LC_TEXT("±ºÁÖÀÇ ÀÚ°İÀ» °¡Áö°í ÀÖÁö ¾Ê½À´Ï´Ù"));
+				ch->ChatPacket(CHAT_TYPE_INFO ,LC_TEXT("Â±Ñ”Ğ‘Ğ¦ĞĞ— ĞĞªÂ°Ğ­ĞÂ» Â°ĞĞ‘Ñ†Â°Ğ½ ĞĞ¦Ğ‘Ñ† Ñ•ĞšĞ…ĞÒ‘ĞŸÒ‘Ğ©"));
 				sys_err("No Monarch pid %d ", ch->GetPlayerID());
 				return 0;
 			}
@@ -153,22 +153,22 @@ namespace quest
 	
 		int HealPrice = quest::CQuestManager::instance().GetEventFlag("MonarchHealGold");
 		if (HealPrice == 0)
-			HealPrice = 2000000;	// 200¸¸
+			HealPrice = 2000000;	// 200Ñ‘Ñ‘
 
 		if (CMonarch::instance().HealMyEmpire(ch, HealPrice))
 		{
 			char szNotice[256];
 			snprintf(szNotice, sizeof(szNotice),
-					LC_TEXT("±ºÁÖÀÇ Ãàº¹À¸·Î ÀÌÁö¿ª %s À¯Àú´Â HP,SP°¡ ¸ğµÎ Ã¤¿öÁı´Ï´Ù."), EMPIRE_NAME(ch->GetEmpire()));
+					LC_TEXT("Â±Ñ”Ğ‘Ğ¦ĞĞ— Ğ“Ğ°Ñ”â„–ĞÑ‘Â·Ğ ĞĞœĞ‘Ñ†Ñ—Ğ„ %s ĞĞ‡ĞÑŠÒ‘Ğ’ HP,SPÂ°Ğ Ñ‘Ñ€ÂµĞ Ğ“Â¤Ñ—Ñ†Ğ‘ÑÒ‘ĞŸÒ‘Ğ©."), EMPIRE_NAME(ch->GetEmpire()));
 			SendNoticeMap(szNotice, ch->GetMapIndex(), false);
 
-			ch->ChatPacket(CHAT_TYPE_INFO ,LC_TEXT("±ºÁÖÀÇ Ãàº¹À» »ç¿ëÇÏ¿´½À´Ï´Ù."));
+			ch->ChatPacket(CHAT_TYPE_INFO ,LC_TEXT("Â±Ñ”Ğ‘Ğ¦ĞĞ— Ğ“Ğ°Ñ”â„–ĞÂ» Â»Ğ·Ñ—Ğ»Ğ—ĞŸÑ—Ò‘Ğ…ĞÒ‘ĞŸÒ‘Ğ©."));
 		}
 
 		return 1;
 	}
 
-	// ±ºÁÖÀÇ »çÀÚÈÄ Äù½ºÆ® ÇÔ¼ö 
+	// Â±Ñ”Ğ‘Ğ¦ĞĞ— Â»Ğ·ĞĞªĞ˜Ğ” Ğ”Ñ‰Ğ…Ñ”Ğ–Â® Ğ—Ğ¤Ñ˜Ñ† 
 	int monarch_powerup(lua_State * L)
 	{
 		LPCHARACTER ch = CQuestManager::instance().GetCurrentCharacterPtr(); 
@@ -176,37 +176,37 @@ namespace quest
 		if (!ch)
 			return 0;
 
-		//±ºÁÖ Ã¼Å© 
+		//Â±Ñ”Ğ‘Ğ¦ Ğ“Ñ˜Ğ•Â© 
 		if (false==ch->IsMonarch())
 		{
 			if (!ch->IsGM())
 			{
-				ch->ChatPacket(CHAT_TYPE_INFO ,LC_TEXT("±ºÁÖÀÇ ÀÚ°İÀ» °¡Áö°í ÀÖÁö ¾Ê½À´Ï´Ù"));
+				ch->ChatPacket(CHAT_TYPE_INFO ,LC_TEXT("Â±Ñ”Ğ‘Ğ¦ĞĞ— ĞĞªÂ°Ğ­ĞÂ» Â°ĞĞ‘Ñ†Â°Ğ½ ĞĞ¦Ğ‘Ñ† Ñ•ĞšĞ…ĞÒ‘ĞŸÒ‘Ğ©"));
 				sys_err("No Monarch pid %d ", ch->GetPlayerID());
 				return 0;
 			}
 		}
 
-		//±ºÁÖ ±¹°í °Ë»ç
-		int	money_need = 5000000;	// 500¸¸
+		//Â±Ñ”Ğ‘Ğ¦ Â±â„–Â°Ğ½ Â°Ğ›Â»Ğ·
+		int	money_need = 5000000;	// 500Ñ‘Ñ‘
 		if (!CMonarch::instance().IsMoneyOk(money_need, ch->GetEmpire()))
 		{
 			int NationMoney = CMonarch::instance().GetMoney(ch->GetEmpire());
-			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("±¹°í¿¡ µ·ÀÌ ºÎÁ·ÇÕ´Ï´Ù. ÇöÀç : %u ÇÊ¿ä±İ¾× : %u"), NationMoney, money_need);
+			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Â±â„–Â°Ğ½Ñ—Ğ ÂµÂ·ĞĞœ Ñ”ĞĞ‘Â·Ğ—Ğ¥Ò‘ĞŸÒ‘Ğ©. Ğ—Ñ†ĞĞ· : %u Ğ—ĞšÑ—Ğ´Â±Ğ­Ñ•Ğ§ : %u"), NationMoney, money_need);
 			return 0;
 		}
 
 		if (!CMonarch::instance().CheckPowerUpCT(ch->GetEmpire()))
 		{
 			int	next_sec = CMonarch::instance().GetPowerUpCT(ch->GetEmpire()) / passes_per_sec;
-			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("ÄğÅ¸ÀÓ Àû¿ëÁß  %d ÈÄ »ç¿ë°¡´É"), next_sec);
+			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Ğ”Ñ€Ğ•Ñ‘ĞĞ£ ĞÑ‹Ñ—Ğ»Ğ‘Ğ¯  %d Ğ˜Ğ” Â»Ğ·Ñ—Ğ»Â°ĞÒ‘Ğ™"), next_sec);
 			return 0;
 		}
 
-		//±ºÁÖÀÇ »çÀÚÈÄ Àû¿ë	
+		//Â±Ñ”Ğ‘Ğ¦ĞĞ— Â»Ğ·ĞĞªĞ˜Ğ” ĞÑ‹Ñ—Ğ»	
 		CMonarch::instance().PowerUp(ch->GetEmpire(), true); 
 	
-		//±ºÁÖÀÇ »çÀÚÈÄ Àû¿ë½Ã°£ 	
+		//Â±Ñ”Ğ‘Ğ¦ĞĞ— Â»Ğ·ĞĞªĞ˜Ğ” ĞÑ‹Ñ—Ğ»Ğ…Ğ“Â°Ğˆ 	
 		int g_nMonarchPowerUpCT = 60 * 3;
 		
 		monarch_powerup_event_info* info = AllocEventInfo<monarch_powerup_event_info>();
@@ -218,13 +218,13 @@ namespace quest
 		CMonarch::instance().SendtoDBDecMoney(5000000, ch->GetEmpire(), ch);
 		
 		char szNotice[256];
-		snprintf(szNotice, sizeof(szNotice), LC_TEXT("±ºÁÖÀÇ »çÀÚÈÄ ¿µÇâÀ¸·Î ÀÌÁö¿ª %s À¯Àú´Â 3ºĞ°£ 10 %% ÀÇ °ø°İ·ÂÀÌ  Áõ°¡µË´Ï´Ù"), EMPIRE_NAME(ch->GetEmpire()));
+		snprintf(szNotice, sizeof(szNotice), LC_TEXT("Â±Ñ”Ğ‘Ğ¦ĞĞ— Â»Ğ·ĞĞªĞ˜Ğ” Ñ—ÂµĞ—Ğ²ĞÑ‘Â·Ğ ĞĞœĞ‘Ñ†Ñ—Ğ„ %s ĞĞ‡ĞÑŠÒ‘Ğ’ 3Ñ”Ğ Â°Ğˆ 10 %% ĞĞ— Â°ÑˆÂ°Ğ­Â·Ğ’ĞĞœ  Ğ‘Ñ…Â°ĞÂµĞ›Ò‘ĞŸÒ‘Ğ©"), EMPIRE_NAME(ch->GetEmpire()));
 		
 		SendNoticeMap(szNotice, ch->GetMapIndex(), false);
 
 		return 1;		
 	}
-	// ±ºÁÖÀÇ ±İ°­±Ç Äù½ºÆ® ÇÔ¼ö 
+	// Â±Ñ”Ğ‘Ğ¦ĞĞ— Â±Ğ­Â°Â­Â±Ğ— Ğ”Ñ‰Ğ…Ñ”Ğ–Â® Ğ—Ğ¤Ñ˜Ñ† 
 	int monarch_defenseup(lua_State * L)
 	{
 		LPCHARACTER ch = CQuestManager::instance().GetCurrentCharacterPtr(); 
@@ -233,37 +233,37 @@ namespace quest
 			return 0;
 	
 		
-		//±ºÁÖ Ã¼Å©	
+		//Â±Ñ”Ğ‘Ğ¦ Ğ“Ñ˜Ğ•Â©	
 		
 		if (false==ch->IsMonarch())
 		{
 			if (!ch->IsGM())
 			{
-				ch->ChatPacket(CHAT_TYPE_INFO ,LC_TEXT("±ºÁÖÀÇ ÀÚ°İÀ» °¡Áö°í ÀÖÁö ¾Ê½À´Ï´Ù"));
+				ch->ChatPacket(CHAT_TYPE_INFO ,LC_TEXT("Â±Ñ”Ğ‘Ğ¦ĞĞ— ĞĞªÂ°Ğ­ĞÂ» Â°ĞĞ‘Ñ†Â°Ğ½ ĞĞ¦Ğ‘Ñ† Ñ•ĞšĞ…ĞÒ‘ĞŸÒ‘Ğ©"));
 				sys_err("No Monarch pid %d ", ch->GetPlayerID());
 				return 0;
 			}
 		}
 	
-		int	money_need = 5000000;	// 500¸¸
+		int	money_need = 5000000;	// 500Ñ‘Ñ‘
 		if (!CMonarch::instance().IsMoneyOk(money_need, ch->GetEmpire()))
 		{
 			int NationMoney = CMonarch::instance().GetMoney(ch->GetEmpire());
-			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("±¹°í¿¡ µ·ÀÌ ºÎÁ·ÇÕ´Ï´Ù. ÇöÀç : %u ÇÊ¿ä±İ¾× : %u"), NationMoney, money_need);
+			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Â±â„–Â°Ğ½Ñ—Ğ ÂµÂ·ĞĞœ Ñ”ĞĞ‘Â·Ğ—Ğ¥Ò‘ĞŸÒ‘Ğ©. Ğ—Ñ†ĞĞ· : %u Ğ—ĞšÑ—Ğ´Â±Ğ­Ñ•Ğ§ : %u"), NationMoney, money_need);
 			return 0;
 		}
 	
 		if (!CMonarch::instance().CheckDefenseUpCT(ch->GetEmpire()))
 		{
 			int	next_sec = CMonarch::instance().GetDefenseUpCT(ch->GetEmpire()) / passes_per_sec;
-			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("ÄğÅ¸ÀÓ Àû¿ëÁß  %d ÈÄ »ç¿ë°¡´É"), next_sec);
+			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Ğ”Ñ€Ğ•Ñ‘ĞĞ£ ĞÑ‹Ñ—Ğ»Ğ‘Ğ¯  %d Ğ˜Ğ” Â»Ğ·Ñ—Ğ»Â°ĞÒ‘Ğ™"), next_sec);
 			return 0;
 		}	
 		
-		//±ºÁÖÀÇ ±İ°­±Ç Àû¿ë	
+		//Â±Ñ”Ğ‘Ğ¦ĞĞ— Â±Ğ­Â°Â­Â±Ğ— ĞÑ‹Ñ—Ğ»	
 		CMonarch::instance().DefenseUp(ch->GetEmpire(), true); 
 
-		//±ºÁÖÀÇ ±İ°­±Ç Àû¿ë ½Ã°£
+		//Â±Ñ”Ğ‘Ğ¦ĞĞ— Â±Ğ­Â°Â­Â±Ğ— ĞÑ‹Ñ—Ğ» Ğ…Ğ“Â°Ğˆ
 		int g_nMonarchDefenseUpCT = 60 * 3;
 		
 		monarch_defenseup_event_info* info = AllocEventInfo<monarch_defenseup_event_info>();
@@ -275,7 +275,7 @@ namespace quest
 		CMonarch::instance().SendtoDBDecMoney(5000000, ch->GetEmpire(), ch);
 		
 		char szNotice[256];
-		snprintf(szNotice, sizeof(szNotice), LC_TEXT("±ºÁÖÀÇ ±İ°­±Ç ¿µÇâÀ¸·Î ÀÌÁö¿ª %s À¯Àú´Â 3ºĞ°£ 10 %% ÀÇ ¹æ¾î·ÂÀÌ  Áõ°¡µË´Ï´Ù"), EMPIRE_NAME(ch->GetEmpire()));
+		snprintf(szNotice, sizeof(szNotice), LC_TEXT("Â±Ñ”Ğ‘Ğ¦ĞĞ— Â±Ğ­Â°Â­Â±Ğ— Ñ—ÂµĞ—Ğ²ĞÑ‘Â·Ğ ĞĞœĞ‘Ñ†Ñ—Ğ„ %s ĞĞ‡ĞÑŠÒ‘Ğ’ 3Ñ”Ğ Â°Ğˆ 10 %% ĞĞ— â„–Ğ¶Ñ•Ğ¾Â·Ğ’ĞĞœ  Ğ‘Ñ…Â°ĞÂµĞ›Ò‘ĞŸÒ‘Ğ©"), EMPIRE_NAME(ch->GetEmpire()));
 
 		SendNoticeMap(szNotice, ch->GetMapIndex(), false);
 
@@ -319,7 +319,7 @@ namespace quest
 		{
 			if (!ch->IsGM())
 			{
-				ch->ChatPacket(CHAT_TYPE_INFO ,LC_TEXT("±ºÁÖÀÇ ÀÚ°İÀ» °¡Áö°í ÀÖÁö ¾Ê½À´Ï´Ù"));
+				ch->ChatPacket(CHAT_TYPE_INFO ,LC_TEXT("Â±Ñ”Ğ‘Ğ¦ĞĞ— ĞĞªÂ°Ğ­ĞÂ» Â°ĞĞ‘Ñ†Â°Ğ½ ĞĞ¦Ğ‘Ñ† Ñ•ĞšĞ…ĞÒ‘ĞŸÒ‘Ğ©"));
 				sys_err("No Monarch pid %d ", ch->GetPlayerID());
 				return 0;
 			}
@@ -334,13 +334,13 @@ namespace quest
 			long x = ch->GetX();
 			long y = ch->GetY();
 #if 0
-			if (11505 == mob_vnum)	// È²±İµÎ²¨ºñ
+			if (11505 == mob_vnum)	// Ğ˜Ğ†Â±Ğ­ÂµĞĞ†ĞÑ”Ñ
 			{
-				//±ºÁÖ ±¹°í °Ë»ç
+				//Â±Ñ”Ğ‘Ğ¦ Â±â„–Â°Ğ½ Â°Ğ›Â»Ğ·
 				if (!CMonarch::instance().IsMoneyOk(CASTLE_FROG_PRICE, ch->GetEmpire()))
 				{
 					int NationMoney = CMonarch::instance().GetMoney(ch->GetEmpire());
-					ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("±¹°í¿¡ µ·ÀÌ ºÎÁ·ÇÕ´Ï´Ù. ÇöÀç : %u ÇÊ¿ä±İ¾× : %u"), NationMoney, CASTLE_FROG_PRICE);
+					ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Â±â„–Â°Ğ½Ñ—Ğ ÂµÂ·ĞĞœ Ñ”ĞĞ‘Â·Ğ—Ğ¥Ò‘ĞŸÒ‘Ğ©. Ğ—Ñ†ĞĞ· : %u Ğ—ĞšÑ—Ğ´Â±Ğ­Ñ•Ğ§ : %u"), NationMoney, CASTLE_FROG_PRICE);
 					return 0;
 				}
 
@@ -348,7 +348,7 @@ namespace quest
 
 				if (mob)
 				{
-					// ±¹°í°¨¼Ò
+					// Â±â„–Â°Ğ½Â°ĞÑ˜Ğ¢
 					CMonarch::instance().SendtoDBDecMoney(CASTLE_FROG_PRICE, ch->GetEmpire(), ch);
 					castle_save();
 				}
@@ -407,7 +407,7 @@ namespace quest
 		{
 			if (!ch->IsGM())
 			{
-				ch->ChatPacket(CHAT_TYPE_INFO ,LC_TEXT("±ºÁÖÀÇ ÀÚ°İÀ» °¡Áö°í ÀÖÁö ¾Ê½À´Ï´Ù"));
+				ch->ChatPacket(CHAT_TYPE_INFO ,LC_TEXT("Â±Ñ”Ğ‘Ğ¦ĞĞ— ĞĞªÂ°Ğ­ĞÂ» Â°ĞĞ‘Ñ†Â°Ğ½ ĞĞ¦Ğ‘Ñ† Ñ•ĞšĞ…ĞÒ‘ĞŸÒ‘Ğ©"));
 				sys_err("No Monarch pid %d ", ch->GetPlayerID());
 				return 0;
 			}
@@ -415,7 +415,7 @@ namespace quest
 
 		if (false==castle_is_my_castle(ch->GetEmpire(), ch->GetMapIndex()))
 		{
-			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("¼º¿¡¼­¸¸ »ç¿ëÇÒ ¼ö ÀÖ´Â ±â´ÉÀÔ´Ï´Ù."));
+			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Ñ˜Ñ”Ñ—ĞÑ˜Â­Ñ‘Ñ‘ Â»Ğ·Ñ—Ğ»Ğ—Ğ¢ Ñ˜Ñ† ĞĞ¦Ò‘Ğ’ Â±Ğ²Ò‘Ğ™ĞĞ¤Ò‘ĞŸÒ‘Ğ©."));
 			return 0;
 		}
 
@@ -425,18 +425,18 @@ namespace quest
 		{
 			int	money_need = castle_cost_of_hiring_guard(group_vnum);
 
-			//±ºÁÖ ±¹°í °Ë»ç
+			//Â±Ñ”Ğ‘Ğ¦ Â±â„–Â°Ğ½ Â°Ğ›Â»Ğ·
 			if (!CMonarch::instance().IsMoneyOk(money_need, ch->GetEmpire()))
 			{
 				int NationMoney = CMonarch::instance().GetMoney(ch->GetEmpire());
-				ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("±¹°í¿¡ µ·ÀÌ ºÎÁ·ÇÕ´Ï´Ù. ÇöÀç : %u ÇÊ¿ä±İ¾× : %u"), NationMoney, money_need);
+				ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Â±â„–Â°Ğ½Ñ—Ğ ÂµÂ·ĞĞœ Ñ”ĞĞ‘Â·Ğ—Ğ¥Ò‘ĞŸÒ‘Ğ©. Ğ—Ñ†ĞĞ· : %u Ğ—ĞšÑ—Ğ´Â±Ğ­Ñ•Ğ§ : %u"), NationMoney, money_need);
 				return 0;
 			}
 			guard_leader = castle_spawn_guard(ch->GetEmpire(), group_vnum, region_index);
 
 			if (guard_leader)
 			{
-				// ±¹°í°¨¼Ò
+				// Â±â„–Â°Ğ½Â°ĞÑ˜Ğ¢
 				CMonarch::instance().SendtoDBDecMoney(money_need, ch->GetEmpire(), ch);
 				castle_save();
 			}
@@ -456,7 +456,7 @@ namespace quest
 		{
 			if (!ch->IsGM())
 			{
-				ch->ChatPacket(CHAT_TYPE_INFO ,LC_TEXT("±ºÁÖÀÇ ÀÚ°İÀ» °¡Áö°í ÀÖÁö ¾Ê½À´Ï´Ù"));
+				ch->ChatPacket(CHAT_TYPE_INFO ,LC_TEXT("Â±Ñ”Ğ‘Ğ¦ĞĞ— ĞĞªÂ°Ğ­ĞÂ» Â°ĞĞ‘Ñ†Â°Ğ½ ĞĞ¦Ğ‘Ñ† Ñ•ĞšĞ…ĞÒ‘ĞŸÒ‘Ğ©"));
 				sys_err("No Monarch pid %d ", ch->GetPlayerID());
 				return 0;
 			}
@@ -465,14 +465,14 @@ namespace quest
 		if (castle_frog_to_empire_money(ch))
 		{
 			int empire_money = CMonarch::instance().GetMoney(ch->GetEmpire());
-			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("TEST : È²±İµÎ²¨ºñ°¡ ±¹°í·Î È¯¿øµÇ¾ú½À´Ï´Ù."));
-			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("TEST : ÇöÀç ±¹°í : %d"), empire_money);
+			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("TEST : Ğ˜Ğ†Â±Ğ­ÂµĞĞ†ĞÑ”ÑÂ°Ğ Â±â„–Â°Ğ½Â·Ğ Ğ˜Ğ‡Ñ—ÑˆÂµĞ—Ñ•ÑŠĞ…ĞÒ‘ĞŸÒ‘Ğ©."));
+			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("TEST : Ğ—Ñ†ĞĞ· Â±â„–Â°Ğ½ : %d"), empire_money);
 			castle_save();
 			return 1;
 		}
 		else
 		{
-			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("TEST : È²±İµÎ²¨ºñ¸¦ ±¹°í·Î È¯¿øÇÒ ¼ö ¾ø½À´Ï´Ù."));
+			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("TEST : Ğ˜Ğ†Â±Ğ­ÂµĞĞ†ĞÑ”ÑÑ‘Â¦ Â±â„–Â°Ğ½Â·Ğ Ğ˜Ğ‡Ñ—ÑˆĞ—Ğ¢ Ñ˜Ñ† Ñ•ÑˆĞ…ĞÒ‘ĞŸÒ‘Ğ©."));
 			return 0;
 		}
 	}
@@ -495,26 +495,26 @@ namespace quest
 		
 		if (!CMonarch::instance().IsMonarch(ch->GetPlayerID(), ch->GetEmpire()))
 		{
-			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("±ºÁÖ¸¸ÀÌ »ç¿ë °¡´ÉÇÑ ±â´ÉÀÔ´Ï´Ù"));
+			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Â±Ñ”Ğ‘Ğ¦Ñ‘Ñ‘ĞĞœ Â»Ğ·Ñ—Ğ» Â°ĞÒ‘Ğ™Ğ—Ğ¡ Â±Ğ²Ò‘Ğ™ĞĞ¤Ò‘ĞŸÒ‘Ğ©"));
 			return 0;
 		}
 
-		//±ºÁÖ ÄğÅ¸ÀÓ °Ë»ç
+		//Â±Ñ”Ğ‘Ğ¦ Ğ”Ñ€Ğ•Ñ‘ĞĞ£ Â°Ğ›Â»Ğ·
 		if (!ch->IsMCOK(CHARACTER::MI_WARP))
 		{
-			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("%d ÃÊ°£ ÄğÅ¸ÀÓÀÌ Àû¿ëÁßÀÔ´Ï´Ù."), ch->GetMCLTime(CHARACTER::MI_WARP));	
+			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("%d Ğ“ĞšÂ°Ğˆ Ğ”Ñ€Ğ•Ñ‘ĞĞ£ĞĞœ ĞÑ‹Ñ—Ğ»Ğ‘Ğ¯ĞĞ¤Ò‘ĞŸÒ‘Ğ©."), ch->GetMCLTime(CHARACTER::MI_WARP));	
 			return 0;
 		}
 
 
-		//±ºÁÖ ¸÷ ¼ÒÈ¯ ºñ¿ë 
+		//Â±Ñ”Ğ‘Ğ¦ Ñ‘Ñ‡ Ñ˜Ğ¢Ğ˜Ğ‡ Ñ”ÑÑ—Ğ» 
 		const int WarpPrice = 10000;
 
-		//±ºÁÖ ±¹°í °Ë»ç 
+		//Â±Ñ”Ğ‘Ğ¦ Â±â„–Â°Ğ½ Â°Ğ›Â»Ğ· 
 		if (!CMonarch::instance().IsMoneyOk(WarpPrice, ch->GetEmpire()))
 		{
 			int NationMoney = CMonarch::instance().GetMoney(ch->GetEmpire());
-			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("±¹°í¿¡ µ·ÀÌ ºÎÁ·ÇÕ´Ï´Ù. ÇöÀç : %u ÇÊ¿ä±İ¾× : %u"), NationMoney, WarpPrice);
+			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Â±â„–Â°Ğ½Ñ—Ğ ÂµÂ·ĞĞœ Ñ”ĞĞ‘Â·Ğ—Ğ¥Ò‘ĞŸÒ‘Ğ©. Ğ—Ñ†ĞĞ· : %u Ğ—ĞšÑ—Ğ´Â±Ğ­Ñ•Ğ§ : %u"), NationMoney, WarpPrice);
 			return 0;	
 		}
 
@@ -530,18 +530,18 @@ namespace quest
 			{
 				if (pkCCI->bEmpire != ch->GetEmpire())
 				{
-					ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Å¸Á¦±¹ À¯Àú¿¡°Ô´Â ÀÌµ¿ÇÒ¼ö ¾ø½À´Ï´Ù"));
+					ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Ğ•Ñ‘Ğ‘Â¦Â±â„– ĞĞ‡ĞÑŠÑ—ĞÂ°Ğ¤Ò‘Ğ’ ĞĞœÂµÑ—Ğ—Ğ¢Ñ˜Ñ† Ñ•ÑˆĞ…ĞÒ‘ĞŸÒ‘Ğ©"));
 					return 0;
 				}
 				if (pkCCI->bChannel != g_bChannel)
 				{
-					ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("ÇØ´ç À¯Àú´Â %d Ã¤³Î¿¡ ÀÖ½À´Ï´Ù. (ÇöÀç Ã¤³Î %d)"), pkCCI->bChannel, g_bChannel);
+					ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Ğ—Ğ¨Ò‘Ğ· ĞĞ‡ĞÑŠÒ‘Ğ’ %d Ğ“Â¤Ñ–ĞÑ—Ğ ĞĞ¦Ğ…ĞÒ‘ĞŸÒ‘Ğ©. (Ğ—Ñ†ĞĞ· Ğ“Â¤Ñ–Ğ %d)"), pkCCI->bChannel, g_bChannel);
 					return 0;
 				}
 	
 				if (!IsMonarchWarpZone(pkCCI->lMapIndex))
 				{
-					ch->ChatPacket (CHAT_TYPE_INFO, LC_TEXT("ÇØ´ç Áö¿ªÀ¸·Î ÀÌµ¿ÇÒ ¼ö ¾ø½À´Ï´Ù."));	
+					ch->ChatPacket (CHAT_TYPE_INFO, LC_TEXT("Ğ—Ğ¨Ò‘Ğ· Ğ‘Ñ†Ñ—Ğ„ĞÑ‘Â·Ğ ĞĞœÂµÑ—Ğ—Ğ¢ Ñ˜Ñ† Ñ•ÑˆĞ…ĞÒ‘ĞŸÒ‘Ğ©."));	
 					return 0;
 				}
 
@@ -552,13 +552,13 @@ namespace quest
 				else
 				{
 					//ch->ChatPacket(CHAT_TYPE_INFO, "You warp to (%d, %d)", pos.x, pos.y);
-					ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("%s ¿¡°Ô·Î ÀÌµ¿ÇÕ´Ï´Ù"), name.c_str());
+					ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("%s Ñ—ĞÂ°Ğ¤Â·Ğ ĞĞœÂµÑ—Ğ—Ğ¥Ò‘ĞŸÒ‘Ğ©"), name.c_str());
 					ch->WarpSet(pos.x, pos.y);
 
-					//±ºÁÖ µ· »è°¨	
+					//Â±Ñ”Ğ‘Ğ¦ ÂµÂ· Â»Ğ¸Â°Ğ	
 					CMonarch::instance().SendtoDBDecMoney(WarpPrice, ch->GetEmpire(), ch);
 
-					//ÄğÅ¸ÀÓ ÃÊ±âÈ­ 
+					//Ğ”Ñ€Ğ•Ñ‘ĞĞ£ Ğ“ĞšÂ±Ğ²Ğ˜Â­ 
 					ch->SetMC(CHARACTER::MI_WARP);
 				}
 
@@ -574,13 +574,13 @@ namespace quest
 		{
 			if (tch->GetEmpire() != ch->GetEmpire())
 			{
-				ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Å¸Á¦±¹ À¯Àú¿¡°Ô´Â ÀÌµ¿ÇÒ¼ö ¾ø½À´Ï´Ù"));
+				ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Ğ•Ñ‘Ğ‘Â¦Â±â„– ĞĞ‡ĞÑŠÑ—ĞÂ°Ğ¤Ò‘Ğ’ ĞĞœÂµÑ—Ğ—Ğ¢Ñ˜Ñ† Ñ•ÑˆĞ…ĞÒ‘ĞŸÒ‘Ğ©"));
 				return 0;
 			}
 
 			if (!IsMonarchWarpZone(tch->GetMapIndex()))
 			{
-				ch->ChatPacket (CHAT_TYPE_INFO, LC_TEXT("ÇØ´ç Áö¿ªÀ¸·Î ÀÌµ¿ÇÒ ¼ö ¾ø½À´Ï´Ù."));
+				ch->ChatPacket (CHAT_TYPE_INFO, LC_TEXT("Ğ—Ğ¨Ò‘Ğ· Ğ‘Ñ†Ñ—Ğ„ĞÑ‘Â·Ğ ĞĞœÂµÑ—Ğ—Ğ¢ Ñ˜Ñ† Ñ•ÑˆĞ…ĞÒ‘ĞŸÒ‘Ğ©."));
 				return 0;
 			}
 
@@ -588,14 +588,14 @@ namespace quest
 			y = tch->GetY();
 		}
 
-		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("%s ¿¡°Ô·Î ÀÌµ¿ÇÕ´Ï´Ù"), name.c_str());
+		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("%s Ñ—ĞÂ°Ğ¤Â·Ğ ĞĞœÂµÑ—Ğ—Ğ¥Ò‘ĞŸÒ‘Ğ©"), name.c_str());
 		ch->WarpSet(x,y);
 		ch->Stop();
 
-		//±ºÁÖ µ· »è°¨	
+		//Â±Ñ”Ğ‘Ğ¦ ÂµÂ· Â»Ğ¸Â°Ğ	
 		CMonarch::instance().SendtoDBDecMoney(WarpPrice, ch->GetEmpire(), ch);
 
-		//ÄğÅ¸ÀÓ ÃÊ±âÈ­ 
+		//Ğ”Ñ€Ğ•Ñ‘ĞĞ£ Ğ“ĞšÂ±Ğ²Ğ˜Â­ 
 		ch->SetMC(CHARACTER::MI_WARP); 
 
 		return 0;
@@ -612,22 +612,22 @@ namespace quest
 
 		if (CMonarch::instance().IsMonarch(ch->GetPlayerID(), ch->GetEmpire()))	
 		{
-			ch->ChatPacket(CHAT_TYPE_INFO,LC_TEXT("³ªÀÇ ±ºÁÖ Á¤º¸"));
+			ch->ChatPacket(CHAT_TYPE_INFO,LC_TEXT("Ñ–Ğ„ĞĞ— Â±Ñ”Ğ‘Ğ¦ Ğ‘Â¤Ñ”Ñ‘"));
 		
 			for (int n = 1; n < 4; ++n)
 			{
 				if (n == ch->GetEmpire())
-					ch->ChatPacket(CHAT_TYPE_INFO,LC_TEXT("[%s±ºÁÖ] : %s  º¸À¯±İ¾× %lld "), EMPIRE_NAME(n), p->name[n], p->money[n]);
+					ch->ChatPacket(CHAT_TYPE_INFO,LC_TEXT("[%sÂ±Ñ”Ğ‘Ğ¦] : %s  Ñ”Ñ‘ĞĞ‡Â±Ğ­Ñ•Ğ§ %lld "), EMPIRE_NAME(n), p->name[n], p->money[n]);
 				else
-					ch->ChatPacket(CHAT_TYPE_INFO,LC_TEXT("[%s±ºÁÖ] : %s  "), EMPIRE_NAME(n), p->name[n]);
+					ch->ChatPacket(CHAT_TYPE_INFO,LC_TEXT("[%sÂ±Ñ”Ğ‘Ğ¦] : %s  "), EMPIRE_NAME(n), p->name[n]);
 			}
 		}
 		else
 		{
-			ch->ChatPacket(CHAT_TYPE_INFO,LC_TEXT("±ºÁÖ Á¤º¸"));
+			ch->ChatPacket(CHAT_TYPE_INFO,LC_TEXT("Â±Ñ”Ğ‘Ğ¦ Ğ‘Â¤Ñ”Ñ‘"));
 
 			for (int n = 1; n < 4; ++n)
-				ch->ChatPacket(CHAT_TYPE_INFO,LC_TEXT("[%s±ºÁÖ] : %s  "), EMPIRE_NAME(n), p->name[n]);
+				ch->ChatPacket(CHAT_TYPE_INFO,LC_TEXT("[%sÂ±Ñ”Ğ‘Ğ¦] : %s  "), EMPIRE_NAME(n), p->name[n]);
 		}
 
 		return 0;
@@ -650,25 +650,25 @@ namespace quest
 
 		if (!CMonarch::instance().IsMonarch(ch->GetPlayerID(), ch->GetEmpire()))
 		{
-			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("±ºÁÖ¸¸ÀÌ »ç¿ë °¡´ÉÇÑ ±â´ÉÀÔ´Ï´Ù"));
+			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Â±Ñ”Ğ‘Ğ¦Ñ‘Ñ‘ĞĞœ Â»Ğ·Ñ—Ğ» Â°ĞÒ‘Ğ™Ğ—Ğ¡ Â±Ğ²Ò‘Ğ™ĞĞ¤Ò‘ĞŸÒ‘Ğ©"));
 			return 0;
 		}
 
-		// ±ºÁÖ ÄğÅ¸ÀÓ °Ë»ç
+		// Â±Ñ”Ğ‘Ğ¦ Ğ”Ñ€Ğ•Ñ‘ĞĞ£ Â°Ğ›Â»Ğ·
 		if (!ch->IsMCOK(CHARACTER::MI_TRANSFER))
 		{
-			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("%d ÃÊ°£ ÄğÅ¸ÀÓÀÌ Àû¿ëÁßÀÔ´Ï´Ù."), ch->GetMCLTime(CHARACTER::MI_TRANSFER));	
+			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("%d Ğ“ĞšÂ°Ğˆ Ğ”Ñ€Ğ•Ñ‘ĞĞ£ĞĞœ ĞÑ‹Ñ—Ğ»Ğ‘Ğ¯ĞĞ¤Ò‘ĞŸÒ‘Ğ©."), ch->GetMCLTime(CHARACTER::MI_TRANSFER));	
 			return 0;
 		}
 
-		// ±ºÁÖ ¿öÇÁ ºñ¿ë 
+		// Â±Ñ”Ğ‘Ğ¦ Ñ—Ñ†Ğ—Ğ‘ Ñ”ÑÑ—Ğ» 
 		const int WarpPrice = 10000;
 
-		// ±ºÁÖ ±¹°í °Ë»ç 
+		// Â±Ñ”Ğ‘Ğ¦ Â±â„–Â°Ğ½ Â°Ğ›Â»Ğ· 
 		if (!CMonarch::instance().IsMoneyOk(WarpPrice, ch->GetEmpire()))
 		{
 			int NationMoney = CMonarch::instance().GetMoney(ch->GetEmpire());
-			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("±¹°í¿¡ µ·ÀÌ ºÎÁ·ÇÕ´Ï´Ù. ÇöÀç : %u ÇÊ¿ä±İ¾× : %u"), NationMoney, WarpPrice);
+			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Â±â„–Â°Ğ½Ñ—Ğ ÂµÂ·ĞĞœ Ñ”ĞĞ‘Â·Ğ—Ğ¥Ò‘ĞŸÒ‘Ğ©. Ğ—Ñ†ĞĞ· : %u Ğ—ĞšÑ—Ğ´Â±Ğ­Ñ•Ğ§ : %u"), NationMoney, WarpPrice);
 			return 0;	
 		}
 
@@ -682,24 +682,24 @@ namespace quest
 			{
 				if (pkCCI->bEmpire != ch->GetEmpire())
 				{
-					ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("´Ù¸¥ Á¦±¹ À¯Àú´Â ¼ÒÈ¯ÇÒ ¼ö ¾ø½À´Ï´Ù."));
+					ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Ò‘Ğ©Ñ‘Ò Ğ‘Â¦Â±â„– ĞĞ‡ĞÑŠÒ‘Ğ’ Ñ˜Ğ¢Ğ˜Ğ‡Ğ—Ğ¢ Ñ˜Ñ† Ñ•ÑˆĞ…ĞÒ‘ĞŸÒ‘Ğ©."));
 					return 0;
 				}
 
 				if (pkCCI->bChannel != g_bChannel)
 				{
-					ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("%s ´ÔÀº %d Ã¤³Î¿¡ Á¢¼Ó Áß ÀÔ´Ï´Ù. (ÇöÀç Ã¤³Î: %d)"), name.c_str(), pkCCI->bChannel, g_bChannel);
+					ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("%s Ò‘Ğ¤ĞÑ” %d Ğ“Â¤Ñ–ĞÑ—Ğ Ğ‘ÑÑ˜Ğ£ Ğ‘Ğ¯ ĞĞ¤Ò‘ĞŸÒ‘Ğ©. (Ğ—Ñ†ĞĞ· Ğ“Â¤Ñ–Ğ: %d)"), name.c_str(), pkCCI->bChannel, g_bChannel);
 					return 0;
 				}
 
 				if (!IsMonarchWarpZone(pkCCI->lMapIndex))
 				{
-					ch->ChatPacket (CHAT_TYPE_INFO, LC_TEXT("ÇØ´ç Áö¿ªÀ¸·Î ÀÌµ¿ÇÒ ¼ö ¾ø½À´Ï´Ù."));	
+					ch->ChatPacket (CHAT_TYPE_INFO, LC_TEXT("Ğ—Ğ¨Ò‘Ğ· Ğ‘Ñ†Ñ—Ğ„ĞÑ‘Â·Ğ ĞĞœÂµÑ—Ğ—Ğ¢ Ñ˜Ñ† Ñ•ÑˆĞ…ĞÒ‘ĞŸÒ‘Ğ©."));	
 					return 0;
 				}
 				if (!IsMonarchWarpZone(ch->GetMapIndex()))
 				{
-					ch->ChatPacket (CHAT_TYPE_INFO, LC_TEXT("ÇØ´ç Áö¿ªÀ¸·Î ¼ÒÈ¯ÇÒ ¼ö ¾ø½À´Ï´Ù."));
+					ch->ChatPacket (CHAT_TYPE_INFO, LC_TEXT("Ğ—Ğ¨Ò‘Ğ· Ğ‘Ñ†Ñ—Ğ„ĞÑ‘Â·Ğ Ñ˜Ğ¢Ğ˜Ğ‡Ğ—Ğ¢ Ñ˜Ñ† Ñ•ÑˆĞ…ĞÒ‘ĞŸÒ‘Ğ©."));
 					return 0;
 				}
 
@@ -711,17 +711,17 @@ namespace quest
 				pgg.lY = ch->GetY();
 
 				P2P_MANAGER::instance().Send(&pgg, sizeof(TPacketGGTransfer));
-				ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("%s ´ÔÀ» ¼ÒÈ¯ÇÏ¿´½À´Ï´Ù."), name.c_str());
+				ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("%s Ò‘Ğ¤ĞÂ» Ñ˜Ğ¢Ğ˜Ğ‡Ğ—ĞŸÑ—Ò‘Ğ…ĞÒ‘ĞŸÒ‘Ğ©."), name.c_str());
 
-				// ±ºÁÖ µ· »è°¨
+				// Â±Ñ”Ğ‘Ğ¦ ÂµÂ· Â»Ğ¸Â°Ğ
 				CMonarch::instance().SendtoDBDecMoney(WarpPrice, ch->GetEmpire(), ch);
 
-				// ÄğÅ¸ÀÓ ÃÊ±âÈ­ 
+				// Ğ”Ñ€Ğ•Ñ‘ĞĞ£ Ğ“ĞšÂ±Ğ²Ğ˜Â­ 
 				ch->SetMC(CHARACTER::MI_TRANSFER);
 			}
 			else
 			{
-				ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("ÀÔ·ÂÇÏ½Å ÀÌ¸§À» °¡Áø »ç¿ëÀÚ°¡ ¾ø½À´Ï´Ù."));
+				ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("ĞĞ¤Â·Ğ’Ğ—ĞŸĞ…Ğ• ĞĞœÑ‘Â§ĞÂ» Â°ĞĞ‘Ñˆ Â»Ğ·Ñ—Ğ»ĞĞªÂ°Ğ Ñ•ÑˆĞ…ĞÒ‘ĞŸÒ‘Ğ©."));
 			}
 
 			return 0;
@@ -729,31 +729,31 @@ namespace quest
 
 		if (ch == tch)
 		{
-			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("ÀÚ½ÅÀ» ¼ÒÈ¯ÇÒ ¼ö ¾ø½À´Ï´Ù."));
+			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("ĞĞªĞ…Ğ•ĞÂ» Ñ˜Ğ¢Ğ˜Ğ‡Ğ—Ğ¢ Ñ˜Ñ† Ñ•ÑˆĞ…ĞÒ‘ĞŸÒ‘Ğ©."));
 			return 0;
 		}
 
 		if (tch->GetEmpire() != ch->GetEmpire())
 		{
-			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("´Ù¸¥ Á¦±¹ À¯Àú´Â ¼ÒÈ¯ÇÒ ¼ö ¾ø½À´Ï´Ù."));
+			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Ò‘Ğ©Ñ‘Ò Ğ‘Â¦Â±â„– ĞĞ‡ĞÑŠÒ‘Ğ’ Ñ˜Ğ¢Ğ˜Ğ‡Ğ—Ğ¢ Ñ˜Ñ† Ñ•ÑˆĞ…ĞÒ‘ĞŸÒ‘Ğ©."));
 			return 0;
 		}
 
 		if (!IsMonarchWarpZone(tch->GetMapIndex()))
 		{
-			ch->ChatPacket (CHAT_TYPE_INFO, LC_TEXT("ÇØ´ç Áö¿ªÀ¸·Î ÀÌµ¿ÇÒ ¼ö ¾ø½À´Ï´Ù."));
+			ch->ChatPacket (CHAT_TYPE_INFO, LC_TEXT("Ğ—Ğ¨Ò‘Ğ· Ğ‘Ñ†Ñ—Ğ„ĞÑ‘Â·Ğ ĞĞœÂµÑ—Ğ—Ğ¢ Ñ˜Ñ† Ñ•ÑˆĞ…ĞÒ‘ĞŸÒ‘Ğ©."));
 			return 0;
 		}
 		if (!IsMonarchWarpZone(ch->GetMapIndex()))
 		{
-			ch->ChatPacket (CHAT_TYPE_INFO, LC_TEXT("ÇØ´ç Áö¿ªÀ¸·Î ¼ÒÈ¯ÇÒ ¼ö ¾ø½À´Ï´Ù."));
+			ch->ChatPacket (CHAT_TYPE_INFO, LC_TEXT("Ğ—Ğ¨Ò‘Ğ· Ğ‘Ñ†Ñ—Ğ„ĞÑ‘Â·Ğ Ñ˜Ğ¢Ğ˜Ğ‡Ğ—Ğ¢ Ñ˜Ñ† Ñ•ÑˆĞ…ĞÒ‘ĞŸÒ‘Ğ©."));
 			return 0;
 		}
 		tch->WarpSet(ch->GetX(), ch->GetY(), ch->GetMapIndex());
 
-		// ±ºÁÖ µ· »è°¨	
+		// Â±Ñ”Ğ‘Ğ¦ ÂµÂ· Â»Ğ¸Â°Ğ	
 		CMonarch::instance().SendtoDBDecMoney(WarpPrice, ch->GetEmpire(), ch);
-		// ÄğÅ¸ÀÓ ÃÊ±âÈ­ 
+		// Ğ”Ñ€Ğ•Ñ‘ĞĞ£ Ğ“ĞšÂ±Ğ²Ğ˜Â­ 
 		ch->SetMC(CHARACTER::MI_TRANSFER);
 		return 0;
 	}
@@ -770,7 +770,7 @@ namespace quest
 		
 		if (ch->IsMonarch() == false)
 		{
-			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("±ºÁÖ¸¸ÀÌ »ç¿ë °¡´ÉÇÑ ±â´ÉÀÔ´Ï´Ù"));
+			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Â±Ñ”Ğ‘Ğ¦Ñ‘Ñ‘ĞĞœ Â»Ğ·Ñ—Ğ» Â°ĞÒ‘Ğ™Ğ—Ğ¡ Â±Ğ²Ò‘Ğ™ĞĞ¤Ò‘ĞŸÒ‘Ğ©"));
 			return 0;
 		}
 
@@ -834,13 +834,13 @@ namespace quest
 
 		if (CMonarch::instance().IsMonarch(ch->GetPlayerID(), ch->GetEmpire()) == false)
 		{
-			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("±ºÁÖ¸¸ÀÌ »ç¿ë °¡´ÉÇÑ ±â´ÉÀÔ´Ï´Ù"));
+			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Â±Ñ”Ğ‘Ğ¦Ñ‘Ñ‘ĞĞœ Â»Ğ·Ñ—Ğ» Â°ĞÒ‘Ğ™Ğ—Ğ¡ Â±Ğ²Ò‘Ğ™ĞĞ¤Ò‘ĞŸÒ‘Ğ©"));
 			return 0;
 		}
 
 		if (ch->IsMCOK(CHARACTER::MI_TRANSFER) == false)
 		{
-			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("%d ÃÊ°£ ÄğÅ¸ÀÓÀÌ Àû¿ëÁßÀÔ´Ï´Ù."), ch->GetMCLTime(CHARACTER::MI_TRANSFER));
+			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("%d Ğ“ĞšÂ°Ğˆ Ğ”Ñ€Ğ•Ñ‘ĞĞ£ĞĞœ ĞÑ‹Ñ—Ğ»Ğ‘Ğ¯ĞĞ¤Ò‘ĞŸÒ‘Ğ©."), ch->GetMCLTime(CHARACTER::MI_TRANSFER));
 			return 0;
 		}
 		
@@ -849,7 +849,7 @@ namespace quest
 		if (CMonarch::instance().IsMoneyOk(ciTransferCost, ch->GetEmpire()) == false)
 		{
 			int NationMoney = CMonarch::instance().GetMoney(ch->GetEmpire());
-			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("±¹°í¿¡ µ·ÀÌ ºÎÁ·ÇÕ´Ï´Ù. ÇöÀç : %u ÇÊ¿ä±İ¾× : %u"), NationMoney, ciTransferCost);
+			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Â±â„–Â°Ğ½Ñ—Ğ ÂµÂ·ĞĞœ Ñ”ĞĞ‘Â·Ğ—Ğ¥Ò‘ĞŸÒ‘Ğ©. Ğ—Ñ†ĞĞ· : %u Ğ—ĞšÑ—Ğ´Â±Ğ­Ñ•Ğ§ : %u"), NationMoney, ciTransferCost);
 			return 0;
 		}
 
@@ -865,25 +865,25 @@ namespace quest
 			{
 				if (pCCI->bEmpire != ch->GetEmpire())
 				{
-					ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("´Ù¸¥ Á¦±¹ À¯Àú´Â ¼ÒÈ¯ÇÒ ¼ö ¾ø½À´Ï´Ù."));
+					ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Ò‘Ğ©Ñ‘Ò Ğ‘Â¦Â±â„– ĞĞ‡ĞÑŠÒ‘Ğ’ Ñ˜Ğ¢Ğ˜Ğ‡Ğ—Ğ¢ Ñ˜Ñ† Ñ•ÑˆĞ…ĞÒ‘ĞŸÒ‘Ğ©."));
 					return 0;
 				}
 
 				if (pCCI->bChannel != g_bChannel)
 				{
-					ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("%s ´ÔÀº %d Ã¤³Î¿¡ Á¢¼ÓÁßÀÔ´Ï´Ù. (ÇöÀç Ã¤³Î: %d)"),
+					ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("%s Ò‘Ğ¤ĞÑ” %d Ğ“Â¤Ñ–ĞÑ—Ğ Ğ‘ÑÑ˜Ğ£Ğ‘Ğ¯ĞĞ¤Ò‘ĞŸÒ‘Ğ©. (Ğ—Ñ†ĞĞ· Ğ“Â¤Ñ–Ğ: %d)"),
 						   strTargetName.c_str(), pCCI->bChannel, g_bChannel);
 					return 0;
 				}
 
 				if (!IsMonarchWarpZone(pCCI->lMapIndex))
 				{
-					ch->ChatPacket (CHAT_TYPE_INFO, LC_TEXT("ÇØ´ç Áö¿ªÀ¸·Î ÀÌµ¿ÇÒ ¼ö ¾ø½À´Ï´Ù."));
+					ch->ChatPacket (CHAT_TYPE_INFO, LC_TEXT("Ğ—Ğ¨Ò‘Ğ· Ğ‘Ñ†Ñ—Ğ„ĞÑ‘Â·Ğ ĞĞœÂµÑ—Ğ—Ğ¢ Ñ˜Ñ† Ñ•ÑˆĞ…ĞÒ‘ĞŸÒ‘Ğ©."));
 					return 0;
 				}
 				if (!IsMonarchWarpZone(ch->GetMapIndex()))
 				{
-					ch->ChatPacket (CHAT_TYPE_INFO, LC_TEXT("ÇØ´ç Áö¿ªÀ¸·Î ¼ÒÈ¯ÇÒ ¼ö ¾ø½À´Ï´Ù."));
+					ch->ChatPacket (CHAT_TYPE_INFO, LC_TEXT("Ğ—Ğ¨Ò‘Ğ· Ğ‘Ñ†Ñ—Ğ„ĞÑ‘Â·Ğ Ñ˜Ğ¢Ğ˜Ğ‡Ğ—Ğ¢ Ñ˜Ñ† Ñ•ÑˆĞ…ĞÒ‘ĞŸÒ‘Ğ©."));
 					return 0;
 				}
 
@@ -894,14 +894,14 @@ namespace quest
 				packet.y = ch->GetY();
 
 				P2P_MANAGER::instance().Send(&packet, sizeof(TPacketMonarchGGTransfer));
-				ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("¼ÒÈ¯ ¿äÃ»À» º¸³Â½À´Ï´Ù"));
+				ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Ñ˜Ğ¢Ğ˜Ğ‡ Ñ—Ğ´Ğ“Â»ĞÂ» Ñ”Ñ‘Ñ–Ğ’Ğ…ĞÒ‘ĞŸÒ‘Ğ©"));
 
 				CMonarch::instance().SendtoDBDecMoney(ciTransferCost, ch->GetEmpire(), ch);
 				ch->SetMC(CHARACTER::MI_TRANSFER);
 			}
 			else
 			{
-				ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("ÀÔ·ÂÇÏ½Å ÀÌ¸§À» °¡Áø »ç¿ëÀÚ°¡ ¾ø½À´Ï´Ù."));
+				ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("ĞĞ¤Â·Ğ’Ğ—ĞŸĞ…Ğ• ĞĞœÑ‘Â§ĞÂ» Â°ĞĞ‘Ñˆ Â»Ğ·Ñ—Ğ»ĞĞªÂ°Ğ Ñ•ÑˆĞ…ĞÒ‘ĞŸÒ‘Ğ©."));
 				return 0;
 			}
 		}
@@ -909,30 +909,30 @@ namespace quest
 		{
 			if (pTargetChar == ch)
 			{
-				ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("ÀÚ½ÅÀ» ¼ÒÈ¯ÇÒ ¼ö ¾ø½À´Ï´Ù."));
+				ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("ĞĞªĞ…Ğ•ĞÂ» Ñ˜Ğ¢Ğ˜Ğ‡Ğ—Ğ¢ Ñ˜Ñ† Ñ•ÑˆĞ…ĞÒ‘ĞŸÒ‘Ğ©."));
 				return 0;
 			}
 
 			if (pTargetChar->GetEmpire() != ch->GetEmpire())
 			{
-				ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("´Ù¸¥ Á¦±¹ À¯Àú´Â ¼ÒÈ¯ÇÒ ¼ö ¾ø½À´Ï´Ù."));
+				ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Ò‘Ğ©Ñ‘Ò Ğ‘Â¦Â±â„– ĞĞ‡ĞÑŠÒ‘Ğ’ Ñ˜Ğ¢Ğ˜Ğ‡Ğ—Ğ¢ Ñ˜Ñ† Ñ•ÑˆĞ…ĞÒ‘ĞŸÒ‘Ğ©."));
 				return 0;
 			}
 
 			if (DISTANCE_APPROX(pTargetChar->GetX() - ch->GetX(), pTargetChar->GetY() - ch->GetY()) <= 5000)
 			{
-				ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("%s ´ÔÀº ±ÙÃ³¿¡ ÀÖ½À´Ï´Ù"), pTargetChar->GetName());
+				ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("%s Ò‘Ğ¤ĞÑ” Â±Ğ©Ğ“Ñ–Ñ—Ğ ĞĞ¦Ğ…ĞÒ‘ĞŸÒ‘Ğ©"), pTargetChar->GetName());
 				return 0;
 			}
 
 			if (!IsMonarchWarpZone(pTargetChar->GetMapIndex()))
 			{
-				ch->ChatPacket (CHAT_TYPE_INFO, LC_TEXT("ÇØ´ç Áö¿ªÀ¸·Î ÀÌµ¿ÇÒ ¼ö ¾ø½À´Ï´Ù."));
+				ch->ChatPacket (CHAT_TYPE_INFO, LC_TEXT("Ğ—Ğ¨Ò‘Ğ· Ğ‘Ñ†Ñ—Ğ„ĞÑ‘Â·Ğ ĞĞœÂµÑ—Ğ—Ğ¢ Ñ˜Ñ† Ñ•ÑˆĞ…ĞÒ‘ĞŸÒ‘Ğ©."));
 				return 0;
 			}
 			if (!IsMonarchWarpZone(ch->GetMapIndex()))
 			{
-				ch->ChatPacket (CHAT_TYPE_INFO, LC_TEXT("ÇØ´ç Áö¿ªÀ¸·Î ¼ÒÈ¯ÇÒ ¼ö ¾ø½À´Ï´Ù."));
+				ch->ChatPacket (CHAT_TYPE_INFO, LC_TEXT("Ğ—Ğ¨Ò‘Ğ· Ğ‘Ñ†Ñ—Ğ„ĞÑ‘Â·Ğ Ñ˜Ğ¢Ğ˜Ğ‡Ğ—Ğ¢ Ñ˜Ñ† Ñ•ÑˆĞ…ĞÒ‘ĞŸÒ‘Ğ©."));
 				return 0;
 			}
 
@@ -945,7 +945,7 @@ namespace quest
 
 			event_create(monarch_transfer2_event, info, 1);
 
-			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("¼ÒÈ¯ ¿äÃ»À» º¸³Â½À´Ï´Ù"));
+			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Ñ˜Ğ¢Ğ˜Ğ‡ Ñ—Ğ´Ğ“Â»ĞÂ» Ñ”Ñ‘Ñ–Ğ’Ğ…ĞÒ‘ĞŸÒ‘Ğ©"));
 
 			CMonarch::instance().SendtoDBDecMoney(ciTransferCost, ch->GetEmpire(), ch);
 			ch->SetMC(CHARACTER::MI_TRANSFER);

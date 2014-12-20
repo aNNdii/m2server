@@ -1,8 +1,8 @@
 /*
  *    Filename: utils.c
- * Description: °¢Á¾ À¯Æ¿¸®Æ¼
+ * Description: Â°ÑĞ‘Ñ• ĞĞ‡Ğ–Ñ—Ñ‘Â®Ğ–Ñ˜
  *
- *      Author: ºñ¿± aka. Cronan
+ *      Author: Ñ”ÑÑ—Â± aka. Cronan
  */
 #define __LIBTHECORE__
 #include "stdafx.h"
@@ -134,7 +134,7 @@ void trim_and_lower(const char * src, char * dest, size_t dest_size)
 	return;
     }
 
-    // ¾Õ¿¡ ºóÄ­ °Ç³Ê ¶Ù±â
+    // Ñ•Ğ¥Ñ—Ğ Ñ”ÑƒĞ”Â­ Â°Ğ—Ñ–Ğš Â¶Ğ©Â±Ğ²
     while (*tmp)
     {
 	if (!isnhspace(*tmp))
@@ -143,12 +143,12 @@ void trim_and_lower(const char * src, char * dest, size_t dest_size)
 	tmp++;
     }
 
-    // \0 È®º¸
+    // \0 Ğ˜Â®Ñ”Ñ‘
     --dest_size;
 
     while (*tmp && len < dest_size)
     {
-	*(dest++) = LOWER(*tmp); // LOWER´Â ¸ÅÅ©·Î¶ó ++ ¾²¸é ¾ÈµÊ
+	*(dest++) = LOWER(*tmp); // LOWERÒ‘Ğ’ Ñ‘Ğ•Ğ•Â©Â·ĞÂ¶Ñƒ ++ Ñ•Ğ†Ñ‘Ğ¹ Ñ•Ğ˜ÂµĞš
 	++tmp;
 	++len;
     }
@@ -157,7 +157,7 @@ void trim_and_lower(const char * src, char * dest, size_t dest_size)
 
     if (len > 0)
     {
-	// µÚ¿¡ ºóÄ­ Áö¿ì±â
+	// ÂµĞªÑ—Ğ Ñ”ÑƒĞ”Â­ Ğ‘Ñ†Ñ—Ğ¼Â±Ğ²
 	--dest;
 
 	while (*dest && isnhspace(*dest) && len--)
@@ -179,12 +179,12 @@ void lower_string(const char *src, char *dest, size_t dest_size)
 	return;
     }
 
-    // \0 È®º¸
+    // \0 Ğ˜Â®Ñ”Ñ‘
     --dest_size;
 
     while (*tmp && len < dest_size)
     {
-	*(dest++) = LOWER(*tmp); // LOWER´Â ¸ÅÅ©·Î¶ó ++ ¾²¸é ¾ÈµÊ
+	*(dest++) = LOWER(*tmp); // LOWERÒ‘Ğ’ Ñ‘Ğ•Ğ•Â©Â·ĞÂ¶Ñƒ ++ Ñ•Ğ†Ñ‘Ğ¹ Ñ•Ğ˜ÂµĞš
 	++tmp;
 	++len;
     }
@@ -200,7 +200,7 @@ char *str_dup(const char *source)
     return (strcpy(new_line, source));
 }
 
-/* arg1 ÀÌ arg2 ÀÇ ¾Õ´Ü°ú °°À» ¶§ 1 À» ¸®ÅÏÇÑ´Ù. */
+/* arg1 ĞĞœ arg2 ĞĞ— Ñ•Ğ¥Ò‘Ğ¬Â°ÑŠ Â°Â°ĞÂ» Â¶Â§ 1 ĞÂ» Ñ‘Â®Ğ•ĞŸĞ—Ğ¡Ò‘Ğ©. */
 int is_abbrev(char *arg1, char *arg2)
 {
     if (!*arg1)
@@ -232,8 +232,8 @@ int filesize(FILE *fp)
 }
 
 
-/* "Name : ºñ¿±" °ú °°ÀÌ "Ç×¸ñ : °ª" À¸·Î ÀÌ·ç¾îÁø ¹®ÀÚ¿­¿¡¼­ 
-   Ç×¸ñÀ» token À¸·Î, °ªÀ» value ·Î º¹»çÇÏ¿© ¸®ÅÏÇÑ´Ù. */
+/* "Name : Ñ”ÑÑ—Â±" Â°ÑŠ Â°Â°ĞĞœ "Ğ—Ğ§Ñ‘Ñ : Â°Ğ„" ĞÑ‘Â·Ğ ĞĞœÂ·Ğ·Ñ•Ğ¾Ğ‘Ñˆ â„–Â®ĞĞªÑ—Â­Ñ—ĞÑ˜Â­ 
+   Ğ—Ğ§Ñ‘ÑĞÂ» token ĞÑ‘Â·Ğ, Â°Ğ„ĞÂ» value Â·Ğ Ñ”â„–Â»Ğ·Ğ—ĞŸÑ—Â© Ñ‘Â®Ğ•ĞŸĞ—Ğ¡Ò‘Ğ©. */
 void parse_token(char *src, char *token, char *value)
 {
     char *tmp;

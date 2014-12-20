@@ -132,7 +132,7 @@ namespace quest
 			//
 
 			///////////////////////////////////////////////////////////////////////////
-			// ¼ø¼­ Index (¿©·¯°³ ÀÖÀ» ¼ö ÀÖÀ¸¹Ç·Î ÀÖ´Â °ÍÀÓ, ½ÇÁ¦ index °ªÀº ¾²Áö ¾ÊÀ½)
+			// Ñ˜ÑˆÑ˜Â­ Index (Ñ—Â©Â·Ğ‡Â°Ñ– ĞĞ¦ĞÂ» Ñ˜Ñ† ĞĞ¦ĞÑ‘â„–Ğ—Â·Ğ ĞĞ¦Ò‘Ğ’ Â°ĞĞĞ£, Ğ…Ğ—Ğ‘Â¦ index Â°Ğ„ĞÑ” Ñ•Ğ†Ğ‘Ñ† Ñ•ĞšĞĞ…)
 			j = i;
 			i = s.find('.', i + 1);
 
@@ -411,7 +411,7 @@ namespace quest
 
 		void operator()(PC::QuestInfoIterator& itPCQuest, NPC::QuestMapType::iterator& itQuestMap)
 		{
-			// ¾øÀ¸´Ï »õ·Î ½ÃÀÛ
+			// Ñ•ÑˆĞÑ‘Ò‘ĞŸ Â»Ñ…Â·Ğ Ğ…Ğ“ĞĞ«
 			DWORD dwQuestIndex = itQuestMap->first;
 
 			if (NPC::HasStartState(itQuestMap->second) && CQuestManager::instance().CanStartQuest(dwQuestIndex))
@@ -495,8 +495,8 @@ namespace quest
 			for (int i = 0; i < fMatch.size; i++)
 			{
 				if ( i != 0 ) {
-					//2012.05.14 <±è¿ë¿í> : Äù½ºÆ® ¸Å´ÏÀúÀÇ m_pCurrentPC°¡ ¹Ù²î´Â °æ¿ì°¡ ¹ß»ıÇÏ¿©,
-					//µÎ°³ ÀÌ»óÀÇ ½ºÅ©¸³Æ®¸¦ ½ÇÇà½Ã, µÎ¹øÂ° ºÎÅÍ´Â Äù½ºÆ® ¸Å´ÏÀúÀÇ PC °ªÀ» »õ·Î ¼ÂÆÃÇÑ´Ù.
+					//2012.05.14 <Â±Ğ¸Ñ—Ğ»Ñ—Ğ½> : Ğ”Ñ‰Ğ…Ñ”Ğ–Â® Ñ‘Ğ•Ò‘ĞŸĞÑŠĞĞ— m_pCurrentPCÂ°Ğ â„–Ğ©Ğ†Ğ¾Ò‘Ğ’ Â°Ğ¶Ñ—Ğ¼Â°Ğ â„–Ğ¯Â»ÑĞ—ĞŸÑ—Â©,
+					//ÂµĞÂ°Ñ– ĞĞœÂ»ÑƒĞĞ— Ğ…Ñ”Ğ•Â©Ñ‘Ñ–Ğ–Â®Ñ‘Â¦ Ğ…Ğ—Ğ—Ğ°Ğ…Ğ“, ÂµĞâ„–ÑˆĞ’Â° Ñ”ĞĞ•ĞÒ‘Ğ’ Ğ”Ñ‰Ğ…Ñ”Ğ–Â® Ñ‘Ğ•Ò‘ĞŸĞÑŠĞĞ— PC Â°Ğ„ĞÂ» Â»Ñ…Â·Ğ Ñ˜Ğ’Ğ–Ğ“Ğ—Ğ¡Ò‘Ğ©.
 					PC * pPC = CQuestManager::instance().GetPC(pc.GetID());		
 				}
 				
@@ -807,7 +807,7 @@ namespace quest
 		QuestMapType & rmapEventOwnQuest = m_mapOwnQuest[EventIndex];
 		QuestMapType::iterator itQuestMap = rmapEventOwnQuest.find(quest_index);
 
-		// ±×·± Äù½ºÆ®°¡ ¾øÀ½
+		// Â±Ğ§Â·Â± Ğ”Ñ‰Ğ…Ñ”Ğ–Â®Â°Ğ Ñ•ÑˆĞĞ…
 		if (itQuestMap == rmapEventOwnQuest.end())
 			return false;
 
@@ -819,7 +819,7 @@ namespace quest
 		}
 		else
 		{
-			// »õ·Î ½ÃÀÛÇÒ±î¿ä?
+			// Â»Ñ…Â·Ğ Ğ…Ğ“ĞĞ«Ğ—Ğ¢Â±Ğ¾Ñ—Ğ´?
 			if (CQuestManager::instance().CanStartQuest(itQuestMap->first, pc) && HasStartState(itQuestMap->second))
 				iState = 0;
 			else
@@ -919,7 +919,7 @@ namespace quest
 			{
 				os << ",\"" << ScriptToString(AvailScript[i]->arg.c_str()) << '"';
 			}
-			os << ", '"<<LC_TEXT("´İ±â")<<"'";
+			os << ", '"<<LC_TEXT("Ò‘Ğ­Â±Ğ²")<<"'";
 			os << ")";
 
 			CQuestManager::ExecuteQuestScript(pc, "QUEST_CHAT_TEMP_QUEST", 0, os.str().c_str(), os.str().size(), &AvailScript, false);
@@ -964,7 +964,7 @@ namespace quest
 		else
 			return HandleEvent(pc, QUEST_ITEM_PICK_EVENT);
 	}
-	//µ¶ÀÏ ¼±¹° ±â´É Å×½ºÆ®
+	//ÂµÂ¶ĞĞŸ Ñ˜Â±â„–Â° Â±Ğ²Ò‘Ğ™ Ğ•Ğ§Ğ…Ñ”Ğ–Â®
 	bool NPC::OnItemInformer(PC& pc, unsigned int vnum)
 	{
 		return HandleEvent(pc, QUEST_ITEM_INFORMER_EVENT);

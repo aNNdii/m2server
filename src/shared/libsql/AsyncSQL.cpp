@@ -145,10 +145,10 @@ bool CAsyncSQL::Connect()
 
 	fprintf(stdout, "AsyncSQL: connected to %s (reconnect %d)\n", m_stHost.c_str(), m_hDB.reconnect);
 
-	// db cache¥¬ common db¿« LOCALE ≈◊¿Ã∫Ìø°º≠ locale¿ª æÀæ∆ø¿∞Ì, ¿Ã»ƒ character set¿ª ºˆ¡§«—¥Ÿ.
-	// µ˚∂Ûº≠ √÷√  Connection¿ª ∏Œ¿ª ∂ßø°¥¬ locale¿ª ∏∏£±‚ ∂ßπÆø° character set¿ª ¡§«“ ºˆ∞° æ¯¿Ωø°µµ ∫“±∏«œ∞Ì,
-	// ∞≠¡¶∑Œ character set¿ª euckr∑Œ ¡§«œµµ∑œ µ«æÓ¿÷æÓ ¿Ã ∫Œ∫–¿ª ¡÷ºÆ√≥∏Æ «œø¥¥Ÿ.
-	// (æ∆∑° ¡÷ºÆ¿ª «Æ∏È mysqlø° euckr¿Ã æ» ±Ú∑¡¿÷¥¬ µ∫Òø° ¡¢±Ÿ«“ ºˆ∞° æ¯¥Ÿ.)
+	// db cache“ë–í common db–ê–ó LOCALE –ï–ß–ê–ú—î–Ω—ó–é—ò¬≠ locale–ê¬ª —ï–õ—ï–ñ—ó–ê¬∞–Ω, –ê–ú–ò–î character set–ê¬ª —ò—Ü–ë¬§–ó–°“ë–©.
+	// ¬µ—ã¬∂—É—ò¬≠ –ì–¶–ì–ö Connection–ê¬ª —ë–û–ê¬ª ¬∂¬ß—ó–é“ë–í locale–ê¬ª —ë—Ä—ë–à¬±–≤ ¬∂¬ß‚Ññ¬Æ—ó–é character set–ê¬ª –ë¬§–ó–¢ —ò—Ü¬∞–é —ï—à–ê–Ö—ó–é¬µ¬µ —î–¢¬±—ë–ó–ü¬∞–Ω,
+	// ¬∞¬≠–ë¬¶¬∑–û character set–ê¬ª euckr¬∑–û –ë¬§–ó–ü¬µ¬µ¬∑–ü ¬µ–ó—ï–æ–ê–¶—ï–æ –ê–ú —î–û—î–†–ê¬ª –ë–¶—ò¬Æ–ì—ñ—ë¬Æ –ó–ü—ó“ë“ë–©.
+	// (—ï–ñ¬∑–é –ë–¶—ò¬Æ–ê¬ª –ó¬Æ—ë–π mysql—ó–é euckr–ê–ú —ï–ò ¬±—Ç¬∑–ë–ê–¶“ë–í ¬µ—Ä—î—Å—ó–é –ë—û¬±–©–ó–¢ —ò—Ü¬∞–é —ï—à“ë–©.)
 	//while (!QueryLocaleSet());
 	m_ulThreadID = mysql_thread_id(&m_hDB);
 
@@ -529,7 +529,7 @@ class cProfiler
 
 void CAsyncSQL::ChildLoop()
 {
-	cProfiler profiler(500000); // 0.5√ 
+	cProfiler profiler(500000); // 0.5–ì–ö
 
 	while (!m_bEnd)
 	{
@@ -546,7 +546,7 @@ void CAsyncSQL::ChildLoop()
 
 		while (count--)
 		{
-			//Ω√∞£ √º≈© Ω√¿€ 
+			//–Ö–ì¬∞–à –ì—ò–ï¬© –Ö–ì–ê–´ 
 			profiler.Start();
 
 			if (!PeekQueryFromCopyQueue(&p))
@@ -591,7 +591,7 @@ void CAsyncSQL::ChildLoop()
 
 			profiler.Stop();
 			
-			// 0.5√  ¿ÃªÛ ∞…∑»¿∏∏È ∑Œ±◊ø° ≥≤±‚±‚
+			// 0.5–ì–ö –ê–ú¬ª—É ¬∞–ô¬∑–ò–ê—ë—ë–π ¬∑–û¬±–ß—ó–é —ñ–Ü¬±–≤¬±–≤
 			if (!profiler.IsOk())
 				sys_log(0, "[QUERY : LONG INTERVAL(OverSec %ld.%ld)] : %s", 
 						profiler.GetResultSec(), profiler.GetResultUSec(), p->stQuery.c_str());
@@ -693,9 +693,9 @@ size_t CAsyncSQL::EscapeString(char* dst, size_t dstSize, const char *src, size_
 
 	if (dstSize < srcSize * 2 + 1)
 	{
-		// \0¿Ã æ»∫ŸæÓ¿÷¿ª ∂ß∏¶ ¥Î∫Ò«ÿº≠ 256 πŸ¿Ã∆Æ∏∏ ∫πªÁ«ÿº≠ ∑Œ±◊∑Œ √‚∑¬
+		// \0–ê–ú —ï–ò—î–©—ï–æ–ê–¶–ê¬ª ¬∂¬ß—ë¬¶ “ë–ª—î—Å–ó–®—ò¬≠ 256 ‚Ññ–©–ê–ú–ñ¬Æ—ë—ë —î‚Ññ¬ª–∑–ó–®—ò¬≠ ¬∑–û¬±–ß¬∑–û –ì–≤¬∑–í
 		char tmp[256];
-		size_t tmpLen = sizeof(tmp) > srcSize ? srcSize : sizeof(tmp); // µ— ¡ﬂø° ¿€¿∫ ≈©±‚
+		size_t tmpLen = sizeof(tmp) > srcSize ? srcSize : sizeof(tmp); // ¬µ–° –ë–Ø—ó–é –ê–´–ê—î –ï¬©¬±–≤
 		enhance_strlcpymt(tmp, src, tmpLen);
 
 		sys_err("FATAL ERROR!! not enough buffer size (dstSize %u srcSize %u src%s: %s)",

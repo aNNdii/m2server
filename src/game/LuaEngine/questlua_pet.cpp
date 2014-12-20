@@ -41,13 +41,13 @@ namespace quest
 			return 1;
 		}
 
-		// ¼ÒÈ¯¼öÀÇ vnum
+		// Ñ˜Ð¢Ð˜Ð‡Ñ˜Ñ†ÐÐ— vnum
 		DWORD mobVnum= lua_isnumber(L, 1) ? lua_tonumber(L, 1) : 0;
 
-		// ¼ÒÈ¯¼öÀÇ ÀÌ¸§
+		// Ñ˜Ð¢Ð˜Ð‡Ñ˜Ñ†ÐÐ— ÐÐœÑ‘Â§
 		const char* petName = lua_isstring(L, 2) ? lua_tostring(L, 2) : 0;
 
-		// ¼ÒÈ¯ÇÏ¸é ¸Ö¸®¼­ºÎÅÍ ´Þ·Á¿À´ÂÁö ¿©ºÎ
+		// Ñ˜Ð¢Ð˜Ð‡Ð—ÐŸÑ‘Ð¹ Ñ‘Ð¦Ñ‘Â®Ñ˜Â­Ñ”ÐžÐ•Ð Ò‘Ð®Â·Ð‘Ñ—ÐÒ‘Ð’Ð‘Ñ† Ñ—Â©Ñ”Ðž
 		bool bFromFar = lua_isboolean(L, 3) ? lua_toboolean(L, 3) : false;
 
 		CPetActor* pet = petSystem->Summon(mobVnum, pItem, petName, bFromFar);
@@ -69,7 +69,7 @@ namespace quest
 		if (0 == petSystem)
 			return 0;
 
-		// ¼ÒÈ¯¼öÀÇ vnum
+		// Ñ˜Ð¢Ð˜Ð‡Ñ˜Ñ†ÐÐ— vnum
 		DWORD mobVnum= lua_isnumber(L, 1) ? lua_tonumber(L, 1) : 0;
 
 		petSystem->Unsummon(mobVnum);
@@ -101,7 +101,7 @@ namespace quest
 		if (0 == petSystem)
 			return 0;
 
-		// ¼ÒÈ¯¼öÀÇ vnum
+		// Ñ˜Ð¢Ð˜Ð‡Ñ˜Ñ†ÐÐ— vnum
 		DWORD mobVnum= lua_isnumber(L, 1) ? lua_tonumber(L, 1) : 0;
 
 		CPetActor* petActor = petSystem->GetByVnum(mobVnum);

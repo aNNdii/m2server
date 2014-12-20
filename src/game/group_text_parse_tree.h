@@ -45,15 +45,15 @@ public:
 	int GetRowCount();
 	
 	template <typename T>
-	bool GetValue(size_t i, const std::string & c_rstrColKey, T& tValue) const;	// n¹øÂ°(map¿¡ µé¾îÀÖ´Â ¼ø¼­ÀÏ »Ó, txtÀÇ ¼ø¼­¿Í´Â °ü°è ¾øÀ½) rowÀÇ Æ¯Á¤ ÄÃ·³ÀÇ °ªÀ» ¹İÈ¯ÇÏ´Â ÇÔ¼ö. 
-																				// ÀÌÁúÀûÀÌ±ä ÇÏÁö¸¸, ÆíÀÇ¸¦ À§ÇÑ ÇÔ¼ö.
+	bool GetValue(size_t i, const std::string & c_rstrColKey, T& tValue) const;	// nâ„–ÑˆĞ’Â°(mapÑ—Ğ ÂµĞ¹Ñ•Ğ¾ĞĞ¦Ò‘Ğ’ Ñ˜ÑˆÑ˜Â­ĞĞŸ Â»Ğ£, txtĞĞ— Ñ˜ÑˆÑ˜Â­Ñ—ĞÒ‘Ğ’ Â°ÑŒÂ°Ğ¸ Ñ•ÑˆĞĞ…) rowĞĞ— Ğ–Ğ‡Ğ‘Â¤ Ğ”Ğ“Â·Ñ–ĞĞ— Â°Ğ„ĞÂ» â„–Ğ­Ğ˜Ğ‡Ğ—ĞŸÒ‘Ğ’ Ğ—Ğ¤Ñ˜Ñ†. 
+																				// ĞĞœĞ‘ÑŠĞÑ‹ĞĞœÂ±Ğ´ Ğ—ĞŸĞ‘Ñ†Ñ‘Ñ‘, Ğ–Ğ½ĞĞ—Ñ‘Â¦ ĞÂ§Ğ—Ğ¡ Ğ—Ğ¤Ñ˜Ñ†.
 	template <typename T>
 	bool GetValue(const std::string & c_rstrRowKey, const std::string & c_rstrColKey, T& tValue) const;
 	template <typename T>
 	bool GetValue(const std::string & c_rstrRowKey, int index, T& tValue) const;
 
 	bool GetRow(const std::string & c_rstrKey, OUT const CGroupNodeRow ** ppRow) const;
-	// Âü°í·Î, idx¶û txt¿¡ ¾²¿©Áø ¼ø¼­¶û °ü°è ¾øÀ½.
+	// Ğ’ÑŒÂ°Ğ½Â·Ğ, idxÂ¶Ñ‹ txtÑ—Ğ Ñ•Ğ†Ñ—Â©Ğ‘Ñˆ Ñ˜ÑˆÑ˜Â­Â¶Ñ‹ Â°ÑŒÂ°Ğ¸ Ñ•ÑˆĞĞ….
 	bool GetRow(int idx, OUT const CGroupNodeRow ** ppRow) const;
 	bool GetGroupRow(const std::string& stGroupName, const std::string& stRow, OUT const CGroupNode::CGroupNodeRow ** ppRow) const;
 
@@ -175,7 +175,7 @@ bool CGroupNode::GetGroupValue(const std::string& stGroupName, const std::string
 		if (pChildGroup->GetValue(stRow, iCol, tValue))
 			return true;
 	}
-	// default groupÀ» »ìÆìº½.
+	// default groupĞÂ» Â»Ğ¼Ğ–Ğ¼Ñ”Ğ….
 	pChildGroup = GetChildNode("default");
 	if (NULL != pChildGroup)
 	{
@@ -194,7 +194,7 @@ bool CGroupNode::GetGroupValue(const std::string& stGroupName, const std::string
 		if (pChildGroup->GetValue(stRow, stCol, tValue))
 			return true;
 	}
-	// default groupÀ» »ìÆìº½.
+	// default groupĞÂ» Â»Ğ¼Ğ–Ğ¼Ñ”Ğ….
 	pChildGroup = GetChildNode("default");
 	if (NULL != pChildGroup)
 	{

@@ -31,7 +31,7 @@ int Gamble(std::vector<float>& vec_probs)
 	return -1;
 }
 
-// °¡ÁßÄ¡ Å×ÀÌºí(prob_lst)À» ¹Ş¾Æ random_set.size()°³ÀÇ index¸¦ ¼±ÅÃÇÏ¿© random_setÀ» return
+// Â°ĞĞ‘Ğ¯Ğ”Ğ Ğ•Ğ§ĞĞœÑ”Ğ½(prob_lst)ĞÂ» â„–Ğ®Ñ•Ğ– random_set.size()Â°Ñ–ĞĞ— indexÑ‘Â¦ Ñ˜Â±Ğ•Ğ“Ğ—ĞŸÑ—Â© random_setĞÂ» return
 bool MakeDistinctRandomNumberSet(std::list <float> prob_lst, OUT std::vector<int>& random_set)
 {
 	int size = prob_lst.size();
@@ -67,11 +67,11 @@ bool MakeDistinctRandomNumberSet(std::list <float> prob_lst, OUT std::vector<int
 	return true;
 }
 
-/* ¿ëÈ¥¼® Vnum¿¡ ´ëÇÑ comment	
- * ITEM VNUMÀ» 10¸¸ ÀÚ¸®ºÎÅÍ, FEDCBA¶ó°í ÇÑ´Ù¸é
- * FE : ¿ëÈ¥¼® Á¾·ù.	D : µî±Ş
- * C : ´Ü°è			B : °­È­		
- * A : ¿©¹úÀÇ ¹øÈ£µé... 	
+/* Ñ—Ğ»Ğ˜ÒÑ˜Â® VnumÑ—Ğ Ò‘Ğ»Ğ—Ğ¡ comment	
+ * ITEM VNUMĞÂ» 10Ñ‘Ñ‘ ĞĞªÑ‘Â®Ñ”ĞĞ•Ğ, FEDCBAÂ¶ÑƒÂ°Ğ½ Ğ—Ğ¡Ò‘Ğ©Ñ‘Ğ¹
+ * FE : Ñ—Ğ»Ğ˜ÒÑ˜Â® Ğ‘Ñ•Â·Ñ‰.	D : ÂµĞ¾Â±Ğ®
+ * C : Ò‘Ğ¬Â°Ğ¸			B : Â°Â­Ğ˜Â­		
+ * A : Ñ—Â©â„–ÑŠĞĞ— â„–ÑˆĞ˜ĞˆÂµĞ¹... 	
  */
 
 BYTE GetType(DWORD dwVnum)
@@ -169,7 +169,7 @@ bool DSManager::RefreshItemAttributes(LPITEM pDS)
 		return false;
 	}
 
-	// add_min°ú add_max´Â ´õ¹Ì·Î ÀĞÀ½.
+	// add_minÂ°ÑŠ add_maxÒ‘Ğ’ Ò‘Ñ…â„–ĞœÂ·Ğ ĞĞ ĞĞ….
 	int basic_apply_num, add_min, add_max;
 	if (!m_pTable->GetApplyNumSettings(ds_type, grade_idx, basic_apply_num, add_min, add_max))
 	{
@@ -315,14 +315,14 @@ int DSManager::GetDuration(const LPITEM pItem) const
 	return pItem->GetDuration();
 }
 
-// ¿ëÈ¥¼®À» ¹Ş¾Æ¼­ ¿ë½ÉÀ» ÃßÃâÇÏ´Â ÇÔ¼ö
+// Ñ—Ğ»Ğ˜ÒÑ˜Â®ĞÂ» â„–Ğ®Ñ•Ğ–Ñ˜Â­ Ñ—Ğ»Ğ…Ğ™ĞÂ» Ğ“Ğ¯Ğ“Ğ²Ğ—ĞŸÒ‘Ğ’ Ğ—Ğ¤Ñ˜Ñ†
 bool DSManager::ExtractDragonHeart(LPCHARACTER ch, LPITEM pItem, LPITEM pExtractor)
 {
 	if (NULL == ch || NULL == pItem)
 		return false;
 	if (pItem->IsEquipped())
 	{
-		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Âø¿ë ÁßÀÎ ¿ëÈ¥¼®Àº ÃßÃâÇÒ ¼ö ¾ø½À´Ï´Ù."));
+		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Ğ’ÑˆÑ—Ğ» Ğ‘Ğ¯ĞĞ Ñ—Ğ»Ğ˜ÒÑ˜Â®ĞÑ” Ğ“Ğ¯Ğ“Ğ²Ğ—Ğ¢ Ñ˜Ñ† Ñ•ÑˆĞ…ĞÒ‘ĞŸÒ‘Ğ©."));
 		return false;
 	}
 
@@ -366,7 +366,7 @@ bool DSManager::ExtractDragonHeart(LPCHARACTER ch, LPITEM pItem, LPITEM pExtract
 		}
 		LogManager::instance().ItemLog(ch, pItem, "DS_HEART_EXTRACT_FAIL", "");
 	
-		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("¿ë½É ÃßÃâ¿¡ ½ÇÆĞÇÏ¿´½À´Ï´Ù."));
+		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Ñ—Ğ»Ğ…Ğ™ Ğ“Ğ¯Ğ“Ğ²Ñ—Ğ Ğ…Ğ—Ğ–Ğ Ğ—ĞŸÑ—Ò‘Ğ…ĞÒ‘ĞŸÒ‘Ğ©."));
 		return false;
 	}
 	else
@@ -392,12 +392,12 @@ bool DSManager::ExtractDragonHeart(LPCHARACTER ch, LPITEM pItem, LPITEM pExtract
 		std::string s = boost::lexical_cast <std::string> (iCharge);
 		s += "%s";
 		LogManager::instance().ItemLog(ch, pItem, "DS_HEART_EXTRACT_SUCCESS", s.c_str());
-		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("¿ë½É ÃßÃâ¿¡ ¼º°øÇÏ¿´½À´Ï´Ù."));
+		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Ñ—Ğ»Ğ…Ğ™ Ğ“Ğ¯Ğ“Ğ²Ñ—Ğ Ñ˜Ñ”Â°ÑˆĞ—ĞŸÑ—Ò‘Ğ…ĞÒ‘ĞŸÒ‘Ğ©."));
 		return true;
 	}
 }
 
-// Æ¯Á¤ ¿ëÈ¥¼®À» ÀåºñÃ¢¿¡¼­ Á¦°ÅÇÒ ¶§¿¡ ¼º°ø ¿©ºÎ¸¦ °áÁ¤ÇÏ°í, ½ÇÆĞ½Ã ºÎ»ê¹°À» ÁÖ´Â ÇÔ¼ö.
+// Ğ–Ğ‡Ğ‘Â¤ Ñ—Ğ»Ğ˜ÒÑ˜Â®ĞÂ» ĞĞµÑ”ÑĞ“ÑÑ—ĞÑ˜Â­ Ğ‘Â¦Â°Ğ•Ğ—Ğ¢ Â¶Â§Ñ—Ğ Ñ˜Ñ”Â°Ñˆ Ñ—Â©Ñ”ĞÑ‘Â¦ Â°Ğ±Ğ‘Â¤Ğ—ĞŸÂ°Ğ½, Ğ…Ğ—Ğ–Ğ Ğ…Ğ“ Ñ”ĞÂ»Ğºâ„–Â°ĞÂ» Ğ‘Ğ¦Ò‘Ğ’ Ğ—Ğ¤Ñ˜Ñ†.
 bool DSManager::PullOut(LPCHARACTER ch, TItemPos DestCell, LPITEM& pItem, LPITEM pExtractor)
 {
 	if (NULL == ch || NULL == pItem)
@@ -406,13 +406,13 @@ bool DSManager::PullOut(LPCHARACTER ch, TItemPos DestCell, LPITEM& pItem, LPITEM
 		return false;
 	}
 
-	// ¸ñÇ¥ À§Ä¡°¡ validÇÑÁö °Ë»ç ÈÄ, validÇÏÁö ¾Ê´Ù¸é ÀÓÀÇÀÇ ºó °ø°£À» Ã£´Â´Ù.
+	// Ñ‘ÑĞ—Ò ĞÂ§Ğ”ĞÂ°Ğ validĞ—Ğ¡Ğ‘Ñ† Â°Ğ›Â»Ğ· Ğ˜Ğ”, validĞ—ĞŸĞ‘Ñ† Ñ•ĞšÒ‘Ğ©Ñ‘Ğ¹ ĞĞ£ĞĞ—ĞĞ— Ñ”Ñƒ Â°ÑˆÂ°ĞˆĞÂ» Ğ“ĞˆÒ‘Ğ’Ò‘Ğ©.
 	if (!IsValidCellForThisItem(pItem, DestCell))
 	{
 		int iEmptyCell = ch->GetEmptyDragonSoulInventory(pItem);
 		if (iEmptyCell < 0)
 		{
-			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("¼ÒÁöÇ°¿¡ ºó °ø°£ÀÌ ¾ø½À´Ï´Ù."));
+			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Ñ˜Ğ¢Ğ‘Ñ†Ğ—Â°Ñ—Ğ Ñ”Ñƒ Â°ÑˆÂ°ĞˆĞĞœ Ñ•ÑˆĞ…ĞÒ‘ĞŸÒ‘Ğ©."));
 			return false;
 		}
 		else
@@ -430,14 +430,14 @@ bool DSManager::PullOut(LPCHARACTER ch, TItemPos DestCell, LPITEM& pItem, LPITEM
 	int iBonus = 0;
 	float fProb;
 	float fDice;
-	// ¿ëÈ¥¼® ÃßÃâ ¼º°ø ¿©ºÎ °áÁ¤.
+	// Ñ—Ğ»Ğ˜ÒÑ˜Â® Ğ“Ğ¯Ğ“Ğ² Ñ˜Ñ”Â°Ñˆ Ñ—Â©Ñ”Ğ Â°Ğ±Ğ‘Â¤.
 	{
 		DWORD dwVnum = pItem->GetVnum(); 
 
 		BYTE ds_type, grade_idx, step_idx, strength_idx;
 		GetDragonSoulInfo(pItem->GetVnum(), ds_type, grade_idx, step_idx, strength_idx);
 
-		// ÃßÃâ Á¤º¸°¡ ¾ø´Ù¸é ÀÏ´Ü ¹«Á¶°Ç ¼º°øÇÏ´Â °ÍÀÌ¶ó »ı°¢ÇÏÀÚ.
+		// Ğ“Ğ¯Ğ“Ğ² Ğ‘Â¤Ñ”Ñ‘Â°Ğ Ñ•ÑˆÒ‘Ğ©Ñ‘Ğ¹ ĞĞŸÒ‘Ğ¬ â„–Â«Ğ‘Â¶Â°Ğ— Ñ˜Ñ”Â°ÑˆĞ—ĞŸÒ‘Ğ’ Â°ĞĞĞœÂ¶Ñƒ Â»ÑÂ°ÑĞ—ĞŸĞĞª.
 		if (!m_pTable->GetDragonSoulExtValues(ds_type, grade_idx, fProb, dwByProduct))
 		{
 			pItem->AddToCharacter(ch, DestCell);
@@ -454,7 +454,7 @@ bool DSManager::PullOut(LPCHARACTER ch, TItemPos DestCell, LPITEM& pItem, LPITEM
 		bSuccess = fDice <= (fProb * (100 + iBonus) / 100.f);
 	}
 
-	// Ä³¸¯ÅÍÀÇ ¿ëÈ¥¼® ÃßÃâ ¹× Ãß°¡ È¤Àº Á¦°Å. ºÎ»ê¹° Á¦°ø.
+	// Ğ”Ñ–Ñ‘Ğ‡Ğ•ĞĞĞ— Ñ—Ğ»Ğ˜ÒÑ˜Â® Ğ“Ğ¯Ğ“Ğ² â„–Ğ§ Ğ“Ğ¯Â°Ğ Ğ˜Â¤ĞÑ” Ğ‘Â¦Â°Ğ•. Ñ”ĞÂ»Ğºâ„–Â° Ğ‘Â¦Â°Ñˆ.
 	{
 		char buf[128];
 
@@ -469,7 +469,7 @@ bool DSManager::PullOut(LPCHARACTER ch, TItemPos DestCell, LPITEM& pItem, LPITEM
 				sprintf(buf, "dice(%d) prob(%d)", fDice, fProb);
 			}
 			LogManager::instance().ItemLog(ch, pItem, "DS_PULL_OUT_SUCCESS", buf);
-			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("¿ëÈ¥¼® ÃßÃâ¿¡ ¼º°øÇÏ¿´½À´Ï´Ù."));
+			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Ñ—Ğ»Ğ˜ÒÑ˜Â® Ğ“Ğ¯Ğ“Ğ²Ñ—Ğ Ñ˜Ñ”Â°ÑˆĞ—ĞŸÑ—Ò‘Ğ…ĞÒ‘ĞŸÒ‘Ğ©."));
 			pItem->AddToCharacter(ch, DestCell);
 			return true;
 		}
@@ -490,12 +490,12 @@ bool DSManager::PullOut(LPCHARACTER ch, TItemPos DestCell, LPITEM& pItem, LPITEM
 			{
 				LPITEM pByProduct = ch->AutoGiveItem(dwByProduct, true);
 				if (pByProduct)
-					ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("¿ëÈ¥¼® ÃßÃâ¿¡ ½ÇÆĞÇÏ¿© %s¸¦ ¾ò¾ú½À´Ï´Ù."), pByProduct->GetName());
+					ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Ñ—Ğ»Ğ˜ÒÑ˜Â® Ğ“Ğ¯Ğ“Ğ²Ñ—Ğ Ğ…Ğ—Ğ–Ğ Ğ—ĞŸÑ—Â© %sÑ‘Â¦ Ñ•Ñ‚Ñ•ÑŠĞ…ĞÒ‘ĞŸÒ‘Ğ©."), pByProduct->GetName());
 				else
-					ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("¿ëÈ¥¼® ÃßÃâ¿¡ ½ÇÆĞÇÏ¿´½À´Ï´Ù."));
+					ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Ñ—Ğ»Ğ˜ÒÑ˜Â® Ğ“Ğ¯Ğ“Ğ²Ñ—Ğ Ğ…Ğ—Ğ–Ğ Ğ—ĞŸÑ—Ò‘Ğ…ĞÒ‘ĞŸÒ‘Ğ©."));
 			}
 			else
-				ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("¿ëÈ¥¼® ÃßÃâ¿¡ ½ÇÆĞÇÏ¿´½À´Ï´Ù."));
+				ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Ñ—Ğ»Ğ˜ÒÑ˜Â® Ğ“Ğ¯Ğ“Ğ²Ñ—Ğ Ğ…Ğ—Ğ–Ğ Ğ—ĞŸÑ—Ò‘Ğ…ĞÒ‘ĞŸÒ‘Ğ©."));
 		}
 	}
 
@@ -519,8 +519,8 @@ bool DSManager::DoRefineGrade(LPCHARACTER ch, TItemPos (&aItemPoses)[DRAGON_SOUL
 		return false;
 	}
 
-	// È¤½Ã³ª ¸ğ¸¦ Áßº¹µÇ´Â item pointer ¾ø¾Ö±â À§ÇØ¼­ set »ç¿ë
-	// ÀÌ»óÇÑ ÆĞÅ¶À» º¸³¾ °æ¿ì, Áßº¹µÈ TItemPos°¡ ÀÖÀ» ¼öµµ ÀÖ°í, Àß¸øµÈ TItemPos°¡ ÀÖÀ» ¼öµµ ÀÖ´Ù.
+	// Ğ˜Â¤Ğ…Ğ“Ñ–Ğ„ Ñ‘Ñ€Ñ‘Â¦ Ğ‘Ğ¯Ñ”â„–ÂµĞ—Ò‘Ğ’ item pointer Ñ•ÑˆÑ•Ğ¦Â±Ğ² ĞÂ§Ğ—Ğ¨Ñ˜Â­ set Â»Ğ·Ñ—Ğ»
+	// ĞĞœÂ»ÑƒĞ—Ğ¡ Ğ–Ğ Ğ•Â¶ĞÂ» Ñ”Ñ‘Ñ–Ñ• Â°Ğ¶Ñ—Ğ¼, Ğ‘Ğ¯Ñ”â„–ÂµĞ˜ TItemPosÂ°Ğ ĞĞ¦ĞÂ» Ñ˜Ñ†ÂµÂµ ĞĞ¦Â°Ğ½, ĞĞ¯Ñ‘ÑˆÂµĞ˜ TItemPosÂ°Ğ ĞĞ¦ĞÂ» Ñ˜Ñ†ÂµÂµ ĞĞ¦Ò‘Ğ©.
 	std::set <LPITEM> set_items;
 	for (int i = 0; i < DRAGON_SOUL_REFINE_GRID_SIZE; i++)
 	{
@@ -529,10 +529,10 @@ bool DSManager::DoRefineGrade(LPCHARACTER ch, TItemPos (&aItemPoses)[DRAGON_SOUL
 		LPITEM pItem = ch->GetItem(aItemPoses[i]);
 		if (NULL != pItem)
 		{
-			// ¿ëÈ¥¼®ÀÌ ¾Æ´Ñ ¾ÆÀÌÅÛÀÌ °³·®Ã¢¿¡ ÀÖÀ» ¼ö ¾ø´Ù.
+			// Ñ—Ğ»Ğ˜ÒÑ˜Â®ĞĞœ Ñ•Ğ–Ò‘Ğ¡ Ñ•Ğ–ĞĞœĞ•Ğ«ĞĞœ Â°Ñ–Â·Â®Ğ“ÑÑ—Ğ ĞĞ¦ĞÂ» Ñ˜Ñ† Ñ•ÑˆÒ‘Ğ©.
 			if (!pItem->IsDragonSoul())
 			{
-				ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("µî±Ş °³·®¿¡ ÇÊ¿äÇÑ Àç·á°¡ ¾Æ´Õ´Ï´Ù."));
+				ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("ÂµĞ¾Â±Ğ® Â°Ñ–Â·Â®Ñ—Ğ Ğ—ĞšÑ—Ğ´Ğ—Ğ¡ ĞĞ·Â·Ğ±Â°Ğ Ñ•Ğ–Ò‘Ğ¥Ò‘ĞŸÒ‘Ğ©."));
 				SendRefineResultPacket(ch, DS_SUB_HEADER_REFINE_FAIL_INVALID_MATERIAL, TItemPos(pItem->GetWindow(), pItem->GetCell()));
 
 				return false;
@@ -557,7 +557,7 @@ bool DSManager::DoRefineGrade(LPCHARACTER ch, TItemPos (&aItemPoses)[DRAGON_SOUL
 	BYTE ds_type, grade_idx, step_idx, strength_idx;
 	int result_grade;
 
-	// °¡Àå Ã³À½ °ÍÀ» °­È­ÀÇ ±âÁØÀ¸·Î »ï´Â´Ù.
+	// Â°ĞĞĞµ Ğ“Ñ–ĞĞ… Â°ĞĞÂ» Â°Â­Ğ˜Â­ĞĞ— Â±Ğ²Ğ‘Ğ¨ĞÑ‘Â·Ğ Â»Ğ¿Ò‘Ğ’Ò‘Ğ©.
 	std::set <LPITEM>::iterator it = set_items.begin();
 	{
 		LPITEM pItem = *it;
@@ -566,7 +566,7 @@ bool DSManager::DoRefineGrade(LPCHARACTER ch, TItemPos (&aItemPoses)[DRAGON_SOUL
 		
 		if (!m_pTable->GetRefineGradeValues(ds_type, grade_idx, need_count, fee, vec_probs))
 		{
-			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("µî±Ş °³·®ÇÒ ¼ö ¾ø´Â ¿ëÈ¥¼®ÀÔ´Ï´Ù."));
+			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("ÂµĞ¾Â±Ğ® Â°Ñ–Â·Â®Ğ—Ğ¢ Ñ˜Ñ† Ñ•ÑˆÒ‘Ğ’ Ñ—Ğ»Ğ˜ÒÑ˜Â®ĞĞ¤Ò‘ĞŸÒ‘Ğ©."));
 			SendRefineResultPacket(ch, DS_SUB_HEADER_REFINE_FAIL_INVALID_MATERIAL, TItemPos(pItem->GetWindow(), pItem->GetCell()));
 
 			return false;
@@ -576,8 +576,8 @@ bool DSManager::DoRefineGrade(LPCHARACTER ch, TItemPos (&aItemPoses)[DRAGON_SOUL
 	{
 		LPITEM pItem = *it;
 
-		// Å¬¶ó ui¿¡¼­ ÀåÂøÇÑ ¾ÆÀÌÅÛÀº °³·®Ã¢¿¡ ¿Ã¸± ¼ö ¾øµµ·Ï ¸·¾Ò±â ¶§¹®¿¡,
-		// º°µµÀÇ ¾Ë¸² Ã³¸®´Â ¾ÈÇÔ.
+		// Ğ•Â¬Â¶Ñƒ uiÑ—ĞÑ˜Â­ ĞĞµĞ’ÑˆĞ—Ğ¡ Ñ•Ğ–ĞĞœĞ•Ğ«ĞÑ” Â°Ñ–Â·Â®Ğ“ÑÑ—Ğ Ñ—Ğ“Ñ‘Â± Ñ˜Ñ† Ñ•ÑˆÂµÂµÂ·ĞŸ Ñ‘Â·Ñ•Ğ¢Â±Ğ² Â¶Â§â„–Â®Ñ—Ğ,
+		// Ñ”Â°ÂµÂµĞĞ— Ñ•Ğ›Ñ‘Ğ† Ğ“Ñ–Ñ‘Â®Ò‘Ğ’ Ñ•Ğ˜Ğ—Ğ¤.
 		if (pItem->IsEquipped())
 		{
 			return false;
@@ -585,14 +585,14 @@ bool DSManager::DoRefineGrade(LPCHARACTER ch, TItemPos (&aItemPoses)[DRAGON_SOUL
 		
 		if (ds_type != GetType(pItem->GetVnum()) || grade_idx != GetGradeIdx(pItem->GetVnum()))
 		{
-			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("µî±Ş °³·®¿¡ ÇÊ¿äÇÑ Àç·á°¡ ¾Æ´Õ´Ï´Ù."));
+			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("ÂµĞ¾Â±Ğ® Â°Ñ–Â·Â®Ñ—Ğ Ğ—ĞšÑ—Ğ´Ğ—Ğ¡ ĞĞ·Â·Ğ±Â°Ğ Ñ•Ğ–Ò‘Ğ¥Ò‘ĞŸÒ‘Ğ©."));
 			SendRefineResultPacket(ch, DS_SUB_HEADER_REFINE_FAIL_INVALID_MATERIAL, TItemPos(pItem->GetWindow(), pItem->GetCell()));
 
 			return false;
 		}
 	}
 
-	// Å¬¶ó¿¡¼­ ÇÑ¹ø °¹¼ö Ã¼Å©¸¦ ÇÏ±â ¶§¹®¿¡ count != need_count¶ó¸é invalid Å¬¶óÀÏ °¡´É¼ºÀÌ Å©´Ù.
+	// Ğ•Â¬Â¶ÑƒÑ—ĞÑ˜Â­ Ğ—Ğ¡â„–Ñˆ Â°â„–Ñ˜Ñ† Ğ“Ñ˜Ğ•Â©Ñ‘Â¦ Ğ—ĞŸÂ±Ğ² Â¶Â§â„–Â®Ñ—Ğ count != need_countÂ¶ÑƒÑ‘Ğ¹ invalid Ğ•Â¬Â¶ÑƒĞĞŸ Â°ĞÒ‘Ğ™Ñ˜Ñ”ĞĞœ Ğ•Â©Ò‘Ğ©.
 	if (count != need_count)
 	{
 		sys_err ("Possiblity of invalid client. Name %s", ch->GetName());
@@ -603,7 +603,7 @@ bool DSManager::DoRefineGrade(LPCHARACTER ch, TItemPos (&aItemPoses)[DRAGON_SOUL
 
 	if (ch->GetGold() < fee)
 	{
-		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("°³·®À» ÇÏ±â À§ÇÑ µ·ÀÌ ºÎÁ·ÇÕ´Ï´Ù."));
+		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Â°Ñ–Â·Â®ĞÂ» Ğ—ĞŸÂ±Ğ² ĞÂ§Ğ—Ğ¡ ÂµÂ·ĞĞœ Ñ”ĞĞ‘Â·Ğ—Ğ¥Ò‘ĞŸÒ‘Ğ©."));
 		SendRefineResultPacket(ch, DS_SUB_HEADER_REFINE_FAIL_NOT_ENOUGH_MONEY, NPOS);
 		return false;
 	}
@@ -648,7 +648,7 @@ bool DSManager::DoRefineGrade(LPCHARACTER ch, TItemPos (&aItemPoses)[DRAGON_SOUL
 		char buf[128];
 		sprintf(buf, "GRADE : %d -> %d", grade_idx, result_grade);
 		LogManager::instance().ItemLog(ch, pResultItem, "DS_GRADE_REFINE_SUCCESS", buf);
-		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("µî±Ş °³·®¿¡ ¼º°øÇß½À´Ï´Ù."));
+		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("ÂµĞ¾Â±Ğ® Â°Ñ–Â·Â®Ñ—Ğ Ñ˜Ñ”Â°ÑˆĞ—Ğ¯Ğ…ĞÒ‘ĞŸÒ‘Ğ©."));
 		SendRefineResultPacket(ch, DS_SUB_HEADER_REFINE_SUCCEED, TItemPos (pResultItem->GetWindow(), pResultItem->GetCell()));
 		return true;
 	}
@@ -657,7 +657,7 @@ bool DSManager::DoRefineGrade(LPCHARACTER ch, TItemPos (&aItemPoses)[DRAGON_SOUL
 		char buf[128];
 		sprintf(buf, "GRADE : %d -> %d", grade_idx, result_grade);
 		LogManager::instance().ItemLog(ch, pResultItem, "DS_GRADE_REFINE_FAIL", buf);
-		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("µî±Ş °³·®¿¡ ½ÇÆĞÇß½À´Ï´Ù."));
+		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("ÂµĞ¾Â±Ğ® Â°Ñ–Â·Â®Ñ—Ğ Ğ…Ğ—Ğ–Ğ Ğ—Ğ¯Ğ…ĞÒ‘ĞŸÒ‘Ğ©."));
 		SendRefineResultPacket(ch, DS_SUB_HEADER_REFINE_FAIL, TItemPos (pResultItem->GetWindow(), pResultItem->GetCell()));
 		return false;
 	}
@@ -679,18 +679,18 @@ bool DSManager::DoRefineStep(LPCHARACTER ch, TItemPos (&aItemPoses)[DRAGON_SOUL_
 		return false;
 	}
 
-	// È¤½Ã³ª ¸ğ¸¦ Áßº¹µÇ´Â item pointer ¾ø¾Ö±â À§ÇØ¼­ set »ç¿ë
-	// ÀÌ»óÇÑ ÆĞÅ¶À» º¸³¾ °æ¿ì, Áßº¹µÈ TItemPos°¡ ÀÖÀ» ¼öµµ ÀÖ°í, Àß¸øµÈ TItemPos°¡ ÀÖÀ» ¼öµµ ÀÖ´Ù.
+	// Ğ˜Â¤Ğ…Ğ“Ñ–Ğ„ Ñ‘Ñ€Ñ‘Â¦ Ğ‘Ğ¯Ñ”â„–ÂµĞ—Ò‘Ğ’ item pointer Ñ•ÑˆÑ•Ğ¦Â±Ğ² ĞÂ§Ğ—Ğ¨Ñ˜Â­ set Â»Ğ·Ñ—Ğ»
+	// ĞĞœÂ»ÑƒĞ—Ğ¡ Ğ–Ğ Ğ•Â¶ĞÂ» Ñ”Ñ‘Ñ–Ñ• Â°Ğ¶Ñ—Ğ¼, Ğ‘Ğ¯Ñ”â„–ÂµĞ˜ TItemPosÂ°Ğ ĞĞ¦ĞÂ» Ñ˜Ñ†ÂµÂµ ĞĞ¦Â°Ğ½, ĞĞ¯Ñ‘ÑˆÂµĞ˜ TItemPosÂ°Ğ ĞĞ¦ĞÂ» Ñ˜Ñ†ÂµÂµ ĞĞ¦Ò‘Ğ©.
 	std::set <LPITEM> set_items;
 	for (int i = 0; i < DRAGON_SOUL_REFINE_GRID_SIZE; i++)
 	{
 		LPITEM pItem = ch->GetItem(aItemPoses[i]);
 		if (NULL != pItem)
 		{
-			// ¿ëÈ¥¼®ÀÌ ¾Æ´Ñ ¾ÆÀÌÅÛÀÌ °³·®Ã¢¿¡ ÀÖÀ» ¼ö ¾ø´Ù.
+			// Ñ—Ğ»Ğ˜ÒÑ˜Â®ĞĞœ Ñ•Ğ–Ò‘Ğ¡ Ñ•Ğ–ĞĞœĞ•Ğ«ĞĞœ Â°Ñ–Â·Â®Ğ“ÑÑ—Ğ ĞĞ¦ĞÂ» Ñ˜Ñ† Ñ•ÑˆÒ‘Ğ©.
 			if (!pItem->IsDragonSoul())
 			{
-				ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("´Ü°è °³·®¿¡ ÇÊ¿äÇÑ Àç·á°¡ ¾Æ´Õ´Ï´Ù."));
+				ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Ò‘Ğ¬Â°Ğ¸ Â°Ñ–Â·Â®Ñ—Ğ Ğ—ĞšÑ—Ğ´Ğ—Ğ¡ ĞĞ·Â·Ğ±Â°Ğ Ñ•Ğ–Ò‘Ğ¥Ò‘ĞŸÒ‘Ğ©."));
 				SendRefineResultPacket(ch, DS_SUB_HEADER_REFINE_FAIL_INVALID_MATERIAL, TItemPos(pItem->GetWindow(), pItem->GetCell()));
 				return false;
 			}
@@ -713,7 +713,7 @@ bool DSManager::DoRefineStep(LPCHARACTER ch, TItemPos (&aItemPoses)[DRAGON_SOUL_
 	BYTE ds_type, grade_idx, step_idx, strength_idx;
 	int result_step;
 
-	// °¡Àå Ã³À½ °ÍÀ» °­È­ÀÇ ±âÁØÀ¸·Î »ï´Â´Ù.
+	// Â°ĞĞĞµ Ğ“Ñ–ĞĞ… Â°ĞĞÂ» Â°Â­Ğ˜Â­ĞĞ— Â±Ğ²Ğ‘Ğ¨ĞÑ‘Â·Ğ Â»Ğ¿Ò‘Ğ’Ò‘Ğ©.
 	std::set <LPITEM>::iterator it = set_items.begin(); 
 	{
 		LPITEM pItem = *it;
@@ -721,7 +721,7 @@ bool DSManager::DoRefineStep(LPCHARACTER ch, TItemPos (&aItemPoses)[DRAGON_SOUL_
 
 		if (!m_pTable->GetRefineStepValues(ds_type, step_idx, need_count, fee, vec_probs))
 		{
-			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("´Ü°è °³·®ÇÒ ¼ö ¾ø´Â ¿ëÈ¥¼®ÀÔ´Ï´Ù."));
+			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Ò‘Ğ¬Â°Ğ¸ Â°Ñ–Â·Â®Ğ—Ğ¢ Ñ˜Ñ† Ñ•ÑˆÒ‘Ğ’ Ñ—Ğ»Ğ˜ÒÑ˜Â®ĞĞ¤Ò‘ĞŸÒ‘Ğ©."));
 			SendRefineResultPacket(ch, DS_SUB_HEADER_REFINE_FAIL_INVALID_MATERIAL, TItemPos(pItem->GetWindow(), pItem->GetCell()));
 			return false;
 		}
@@ -730,21 +730,21 @@ bool DSManager::DoRefineStep(LPCHARACTER ch, TItemPos (&aItemPoses)[DRAGON_SOUL_
 	while(++it != set_items.end())
 	{
 		LPITEM pItem = *it;
-		// Å¬¶ó ui¿¡¼­ ÀåÂøÇÑ ¾ÆÀÌÅÛÀº °³·®Ã¢¿¡ ¿Ã¸± ¼ö ¾øµµ·Ï ¸·¾Ò±â ¶§¹®¿¡,
-		// º°µµÀÇ ¾Ë¸² Ã³¸®´Â ¾ÈÇÔ.
+		// Ğ•Â¬Â¶Ñƒ uiÑ—ĞÑ˜Â­ ĞĞµĞ’ÑˆĞ—Ğ¡ Ñ•Ğ–ĞĞœĞ•Ğ«ĞÑ” Â°Ñ–Â·Â®Ğ“ÑÑ—Ğ Ñ—Ğ“Ñ‘Â± Ñ˜Ñ† Ñ•ÑˆÂµÂµÂ·ĞŸ Ñ‘Â·Ñ•Ğ¢Â±Ğ² Â¶Â§â„–Â®Ñ—Ğ,
+		// Ñ”Â°ÂµÂµĞĞ— Ñ•Ğ›Ñ‘Ğ† Ğ“Ñ–Ñ‘Â®Ò‘Ğ’ Ñ•Ğ˜Ğ—Ğ¤.
 		if (pItem->IsEquipped())
 		{
 			return false;
 		}
 		if (ds_type != GetType(pItem->GetVnum()) || grade_idx != GetGradeIdx(pItem->GetVnum()) || step_idx != GetStepIdx(pItem->GetVnum()))
 		{
-			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("´Ü°è °³·®¿¡ ÇÊ¿äÇÑ Àç·á°¡ ¾Æ´Õ´Ï´Ù."));
+			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Ò‘Ğ¬Â°Ğ¸ Â°Ñ–Â·Â®Ñ—Ğ Ğ—ĞšÑ—Ğ´Ğ—Ğ¡ ĞĞ·Â·Ğ±Â°Ğ Ñ•Ğ–Ò‘Ğ¥Ò‘ĞŸÒ‘Ğ©."));
 			SendRefineResultPacket(ch, DS_SUB_HEADER_REFINE_FAIL_INVALID_MATERIAL, TItemPos(pItem->GetWindow(), pItem->GetCell()));
 			return false;
 		}
 	}
 
-	// Å¬¶ó¿¡¼­ ÇÑ¹ø °¹¼ö Ã¼Å©¸¦ ÇÏ±â ¶§¹®¿¡ count != need_count¶ó¸é invalid Å¬¶óÀÏ °¡´É¼ºÀÌ Å©´Ù.
+	// Ğ•Â¬Â¶ÑƒÑ—ĞÑ˜Â­ Ğ—Ğ¡â„–Ñˆ Â°â„–Ñ˜Ñ† Ğ“Ñ˜Ğ•Â©Ñ‘Â¦ Ğ—ĞŸÂ±Ğ² Â¶Â§â„–Â®Ñ—Ğ count != need_countÂ¶ÑƒÑ‘Ğ¹ invalid Ğ•Â¬Â¶ÑƒĞĞŸ Â°ĞÒ‘Ğ™Ñ˜Ñ”ĞĞœ Ğ•Â©Ò‘Ğ©.
 	if (count != need_count)
 	{
 		sys_err ("Possiblity of invalid client. Name %s", ch->GetName());
@@ -755,7 +755,7 @@ bool DSManager::DoRefineStep(LPCHARACTER ch, TItemPos (&aItemPoses)[DRAGON_SOUL_
 	
 	if (ch->GetGold() < fee)
 	{
-		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("°³·®À» ÇÏ±â À§ÇÑ µ·ÀÌ ºÎÁ·ÇÕ´Ï´Ù."));
+		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Â°Ñ–Â·Â®ĞÂ» Ğ—ĞŸÂ±Ğ² ĞÂ§Ğ—Ğ¡ ÂµÂ·ĞĞœ Ñ”ĞĞ‘Â·Ğ—Ğ¥Ò‘ĞŸÒ‘Ğ©."));
 		SendRefineResultPacket(ch, DS_SUB_HEADER_REFINE_FAIL_NOT_ENOUGH_MONEY, NPOS);
 		return false;
 	}
@@ -800,7 +800,7 @@ bool DSManager::DoRefineStep(LPCHARACTER ch, TItemPos (&aItemPoses)[DRAGON_SOUL_
 		char buf[128];
 		sprintf(buf, "STEP : %d -> %d", step_idx, result_step);
 		LogManager::instance().ItemLog(ch, pResultItem, "DS_STEP_REFINE_SUCCESS", buf);
-		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("´Ü°è °³·®¿¡ ¼º°øÇß½À´Ï´Ù."));
+		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Ò‘Ğ¬Â°Ğ¸ Â°Ñ–Â·Â®Ñ—Ğ Ñ˜Ñ”Â°ÑˆĞ—Ğ¯Ğ…ĞÒ‘ĞŸÒ‘Ğ©."));
 		SendRefineResultPacket(ch, DS_SUB_HEADER_REFINE_SUCCEED, TItemPos (pResultItem->GetWindow(), pResultItem->GetCell()));
 		return true;
 	}
@@ -809,7 +809,7 @@ bool DSManager::DoRefineStep(LPCHARACTER ch, TItemPos (&aItemPoses)[DRAGON_SOUL_
 		char buf[128];
 		sprintf(buf, "STEP : %d -> %d", step_idx, result_step);
 		LogManager::instance().ItemLog(ch, pResultItem, "DS_STEP_REFINE_FAIL", buf);
-		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("´Ü°è °³·®¿¡ ½ÇÆĞÇß½À´Ï´Ù."));
+		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Ò‘Ğ¬Â°Ğ¸ Â°Ñ–Â·Â®Ñ—Ğ Ğ…Ğ—Ğ–Ğ Ğ—Ğ¯Ğ…ĞÒ‘ĞŸÒ‘Ğ©."));
 		SendRefineResultPacket(ch, DS_SUB_HEADER_REFINE_FAIL, TItemPos (pResultItem->GetWindow(), pResultItem->GetCell()));
 		return false;
 	}
@@ -840,8 +840,8 @@ bool DSManager::DoRefineStrength(LPCHARACTER ch, TItemPos (&aItemPoses)[DRAGON_S
 		return false;
 	}
 
-	// È¤½Ã³ª ¸ğ¸¦ Áßº¹µÇ´Â item pointer ¾ø¾Ö±â À§ÇØ¼­ set »ç¿ë
-	// ÀÌ»óÇÑ ÆĞÅ¶À» º¸³¾ °æ¿ì, Áßº¹µÈ TItemPos°¡ ÀÖÀ» ¼öµµ ÀÖ°í, Àß¸øµÈ TItemPos°¡ ÀÖÀ» ¼öµµ ÀÖ´Ù.
+	// Ğ˜Â¤Ğ…Ğ“Ñ–Ğ„ Ñ‘Ñ€Ñ‘Â¦ Ğ‘Ğ¯Ñ”â„–ÂµĞ—Ò‘Ğ’ item pointer Ñ•ÑˆÑ•Ğ¦Â±Ğ² ĞÂ§Ğ—Ğ¨Ñ˜Â­ set Â»Ğ·Ñ—Ğ»
+	// ĞĞœÂ»ÑƒĞ—Ğ¡ Ğ–Ğ Ğ•Â¶ĞÂ» Ñ”Ñ‘Ñ–Ñ• Â°Ğ¶Ñ—Ğ¼, Ğ‘Ğ¯Ñ”â„–ÂµĞ˜ TItemPosÂ°Ğ ĞĞ¦ĞÂ» Ñ˜Ñ†ÂµÂµ ĞĞ¦Â°Ğ½, ĞĞ¯Ñ‘ÑˆÂµĞ˜ TItemPosÂ°Ğ ĞĞ¦ĞÂ» Ñ˜Ñ†ÂµÂµ ĞĞ¦Ò‘Ğ©.
 	std::set <LPITEM> set_items;
 	for (int i = 0; i < DRAGON_SOUL_REFINE_GRID_SIZE; i++)
 	{
@@ -863,15 +863,15 @@ bool DSManager::DoRefineStrength(LPCHARACTER ch, TItemPos (&aItemPoses)[DRAGON_S
 	for (std::set <LPITEM>::iterator it = set_items.begin(); it != set_items.end(); it++)
 	{
 		LPITEM pItem = *it;
-		// Å¬¶ó ui¿¡¼­ ÀåÂøÇÑ ¾ÆÀÌÅÛÀº °³·®Ã¢¿¡ ¿Ã¸± ¼ö ¾øµµ·Ï ¸·¾Ò±â ¶§¹®¿¡,
-		// º°µµÀÇ ¾Ë¸² Ã³¸®´Â ¾ÈÇÔ.
+		// Ğ•Â¬Â¶Ñƒ uiÑ—ĞÑ˜Â­ ĞĞµĞ’ÑˆĞ—Ğ¡ Ñ•Ğ–ĞĞœĞ•Ğ«ĞÑ” Â°Ñ–Â·Â®Ğ“ÑÑ—Ğ Ñ—Ğ“Ñ‘Â± Ñ˜Ñ† Ñ•ÑˆÂµÂµÂ·ĞŸ Ñ‘Â·Ñ•Ğ¢Â±Ğ² Â¶Â§â„–Â®Ñ—Ğ,
+		// Ñ”Â°ÂµÂµĞĞ— Ñ•Ğ›Ñ‘Ğ† Ğ“Ñ–Ñ‘Â®Ò‘Ğ’ Ñ•Ğ˜Ğ—Ğ¤.
 		if (pItem->IsEquipped())
 		{
 			return false;
 		}
 
-		// ¿ëÈ¥¼®°ú °­È­¼®¸¸ÀÌ °³·®Ã¢¿¡ ÀÖÀ» ¼ö ÀÖ´Ù.
-		// ±×¸®°í ÇÏ³ª¾¿¸¸ ÀÖ¾î¾ßÇÑ´Ù.
+		// Ñ—Ğ»Ğ˜ÒÑ˜Â®Â°ÑŠ Â°Â­Ğ˜Â­Ñ˜Â®Ñ‘Ñ‘ĞĞœ Â°Ñ–Â·Â®Ğ“ÑÑ—Ğ ĞĞ¦ĞÂ» Ñ˜Ñ† ĞĞ¦Ò‘Ğ©.
+		// Â±Ğ§Ñ‘Â®Â°Ğ½ Ğ—ĞŸÑ–Ğ„Ñ•Ñ—Ñ‘Ñ‘ ĞĞ¦Ñ•Ğ¾Ñ•Ğ¯Ğ—Ğ¡Ò‘Ğ©.
 		if (pItem->IsDragonSoul())
 		{
 			if (pDragonSoul != NULL)
@@ -892,7 +892,7 @@ bool DSManager::DoRefineStrength(LPCHARACTER ch, TItemPos (&aItemPoses)[DRAGON_S
 		}
 		else
 		{
-			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("°­È­¿¡ ÇÊ¿äÇÑ Àç·á°¡ ¾Æ´Õ´Ï´Ù."));
+			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Â°Â­Ğ˜Â­Ñ—Ğ Ğ—ĞšÑ—Ğ´Ğ—Ğ¡ ĞĞ·Â·Ğ±Â°Ğ Ñ•Ğ–Ò‘Ğ¥Ò‘ĞŸÒ‘Ğ©."));
 			SendRefineResultPacket(ch, DS_SUB_HEADER_REFINE_FAIL_INVALID_MATERIAL, TItemPos(pItem->GetWindow(), pItem->GetCell()));
 			return false;
 		}
@@ -912,17 +912,17 @@ bool DSManager::DoRefineStrength(LPCHARACTER ch, TItemPos (&aItemPoses)[DRAGON_S
 		GetDragonSoulInfo(pDragonSoul->GetVnum(), bType, bGrade, bStep, bStrength);
 
 		float fWeight = 0.f;
-		// °¡ÁßÄ¡ °ªÀÌ ¾ø´Ù¸é °­È­ÇÒ ¼ö ¾ø´Â ¿ëÈ¥¼®
+		// Â°ĞĞ‘Ğ¯Ğ”Ğ Â°Ğ„ĞĞœ Ñ•ÑˆÒ‘Ğ©Ñ‘Ğ¹ Â°Â­Ğ˜Â­Ğ—Ğ¢ Ñ˜Ñ† Ñ•ÑˆÒ‘Ğ’ Ñ—Ğ»Ğ˜ÒÑ˜Â®
 		if (!m_pTable->GetWeight(bType, bGrade, bStep, bStrength + 1, fWeight))
 		{
-			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("°­È­ÇÒ ¼ö ¾ø´Â ¿ëÈ¥¼®ÀÔ´Ï´Ù."));
+			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Â°Â­Ğ˜Â­Ğ—Ğ¢ Ñ˜Ñ† Ñ•ÑˆÒ‘Ğ’ Ñ—Ğ»Ğ˜ÒÑ˜Â®ĞĞ¤Ò‘ĞŸÒ‘Ğ©."));
 			SendRefineResultPacket(ch, DS_SUB_HEADER_REFINE_FAIL_MAX_REFINE, TItemPos(pDragonSoul->GetWindow(), pDragonSoul->GetCell()));
 			return false;
 		}
-		// °­È­ÇßÀ» ¶§ °¡ÁßÄ¡°¡ 0ÀÌ¶ó¸é ´õ ÀÌ»ó °­È­µÇ¼­´Â ¾ÈµÈ´Ù.
+		// Â°Â­Ğ˜Â­Ğ—Ğ¯ĞÂ» Â¶Â§ Â°ĞĞ‘Ğ¯Ğ”ĞÂ°Ğ 0ĞĞœÂ¶ÑƒÑ‘Ğ¹ Ò‘Ñ… ĞĞœÂ»Ñƒ Â°Â­Ğ˜Â­ÂµĞ—Ñ˜Â­Ò‘Ğ’ Ñ•Ğ˜ÂµĞ˜Ò‘Ğ©.
 		if (fWeight < FLT_EPSILON)
 		{
-			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("°­È­ÇÒ ¼ö ¾ø´Â ¿ëÈ¥¼®ÀÔ´Ï´Ù."));
+			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Â°Â­Ğ˜Â­Ğ—Ğ¢ Ñ˜Ñ† Ñ•ÑˆÒ‘Ğ’ Ñ—Ğ»Ğ˜ÒÑ˜Â®ĞĞ¤Ò‘ĞŸÒ‘Ğ©."));
 			SendRefineResultPacket(ch, DS_SUB_HEADER_REFINE_FAIL_MAX_REFINE, TItemPos(pDragonSoul->GetWindow(), pDragonSoul->GetCell()));
 			return false;
 		}
@@ -931,7 +931,7 @@ bool DSManager::DoRefineStrength(LPCHARACTER ch, TItemPos (&aItemPoses)[DRAGON_S
 	float fProb;
 	if (!m_pTable->GetRefineStrengthValues(bType, pRefineStone->GetSubType(), bStrength, fee, fProb))
 	{
-		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("°­È­ÇÒ ¼ö ¾ø´Â ¿ëÈ¥¼®ÀÔ´Ï´Ù."));
+		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Â°Â­Ğ˜Â­Ğ—Ğ¢ Ñ˜Ñ† Ñ•ÑˆÒ‘Ğ’ Ñ—Ğ»Ğ˜ÒÑ˜Â®ĞĞ¤Ò‘ĞŸÒ‘Ğ©."));
 		SendRefineResultPacket(ch, DS_SUB_HEADER_REFINE_FAIL_INVALID_MATERIAL, TItemPos(pDragonSoul->GetWindow(), pDragonSoul->GetCell()));
 
 		return false;
@@ -939,7 +939,7 @@ bool DSManager::DoRefineStrength(LPCHARACTER ch, TItemPos (&aItemPoses)[DRAGON_S
 
 	if (ch->GetGold() < fee)
 	{
-		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("°³·®À» ÇÏ±â À§ÇÑ µ·ÀÌ ºÎÁ·ÇÕ´Ï´Ù."));
+		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Â°Ñ–Â·Â®ĞÂ» Ğ—ĞŸÂ±Ğ² ĞÂ§Ğ—Ğ¡ ÂµÂ·ĞĞœ Ñ”ĞĞ‘Â·Ğ—Ğ¥Ò‘ĞŸÒ‘Ğ©."));
 		SendRefineResultPacket(ch, DS_SUB_HEADER_REFINE_FAIL_NOT_ENOUGH_MONEY, NPOS);
 		return false;
 	}
@@ -967,7 +967,7 @@ bool DSManager::DoRefineStrength(LPCHARACTER ch, TItemPos (&aItemPoses)[DRAGON_S
 		char buf[128];
 		sprintf(buf, "STRENGTH : %d -> %d", bStrength, bStrength + 1);
 		LogManager::instance().ItemLog(ch, pDragonSoul, "DS_STRENGTH_REFINE_SUCCESS", buf);
-		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("°­È­¿¡ ¼º°øÇß½À´Ï´Ù."));
+		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Â°Â­Ğ˜Â­Ñ—Ğ Ñ˜Ñ”Â°ÑˆĞ—Ğ¯Ğ…ĞÒ‘ĞŸÒ‘Ğ©."));
 		ch->AutoGiveItem(pResult, true);
 		bSubHeader = DS_SUB_HEADER_REFINE_SUCCEED;
 	}
@@ -988,10 +988,10 @@ bool DSManager::DoRefineStrength(LPCHARACTER ch, TItemPos (&aItemPoses)[DRAGON_S
 
 		char buf[128];
 		sprintf(buf, "STRENGTH : %d -> %d", bStrength, bStrength - 1);
-		// strength°­È­´Â ½ÇÆĞ½Ã ±úÁú ¼öµµ ÀÖ¾î, ¿øº» ¾ÆÀÌÅÛÀ» ¹ÙÅÁÀ¸·Î ·Î±×¸¦ ³²±è.
+		// strengthÂ°Â­Ğ˜Â­Ò‘Ğ’ Ğ…Ğ—Ğ–Ğ Ğ…Ğ“ Â±ÑŠĞ‘ÑŠ Ñ˜Ñ†ÂµÂµ ĞĞ¦Ñ•Ğ¾, Ñ—ÑˆÑ”Â» Ñ•Ğ–ĞĞœĞ•Ğ«ĞÂ» â„–Ğ©Ğ•Ğ‘ĞÑ‘Â·Ğ Â·ĞÂ±Ğ§Ñ‘Â¦ Ñ–Ğ†Â±Ğ¸.
 		LogManager::instance().ItemLog(ch, pDragonSoul, "DS_STRENGTH_REFINE_FAIL", buf);
 
-		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("°­È­¿¡ ½ÇÆĞÇß½À´Ï´Ù."));
+		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Â°Â­Ğ˜Â­Ñ—Ğ Ğ…Ğ—Ğ–Ğ Ğ—Ğ¯Ğ…ĞÒ‘ĞŸÒ‘Ğ©."));
 		pDragonSoul->SetCount(pDragonSoul->GetCount() - 1);
 		pRefineStone->SetCount(pRefineStone->GetCount() - 1);
 		if (NULL != pResult)
@@ -1029,12 +1029,12 @@ int DSManager::LeftTime(LPITEM pItem) const
 	if (pItem == NULL)
 		return false;
 
-	// ÀÏ´ÜÀº timer based on wearÀÎ ¿ëÈ¥¼®¸¸ ½Ã°£ ´Ù µÇ¾îµµ ¾È ¾ø¾îÁø´Ù.
+	// ĞĞŸÒ‘Ğ¬ĞÑ” timer based on wearĞĞ Ñ—Ğ»Ğ˜ÒÑ˜Â®Ñ‘Ñ‘ Ğ…Ğ“Â°Ğˆ Ò‘Ğ© ÂµĞ—Ñ•Ğ¾ÂµÂµ Ñ•Ğ˜ Ñ•ÑˆÑ•Ğ¾Ğ‘ÑˆÒ‘Ğ©.
 	if (pItem->GetProto()->cLimitTimerBasedOnWearIndex >= 0)
 	{
 		return pItem->GetSocket(ITEM_SOCKET_REMAIN_SEC);
 	}
-	// ´Ù¸¥ limit typeÀÎ ¿ëÈ¥¼®µéÀº ½Ã°£ µÇ¸é ¸ğµÎ »ç¶óÁö±â ¶§¹®¿¡ ¿©±â µé¾î¿Â ¾ÆÀÌÅÛÀº ÀÏ´Ü ½Ã°£ÀÌ ³²¾Ò´Ù°í ÆÇ´Ü.
+	// Ò‘Ğ©Ñ‘Ò limit typeĞĞ Ñ—Ğ»Ğ˜ÒÑ˜Â®ÂµĞ¹ĞÑ” Ğ…Ğ“Â°Ğˆ ÂµĞ—Ñ‘Ğ¹ Ñ‘Ñ€ÂµĞ Â»Ğ·Â¶ÑƒĞ‘Ñ†Â±Ğ² Â¶Â§â„–Â®Ñ—Ğ Ñ—Â©Â±Ğ² ÂµĞ¹Ñ•Ğ¾Ñ—Ğ’ Ñ•Ğ–ĞĞœĞ•Ğ«ĞÑ” ĞĞŸÒ‘Ğ¬ Ğ…Ğ“Â°ĞˆĞĞœ Ñ–Ğ†Ñ•Ğ¢Ò‘Ğ©Â°Ğ½ Ğ–Ğ—Ò‘Ğ¬.
 	else
 	{
 		return INT_MAX;
@@ -1046,12 +1046,12 @@ bool DSManager::IsTimeLeftDragonSoul(LPITEM pItem) const
 	if (pItem == NULL)
 		return false;
 
-	// ÀÏ´ÜÀº timer based on wearÀÎ ¿ëÈ¥¼®¸¸ ½Ã°£ ´Ù µÇ¾îµµ ¾È ¾ø¾îÁø´Ù.
+	// ĞĞŸÒ‘Ğ¬ĞÑ” timer based on wearĞĞ Ñ—Ğ»Ğ˜ÒÑ˜Â®Ñ‘Ñ‘ Ğ…Ğ“Â°Ğˆ Ò‘Ğ© ÂµĞ—Ñ•Ğ¾ÂµÂµ Ñ•Ğ˜ Ñ•ÑˆÑ•Ğ¾Ğ‘ÑˆÒ‘Ğ©.
 	if (pItem->GetProto()->cLimitTimerBasedOnWearIndex >= 0)
 	{
 		return pItem->GetSocket(ITEM_SOCKET_REMAIN_SEC) > 0;
 	}
-	// ´Ù¸¥ limit typeÀÎ ¿ëÈ¥¼®µéÀº ½Ã°£ µÇ¸é ¸ğµÎ »ç¶óÁö±â ¶§¹®¿¡ ¿©±â µé¾î¿Â ¾ÆÀÌÅÛÀº ÀÏ´Ü ½Ã°£ÀÌ ³²¾Ò´Ù°í ÆÇ´Ü.
+	// Ò‘Ğ©Ñ‘Ò limit typeĞĞ Ñ—Ğ»Ğ˜ÒÑ˜Â®ÂµĞ¹ĞÑ” Ğ…Ğ“Â°Ğˆ ÂµĞ—Ñ‘Ğ¹ Ñ‘Ñ€ÂµĞ Â»Ğ·Â¶ÑƒĞ‘Ñ†Â±Ğ² Â¶Â§â„–Â®Ñ—Ğ Ñ—Â©Â±Ğ² ÂµĞ¹Ñ•Ğ¾Ñ—Ğ’ Ñ•Ğ–ĞĞœĞ•Ğ«ĞÑ” ĞĞŸÒ‘Ğ¬ Ğ…Ğ“Â°ĞˆĞĞœ Ñ–Ğ†Ñ•Ğ¢Ò‘Ğ©Â°Ğ½ Ğ–Ğ—Ò‘Ğ¬.
 	else
 	{
 		return true;

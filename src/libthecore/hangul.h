@@ -17,10 +17,10 @@ extern "C"
 #define isnhdigit(ch)   (!ishan(ch) && isdigit(ch))
 #define isnhspace(ch)   (!ishan(ch) && isspace(ch))
 
-    extern const char *	first_han(const BYTE * str);	// Ã¹¹øÂ° µÎ ±ÛÀÚÀÇ ¸ğÀ½(¤¡¤¤¤§)À» »Ì¾Æ °¡/³ª/´Ù/..¸¦ ¸®ÅÏÇÑ´Ù.
-    extern int		check_han(const char * str);	// ÇÑ±ÛÀÌ¸é true ½ºÆ®¸µ ÀüºÎ Ã¼Å©
-    extern int		is_hangul(const BYTE * str);	// ÇÑ±ÛÀÌ¸é true (2¹ÙÀÌÆ®¸¸ Ã¼Å©)
-    extern int		under_han(const void * orig);	// ¹ŞÄ§ÀÌ ÀÖÀ¸¸é true
+    extern const char *	first_han(const BYTE * str);	// Ğ“â„–â„–ÑˆĞ’Â° ÂµĞ Â±Ğ«ĞĞªĞĞ— Ñ‘Ñ€ĞĞ…(Â¤ĞÂ¤Â¤Â¤Â§)ĞÂ» Â»ĞœÑ•Ğ– Â°Ğ/Ñ–Ğ„/Ò‘Ğ©/..Ñ‘Â¦ Ñ‘Â®Ğ•ĞŸĞ—Ğ¡Ò‘Ğ©.
+    extern int		check_han(const char * str);	// Ğ—Ğ¡Â±Ğ«ĞĞœÑ‘Ğ¹ true Ğ…Ñ”Ğ–Â®Ñ‘Âµ ĞÑŒÑ”Ğ Ğ“Ñ˜Ğ•Â©
+    extern int		is_hangul(const BYTE * str);	// Ğ—Ğ¡Â±Ğ«ĞĞœÑ‘Ğ¹ true (2â„–Ğ©ĞĞœĞ–Â®Ñ‘Ñ‘ Ğ“Ñ˜Ğ•Â©)
+    extern int		under_han(const void * orig);	// â„–Ğ®Ğ”Â§ĞĞœ ĞĞ¦ĞÑ‘Ñ‘Ğ¹ true
 
 #define UNDER(str)	under_han(str)
 

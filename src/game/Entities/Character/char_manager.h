@@ -28,7 +28,7 @@ class CHARACTER_MANAGER : public singleton<CHARACTER_MANAGER>
 
 		void                    Destroy();
 
-		void			GracefulShutdown();	// ������ �˴ٿ��� �� ���. PC�� ��� �����Ű�� Destroy �Ѵ�.
+		void			GracefulShutdown();	// Б¤»уАы јЛґЩїоЗТ ¶§ »зїл. PCё¦ ёрµО АъАеЅГЕ°°н Destroy ЗСґЩ.
 
 		DWORD			AllocVID();
 
@@ -60,11 +60,11 @@ class CHARACTER_MANAGER : public singleton<CHARACTER_MANAGER>
 		bool			AddToStateList(LPCHARACTER ch);
 		void			RemoveFromStateList(LPCHARACTER ch);
 
-		// DelayedSave: ��� ��ƾ ������ ������ �ؾ� �� ���� ���� �ϸ� ����
-		// ������ �ʹ� �������Ƿ� "������ �Ѵ�" ��� ǥ�ø� �صΰ� ���
-		// (��: 1 frame) �Ŀ� �����Ų��.
+		// DelayedSave: ѕо¶°ЗС ·зЖѕ і»їЎј­ АъАеА» ЗШѕЯ ЗТ БюА» ё№АМ ЗПёй АъАе
+		// Дхё®°Ў іК№« ё№ѕЖБц№З·О "АъАеА» ЗСґЩ" ¶у°н ЗҐЅГёё ЗШµО°н Аб±с
+		// (ї№: 1 frame) ИДїЎ АъАеЅГЕІґЩ.
 		void                    DelayedSave(LPCHARACTER ch);
-		bool                    FlushDelayedSave(LPCHARACTER ch); // Delayed ����Ʈ�� �ִٸ� ����� �����Ѵ�. ���� ó���� ��� ��.
+		bool                    FlushDelayedSave(LPCHARACTER ch); // Delayed ё®ЅєЖ®їЎ АЦґЩёй Бцїм°н АъАеЗСґЩ. Іч±и Гіё®ЅГ »зїл µК.
 		void			ProcessDelayedSave();
 
 		template<class Func>	Func for_each_pc(Func f);
@@ -128,7 +128,7 @@ class CHARACTER_MANAGER : public singleton<CHARACTER_MANAGER>
 		NAME_MAP			m_map_pkPCChr;
 
 		char				dummy1[1024];	// memory barrier
-		CHARACTER_SET		m_set_pkChrState;	// FSM�� ���ư��� �ִ� ���
+		CHARACTER_SET		m_set_pkChrState;	// FSMАМ µ№ѕЖ°Ў°н АЦґВ ірµй
 		CHARACTER_SET		m_set_pkChrForDelayedSave;
 		CHARACTER_SET		m_set_pkChrMonsterLog;
 

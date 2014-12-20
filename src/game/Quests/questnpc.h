@@ -21,13 +21,13 @@ namespace quest
 	class NPC
 	{
 		public:
-			// ÀÎÀÚ°¡ ¾ø´Â ½ºÅ©¸³Æ®µé
+			// ĞĞĞĞªÂ°Ğ Ñ•ÑˆÒ‘Ğ’ Ğ…Ñ”Ğ•Â©Ñ‘Ñ–Ğ–Â®ÂµĞ¹
 			// first: state number
 			typedef map<int, AStateScriptType> AQuestScriptType;
 			// first: quest number
 			typedef map<unsigned int, AQuestScriptType> QuestMapType;
 
-			// ÀÎÀÚ°¡ ÀÖ´Â ½ºÅ©¸³Æ®µé
+			// ĞĞĞĞªÂ°Ğ ĞĞ¦Ò‘Ğ’ Ğ…Ñ”Ğ•Â©Ñ‘Ñ–Ğ–Â®ÂµĞ¹
 			// first: state number
 			typedef map<int, vector<AArgScript> > AArgQuestScriptType;
 			// first: quest number
@@ -69,7 +69,7 @@ namespace quest
 			bool	OnChat(PC& pc);
 			bool	HasChat();
 
-			bool	OnItemInformer(PC& pc,unsigned int vnum);	// µ¶ÀÏ ¼±¹° ±â´É Å×½ºÆ®
+			bool	OnItemInformer(PC& pc,unsigned int vnum);	// ÂµÂ¶ĞĞŸ Ñ˜Â±â„–Â° Â±Ğ²Ò‘Ğ™ Ğ•Ğ§Ğ…Ñ”Ğ–Â®
 
 			bool	OnTarget(PC& pc, DWORD dwQuestIndex, const char * c_pszTargetName, const char * c_pszVerb, bool & bRet);
 			bool	OnUnmount(PC& pc);

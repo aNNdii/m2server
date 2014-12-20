@@ -132,7 +132,7 @@ class SECTREE
 
 			while (it_tree != m_neighbor_list.end())
 			{
-				//Ã¹¹øÂ°¸¦ Ã£À¸¸é ¹Ù·Î ¸®ÅÏ
+				//Ğ“â„–â„–ÑˆĞ’Â°Ñ‘Â¦ Ğ“ĞˆĞÑ‘Ñ‘Ğ¹ â„–Ğ©Â·Ğ Ñ‘Â®Ğ•ĞŸ
 				if ( (*(it_tree++))->for_each_entity_for_find_victim(func) )
 					return;
 			}
@@ -143,7 +143,7 @@ class SECTREE
 
 			while (it != m_set_entity.end())
 			{
-				//Á¤»óÀûÀ¸·Î Ã£À¸¸é ¹Ù·Î ¸®ÅÏ
+				//Ğ‘Â¤Â»ÑƒĞÑ‹ĞÑ‘Â·Ğ Ğ“ĞˆĞÑ‘Ñ‘Ğ¹ â„–Ğ©Â·Ğ Ñ‘Â®Ğ•ĞŸ
 				if ( func(*it++) )
 					return true;
 			}
@@ -176,9 +176,9 @@ class SECTREE
 		DWORD				GetAttribute(long x, long y);
 		bool				IsAttr(long x, long y, DWORD dwFlag);
 
-		void				CloneAttribute(LPSECTREE tree); // private map Ã³¸®½Ã »ç¿ë
+		void				CloneAttribute(LPSECTREE tree); // private map Ğ“Ñ–Ñ‘Â®Ğ…Ğ“ Â»Ğ·Ñ—Ğ»
 
-		int				GetEventAttribute(long x, long y); // 20050313 ÇöÀç´Â »ç¿ëÇÏÁö ¾ÊÀ½
+		int				GetEventAttribute(long x, long y); // 20050313 Ğ—Ñ†ĞĞ·Ò‘Ğ’ Â»Ğ·Ñ—Ğ»Ğ—ĞŸĞ‘Ñ† Ñ•ĞšĞĞ…
 
 		void				SetAttribute(DWORD x, DWORD y, DWORD dwAttr);
 		void				RemoveAttribute(DWORD x, DWORD y, DWORD dwAttr);

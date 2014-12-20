@@ -1,8 +1,8 @@
 /*
  *    Filename: event.c
- * Description: ÀÌº¥Æ® °ü·Ã (timed event)
+ * Description: ĞĞœÑ”ÒĞ–Â® Â°ÑŒÂ·Ğ“ (timed event)
  *
- *      Author: ±èÇÑÁÖ (aka. ºñ¿±, Cronan), ¼Û¿µÁø (aka. myevan, ºøÀÚ·ç)
+ *      Author: Â±Ğ¸Ğ—Ğ¡Ğ‘Ğ¦ (aka. Ñ”ÑÑ—Â±, Cronan), Ñ˜Ğ«Ñ—ÂµĞ‘Ñˆ (aka. myevan, Ñ”ÑˆĞĞªÂ·Ğ·)
  */
 #include "stdafx.h"
 
@@ -18,12 +18,12 @@ static ObjectPool<EVENT> event_pool;
 
 static CEventQueue cxx_q;
 
-/* ÀÌº¥Æ®¸¦ »ı¼ºÇÏ°í ¸®ÅÏÇÑ´Ù */
+/* ĞĞœÑ”ÒĞ–Â®Ñ‘Â¦ Â»ÑÑ˜Ñ”Ğ—ĞŸÂ°Ğ½ Ñ‘Â®Ğ•ĞŸĞ—Ğ¡Ò‘Ğ© */
 LPEVENT event_create_ex(TEVENTFUNC func, event_info_data* info, long when)
 {
 	LPEVENT new_event = NULL;
 
-	/* ¹İµå½Ã ´ÙÀ½ pulse ÀÌ»óÀÇ ½Ã°£ÀÌ Áö³­ ÈÄ¿¡ ºÎ¸£µµ·Ï ÇÑ´Ù. */
+	/* â„–Ğ­ÂµĞµĞ…Ğ“ Ò‘Ğ©ĞĞ… pulse ĞĞœÂ»ÑƒĞĞ— Ğ…Ğ“Â°ĞˆĞĞœ Ğ‘Ñ†Ñ–Â­ Ğ˜Ğ”Ñ—Ğ Ñ”ĞÑ‘ĞˆÂµÂµÂ·ĞŸ Ğ—Ğ¡Ò‘Ğ©. */
 	if (when < 1)
 		when = 1;
 
@@ -44,7 +44,7 @@ LPEVENT event_create_ex(TEVENTFUNC func, event_info_data* info, long when)
 	return (new_event);
 }
 
-/* ½Ã½ºÅÛÀ¸·Î ºÎÅÍ ÀÌº¥Æ®¸¦ Á¦°ÅÇÑ´Ù */
+/* Ğ…Ğ“Ğ…Ñ”Ğ•Ğ«ĞÑ‘Â·Ğ Ñ”ĞĞ•Ğ ĞĞœÑ”ÒĞ–Â®Ñ‘Â¦ Ğ‘Â¦Â°Ğ•Ğ—Ğ¡Ò‘Ğ© */
 void event_cancel(LPEVENT * ppevent)
 {
 	LPEVENT event;
@@ -69,7 +69,7 @@ void event_cancel(LPEVENT * ppevent)
 		return;
 	}
 
-	// ÀÌ¹Ì Ãë¼Ò µÇ¾ú´Â°¡?
+	// ĞĞœâ„–Ğœ Ğ“Ğ»Ñ˜Ğ¢ ÂµĞ—Ñ•ÑŠÒ‘Ğ’Â°Ğ?
 	if (!event->q_el)
 	{
 		*ppevent = NULL;
@@ -98,14 +98,14 @@ void event_reset_time(LPEVENT event, long when)
 	}
 }
 
-/* ÀÌº¥Æ®¸¦ ½ÇÇàÇÒ ½Ã°£¿¡ µµ´ŞÇÑ ÀÌº¥Æ®µéÀ» ½ÇÇàÇÑ´Ù */
+/* ĞĞœÑ”ÒĞ–Â®Ñ‘Â¦ Ğ…Ğ—Ğ—Ğ°Ğ—Ğ¢ Ğ…Ğ“Â°ĞˆÑ—Ğ ÂµÂµÒ‘Ğ®Ğ—Ğ¡ ĞĞœÑ”ÒĞ–Â®ÂµĞ¹ĞÂ» Ğ…Ğ—Ğ—Ğ°Ğ—Ğ¡Ò‘Ğ© */
 int event_process(int pulse)
 {
 	long	new_time;
 	int		num_events = 0;
 
-	// event_q Áï ÀÌº¥Æ® Å¥ÀÇ ÇìµåÀÇ ½Ã°£º¸´Ù ÇöÀçÀÇ pulse °¡ ÀûÀ¸¸é ·çÇÁ¹®ÀÌ 
-	// µ¹Áö ¾Ê°Ô µÈ´Ù.
+	// event_q Ğ‘Ğ¿ ĞĞœÑ”ÒĞ–Â® Ğ•ÒĞĞ— Ğ—Ğ¼ÂµĞµĞĞ— Ğ…Ğ“Â°ĞˆÑ”Ñ‘Ò‘Ğ© Ğ—Ñ†ĞĞ·ĞĞ— pulse Â°Ğ ĞÑ‹ĞÑ‘Ñ‘Ğ¹ Â·Ğ·Ğ—Ğ‘â„–Â®ĞĞœ 
+	// Âµâ„–Ğ‘Ñ† Ñ•ĞšÂ°Ğ¤ ÂµĞ˜Ò‘Ğ©.
 	while (pulse >= cxx_q.GetTopKey())
 	{
 		TQueueElement * pElem = cxx_q.Dequeue();
@@ -123,9 +123,9 @@ int event_process(int pulse)
 		cxx_q.Delete(pElem);
 
 		/*
-		 * ¸®ÅÏ °ªÀº »õ·Î¿î ½Ã°£ÀÌ¸ç ¸®ÅÏ °ªÀÌ 0 º¸´Ù Å¬ °æ¿ì ÀÌº¥Æ®¸¦ ´Ù½Ã Ãß°¡ÇÑ´Ù. 
-		 * ¸®ÅÏ °ªÀ» 0 ÀÌ»óÀ¸·Î ÇÒ °æ¿ì event ¿¡ ÇÒ´çµÈ ¸Ş¸ğ¸® Á¤º¸¸¦ »èÁ¦ÇÏÁö ¾Êµµ·Ï
-		 * ÁÖÀÇÇÑ´Ù.
+		 * Ñ‘Â®Ğ•ĞŸ Â°Ğ„ĞÑ” Â»Ñ…Â·ĞÑ—Ğ¾ Ğ…Ğ“Â°ĞˆĞĞœÑ‘Ğ· Ñ‘Â®Ğ•ĞŸ Â°Ğ„ĞĞœ 0 Ñ”Ñ‘Ò‘Ğ© Ğ•Â¬ Â°Ğ¶Ñ—Ğ¼ ĞĞœÑ”ÒĞ–Â®Ñ‘Â¦ Ò‘Ğ©Ğ…Ğ“ Ğ“Ğ¯Â°ĞĞ—Ğ¡Ò‘Ğ©. 
+		 * Ñ‘Â®Ğ•ĞŸ Â°Ğ„ĞÂ» 0 ĞĞœÂ»ÑƒĞÑ‘Â·Ğ Ğ—Ğ¢ Â°Ğ¶Ñ—Ğ¼ event Ñ—Ğ Ğ—Ğ¢Ò‘Ğ·ÂµĞ˜ Ñ‘Ğ®Ñ‘Ñ€Ñ‘Â® Ğ‘Â¤Ñ”Ñ‘Ñ‘Â¦ Â»Ğ¸Ğ‘Â¦Ğ—ĞŸĞ‘Ñ† Ñ•ĞšÂµÂµÂ·ĞŸ
+		 * Ğ‘Ğ¦ĞĞ—Ğ—Ğ¡Ò‘Ğ©.
 		 */
 		the_event->is_processing = true;
 
@@ -156,7 +156,7 @@ int event_process(int pulse)
 	return num_events;
 }
 
-/* ÀÌº¥Æ®°¡ ¼öÇà½Ã°£À» pulse ´ÜÀ§·Î ¸®ÅÏÇØ ÁØ´Ù */
+/* ĞĞœÑ”ÒĞ–Â®Â°Ğ Ñ˜Ñ†Ğ—Ğ°Ğ…Ğ“Â°ĞˆĞÂ» pulse Ò‘Ğ¬ĞÂ§Â·Ğ Ñ‘Â®Ğ•ĞŸĞ—Ğ¨ Ğ‘Ğ¨Ò‘Ğ© */
 long event_processing_time(LPEVENT event)
 {
 	long start_time;
@@ -168,7 +168,7 @@ long event_processing_time(LPEVENT event)
 	return (thecore_heart->pulse - start_time);
 }
 
-/* ÀÌº¥Æ®°¡ ³²Àº ½Ã°£À» pulse ´ÜÀ§·Î ¸®ÅÏÇØ ÁØ´Ù */
+/* ĞĞœÑ”ÒĞ–Â®Â°Ğ Ñ–Ğ†ĞÑ” Ğ…Ğ“Â°ĞˆĞÂ» pulse Ò‘Ğ¬ĞÂ§Â·Ğ Ñ‘Â®Ğ•ĞŸĞ—Ğ¨ Ğ‘Ğ¨Ò‘Ğ© */
 long event_time(LPEVENT event)
 {
 	long when;
@@ -180,7 +180,7 @@ long event_time(LPEVENT event)
 	return (when - thecore_heart->pulse);
 }
 
-/* ¸ğµç ÀÌº¥Æ®¸¦ Á¦°ÅÇÑ´Ù */
+/* Ñ‘Ñ€ÂµĞ· ĞĞœÑ”ÒĞ–Â®Ñ‘Â¦ Ğ‘Â¦Â°Ğ•Ğ—Ğ¡Ò‘Ğ© */
 void event_destroy(void)
 {
 	TQueueElement * pElem;

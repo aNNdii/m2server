@@ -6,7 +6,7 @@
 typedef	DWORD IDENT;
 
 /**
- * @version 05/06/10	Bang2ni - Myshop Pricelist °ü·Ã ÆĞÅ¶ HEADER_XX_MYSHOP_PRICELIST_XXX Ãß°¡
+ * @version 05/06/10	Bang2ni - Myshop Pricelist Â°ÑŒÂ·Ğ“ Ğ–Ğ Ğ•Â¶ HEADER_XX_MYSHOP_PRICELIST_XXX Ğ“Ğ¯Â°Ğ
  */
 enum
 {
@@ -102,27 +102,27 @@ enum
 	HEADER_GD_VCARD				= 105,
 	HEADER_GD_MALL_LOAD			= 107,
 
-	HEADER_GD_MYSHOP_PRICELIST_UPDATE	= 108,		///< °¡°İÁ¤º¸ °»½Å ¿äÃ»
-	HEADER_GD_MYSHOP_PRICELIST_REQ		= 109,		///< °¡°İÁ¤º¸ ¸®½ºÆ® ¿äÃ»
+	HEADER_GD_MYSHOP_PRICELIST_UPDATE	= 108,		///< Â°ĞÂ°Ğ­Ğ‘Â¤Ñ”Ñ‘ Â°Â»Ğ…Ğ• Ñ—Ğ´Ğ“Â»
+	HEADER_GD_MYSHOP_PRICELIST_REQ		= 109,		///< Â°ĞÂ°Ğ­Ğ‘Â¤Ñ”Ñ‘ Ñ‘Â®Ğ…Ñ”Ğ–Â® Ñ—Ğ´Ğ“Â»
 
 	HEADER_GD_BLOCK_CHAT				= 110,
 
 	HEADER_GD_HAMMER_OF_TOR			= 114,
-	HEADER_GD_RELOAD_ADMIN			= 115,			///<¿î¿µÀÚ Á¤º¸ ¿äÃ»
-	HEADER_GD_BREAK_MARRIAGE		= 116,			///< °áÈ¥ ÆÄ±â
-	HEADER_GD_ELECT_MONARCH			= 117,			///< ±ºÁÖ ÅõÇ¥
-	HEADER_GD_CANDIDACY				= 118,			///< ±ºÁÖ µî·Ï
-	HEADER_GD_ADD_MONARCH_MONEY		= 119,			///< ±ºÁÖ µ· Áõ°¡ 
-	HEADER_GD_TAKE_MONARCH_MONEY	= 120,			///< ±ºÁÖ µ· °¨¼Ò 
-	HEADER_GD_COME_TO_VOTE			= 121,			///< Ç¥°á
-	HEADER_GD_RMCANDIDACY			= 122,			///< ÈÄº¸ Á¦°Å (¿î¿µÀÚ)
-	HEADER_GD_SETMONARCH			= 123,			///<±ºÁÖ¼³Á¤ (¿î¿µÀÚ)
-	HEADER_GD_RMMONARCH			= 124,			///<±ºÁÖ»èÁ¦
+	HEADER_GD_RELOAD_ADMIN			= 115,			///<Ñ—Ğ¾Ñ—ÂµĞĞª Ğ‘Â¤Ñ”Ñ‘ Ñ—Ğ´Ğ“Â»
+	HEADER_GD_BREAK_MARRIAGE		= 116,			///< Â°Ğ±Ğ˜Ò Ğ–Ğ”Â±Ğ²
+	HEADER_GD_ELECT_MONARCH			= 117,			///< Â±Ñ”Ğ‘Ğ¦ Ğ•Ñ…Ğ—Ò
+	HEADER_GD_CANDIDACY				= 118,			///< Â±Ñ”Ğ‘Ğ¦ ÂµĞ¾Â·ĞŸ
+	HEADER_GD_ADD_MONARCH_MONEY		= 119,			///< Â±Ñ”Ğ‘Ğ¦ ÂµÂ· Ğ‘Ñ…Â°Ğ 
+	HEADER_GD_TAKE_MONARCH_MONEY	= 120,			///< Â±Ñ”Ğ‘Ğ¦ ÂµÂ· Â°ĞÑ˜Ğ¢ 
+	HEADER_GD_COME_TO_VOTE			= 121,			///< Ğ—ÒÂ°Ğ±
+	HEADER_GD_RMCANDIDACY			= 122,			///< Ğ˜Ğ”Ñ”Ñ‘ Ğ‘Â¦Â°Ğ• (Ñ—Ğ¾Ñ—ÂµĞĞª)
+	HEADER_GD_SETMONARCH			= 123,			///<Â±Ñ”Ğ‘Ğ¦Ñ˜Ñ–Ğ‘Â¤ (Ñ—Ğ¾Ñ—ÂµĞĞª)
+	HEADER_GD_RMMONARCH			= 124,			///<Â±Ñ”Ğ‘Ğ¦Â»Ğ¸Ğ‘Â¦
 	HEADER_GD_DEC_MONARCH_MONEY = 125,
 
 	HEADER_GD_CHANGE_MONARCH_LORD = 126,
-	HEADER_GD_BLOCK_COUNTRY_IP		= 127,		// ±¤´ë¿ª IP-Block
-	HEADER_GD_BLOCK_EXCEPTION		= 128,		// ±¤´ë¿ª IP-Block ¿¹¿Ü
+	HEADER_GD_BLOCK_COUNTRY_IP		= 127,		// Â±Â¤Ò‘Ğ»Ñ—Ğ„ IP-Block
+	HEADER_GD_BLOCK_EXCEPTION		= 128,		// Â±Â¤Ò‘Ğ»Ñ—Ğ„ IP-Block Ñ—â„–Ñ—Ğ¬
 
 	HEADER_GD_REQ_CHANGE_GUILD_MASTER	= 129,
 
@@ -131,7 +131,7 @@ enum
 	HEADER_GD_UPDATE_HORSE_NAME		= 131,
 	HEADER_GD_REQ_HORSE_NAME		= 132,
 
-	HEADER_GD_DC					= 133,		// Login Key¸¦ Áö¿ò
+	HEADER_GD_DC					= 133,		// Login KeyÑ‘Â¦ Ğ‘Ñ†Ñ—Ñ‚
 
 	HEADER_GD_VALID_LOGOUT			= 134,
 
@@ -245,23 +245,23 @@ enum
 	HEADER_DG_WEDDING_START		= 155,
 	HEADER_DG_WEDDING_END		= 156,
 
-	HEADER_DG_MYSHOP_PRICELIST_RES	= 157,		///< °¡°İÁ¤º¸ ¸®½ºÆ® ÀÀ´ä
-	HEADER_DG_RELOAD_ADMIN = 158, 				///< ¿î¿µÀÚ Á¤º¸ ¸®·Îµå 
-	HEADER_DG_BREAK_MARRIAGE = 159,				///< °áÈ¥ ÆÄ±â
-	HEADER_DG_ELECT_MONARCH			= 160,			///< ±ºÁÖ ÅõÇ¥
-	HEADER_DG_CANDIDACY				= 161,			///< ±ºÁÖ µî·Ï
-	HEADER_DG_ADD_MONARCH_MONEY		= 162,			///< ±ºÁÖ µ· Áõ°¡ 
-	HEADER_DG_TAKE_MONARCH_MONEY	= 163,			///< ±ºÁÖ µ· °¨¼Ò 
-	HEADER_DG_COME_TO_VOTE			= 164,			///< Ç¥°á
-	HEADER_DG_RMCANDIDACY			= 165,			///< ÈÄº¸ Á¦°Å (¿î¿µÀÚ)
-	HEADER_DG_SETMONARCH			= 166,			///<±ºÁÖ¼³Á¤ (¿î¿µÀÚ)
-	HEADER_DG_RMMONARCH			= 167,			///<±ºÁÖ»èÁ¦
+	HEADER_DG_MYSHOP_PRICELIST_RES	= 157,		///< Â°ĞÂ°Ğ­Ğ‘Â¤Ñ”Ñ‘ Ñ‘Â®Ğ…Ñ”Ğ–Â® ĞĞÒ‘Ğ´
+	HEADER_DG_RELOAD_ADMIN = 158, 				///< Ñ—Ğ¾Ñ—ÂµĞĞª Ğ‘Â¤Ñ”Ñ‘ Ñ‘Â®Â·ĞÂµĞµ 
+	HEADER_DG_BREAK_MARRIAGE = 159,				///< Â°Ğ±Ğ˜Ò Ğ–Ğ”Â±Ğ²
+	HEADER_DG_ELECT_MONARCH			= 160,			///< Â±Ñ”Ğ‘Ğ¦ Ğ•Ñ…Ğ—Ò
+	HEADER_DG_CANDIDACY				= 161,			///< Â±Ñ”Ğ‘Ğ¦ ÂµĞ¾Â·ĞŸ
+	HEADER_DG_ADD_MONARCH_MONEY		= 162,			///< Â±Ñ”Ğ‘Ğ¦ ÂµÂ· Ğ‘Ñ…Â°Ğ 
+	HEADER_DG_TAKE_MONARCH_MONEY	= 163,			///< Â±Ñ”Ğ‘Ğ¦ ÂµÂ· Â°ĞÑ˜Ğ¢ 
+	HEADER_DG_COME_TO_VOTE			= 164,			///< Ğ—ÒÂ°Ğ±
+	HEADER_DG_RMCANDIDACY			= 165,			///< Ğ˜Ğ”Ñ”Ñ‘ Ğ‘Â¦Â°Ğ• (Ñ—Ğ¾Ñ—ÂµĞĞª)
+	HEADER_DG_SETMONARCH			= 166,			///<Â±Ñ”Ğ‘Ğ¦Ñ˜Ñ–Ğ‘Â¤ (Ñ—Ğ¾Ñ—ÂµĞĞª)
+	HEADER_DG_RMMONARCH			= 167,			///<Â±Ñ”Ğ‘Ğ¦Â»Ğ¸Ğ‘Â¦
 	HEADER_DG_DEC_MONARCH_MONEY = 168,
 
 	HEADER_DG_CHANGE_MONARCH_LORD_ACK = 169,
 	HEADER_DG_UPDATE_MONARCH_INFO	= 170,
-	HEADER_DG_BLOCK_COUNTRY_IP		= 171,		// ±¤´ë¿ª IP-Block
-	HEADER_DG_BLOCK_EXCEPTION		= 172,		// ±¤´ë¿ª IP-Block ¿¹¿Ü account
+	HEADER_DG_BLOCK_COUNTRY_IP		= 171,		// Â±Â¤Ò‘Ğ»Ñ—Ğ„ IP-Block
+	HEADER_DG_BLOCK_EXCEPTION		= 172,		// Â±Â¤Ò‘Ğ»Ñ—Ğ„ IP-Block Ñ—â„–Ñ—Ğ¬ account
 
 	HEADER_DG_ACK_CHANGE_GUILD_MASTER = 173,
 
@@ -352,7 +352,7 @@ typedef struct SPlayerItem
 	DWORD	count;
 
 	DWORD	vnum;
-	long	alSockets[ITEM_SOCKET_MAX_NUM];	// ¼ÒÄÏ¹øÈ£
+	long	alSockets[ITEM_SOCKET_MAX_NUM];	// Ñ˜Ğ¢Ğ”ĞŸâ„–ÑˆĞ˜Ğˆ
 
 	TPlayerItemAttribute    aAttr[ITEM_ATTRIBUTE_MAX_NUM];
 
@@ -560,9 +560,9 @@ typedef struct SShopItemTable
 	DWORD		vnum;
 	BYTE		count;
 
-    TItemPos	pos;			// PC »óÁ¡¿¡¸¸ ÀÌ¿ë
-	DWORD		price;	// PC, shop_table_ex.txt »óÁ¡¿¡¸¸ ÀÌ¿ë
-	BYTE		display_pos; // PC, shop_table_ex.txt »óÁ¡¿¡¸¸ ÀÌ¿ë, º¸ÀÏ À§Ä¡.
+    TItemPos	pos;			// PC Â»ÑƒĞ‘ĞÑ—ĞÑ‘Ñ‘ ĞĞœÑ—Ğ»
+	DWORD		price;	// PC, shop_table_ex.txt Â»ÑƒĞ‘ĞÑ—ĞÑ‘Ñ‘ ĞĞœÑ—Ğ»
+	BYTE		display_pos; // PC, shop_table_ex.txt Â»ÑƒĞ‘ĞÑ—ĞÑ‘Ñ‘ ĞĞœÑ—Ğ», Ñ”Ñ‘ĞĞŸ ĞÂ§Ğ”Ğ.
 } TShopItemTable;
 
 typedef struct SShopTable
@@ -626,12 +626,12 @@ typedef struct SItemTable : public SEntityTable
 	BYTE	bSpecular;
 	BYTE	bGainSocketPct;
 
-	short int	sAddonType; // ±âº» ¼Ó¼º
+	short int	sAddonType; // Â±Ğ²Ñ”Â» Ñ˜Ğ£Ñ˜Ñ”
 
-	// ¾Æ·¡ limit flagµéÀº realtime¿¡ Ã¼Å© ÇÒ ÀÏÀÌ ¸¹°í, ¾ÆÀÌÅÛ VNUM´ç °íÁ¤µÈ °ªÀÎµ¥,
-	// ÇöÀç ±¸Á¶´ë·Î ¸Å¹ø ¾ÆÀÌÅÛ¸¶´Ù ÇÊ¿äÇÑ °æ¿ì¿¡ LIMIT_MAX_NUM±îÁö ·çÇÁµ¹¸é¼­ Ã¼Å©ÇÏ´Â ºÎÇÏ°¡ Ä¿¼­ ¹Ì¸® ÀúÀå ÇØ µÒ.
-	char		cLimitRealTimeFirstUseIndex;		// ¾ÆÀÌÅÛ limit ÇÊµå°ª Áß¿¡¼­ LIMIT_REAL_TIME_FIRST_USE ÇÃ·¡±×ÀÇ À§Ä¡ (¾øÀ¸¸é -1)
-	char		cLimitTimerBasedOnWearIndex;		// ¾ÆÀÌÅÛ limit ÇÊµå°ª Áß¿¡¼­ LIMIT_TIMER_BASED_ON_WEAR ÇÃ·¡±×ÀÇ À§Ä¡ (¾øÀ¸¸é -1) 
+	// Ñ•Ğ–Â·Ğ limit flagÂµĞ¹ĞÑ” realtimeÑ—Ğ Ğ“Ñ˜Ğ•Â© Ğ—Ğ¢ ĞĞŸĞĞœ Ñ‘â„–Â°Ğ½, Ñ•Ğ–ĞĞœĞ•Ğ« VNUMÒ‘Ğ· Â°Ğ½Ğ‘Â¤ÂµĞ˜ Â°Ğ„ĞĞÂµÒ,
+	// Ğ—Ñ†ĞĞ· Â±Ñ‘Ğ‘Â¶Ò‘Ğ»Â·Ğ Ñ‘Ğ•â„–Ñˆ Ñ•Ğ–ĞĞœĞ•Ğ«Ñ‘Â¶Ò‘Ğ© Ğ—ĞšÑ—Ğ´Ğ—Ğ¡ Â°Ğ¶Ñ—Ğ¼Ñ—Ğ LIMIT_MAX_NUMÂ±Ğ¾Ğ‘Ñ† Â·Ğ·Ğ—Ğ‘Âµâ„–Ñ‘Ğ¹Ñ˜Â­ Ğ“Ñ˜Ğ•Â©Ğ—ĞŸÒ‘Ğ’ Ñ”ĞĞ—ĞŸÂ°Ğ Ğ”Ñ—Ñ˜Â­ â„–ĞœÑ‘Â® ĞÑŠĞĞµ Ğ—Ğ¨ ÂµĞ¢.
+	char		cLimitRealTimeFirstUseIndex;		// Ñ•Ğ–ĞĞœĞ•Ğ« limit Ğ—ĞšÂµĞµÂ°Ğ„ Ğ‘Ğ¯Ñ—ĞÑ˜Â­ LIMIT_REAL_TIME_FIRST_USE Ğ—Ğ“Â·ĞÂ±Ğ§ĞĞ— ĞÂ§Ğ”Ğ (Ñ•ÑˆĞÑ‘Ñ‘Ğ¹ -1)
+	char		cLimitTimerBasedOnWearIndex;		// Ñ•Ğ–ĞĞœĞ•Ğ« limit Ğ—ĞšÂµĞµÂ°Ğ„ Ğ‘Ğ¯Ñ—ĞÑ˜Â­ LIMIT_TIMER_BASED_ON_WEAR Ğ—Ğ“Â·ĞÂ±Ğ§ĞĞ— ĞÂ§Ğ”Ğ (Ñ•ÑˆĞÑ‘Ñ‘Ğ¹ -1) 
 
 } TItemTable;
 
@@ -669,7 +669,7 @@ typedef struct SPlayerLoadPacket
 {
 	DWORD	account_id;
 	DWORD	player_id;
-	BYTE	account_index;	/* account ¿¡¼­ÀÇ À§Ä¡ */
+	BYTE	account_index;	/* account Ñ—ĞÑ˜Â­ĞĞ— ĞÂ§Ğ”Ğ */
 } TPlayerLoadPacket;
 
 typedef struct SPlayerCreatePacket
@@ -746,9 +746,9 @@ typedef struct SEmpireSelectPacket
 typedef struct SPacketGDSetup
 {
 	char	szPublicIP[16];	// Public IP which listen to users
-	BYTE	bChannel;	// Ã¤³Î
-	WORD	wListenPort;	// Å¬¶óÀÌ¾ğÆ®°¡ Á¢¼ÓÇÏ´Â Æ÷Æ® ¹øÈ£
-	WORD	wP2PPort;	// ¼­¹ö³¢¸® ¿¬°á ½ÃÅ°´Â P2P Æ÷Æ® ¹øÈ£
+	BYTE	bChannel;	// Ğ“Â¤Ñ–Ğ
+	WORD	wListenPort;	// Ğ•Â¬Â¶ÑƒĞĞœÑ•Ñ€Ğ–Â®Â°Ğ Ğ‘ÑÑ˜Ğ£Ğ—ĞŸÒ‘Ğ’ Ğ–Ñ‡Ğ–Â® â„–ÑˆĞ˜Ğˆ
+	WORD	wP2PPort;	// Ñ˜Â­â„–Ñ†Ñ–ÑÑ‘Â® Ñ—Â¬Â°Ğ± Ğ…Ğ“Ğ•Â°Ò‘Ğ’ P2P Ğ–Ñ‡Ğ–Â® â„–ÑˆĞ˜Ğˆ
 	long	alMaps[32];
 	DWORD	dwLoginCount;
 	BYTE	bAuthServer;
@@ -926,8 +926,8 @@ typedef struct SPacketGuildWar
 	long	lInitialScore;
 } TPacketGuildWar;
 
-// Game -> DB : »ó´ëÀû º¯È­°ª
-// DB -> Game : ÅäÅ»µÈ ÃÖÁ¾°ª
+// Game -> DB : Â»ÑƒÒ‘Ğ»ĞÑ‹ Ñ”Ğ‡Ğ˜Â­Â°Ğ„
+// DB -> Game : Ğ•Ğ´Ğ•Â»ÂµĞ˜ Ğ“Ğ¦Ğ‘Ñ•Â°Ğ„
 typedef struct SPacketGuildWarScore
 {
 	DWORD dwGuildGainPoint;
@@ -948,8 +948,8 @@ typedef struct SRefineTable
 	//DWORD result_vnum;
 	DWORD id;
 	BYTE material_count;
-	int cost; // ¼Ò¿ä ºñ¿ë
-	int prob; // È®·ü
+	int cost; // Ñ˜Ğ¢Ñ—Ğ´ Ñ”ÑÑ—Ğ»
+	int prob; // Ğ˜Â®Â·ÑŒ
 	TRefineMaterial materials[REFINE_MATERIAL_MAX_NUM];
 } TRefineTable;
 
@@ -1032,14 +1032,14 @@ typedef struct SPacketGDLoginByKey
 } TPacketGDLoginByKey;
 
 /**
- * @version 05/06/08	Bang2ni - Áö¼Ó½Ã°£ Ãß°¡
+ * @version 05/06/08	Bang2ni - Ğ‘Ñ†Ñ˜Ğ£Ğ…Ğ“Â°Ğˆ Ğ“Ğ¯Â°Ğ
  */
 typedef struct SPacketGiveGuildPriv
 {
 	BYTE type;
 	int value;
 	DWORD guild_id;
-	time_t duration_sec;	///< Áö¼Ó½Ã°£
+	time_t duration_sec;	///< Ğ‘Ñ†Ñ˜Ğ£Ğ…Ğ“Â°Ğˆ
 } TPacketGiveGuildPriv;
 typedef struct SPacketGiveEmpirePriv
 {
@@ -1074,7 +1074,7 @@ typedef struct SPacketDGChangeCharacterPriv
 } TPacketDGChangeCharacterPriv;
 
 /**
- * @version 05/06/08	Bang2ni - Áö¼Ó½Ã°£ Ãß°¡
+ * @version 05/06/08	Bang2ni - Ğ‘Ñ†Ñ˜Ğ£Ğ…Ğ“Â°Ğˆ Ğ“Ğ¯Â°Ğ
  */
 typedef struct SPacketDGChangeGuildPriv
 {
@@ -1082,7 +1082,7 @@ typedef struct SPacketDGChangeGuildPriv
 	int value;
 	DWORD guild_id;
 	BYTE bLog;
-	time_t end_time_sec;	///< Áö¼Ó½Ã°£
+	time_t end_time_sec;	///< Ğ‘Ñ†Ñ˜Ğ£Ğ…Ğ“Â°Ğˆ
 } TPacketDGChangeGuildPriv;
 
 typedef struct SPacketDGChangeEmpirePriv
@@ -1243,27 +1243,27 @@ typedef struct
 	DWORD dwPID2;
 } TPacketWeddingEnd;
 
-/// °³ÀÎ»óÁ¡ °¡°İÁ¤º¸ÀÇ Çì´õ. °¡º¯ ÆĞÅ¶À¸·Î ÀÌ µÚ¿¡ byCount ¸¸Å­ÀÇ TItemPriceInfo °¡ ¿Â´Ù.
+/// Â°Ñ–ĞĞÂ»ÑƒĞ‘Ğ Â°ĞÂ°Ğ­Ğ‘Â¤Ñ”Ñ‘ĞĞ— Ğ—Ğ¼Ò‘Ñ…. Â°ĞÑ”Ğ‡ Ğ–Ğ Ğ•Â¶ĞÑ‘Â·Ğ ĞĞœ ÂµĞªÑ—Ğ byCount Ñ‘Ñ‘Ğ•Â­ĞĞ— TItemPriceInfo Â°Ğ Ñ—Ğ’Ò‘Ğ©.
 typedef struct SPacketMyshopPricelistHeader
 { 
-	DWORD	dwOwnerID;	///< °¡°İÁ¤º¸¸¦ °¡Áø ÇÃ·¹ÀÌ¾î ID 
-	BYTE	byCount;	///< °¡°İÁ¤º¸ °¹¼ö
+	DWORD	dwOwnerID;	///< Â°ĞÂ°Ğ­Ğ‘Â¤Ñ”Ñ‘Ñ‘Â¦ Â°ĞĞ‘Ñˆ Ğ—Ğ“Â·â„–ĞĞœÑ•Ğ¾ ID 
+	BYTE	byCount;	///< Â°ĞÂ°Ğ­Ğ‘Â¤Ñ”Ñ‘ Â°â„–Ñ˜Ñ†
 } TPacketMyshopPricelistHeader;
 
-/// °³ÀÎ»óÁ¡ÀÇ ´ÜÀÏ ¾ÆÀÌÅÛ¿¡ ´ëÇÑ °¡°İÁ¤º¸
+/// Â°Ñ–ĞĞÂ»ÑƒĞ‘ĞĞĞ— Ò‘Ğ¬ĞĞŸ Ñ•Ğ–ĞĞœĞ•Ğ«Ñ—Ğ Ò‘Ğ»Ğ—Ğ¡ Â°ĞÂ°Ğ­Ğ‘Â¤Ñ”Ñ‘
 typedef struct SItemPriceInfo
 {
-	DWORD	dwVnum;		///< ¾ÆÀÌÅÛ vnum
-	DWORD	dwPrice;	///< °¡°İ
+	DWORD	dwVnum;		///< Ñ•Ğ–ĞĞœĞ•Ğ« vnum
+	DWORD	dwPrice;	///< Â°ĞÂ°Ğ­
 } TItemPriceInfo;
 
-/// °³ÀÎ»óÁ¡ ¾ÆÀÌÅÛ °¡°İÁ¤º¸ ¸®½ºÆ® Å×ÀÌºí
+/// Â°Ñ–ĞĞÂ»ÑƒĞ‘Ğ Ñ•Ğ–ĞĞœĞ•Ğ« Â°ĞÂ°Ğ­Ğ‘Â¤Ñ”Ñ‘ Ñ‘Â®Ğ…Ñ”Ğ–Â® Ğ•Ğ§ĞĞœÑ”Ğ½
 typedef struct SItemPriceListTable
 {
-	DWORD	dwOwnerID;	///< °¡°İÁ¤º¸¸¦ °¡Áø ÇÃ·¹ÀÌ¾î ID
-	BYTE	byCount;	///< °¡°İÁ¤º¸ ¸®½ºÆ®ÀÇ °¹¼ö
+	DWORD	dwOwnerID;	///< Â°ĞÂ°Ğ­Ğ‘Â¤Ñ”Ñ‘Ñ‘Â¦ Â°ĞĞ‘Ñˆ Ğ—Ğ“Â·â„–ĞĞœÑ•Ğ¾ ID
+	BYTE	byCount;	///< Â°ĞÂ°Ğ­Ğ‘Â¤Ñ”Ñ‘ Ñ‘Â®Ğ…Ñ”Ğ–Â®ĞĞ— Â°â„–Ñ˜Ñ†
 
-	TItemPriceInfo	aPriceInfo[SHOP_PRICELIST_MAX_NUM];	///< °¡°İÁ¤º¸ ¸®½ºÆ®
+	TItemPriceInfo	aPriceInfo[SHOP_PRICELIST_MAX_NUM];	///< Â°ĞÂ°Ğ­Ğ‘Â¤Ñ”Ñ‘ Ñ‘Â®Ğ…Ñ”Ğ–Â®
 } TItemPriceListTable;
 
 typedef struct
@@ -1275,12 +1275,12 @@ typedef struct
 //ADMIN_MANAGER
 typedef struct TAdminInfo
 {
-	int m_ID;				//°íÀ¯ID
-	char m_szAccount[32];	//°èÁ¤
-	char m_szName[32];		//Ä³¸¯ÅÍÀÌ¸§
-	char m_szContactIP[16];	//Á¢±Ù¾ÆÀÌÇÇ
-	char m_szServerIP[16];  //¼­¹ö¾ÆÀÌÇÇ
-	int m_Authority;		//±ÇÇÑ
+	int m_ID;				//Â°Ğ½ĞĞ‡ID
+	char m_szAccount[32];	//Â°Ğ¸Ğ‘Â¤
+	char m_szName[32];		//Ğ”Ñ–Ñ‘Ğ‡Ğ•ĞĞĞœÑ‘Â§
+	char m_szContactIP[16];	//Ğ‘ÑÂ±Ğ©Ñ•Ğ–ĞĞœĞ—Ğ—
+	char m_szServerIP[16];  //Ñ˜Â­â„–Ñ†Ñ•Ğ–ĞĞœĞ—Ğ—
+	int m_Authority;		//Â±Ğ—Ğ—Ğ¡
 } tAdminInfo;
 //END_ADMIN_MANAGER
 
@@ -1301,20 +1301,20 @@ typedef struct SPacketReloadAdmin
 
 typedef struct TMonarchInfo
 {
-	DWORD pid[4];  // ±ºÁÖÀÇ PID
-	int64_t money[4];  // ±ºÁÖÀÇ º°°³ µ·	
-	char name[4][32];  // ±ºÁÖÀÇ ÀÌ¸§	
-	char date[4][32];  // ±ºÁÖ µî·Ï ³¯Â¥
+	DWORD pid[4];  // Â±Ñ”Ğ‘Ğ¦ĞĞ— PID
+	int64_t money[4];  // Â±Ñ”Ğ‘Ğ¦ĞĞ— Ñ”Â°Â°Ñ– ÂµÂ·	
+	char name[4][32];  // Â±Ñ”Ğ‘Ğ¦ĞĞ— ĞĞœÑ‘Â§	
+	char date[4][32];  // Â±Ñ”Ğ‘Ğ¦ ÂµĞ¾Â·ĞŸ Ñ–Ğ‡Ğ’Ò
 } MonarchInfo;
 
 typedef struct TMonarchElectionInfo
 {
-	DWORD pid;  // ÅõÇ¥ ÇÑ»ç¶÷ PID
-	DWORD selectedpid; // ÅõÇ¥ ´çÇÑ PID ( ±ºÁÖ Âü°¡ÀÚ )
-	char date[32]; // ÅõÇ¥ ³¯Â¥
+	DWORD pid;  // Ğ•Ñ…Ğ—Ò Ğ—Ğ¡Â»Ğ·Â¶Ñ‡ PID
+	DWORD selectedpid; // Ğ•Ñ…Ğ—Ò Ò‘Ğ·Ğ—Ğ¡ PID ( Â±Ñ”Ğ‘Ğ¦ Ğ’ÑŒÂ°ĞĞĞª )
+	char date[32]; // Ğ•Ñ…Ğ—Ò Ñ–Ğ‡Ğ’Ò
 } MonarchElectionInfo;
 
-// ±ºÁÖ Ãâ¸¶ÀÚ
+// Â±Ñ”Ğ‘Ğ¦ Ğ“Ğ²Ñ‘Â¶ĞĞª
 typedef struct tMonarchCandidacy
 {
 	DWORD pid;
@@ -1386,14 +1386,14 @@ typedef struct tNeedLoginLogInfo
 	DWORD dwPlayerID;
 } TPacketNeedLoginLogInfo;
 
-//µ¶ÀÏ ¼±¹° ¾Ë¸² ±â´É Å×½ºÆ®¿ë ÆĞÅ¶ Á¤º¸
+//ÂµÂ¶ĞĞŸ Ñ˜Â±â„–Â° Ñ•Ğ›Ñ‘Ğ† Â±Ğ²Ò‘Ğ™ Ğ•Ğ§Ğ…Ñ”Ğ–Â®Ñ—Ğ» Ğ–Ğ Ğ•Â¶ Ğ‘Â¤Ñ”Ñ‘
 typedef struct tItemAwardInformer
 {
 	char	login[LOGIN_MAX_LEN + 1];
-	char	command[20];		//¸í·É¾î
-	unsigned int vnum;			//¾ÆÀÌÅÛ
+	char	command[20];		//Ñ‘Ğ½Â·Ğ™Ñ•Ğ¾
+	unsigned int vnum;			//Ñ•Ğ–ĞĞœĞ•Ğ«
 } TPacketItemAwardInfromer;
-// ¼±¹° ¾Ë¸² ±â´É »èÁ¦¿ë ÆĞÅ¶ Á¤º¸
+// Ñ˜Â±â„–Â° Ñ•Ğ›Ñ‘Ğ† Â±Ğ²Ò‘Ğ™ Â»Ğ¸Ğ‘Â¦Ñ—Ğ» Ğ–Ğ Ğ•Â¶ Ğ‘Â¤Ñ”Ñ‘
 typedef struct tDeleteAwardID
 {
 	DWORD dwID;

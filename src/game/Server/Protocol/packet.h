@@ -46,14 +46,14 @@ enum
 	HEADER_CG_ITEM_USE_TO_ITEM			= 60,
 	HEADER_CG_TARGET			 	= 61,
 
-	HEADER_CG_TEXT				= 64,	// @ ·Î ½ÃÀÛµÇ¸é ÅØ½ºÆ®¸¦ ÆÄ½ÌÇÑ´Ù.
+	HEADER_CG_TEXT				= 64,	// @ Â·Ğ Ğ…Ğ“ĞĞ«ÂµĞ—Ñ‘Ğ¹ Ğ•Ğ¨Ğ…Ñ”Ğ–Â®Ñ‘Â¦ Ğ–Ğ”Ğ…ĞœĞ—Ğ¡Ò‘Ğ©.
 	HEADER_CG_WARP				= 65,
 	HEADER_CG_SCRIPT_BUTTON			= 66,
 	HEADER_CG_MESSENGER				= 67,
 
 	HEADER_CG_MALL_CHECKOUT			= 69,
-	HEADER_CG_SAFEBOX_CHECKIN			= 70,	// ¾ÆÀÌÅÛÀ» Ã¢°í¿¡ ³Ö†š´Â´Ù.
-	HEADER_CG_SAFEBOX_CHECKOUT			= 71,	// ¾ÆÀÌÅÛÀ» Ã¢°í·Î ºÎÅÍ »©¿Â´Ù.
+	HEADER_CG_SAFEBOX_CHECKIN			= 70,	// Ñ•Ğ–ĞĞœĞ•Ğ«ĞÂ» Ğ“ÑÂ°Ğ½Ñ—Ğ Ñ–Ğ¦â€ Ñ™Ò‘Ğ’Ò‘Ğ©.
+	HEADER_CG_SAFEBOX_CHECKOUT			= 71,	// Ñ•Ğ–ĞĞœĞ•Ğ«ĞÂ» Ğ“ÑÂ°Ğ½Â·Ğ Ñ”ĞĞ•Ğ Â»Â©Ñ—Ğ’Ò‘Ğ©.
 
 	HEADER_CG_PARTY_INVITE			= 72,
 	HEADER_CG_PARTY_INVITE_ANSWER		= 73,
@@ -283,7 +283,7 @@ enum
 	HEADER_GG_NOTICE				= 4,
 	HEADER_GG_SHUTDOWN				= 5,
 	HEADER_GG_GUILD				= 6,
-	HEADER_GG_DISCONNECT			= 7,	// ´©±º°¡ÀÇ Á¢¼ÓÀ» °­Á¦·Î ²÷À» ¶§
+	HEADER_GG_DISCONNECT			= 7,	// Ò‘Â©Â±Ñ”Â°ĞĞĞ— Ğ‘ÑÑ˜Ğ£ĞÂ» Â°Â­Ğ‘Â¦Â·Ğ Ğ†Ñ‡ĞÂ» Â¶Â§
 	HEADER_GG_SHOUT				= 8,
 	HEADER_GG_SETUP				= 9,
 	HEADER_GG_MESSENGER_ADD                     = 10,
@@ -450,8 +450,8 @@ typedef struct SPacketGGMessengerMobile
 typedef struct SPacketGGFindPosition
 {
 	BYTE header;
-	DWORD dwFromPID; // Àú À§Ä¡·Î ¿öÇÁÇÏ·Á´Â »ç¶÷
-	DWORD dwTargetPID; // Ã£´Â »ç¶÷
+	DWORD dwFromPID; // ĞÑŠ ĞÂ§Ğ”ĞÂ·Ğ Ñ—Ñ†Ğ—Ğ‘Ğ—ĞŸÂ·Ğ‘Ò‘Ğ’ Â»Ğ·Â¶Ñ‡
+	DWORD dwTargetPID; // Ğ“ĞˆÒ‘Ğ’ Â»Ğ·Â¶Ñ‡
 } TPacketGGFindPosition;
 
 typedef struct SPacketGGWarpCharacter
@@ -492,14 +492,14 @@ typedef struct SPacketGGBlockChat
 	long	lBlockDuration;
 } TPacketGGBlockChat;
 
-/* Å¬¶óÀÌ¾ğÆ® Ãø¿¡¼­ º¸³»´Â ÆĞÅ¶ */
+/* Ğ•Â¬Â¶ÑƒĞĞœÑ•Ñ€Ğ–Â® Ğ“ÑˆÑ—ĞÑ˜Â­ Ñ”Ñ‘Ñ–Â»Ò‘Ğ’ Ğ–Ğ Ğ•Â¶ */
 
 typedef struct command_text
 {
 	BYTE	bHeader;
 } TPacketCGText;
 
-/* ·Î±×ÀÎ (1) */
+/* Â·ĞÂ±Ğ§ĞĞ (1) */
 typedef struct command_handshake
 {
 	BYTE	bHeader;
@@ -570,7 +570,7 @@ typedef struct command_player_create_success
 	TSimplePlayer	player;
 } TPacketGCPlayerCreateSuccess;
 
-// °ø°İ
+// Â°ÑˆÂ°Ğ­
 typedef struct command_attack
 {
 	BYTE	bHeader;
@@ -592,7 +592,7 @@ enum EMoveFuncType
 	FUNC_SKILL = 0x80,
 };
 
-// ÀÌµ¿
+// ĞĞœÂµÑ—
 typedef struct command_move
 {
 	BYTE	bHeader;
@@ -611,22 +611,22 @@ typedef struct command_sync_position_element
 	long	lY;
 } TPacketCGSyncPositionElement;
 
-// À§Ä¡ µ¿±âÈ­
-typedef struct command_sync_position	// °¡º¯ ÆĞÅ¶
+// ĞÂ§Ğ”Ğ ÂµÑ—Â±Ğ²Ğ˜Â­
+typedef struct command_sync_position	// Â°ĞÑ”Ğ‡ Ğ–Ğ Ğ•Â¶
 {
 	BYTE	bHeader;
 	WORD	wSize;
 } TPacketCGSyncPosition;
 
-/* Ã¤ÆÃ (3) */
-typedef struct command_chat	// °¡º¯ ÆĞÅ¶
+/* Ğ“Â¤Ğ–Ğ“ (3) */
+typedef struct command_chat	// Â°ĞÑ”Ğ‡ Ğ–Ğ Ğ•Â¶
 {
 	BYTE	header;
 	WORD	size;
 	BYTE	type;
 } TPacketCGChat;
 
-/* ±Ó¼Ó¸» */
+/* Â±Ğ£Ñ˜Ğ£Ñ‘Â» */
 typedef struct command_whisper
 {
 	BYTE	bHeader;
@@ -786,7 +786,7 @@ typedef struct command_quest_confirm
 } TPacketCGQuestConfirm;
 
 /*
- * ¼­¹ö Ãø¿¡¼­ º¸³»´Â ÆĞÅ¶ 
+ * Ñ˜Â­â„–Ñ† Ğ“ÑˆÑ—ĞÑ˜Â­ Ñ”Ñ‘Ñ–Â»Ò‘Ğ’ Ğ–Ğ Ğ•Â¶ 
  */
 typedef struct packet_quest_confirm
 {
@@ -909,7 +909,7 @@ typedef struct packet_add_char
 	BYTE	bAttackSpeed;
 
 	BYTE	bStateFlag;
-	DWORD	dwAffectFlag[2];	// È¿°ú
+	DWORD	dwAffectFlag[2];	// Ğ˜Ñ—Â°ÑŠ
 } TPacketGCCharacterAdd;
 
 typedef struct packet_char_additional_info
@@ -971,7 +971,7 @@ typedef struct packet_del_char
 	DWORD	id;
 } TPacketGCCharacterDelete;
 
-typedef struct packet_chat	// °¡º¯ ÆĞÅ¶
+typedef struct packet_chat	// Â°ĞÑ”Ğ‡ Ğ–Ğ Ğ•Â¶
 {
 	BYTE	header;
 	WORD	size;
@@ -980,7 +980,7 @@ typedef struct packet_chat	// °¡º¯ ÆĞÅ¶
 	BYTE	bEmpire;
 } TPacketGCChat;
 
-typedef struct packet_whisper	// °¡º¯ ÆĞÅ¶
+typedef struct packet_whisper	// Â°ĞÑ”Ğ‡ Ğ–Ğ Ğ•Â¶
 {
 	BYTE	bHeader;
 	WORD	wSize;
@@ -1204,7 +1204,7 @@ typedef struct packet_shop_start
 	struct packet_shop_item	items[SHOP_HOST_ITEM_MAX_NUM];
 } TPacketGCShopStart;
 
-typedef struct packet_shop_start_ex // ´ÙÀ½¿¡ TSubPacketShopTab* shop_tabs ÀÌ µû¶ó¿È.
+typedef struct packet_shop_start_ex // Ò‘Ğ©ĞĞ…Ñ—Ğ TSubPacketShopTab* shop_tabs ĞĞœ ÂµÑ‹Â¶ÑƒÑ—Ğ˜.
 {
 	typedef struct sub_packet_shop_tab 
 	{
@@ -1227,7 +1227,7 @@ typedef struct packet_shop_update_price
 	int				iPrice;
 } TPacketGCShopUpdatePrice;
 
-typedef struct packet_shop	// °¡º¯ ÆĞÅ¶
+typedef struct packet_shop	// Â°ĞÑ”Ğ‡ Ğ–Ğ Ğ•Â¶
 {
 	BYTE        header;
 	WORD	size; 
@@ -1307,7 +1307,7 @@ typedef struct packet_move
 	DWORD		dwDuration;
 } TPacketGCMove;
 
-// ¼ÒÀ¯±Ç
+// Ñ˜Ğ¢ĞĞ‡Â±Ğ—
 typedef struct packet_ownership
 {
 	BYTE		bHeader;
@@ -1315,7 +1315,7 @@ typedef struct packet_ownership
 	DWORD		dwVictimVID;
 } TPacketGCOwnership;
 
-// À§Ä¡ µ¿±âÈ­ ÆĞÅ¶ÀÇ bCount ¸¸Å­ ºÙ´Â ´ÜÀ§
+// ĞÂ§Ğ”Ğ ÂµÑ—Â±Ğ²Ğ˜Â­ Ğ–Ğ Ğ•Â¶ĞĞ— bCount Ñ‘Ñ‘Ğ•Â­ Ñ”Ğ©Ò‘Ğ’ Ò‘Ğ¬ĞÂ§
 typedef struct packet_sync_position_element
 {
 	DWORD	dwVID;
@@ -1323,11 +1323,11 @@ typedef struct packet_sync_position_element
 	long	lY;
 } TPacketGCSyncPositionElement;
 
-// À§Ä¡ µ¿±âÈ­
-typedef struct packet_sync_position	// °¡º¯ ÆĞÅ¶
+// ĞÂ§Ğ”Ğ ÂµÑ—Â±Ğ²Ğ˜Â­
+typedef struct packet_sync_position	// Â°ĞÑ”Ğ‡ Ğ–Ğ Ğ•Â¶
 {
 	BYTE	bHeader;
-	WORD	wSize;	// °³¼ö = (wSize - sizeof(TPacketGCSyncPosition)) / sizeof(TPacketGCSyncPositionElement) 
+	WORD	wSize;	// Â°Ñ–Ñ˜Ñ† = (wSize - sizeof(TPacketGCSyncPosition)) / sizeof(TPacketGCSyncPositionElement) 
 } TPacketGCSyncPosition;
 
 typedef struct packet_fly
@@ -1362,7 +1362,7 @@ typedef struct packet_shoot
 typedef struct packet_duel_start
 {
 	BYTE	header;
-	WORD	wSize;	// DWORD°¡ ¸î°³? °³¼ö = (wSize - sizeof(TPacketGCPVPList)) / 4
+	WORD	wSize;	// DWORDÂ°Ğ Ñ‘Ğ¾Â°Ñ–? Â°Ñ–Ñ˜Ñ† = (wSize - sizeof(TPacketGCPVPList)) / 4
 } TPacketGCDuelStart;
 
 enum EPVPModes
@@ -1378,7 +1378,7 @@ typedef struct packet_pvp
 	BYTE        bHeader;
 	DWORD       dwVIDSrc;
 	DWORD       dwVIDDst;
-	BYTE        bMode;	// 0 ÀÌ¸é ²û, 1ÀÌ¸é ÄÔ
+	BYTE        bMode;	// 0 ĞĞœÑ‘Ğ¹ Ğ†Ñ‹, 1ĞĞœÑ‘Ğ¹ Ğ”Ğ¤
 } TPacketGCPVP;
 
 typedef struct command_use_skill
@@ -1775,7 +1775,7 @@ typedef struct packet_mark_idxlist
 	BYTE    header;
 	DWORD	bufSize;
 	WORD	count;
-	//µÚ¿¡ size * (WORD + WORD)¸¸Å­ µ¥ÀÌÅÍ ºÙÀ½
+	//ÂµĞªÑ—Ğ size * (WORD + WORD)Ñ‘Ñ‘Ğ•Â­ ÂµÒĞĞœĞ•Ğ Ñ”Ğ©ĞĞ…
 } TPacketGCMarkIDXList;
 
 typedef struct packet_mark_block
@@ -1784,7 +1784,7 @@ typedef struct packet_mark_block
 	DWORD	bufSize;
 	BYTE	imgIdx;
 	DWORD	count;
-	// µÚ¿¡ 64 x 48 x ÇÈ¼¿Å©±â(4¹ÙÀÌÆ®) = 12288¸¸Å­ µ¥ÀÌÅÍ ºÙÀ½
+	// ÂµĞªÑ—Ğ 64 x 48 x Ğ—Ğ˜Ñ˜Ñ—Ğ•Â©Â±Ğ²(4â„–Ğ©ĞĞœĞ–Â®) = 12288Ñ‘Ñ‘Ğ•Â­ ÂµÒĞĞœĞ•Ğ Ñ”Ğ©ĞĞ…
 } TPacketGCMarkBlock;
 
 typedef struct command_symbol_upload
@@ -1929,8 +1929,8 @@ typedef struct SPacketGCRefineInformaion
 	DWORD	src_vnum;
 	DWORD	result_vnum;
 	BYTE	material_count;
-	int		cost; // ¼Ò¿ä ºñ¿ë
-	int		prob; // È®·ü
+	int		cost; // Ñ˜Ğ¢Ñ—Ğ´ Ñ”ÑÑ—Ğ»
+	int		prob; // Ğ˜Â®Â·ÑŒ
 	TRefineMaterial materials[REFINE_MATERIAL_MAX_NUM];
 } TPacketGCRefineInformation;
 
@@ -2120,13 +2120,13 @@ typedef struct SPacketGCPanamaPack
 	BYTE	abIV[32];
 } TPacketGCPanamaPack;
 
-//TODO :  ¾Æ¿ì Â¯³ª..°¡º¯ÆĞÅ¶ »çÀÌÁî ¹Ş¾ÆµéÀÏ¼ö ÀÖ°Ô ÆĞÅ¶ ÇÚµé·¯ Refactoring ÇÏÀÚ. 
+//TODO :  Ñ•Ğ–Ñ—Ğ¼ Ğ’Ğ‡Ñ–Ğ„..Â°ĞÑ”Ğ‡Ğ–Ğ Ğ•Â¶ Â»Ğ·ĞĞœĞ‘Ğ¾ â„–Ğ®Ñ•Ğ–ÂµĞ¹ĞĞŸÑ˜Ñ† ĞĞ¦Â°Ğ¤ Ğ–Ğ Ğ•Â¶ Ğ—ĞªÂµĞ¹Â·Ğ‡ Refactoring Ğ—ĞŸĞĞª. 
 typedef struct SPacketGCHybridCryptKeys
 {
 	SPacketGCHybridCryptKeys() : m_pStream(NULL) {}
 	~SPacketGCHybridCryptKeys()
 	{
-		//GCC ¿¡¼± NULL delete ÇØµµ ±¦Âú³ª? ÀÏ´Ü ¾ÈÀüÇÏ°Ô NULL Ã¼Å© ÇÏÀÚ. ( ±Ùµ¥ ÀÌ°Å C++ Ç¥ÁØ¾Æ´Ï¾ú³ª --a )
+		//GCC Ñ—ĞÑ˜Â± NULL delete Ğ—Ğ¨ÂµÂµ Â±Â¦Ğ’ÑŠÑ–Ğ„? ĞĞŸÒ‘Ğ¬ Ñ•Ğ˜ĞÑŒĞ—ĞŸÂ°Ğ¤ NULL Ğ“Ñ˜Ğ•Â© Ğ—ĞŸĞĞª. ( Â±Ğ©ÂµÒ ĞĞœÂ°Ğ• C++ Ğ—ÒĞ‘Ğ¨Ñ•Ğ–Ò‘ĞŸÑ•ÑŠÑ–Ğ„ --a )
 		if( m_pStream )
 		{
 			delete[] m_pStream;
@@ -2159,7 +2159,7 @@ typedef struct SPacketGCHybridCryptKeys
 	}
 
 	BYTE	bHeader;
-	WORD    uDynamicPacketSize; // ºô¾î¸ÔÀ» Å¬¶ó  DynamicPacketHeader ±¸Á¶¶§¹®¿¡ ¸ÂÃçÁà¾ßÇÑ´Ù -_-;
+	WORD    uDynamicPacketSize; // Ñ”Ñ„Ñ•Ğ¾Ñ‘Ğ¤ĞÂ» Ğ•Â¬Â¶Ñƒ  DynamicPacketHeader Â±Ñ‘Ğ‘Â¶Â¶Â§â„–Â®Ñ—Ğ Ñ‘Ğ’Ğ“Ğ·Ğ‘Ğ°Ñ•Ğ¯Ğ—Ğ¡Ò‘Ğ© -_-;
 	int		KeyStreamLen;
 	BYTE*   pDataKeyStream;
 
@@ -2207,7 +2207,7 @@ typedef struct SPacketGCPackageSDB
 	}
 
 	BYTE	bHeader;
-	WORD    uDynamicPacketSize; // ºô¾î¸ÔÀ» Å¬¶ó  DynamicPacketHeader ±¸Á¶¶§¹®¿¡ ¸ÂÃçÁà¾ßÇÑ´Ù -_-;
+	WORD    uDynamicPacketSize; // Ñ”Ñ„Ñ•Ğ¾Ñ‘Ğ¤ĞÂ» Ğ•Â¬Â¶Ñƒ  DynamicPacketHeader Â±Ñ‘Ğ‘Â¶Â¶Â§â„–Â®Ñ—Ğ Ñ‘Ğ’Ğ“Ğ·Ğ‘Ğ°Ñ•Ğ¯Ğ—Ğ¡Ò‘Ğ© -_-;
 	int		iStreamLen;
 	BYTE*   m_pDataSDBStream;
 
@@ -2243,7 +2243,7 @@ typedef struct SPacketGCSpecificEffect
 	char effect_file[MAX_EFFECT_FILE_NAME];
 } TPacketGCSpecificEffect;
 
-// ¿ëÈ¥¼®
+// Ñ—Ğ»Ğ˜ÒÑ˜Â®
 enum EDragonSoulRefineWindowRefineType
 {
 	DragonSoulRefineWindow_UPGRADE,

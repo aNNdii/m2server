@@ -62,7 +62,7 @@ bool CSafebox::Add(DWORD dwPos, LPITEM pkItem)
 
 	pkItem->SetWindow(m_bWindowMode);
 	pkItem->SetCell(m_pkChrOwner, dwPos);
-	pkItem->Save(); // °­Á¦·Î Save¸¦ ºÒ·¯Áà¾ß ÇÑ´Ù.
+	pkItem->Save(); // Â°Â­Ğ‘Â¦Â·Ğ SaveÑ‘Â¦ Ñ”Ğ¢Â·Ğ‡Ğ‘Ğ°Ñ•Ğ¯ Ğ—Ğ¡Ò‘Ğ©.
 	ITEM_MANAGER::instance().FlushDelayedSave(pkItem);
 
 	m_pkGrid->Put(dwPos, 1, pkItem->GetSize());
@@ -141,7 +141,7 @@ bool CSafebox::IsEmpty(DWORD dwPos, BYTE bSize)
 
 void CSafebox::ChangeSize(int iSize)
 {
-	// ÇöÀç »çÀÌÁî°¡ ÀÎÀÚº¸´Ù Å©¸é »çÀÌÁî¸¦ °¡¸¸ µĞ´Ù.
+	// Ğ—Ñ†ĞĞ· Â»Ğ·ĞĞœĞ‘Ğ¾Â°Ğ ĞĞĞĞªÑ”Ñ‘Ò‘Ğ© Ğ•Â©Ñ‘Ğ¹ Â»Ğ·ĞĞœĞ‘Ğ¾Ñ‘Â¦ Â°ĞÑ‘Ñ‘ ÂµĞ Ò‘Ğ©.
 	if (m_iSize >= iSize)
 		return;
 
@@ -189,7 +189,7 @@ bool CSafebox::MoveItem(BYTE bCell, BYTE bDestCell, BYTE count)
 
 		if ((item2 = GetItem(bDestCell)) && item != item2 && item2->IsStackable() &&
 				!IS_SET(item2->GetAntiFlag(), ITEM_ANTIFLAG_STACK) &&
-				item2->GetVnum() == item->GetVnum()) // ÇÕÄ¥ ¼ö ÀÖ´Â ¾ÆÀÌÅÛÀÇ °æ¿ì
+				item2->GetVnum() == item->GetVnum()) // Ğ—Ğ¥Ğ”Ò Ñ˜Ñ† ĞĞ¦Ò‘Ğ’ Ñ•Ğ–ĞĞœĞ•Ğ«ĞĞ— Â°Ğ¶Ñ—Ğ¼
 		{
 			for (int i = 0; i < ITEM_SOCKET_MAX_NUM; ++i)
 				if (item2->GetSocket(i) != item->GetSocket(i))

@@ -54,19 +54,19 @@ void ItemAwardManager::Load(SQLMsg* pMsg)
 		if (row[col])
 		{
 			enhance_strlcpymt(kData->szWhy, row[col], sizeof(kData->szWhy));
-			//°ÔÀÓ Áß¿¡ whyÄİ·ë¿¡ º¯µ¿ÀÌ »ı±â¸é				
-			char* whyStr = kData->szWhy;	//why Äİ·ë ÀĞ±â
-			char cmdStr[100] = "";	//whyÄİ·ë¿¡¼­ ÀĞÀº °ªÀ» ÀÓ½Ã ¹®ÀÚ¿­¿¡ º¹»çÇØµÒ
-			strcpy(cmdStr,whyStr);	//¸í·É¾î ¾ò´Â °úÁ¤¿¡¼­ ÅäÅ«¾²¸é ¿øº»µµ ÅäÅ«È­ µÇ±â ¶§¹®
+			//Â°Ğ¤ĞĞ£ Ğ‘Ğ¯Ñ—Ğ whyĞ”Ğ­Â·Ğ»Ñ—Ğ Ñ”Ğ‡ÂµÑ—ĞĞœ Â»ÑÂ±Ğ²Ñ‘Ğ¹				
+			char* whyStr = kData->szWhy;	//why Ğ”Ğ­Â·Ğ» ĞĞ Â±Ğ²
+			char cmdStr[100] = "";	//whyĞ”Ğ­Â·Ğ»Ñ—ĞÑ˜Â­ ĞĞ ĞÑ” Â°Ğ„ĞÂ» ĞĞ£Ğ…Ğ“ â„–Â®ĞĞªÑ—Â­Ñ—Ğ Ñ”â„–Â»Ğ·Ğ—Ğ¨ÂµĞ¢
+			strcpy(cmdStr,whyStr);	//Ñ‘Ğ½Â·Ğ™Ñ•Ğ¾ Ñ•Ñ‚Ò‘Ğ’ Â°ÑŠĞ‘Â¤Ñ—ĞÑ˜Â­ Ğ•Ğ´Ğ•Â«Ñ•Ğ†Ñ‘Ğ¹ Ñ—ÑˆÑ”Â»ÂµÂµ Ğ•Ğ´Ğ•Â«Ğ˜Â­ ÂµĞ—Â±Ğ² Â¶Â§â„–Â®
 			char command[20] = "";
-			strcpy(command,CClientManager::instance().GetCommand(cmdStr));	// command ¾ò±â
+			strcpy(command,CClientManager::instance().GetCommand(cmdStr));	// command Ñ•Ñ‚Â±Ğ²
 			//sys_err("%d,  %s",pItemAward->dwID,command);
-			if( !(strcmp(command,"GIFT") ))	// command °¡ GIFTÀÌ¸é
+			if( !(strcmp(command,"GIFT") ))	// command Â°Ğ GIFTĞĞœÑ‘Ğ¹
 			{
 				TPacketItemAwardInfromer giftData;
-				strcpy(giftData.login, kData->szLogin);	//·Î±×ÀÎ ¾ÆÀÌµğ º¹»ç
-				strcpy(giftData.command, command);					//¸í·É¾î º¹»ç
-				giftData.vnum = kData->dwVnum;				//¾ÆÀÌÅÛ vnumµµ º¹»ç
+				strcpy(giftData.login, kData->szLogin);	//Â·ĞÂ±Ğ§ĞĞ Ñ•Ğ–ĞĞœÂµÑ€ Ñ”â„–Â»Ğ·
+				strcpy(giftData.command, command);					//Ñ‘Ğ½Â·Ğ™Ñ•Ğ¾ Ñ”â„–Â»Ğ·
+				giftData.vnum = kData->dwVnum;				//Ñ•Ğ–ĞĞœĞ•Ğ« vnumÂµÂµ Ñ”â„–Â»Ğ·
 				CClientManager::instance().ForwardPacket(HEADER_DG_ITEMAWARD_INFORMER,&giftData,sizeof(TPacketItemAwardInfromer));
 			}
 		}

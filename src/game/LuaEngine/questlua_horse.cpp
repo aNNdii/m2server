@@ -68,10 +68,10 @@ namespace quest
 	{
 		LPCHARACTER ch = CQuestManager::instance().GetCurrentCharacterPtr();
 
-		// ¼ÒÈ¯ÇÏ¸é ¸Ö¸®¼­ºÎÅÍ ´Ş·Á¿À´ÂÁö ¿©ºÎ
+		// Ñ˜Ğ¢Ğ˜Ğ‡Ğ—ĞŸÑ‘Ğ¹ Ñ‘Ğ¦Ñ‘Â®Ñ˜Â­Ñ”ĞĞ•Ğ Ò‘Ğ®Â·Ğ‘Ñ—ĞÒ‘Ğ’Ğ‘Ñ† Ñ—Â©Ñ”Ğ
 		bool bFromFar = lua_isboolean(L, 1) ? lua_toboolean(L, 1) : false;
 
-		// ¼ÒÈ¯¼öÀÇ vnum
+		// Ñ˜Ğ¢Ğ˜Ğ‡Ñ˜Ñ†ĞĞ— vnum
 		DWORD horseVnum= lua_isnumber(L, 2) ? lua_tonumber(L, 2) : 0;
 
 		const char* name = lua_isstring(L, 3) ? lua_tostring(L, 3) : 0;
@@ -219,10 +219,10 @@ namespace quest
 
 	int horse_set_name(lua_State* L)
 	{
-		// ¸®ÅÏ°ª
-		// 0 : ¼ÒÀ¯ÇÑ ¸»ÀÌ ¾ø´Ù
-		// 1 : Àß¸øµÈ ÀÌ¸§ÀÌ´Ù
-		// 2 : ÀÌ¸§ ¹Ù²Ù±â ¼º°ø
+		// Ñ‘Â®Ğ•ĞŸÂ°Ğ„
+		// 0 : Ñ˜Ğ¢ĞĞ‡Ğ—Ğ¡ Ñ‘Â»ĞĞœ Ñ•ÑˆÒ‘Ğ©
+		// 1 : ĞĞ¯Ñ‘ÑˆÂµĞ˜ ĞĞœÑ‘Â§ĞĞœÒ‘Ğ©
+		// 2 : ĞĞœÑ‘Â§ â„–Ğ©Ğ†Ğ©Â±Ğ² Ñ˜Ñ”Â°Ñˆ
 
 		if ( lua_isstring(L, -1) != true ) return 0;
 

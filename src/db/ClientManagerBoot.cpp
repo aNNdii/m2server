@@ -243,8 +243,8 @@ bool CClientManager::InitializeShopTable()
 
 	std::auto_ptr<SQLMsg> pkMsg2(CDBManager::instance().DirectQuery(s_szQuery));
 
-	// shopÀÇ vnumÀº ÀÖ´Âµ¥ shop_item ÀÌ ¾øÀ»°æ¿ì... ½ÇÆĞ·Î Ã³¸®µÇ´Ï ÁÖÀÇ ¿ä¸Á.
-	// °íÃ³¾ßÇÒºÎºĞ
+	// shopĞĞ— vnumĞÑ” ĞĞ¦Ò‘Ğ’ÂµÒ shop_item ĞĞœ Ñ•ÑˆĞÂ»Â°Ğ¶Ñ—Ğ¼... Ğ…Ğ—Ğ–Ğ Â·Ğ Ğ“Ñ–Ñ‘Â®ÂµĞ—Ò‘ĞŸ Ğ‘Ğ¦ĞĞ— Ñ—Ğ´Ñ‘Ğ‘.
+	// Â°Ğ½Ğ“Ñ–Ñ•Ğ¯Ğ—Ğ¢Ñ”ĞÑ”Ğ 
 	SQLResult * pRes2 = pkMsg2->Get();
 
 	if (!pRes2->uiNumRows)
@@ -283,7 +283,7 @@ bool CClientManager::InitializeShopTable()
 
 		str_to_number(shop_table->dwNPCVnum, data[col++]);
 
-		if (!data[col])	// ¾ÆÀÌÅÛÀÌ ÇÏ³ªµµ ¾øÀ¸¸é NULLÀÌ ¸®ÅÏ µÇ¹Ç·Î..
+		if (!data[col])	// Ñ•Ğ–ĞĞœĞ•Ğ«ĞĞœ Ğ—ĞŸÑ–Ğ„ÂµÂµ Ñ•ÑˆĞÑ‘Ñ‘Ğ¹ NULLĞĞœ Ñ‘Â®Ğ•ĞŸ ÂµĞ—â„–Ğ—Â·Ğ..
 			continue;
 
 		TShopItemTable * pItem = &shop_table->items[shop_table->byItemCount];
@@ -356,7 +356,7 @@ bool CClientManager::InitializeQuestItemTable()
 			continue;
 		}
 
-		tbl.bType = ITEM_QUEST; // quest_item_proto Å×ÀÌºí¿¡ ÀÖ´Â °ÍµéÀº ¸ğµÎ ITEM_QUEST À¯Çü
+		tbl.bType = ITEM_QUEST; // quest_item_proto Ğ•Ğ§ĞĞœÑ”Ğ½Ñ—Ğ ĞĞ¦Ò‘Ğ’ Â°ĞÂµĞ¹ĞÑ” Ñ‘Ñ€ÂµĞ ITEM_QUEST ĞĞ‡Ğ—ÑŒ
 		tbl.bSize = 1;
 
 		m_vec_itemTable.push_back(tbl);
@@ -418,7 +418,7 @@ bool CClientManager::InitializeItemTable()
 				
 		if (!Set_Proto_Item_Table(item_table, data, localMap))
 		{
-			fprintf(stderr, "¾ÆÀÌÅÛ ÇÁ·ÎÅä Å×ÀÌºí ¼ÂÆÃ ½ÇÆĞ.\n");			
+			fprintf(stderr, "Ñ•Ğ–ĞĞœĞ•Ğ« Ğ—Ğ‘Â·ĞĞ•Ğ´ Ğ•Ğ§ĞĞœÑ”Ğ½ Ñ˜Ğ’Ğ–Ğ“ Ğ…Ğ—Ğ–Ğ .\n");			
 		}
 
 		m_map_itemTableByVnum.insert(std::map<DWORD, TItemTable *>::value_type(item_table->dwVnum, item_table));

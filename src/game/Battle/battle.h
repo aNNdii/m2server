@@ -3,7 +3,7 @@
 
 #include "char.h"
 
-enum EBattleTypes       // »ó´ë¹æ ±âÁØ
+enum EBattleTypes       // Â»ÑƒÒ‘Ð»â„–Ð¶ Â±Ð²Ð‘Ð¨
 {
 	BATTLE_NONE,
 	BATTLE_DAMAGE,
@@ -28,7 +28,7 @@ extern int	battle_count_attackers(LPCHARACTER ch);
 
 extern void	NormalAttackAffect(LPCHARACTER pkAttacker, LPCHARACTER pkVictim);
 
-// Æ¯¼º °ø°Ý
+// Ð–Ð‡Ñ˜Ñ” Â°ÑˆÂ°Ð­
 inline void AttackAffect(LPCHARACTER pkAttacker,
 		LPCHARACTER pkVictim,
 		BYTE att_point,

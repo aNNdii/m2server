@@ -476,7 +476,7 @@ bool CMotion::LoadMobSkillFromFile(const char * c_pszFileName, CMob* pMob, int i
 						continue;
 
 					case MOTION_EVENT_TYPE_SPECIAL_ATTACKING:
-						// ╠╦ ╣╔юлем╢б гоЁ╙ ╤С╟М ╟║а╓
+						// б╠я▒ б╣р░п░п°п∙п²р▒п▓ п≈п÷я√п└ б╤я┐б╟п╫ б╟п▌п▒б╓
 						if (!rkTextFileLoader.SetChildNode("spheredata", 0))
 						{
 							sys_err("Motion: no sphere data %s", c_pszFileName);
