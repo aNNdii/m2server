@@ -23,14 +23,22 @@ add_executable(db ${db_SRCS})
 
 if(WIN32)
     find_library(MYSQL_LIBRARY mysqlclient ${MYSQL_INCLUDE_DIR}/lib)
+    
+    target_link_libraries(db
+        libthecore
+        shared
+        lua
+        ${MYSQL_LIBRARY}
+    )
+
 elseif(UNIX)
     find_library(MYSQL_LIBRARY mysqlclient ${MYSQL_LIBRARIES})
-endif()
 
-target_link_libraries(db
-	libthecore
-	shared
-	lua
-	${MYSQL_LIBRARY}
-	pthread
-)
+    target_link_libraries(db
+        libthecore
+        shared
+        lua
+        ${MYSQL_LIBRARY}
+        pthread
+    )
+endif()
