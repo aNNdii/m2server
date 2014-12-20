@@ -18,6 +18,8 @@
 
 #ifndef __GNUC__
 #include <boost/bind.hpp>
+#elif defined(__clang__)
+#include <boost/bind.hpp>
 #endif
 
 CHARACTER_MANAGER::CHARACTER_MANAGER() :
@@ -646,7 +648,7 @@ struct FuncUpdateAndResetChatCounter
 void CHARACTER_MANAGER::Update(int iPulse)
 {
 	using namespace std;
-#ifdef __GNUC__
+#if defined(__GNUC__) && !defined(__clang__)
 	using namespace __gnu_cxx;
 #endif
 
@@ -659,7 +661,7 @@ void CHARACTER_MANAGER::Update(int iPulse)
 			// ДБЕЧАМіК є№»з
 			CHARACTER_VECTOR v;
 			v.reserve(m_map_pkPCChr.size());
-#ifdef __GNUC__
+#if defined(__GNUC__) && !defined(__clang__)
 			transform(m_map_pkPCChr.begin(), m_map_pkPCChr.end(), back_inserter(v), select2nd<NAME_MAP::value_type>());
 #else
 			transform(m_map_pkPCChr.begin(), m_map_pkPCChr.end(), back_inserter(v), boost::bind(&NAME_MAP::value_type::second, _1));
@@ -686,7 +688,7 @@ void CHARACTER_MANAGER::Update(int iPulse)
 		{
 			CHARACTER_VECTOR v;
 			v.reserve(m_set_pkChrState.size());
-#ifdef __GNUC__
+#if defined(__GNUC__) && !defined(__clang__)
 			transform(m_set_pkChrState.begin(), m_set_pkChrState.end(), back_inserter(v), identity<CHARACTER_SET::value_type>());
 #else
 			v.insert(v.end(), m_set_pkChrState.begin(), m_set_pkChrState.end());
@@ -1086,12 +1088,12 @@ void CHARACTER_MANAGER::FlushPendingDestroy()
 CharacterVectorInteractor::CharacterVectorInteractor(const CHARACTER_SET & r)
 {
 	using namespace std;
-#ifdef __GNUC__
+#if defined(__GNUC__) && !defined(__clang__)
 	using namespace __gnu_cxx;
 #endif
 
 	reserve(r.size());
-#ifdef __GNUC__
+#if defined(__GNUC__) && !defined(__clang__)
 	transform(r.begin(), r.end(), back_inserter(*this), identity<CHARACTER_SET::value_type>());
 #else
 	insert(end(), r.begin(), r.end());
