@@ -49,3 +49,9 @@
 
 #define IN
 #define OUT
+
+#ifdef __clang__
+#ifndef FLT_EPSILON
+	#define FLT_EPSILON __FLT_EPSILON__
+#endif
+#endif

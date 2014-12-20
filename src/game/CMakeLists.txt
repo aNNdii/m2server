@@ -61,6 +61,7 @@ target_link_libraries(game
 	libthecore
 	shared
 	lua
+	pthread
 	${CRYPTOPP_LIBRARY}
 	${MYSQL_LIBRARY}
 	${Boost_LIBRARIES}
