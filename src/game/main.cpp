@@ -72,10 +72,6 @@
 #include "auction_manager.h"
 #endif
 
-#ifndef _WIN32
-#include <gtest/gtest.h>
-#endif
-
 #ifdef USE_STACKTRACE
 #include <execinfo.h>
 #endif

@@ -54,7 +54,7 @@ if(WIN32)
 elseif(UNIX)
     find_library(MYSQL_LIBRARY mysqlclient ${MYSQL_LIBRARIES})
     find_library(CRYPTOPP_LIBRARY libcryptopp.a ${CRYPTOPP_LIBRARY_DIR})
-	find_library(LIBDEVIL_LIBRARY libIL.a libpng.a libtiff.a libmng.a liblcms.a libjpeg.a ${CMAKE_SOURCE_DIR}/src/shared/libdevil/unix/lib)
+    find_library(LIBDEVIL_LIBRARY libIL.a libpng.a libtiff.a libmng.a liblcms.a libjpeg.a ${CMAKE_SOURCE_DIR}/src/shared/libdevil/unix/lib)
 endif()
 
 target_link_libraries(game
@@ -66,6 +66,10 @@ target_link_libraries(game
 	${MYSQL_LIBRARY}
 	${Boost_LIBRARIES}
 	${LIBDEVIL_LIBRARY}
+	jpeg
+	png
+	tiff
+	mng
 )
 
 add_dependencies(game lua)
