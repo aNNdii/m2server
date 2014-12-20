@@ -45,7 +45,7 @@ int g_iItemPriceListTableCacheFlushSeconds = 540;
 // END_OF_MYSHOP_PRICE_LIST
 
 #ifdef __FreeBSD__
-extern const char * _malloc_options;
+extern "C" char *_malloc_options;
 #endif
 
 extern void WriteVersion();
@@ -69,11 +69,10 @@ int main()
  * Fix FreeBSD compile.
  * Is it really needed ?
  */
-/*
 #ifdef __FreeBSD__
-	_malloc_options = "A";
+char *_malloc_options = "A";
 #endif
-*/
+
 
 	CConfig Config;
 	CNetPoller poller;

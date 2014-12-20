@@ -240,7 +240,7 @@ bool WildCaseCmp(const char *w, const char *s)
 		switch(*w)
 		{
 			case '*':
-				if (NULL == w[1])
+				if (w[1] == '\0')
 					return true;
 				{
 					for (size_t i = 0; i <= strlen(s); ++i)
@@ -252,7 +252,7 @@ bool WildCaseCmp(const char *w, const char *s)
 				return false;
 
 			case '?':
-				if (NULL == *s)
+				if (*s == '\0')
 					return false;
 
 				++w;
@@ -266,7 +266,7 @@ bool WildCaseCmp(const char *w, const char *s)
 						return false;
 				}
 
-				if (NULL == *w)
+				if (*w == '\0')
 					return true;
 
 				++w;

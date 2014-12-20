@@ -324,7 +324,7 @@ void config_init(const string& st_localeServiceName)
 			const char * line = two_arguments(value_string, db_host[0], sizeof(db_host[0]), db_user[0], sizeof(db_user[0]));
 			line = two_arguments(line, db_pwd[0], sizeof(db_pwd[0]), db_db[0], sizeof(db_db[0]));
 
-			if (NULL != line[0])
+			if (line[0] != '\0')
 			{
 				char buf[256];
 				one_argument(line, buf, sizeof(buf));
@@ -348,7 +348,7 @@ void config_init(const string& st_localeServiceName)
 			const char * line = two_arguments(value_string, db_host[1], sizeof(db_host[1]), db_user[1], sizeof(db_user[1]));
 			line = two_arguments(line, db_pwd[1], sizeof(db_pwd[1]), db_db[1], sizeof(db_db[1]));
 
-			if (NULL != line[0])
+			if (line[0] != '\0')
 			{
 				char buf[256];
 				one_argument(line, buf, sizeof(buf));
@@ -372,7 +372,7 @@ void config_init(const string& st_localeServiceName)
 			const char * line = two_arguments(value_string, log_host, sizeof(log_host), log_user, sizeof(log_user));
 			line = two_arguments(line, log_pwd, sizeof(log_pwd), log_db, sizeof(log_db));
 
-			if (NULL != line[0])
+			if (line[0] != '\0')
 			{
 				char buf[256];
 				one_argument(line, buf, sizeof(buf));
