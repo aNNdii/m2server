@@ -2602,10 +2602,19 @@ bool CHARACTER::UseSkill(DWORD dwVnum, LPCHARACTER pkVictim, bool bUseGrandMaste
 
 	if (false == m_bDisableCooltime)
 	{
+		DWORD vid;
+
+		//(NULL != pkVictim && SKILL_HORSE_WILDATTACK != dwVnum) ? pkVictim->GetVID() : NULL;
+		// in libc++ throw :
+		//(void) (true ? nullptr : A()); // expected-error{{non-pointer operand type 'A' incompatible with nullptr}}
+
+		if (NULL != pkVictim && SKILL_HORSE_WILDATTACK != dwVnum)
+			vid = pkVictim->GetVID();
+
 		if (false == 
 				m_SkillUseInfo[dwVnum].UseSkill(
 					bUseGrandMaster,
-				   	(NULL != pkVictim && SKILL_HORSE_WILDATTACK != dwVnum) ? pkVictim->GetVID() : NULL,
+				   	vid,
 				   	ComputeCooltime(iCooltime * 1000),
 				   	iSplashCount,
 				   	lMaxHit))
