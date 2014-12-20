@@ -243,18 +243,18 @@ namespace quest
 
 		if (!npc || npc->IsPC())
 		{
-			lua_pushboolean(L, TRUE);
+			lua_pushboolean(L, true);
 			return 1;
 		}
 
 		if (npc->GetQuestNPCID() == 0 || npc->GetQuestNPCID() == ch->GetPlayerID())
 		{
 			npc->SetQuestNPCID(ch->GetPlayerID());
-			lua_pushboolean(L, TRUE);
+			lua_pushboolean(L, true);
 		}
 		else
 		{
-			lua_pushboolean(L, FALSE);
+			lua_pushboolean(L, false);
 		}
 
 		return 1;
