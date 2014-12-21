@@ -6,10 +6,10 @@ file(GLOB_RECURSE sources_localdir *.cpp *.c *.h)
 
 # If not FreeBSD
 if (NOT FREEBSD)
-    list(REMOVE_ITEM sources_localdir ${CMAKE_CURRENT_SOURCE_DIR}/FileMonitor_FreeBSD.h)
-    list(REMOVE_ITEM sources_localdir ${CMAKE_CURRENT_SOURCE_DIR}/FileMonitor_FreeBSD.cpp)
+	list(REMOVE_ITEM sources_localdir ${CMAKE_CURRENT_SOURCE_DIR}/FileMonitor_FreeBSD.h)
+	list(REMOVE_ITEM sources_localdir ${CMAKE_CURRENT_SOURCE_DIR}/FileMonitor_FreeBSD.cpp)
 endif()
-
+	
 SET(game_SRCS
 	${game_SRCS}
 	${sources_localdir}
@@ -47,9 +47,10 @@ include_directories(
 add_executable(game ${game_SRCS})
 
 if(WIN32)
-    find_library(MYSQL_LIBRARY mysqlclient ${MYSQL_INCLUDE_DIR}/lib)
-    find_library(CRYPTOPP_LIBRARY cryptlib ${CRYPTOPP_LIBRARY_DIR})
-    find_library(LIBDEVIL_LIBRARY DevIL-1.7.8 ${CMAKE_SOURCE_DIR}/src/shared/libdevil/win32/lib)
+	find_library(MYSQL_LIBRARY mysqlclient ${MYSQL_INCLUDE_DIR}/lib)
+	find_library(CRYPTOPP_LIBRARY cryptlib ${CRYPTOPP_LIBRARY_DIR})
+	find_library(LIBDEVIL_LIBRARY DevIL-1.7.8 ${CMAKE_SOURCE_DIR}/src/shared/libdevil/win32/lib)
+
 	include_directories(${CMAKE_SOURCE_DIR}/src/shared/libdevil)
 
 	target_link_libraries(
@@ -67,7 +68,7 @@ elseif(UNIX)
 		find_library(MYSQL_LIBRARY mysql ${MYSQL_LIBRARIES})
 	else()
 		find_library(MYSQL_LIBRARY mysqlclient ${MYSQL_LIBRARIES})
-    endif()
+	endif()
 
 	find_library(CRYPTOPP_LIBRARY libcryptopp.a ${CRYPTOPP_LIBRARY_DIR})
 	find_package(DevIL REQUIRED)
@@ -95,6 +96,5 @@ elseif(UNIX)
 		mng
 	)
 endif()
-
 
 add_dependencies(game lua)
