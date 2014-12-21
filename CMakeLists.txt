@@ -62,17 +62,20 @@ if(WIN32)
 elseif(UNIX)
     set(OPENSSL_EXPECTED_VERSION 1.0.1)
     find_package(OpenSSL REQUIRED)
-    
-    set(CRYPTOPP_INCLUDE_DIRS /usr/include)
-    set(CRYPTOPP_LIBRARY_DIR /usr/lib)
 
-    if (FREEBSD)
-        set(MYSQL_INCLUDE_DIR /usr/local/include)
-        set(MYSQL_LIBRARIES /usr/local/lib)
-    else()
-        set(MYSQL_INCLUDE_DIR /usr/include)
-        set(MYSQL_LIBRARIES /usr/lib)
-    endif()
+	if(FREEBSD)
+		set(GENERIC_INCLUDE /usr/local/include)
+		set(GENERIC_LIBRARY /usr/local/lib)
+	else()
+		set(GENERIC_INCLUDE /usr/include)
+		set(GENERIC_LIBRARY /usr/lib)
+	endif()
+
+	set(CRYPTOPP_INCLUDE_DIRS ${GENERIC_INCLUDE})
+	set(CRYPTOPP_LIBRARY_DIR ${GENERIC_LIBRARY})
+
+    set(MYSQL_INCLUDE_DIR ${GENERIC_INCLUDE})
+    set(MYSQL_LIBRARIES ${GENERIC_LIBRARY})
 endif()
 
 # Boost
