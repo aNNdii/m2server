@@ -527,12 +527,6 @@ int start(int argc, char **argv)
 #if defined(__FreeBSD__) && defined(DEBUG_ALLOC)
 	_malloc_message = WriteMallocMessage;
 #endif
-#ifdef ENABLE_LIMIT_TIME
-	if ((unsigned)get_global_time() >= GLOBAL_LIMIT_TIME)
-	{
-		return 0;
-	}
-#endif
 
 	while ((ch = getopt(argc, argv, "npverltI")) != -1)
 	{
@@ -636,8 +630,6 @@ int start(int argc, char **argv)
 	main_fdw = fdwatch_new(4096);
 
 	fprintf(stderr, "PUBLIC_IP: %s\n", g_szPublicIP);
-	fprintf(stderr, "PUBLIC_IP: %s\n", g_szPublicIP);
-	fprintf(stderr, "INTERNAL_IP: %s\n", g_szInternalIP);
 	fprintf(stderr, "INTERNAL_IP: %s\n", g_szInternalIP);
 
 	if ((tcp_socket = socket_tcp_bind(g_szPublicIP, mother_port)) == INVALID_SOCKET)
