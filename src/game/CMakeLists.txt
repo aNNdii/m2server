@@ -94,6 +94,10 @@ elseif(UNIX)
 		png
 		tiff
 		mng
+		jbig
+		aa
+		IexMath-2_2
+		Iex-2_2
 	)
 endif()
 
