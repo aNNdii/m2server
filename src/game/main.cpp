@@ -340,10 +340,16 @@ int main(int argc, char **argv)
 	DebugAllocator::StaticSetUp();
 #endif
 
+	fprintf(stdout, "Test stdout");
+	fprintf(stderr, "Before DevIL Initializing");
 	ilInit(); // DevIL Initialize
+	fprintf(stderr, "After DevIL Initializing");
 
+	fprintf(stderr, "Before ASCII Art screen");
 	WriteVersion();
+	fprintf(stderr, "After ASCII Art screen");
 	
+	fprintf(stderr, "Before some variable declaration");
 	SECTREE_MANAGER	sectree_manager;
 	CHARACTER_MANAGER	char_manager;
 	ITEM_MANAGER	item_manager;
@@ -390,46 +396,75 @@ int main(int argc, char **argv)
 
 	CSpeedServerManager SSManager;
 	DSManager dsManager;
+	fprintf(stderr, "After some variable declaration");
 
+	fprintf(stderr, "Before auction Initializing");
 #ifdef __AUCTION__
 	AuctionManager auctionManager;
 #endif
+	fprintf(stderr, "After auction Initializing");
 
+	fprintf(stderr, "Before start method");
 	if (!start(argc, argv)) {
 		CleanUpForEarlyExit();
 		return 0;
 	}
+	fprintf(stderr, "After start method");
 
 	quest::CQuestManager quest_manager;
 
+	fprintf(stderr, "Before quest Initializing");
 	if (!quest_manager.Initialize()) {
 		CleanUpForEarlyExit();
 		return 0;
 	}
+	fprintf(stderr, "After quest Initializing");
 
+	fprintf(stderr, "Before MessengerManager Initializing");
 	MessengerManager::instance().Initialize();
+	fprintf(stderr, "After MessengerManager Initializing");
+	fprintf(stderr, "Before CGuildManager Initializing");
 	CGuildManager::instance().Initialize();
+	fprintf(stderr, "After CGuildManager Initializing");
+	fprintf(stderr, "Before fishing Initializing");
 	fishing::Initialize();
+	fprintf(stderr, "After fishing Initializing");
+	fprintf(stderr, "Before OXEvent_manager Initializing");
 	OXEvent_manager.Initialize();
+	fprintf(stderr, "After OXEvent_manager Initializing");
+	fprintf(stderr, "Before CSpeedServerManager Initializing");
 	if (speed_server)
 		CSpeedServerManager::instance().Initialize();
+	fprintf(stderr, "After CSpeedServerManager Initializing");
 
+	fprintf(stderr, "Before Cube_init Initializing");
 	Cube_init();
+	fprintf(stderr, "After Cube_init Initializing");
+	fprintf(stderr, "Before Blend_Item_init Initializing");
 	Blend_Item_init();
+	fprintf(stderr, "After Blend_Item_init Initializing");
+	fprintf(stderr, "Before ani_init Initializing");
 	ani_init();
+	fprintf(stderr, "After ani_init Initializing");
+	fprintf(stderr, "Before PanamaLoad");
 	PanamaLoad();
+	fprintf(stderr, "After PanamaLoad");
 
+	fprintf(stderr, "Before TrafficProfiler Initializing");
 	if ( g_bTrafficProfileOn )
 		TrafficProfiler::instance().Initialize( TRAFFIC_PROFILE_FLUSH_CYCLE, "ProfileLog" );
+	fprintf(stderr, "Before TrafficProfiler Initializing");
 
 	// Client PackageCrypt
 
 	//TODO : make it config
+	fprintf(stderr, "Before LoadClientPackageCryptInfo");
 	const std::string strPackageCryptInfoDir = "package/";
 	if( !desc_manager.LoadClientPackageCryptInfo( strPackageCryptInfoDir.c_str() ) )
 	{
 		sys_err("Failed to Load ClientPackageCryptInfo File(%s)", strPackageCryptInfoDir.c_str());	
 	}
+	fprintf(stderr, "After LoadClientPackageCryptInfo");
 
 #if defined (__FreeBSD__) && defined(__FILEMONITOR__)
 	PFN_FileChangeListener pPackageNotifyFunc =  &(DESC_MANAGER::NotifyClientPackageFileChanged);
@@ -525,7 +560,9 @@ int start(int argc, char **argv)
 
 	//_malloc_options = "A";
 #if defined(__FreeBSD__) && defined(DEBUG_ALLOC)
-	_malloc_message = WriteMallocMessage;
+	//_malloc_message = WriteMallocMessage;
+	extern "C" char *_malloc_options;
+	char *_malloc_options = "A";
 #endif
 #ifdef ENABLE_LIMIT_TIME
 	if ((unsigned)get_global_time() >= GLOBAL_LIMIT_TIME)
