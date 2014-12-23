@@ -181,7 +181,7 @@ protected:
 protected:
 	void		MapLocations(const char * c_pData);
 	void		LoginSuccess(DWORD dwHandle, const char *data);
-	void		PlayerCreateFailure(LPDESC d, BYTE bType);	// 0 = ÀÏ¹İ ½ÇÆĞ 1 = ÀÌ¹Ì ÀÖÀ½
+	void		PlayerCreateFailure(LPDESC d, BYTE bType);	// 0 = ĞĞŸâ„–Ğ­ Ğ…Ğ—Ğ–Ğ  1 = ĞĞœâ„–Ğœ ĞĞ¦ĞĞ…
 	void		PlayerDeleteSuccess(LPDESC d, const char * data);
 	void		PlayerDeleteFail(LPDESC d);
 	void		PlayerLoad(LPDESC d, const char* data);
@@ -272,10 +272,10 @@ protected:
 	void		BlockException(TPacketBlockException * data);
 
 	// MYSHOP_PRICE_LIST
-	/// ¾ÆÀÌÅÛ °¡°İÁ¤º¸ ¸®½ºÆ® ¿äÃ»¿¡ ´ëÇÑ ÀÀ´ä ÆĞÅ¶(HEADER_DG_MYSHOP_PRICELIST_RES) Ã³¸®ÇÔ¼ö
+	/// Ñ•Ğ–ĞĞœĞ•Ğ« Â°ĞÂ°Ğ­Ğ‘Â¤Ñ”Ñ‘ Ñ‘Â®Ğ…Ñ”Ğ–Â® Ñ—Ğ´Ğ“Â»Ñ—Ğ Ò‘Ğ»Ğ—Ğ¡ ĞĞÒ‘Ğ´ Ğ–Ğ Ğ•Â¶(HEADER_DG_MYSHOP_PRICELIST_RES) Ğ“Ñ–Ñ‘Â®Ğ—Ğ¤Ñ˜Ñ†
 	/**
-	* @param	d ¾ÆÀÌÅÛ °¡°İÁ¤º¸ ¸®½ºÆ®¸¦ ¿äÃ»ÇÑ ÇÃ·¹ÀÌ¾îÀÇ descriptor
-	* @param	p ÆĞÅ¶µ¥ÀÌÅÍÀÇ Æ÷ÀÎÅÍ
+	* @param	d Ñ•Ğ–ĞĞœĞ•Ğ« Â°ĞÂ°Ğ­Ğ‘Â¤Ñ”Ñ‘ Ñ‘Â®Ğ…Ñ”Ğ–Â®Ñ‘Â¦ Ñ—Ğ´Ğ“Â»Ğ—Ğ¡ Ğ—Ğ“Â·â„–ĞĞœÑ•Ğ¾ĞĞ— descriptor
+	* @param	p Ğ–Ğ Ğ•Â¶ÂµÒĞĞœĞ•ĞĞĞ— Ğ–Ñ‡ĞĞĞ•Ğ
 	*/
 	void		MyshopPricelistRes( LPDESC d, const TPacketMyshopPricelistHeader* p );
 	// END_OF_MYSHOP_PRICE_LIST
@@ -285,7 +285,7 @@ protected:
 	//END_RELOAD_ADMIN
 
 	void		DetailLog(const TPacketNeedLoginLogInfo* info);
-	// µ¶ÀÏ ¼±¹° ±â´É Å×½ºÆ®
+	// ÂµÂ¶ĞĞŸ Ñ˜Â±â„–Â° Â±Ğ²Ò‘Ğ™ Ğ•Ğ§Ğ…Ñ”Ğ–Â®
 	void		ItemAwardInformer(TPacketItemAwardInfromer* data);
 
 	void		RespondChannelStatus(LPDESC desc, const char* pcData);

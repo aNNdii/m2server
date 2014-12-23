@@ -16,23 +16,23 @@ public:
 	bool	ReadDragonSoulTableFile(const char * c_pszFileName);
 
 	void	GetDragonSoulInfo(DWORD dwVnum, OUT BYTE& bType, OUT BYTE& bGrade, OUT BYTE& bStep, OUT BYTE& bRefine) const;
-	// fixme : titempos��
+	// fixme : titempos·О
 	WORD	GetBasePosition(const LPITEM pItem) const;
 	bool	IsValidCellForThisItem(const LPITEM pItem, const TItemPos& Cell) const;
 	int		GetDuration(const LPITEM pItem) const;
 	
-	// ��ȥ���� �޾Ƽ� Ư�� ����� �����ϴ� �Լ�
+	// їлИҐј®А» №ЮѕЖј­ ЖЇБ¤ їлЅЙА» ГЯГвЗПґВ ЗФјц
 	bool	ExtractDragonHeart(LPCHARACTER ch, LPITEM pItem, LPITEM pExtractor = NULL);
 
-	// Ư�� ��ȥ��(pItem)�� ���â���� ������ ���� ���� ���θ� �����ϰ�, 
-	// ���н� �λ깰�� �ִ� �Լ�.(�λ깰�� dragon_soul_table.txt�� ����)
-	// DestCell�� invalid�� ���� ������ ���� ��, ��ȥ���� �� ������ �ڵ� �߰�.
-	// ���� ��, ��ȥ��(pItem)�� delete��.
-	// ����������� �ִٸ� ���� ���� Ȯ���� pExtractor->GetValue(0)%��ŭ ������.
-	// �λ깰�� ������ �ڵ� �߰�.
+	// ЖЇБ¤ їлИҐј®(pItem)А» АеєсГўїЎј­ Б¦°ЕЗТ ¶§їЎ јє°ш ї©єОё¦ °бБ¤ЗП°н, 
+	// ЅЗЖРЅГ єО»к№°А» БЦґВ ЗФјц.(єО»к№°Ає dragon_soul_table.txtїЎ Б¤АЗ)
+	// DestCellїЎ invalidЗС °ЄА» іЦАёёй јє°ш ЅГ, їлИҐј®А» єу °ш°ЈїЎ АЪµї ГЯ°Ў.
+	// ЅЗЖР ЅГ, їлИҐј®(pItem)Ає deleteµК.
+	// ГЯГвѕЖАМЕЫАМ АЦґЩёй ГЯГв јє°ш И®·ьАМ pExtractor->GetValue(0)%ёёЕ­ Бх°ЎЗФ.
+	// єО»к№°Ає ѕрБ¦іЄ АЪµї ГЯ°Ў.
 	bool	PullOut(LPCHARACTER ch, TItemPos DestCell, IN OUT LPITEM& pItem, LPITEM pExtractor = NULL);
 
-	// ��ȥ�� ���׷��̵� �Լ�
+	// їлИҐј® ѕч±Ч·№АМµе ЗФјц
 	bool	DoRefineGrade(LPCHARACTER ch, TItemPos (&aItemPoses)[DRAGON_SOUL_REFINE_GRID_SIZE]);
 	bool	DoRefineStep(LPCHARACTER ch, TItemPos (&aItemPoses)[DRAGON_SOUL_REFINE_GRID_SIZE]);
 	bool	DoRefineStrength(LPCHARACTER ch, TItemPos (&aItemPoses)[DRAGON_SOUL_REFINE_GRID_SIZE]);
@@ -47,7 +47,7 @@ public:
 private:
 	void	SendRefineResultPacket(LPCHARACTER ch, BYTE bSubHeader, const TItemPos& pos);
 
-	// ĳ������ ��ȥ�� ���� ���캸��, Ȱ��ȭ �� ��ȥ���� ���ٸ�, ĳ������ ��ȥ�� Ȱ�� ���¸� off ��Ű�� �Լ�.
+	// ДіёЇЕНАЗ їлИҐј® µ¦А» »мЖмєё°н, И°јєИ­ µИ їлИҐј®АМ ѕшґЩёй, ДіёЇЕНАЗ їлИҐј® И°јє »уЕВё¦ off ЅГЕ°ґВ ЗФјц.
 	void	RefreshDragonSoulState(LPCHARACTER ch);
 
 	DWORD	MakeDragonSoulVnum(BYTE bType, BYTE grade, BYTE step, BYTE refine);

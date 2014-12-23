@@ -77,7 +77,7 @@ bool CInputProcessor::Process(LPDESC lpDesc, const void * c_pvOrig, int iBytes, 
 		BYTE bHeader = (BYTE) *(c_pData);
 		const char * c_pszName;
 
-		if (bHeader == 0) // ¾ÏÈ£È­ Ã³¸®°¡ ÀÖÀ¸¹Ç·Î 0¹ø Çì´õ´Â ½ºÅµÇÑ´Ù.
+		if (bHeader == 0) // Ñ•ÐŸÐ˜ÐˆÐ˜Â­ Ð“Ñ–Ñ‘Â®Â°ÐŽ ÐÐ¦ÐÑ‘â„–Ð—Â·Ðž 0â„–Ñˆ Ð—Ð¼Ò‘Ñ…Ò‘Ð’ Ð…Ñ”Ð•ÂµÐ—Ð¡Ò‘Ð©.
 			iPacketLen = 1;
 		else if (!m_pPacketInfo->Get(bHeader, &iPacketLen, &c_pszName))
 		{
@@ -261,7 +261,7 @@ ACMD(do_block_chat);
 
 int CInputHandshake::Analyze(LPDESC d, BYTE bHeader, const char * c_pData)
 {
-	if (bHeader == 10) // ¿£ÅÍ´Â ¹«½Ã
+	if (bHeader == 10) // Ñ—ÐˆÐ•ÐÒ‘Ð’ â„–Â«Ð…Ð“
 		return 0;
 
 	if (bHeader == HEADER_CG_TEXT)
@@ -269,7 +269,7 @@ int CInputHandshake::Analyze(LPDESC d, BYTE bHeader, const char * c_pData)
 		++c_pData;
 		const char * c_pSep;
 
-		if (!(c_pSep = strchr(c_pData, '\n')))	// \nÀ» Ã£´Â´Ù.
+		if (!(c_pSep = strchr(c_pData, '\n')))	// \nÐÂ» Ð“ÐˆÒ‘Ð’Ò‘Ð©.
 			return -1;
 
 		if (*(c_pSep - 1) == '\r')
@@ -368,7 +368,7 @@ int CInputHandshake::Analyze(LPDESC d, BYTE bHeader, const char * c_pData)
 		else if (!stBuf.compare(0,15,"DELETE_AWARDID "))
 			{
 				char szTmp[64];
-				std::string msg = stBuf.substr(15,26);	// item_awardÀÇ id¹üÀ§?
+				std::string msg = stBuf.substr(15,26);	// item_awardÐÐ— idâ„–ÑŒÐÂ§?
 				
 				TPacketDeleteAwardID p;
 				p.dwID = (DWORD)(atoi(msg.c_str()));
@@ -384,7 +384,7 @@ int CInputHandshake::Analyze(LPDESC d, BYTE bHeader, const char * c_pData)
 			
 			if (d->IsAdminMode())
 			{
-				// ¾îµå¹Î ¸í·Éµé
+				// Ñ•Ð¾ÂµÐµâ„–Ðž Ñ‘Ð½Â·Ð™ÂµÐ¹
 				if (!stBuf.compare(0, 7, "NOTICE "))
 				{
 					std::string msg = stBuf.substr(7, 50);
@@ -532,7 +532,7 @@ dev_log(LOG_DEB0, "DC : '%s'", msg.c_str());
 					std::string strPrivEmpire;
 					is >> strPrivEmpire >> empire >> type >> value >> duration;
 
-					// ÃÖ´ëÄ¡ 10¹è
+					// Ð“Ð¦Ò‘Ð»Ð”ÐŽ 10â„–Ð¸
 					value = MINMAX(0, value, 1000);
 					stResult = "PRIV_EMPIRE FAIL";
 
@@ -547,7 +547,7 @@ dev_log(LOG_DEB0, "DC : '%s'", msg.c_str());
 						{
 							stResult = "PRIV_EMPIRE SUCCEED";
 
-							// ½Ã°£ ´ÜÀ§·Î º¯°æ
+							// Ð…Ð“Â°Ðˆ Ò‘Ð¬ÐÂ§Â·Ðž Ñ”Ð‡Â°Ð¶
 							duration = duration * (60 * 60);
 
 							sys_log(0, "_give_empire_privileage(empire=%d, type=%d, value=%d, duration=%d) by web", 
@@ -582,13 +582,13 @@ dev_log(LOG_DEB0, "DC : '%s'", msg.c_str());
 	{
 		if (!guild_mark_server)
 		{
-			// ²÷¾î¹ö·Á! - ¸¶Å© ¼­¹ö°¡ ¾Æ´Ñµ¥ ¸¶Å©¸¦ ¿äÃ»ÇÏ·Á°í?
+			// Ð†Ñ‡Ñ•Ð¾â„–Ñ†Â·Ð‘! - Ñ‘Â¶Ð•Â© Ñ˜Â­â„–Ñ†Â°ÐŽ Ñ•Ð–Ò‘Ð¡ÂµÒ Ñ‘Â¶Ð•Â©Ñ‘Â¦ Ñ—Ð´Ð“Â»Ð—ÐŸÂ·Ð‘Â°Ð½?
 			sys_err("Guild Mark login requested but i'm not a mark server!");
 			d->SetPhase(PHASE_CLOSE);
 			return 0;
 		}
 
-		// ¹«Á¶°Ç ÀÎÁõ --;
+		// â„–Â«Ð‘Â¶Â°Ð— ÐÐžÐ‘Ñ… --;
 		sys_log(0, "MARK_SERVER: Login");
 		d->SetPhase(PHASE_LOGIN);
 		return 0;

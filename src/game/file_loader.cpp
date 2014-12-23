@@ -48,7 +48,7 @@ bool CMemoryTextFileLoader::SplitLine(DWORD dwLine, std::vector<std::string>* ps
 
 		pstTokenVector->push_back(c_rstLine.substr(beginPos, endPos - beginPos));
 
-		// �߰� �ڵ�. �ǵڿ� ���� �ִ� ��츦 üũ�Ѵ�. - [levites]
+		// ГЯ°Ў ДЪµе. ёЗµЪїЎ ЕЗАМ АЦґВ °жїмё¦ ГјЕ©ЗСґЩ. - [levites]
 		if (int(c_rstLine.find_first_not_of(c_szDelimeter, basePos)) < 0)
 			break;
 	} while (basePos < c_rstLine.length());

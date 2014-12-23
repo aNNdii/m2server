@@ -1,8 +1,8 @@
 /*
  *    Filename: log.c
- * Description: local log file °ü·Ã
+ * Description: local log file Â°ÑŒÂ·Ð“
  *
- *      Author: ºñ¿± aka. Cronan
+ *      Author: Ñ”ÑÑ—Â± aka. Cronan
  */
 #define __LIBTHECORE__
 #include "stdafx.h"
@@ -119,7 +119,7 @@ void _sys_err(const char *func, int line, const char *format, ...)
 
 
 
-	char buf[1024 + 2]; // \nÀ» ºÙÀÌ±â À§ÇØ..
+	char buf[1024 + 2]; // \nÐÂ» Ñ”Ð©ÐÐœÂ±Ð² ÐÂ§Ð—Ð¨..
 	int len;
 
 	if (!log_file_err)
@@ -138,11 +138,11 @@ void _sys_err(const char *func, int line, const char *format, ...)
 
 	strcat(buf, "\n");
 
-	// log_file_err ¿¡ Ãâ·Â
+	// log_file_err Ñ—ÐŽ Ð“Ð²Â·Ð’
 	fputs(buf, log_file_err->fp);
 	fflush(log_file_err->fp);
 
-	// log_file_sys ¿¡µµ Ãâ·Â
+	// log_file_sys Ñ—ÐŽÂµÂµ Ð“Ð²Â·Ð’
 	fputs(buf, log_file_sys->fp);
 	fflush(log_file_sys->fp);
 }
@@ -153,7 +153,7 @@ void _sys_err(const char *func, int line, const char *format, ...)
 	time_t ct = time(0);  
 	char *time_s = asctime(localtime(&ct));
 
-	char buf[1024 + 2]; // \nÀ» ºÙÀÌ±â À§ÇØ..
+	char buf[1024 + 2]; // \nÐÂ» Ñ”Ð©ÐÐœÂ±Ð² ÐÂ§Ð—Ð¨..
 	int len;
 
 	if (!log_file_err)
@@ -172,11 +172,11 @@ void _sys_err(const char *func, int line, const char *format, ...)
 
 	strcat(buf, "\n");
 
-	// log_file_err ¿¡ Ãâ·Â
+	// log_file_err Ñ—ÐŽ Ð“Ð²Â·Ð’
 	fputs(buf, log_file_err->fp);
 	fflush(log_file_err->fp);
 
-	// log_file_sys ¿¡µµ Ãâ·Â
+	// log_file_sys Ñ—ÐŽÂµÂµ Ð“Ð²Â·Ð’
 	fputs(buf, log_file_sys->fp);
 	fflush(log_file_sys->fp);
 
@@ -222,7 +222,7 @@ void sys_log(unsigned int bit, const char *format, ...)
 	}
 
 #ifndef _WIN32
-	// log_levelÀÌ 1 ÀÌ»óÀÏ °æ¿ì¿¡´Â Å×½ºÆ®ÀÏ °æ¿ì°¡ ¸¹À¸´Ï stdout¿¡µµ Ãâ·ÂÇÑ´Ù.
+	// log_levelÐÐœ 1 ÐÐœÂ»ÑƒÐÐŸ Â°Ð¶Ñ—Ð¼Ñ—ÐŽÒ‘Ð’ Ð•Ð§Ð…Ñ”Ð–Â®ÐÐŸ Â°Ð¶Ñ—Ð¼Â°ÐŽ Ñ‘â„–ÐÑ‘Ò‘ÐŸ stdoutÑ—ÐŽÂµÂµ Ð“Ð²Â·Ð’Ð—Ð¡Ò‘Ð©.
 	if (log_level_bits > 1)
 	{
 #endif
@@ -303,7 +303,7 @@ void log_file_check(LPLOGFILE logfile)
 {
 	struct stat	sb;
 
-	// ÆÄÀÏÀÌ ¾øÀ¸¹Ç·Î ´Ù½Ã ¿¬´Ù.
+	// Ð–Ð”ÐÐŸÐÐœ Ñ•ÑˆÐÑ‘â„–Ð—Â·Ðž Ò‘Ð©Ð…Ð“ Ñ—Â¬Ò‘Ð©.
 	if (stat(logfile->filename, &sb) != 0 && errno == ENOENT)
 	{
 		fclose(logfile->fp);
@@ -443,10 +443,10 @@ void log_file_rotate(LPLOGFILE logfile)
 		sys_log(0, "SYSTEM: LOG ROTATE (%04d-%02d-%02d %d)", 
 				curr_tm.tm_year + 1900, curr_tm.tm_mon + 1, curr_tm.tm_mday, logfile->last_hour);
 
-		// ·Î±× ÆÄÀÏÀ» ´Ý°í
+		// Â·ÐžÂ±Ð§ Ð–Ð”ÐÐŸÐÂ» Ò‘Ð­Â°Ð½
 		fclose(logfile->fp);
 
-		// ¿Å±ä´Ù.
+		// Ñ—Ð•Â±Ð´Ò‘Ð©.
 #ifndef _WIN32
 		snprintf(system_cmd, 128, "mv %s %s/%s.%02d", logfile->filename, dir, logfile->filename, logfile->last_hour);
 #else
@@ -454,10 +454,10 @@ void log_file_rotate(LPLOGFILE logfile)
 #endif
 		system(system_cmd);
 
-		// ¸¶Áö¸· ÀúÀå½Ã°£ ÀúÀå
+		// Ñ‘Â¶Ð‘Ñ†Ñ‘Â· ÐÑŠÐÐµÐ…Ð“Â°Ðˆ ÐÑŠÐÐµ
 		logfile->last_hour = curr_tm.tm_hour;
 
-		// ·Î±× ÆÄÀÏÀ» ´Ù½Ã ¿¬´Ù.	
+		// Â·ÐžÂ±Ð§ Ð–Ð”ÐÐŸÐÂ» Ò‘Ð©Ð…Ð“ Ñ—Â¬Ò‘Ð©.	
 		logfile->fp = fopen(logfile->filename, "a+");
 	}
 }

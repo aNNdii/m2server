@@ -50,7 +50,7 @@ namespace quest
 			bool		RunState(QuestState& qs);
 
 			PC *		GetPC(unsigned int pc);
-			PC *		GetPCForce(unsigned int pc);	// ÇöÀç PC¸¦ ¹Ù²ÙÁö ¾Ê°í PC Æ÷ÀÎÅÍ¸¦ °¡Á®¿Â´Ù.
+			PC *		GetPCForce(unsigned int pc);	// Ğ—Ñ†ĞĞ· PCÑ‘Â¦ â„–Ğ©Ğ†Ğ©Ğ‘Ñ† Ñ•ĞšÂ°Ğ½ PC Ğ–Ñ‡ĞĞĞ•ĞÑ‘Â¦ Â°ĞĞ‘Â®Ñ—Ğ’Ò‘Ğ©.
 
 			unsigned int	GetCurrentNPCRace();
 			const string & 	GetCurrentQuestName();
@@ -100,7 +100,7 @@ namespace quest
 			void		Letter(DWORD pc);
 			void		Letter(DWORD pc, DWORD quest_index, int state);
 			
-			void		ItemInformer(unsigned int pc, unsigned int vnum);	//µ¶ÀÏ¼±¹°±â´É
+			void		ItemInformer(unsigned int pc, unsigned int vnum);	//ÂµÂ¶ĞĞŸÑ˜Â±â„–Â°Â±Ğ²Ò‘Ğ™
 
 			//
 
@@ -250,7 +250,7 @@ namespace quest
 			static bool ExecuteQuestScript(PC& pc, DWORD quest_index, const int state, const char* code, const int code_size, vector<AArgScript*>* pChatScripts = NULL, bool bUseCache = true);
 		
 
-		// begin_other_pc_blcok, end_other_pc_blockÀ» À§ÇÑ °´Ã¼µé.
+		// begin_other_pc_blcok, end_other_pc_blockĞÂ» ĞÂ§Ğ—Ğ¡ Â°Ò‘Ğ“Ñ˜ÂµĞ¹.
 		public:
 			void		BeginOtherPCBlock(DWORD pid);
 			void		EndOtherPCBlock();

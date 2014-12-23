@@ -29,7 +29,7 @@ void CGrid::Clear()
 
 int CGrid::FindBlank(int w, int h)
 {
-    // Å©±â°¡ ´õ Å©´Ù¸é È®ÀÎÇÒ ÇÊ¿ä ¾øÀÌ ±×³É ¸®ÅÏ
+    // Ğ•Â©Â±Ğ²Â°Ğ Ò‘Ñ… Ğ•Â©Ò‘Ğ©Ñ‘Ğ¹ Ğ˜Â®ĞĞĞ—Ğ¢ Ğ—ĞšÑ—Ğ´ Ñ•ÑˆĞĞœ Â±Ğ§Ñ–Ğ™ Ñ‘Â®Ğ•ĞŸ
     if (w > m_iWidth || h > m_iHeight)
 	return -1;
 
@@ -90,7 +90,7 @@ bool CGrid::IsEmpty(int iPos, int w, int h)
 
     int iRow = iPos / m_iWidth;
 
-    // Grid ¾ÈÂÊÀÎ°¡¸¦ ¸ÕÀú °Ë»ç
+    // Grid Ñ•Ğ˜Ğ’ĞšĞĞÂ°ĞÑ‘Â¦ Ñ‘Ğ¥ĞÑŠ Â°Ğ›Â»Ğ·
     if (iRow + h > m_iHeight)
 	return false;
 

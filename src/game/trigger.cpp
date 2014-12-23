@@ -46,7 +46,7 @@ int OnClickShop(TRIGGERPARAM)
 }
 
 /*
- * ¸ó½ºÅÍ AI ÇÔ¼öµéÀ» BattleAI Å¬·¡½º·Î ¼öÁ¤
+ * Ñ‘ÑƒÐ…Ñ”Ð•Ð AI Ð—Ð¤Ñ˜Ñ†ÂµÐ¹ÐÂ» BattleAI Ð•Â¬Â·ÐŽÐ…Ñ”Â·Ðž Ñ˜Ñ†Ð‘Â¤
  */
 int OnIdleDefault(TRIGGERPARAM)
 {
@@ -100,7 +100,7 @@ class FuncFindMobVictim
 					pkChr->IsAffectFlag(AFF_REVIVE_INVISIBLE))
 				return false;
 
-			if (pkChr->IsAffectFlag(AFF_TERROR) && m_pkChr->IsImmune(IMMUNE_TERROR) == false )	// °øÆ÷ Ã³¸®
+			if (pkChr->IsAffectFlag(AFF_TERROR) && m_pkChr->IsImmune(IMMUNE_TERROR) == false )	// Â°ÑˆÐ–Ñ‡ Ð“Ñ–Ñ‘Â®
 			{
 				if ( pkChr->GetLevel() >= m_pkChr->GetLevel() )
 					return false;
@@ -137,7 +137,7 @@ class FuncFindMobVictim
 
 		LPCHARACTER GetVictim()
 		{
-			// ±ÙÃ³¿¡ °Ç¹°ÀÌ ÀÖ°í ÇÇ°¡ ¸¹ÀÌ ÀÖ´Ù¸é °Ç¹°À» °ø°ÝÇÑ´Ù. °Ç¹°¸¸ ÀÖ¾îµµ °Ç¹°À» °ø°Ý
+			// Â±Ð©Ð“Ñ–Ñ—ÐŽ Â°Ð—â„–Â°ÐÐœ ÐÐ¦Â°Ð½ Ð—Ð—Â°ÐŽ Ñ‘â„–ÐÐœ ÐÐ¦Ò‘Ð©Ñ‘Ð¹ Â°Ð—â„–Â°ÐÂ» Â°ÑˆÂ°Ð­Ð—Ð¡Ò‘Ð©. Â°Ð—â„–Â°Ñ‘Ñ‘ ÐÐ¦Ñ•Ð¾ÂµÂµ Â°Ð—â„–Â°ÐÂ» Â°ÑˆÂ°Ð­
 			if (m_pkChrBuilding && m_pkChr->GetHP() * 2 > m_pkChr->GetMaxHP() || !m_pkChrVictim)
 			{
 				return m_pkChrBuilding;

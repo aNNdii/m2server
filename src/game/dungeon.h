@@ -41,8 +41,8 @@ class CDungeon
 
 	void	IncMonster() { m_iMonsterCount++; sys_log(0, "MonsterCount %d", m_iMonsterCount); }
 	void	DecMonster() { m_iMonsterCount--; CheckEliminated(); }
-	int	CountMonster() { return m_iMonsterCount; }	// µ¥ÀÌÅÍ·Î ¸®Á¨ÇÑ ¸ó½ºÅÍÀÇ ¼ö
-	int	CountRealMonster();				// ½ÇÁ¦·Î ¸Ê»ó¿¡ ÀÖ´Â ¸ó½ºÅÍ
+	int	CountMonster() { return m_iMonsterCount; }	// ÂµÒĞĞœĞ•ĞÂ·Ğ Ñ‘Â®Ğ‘ĞĞ—Ğ¡ Ñ‘ÑƒĞ…Ñ”Ğ•ĞĞĞ— Ñ˜Ñ†
+	int	CountRealMonster();				// Ğ…Ğ—Ğ‘Â¦Â·Ğ Ñ‘ĞšÂ»ÑƒÑ—Ğ ĞĞ¦Ò‘Ğ’ Ñ‘ÑƒĞ…Ñ”Ğ•Ğ
 
 	void	IncPartyMember(LPPARTY pParty, LPCHARACTER ch);
 	void	DecPartyMember(LPPARTY pParty, LPCHARACTER ch);
@@ -106,7 +106,7 @@ class CDungeon
 	void	SetFlag(std::string name, int value);
 	void	SetWarpLocation (long map_index, int x, int y);
 
-	// item groupÀº item_vnum°ú item_count·Î ±¸¼º.
+	// item groupĞÑ” item_vnumÂ°ÑŠ item_countÂ·Ğ Â±Ñ‘Ñ˜Ñ”.
 	typedef std::vector <std::pair <DWORD, int> > ItemGroup;
 	void	CreateItemGroup (std::string& group_name, ItemGroup& item_group);
 	const ItemGroup* GetItemGroup (std::string& group_name);
@@ -145,7 +145,7 @@ class CDungeon
 	bool		m_bExitAllAtEliminate;
 	bool		m_bWarpAtEliminate;
 
-	// Àû Àü¸ê½Ã ¿öÇÁÇÏ´Â À§Ä¡
+	// ĞÑ‹ ĞÑŒÑ‘ĞºĞ…Ğ“ Ñ—Ñ†Ğ—Ğ‘Ğ—ĞŸÒ‘Ğ’ ĞÂ§Ğ”Ğ
 	int		m_iWarpDelay;
 	long		m_lWarpMapIndex;
 	long		m_lWarpX;
@@ -166,9 +166,9 @@ class CDungeon
 	friend EVENTFUNC(dungeon_exit_all_event);
 	friend EVENTFUNC(dungeon_jump_to_event);
 
-	// ÆÄÆ¼ ´ÜÀ§ ´øÀü ÀÔÀåÀ» À§ÇÑ ÀÓ½Ã º¯¼ö.
-	// m_map_pkParty´Â °ü¸®°¡ ºÎ½ÇÇÏ¿© »ç¿ëÇÒ ¼ö ¾ø´Ù°í ÆÇ´ÜÇÏ¿©,
-	// ÀÓ½Ã·Î ÇÑ ÆÄÆ¼¿¡ ´ëÇÑ °ü¸®¸¦ ÇÏ´Â º¯¼ö »ı¼º.
+	// Ğ–Ğ”Ğ–Ñ˜ Ò‘Ğ¬ĞÂ§ Ò‘ÑˆĞÑŒ ĞĞ¤ĞĞµĞÂ» ĞÂ§Ğ—Ğ¡ ĞĞ£Ğ…Ğ“ Ñ”Ğ‡Ñ˜Ñ†.
+	// m_map_pkPartyÒ‘Ğ’ Â°ÑŒÑ‘Â®Â°Ğ Ñ”ĞĞ…Ğ—Ğ—ĞŸÑ—Â© Â»Ğ·Ñ—Ğ»Ğ—Ğ¢ Ñ˜Ñ† Ñ•ÑˆÒ‘Ğ©Â°Ğ½ Ğ–Ğ—Ò‘Ğ¬Ğ—ĞŸÑ—Â©,
+	// ĞĞ£Ğ…Ğ“Â·Ğ Ğ—Ğ¡ Ğ–Ğ”Ğ–Ñ˜Ñ—Ğ Ò‘Ğ»Ğ—Ğ¡ Â°ÑŒÑ‘Â®Ñ‘Â¦ Ğ—ĞŸÒ‘Ğ’ Ñ”Ğ‡Ñ˜Ñ† Â»ÑÑ˜Ñ”.
 	
 	LPPARTY m_pParty;
 	public :

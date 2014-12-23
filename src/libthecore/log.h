@@ -9,11 +9,11 @@ extern "C"
     extern void log_destroy(void);
     extern void log_rotate(void);
 
-	// ·Î±× ·¹º§ Ã³¸® (·¹º§Àº bitvector·Î Ã³¸®µÈ´Ù)
+	// Â·ĞÂ±Ğ§ Â·â„–Ñ”Â§ Ğ“Ñ–Ñ‘Â® (Â·â„–Ñ”Â§ĞÑ” bitvectorÂ·Ğ Ğ“Ñ–Ñ‘Â®ÂµĞ˜Ò‘Ğ©)
 	extern void log_set_level(unsigned int level);
 	extern void log_unset_level(unsigned int level);
 
-	// ·Î±× ÆÄÀÏÀ» ¾ó¸¸Å­ º¸°üÇÏ´Â°¡¿¡ ´ëÇÑ ÇÔ¼ö
+	// Â·ĞÂ±Ğ§ Ğ–Ğ”ĞĞŸĞÂ» Ñ•ÑƒÑ‘Ñ‘Ğ•Â­ Ñ”Ñ‘Â°ÑŒĞ—ĞŸÒ‘Ğ’Â°ĞÑ—Ğ Ò‘Ğ»Ğ—Ğ¡ Ğ—Ğ¤Ñ˜Ñ†
 	extern void log_set_expiration_days(unsigned int days);
 	extern int log_get_expiration_days(void);
 

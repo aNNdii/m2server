@@ -149,7 +149,7 @@ namespace quest
 	int quest_coroutine_yield(lua_State * L)
 	{
 		CQuestManager& q = CQuestManager::instance();
-		// other_pc_block ³»ºÎ¿¡¼­´Â yield°¡ ÀÏ¾î³ª¼­´Â ¾ÈµÈ´Ù. Àı´ë·Î.
+		// other_pc_block Ñ–Â»Ñ”ĞÑ—ĞÑ˜Â­Ò‘Ğ’ yieldÂ°Ğ ĞĞŸÑ•Ğ¾Ñ–Ğ„Ñ˜Â­Ò‘Ğ’ Ñ•Ğ˜ÂµĞ˜Ò‘Ğ©. ĞÑÒ‘Ğ»Â·Ğ.
 		if (q.IsInOtherPCBlock())
 		{
 			sys_err("FATAL ERROR! Yield occur in other_pc_block.");
@@ -223,10 +223,10 @@ namespace quest
 			{ "done",					quest_done					},
 			{ "getcurrentquestindex",	quest_get_current_quest_index	},
 			{ "no_send",				quest_no_send				},
-			// begin_other_pc_block(pid), end_other_pc_block »çÀÌ¸¦ other_pc_blockÀÌ¶ó°í ÇÏÀÚ.
-			// other_pc_block¿¡¼­´Â current_pc°¡ pid·Î º¯°æµÈ´Ù.
-			//						³¡³ª¸é ´Ù½Ã ¿ø·¡ÀÇ current_pc·Î µ¹¾Æ°£´Ù.
-			/*		ÀÌ·± °ÍÀ» À§ÇØ ¸¸µë.
+			// begin_other_pc_block(pid), end_other_pc_block Â»Ğ·ĞĞœÑ‘Â¦ other_pc_blockĞĞœÂ¶ÑƒÂ°Ğ½ Ğ—ĞŸĞĞª.
+			// other_pc_blockÑ—ĞÑ˜Â­Ò‘Ğ’ current_pcÂ°Ğ pidÂ·Ğ Ñ”Ğ‡Â°Ğ¶ÂµĞ˜Ò‘Ğ©.
+			//						Ñ–ĞÑ–Ğ„Ñ‘Ğ¹ Ò‘Ğ©Ğ…Ğ“ Ñ—ÑˆÂ·ĞĞĞ— current_pcÂ·Ğ Âµâ„–Ñ•Ğ–Â°ĞˆÒ‘Ğ©.
+			/*		ĞĞœÂ·Â± Â°ĞĞÂ» ĞÂ§Ğ—Ğ¨ Ñ‘Ñ‘ÂµĞ».
 					for i, pid in next, pids, nil do
 						q.begin_other_pc_block(pid)
 						if pc.count_item(PASS_TICKET) < 1 then
@@ -236,7 +236,7 @@ namespace quest
 						q.end_other_pc_block()
 					end
 			*/
-			// ÁÖÀÇ : other_pc_block ³»ºÎ¿¡¼­´Â Àı´ë·Î yield°¡ ÀÏ¾î³ª¼­´Â ¾ÈµÈ´Ù.(ex. wait, select, input, ...)
+			// Ğ‘Ğ¦ĞĞ— : other_pc_block Ñ–Â»Ñ”ĞÑ—ĞÑ˜Â­Ò‘Ğ’ ĞÑÒ‘Ğ»Â·Ğ yieldÂ°Ğ ĞĞŸÑ•Ğ¾Ñ–Ğ„Ñ˜Â­Ò‘Ğ’ Ñ•Ğ˜ÂµĞ˜Ò‘Ğ©.(ex. wait, select, input, ...)
 			{ "begin_other_pc_block",	quest_begin_other_pc_block	}, 
 			{ "end_other_pc_block",		quest_end_other_pc_block	},
 			{ NULL,						NULL						}

@@ -9,12 +9,12 @@
 
 /*
    Return Value
-		0 : �� �� ���� ���� or ���� ����
-		1 : ������ �������� �ٲٷ�����
-		2 : ��� ������ ĳ���Ͱ� ����
-		3 : ��ȥ�� ĳ���Ͱ� ����
+		0 : ѕЛ јц ѕшґВ їЎ·Ї or Дхё® їЎ·Ї
+		1 : µїАПЗС Б¦±№Аё·О №ЩІЩ·Б°нЗФ
+		2 : ±жµе °ЎАФЗС ДіёЇЕН°Ў АЦАЅ
+		3 : °бИҐЗС ДіёЇЕН°Ў АЦАЅ
 
-		999 : ���� �̵� ����
+		999 : Б¦±№ АМµї јє°ш
 */
 int CHARACTER::ChangeEmpire(BYTE empire)
 {
@@ -27,7 +27,7 @@ int CHARACTER::ChangeEmpire(BYTE empire)
 	memset(dwPID, 0, sizeof(dwPID));
 
 	{
-		// 1. �� ������ ��� pid�� ��� �´�
+		// 1. і» °иБ¤АЗ ёрµз pidё¦ ѕтѕо їВґЩ
 		snprintf(szQuery, sizeof(szQuery), 
 				"SELECT id, pid1, pid2, pid3, pid4 FROM player_index%s WHERE pid1=%u OR pid2=%u OR pid3=%u OR pid4=%u AND empire=%u", 
 				get_table_postfix(), GetPlayerID(), GetPlayerID(), GetPlayerID(), GetPlayerID(), GetEmpire());
@@ -51,8 +51,8 @@ int CHARACTER::ChangeEmpire(BYTE empire)
 	const int loop = 4;
 
 	{
-		// 2. �� ĳ������ ��� ������ ���´�.
-		//   �� ĳ���Ͷ� ��忡 ���� �Ǿ� �ִٸ�, ���� �̵��� �� �� ����.
+		// 2. °ў ДіёЇЕНАЗ ±жµе Б¤єёё¦ ѕтѕоїВґЩ.
+		//   ЗС ДіёЇЕН¶уµµ ±жµеїЎ °ЎАФ µЗѕо АЦґЩёй, Б¦±№ АМµїА» ЗТ јц ѕшґЩ.
 		DWORD dwGuildID[4];
 		CGuild * pGuild[4];
 		SQLMsg * pMsg = NULL;
@@ -91,8 +91,8 @@ int CHARACTER::ChangeEmpire(BYTE empire)
 	}
 
 	{
-		// 3. �� ĳ������ ��ȥ ������ ���´�.
-		//   �� ĳ���Ͷ� ��ȥ ���¶�� ���� �̵��� �� �� ����.
+		// 3. °ў ДіёЇЕНАЗ °бИҐ Б¤єёё¦ ѕтѕоїВґЩ.
+		//   ЗС ДіёЇЕН¶уµµ °бИҐ »уЕВ¶уёй Б¦±№ АМµїА» ЗТ јц ѕшґЩ.
 		for (int i = 0; i < loop; ++i)
 		{
 			if (marriage::CManager::instance().IsEngagedOrMarried(dwPID[i]) == true)
@@ -101,7 +101,7 @@ int CHARACTER::ChangeEmpire(BYTE empire)
 	}
 	
 	{
-		// 4. db�� ���� ������ ������Ʈ �Ѵ�.
+		// 4. dbАЗ Б¦±№ Б¤єёё¦ ѕчµҐАМЖ® ЗСґЩ.
 		snprintf(szQuery, sizeof(szQuery), "UPDATE player_index%s SET empire=%u WHERE pid1=%u OR pid2=%u OR pid3=%u OR pid4=%u AND empire=%u", 
 				get_table_postfix(), empire, GetPlayerID(), GetPlayerID(), GetPlayerID(), GetPlayerID(), GetEmpire());
 
@@ -109,7 +109,7 @@ int CHARACTER::ChangeEmpire(BYTE empire)
 
 		if (msg->Get()->uiAffectedRows > 0)
 		{
-			// 5. ���� ���� �̷��� �߰��Ѵ�.
+			// 5. Б¦±№ єЇ°ж АМ·ВА» ГЯ°ЎЗСґЩ.
 			SetChangeEmpireCount();
 
 			return 999;

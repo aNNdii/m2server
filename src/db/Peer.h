@@ -66,9 +66,9 @@ class CPeer : public CPeerBase
 	BYTE	m_bChannel;
 	DWORD	m_dwHandle;
 	DWORD	m_dwUserCount;
-	WORD	m_wListenPort;	// °ÔÀÓ¼­¹ö°¡ Å¬¶óÀÌ¾ğÆ®¸¦ À§ÇØ listen ÇÏ´Â Æ÷Æ®
-	WORD	m_wP2PPort;	// °ÔÀÓ¼­¹ö°¡ °ÔÀÓ¼­¹ö P2P Á¢¼ÓÀ» À§ÇØ listen ÇÏ´Â Æ÷Æ®
-	long	m_alMaps[32];	// ¾î¶² ¸ÊÀ» °üÀåÇÏ°í ÀÖ´Â°¡?
+	WORD	m_wListenPort;	// Â°Ğ¤ĞĞ£Ñ˜Â­â„–Ñ†Â°Ğ Ğ•Â¬Â¶ÑƒĞĞœÑ•Ñ€Ğ–Â®Ñ‘Â¦ ĞÂ§Ğ—Ğ¨ listen Ğ—ĞŸÒ‘Ğ’ Ğ–Ñ‡Ğ–Â®
+	WORD	m_wP2PPort;	// Â°Ğ¤ĞĞ£Ñ˜Â­â„–Ñ†Â°Ğ Â°Ğ¤ĞĞ£Ñ˜Â­â„–Ñ† P2P Ğ‘ÑÑ˜Ğ£ĞÂ» ĞÂ§Ğ—Ğ¨ listen Ğ—ĞŸÒ‘Ğ’ Ğ–Ñ‡Ğ–Â®
+	long	m_alMaps[32];	// Ñ•Ğ¾Â¶Ğ† Ñ‘ĞšĞÂ» Â°ÑŒĞĞµĞ—ĞŸÂ°Ğ½ ĞĞ¦Ò‘Ğ’Â°Ğ?
 
 	TItemIDRangeTable m_itemRange;
 	TItemIDRangeTable m_itemSpareRange;

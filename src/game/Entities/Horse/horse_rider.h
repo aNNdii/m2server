@@ -8,10 +8,10 @@ const int HORSE_MAX_LEVEL = 30;
 
 struct THorseStat
 {
-	int iMinLevel;      // Å¾½ÂÇÒ ¼ö ÀÖ´Â ÃÖ¼Ò ·¹º§
+	int iMinLevel;      // Ğ•Ñ•Ğ…Ğ’Ğ—Ğ¢ Ñ˜Ñ† ĞĞ¦Ò‘Ğ’ Ğ“Ğ¦Ñ˜Ğ¢ Â·â„–Ñ”Â§
 	int iNPCRace;
-	int iMaxHealth;     // ¸»ÀÇ ÃÖ´ë Ã¼·Â
-	int iMaxStamina;    // ¸»ÀÇ ÃÖ´ë ½ºÅ×¹Ì³Ê
+	int iMaxHealth;     // Ñ‘Â»ĞĞ— Ğ“Ğ¦Ò‘Ğ» Ğ“Ñ˜Â·Ğ’
+	int iMaxStamina;    // Ñ‘Â»ĞĞ— Ğ“Ğ¦Ò‘Ğ» Ğ…Ñ”Ğ•Ğ§â„–ĞœÑ–Ğš
 	int iST;
 	int iDX;
 	int iHT;

@@ -47,10 +47,10 @@ class CClientManager : public CNetBase, public singleton<CClientManager>
 	typedef boost::unordered_map<short, BYTE> TChannelStatusMap;
 
 	// MYSHOP_PRICE_LIST
-	/// ¾ÆÀÌÅÛ °¡°İÁ¤º¸ ¸®½ºÆ® ¿äÃ» Á¤º¸
+	/// Ñ•Ğ–ĞĞœĞ•Ğ« Â°ĞÂ°Ğ­Ğ‘Â¤Ñ”Ñ‘ Ñ‘Â®Ğ…Ñ”Ğ–Â® Ñ—Ğ´Ğ“Â» Ğ‘Â¤Ñ”Ñ‘
 	/**
 	 * first: Peer handle
-	 * second: ¿äÃ»ÇÑ ÇÃ·¹ÀÌ¾îÀÇ ID
+	 * second: Ñ—Ğ´Ğ“Â»Ğ—Ğ¡ Ğ—Ğ“Â·â„–ĞĞœÑ•Ğ¾ĞĞ— ID
 	 */
 	typedef std::pair< DWORD, DWORD >		TItemPricelistReqInfo;
 	// END_OF_MYSHOP_PRICE_LIST
@@ -76,7 +76,7 @@ class CClientManager : public CNetBase, public singleton<CClientManager>
 		    pAccountTable = NULL;
 		    player_id = dwPID;
 		};
-		//µ¶ÀÏ¼±¹°±â´É¿ë »ı¼ºÀÚ
+		//ÂµÂ¶ĞĞŸÑ˜Â±â„–Â°Â±Ğ²Ò‘Ğ™Ñ—Ğ» Â»ÑÑ˜Ñ”ĞĞª
 		ClientHandleInfo(DWORD argHandle, DWORD dwPID, DWORD accountId)
 		{
 		    dwHandle = argHandle;
@@ -115,7 +115,7 @@ class CClientManager : public CNetBase, public singleton<CClientManager>
 	void	SetChinaEventServer(bool flag) { m_bChinaEventServer = flag; }
 	bool	IsChinaEventServer() { return m_bChinaEventServer; }
 
-	DWORD	GetUserCount();	// Á¢¼ÓµÈ »ç¿ëÀÚ ¼ö¸¦ ¸®ÅÏ ÇÑ´Ù.
+	DWORD	GetUserCount();	// Ğ‘ÑÑ˜Ğ£ÂµĞ˜ Â»Ğ·Ñ—Ğ»ĞĞª Ñ˜Ñ†Ñ‘Â¦ Ñ‘Â®Ğ•ĞŸ Ğ—Ğ¡Ò‘Ğ©.
 
 	void	SendAllGuildSkillRechargePacket();
 	void	SendTime();
@@ -135,23 +135,23 @@ class CClientManager : public CNetBase, public singleton<CClientManager>
 	void			UpdateItemCache();
 
 	// MYSHOP_PRICE_LIST
-	/// °¡°İÁ¤º¸ ¸®½ºÆ® Ä³½Ã¸¦ °¡Á®¿Â´Ù.
+	/// Â°ĞÂ°Ğ­Ğ‘Â¤Ñ”Ñ‘ Ñ‘Â®Ğ…Ñ”Ğ–Â® Ğ”Ñ–Ğ…Ğ“Ñ‘Â¦ Â°ĞĞ‘Â®Ñ—Ğ’Ò‘Ğ©.
 	/**
-	 * @param [in]	dwID °¡°İÁ¤º¸ ¸®½ºÆ®ÀÇ ¼ÒÀ¯ÀÚ.(ÇÃ·¹ÀÌ¾î ID)
-	 * @return	°¡°İÁ¤º¸ ¸®½ºÆ® Ä³½ÃÀÇ Æ÷ÀÎÅÍ
+	 * @param [in]	dwID Â°ĞÂ°Ğ­Ğ‘Â¤Ñ”Ñ‘ Ñ‘Â®Ğ…Ñ”Ğ–Â®ĞĞ— Ñ˜Ğ¢ĞĞ‡ĞĞª.(Ğ—Ğ“Â·â„–ĞĞœÑ•Ğ¾ ID)
+	 * @return	Â°ĞÂ°Ğ­Ğ‘Â¤Ñ”Ñ‘ Ñ‘Â®Ğ…Ñ”Ğ–Â® Ğ”Ñ–Ğ…Ğ“ĞĞ— Ğ–Ñ‡ĞĞĞ•Ğ
 	 */
 	CItemPriceListTableCache*	GetItemPriceListCache(DWORD dwID);
 
-	/// °¡°İÁ¤º¸ ¸®½ºÆ® Ä³½Ã¸¦ ³Ö´Â´Ù.
+	/// Â°ĞÂ°Ğ­Ğ‘Â¤Ñ”Ñ‘ Ñ‘Â®Ğ…Ñ”Ğ–Â® Ğ”Ñ–Ğ…Ğ“Ñ‘Â¦ Ñ–Ğ¦Ò‘Ğ’Ò‘Ğ©.
 	/**
-	 * @param [in]	pItemPriceList Ä³½Ã¿¡ ³ÖÀ» ¾ÆÀÌÅÛ °¡°İÁ¤º¸ ¸®½ºÆ®
+	 * @param [in]	pItemPriceList Ğ”Ñ–Ğ…Ğ“Ñ—Ğ Ñ–Ğ¦ĞÂ» Ñ•Ğ–ĞĞœĞ•Ğ« Â°ĞÂ°Ğ­Ğ‘Â¤Ñ”Ñ‘ Ñ‘Â®Ğ…Ñ”Ğ–Â®
 	 *
-	 * Ä³½Ã°¡ ÀÌ¹Ì ÀÖÀ¸¸é Update °¡ ¾Æ´Ñ replace ÇÑ´Ù.
+	 * Ğ”Ñ–Ğ…Ğ“Â°Ğ ĞĞœâ„–Ğœ ĞĞ¦ĞÑ‘Ñ‘Ğ¹ Update Â°Ğ Ñ•Ğ–Ò‘Ğ¡ replace Ğ—Ğ¡Ò‘Ğ©.
 	 */
 	void			PutItemPriceListCache(const TItemPriceListTable* pItemPriceList);
 
 
-	/// Flush ½Ã°£ÀÌ ¸¸·áµÈ ¾ÆÀÌÅÛ °¡°İÁ¤º¸ ¸®½ºÆ® Ä³½Ã¸¦ Flush ÇØÁÖ°í Ä³½Ã¿¡¼­ »èÁ¦ÇÑ´Ù.
+	/// Flush Ğ…Ğ“Â°ĞˆĞĞœ Ñ‘Ñ‘Â·Ğ±ÂµĞ˜ Ñ•Ğ–ĞĞœĞ•Ğ« Â°ĞÂ°Ğ­Ğ‘Â¤Ñ”Ñ‘ Ñ‘Â®Ğ…Ñ”Ğ–Â® Ğ”Ñ–Ğ…Ğ“Ñ‘Â¦ Flush Ğ—Ğ¨Ğ‘Ğ¦Â°Ğ½ Ğ”Ñ–Ğ…Ğ“Ñ—ĞÑ˜Â­ Â»Ğ¸Ğ‘Â¦Ğ—Ğ¡Ò‘Ğ©.
 	void			UpdateItemPriceListCache(void);
 	// END_OF_MYSHOP_PRICE_LIST
 
@@ -169,8 +169,8 @@ class CClientManager : public CNetBase, public singleton<CClientManager>
 
 	void			SendNotice(const char * c_pszFormat, ...);
 
-	char*			GetCommand(char* str);					//µ¶ÀÏ¼±¹°±â´É¿¡¼­ ¸í·É¾î ¾ò´Â ÇÔ¼ö
-	void			ItemAward(CPeer * peer, char* login);	//µ¶ÀÏ ¼±¹° ±â´É
+	char*			GetCommand(char* str);					//ÂµÂ¶ĞĞŸÑ˜Â±â„–Â°Â±Ğ²Ò‘Ğ™Ñ—ĞÑ˜Â­ Ñ‘Ğ½Â·Ğ™Ñ•Ğ¾ Ñ•Ñ‚Ò‘Ğ’ Ğ—Ğ¤Ñ˜Ñ†
+	void			ItemAward(CPeer * peer, char* login);	//ÂµÂ¶ĞĞŸ Ñ˜Â±â„–Â° Â±Ğ²Ò‘Ğ™
 
     protected:
 	void	Destroy();
@@ -194,9 +194,9 @@ class CClientManager : public CNetBase, public singleton<CClientManager>
 	bool		InitializeObjectTable();
 	bool		InitializeMonarch();
 
-	// mob_proto.txt, item_proto.txt¿¡¼­ ÀĞÀº mob_proto, item_proto¸¦ real db¿¡ ¹İ¿µ.
-	//	item_proto, mob_proto¸¦ db¿¡ ¹İ¿µÇÏÁö ¾Ê¾Æµµ, °ÔÀÓ µ¹¾Æ°¡´Âµ¥´Â ¹®Á¦°¡ ¾øÁö¸¸,
-	//	¿î¿µÅø µî¿¡¼­ dbÀÇ item_proto, mob_proto¸¦ ÀĞ¾î ¾²±â ¶§¹®¿¡ ¹®Á¦°¡ ¹ß»ıÇÑ´Ù.
+	// mob_proto.txt, item_proto.txtÑ—ĞÑ˜Â­ ĞĞ ĞÑ” mob_proto, item_protoÑ‘Â¦ real dbÑ—Ğ â„–Ğ­Ñ—Âµ.
+	//	item_proto, mob_protoÑ‘Â¦ dbÑ—Ğ â„–Ğ­Ñ—ÂµĞ—ĞŸĞ‘Ñ† Ñ•ĞšÑ•Ğ–ÂµÂµ, Â°Ğ¤ĞĞ£ Âµâ„–Ñ•Ğ–Â°ĞÒ‘Ğ’ÂµÒÒ‘Ğ’ â„–Â®Ğ‘Â¦Â°Ğ Ñ•ÑˆĞ‘Ñ†Ñ‘Ñ‘,
+	//	Ñ—Ğ¾Ñ—ÂµĞ•Ñˆ ÂµĞ¾Ñ—ĞÑ˜Â­ dbĞĞ— item_proto, mob_protoÑ‘Â¦ ĞĞ Ñ•Ğ¾ Ñ•Ğ†Â±Ğ² Â¶Â§â„–Â®Ñ—Ğ â„–Â®Ğ‘Â¦Â°Ğ â„–Ğ¯Â»ÑĞ—Ğ¡Ò‘Ğ©.
 	bool		MirrorMobTableIntoDB();
 	bool		MirrorItemTableIntoDB();
 
@@ -261,20 +261,20 @@ class CClientManager : public CNetBase, public singleton<CClientManager>
 	// END_PLAYER_INDEX_CREATE_BUG_FIX
  
 	// MYSHOP_PRICE_LIST
-	/// °¡°İÁ¤º¸ ·Îµå Äõ¸®¿¡ ´ëÇÑ Result Ã³¸®
+	/// Â°ĞÂ°Ğ­Ğ‘Â¤Ñ”Ñ‘ Â·ĞÂµĞµ Ğ”Ñ…Ñ‘Â®Ñ—Ğ Ò‘Ğ»Ğ—Ğ¡ Result Ğ“Ñ–Ñ‘Â®
 	/**
-	 * @param	peer °¡°İÁ¤º¸¸¦ ¿äÃ»ÇÑ Game server ÀÇ peer °´Ã¼ Æ÷ÀÎÅÍ
-	 * @param	pMsg Äõ¸®ÀÇ Result ·Î ¹ŞÀº °´Ã¼ÀÇ Æ÷ÀÎÅÍ
+	 * @param	peer Â°ĞÂ°Ğ­Ğ‘Â¤Ñ”Ñ‘Ñ‘Â¦ Ñ—Ğ´Ğ“Â»Ğ—Ğ¡ Game server ĞĞ— peer Â°Ò‘Ğ“Ñ˜ Ğ–Ñ‡ĞĞĞ•Ğ
+	 * @param	pMsg Ğ”Ñ…Ñ‘Â®ĞĞ— Result Â·Ğ â„–Ğ®ĞÑ” Â°Ò‘Ğ“Ñ˜ĞĞ— Ğ–Ñ‡ĞĞĞ•Ğ
 	 *
-	 * ·ÎµåµÈ °¡°İÁ¤º¸ ¸®½ºÆ®¸¦ Ä³½Ã¿¡ ÀúÀåÇÏ°í peer ¿¡°Ô ¸®½ºÆ®¸¦ º¸³»ÁØ´Ù.
+	 * Â·ĞÂµĞµÂµĞ˜ Â°ĞÂ°Ğ­Ğ‘Â¤Ñ”Ñ‘ Ñ‘Â®Ğ…Ñ”Ğ–Â®Ñ‘Â¦ Ğ”Ñ–Ğ…Ğ“Ñ—Ğ ĞÑŠĞĞµĞ—ĞŸÂ°Ğ½ peer Ñ—ĞÂ°Ğ¤ Ñ‘Â®Ğ…Ñ”Ğ–Â®Ñ‘Â¦ Ñ”Ñ‘Ñ–Â»Ğ‘Ğ¨Ò‘Ğ©.
 	 */
 	void		RESULT_PRICELIST_LOAD(CPeer* peer, SQLMsg* pMsg);
 
-	/// °¡°İÁ¤º¸ ¾÷µ¥ÀÌÆ®¸¦ À§ÇÑ ·Îµå Äõ¸®¿¡ ´ëÇÑ Result Ã³¸®
+	/// Â°ĞÂ°Ğ­Ğ‘Â¤Ñ”Ñ‘ Ñ•Ñ‡ÂµÒĞĞœĞ–Â®Ñ‘Â¦ ĞÂ§Ğ—Ğ¡ Â·ĞÂµĞµ Ğ”Ñ…Ñ‘Â®Ñ—Ğ Ò‘Ğ»Ğ—Ğ¡ Result Ğ“Ñ–Ñ‘Â®
 	/**
-	 * @param	pMsg Äõ¸®ÀÇ Result ·Î ¹ŞÀº °´Ã¼ÀÇ Æ÷ÀÎÅÍ
+	 * @param	pMsg Ğ”Ñ…Ñ‘Â®ĞĞ— Result Â·Ğ â„–Ğ®ĞÑ” Â°Ò‘Ğ“Ñ˜ĞĞ— Ğ–Ñ‡ĞĞĞ•Ğ
 	 *
-	 * ·ÎµåµÈ Á¤º¸·Î °¡°İÁ¤º¸ ¸®½ºÆ® Ä³½Ã¸¦ ¸¸µé°í ¾÷µ¥ÀÌÆ® ¹ŞÀº °¡°İÁ¤º¸·Î ¾÷µ¥ÀÌÆ® ÇÑ´Ù.
+	 * Â·ĞÂµĞµÂµĞ˜ Ğ‘Â¤Ñ”Ñ‘Â·Ğ Â°ĞÂ°Ğ­Ğ‘Â¤Ñ”Ñ‘ Ñ‘Â®Ğ…Ñ”Ğ–Â® Ğ”Ñ–Ğ…Ğ“Ñ‘Â¦ Ñ‘Ñ‘ÂµĞ¹Â°Ğ½ Ñ•Ñ‡ÂµÒĞĞœĞ–Â® â„–Ğ®ĞÑ” Â°ĞÂ°Ğ­Ğ‘Â¤Ñ”Ñ‘Â·Ğ Ñ•Ñ‡ÂµÒĞĞœĞ–Â® Ğ—Ğ¡Ò‘Ğ©.
 	 */
 	void		RESULT_PRICELIST_LOAD_FOR_UPDATE(SQLMsg* pMsg);
 	// END_OF_MYSHOP_PRICE_LIST
@@ -348,7 +348,7 @@ class CClientManager : public CNetBase, public singleton<CClientManager>
 	void		SetEventFlag(TPacketSetEventFlag* p);
 	void		SendEventFlagsOnSetup(CPeer* peer);
 
-	// °áÈ¥
+	// Â°Ğ±Ğ˜Ò
 	void		MarriageAdd(TPacketMarriageAdd * p);
 	void		MarriageUpdate(TPacketMarriageUpdate * p);
 	void		MarriageRemove(TPacketMarriageRemove * p);
@@ -358,19 +358,19 @@ class CClientManager : public CNetBase, public singleton<CClientManager>
 	void		WeddingEnd(TPacketWeddingEnd * p);
 
 	// MYSHOP_PRICE_LIST
-	// °³ÀÎ»óÁ¡ °¡°İÁ¤º¸
+	// Â°Ñ–ĞĞÂ»ÑƒĞ‘Ğ Â°ĞÂ°Ğ­Ğ‘Â¤Ñ”Ñ‘
 
-	/// ¾ÆÀÌÅÛ °¡°İÁ¤º¸ ¸®½ºÆ® ¾÷µ¥ÀÌÆ® ÆĞÅ¶(HEADER_GD_MYSHOP_PRICELIST_UPDATE) Ã³¸®ÇÔ¼ö
+	/// Ñ•Ğ–ĞĞœĞ•Ğ« Â°ĞÂ°Ğ­Ğ‘Â¤Ñ”Ñ‘ Ñ‘Â®Ğ…Ñ”Ğ–Â® Ñ•Ñ‡ÂµÒĞĞœĞ–Â® Ğ–Ğ Ğ•Â¶(HEADER_GD_MYSHOP_PRICELIST_UPDATE) Ğ“Ñ–Ñ‘Â®Ğ—Ğ¤Ñ˜Ñ†
 	/**
-	 * @param [in]	pPacket ÆĞÅ¶ µ¥ÀÌÅÍÀÇ Æ÷ÀÎÅÍ
+	 * @param [in]	pPacket Ğ–Ğ Ğ•Â¶ ÂµÒĞĞœĞ•ĞĞĞ— Ğ–Ñ‡ĞĞĞ•Ğ
 	 */
 	void		MyshopPricelistUpdate(const TPacketMyshopPricelistHeader* pPacket);
 
-	/// ¾ÆÀÌÅÛ °¡°İÁ¤º¸ ¸®½ºÆ® ¿äÃ» ÆĞÅ¶(HEADER_GD_MYSHOP_PRICELIST_REQ) Ã³¸®ÇÔ¼ö
+	/// Ñ•Ğ–ĞĞœĞ•Ğ« Â°ĞÂ°Ğ­Ğ‘Â¤Ñ”Ñ‘ Ñ‘Â®Ğ…Ñ”Ğ–Â® Ñ—Ğ´Ğ“Â» Ğ–Ğ Ğ•Â¶(HEADER_GD_MYSHOP_PRICELIST_REQ) Ğ“Ñ–Ñ‘Â®Ğ—Ğ¤Ñ˜Ñ†
 	/**
-	 * @param	peer ÆĞÅ¶À» º¸³½ Game server ÀÇ peer °´Ã¼ÀÇ Æ÷ÀÎÅÍ
-	 * @param [in]	dwHandle °¡°İÁ¤º¸¸¦ ¿äÃ»ÇÑ peer ÀÇ ÇÚµé
-	 * @param [in]	dwPlayerID °¡°İÁ¤º¸ ¸®½ºÆ®¸¦ ¿äÃ»ÇÑ ÇÃ·¹ÀÌ¾îÀÇ ID
+	 * @param	peer Ğ–Ğ Ğ•Â¶ĞÂ» Ñ”Ñ‘Ñ–Ğ… Game server ĞĞ— peer Â°Ò‘Ğ“Ñ˜ĞĞ— Ğ–Ñ‡ĞĞĞ•Ğ
+	 * @param [in]	dwHandle Â°ĞÂ°Ğ­Ğ‘Â¤Ñ”Ñ‘Ñ‘Â¦ Ñ—Ğ´Ğ“Â»Ğ—Ğ¡ peer ĞĞ— Ğ—ĞªÂµĞ¹
+	 * @param [in]	dwPlayerID Â°ĞÂ°Ğ­Ğ‘Â¤Ñ”Ñ‘ Ñ‘Â®Ğ…Ñ”Ğ–Â®Ñ‘Â¦ Ñ—Ğ´Ğ“Â»Ğ—Ğ¡ Ğ—Ğ“Â·â„–ĞĞœÑ•Ğ¾ĞĞ— ID
 	 */
 	void		MyshopPricelistRequest(CPeer* peer, DWORD dwHandle, DWORD dwPlayerID);
 	// END_OF_MYSHOP_PRICE_LIST
@@ -390,7 +390,7 @@ class CClientManager : public CNetBase, public singleton<CClientManager>
    
     private:
 	int					m_looping;
-	socket_t				m_fdAccept;	// Á¢¼Ó ¹Ş´Â ¼ÒÄÏ
+	socket_t				m_fdAccept;	// Ğ‘ÑÑ˜Ğ£ â„–Ğ®Ò‘Ğ’ Ñ˜Ğ¢Ğ”ĞŸ
 	TPeerList				m_peerList;
 
 	CPeer *					m_pkAuthPeer;
@@ -407,7 +407,7 @@ class CClientManager : public CNetBase, public singleton<CClientManager>
 	typedef boost::unordered_map<DWORD, CLoginData *> TLoginDataByAID;
 	TLoginDataByAID				m_map_pkLoginDataByAID;
 
-	// Login LoginData pair (½ÇÁ¦ ·Î±×ÀÎ µÇ¾îÀÖ´Â °èÁ¤)
+	// Login LoginData pair (Ğ…Ğ—Ğ‘Â¦ Â·ĞÂ±Ğ§ĞĞ ÂµĞ—Ñ•Ğ¾ĞĞ¦Ò‘Ğ’ Â°Ğ¸Ğ‘Â¤)
 	typedef boost::unordered_map<std::string, CLoginData *> TLogonAccountMap;
 	TLogonAccountMap			m_map_kLogonAccount;
 
@@ -439,14 +439,14 @@ class CClientManager : public CNetBase, public singleton<CClientManager>
 
 	bool					m_bShutdowned;
 
-	TPlayerTableCacheMap			m_map_playerCache;  // ÇÃ·¹ÀÌ¾î id°¡ key
+	TPlayerTableCacheMap			m_map_playerCache;  // Ğ—Ğ“Â·â„–ĞĞœÑ•Ğ¾ idÂ°Ğ key
 
-	TItemCacheMap				m_map_itemCache;  // ¾ÆÀÌÅÛ id°¡ key
-	TItemCacheSetPtrMap			m_map_pkItemCacheSetPtr;  // ÇÃ·¹ÀÌ¾î id°¡ key, ÀÌ ÇÃ·¹ÀÌ¾î°¡ ¾î¶² ¾ÆÀÌÅÛ Ä³½¬¸¦ °¡Áö°í ÀÖ³ª?
+	TItemCacheMap				m_map_itemCache;  // Ñ•Ğ–ĞĞœĞ•Ğ« idÂ°Ğ key
+	TItemCacheSetPtrMap			m_map_pkItemCacheSetPtr;  // Ğ—Ğ“Â·â„–ĞĞœÑ•Ğ¾ idÂ°Ğ key, ĞĞœ Ğ—Ğ“Â·â„–ĞĞœÑ•Ğ¾Â°Ğ Ñ•Ğ¾Â¶Ğ† Ñ•Ğ–ĞĞœĞ•Ğ« Ğ”Ñ–Ğ…Â¬Ñ‘Â¦ Â°ĞĞ‘Ñ†Â°Ğ½ ĞĞ¦Ñ–Ğ„?
 
 	// MYSHOP_PRICE_LIST
-	/// ÇÃ·¹ÀÌ¾îº° ¾ÆÀÌÅÛ °¡°İÁ¤º¸ ¸®½ºÆ® map. key: ÇÃ·¹ÀÌ¾î ID, value: °¡°İÁ¤º¸ ¸®½ºÆ® Ä³½Ã
-	TItemPriceListCacheMap m_mapItemPriceListCache;  ///< ÇÃ·¹ÀÌ¾îº° ¾ÆÀÌÅÛ °¡°İÁ¤º¸ ¸®½ºÆ®
+	/// Ğ—Ğ“Â·â„–ĞĞœÑ•Ğ¾Ñ”Â° Ñ•Ğ–ĞĞœĞ•Ğ« Â°ĞÂ°Ğ­Ğ‘Â¤Ñ”Ñ‘ Ñ‘Â®Ğ…Ñ”Ğ–Â® map. key: Ğ—Ğ“Â·â„–ĞĞœÑ•Ğ¾ ID, value: Â°ĞÂ°Ğ­Ğ‘Â¤Ñ”Ñ‘ Ñ‘Â®Ğ…Ñ”Ğ–Â® Ğ”Ñ–Ğ…Ğ“
+	TItemPriceListCacheMap m_mapItemPriceListCache;  ///< Ğ—Ğ“Â·â„–ĞĞœÑ•Ğ¾Ñ”Â° Ñ•Ğ–ĞĞœĞ•Ğ« Â°ĞÂ°Ğ­Ğ‘Â¤Ñ”Ñ‘ Ñ‘Â®Ğ…Ñ”Ğ–Â®
 	// END_OF_MYSHOP_PRICE_LIST
 
 	TChannelStatusMap m_mChannelStatus;
@@ -484,7 +484,7 @@ class CClientManager : public CNetBase, public singleton<CClientManager>
 
 	//BOOT_LOCALIZATION
     public:
-	/* ·ÎÄÃ Á¤º¸ ÃÊ±âÈ­ 
+	/* Â·ĞĞ”Ğ“ Ğ‘Â¤Ñ”Ñ‘ Ğ“ĞšÂ±Ğ²Ğ˜Â­ 
 	 **/
 	bool InitializeLocalization(); 
 

@@ -63,7 +63,7 @@ namespace
 						!pkChr->IsAffectFlag(AFF_WAR_FLAG2) &&
 						!pkChr->IsAffectFlag(AFF_WAR_FLAG3))
 				{
-					// ¿ì¸®Æí ±ê¹ßÀÏ °æ¿ì
+					// Ñ—Ğ¼Ñ‘Â®Ğ–Ğ½ Â±Ğºâ„–Ğ¯ĞĞŸ Â°Ğ¶Ñ—Ğ¼
 					if ((DWORD) m_pkChr->GetPoint(POINT_STAT) == pkChr->GetGuild()->GetID())
 					{
 						CWarMap * pMap = pkChr->GetWarMap();
@@ -72,8 +72,8 @@ namespace
 						if (!pMap || !pMap->GetTeamIndex(pkChr->GetGuild()->GetID(), idx))
 							return;
 
-						// ¿ì¸®Æí ±âÁö¿¡ ±ê¹ßÀÌ ¾øÀ» ¶§¸¸ ±ê¹ßÀ» »Ì´Â´Ù. ¾È±×·¯¸é ±âÁö¿¡ ÀÖ´Â ±ê¹ßÀ»
-						// °¡¸¸È÷ µÎ°í ½ÍÀºµ¥µµ »ÌÈú¼ö°¡ ÀÖÀ¸¹Ç·Î..
+						// Ñ—Ğ¼Ñ‘Â®Ğ–Ğ½ Â±Ğ²Ğ‘Ñ†Ñ—Ğ Â±Ğºâ„–Ğ¯ĞĞœ Ñ•ÑˆĞÂ» Â¶Â§Ñ‘Ñ‘ Â±Ğºâ„–Ğ¯ĞÂ» Â»ĞœÒ‘Ğ’Ò‘Ğ©. Ñ•Ğ˜Â±Ğ§Â·Ğ‡Ñ‘Ğ¹ Â±Ğ²Ğ‘Ñ†Ñ—Ğ ĞĞ¦Ò‘Ğ’ Â±Ğºâ„–Ğ¯ĞÂ»
+						// Â°ĞÑ‘Ñ‘Ğ˜Ñ‡ ÂµĞÂ°Ğ½ Ğ…ĞĞÑ”ÂµÒÂµÂµ Â»ĞœĞ˜ÑŠÑ˜Ñ†Â°Ğ ĞĞ¦ĞÑ‘â„–Ğ—Â·Ğ..
 						if (!pMap->IsFlagOnBase(idx))
 						{
 							m_pkChrFind = pkChr;
@@ -82,7 +82,7 @@ namespace
 					}
 					else
 					{
-						// »ó´ëÆí ±ê¹ßÀÎ °æ¿ì ¹«Á¶°Ç »Ì´Â´Ù.
+						// Â»ÑƒÒ‘Ğ»Ğ–Ğ½ Â±Ğºâ„–Ğ¯ĞĞ Â°Ğ¶Ñ—Ğ¼ â„–Â«Ğ‘Â¶Â°Ğ— Â»ĞœÒ‘Ğ’Ò‘Ğ©.
 						m_pkChrFind = pkChr;
 						m_iMinDistance = iDist;
 					}
@@ -155,7 +155,7 @@ namespace
 								//pkChr->RemoveAffect(AFFECT_WAR_FLAG);
 
 								char buf[256];
-								snprintf(buf, sizeof(buf), LC_TEXT("%s ±æµå°¡ %s ±æµåÀÇ ±ê¹ßÀ» »©¾Ñ¾Ò½À´Ï´Ù!"), pMap->GetGuild(idx)->GetName(), pMap->GetGuild(idx_opp)->GetName());
+								snprintf(buf, sizeof(buf), LC_TEXT("%s Â±Ğ¶ÂµĞµÂ°Ğ %s Â±Ğ¶ÂµĞµĞĞ— Â±Ğºâ„–Ğ¯ĞÂ» Â»Â©Ñ•Ğ¡Ñ•Ğ¢Ğ…ĞÒ‘ĞŸÒ‘Ğ©!"), pMap->GetGuild(idx)->GetName(), pMap->GetGuild(idx_opp)->GetName());
 								pMap->Notice(buf);
 							}
 						}
@@ -186,7 +186,7 @@ namespace
 
 				LPCHARACTER pkChr = (LPCHARACTER) ent;
 
-				// ÀÏ´Ü PC °ø°İ¾ÈÇÔ
+				// ĞĞŸÒ‘Ğ¬ PC Â°ÑˆÂ°Ğ­Ñ•Ğ˜Ğ—Ğ¤
 				if (pkChr->IsPC())
 					return;
 
@@ -202,7 +202,7 @@ namespace
 						pkChr->IsAffectFlag(AFF_REVIVE_INVISIBLE))
 					return;
 
-				// ¿Ö±¸´Â ÆĞ½º
+				// Ñ—Ğ¦Â±Ñ‘Ò‘Ğ’ Ğ–Ğ Ğ…Ñ”
 				if (pkChr->GetRaceNum() == 5001)
 					return;
 
@@ -285,7 +285,7 @@ void CHARACTER::CowardEscape()
 	for (int iDistIdx = 2; iDistIdx >= 0; --iDistIdx)
 		for (int iTryCount = 0; iTryCount < 8; ++iTryCount)
 		{
-			SetRotation(number(0, 359));        // ¹æÇâÀº ·£´ıÀ¸·Î ¼³Á¤
+			SetRotation(number(0, 359));        // â„–Ğ¶Ğ—Ğ²ĞÑ” Â·ĞˆÒ‘ÑĞÑ‘Â·Ğ Ñ˜Ñ–Ğ‘Â¤
 
 			float fx, fy;
 			float fDist = number(iDist[iDistIdx], iDist[iDistIdx+1]);
@@ -367,7 +367,7 @@ void CHARACTER::StateIdle()
 	}
 	else if (IsWarp() || IsGoto())
 	{
-		// ¿öÇÁ´Â ÀÌº¥Æ®·Î Ã³¸®
+		// Ñ—Ñ†Ğ—Ğ‘Ò‘Ğ’ ĞĞœÑ”ÒĞ–Â®Â·Ğ Ğ“Ñ–Ñ‘Â®
 		m_dwStateDuration = 60 * passes_per_sec;
 		return;
 	}
@@ -375,7 +375,7 @@ void CHARACTER::StateIdle()
 	if (IsPC())
 		return;
 
-	// NPC Ã³¸®
+	// NPC Ğ“Ñ–Ñ‘Â®
 	if (!IsMonster())
 	{
 		__StateIdle_NPC();
@@ -506,7 +506,7 @@ void CHARACTER::__StateIdle_NPC()
 	MonsterChat(MONSTER_CHAT_WAIT);
 	m_dwStateDuration = PASSES_PER_SEC(5);
 
-	// Æê ½Ã½ºÅÛÀÇ Idle Ã³¸®´Â ±âÁ¸ °ÅÀÇ ¸ğµç Á¾·ùÀÇ Ä³¸¯ÅÍµéÀÌ °øÀ¯ÇØ¼­ »ç¿ëÇÏ´Â »óÅÂ¸Ó½ÅÀÌ ¾Æ´Ñ CPetActor::Update¿¡¼­ Ã³¸®ÇÔ.
+	// Ğ–Ğº Ğ…Ğ“Ğ…Ñ”Ğ•Ğ«ĞĞ— Idle Ğ“Ñ–Ñ‘Â®Ò‘Ğ’ Â±Ğ²Ğ‘Ñ‘ Â°Ğ•ĞĞ— Ñ‘Ñ€ÂµĞ· Ğ‘Ñ•Â·Ñ‰ĞĞ— Ğ”Ñ–Ñ‘Ğ‡Ğ•ĞÂµĞ¹ĞĞœ Â°ÑˆĞĞ‡Ğ—Ğ¨Ñ˜Â­ Â»Ğ·Ñ—Ğ»Ğ—ĞŸÒ‘Ğ’ Â»ÑƒĞ•Ğ’Ñ‘Ğ£Ğ…Ğ•ĞĞœ Ñ•Ğ–Ò‘Ğ¡ CPetActor::UpdateÑ—ĞÑ˜Â­ Ğ“Ñ–Ñ‘Â®Ğ—Ğ¤.
 	if (IsPet())
 		return;
 	else if (IsGuardNPC())
@@ -531,21 +531,21 @@ void CHARACTER::__StateIdle_NPC()
 	}
 	else
 	{
-		if (GetRaceNum() == xmas::MOB_SANTA_VNUM) // »êÅ¸
+		if (GetRaceNum() == xmas::MOB_SANTA_VNUM) // Â»ĞºĞ•Ñ‘
 		{
 			if (get_dword_time() > m_dwPlayStartTime)
 			{
-				int	next_warp_time = 2 * 1000;	// 2ÃÊ
+				int	next_warp_time = 2 * 1000;	// 2Ğ“Ğš
 
 				m_dwPlayStartTime = get_dword_time() + next_warp_time;
 
-				// ½Ã°£ÀÌ ³Ñ¾úÀ¸´Ï ¿öÇÁÇÕ½Ã´Ù.
+				// Ğ…Ğ“Â°ĞˆĞĞœ Ñ–Ğ¡Ñ•ÑŠĞÑ‘Ò‘ĞŸ Ñ—Ñ†Ğ—Ğ‘Ğ—Ğ¥Ğ…Ğ“Ò‘Ğ©.
 				/*
-				 * »êÅ¸¿ë
+				 * Â»ĞºĞ•Ñ‘Ñ—Ğ»
 				const int WARP_MAP_INDEX_NUM = 4;
 				static const long c_lWarpMapIndexs[WARP_MAP_INDEX_NUM] = {61, 62, 63, 64};
 				*/
-				// ½Å¼±ÀÚ ³ëÇØ¿ë
+				// Ğ…Ğ•Ñ˜Â±ĞĞª Ñ–Ğ»Ğ—Ğ¨Ñ—Ğ»
 				const int WARP_MAP_INDEX_NUM = 7;
 				static const long c_lWarpMapIndexs[WARP_MAP_INDEX_NUM] = { 61, 62, 63, 64, 3, 23, 43 };
 				long lNextMapIndex;
@@ -553,7 +553,7 @@ void CHARACTER::__StateIdle_NPC()
 
 				if (map_allow_find(lNextMapIndex))
 				{
-					// ÀÌ°÷ÀÔ´Ï´Ù.
+					// ĞĞœÂ°Ñ‡ĞĞ¤Ò‘ĞŸÒ‘Ğ©.
 					M2_DESTROY_CHARACTER(this);
 					int iNextSpawnDelay = 0;
 					if (LC_IsYMIR())
@@ -565,7 +565,7 @@ void CHARACTER::__StateIdle_NPC()
 				}
 				else
 				{
-					// ´Ù¸¥ ¼­¹ö ÀÔ´Ï´Ù.
+					// Ò‘Ğ©Ñ‘Ò Ñ˜Â­â„–Ñ† ĞĞ¤Ò‘ĞŸÒ‘Ğ©.
 					TPacketGGXmasWarpSanta p;
 					p.bHeader   = HEADER_GG_XMAS_WARP_SANTA;
 					p.bChannel  = g_bChannel;
@@ -579,7 +579,7 @@ void CHARACTER::__StateIdle_NPC()
 		if (!IS_SET(m_pointsInstant.dwAIFlag, AIFLAG_NOMOVE))
 		{
 			//
-			// ÀÌ °÷ Àú °÷ ÀÌµ¿ÇÑ´Ù.
+			// ĞĞœ Â°Ñ‡ ĞÑŠ Â°Ñ‡ ĞĞœÂµÑ—Ğ—Ğ¡Ò‘Ğ©.
 			// 
 			LPCHARACTER pkChrProtege = GetProtege();
 
@@ -594,14 +594,14 @@ void CHARACTER::__StateIdle_NPC()
 
 			if (!number(0, 6))
 			{
-				SetRotation(number(0, 359));        // ¹æÇâÀº ·£´ıÀ¸·Î ¼³Á¤
+				SetRotation(number(0, 359));        // â„–Ğ¶Ğ—Ğ²ĞÑ” Â·ĞˆÒ‘ÑĞÑ‘Â·Ğ Ñ˜Ñ–Ğ‘Â¤
 
 				float fx, fy;
 				float fDist = number(200, 400);
 
 				GetDeltaByDegree(GetRotation(), fDist, &fx, &fy);
 
-				// ´À½¼ÇÑ ¸ø°¨ ¼Ó¼º Ã¼Å©; ÃÖÁ¾ À§Ä¡¿Í Áß°£ À§Ä¡°¡ °¥¼ö¾ø´Ù¸é °¡Áö ¾Ê´Â´Ù.
+				// Ò‘ĞĞ…Ñ˜Ğ—Ğ¡ Ñ‘ÑˆÂ°Ğ Ñ˜Ğ£Ñ˜Ñ” Ğ“Ñ˜Ğ•Â©; Ğ“Ğ¦Ğ‘Ñ• ĞÂ§Ğ”ĞÑ—Ğ Ğ‘Ğ¯Â°Ğˆ ĞÂ§Ğ”ĞÂ°Ğ Â°ÒÑ˜Ñ†Ñ•ÑˆÒ‘Ğ©Ñ‘Ğ¹ Â°ĞĞ‘Ñ† Ñ•ĞšÒ‘Ğ’Ò‘Ğ©.
 				if (!(SECTREE_MANAGER::instance().IsMovablePosition(GetMapIndex(), GetX() + (int) fx, GetY() + (int) fy) 
 					&& SECTREE_MANAGER::instance().IsMovablePosition(GetMapIndex(), GetX() + (int) fx / 2, GetY() + (int) fy / 2)))
 					return;
@@ -627,7 +627,7 @@ void CHARACTER::__StateIdle_Monster()
 
 	if (IsCoward())
 	{
-		// °ÌÀïÀÌ ¸ó½ºÅÍ´Â µµ¸Á¸¸ ´Ù´Õ´Ï´Ù.
+		// Â°ĞœĞĞ¿ĞĞœ Ñ‘ÑƒĞ…Ñ”Ğ•ĞÒ‘Ğ’ ÂµÂµÑ‘Ğ‘Ñ‘Ñ‘ Ò‘Ğ©Ò‘Ğ¥Ò‘ĞŸÒ‘Ğ©.
 		if (!IsDead())
 			CowardEscape();
 
@@ -653,16 +653,16 @@ void CHARACTER::__StateIdle_Monster()
 
 	if (!victim || victim->IsBuilding())
 	{
-		// µ¹ º¸È£ Ã³¸®
+		// Âµâ„– Ñ”Ñ‘Ğ˜Ğˆ Ğ“Ñ–Ñ‘Â®
 		if (m_pkChrStone)
 		{
 			victim = m_pkChrStone->GetNearestVictim(m_pkChrStone);
 		}
-		// ¼±°ø ¸ó½ºÅÍ Ã³¸®
+		// Ñ˜Â±Â°Ñˆ Ñ‘ÑƒĞ…Ñ”Ğ•Ğ Ğ“Ñ–Ñ‘Â®
 		else if (!no_wander && IsAggressive())
 		{
 			if (GetMapIndex() == 61 && quest::CQuestManager::instance().GetEventFlag("xmas_tree"));
-			// ¼­ÇÑ»ê¿¡¼­ ³ª¹«°¡ ÀÖÀ¸¸é ¼±°øÇÏÁö¾Ê´Â´Ù.
+			// Ñ˜Â­Ğ—Ğ¡Â»ĞºÑ—ĞÑ˜Â­ Ñ–Ğ„â„–Â«Â°Ğ ĞĞ¦ĞÑ‘Ñ‘Ğ¹ Ñ˜Â±Â°ÑˆĞ—ĞŸĞ‘Ñ†Ñ•ĞšÒ‘Ğ’Ò‘Ğ©.
 			else
 				victim = FindVictim(this, m_pkMobData->m_table.wAggressiveSight);
 		}
@@ -683,40 +683,40 @@ void CHARACTER::__StateIdle_Monster()
 
 	LPCHARACTER pkChrProtege = GetProtege();
 
-	// º¸È£ÇÒ °Í(µ¹, ÆÄÆ¼Àå)¿¡°Ô·Î ºÎÅÍ ¸Ö´Ù¸é µû¶ó°£´Ù.
+	// Ñ”Ñ‘Ğ˜ĞˆĞ—Ğ¢ Â°Ğ(Âµâ„–, Ğ–Ğ”Ğ–Ñ˜ĞĞµ)Ñ—ĞÂ°Ğ¤Â·Ğ Ñ”ĞĞ•Ğ Ñ‘Ğ¦Ò‘Ğ©Ñ‘Ğ¹ ÂµÑ‹Â¶ÑƒÂ°ĞˆÒ‘Ğ©.
 	if (pkChrProtege)
 	{
 		if (DISTANCE_APPROX(GetX() - pkChrProtege->GetX(), GetY() - pkChrProtege->GetY()) > 1000)
 		{
 			if (Follow(pkChrProtege, number(150, 400)))
 			{
-				MonsterLog("[IDLE] ¸®´õ·ÎºÎÅÍ ³Ê¹« ¸Ö¸® ¶³¾îÁ³´Ù! º¹±ÍÇÑ´Ù.");
+				MonsterLog("[IDLE] Ñ‘Â®Ò‘Ñ…Â·ĞÑ”ĞĞ•Ğ Ñ–Ğšâ„–Â« Ñ‘Ğ¦Ñ‘Â® Â¶Ñ–Ñ•Ğ¾Ğ‘Ñ–Ò‘Ğ©! Ñ”â„–Â±ĞĞ—Ğ¡Ò‘Ğ©.");
 				return;
 			}
 		}
 	}
 
 	//
-	// ±×³É ¿Ô´Ù¸® °¬´Ù¸® ÇÑ´Ù.
+	// Â±Ğ§Ñ–Ğ™ Ñ—Ğ¤Ò‘Ğ©Ñ‘Â® Â°Â¬Ò‘Ğ©Ñ‘Â® Ğ—Ğ¡Ò‘Ğ©.
 	//
 	if (!no_wander && !IS_SET(m_pointsInstant.dwAIFlag, AIFLAG_NOMOVE))
 	{
 		if (!number(0, 6))
 		{
-			SetRotation(number(0, 359));        // ¹æÇâÀº ·£´ıÀ¸·Î ¼³Á¤
+			SetRotation(number(0, 359));        // â„–Ğ¶Ğ—Ğ²ĞÑ” Â·ĞˆÒ‘ÑĞÑ‘Â·Ğ Ñ˜Ñ–Ğ‘Â¤
 
 			float fx, fy;
 			float fDist = number(300, 700);
 
 			GetDeltaByDegree(GetRotation(), fDist, &fx, &fy);
 
-			// ´À½¼ÇÑ ¸ø°¨ ¼Ó¼º Ã¼Å©; ÃÖÁ¾ À§Ä¡¿Í Áß°£ À§Ä¡°¡ °¥¼ö¾ø´Ù¸é °¡Áö ¾Ê´Â´Ù.
+			// Ò‘ĞĞ…Ñ˜Ğ—Ğ¡ Ñ‘ÑˆÂ°Ğ Ñ˜Ğ£Ñ˜Ñ” Ğ“Ñ˜Ğ•Â©; Ğ“Ğ¦Ğ‘Ñ• ĞÂ§Ğ”ĞÑ—Ğ Ğ‘Ğ¯Â°Ğˆ ĞÂ§Ğ”ĞÂ°Ğ Â°ÒÑ˜Ñ†Ñ•ÑˆÒ‘Ğ©Ñ‘Ğ¹ Â°ĞĞ‘Ñ† Ñ•ĞšÒ‘Ğ’Ò‘Ğ©.
 			if (!(SECTREE_MANAGER::instance().IsMovablePosition(GetMapIndex(), GetX() + (int) fx, GetY() + (int) fy) 
 						&& SECTREE_MANAGER::instance().IsMovablePosition(GetMapIndex(), GetX() + (int) fx/2, GetY() + (int) fy/2)))
 				return;
 
-			// NOTE: ¸ó½ºÅÍ°¡ IDLE »óÅÂ¿¡¼­ ÁÖº¯À» ¼­¼º°Å¸± ¶§, ÇöÀç ¹«Á¶°Ç ¶Ù¾î°¡°Ô µÇ¾î ÀÖÀ½. (Àı´ë·Î °ÈÁö ¾ÊÀ½)
-			// ±×·¡ÇÈ ÆÀ¿¡¼­ ¸ó½ºÅÍ°¡ °È´Â ¸ğ½Àµµ º¸°í½Í´Ù°í ÇØ¼­ ÀÓ½Ã·Î Æ¯Á¤È®·ü·Î °È°Å³ª ¶Ù°Ô ÇÔ. (°ÔÀÓÀÇ Àü¹İÀûÀÎ ´À³¦ÀÌ Æ²·ÁÁö±â ¶§¹®¿¡ ÀÏ´Ü Å×½ºÆ® ¸ğµå¿¡¼­¸¸ ÀÛµ¿)
+			// NOTE: Ñ‘ÑƒĞ…Ñ”Ğ•ĞÂ°Ğ IDLE Â»ÑƒĞ•Ğ’Ñ—ĞÑ˜Â­ Ğ‘Ğ¦Ñ”Ğ‡ĞÂ» Ñ˜Â­Ñ˜Ñ”Â°Ğ•Ñ‘Â± Â¶Â§, Ğ—Ñ†ĞĞ· â„–Â«Ğ‘Â¶Â°Ğ— Â¶Ğ©Ñ•Ğ¾Â°ĞÂ°Ğ¤ ÂµĞ—Ñ•Ğ¾ ĞĞ¦ĞĞ…. (ĞÑÒ‘Ğ»Â·Ğ Â°Ğ˜Ğ‘Ñ† Ñ•ĞšĞĞ…)
+			// Â±Ğ§Â·ĞĞ—Ğ˜ Ğ–ĞÑ—ĞÑ˜Â­ Ñ‘ÑƒĞ…Ñ”Ğ•ĞÂ°Ğ Â°Ğ˜Ò‘Ğ’ Ñ‘Ñ€Ğ…ĞÂµÂµ Ñ”Ñ‘Â°Ğ½Ğ…ĞÒ‘Ğ©Â°Ğ½ Ğ—Ğ¨Ñ˜Â­ ĞĞ£Ğ…Ğ“Â·Ğ Ğ–Ğ‡Ğ‘Â¤Ğ˜Â®Â·ÑŒÂ·Ğ Â°Ğ˜Â°Ğ•Ñ–Ğ„ Â¶Ğ©Â°Ğ¤ Ğ—Ğ¤. (Â°Ğ¤ĞĞ£ĞĞ— ĞÑŒâ„–Ğ­ĞÑ‹ĞĞ Ò‘ĞÑ–Â¦ĞĞœ Ğ–Ğ†Â·Ğ‘Ğ‘Ñ†Â±Ğ² Â¶Â§â„–Â®Ñ—Ğ ĞĞŸÒ‘Ğ¬ Ğ•Ğ§Ğ…Ñ”Ğ–Â® Ñ‘Ñ€ÂµĞµÑ—ĞÑ˜Â­Ñ‘Ñ‘ ĞĞ«ÂµÑ—)
 			if (g_test_server)
 			{
 				if (number(0, 100) < 60)
@@ -745,13 +745,13 @@ bool __CHARACTER_GotoNearTarget(LPCHARACTER self, LPCHARACTER victim)
 	{
 		case BATTLE_TYPE_RANGE:
 		case BATTLE_TYPE_MAGIC:
-			// ¸¶¹ı»ç³ª ±Ã¼ö´Â °ø°İ °Å¸®ÀÇ 80%±îÁö °¡¼­ °ø°İÀ» ½ÃÀÛÇÑ´Ù.
+			// Ñ‘Â¶â„–ÑÂ»Ğ·Ñ–Ğ„ Â±Ğ“Ñ˜Ñ†Ò‘Ğ’ Â°ÑˆÂ°Ğ­ Â°Ğ•Ñ‘Â®ĞĞ— 80%Â±Ğ¾Ğ‘Ñ† Â°ĞÑ˜Â­ Â°ÑˆÂ°Ğ­ĞÂ» Ğ…Ğ“ĞĞ«Ğ—Ğ¡Ò‘Ğ©.
 			if (self->Follow(victim, self->GetMobAttackRange() * 8 / 10))
 				return true;
 			break;
 
 		default:
-			// ³ª¸ÓÁö´Â 90%?
+			// Ñ–Ğ„Ñ‘Ğ£Ğ‘Ñ†Ò‘Ğ’ 90%?
 			if (self->Follow(victim, self->GetMobAttackRange() * 9 / 10))
 				return true;
 	}
@@ -781,7 +781,7 @@ void CHARACTER::StateMove()
 			LPCHARACTER victim = GetExchange()->GetCompany()->GetOwner();
 			int iDist = DISTANCE_APPROX(GetX() - victim->GetX(), GetY() - victim->GetY());
 
-			// °Å¸® Ã¼Å©
+			// Â°Ğ•Ñ‘Â® Ğ“Ñ˜Ğ•Â©
 			if (iDist >= EXCHANGE_MAX_DISTANCE)
 			{
 				GetExchange()->Cancel();
@@ -789,17 +789,17 @@ void CHARACTER::StateMove()
 		}
 	}
 
-	// ½ºÅ×¹Ì³ª°¡ 0 ÀÌ»óÀÌ¾î¾ß ÇÑ´Ù.
+	// Ğ…Ñ”Ğ•Ğ§â„–ĞœÑ–Ğ„Â°Ğ 0 ĞĞœÂ»ÑƒĞĞœÑ•Ğ¾Ñ•Ğ¯ Ğ—Ğ¡Ò‘Ğ©.
 	if (IsPC())
 	{
 		if (IsWalking() && GetStamina() < GetMaxStamina())
 		{
-			// 5ÃÊ ÈÄ ºÎÅÍ ½ºÅ×¹Ì³Ê Áõ°¡
+			// 5Ğ“Ğš Ğ˜Ğ” Ñ”ĞĞ•Ğ Ğ…Ñ”Ğ•Ğ§â„–ĞœÑ–Ğš Ğ‘Ñ…Â°Ğ
 			if (get_dword_time() - GetWalkStartTime() > 5000)
 				PointChange(POINT_STAMINA, GetMaxStamina() / 1);
 		}
 
-		// ÀüÅõ ÁßÀÌ¸é¼­ ¶Ù´Â ÁßÀÌ¸é
+		// ĞÑŒĞ•Ñ… Ğ‘Ğ¯ĞĞœÑ‘Ğ¹Ñ˜Â­ Â¶Ğ©Ò‘Ğ’ Ğ‘Ğ¯ĞĞœÑ‘Ğ¹
 		if (!IsWalking() && !IsRiding())
 			if ((get_dword_time() - GetLastAttackTime()) < 20000)
 			{
@@ -817,7 +817,7 @@ void CHARACTER::StateMove()
 
 				if (GetStamina() <= 0)
 				{
-					// ½ºÅ×¹Ì³ª°¡ ¸ğÀÚ¶ó °É¾î¾ßÇÔ
+					// Ğ…Ñ”Ğ•Ğ§â„–ĞœÑ–Ğ„Â°Ğ Ñ‘Ñ€ĞĞªÂ¶Ñƒ Â°Ğ™Ñ•Ğ¾Ñ•Ğ¯Ğ—Ğ¤
 					SetStamina(0);
 					SetNowWalking(true);
 					StopStaminaConsume();
@@ -838,7 +838,7 @@ void CHARACTER::StateMove()
 
 			if (g_test_server)
 			{
-				// ¸ó½ºÅÍ°¡ ÀûÀ» ÂÑ¾Æ°¡´Â °ÍÀÌ¸é ¹«Á¶°Ç ¶Ù¾î°£´Ù.
+				// Ñ‘ÑƒĞ…Ñ”Ğ•ĞÂ°Ğ ĞÑ‹ĞÂ» Ğ’Ğ¡Ñ•Ğ–Â°ĞÒ‘Ğ’ Â°ĞĞĞœÑ‘Ğ¹ â„–Â«Ğ‘Â¶Â°Ğ— Â¶Ğ©Ñ•Ğ¾Â°ĞˆÒ‘Ğ©.
 				SetNowWalking(false);
 			}
 		}
@@ -847,10 +847,10 @@ void CHARACTER::StateMove()
 		{
 			LPCHARACTER victim = GetVictim();
 
-			// °Å´ë °ÅºÏ
+			// Â°Ğ•Ò‘Ğ» Â°Ğ•Ñ”ĞŸ
 			if (GetRaceNum() == 2191 && number(1, 20) == 1 && get_dword_time() - m_pkMobInst->m_dwLastWarpTime > 1000)
 			{
-				// ¿öÇÁ Å×½ºÆ®
+				// Ñ—Ñ†Ğ—Ğ‘ Ğ•Ğ§Ğ…Ñ”Ğ–Â®
 				float fx, fy;
 				GetDeltaByDegree(victim->GetRotation(), 400, &fx, &fy);
 				long new_x = victim->GetX() + (long)fx;
@@ -864,7 +864,7 @@ void CHARACTER::StateMove()
 				return;
 			}
 
-			// TODO ¹æÇâÀüÈ¯À» ÇØ¼­ ´ú ¹Ùº¸°¡ µÇÀÚ!
+			// TODO â„–Ğ¶Ğ—Ğ²ĞÑŒĞ˜Ğ‡ĞÂ» Ğ—Ğ¨Ñ˜Â­ Ò‘ÑŠ â„–Ğ©Ñ”Ñ‘Â°Ğ ÂµĞ—ĞĞª!
 			if (number(0, 3) == 0)
 			{
 				if (__CHARACTER_GotoNearTarget(this, victim))
@@ -877,7 +877,7 @@ void CHARACTER::StateMove()
 	{
 		if (IsPC())
 		{
-			sys_log(1, "µµÂø %s %d %d", GetName(), x, y);
+			sys_log(1, "ÂµÂµĞ’Ñˆ %s %d %d", GetName(), x, y);
 			GotoState(m_stateIdle);
 			StopStaminaConsume();
 		}
@@ -886,7 +886,7 @@ void CHARACTER::StateMove()
 			if (GetVictim() && !IsCoward())
 			{
 				if (!IsState(m_stateBattle))
-					MonsterLog("[BATTLE] ±ÙÃ³¿¡ ¿ÔÀ¸´Ï °ø°İ½ÃÀÛ %s", GetVictim()->GetName());
+					MonsterLog("[BATTLE] Â±Ğ©Ğ“Ñ–Ñ—Ğ Ñ—Ğ¤ĞÑ‘Ò‘ĞŸ Â°ÑˆÂ°Ğ­Ğ…Ğ“ĞĞ« %s", GetVictim()->GetName());
 
 				GotoState(m_stateBattle);
 				m_dwStateDuration = 1;
@@ -894,7 +894,7 @@ void CHARACTER::StateMove()
 			else
 			{
 				if (!IsState(m_stateIdle))
-					MonsterLog("[IDLE] ´ë»óÀÌ ¾øÀ¸´Ï ½¬ÀÚ");
+					MonsterLog("[IDLE] Ò‘Ğ»Â»ÑƒĞĞœ Ñ•ÑˆĞÑ‘Ò‘ĞŸ Ğ…Â¬ĞĞª");
 
 				GotoState(m_stateIdle);
 
@@ -1005,7 +1005,7 @@ void CHARACTER::StateBattle()
 	{
 		if (!GetParty())
 		{
-			// ¼­¸óÇØ¼­ Ã¤¿öµÑ ÆÄÆ¼¸¦ ¸¸µé¾î µÓ´Ï´Ù.
+			// Ñ˜Â­Ñ‘ÑƒĞ—Ğ¨Ñ˜Â­ Ğ“Â¤Ñ—Ñ†ÂµĞ¡ Ğ–Ğ”Ğ–Ñ˜Ñ‘Â¦ Ñ‘Ñ‘ÂµĞ¹Ñ•Ğ¾ ÂµĞ£Ò‘ĞŸÒ‘Ğ©.
 			CPartyManager::instance().CreateParty(this);
 		}
 
@@ -1014,8 +1014,8 @@ void CHARACTER::StateBattle()
 
 		if (bPct && pParty->CountMemberByVnum(GetSummonVnum()) < SUMMON_MONSTER_COUNT)
 		{
-			MonsterLog("ºÎÇÏ ¸ó½ºÅÍ ¼ÒÈ¯!");
-			// ¸ğÀÚ¶ó´Â ³à¼®À» ºÒ·¯³» Ã¤¿ó½Ã´Ù.
+			MonsterLog("Ñ”ĞĞ—ĞŸ Ñ‘ÑƒĞ…Ñ”Ğ•Ğ Ñ˜Ğ¢Ğ˜Ğ‡!");
+			// Ñ‘Ñ€ĞĞªÂ¶ÑƒÒ‘Ğ’ Ñ–Ğ°Ñ˜Â®ĞÂ» Ñ”Ğ¢Â·Ğ‡Ñ–Â» Ğ“Â¤Ñ—ÑƒĞ…Ğ“Ò‘Ğ©.
 			int sx = GetX() - 300;
 			int sy = GetY() - 300;
 			int ex = GetX() + 300;
@@ -1035,12 +1035,12 @@ void CHARACTER::StateBattle()
 
 	float fDist = DISTANCE_APPROX(GetX() - victim->GetX(), GetY() - victim->GetY());
 
-	if (fDist >= 4000.0f)   // 40¹ÌÅÍ ÀÌ»ó ¸Ö¾îÁö¸é Æ÷±â
+	if (fDist >= 4000.0f)   // 40â„–ĞœĞ•Ğ ĞĞœÂ»Ñƒ Ñ‘Ğ¦Ñ•Ğ¾Ğ‘Ñ†Ñ‘Ğ¹ Ğ–Ñ‡Â±Ğ²
 	{
-		MonsterLog("Å¸°ÙÀÌ ¸Ö¾î¼­ Æ÷±â");
+		MonsterLog("Ğ•Ñ‘Â°Ğ©ĞĞœ Ñ‘Ğ¦Ñ•Ğ¾Ñ˜Â­ Ğ–Ñ‡Â±Ğ²");
 		SetVictim(NULL);
 
-		// º¸È£ÇÒ °Í(µ¹, ÆÄÆ¼Àå) ÁÖº¯À¸·Î °£´Ù.
+		// Ñ”Ñ‘Ğ˜ĞˆĞ—Ğ¢ Â°Ğ(Âµâ„–, Ğ–Ğ”Ğ–Ñ˜ĞĞµ) Ğ‘Ğ¦Ñ”Ğ‡ĞÑ‘Â·Ğ Â°ĞˆÒ‘Ğ©.
 		if (pkChrProtege)
 			if (DISTANCE_APPROX(GetX() - pkChrProtege->GetX(), GetY() - pkChrProtege->GetY()) > 1000)
 				Follow(pkChrProtege, number(150, 400));
@@ -1059,7 +1059,7 @@ void CHARACTER::StateBattle()
 
 	if (2493 == m_pkMobData->m_table.dwVnum)
 	{
-		// ¼ö·æ(2493) Æ¯¼ö Ã³¸®
+		// Ñ˜Ñ†Â·Ğ¶(2493) Ğ–Ğ‡Ñ˜Ñ† Ğ“Ñ–Ñ‘Â®
 		m_dwStateDuration = BlueDragon_StateBattle(this);
 		return;
 	}
@@ -1067,7 +1067,7 @@ void CHARACTER::StateBattle()
 	DWORD dwCurTime = get_dword_time();
 	DWORD dwDuration = CalculateDuration(GetLimitPoint(POINT_ATT_SPEED), 2000);
 
-	if ((dwCurTime - m_dwLastAttackTime) < dwDuration) // 2ÃÊ ¸¶´Ù °ø°İÇØ¾ß ÇÑ´Ù.
+	if ((dwCurTime - m_dwLastAttackTime) < dwDuration) // 2Ğ“Ğš Ñ‘Â¶Ò‘Ğ© Â°ÑˆÂ°Ğ­Ğ—Ğ¨Ñ•Ğ¯ Ğ—Ğ¡Ò‘Ğ©.
 	{
 		m_dwStateDuration = MAX(1, (passes_per_sec * (dwDuration - (dwCurTime - m_dwLastAttackTime)) / 1000));
 		return;
@@ -1084,7 +1084,7 @@ void CHARACTER::StateBattle()
 				SetGodSpeed(true);
 
 	//
-	// ¸÷ ½ºÅ³ Ã³¸®
+	// Ñ‘Ñ‡ Ğ…Ñ”Ğ•Ñ– Ğ“Ñ–Ñ‘Â®
 	//
 	if (HasMobSkill())
 	{
@@ -1110,11 +1110,11 @@ void CHARACTER::StateBattle()
 		}
 	}
 
-	if (!Attack(victim))    // °ø°İ ½ÇÆĞ¶ó¸é? ¿Ö ½ÇÆĞÇßÁö? TODO
+	if (!Attack(victim))    // Â°ÑˆÂ°Ğ­ Ğ…Ğ—Ğ–Ğ Â¶ÑƒÑ‘Ğ¹? Ñ—Ğ¦ Ğ…Ğ—Ğ–Ğ Ğ—Ğ¯Ğ‘Ñ†? TODO
 		m_dwStateDuration = passes_per_sec / 2;
 	else
 	{
-		// ÀûÀ» ¹Ù¶óº¸°Ô ¸¸µç´Ù.
+		// ĞÑ‹ĞÂ» â„–Ğ©Â¶ÑƒÑ”Ñ‘Â°Ğ¤ Ñ‘Ñ‘ÂµĞ·Ò‘Ğ©.
 		SetRotationToXY(victim->GetX(), victim->GetY());
 
 		SendMovePacket(FUNC_ATTACK, 0, GetX(), GetY(), 0, dwCurTime);
@@ -1153,7 +1153,7 @@ void CHARACTER::StateFlag()
 
 	pMap->RemoveFlag(idx);
 
-	snprintf(buf, sizeof(buf), LC_TEXT("%s ±æµåÀÇ ±ê¹ßÀ» %s ´ÔÀÌ È¹µæÇÏ¿´½À´Ï´Ù."), pMap->GetGuild(idx)->GetName(), f.m_pkChrFind->GetName());
+	snprintf(buf, sizeof(buf), LC_TEXT("%s Â±Ğ¶ÂµĞµĞĞ— Â±Ğºâ„–Ğ¯ĞÂ» %s Ò‘Ğ¤ĞĞœ Ğ˜â„–ÂµĞ¶Ğ—ĞŸÑ—Ò‘Ğ…ĞÒ‘ĞŸÒ‘Ğ©."), pMap->GetGuild(idx)->GetName(), f.m_pkChrFind->GetName());
 	pMap->Notice(buf);
 }
 
@@ -1167,15 +1167,15 @@ void CHARACTER::StateFlagBase()
 
 void CHARACTER::StateHorse()
 {
-	float	START_FOLLOW_DISTANCE = 400.0f;		// ÀÌ °Å¸® ÀÌ»ó ¶³¾îÁö¸é ÂÑ¾Æ°¡±â ½ÃÀÛÇÔ
-	float	START_RUN_DISTANCE = 700.0f;		// ÀÌ °Å¸® ÀÌ»ó ¶³¾îÁö¸é ¶Ù¾î¼­ ÂÑ¾Æ°¨.
-	int		MIN_APPROACH = 150;					// ÃÖ¼Ò Á¢±Ù °Å¸®
-	int		MAX_APPROACH = 300;					// ÃÖ´ë Á¢±Ù °Å¸®	
+	float	START_FOLLOW_DISTANCE = 400.0f;		// ĞĞœ Â°Ğ•Ñ‘Â® ĞĞœÂ»Ñƒ Â¶Ñ–Ñ•Ğ¾Ğ‘Ñ†Ñ‘Ğ¹ Ğ’Ğ¡Ñ•Ğ–Â°ĞÂ±Ğ² Ğ…Ğ“ĞĞ«Ğ—Ğ¤
+	float	START_RUN_DISTANCE = 700.0f;		// ĞĞœ Â°Ğ•Ñ‘Â® ĞĞœÂ»Ñƒ Â¶Ñ–Ñ•Ğ¾Ğ‘Ñ†Ñ‘Ğ¹ Â¶Ğ©Ñ•Ğ¾Ñ˜Â­ Ğ’Ğ¡Ñ•Ğ–Â°Ğ.
+	int		MIN_APPROACH = 150;					// Ğ“Ğ¦Ñ˜Ğ¢ Ğ‘ÑÂ±Ğ© Â°Ğ•Ñ‘Â®
+	int		MAX_APPROACH = 300;					// Ğ“Ğ¦Ò‘Ğ» Ğ‘ÑÂ±Ğ© Â°Ğ•Ñ‘Â®	
 
-	DWORD	STATE_DURATION = (DWORD)PASSES_PER_SEC(0.5);	// »óÅÂ Áö¼Ó ½Ã°£
+	DWORD	STATE_DURATION = (DWORD)PASSES_PER_SEC(0.5);	// Â»ÑƒĞ•Ğ’ Ğ‘Ñ†Ñ˜Ğ£ Ğ…Ğ“Â°Ğˆ
 
-	bool bDoMoveAlone = true;					// Ä³¸¯ÅÍ¿Í °¡±îÀÌ ÀÖÀ» ¶§ È¥ÀÚ ¿©±âÀú±â ¿òÁ÷ÀÏ°ÇÁö ¿©ºÎ -_-;
-	bool bRun = true;							// ¶Ù¾î¾ß ÇÏ³ª?
+	bool bDoMoveAlone = true;					// Ğ”Ñ–Ñ‘Ğ‡Ğ•ĞÑ—Ğ Â°ĞÂ±Ğ¾ĞĞœ ĞĞ¦ĞÂ» Â¶Â§ Ğ˜ÒĞĞª Ñ—Â©Â±Ğ²ĞÑŠÂ±Ğ² Ñ—Ñ‚Ğ‘Ñ‡ĞĞŸÂ°Ğ—Ğ‘Ñ† Ñ—Â©Ñ”Ğ -_-;
+	bool bRun = true;							// Â¶Ğ©Ñ•Ğ¾Ñ•Ğ¯ Ğ—ĞŸÑ–Ğ„?
 
 	if (IsDead())
 		return;
@@ -1184,7 +1184,7 @@ void CHARACTER::StateHorse()
 
 	LPCHARACTER victim = GetRider();
 
-	// ! ¾Æ´Ô // ´ë»óÀÌ ¾ø´Â °æ¿ì ¼ÒÈ¯ÀÚ°¡ Á÷Á¢ ³ª¸¦ Å¬¸®¾îÇÒ °ÍÀÓ
+	// ! Ñ•Ğ–Ò‘Ğ¤ // Ò‘Ğ»Â»ÑƒĞĞœ Ñ•ÑˆÒ‘Ğ’ Â°Ğ¶Ñ—Ğ¼ Ñ˜Ğ¢Ğ˜Ğ‡ĞĞªÂ°Ğ Ğ‘Ñ‡Ğ‘Ñ Ñ–Ğ„Ñ‘Â¦ Ğ•Â¬Ñ‘Â®Ñ•Ğ¾Ğ—Ğ¢ Â°ĞĞĞ£
 	if (!victim)
 	{
 		M2_DESTROY_CHARACTER(this);
@@ -1198,7 +1198,7 @@ void CHARACTER::StateHorse()
 	if (fDist >= START_FOLLOW_DISTANCE)
 	{
 		if (fDist > START_RUN_DISTANCE)
-			SetNowWalking(!bRun);		// NOTE: ÇÔ¼ö ÀÌ¸§º¸°í ¸ØÃß´Â°ÇÁÙ ¾Ë¾Ò´Âµ¥ SetNowWalking(false) ÇÏ¸é ¶Ù´Â°ÅÀÓ.. -_-;
+			SetNowWalking(!bRun);		// NOTE: Ğ—Ğ¤Ñ˜Ñ† ĞĞœÑ‘Â§Ñ”Ñ‘Â°Ğ½ Ñ‘Ğ¨Ğ“Ğ¯Ò‘Ğ’Â°Ğ—Ğ‘Ğ© Ñ•Ğ›Ñ•Ğ¢Ò‘Ğ’ÂµÒ SetNowWalking(false) Ğ—ĞŸÑ‘Ğ¹ Â¶Ğ©Ò‘Ğ’Â°Ğ•ĞĞ£.. -_-;
 
 		Follow(victim, number(MIN_APPROACH, MAX_APPROACH));
 
@@ -1209,14 +1209,14 @@ void CHARACTER::StateHorse()
 		// wondering-.-
 		m_dwLastAttackTime = get_dword_time() + number(5000, 12000);
 
-		SetRotation(number(0, 359));        // ¹æÇâÀº ·£´ıÀ¸·Î ¼³Á¤
+		SetRotation(number(0, 359));        // â„–Ğ¶Ğ—Ğ²ĞÑ” Â·ĞˆÒ‘ÑĞÑ‘Â·Ğ Ñ˜Ñ–Ğ‘Â¤
 
 		float fx, fy;
 		float fDist = number(200, 400);
 
 		GetDeltaByDegree(GetRotation(), fDist, &fx, &fy);
 
-		// ´À½¼ÇÑ ¸ø°¨ ¼Ó¼º Ã¼Å©; ÃÖÁ¾ À§Ä¡¿Í Áß°£ À§Ä¡°¡ °¥¼ö¾ø´Ù¸é °¡Áö ¾Ê´Â´Ù.
+		// Ò‘ĞĞ…Ñ˜Ğ—Ğ¡ Ñ‘ÑˆÂ°Ğ Ñ˜Ğ£Ñ˜Ñ” Ğ“Ñ˜Ğ•Â©; Ğ“Ğ¦Ğ‘Ñ• ĞÂ§Ğ”ĞÑ—Ğ Ğ‘Ğ¯Â°Ğˆ ĞÂ§Ğ”ĞÂ°Ğ Â°ÒÑ˜Ñ†Ñ•ÑˆÒ‘Ğ©Ñ‘Ğ¹ Â°ĞĞ‘Ñ† Ñ•ĞšÒ‘Ğ’Ò‘Ğ©.
 		if (!(SECTREE_MANAGER::instance().IsMovablePosition(GetMapIndex(), GetX() + (int) fx, GetY() + (int) fy) 
 					&& SECTREE_MANAGER::instance().IsMovablePosition(GetMapIndex(), GetX() + (int) fx/2, GetY() + (int) fy/2)))
 			return;

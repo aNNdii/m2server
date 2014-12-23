@@ -1129,7 +1129,7 @@ struct FExitDungeonToStartPosition
 			{
 				PIXEL_POSITION posWarp;
 
-				// «ˆ¿Á ∏  ¿Œµ¶Ω∫∏¶ ≥÷¥¬ ∞Õ¿Ã æ∆¥œ∂Û Ω√¿€«œ¥¬ ∏  ¿Œµ¶Ω∫∏¶ ≥÷¥¬¥Ÿ.
+				// –ó—Ü–ê–∑ —ë–ö –ê–û¬µ¬¶–Ö—î—ë¬¶ —ñ–¶“ë–í ¬∞–ù–ê–ú —ï–ñ“ë–ü¬∂—É –Ö–ì–ê–´–ó–ü“ë–í —ë–ö –ê–û¬µ¬¶–Ö—î—ë¬¶ —ñ–¶“ë–í“ë–©.
 				if (SECTREE_MANAGER::instance().GetRecallPositionByEmpire(g_start_map[ch->GetEmpire()], ch->GetEmpire(), posWarp))
 					ch->WarpSet(posWarp.x, posWarp.y);
 				else
@@ -1279,7 +1279,7 @@ void CDungeon::JumpToEliminateLocation()
 	}
 	else
 	{
-		// ¿œπ› ∏ ¿∏∑Œ øˆ«¡
+		// –ê–ü‚Ññ–≠ —ë–ö–ê—ë¬∑–û —ó—Ü–ó–ë
 		LPSECTREE_MAP pMap = SECTREE_MANAGER::instance().GetMap(m_lMapIndex);
 
 		if (!pMap)

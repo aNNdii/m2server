@@ -58,10 +58,10 @@ class CItem : public CEntity
 		bool		SetCount(DWORD count);
 		DWORD		GetCount();
 
-		// GetVnum°ú GetOriginalVnum¿¡ ´ëÇÑ comment
-		// GetVnumÀº Masking µÈ VnumÀÌ´Ù. ÀÌ¸¦ »ç¿ëÇÔÀ¸·Î½á, ¾ÆÀÌÅÛÀÇ ½ÇÁ¦ VnumÀº 10ÀÌÁö¸¸, VnumÀÌ 20ÀÎ °ÍÃ³·³ µ¿ÀÛÇÒ ¼ö ÀÖ´Â °ÍÀÌ´Ù.
-		// Masking °ªÀº ori_to_new.txt¿¡¼­ Á¤ÀÇµÈ °ªÀÌ´Ù.
-		// GetOriginalVnumÀº ¾ÆÀÌÅÛ °íÀ¯ÀÇ VnumÀ¸·Î, ·Î±× ³²±æ ¶§, Å¬¶óÀÌ¾ğÆ®¿¡ ¾ÆÀÌÅÛ Á¤º¸ º¸³¾ ¶§, ÀúÀåÇÒ ¶§´Â ÀÌ VnumÀ» »ç¿ëÇÏ¿©¾ß ÇÑ´Ù.
+		// GetVnumÂ°ÑŠ GetOriginalVnumÑ—Ğ Ò‘Ğ»Ğ—Ğ¡ comment
+		// GetVnumĞÑ” Masking ÂµĞ˜ VnumĞĞœÒ‘Ğ©. ĞĞœÑ‘Â¦ Â»Ğ·Ñ—Ğ»Ğ—Ğ¤ĞÑ‘Â·ĞĞ…Ğ±, Ñ•Ğ–ĞĞœĞ•Ğ«ĞĞ— Ğ…Ğ—Ğ‘Â¦ VnumĞÑ” 10ĞĞœĞ‘Ñ†Ñ‘Ñ‘, VnumĞĞœ 20ĞĞ Â°ĞĞ“Ñ–Â·Ñ– ÂµÑ—ĞĞ«Ğ—Ğ¢ Ñ˜Ñ† ĞĞ¦Ò‘Ğ’ Â°ĞĞĞœÒ‘Ğ©.
+		// Masking Â°Ğ„ĞÑ” ori_to_new.txtÑ—ĞÑ˜Â­ Ğ‘Â¤ĞĞ—ÂµĞ˜ Â°Ğ„ĞĞœÒ‘Ğ©.
+		// GetOriginalVnumĞÑ” Ñ•Ğ–ĞĞœĞ•Ğ« Â°Ğ½ĞĞ‡ĞĞ— VnumĞÑ‘Â·Ğ, Â·ĞÂ±Ğ§ Ñ–Ğ†Â±Ğ¶ Â¶Â§, Ğ•Â¬Â¶ÑƒĞĞœÑ•Ñ€Ğ–Â®Ñ—Ğ Ñ•Ğ–ĞĞœĞ•Ğ« Ğ‘Â¤Ñ”Ñ‘ Ñ”Ñ‘Ñ–Ñ• Â¶Â§, ĞÑŠĞĞµĞ—Ğ¢ Â¶Â§Ò‘Ğ’ ĞĞœ VnumĞÂ» Â»Ğ·Ñ—Ğ»Ğ—ĞŸÑ—Â©Ñ•Ğ¯ Ğ—Ğ¡Ò‘Ğ©.
 		// 
 		DWORD		GetVnum() const		{ return m_dwMaskVnum ? m_dwMaskVnum : m_dwVnum;	}
 		DWORD		GetOriginalVnum() const		{ return m_dwVnum;	}
@@ -101,7 +101,7 @@ class CItem : public CEntity
 
 		bool		IsPolymorphItem();
 
-		void		ModifyPoints(bool bAdd);	// ¾ÆÀÌÅÛÀÇ È¿°ú¸¦ Ä³¸¯ÅÍ¿¡ ºÎ¿© ÇÑ´Ù. bAdd°¡ falseÀÌ¸é Á¦°ÅÇÔ
+		void		ModifyPoints(bool bAdd);	// Ñ•Ğ–ĞĞœĞ•Ğ«ĞĞ— Ğ˜Ñ—Â°ÑŠÑ‘Â¦ Ğ”Ñ–Ñ‘Ğ‡Ğ•ĞÑ—Ğ Ñ”ĞÑ—Â© Ğ—Ğ¡Ò‘Ğ©. bAddÂ°Ğ falseĞĞœÑ‘Ğ¹ Ğ‘Â¦Â°Ğ•Ğ—Ğ¤
 
 		bool		CreateSocket(BYTE bSlot, BYTE bGold);
 		const long *	GetSockets()		{ return &m_alSockets[0];	}
@@ -144,7 +144,7 @@ class CItem : public CEntity
 
 		DWORD		GetLastOwnerPID()	{ return m_dwLastOwnerPID; }
 
-		int		GetAttributeSetIndex(); // ¼Ó¼º ºÙ´Â°ÍÀ» ÁöÁ¤ÇÑ ¹è¿­ÀÇ ¾î´À ÀÎµ¦½º¸¦ »ç¿ëÇÏ´ÂÁö µ¹·ÁÁØ´Ù.
+		int		GetAttributeSetIndex(); // Ñ˜Ğ£Ñ˜Ñ” Ñ”Ğ©Ò‘Ğ’Â°ĞĞÂ» Ğ‘Ñ†Ğ‘Â¤Ğ—Ğ¡ â„–Ğ¸Ñ—Â­ĞĞ— Ñ•Ğ¾Ò‘Ğ ĞĞÂµÂ¦Ğ…Ñ”Ñ‘Â¦ Â»Ğ·Ñ—Ğ»Ğ—ĞŸÒ‘Ğ’Ğ‘Ñ† Âµâ„–Â·Ğ‘Ğ‘Ğ¨Ò‘Ğ©.
 		void		AlterToMagicItem();
 		void		AlterToSocketItem(int iSocketCount);
 
@@ -163,7 +163,7 @@ class CItem : public CEntity
 		void		StopTimerBasedOnWearExpireEvent();
 		void		StopAccessorySocketExpireEvent();
 
-		//			ÀÏ´Ü REAL_TIME°ú TIMER_BASED_ON_WEAR ¾ÆÀÌÅÛ¿¡ ´ëÇØ¼­¸¸ Á¦´ë·Î µ¿ÀÛÇÔ.
+		//			ĞĞŸÒ‘Ğ¬ REAL_TIMEÂ°ÑŠ TIMER_BASED_ON_WEAR Ñ•Ğ–ĞĞœĞ•Ğ«Ñ—Ğ Ò‘Ğ»Ğ—Ğ¨Ñ˜Â­Ñ‘Ñ‘ Ğ‘Â¦Ò‘Ğ»Â·Ğ ÂµÑ—ĞĞ«Ğ—Ğ¤.
 		int			GetDuration();
 
 		int		GetAttributeCount();
@@ -178,7 +178,7 @@ class CItem : public CEntity
 		bool	IsSameSpecialGroup(const LPITEM item) const;
 
 		// ACCESSORY_REFINE
-		// ¾×¼¼¼­¸®¿¡ ±¤»êÀ» ÅëÇØ ¼ÒÄÏÀ» Ãß°¡
+		// Ñ•Ğ§Ñ˜Ñ˜Ñ˜Â­Ñ‘Â®Ñ—Ğ Â±Â¤Â»ĞºĞÂ» Ğ•Ğ»Ğ—Ğ¨ Ñ˜Ğ¢Ğ”ĞŸĞÂ» Ğ“Ğ¯Â°Ğ
 		bool		IsAccessoryForSocket();
 
 		int		GetAccessorySocketGrade();
@@ -191,7 +191,7 @@ class CItem : public CEntity
 
 		void		AccessorySocketDegrade();
 
-		// ¾Ç¼¼»ç¸® ¸¦ ¾ÆÀÌÅÛ¿¡ ¹Û¾ÒÀ»¶§ Å¸ÀÌ¸Ó µ¹¾Æ°¡´Â°Í( ±¸¸®, µî )
+		// Ñ•Ğ—Ñ˜Ñ˜Â»Ğ·Ñ‘Â® Ñ‘Â¦ Ñ•Ğ–ĞĞœĞ•Ğ«Ñ—Ğ â„–Ğ«Ñ•Ğ¢ĞÂ»Â¶Â§ Ğ•Ñ‘ĞĞœÑ‘Ğ£ Âµâ„–Ñ•Ğ–Â°ĞÒ‘Ğ’Â°Ğ( Â±Ñ‘Ñ‘Â®, ÂµĞ¾ )
 		void		StartAccessorySocketExpireEvent();
 		void		SetAccessorySocketExpireEvent(LPEVENT pkEvent);
 
@@ -225,7 +225,7 @@ class CItem : public CEntity
 
 	protected:
 		friend class CInputDB;
-		bool		OnAfterCreatedItem();			// ¼­¹ö»ó¿¡ ¾ÆÀÌÅÛÀÌ ¸ğµç Á¤º¸¿Í ÇÔ²² ¿ÏÀüÈ÷ »ı¼º(·Îµå)µÈ ÈÄ ºÒ¸®¿ì´Â ÇÔ¼ö.
+		bool		OnAfterCreatedItem();			// Ñ˜Â­â„–Ñ†Â»ÑƒÑ—Ğ Ñ•Ğ–ĞĞœĞ•Ğ«ĞĞœ Ñ‘Ñ€ÂµĞ· Ğ‘Â¤Ñ”Ñ‘Ñ—Ğ Ğ—Ğ¤Ğ†Ğ† Ñ—ĞŸĞÑŒĞ˜Ñ‡ Â»ÑÑ˜Ñ”(Â·ĞÂµĞµ)ÂµĞ˜ Ğ˜Ğ” Ñ”Ğ¢Ñ‘Â®Ñ—Ğ¼Ò‘Ğ’ Ğ—Ğ¤Ñ˜Ñ†.
 
 	public:
 		bool		IsRideItem();
@@ -235,46 +235,46 @@ class CItem : public CEntity
 		bool		IsNewMountItem();
 
 #ifdef __AUCTION__
-		// °æ¸ÅÀå
+		// Â°Ğ¶Ñ‘Ğ•ĞĞµ
 		bool		MoveToAuction ();
 		void		CopyToRawData (TPlayerItem* item);
 #endif
-		// µ¶ÀÏ¿¡¼­ ±âÁ¸ Ä³½Ã ¾ÆÀÌÅÛ°ú °°Áö¸¸, ±³È¯ °¡´ÉÇÑ Ä³½Ã ¾ÆÀÌÅÛÀ» ¸¸µç´Ù°í ÇÏ¿©,
-		// ¿À¸®Áö³Î ¾ÆÀÌÅÛ¿¡, ±³È¯ ±İÁö ÇÃ·¡±×¸¸ »èÁ¦ÇÑ »õ·Î¿î ¾ÆÀÌÅÛµéÀ» »õ·Î¿î ¾ÆÀÌÅÛ ´ë¿ª¿¡ ÇÒ´çÇÏ¿´´Ù.
-		// ¹®Á¦´Â »õ·Î¿î ¾ÆÀÌÅÛµµ ¿À¸®Áö³Î ¾ÆÀÌÅÛ°ú °°Àº È¿°ú¸¦ ³»¾ßÇÏ´Âµ¥,
-		// ¼­¹ö°Ç, Å¬¶ó°Ç, vnum ±â¹İÀ¸·Î µÇ¾îÀÖ¾î
-		// »õ·Î¿î vnumÀ» ÁË´Ù ¼­¹ö¿¡ »õ·Î ´Ù ¹Ú¾Æ¾ßÇÏ´Â ¾ÈÅ¸±î¿î »óÈ²¿¡ ¸Â´ê¾Ò´Ù.
-		// ±×·¡¼­ »õ vnumÀÇ ¾ÆÀÌÅÛÀÌ¸é, ¼­¹ö¿¡¼­ µ¹¾Æ°¥ ¶§´Â ¿À¸®Áö³Î ¾ÆÀÌÅÛ vnumÀ¸·Î ¹Ù²ã¼­ µ¹°í ÇÏ°í,
-		// ÀúÀåÇÒ ¶§¿¡ º»·¡ vnumÀ¸·Î ¹Ù²ãÁÖµµ·Ï ÇÑ´Ù.
+		// ÂµÂ¶ĞĞŸÑ—ĞÑ˜Â­ Â±Ğ²Ğ‘Ñ‘ Ğ”Ñ–Ğ…Ğ“ Ñ•Ğ–ĞĞœĞ•Ğ«Â°ÑŠ Â°Â°Ğ‘Ñ†Ñ‘Ñ‘, Â±Ñ–Ğ˜Ğ‡ Â°ĞÒ‘Ğ™Ğ—Ğ¡ Ğ”Ñ–Ğ…Ğ“ Ñ•Ğ–ĞĞœĞ•Ğ«ĞÂ» Ñ‘Ñ‘ÂµĞ·Ò‘Ğ©Â°Ğ½ Ğ—ĞŸÑ—Â©,
+		// Ñ—ĞÑ‘Â®Ğ‘Ñ†Ñ–Ğ Ñ•Ğ–ĞĞœĞ•Ğ«Ñ—Ğ, Â±Ñ–Ğ˜Ğ‡ Â±Ğ­Ğ‘Ñ† Ğ—Ğ“Â·ĞÂ±Ğ§Ñ‘Ñ‘ Â»Ğ¸Ğ‘Â¦Ğ—Ğ¡ Â»Ñ…Â·ĞÑ—Ğ¾ Ñ•Ğ–ĞĞœĞ•Ğ«ÂµĞ¹ĞÂ» Â»Ñ…Â·ĞÑ—Ğ¾ Ñ•Ğ–ĞĞœĞ•Ğ« Ò‘Ğ»Ñ—Ğ„Ñ—Ğ Ğ—Ğ¢Ò‘Ğ·Ğ—ĞŸÑ—Ò‘Ò‘Ğ©.
+		// â„–Â®Ğ‘Â¦Ò‘Ğ’ Â»Ñ…Â·ĞÑ—Ğ¾ Ñ•Ğ–ĞĞœĞ•Ğ«ÂµÂµ Ñ—ĞÑ‘Â®Ğ‘Ñ†Ñ–Ğ Ñ•Ğ–ĞĞœĞ•Ğ«Â°ÑŠ Â°Â°ĞÑ” Ğ˜Ñ—Â°ÑŠÑ‘Â¦ Ñ–Â»Ñ•Ğ¯Ğ—ĞŸÒ‘Ğ’ÂµÒ,
+		// Ñ˜Â­â„–Ñ†Â°Ğ—, Ğ•Â¬Â¶ÑƒÂ°Ğ—, vnum Â±Ğ²â„–Ğ­ĞÑ‘Â·Ğ ÂµĞ—Ñ•Ğ¾ĞĞ¦Ñ•Ğ¾
+		// Â»Ñ…Â·ĞÑ—Ğ¾ vnumĞÂ» Ğ‘Ğ›Ò‘Ğ© Ñ˜Â­â„–Ñ†Ñ—Ğ Â»Ñ…Â·Ğ Ò‘Ğ© â„–ĞªÑ•Ğ–Ñ•Ğ¯Ğ—ĞŸÒ‘Ğ’ Ñ•Ğ˜Ğ•Ñ‘Â±Ğ¾Ñ—Ğ¾ Â»ÑƒĞ˜Ğ†Ñ—Ğ Ñ‘Ğ’Ò‘ĞºÑ•Ğ¢Ò‘Ğ©.
+		// Â±Ğ§Â·ĞÑ˜Â­ Â»Ñ… vnumĞĞ— Ñ•Ğ–ĞĞœĞ•Ğ«ĞĞœÑ‘Ğ¹, Ñ˜Â­â„–Ñ†Ñ—ĞÑ˜Â­ Âµâ„–Ñ•Ğ–Â°Ò Â¶Â§Ò‘Ğ’ Ñ—ĞÑ‘Â®Ğ‘Ñ†Ñ–Ğ Ñ•Ğ–ĞĞœĞ•Ğ« vnumĞÑ‘Â·Ğ â„–Ğ©Ğ†Ğ³Ñ˜Â­ Âµâ„–Â°Ğ½ Ğ—ĞŸÂ°Ğ½,
+		// ĞÑŠĞĞµĞ—Ğ¢ Â¶Â§Ñ—Ğ Ñ”Â»Â·Ğ vnumĞÑ‘Â·Ğ â„–Ğ©Ğ†Ğ³Ğ‘Ğ¦ÂµÂµÂ·ĞŸ Ğ—Ğ¡Ò‘Ğ©.
 
-		// Mask vnumÀº ¾î¶² ÀÌÀ¯(ex. À§ÀÇ »óÈ²)·Î ÀÎÇØ vnumÀÌ ¹Ù²î¾î µ¹¾Æ°¡´Â ¾ÆÀÌÅÛÀ» À§ÇØ ÀÖ´Ù.
+		// Mask vnumĞÑ” Ñ•Ğ¾Â¶Ğ† ĞĞœĞĞ‡(ex. ĞÂ§ĞĞ— Â»ÑƒĞ˜Ğ†)Â·Ğ ĞĞĞ—Ğ¨ vnumĞĞœ â„–Ğ©Ğ†Ğ¾Ñ•Ğ¾ Âµâ„–Ñ•Ğ–Â°ĞÒ‘Ğ’ Ñ•Ğ–ĞĞœĞ•Ğ«ĞÂ» ĞÂ§Ğ—Ğ¨ ĞĞ¦Ò‘Ğ©.
 		void		SetMaskVnum(DWORD vnum)	{	m_dwMaskVnum = vnum; }
 		DWORD		GetMaskVnum()			{	return m_dwMaskVnum; }
 		bool		IsMaskedItem()	{	return m_dwMaskVnum != 0;	}
 
-		// ¿ëÈ¥¼®
+		// Ñ—Ğ»Ğ˜ÒÑ˜Â®
 		bool		IsDragonSoul();
 		int		GiveMoreTime_Per(float fPercent);
 		int		GiveMoreTime_Fix(DWORD dwTime);
 
 	private:
-		TItemTable const * m_pProto;		// ÇÁ·ÎÅä Å¸ÀÙ
+		TItemTable const * m_pProto;		// Ğ—Ğ‘Â·ĞĞ•Ğ´ Ğ•Ñ‘ĞĞ©
 
 		DWORD		m_dwVnum;
 		LPCHARACTER	m_pOwner;
 
-		BYTE		m_bWindow;		// ÇöÀç ¾ÆÀÌÅÛÀÌ À§Ä¡ÇÑ À©µµ¿ì 
-		DWORD		m_dwID;			// °íÀ¯¹øÈ£
-		bool		m_bEquipped;	// ÀåÂø µÇ¾ú´Â°¡?
+		BYTE		m_bWindow;		// Ğ—Ñ†ĞĞ· Ñ•Ğ–ĞĞœĞ•Ğ«ĞĞœ ĞÂ§Ğ”ĞĞ—Ğ¡ ĞÂ©ÂµÂµÑ—Ğ¼ 
+		DWORD		m_dwID;			// Â°Ğ½ĞĞ‡â„–ÑˆĞ˜Ğˆ
+		bool		m_bEquipped;	// ĞĞµĞ’Ñˆ ÂµĞ—Ñ•ÑŠÒ‘Ğ’Â°Ğ?
 		DWORD		m_dwVID;		// VID
-		WORD		m_wCell;		// À§Ä¡
-		DWORD		m_dwCount;		// °³¼ö
-		long		m_lFlag;		// Ãß°¡ flag
-		DWORD		m_dwLastOwnerPID;	// ¸¶Áö¸· °¡Áö°í ÀÖ¾ú´ø »ç¶÷ÀÇ PID
+		WORD		m_wCell;		// ĞÂ§Ğ”Ğ
+		DWORD		m_dwCount;		// Â°Ñ–Ñ˜Ñ†
+		long		m_lFlag;		// Ğ“Ğ¯Â°Ğ flag
+		DWORD		m_dwLastOwnerPID;	// Ñ‘Â¶Ğ‘Ñ†Ñ‘Â· Â°ĞĞ‘Ñ†Â°Ğ½ ĞĞ¦Ñ•ÑŠÒ‘Ñˆ Â»Ğ·Â¶Ñ‡ĞĞ— PID
 
-		bool		m_bExchanging;	///< ÇöÀç ±³È¯Áß »óÅÂ 
+		bool		m_bExchanging;	///< Ğ—Ñ†ĞĞ· Â±Ñ–Ğ˜Ğ‡Ğ‘Ğ¯ Â»ÑƒĞ•Ğ’ 
 
-		long		m_alSockets[ITEM_SOCKET_MAX_NUM];	// ¾ÆÀÌÅÛ ¼ÒÄ¹
+		long		m_alSockets[ITEM_SOCKET_MAX_NUM];	// Ñ•Ğ–ĞĞœĞ•Ğ« Ñ˜Ğ¢Ğ”â„–
 		TPlayerItemAttribute	m_aAttr[ITEM_ATTRIBUTE_MAX_NUM];
 
 		LPEVENT		m_pkDestroyEvent;

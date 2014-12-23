@@ -56,7 +56,7 @@ const char* FN_weapon_type(int weapon)
 class ANI
 {
 	protected:
-		// [Á¾Á·][ÀÏ¹İ0Å»°Í1][¹«±â][ÄŞº¸]
+		// [Ğ‘Ñ•Ğ‘Â·][ĞĞŸâ„–Ğ­0Ğ•Â»Â°Ğ1][â„–Â«Â±Ğ²][Ğ”Ğ®Ñ”Ñ‘]
 		DWORD m_speed[MAIN_RACE_MAX_NUM][2][WEAPON_NUM_TYPES][9];
 
 	public:
@@ -127,14 +127,14 @@ ANI::ANI()
 bool ANI::load()
 {
 	const char*	dir_name[MAIN_RACE_MAX_NUM] = {
-		"data/pc/warrior",		// ¹«»ç(³²)
-		"data/pc/assassin",		// ÀÚ°´(¿©)
-		"data/pc/sura",			// ¼ö¶ó(³²)
-		"data/pc/shaman",		// ¹«´ç(¿©)
-		"data/pc2/warrior",		// ¹«»ç(¿©)
-		"data/pc2/assassin",	// ÀÚ°´(³²)
-		"data/pc2/sura",		// ¼ö¶ó(¿©)
-		"data/pc2/shaman"		// ¹«´ç(³²)
+		"data/pc/warrior",		// â„–Â«Â»Ğ·(Ñ–Ğ†)
+		"data/pc/assassin",		// ĞĞªÂ°Ò‘(Ñ—Â©)
+		"data/pc/sura",			// Ñ˜Ñ†Â¶Ñƒ(Ñ–Ğ†)
+		"data/pc/shaman",		// â„–Â«Ò‘Ğ·(Ñ—Â©)
+		"data/pc2/warrior",		// â„–Â«Â»Ğ·(Ñ—Â©)
+		"data/pc2/assassin",	// ĞĞªÂ°Ò‘(Ñ–Ğ†)
+		"data/pc2/sura",		// Ñ˜Ñ†Â¶Ñƒ(Ñ—Â©)
+		"data/pc2/shaman"		// â„–Â«Ò‘Ğ·(Ñ–Ğ†)
 	};
 
 	for (int race = 0; race <MAIN_RACE_MAX_NUM; ++race)
@@ -204,13 +204,13 @@ bool ANI::load_one_race(int race, const char *dir_name)
 
 		for (BYTE combo = 1; combo <= 8; ++combo)
 		{
-			// ¸» ¾ÈÅÀÀ» ¶§
+			// Ñ‘Â» Ñ•Ğ˜Ğ•ĞĞÂ» Â¶Â§
 			m_speed[race][0][weapon][combo] = load_one_weapon(dir_name, weapon, combo, false);
-			m_speed[race][0][weapon][0] = MIN(m_speed[race][0][weapon][0], m_speed[race][0][weapon][combo]); // ÃÖ¼Ò°ª
+			m_speed[race][0][weapon][0] = MIN(m_speed[race][0][weapon][0], m_speed[race][0][weapon][combo]); // Ğ“Ğ¦Ñ˜Ğ¢Â°Ğ„
 
-			// ¸» ÅÀÀ» ¶§
+			// Ñ‘Â» Ğ•ĞĞÂ» Â¶Â§
 			m_speed[race][1][weapon][combo] = load_one_weapon(dir_name, weapon, combo, true);
-			m_speed[race][1][weapon][0] = MIN(m_speed[race][1][weapon][0], m_speed[race][1][weapon][combo]); // ÃÖ¼Ò°ª
+			m_speed[race][1][weapon][0] = MIN(m_speed[race][1][weapon][0], m_speed[race][1][weapon][combo]); // Ğ“Ğ¦Ñ˜Ğ¢Â°Ğ„
 
 			dev_log(LOG_DEB0, "combo%02d speed=%d horse=%d",
 					combo, m_speed[race][0][weapon][combo], m_speed[race][1][weapon][combo]);
@@ -338,8 +338,8 @@ DWORD ani_attack_speed(LPCHARACTER ch)
 			ch->GetPoint(POINT_ATT_SPEED));
 	*/
 
-	/* ÅõÇÚµğµå ¼ÒµåÀÇ °æ¿ì »ï¿¬Âü°ø°İ°ú ½Â¸¶½Ã */
-	/* ¿À·ù°¡ ¸¹¾Æ ÇÑ¼Õ°Ë ¼Óµµ·Î »ı°¢ÇÏÀÚ       */
+	/* Ğ•Ñ…Ğ—ĞªÂµÑ€ÂµĞµ Ñ˜Ğ¢ÂµĞµĞĞ— Â°Ğ¶Ñ—Ğ¼ Â»Ğ¿Ñ—Â¬Ğ’ÑŒÂ°ÑˆÂ°Ğ­Â°ÑŠ Ğ…Ğ’Ñ‘Â¶Ğ…Ğ“ */
+	/* Ñ—ĞÂ·Ñ‰Â°Ğ Ñ‘â„–Ñ•Ğ– Ğ—Ğ¡Ñ˜Ğ¥Â°Ğ› Ñ˜Ğ£ÂµÂµÂ·Ğ Â»ÑÂ°ÑĞ—ĞŸĞĞª       */
 	if (weapon == WEAPON_TWO_HANDED)
 		weapon = WEAPON_SWORD;
 

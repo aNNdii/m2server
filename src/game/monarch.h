@@ -49,11 +49,11 @@ class CMonarch : public singleton<CMonarch>
 	private:
 		TMonarchInfo m_MonarchInfo;	
 
-		int m_PowerUp[4]; ///< ±ºÁÖÀÇ »çÀÚÈÄ
-		int m_DefenseUp[4]; ///< ±ºÁÖÀÇ ±Ý°­±Ç
+		int m_PowerUp[4]; ///< Â±Ñ”Ð‘Ð¦ÐÐ— Â»Ð·ÐÐªÐ˜Ð”
+		int m_DefenseUp[4]; ///< Â±Ñ”Ð‘Ð¦ÐÐ— Â±Ð­Â°Â­Â±Ð—
 
-		int m_PowerUpCT[4]; ///< ±ºÁÖÀÇ »çÀÚÈÄ
-		int m_DefenseUpCT[4]; ///< ±ºÁÖÀÇ ±Ý°­±Ç
+		int m_PowerUpCT[4]; ///< Â±Ñ”Ð‘Ð¦ÐÐ— Â»Ð·ÐÐªÐ˜Ð”
+		int m_DefenseUpCT[4]; ///< Â±Ñ”Ð‘Ð¦ÐÐ— Â±Ð­Â°Â­Â±Ð—
 };
 
 bool IsMonarchWarpZone (int map_idx);

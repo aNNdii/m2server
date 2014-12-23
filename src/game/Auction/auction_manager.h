@@ -63,7 +63,7 @@ private:
 
 	TPCMap offer_map;
 
-	// sortingÀ» À§ÇÑ members
+	// sortingĞÂ» ĞÂ§Ğ—Ğ¡ members
 public:
 	typedef std::vector <TAuctionItemInfo*> TItemInfoVec;
 private:
@@ -76,7 +76,7 @@ private:
 public:
 	void SortedItemInfos (TItemInfoVec& vec, BYTE grade, BYTE category, int start_idx, BYTE size, BYTE order[5]);
 
-	// ³ªÀÇ °æ¸ÅÀåÀ» À§ÇÑ ÇÔ¼ö.
+	// Ñ–Ğ„ĞĞ— Â°Ğ¶Ñ‘Ğ•ĞĞµĞÂ» ĞÂ§Ğ—Ğ¡ Ğ—Ğ¤Ñ˜Ñ†.
 	void YourItemInfoList (TItemInfoVec& vec, DWORD player_id, int start_idx, BYTE size);
 
 };
@@ -131,7 +131,7 @@ private:
 	typedef std::pair <int, bool> BidInfo;
 	typedef std::map <DWORD, BidInfo > TItemMap;
 	typedef boost::unordered_map <DWORD, TItemMap*> TMyBidBoard;
-	// bidder_id°¡ key
+	// bidder_idÂ°Ğ key
 	TMyBidBoard pc_map;
 
 public:
@@ -144,7 +144,7 @@ public:
 
 	BidInfo GetMoney (DWORD player_id, DWORD item_id);
 	bool Delete (DWORD player_id, DWORD item_id);
-	// ÀÌ¹Ì ÀÖÀ¸¸é µ¤¾î ¾º¿î´Ù.
+	// ĞĞœâ„–Ğœ ĞĞ¦ĞÑ‘Ñ‘Ğ¹ ÂµÂ¤Ñ•Ğ¾ Ñ•Ñ”Ñ—Ğ¾Ò‘Ğ©.
 	void Insert (DWORD player_id, DWORD item_id, int money);
 	void Lock (DWORD player_id, DWORD item_id);
 	void UnLock (DWORD player_id, DWORD item_id);
@@ -156,7 +156,7 @@ private :
 	typedef boost::unordered_map<DWORD, LPITEM> TItemMap;
 	TItemMap auction_item_map;
 
-	// auction¿¡ µî·ÏµÈ Á¤º¸ Áß °¡°İ, µîµî ¾ÆÀÌÅÛ Å×ÀÌºí¿¡ Æ÷ÇÔµÇÁö ¾Ê´Â Á¤º¸µéÀ» °ü¸®ÇÏ´Â °Íµé
+	// auctionÑ—Ğ ÂµĞ¾Â·ĞŸÂµĞ˜ Ğ‘Â¤Ñ”Ñ‘ Ğ‘Ğ¯ Â°ĞÂ°Ğ­, ÂµĞ¾ÂµĞ¾ Ñ•Ğ–ĞĞœĞ•Ğ« Ğ•Ğ§ĞĞœÑ”Ğ½Ñ—Ğ Ğ–Ñ‡Ğ—Ğ¤ÂµĞ—Ğ‘Ñ† Ñ•ĞšÒ‘Ğ’ Ğ‘Â¤Ñ”Ñ‘ÂµĞ¹ĞÂ» Â°ÑŒÑ‘Â®Ğ—ĞŸÒ‘Ğ’ Â°ĞÂµĞ¹
 	AuctionBoard Auction;
 	SaleBoard Sale;
 	WishBoard Wish;

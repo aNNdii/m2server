@@ -120,7 +120,7 @@ bool is_blocked_country_ip(const char *user_ip)
 #endif
 	{
 		dev_log(LOG_INFO, "BLOCKED_COUNTRY_IP (%s) : YES", user_ip);
-		return true;	// ¾ÆÀÌÇÇ°¡ ±«»óÇÏ´Ï ÀÏ´Ü ºí·°Ã³¸®
+		return true;	// Ñ•Ğ–ĞĞœĞ—Ğ—Â°Ğ Â±Â«Â»ÑƒĞ—ĞŸÒ‘ĞŸ ĞĞŸÒ‘Ğ¬ Ñ”Ğ½Â·Â°Ğ“Ñ–Ñ‘Â®
 	}
 	ip_number = htonl(st_addr.s_addr);
 

@@ -2,7 +2,7 @@
 #define __INC_METIN_II_DB_QID_H__
 
 /**
- * @version	05/06/10 Bang2ni - ╬фюлеш ╟║╟ща╓╨╦ дУ╦╝ цъ╟║(QID_ITEMPRICE_XXX)
+ * @version	05/06/10 Bang2ni - я∙п√п░п°п∙п╚ б╟п▌б╟п╜п▒б╓я■я▒ п■я┘я▒б╝ п⌠п╞б╟п▌(QID_ITEMPRICE_XXX)
  */
 enum QID
 {
@@ -29,10 +29,10 @@ enum QID
     QID_GUILD_RANKING,			// 20
 
 	// MYSHOP_PRICE_LIST
-    QID_ITEMPRICE_SAVE,			///< 21, ╬фюлеш ╟║╟ща╓╨╦ юЗюЕ дУ╦╝
-    QID_ITEMPRICE_DESTROY,		///< 22, ╬фюлеш ╟║╟ща╓╨╦ ╩Ха╕ дУ╦╝
-    QID_ITEMPRICE_LOAD_FOR_UPDATE,	///< 23, ╟║╟ща╓╨╦ ╬В╣╔юлф╝╦╕ ю╖гя ╬фюлеш ╟║╟ща╓╨╦ ╥н╣Е дУ╦╝
-    QID_ITEMPRICE_LOAD,			///< 24, ╬фюлеш ╟║╟ща╓╨╦ ╥н╣Е дУ╦╝
+    QID_ITEMPRICE_SAVE,			///< 21, я∙п√п░п°п∙п╚ б╟п▌б╟п╜п▒б╓я■я▒ п░я┼п░п╣ п■я┘я▒б╝
+    QID_ITEMPRICE_DESTROY,		///< 22, я∙п√п░п°п∙п╚ б╟п▌б╟п╜п▒б╓я■я▒ б╩п╦п▒б╕ п■я┘я▒б╝
+    QID_ITEMPRICE_LOAD_FOR_UPDATE,	///< 23, б╟п▌б╟п╜п▒б╓я■я▒ я∙я┤б╣р░п░п°п√б╝я▒б╕ п░б╖п≈п║ я∙п√п░п°п∙п╚ б╟п▌б╟п╜п▒б╓я■я▒ б╥п·б╣п╣ п■я┘я▒б╝
+    QID_ITEMPRICE_LOAD,			///< 24, я∙п√п░п°п∙п╚ б╟п▌б╟п╜п▒б╓я■я▒ б╥п·б╣п╣ п■я┘я▒б╝
 	// END_OF_MYSHOP_PRICE_LIST
 };
 

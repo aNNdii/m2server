@@ -71,7 +71,7 @@ void CInputUDP::Handshake(LPDESC pDesc, const char * c_pData)
 
 void CInputUDP::StateChecker(const char * c_pData)
 {
-	// NOTE : TCP ����� �ٲٸ鼭 ��� X
+	// NOTE : TCP ї¬°б·О №ЩІЩёйј­ »зїл X
 	/*
 	struct ServerStateChecker_RequestPacket * p = (struct ServerStateChecker_RequestPacket *) c_pData;
 	ServerStateChecker_ResponsePacket rp;

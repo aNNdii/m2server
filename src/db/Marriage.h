@@ -49,7 +49,7 @@ namespace marriage
 		DWORD pid2;
 		int   love_point;
 		DWORD time;
-		BYTE is_married; // false : ¾àÈ¥ »óÅÂ, true : °áÈ¥ »óÅÂ
+		BYTE is_married; // false : Ñ•Ğ°Ğ˜Ò Â»ÑƒĞ•Ğ’, true : Â°Ğ±Ğ˜Ò Â»ÑƒĞ•Ğ’
 		std::string name1;
 		std::string name2;
 

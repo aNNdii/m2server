@@ -32,7 +32,7 @@ extern bool	china_event_server;
 extern bool	g_bNoMoreClient;
 extern bool	g_bNoRegen;
 
-extern bool	g_bTrafficProfileOn;		///< true ÀÌ¸é TrafficProfiler ¸¦ ÄÒ´Ù.
+extern bool	g_bTrafficProfileOn;		///< true ÐÐœÑ‘Ð¹ TrafficProfiler Ñ‘Â¦ Ð”Ð¢Ò‘Ð©.
 
 extern BYTE	g_bChannel;
 
@@ -98,8 +98,8 @@ extern int VIEW_RANGE;
 extern int VIEW_BONUS_RANGE;
 
 extern bool g_bCheckMultiHack;
-extern bool g_protectNormalPlayer;      // ¹ü¹ýÀÚ°¡ "ÆòÈ­¸ðµå" ÀÎ ÀÏ¹ÝÀ¯Àú¸¦ °ø°ÝÇÏÁö ¸øÇÔ
-extern bool g_noticeBattleZone;         // Áß¸³Áö´ë¿¡ ÀÔÀåÇÏ¸é ¾È³»¸Þ¼¼Áö¸¦ ¾Ë·ÁÁÜ
+extern bool g_protectNormalPlayer;      // â„–ÑŒâ„–ÑÐÐªÂ°ÐŽ "Ð–Ñ‚Ð˜Â­Ñ‘Ñ€ÂµÐµ" ÐÐž ÐÐŸâ„–Ð­ÐÐ‡ÐÑŠÑ‘Â¦ Â°ÑˆÂ°Ð­Ð—ÐŸÐ‘Ñ† Ñ‘ÑˆÐ—Ð¤
+extern bool g_noticeBattleZone;         // Ð‘Ð¯Ñ‘Ñ–Ð‘Ñ†Ò‘Ð»Ñ—ÐŽ ÐÐ¤ÐÐµÐ—ÐŸÑ‘Ð¹ Ñ•Ð˜Ñ–Â»Ñ‘Ð®Ñ˜Ñ˜Ð‘Ñ†Ñ‘Â¦ Ñ•Ð›Â·Ð‘Ð‘Ð¬
 
 extern DWORD g_GoldDropTimeLimitValue;
 

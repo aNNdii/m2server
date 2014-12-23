@@ -99,8 +99,8 @@ typedef struct _SQLMsg
 	int				iID;
 	std::string			stQuery;
 
-	std::vector<SQLResult *>	vec_pkResult;	// result º¤ÅÍ
-	unsigned int		uiResultPos;	// ÇöÀç result À§Ä¡
+	std::vector<SQLResult *>	vec_pkResult;	// result Ñ”Â¤Ğ•Ğ
+	unsigned int		uiResultPos;	// Ğ—Ñ†ĞĞ· result ĞÂ§Ğ”Ğ
 
 	void *			pvUserData;
 	bool			bReturn;

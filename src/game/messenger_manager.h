@@ -25,10 +25,10 @@ class MessengerManager : public singleton<MessengerManager>
 		void	RequestToAdd(LPCHARACTER ch, LPCHARACTER target);
 		void	AuthToAdd(const std::string& account, const std::string& companion, bool bDeny);
 
-		void	__AddToList(const std::string& account, const std::string& companion);	// ½ÇÁ¦ m_Relation, m_InverseRelation ¼öÁ¤ÇÏ´Â ¸Þ¼Òµå
+		void	__AddToList(const std::string& account, const std::string& companion);	// Ð…Ð—Ð‘Â¦ m_Relation, m_InverseRelation Ñ˜Ñ†Ð‘Â¤Ð—ÐŸÒ‘Ð’ Ñ‘Ð®Ñ˜Ð¢ÂµÐµ
 		void	AddToList(const std::string& account, const std::string& companion);
 
-		void	__RemoveFromList(const std::string& account, const std::string& companion); // ½ÇÁ¦ m_Relation, m_InverseRelation ¼öÁ¤ÇÏ´Â ¸Þ¼Òµå
+		void	__RemoveFromList(const std::string& account, const std::string& companion); // Ð…Ð—Ð‘Â¦ m_Relation, m_InverseRelation Ñ˜Ñ†Ð‘Â¤Ð—ÐŸÒ‘Ð’ Ñ‘Ð®Ñ˜Ð¢ÂµÐµ
 		void	RemoveFromList(const std::string& account, const std::string& companion);
 
 		void	RemoveAllList(const std::string& account);

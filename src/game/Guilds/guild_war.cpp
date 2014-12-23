@@ -43,7 +43,7 @@ void CGuild::GuildWarPacket(DWORD dwOppGID, BYTE bWarType, BYTE bWarState)
 		LPCHARACTER ch = *it;
 
 		if (bWarState == GUILD_WAR_ON_WAR)
-			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("<±ÊµÂ> ±ÊµÂ¿¸¡ﬂø°¥¬ ªÁ≥…ø° µ˚∏• ¿Ã¿Õ¿Ã æ¯Ω¿¥œ¥Ÿ."));
+			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("<¬±–∂¬µ–µ> ¬±–∂¬µ–µ–ê—å–ë–Ø—ó–é“ë–í ¬ª–∑—ñ–ô—ó–é ¬µ—ã—ë“ê –ê–ú–ê–ù–ê–ú —ï—à–Ö–ê“ë–ü“ë–©."));
 
 		LPDESC d = ch->GetDesc();
 
@@ -140,12 +140,12 @@ DWORD CGuild::GetGuildWarMapIndex(DWORD dwOppGID)
 	return git->second.map_index;
 }
 
-bool CGuild::CanStartWar(BYTE bGuildWarType) // ≈∏¿‘ø° µ˚∂Û ¥Ÿ∏• ¡∂∞«¿Ã ª˝±Ê ºˆµµ ¿÷¿Ω
+bool CGuild::CanStartWar(BYTE bGuildWarType) // –ï—ë–ê–§—ó–é ¬µ—ã¬∂—É “ë–©—ë“ê –ë¬∂¬∞–ó–ê–ú ¬ª—ç¬±–∂ —ò—Ü¬µ¬µ –ê–¶–ê–Ö
 {
 	if (bGuildWarType >= GUILD_WAR_TYPE_MAX_NUM)
 		return false;
 
-	// ≈◊Ω∫∆ÆΩ√ø°¥¬ ¿Œø¯ºˆ∏¶ »Æ¿Œ«œ¡ˆ æ ¥¬¥Ÿ.
+	// –ï–ß–Ö—î–ñ¬Æ–Ö–ì—ó–é“ë–í –ê–û—ó—à—ò—Ü—ë¬¶ –ò¬Æ–ê–û–ó–ü–ë—Ü —ï–ö“ë–í“ë–©.
 	if (test_server || quest::CQuestManager::instance().GetEventFlag("guild_war_test") != 0)
 		return GetLadderPoint() > 0;
 
@@ -313,11 +313,11 @@ void CGuild::RequestDeclareWar(DWORD dwOppGID, BYTE type)
 					GetID(), dwOppGID, type, GuildWar_GetTypeMapIndex(type));
 
 			map_allow_log();
-			NotifyGuildMaster(LC_TEXT("¿¸¿Ô º≠πˆ∞° ø≠∑¡¿÷¡ˆ æ æ∆ ±ÊµÂ¿¸¿ª Ω√¿€«“ ºˆ æ¯Ω¿¥œ¥Ÿ."));
+			NotifyGuildMaster(LC_TEXT("–ê—å–ê–ø —ò¬≠‚Ññ—Ü¬∞–é —ó¬≠¬∑–ë–ê–¶–ë—Ü —ï–ö—ï–ñ ¬±–∂¬µ–µ–ê—å–ê¬ª –Ö–ì–ê–´–ó–¢ —ò—Ü —ï—à–Ö–ê“ë–ü“ë–©."));
 			return;
 		}
 
-		// ∆–≈∂ ∫∏≥ª±‚ to another server
+		// –ñ–†–ï¬∂ —î—ë—ñ¬ª¬±–≤ to another server
 		TPacketGuildWar p;
 		p.bType = type;
 		p.bWar = GUILD_WAR_SEND_DECLARE;
@@ -336,7 +336,7 @@ void CGuild::RequestDeclareWar(DWORD dwOppGID, BYTE type)
 
 				if (saved_type == GUILD_WAR_TYPE_FIELD)
 				{
-					// º±¿¸∆˜∞Ì «—∞Õ¿ª πﬁæ∆µÈø¥¥Ÿ.
+					// —ò¬±–ê—å–ñ—á¬∞–Ω –ó–°¬∞–ù–ê¬ª ‚Ññ–Æ—ï–ñ¬µ–π—ó“ë“ë–©.
 					TPacketGuildWar p;
 					p.bType = saved_type;
 					p.bWar = GUILD_WAR_ON_WAR;
@@ -353,7 +353,7 @@ void CGuild::RequestDeclareWar(DWORD dwOppGID, BYTE type)
 							GetID(), dwOppGID, type, GuildWar_GetTypeMapIndex(type));
 
 					map_allow_log();
-					NotifyGuildMaster(LC_TEXT("¿¸¿Ô º≠πˆ∞° ø≠∑¡¿÷¡ˆ æ æ∆ ±ÊµÂ¿¸¿ª Ω√¿€«“ ºˆ æ¯Ω¿¥œ¥Ÿ."));
+					NotifyGuildMaster(LC_TEXT("–ê—å–ê–ø —ò¬≠‚Ññ—Ü¬∞–é —ó¬≠¬∑–ë–ê–¶–ë—Ü —ï–ö—ï–ñ ¬±–∂¬µ–µ–ê—å–ê¬ª –Ö–ì–ê–´–ó–¢ —ò—Ü —ï—à–Ö–ê“ë–ü“ë–©."));
 					return;
 				}
 
@@ -379,7 +379,7 @@ void CGuild::RequestDeclareWar(DWORD dwOppGID, BYTE type)
 			break;
 		case GUILD_WAR_SEND_DECLARE:
 			{
-				NotifyGuildMaster(LC_TEXT("¿ÃπÃ º±¿¸∆˜∞Ì ¡ﬂ¿Œ ±ÊµÂ¿‘¥œ¥Ÿ."));
+				NotifyGuildMaster(LC_TEXT("–ê–ú‚Ññ–ú —ò¬±–ê—å–ñ—á¬∞–Ω –ë–Ø–ê–û ¬±–∂¬µ–µ–ê–§“ë–ü“ë–©."));
 			}
 			break;
 		default:
@@ -441,14 +441,14 @@ void CGuild::StartWar(DWORD dwOppGID)
 
 bool CGuild::WaitStartWar(DWORD dwOppGID)
 {
-	//¿⁄±‚¿⁄Ω≈¿Ã∏È 
+	//–ê–™¬±–≤–ê–™–Ö–ï–ê–ú—ë–π 
 	if (dwOppGID == GetID())
 	{
 		sys_log(0 ,"GuildWar.WaitStartWar.DECLARE_WAR_SELF id(%u -> %u)", GetID(), dwOppGID);
 		return false;
 	}
 
-	//ªÛ¥ÎπÊ ±ÊµÂ TGuildWar ∏¶ æÚæÓø¬¥Ÿ.
+	//¬ª—É“ë–ª‚Ññ–∂ ¬±–∂¬µ–µ TGuildWar —ë¬¶ —ï—Ç—ï–æ—ó–í“ë–©.
 	TEnemyGuildContainer::iterator it = m_EnemyGuild.find(dwOppGID);
 	if (it == m_EnemyGuild.end())
 	{
@@ -456,7 +456,7 @@ bool CGuild::WaitStartWar(DWORD dwOppGID)
 		return false;
 	}
 
-	//∑π∆€∑±Ω∫ø° µÓ∑œ«œ∞Ì
+	//¬∑‚Ññ–ñ–´¬∑¬±–Ö—î—ó–é ¬µ–æ¬∑–ü–ó–ü¬∞–Ω
 	TGuildWar& gw(it->second);
 
 	if (gw.state == GUILD_WAR_WAIT_START)
@@ -465,10 +465,10 @@ bool CGuild::WaitStartWar(DWORD dwOppGID)
 		return false;
 	}
 
-	//ªÛ≈¬∏¶ ¿˙¿Â«—¥Ÿ.
+	//¬ª—É–ï–í—ë¬¶ –ê—ä–ê–µ–ó–°“ë–©.
 	gw.state = GUILD_WAR_WAIT_START;
 
-	//ªÛ¥Î∆Ì¿« ±ÊµÂ ≈¨∑°Ω∫ ∆˜¿Œ≈Õ∏¶ æÚæÓø¿∞Ì
+	//¬ª—É“ë–ª–ñ–Ω–ê–ó ¬±–∂¬µ–µ –ï¬¨¬∑–é–Ö—î –ñ—á–ê–û–ï–ù—ë¬¶ —ï—Ç—ï–æ—ó–ê¬∞–Ω
 	CGuild* g = CGuildManager::instance().FindGuild(dwOppGID);
 	if (!g)
 	{
@@ -481,14 +481,14 @@ bool CGuild::WaitStartWar(DWORD dwOppGID)
 	// END_OF_GUILDWAR_INFO
 
 
-	// « µÂ«¸¿Ã∏È ∏ ª˝º∫ æ»«‘
+	// –ó–ö¬µ–µ–ó—å–ê–ú—ë–π —ë–ö¬ª—ç—ò—î —ï–ò–ó–§
 	if (gw.type == GUILD_WAR_TYPE_FIELD)
 	{
 		sys_log(0 ,"GuildWar.WaitStartWar.FIELD_TYPE id(%u -> %u)", GetID(), dwOppGID);
 		return true;
 	}		
 
-	// ¿¸¿Ô º≠πˆ ¿Œ¡ˆ »Æ¿Œ
+	// –ê—å–ê–ø —ò¬≠‚Ññ—Ü –ê–û–ë—Ü –ò¬Æ–ê–û
 	sys_log(0 ,"GuildWar.WaitStartWar.CheckWarServer id(%u -> %u), type(%d), map(%d)", 
 			GetID(), dwOppGID, gw.type, rkGuildWarInfo.lMapIndex);
 
@@ -505,7 +505,7 @@ bool CGuild::WaitStartWar(DWORD dwOppGID)
 	if (id1 > id2)
 		std::swap(id1, id2);
 
-	//øˆ«¡ ∏ ¿ª ª˝º∫
+	//—ó—Ü–ó–ë —ë–ö–ê¬ª ¬ª—ç—ò—î
 	DWORD lMapIndex = CWarMapManager::instance().CreateWarMap(rkGuildWarInfo, id1, id2);
 	if (!lMapIndex) 
 	{
@@ -516,10 +516,10 @@ bool CGuild::WaitStartWar(DWORD dwOppGID)
 
 	sys_log(0, "GuildWar.WaitStartWar.CreateMap id(%u vs %u), type(%u), map(%d) -> map_inst(%u)", id1, id2, gw.type, rkGuildWarInfo.lMapIndex, lMapIndex);
 
-	//±ÊµÂ¿¸ ¡§∫∏ø° ∏ ¿Œµ¶Ω∫∏¶ ºº∆√
+	//¬±–∂¬µ–µ–ê—å –ë¬§—î—ë—ó–é —ë–ö–ê–û¬µ¬¶–Ö—î—ë¬¶ —ò—ò–ñ–ì
 	gw.map_index = lMapIndex;
 
-	//æÁ¬ ø° µÓ∑œ(?)
+	//—ï–∑–í–ö—ó–é ¬µ–æ¬∑–ü(?)
 	SetGuildWarMapIndex(dwOppGID, lMapIndex);
 	g->SetGuildWarMapIndex(GetID(), lMapIndex);
 
@@ -546,7 +546,7 @@ void CGuild::RequestRefuseWar(DWORD dwOppGID)
 
 	if (it != m_EnemyGuild.end() && it->second.state == GUILD_WAR_RECV_DECLARE)
 	{
-		// º±¿¸∆˜∞Ì∏¶ ∞≈¿˝«ﬂ¥Ÿ.
+		// —ò¬±–ê—å–ñ—á¬∞–Ω—ë¬¶ ¬∞–ï–ê—ç–ó–Ø“ë–©.
 		TPacketGuildWar p;
 		p.bWar = GUILD_WAR_REFUSE;
 		p.dwGuildFrom = GetID();
@@ -651,7 +651,7 @@ void CGuild::GuildWarEntryAccept(DWORD dwOppGID, LPCHARACTER ch)
 
 	if (gw.state != GUILD_WAR_ON_WAR)
 	{
-		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("¿ÃπÃ ¿¸¿Ô¿Ã ≥°≥µΩ¿¥œ¥Ÿ."));
+		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("–ê–ú‚Ññ–ú –ê—å–ê–ø–ê–ú —ñ–é—ñ¬µ–Ö–ê“ë–ü“ë–©."));
 		return;
 	}
 
@@ -727,7 +727,7 @@ void CGuild::SetLadderPoint(int point)
 	if (m_data.ladder_point != point)
 	{
 		char buf[256];
-		snprintf(buf, sizeof(buf), LC_TEXT("<±ÊµÂ> ∑°¥ı ¡°ºˆ∞° %d ¡°¿Ã µ«æ˙Ω¿¥œ¥Ÿ"), point);
+		snprintf(buf, sizeof(buf), LC_TEXT("<¬±–∂¬µ–µ> ¬∑–é“ë—Ö –ë–é—ò—Ü¬∞–é %d –ë–é–ê–ú ¬µ–ó—ï—ä–Ö–ê“ë–ü“ë–©"), point);
 		for (TGuildMemberOnlineContainer::const_iterator it = m_memberOnline.begin(); it != m_memberOnline.end(); ++it)
 		{
 			LPCHARACTER ch = (*it);

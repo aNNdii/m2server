@@ -2,7 +2,7 @@
  * date        : 2006.09.07
  * file        : dev_log.h
  * author      : mhh
- * description : °³¹ßÀÚ¿ë ·Î±×ÇÔ¼ö Å×½ºÆ® ¼­¹ö¿¡¼­¸¸ ±â·ÏµÈ´Ù.
+ * description : Â°Ñ–â„–Ğ¯ĞĞªÑ—Ğ» Â·ĞÂ±Ğ§Ğ—Ğ¤Ñ˜Ñ† Ğ•Ğ§Ğ…Ñ”Ğ–Â® Ñ˜Â­â„–Ñ†Ñ—ĞÑ˜Â­Ñ‘Ñ‘ Â±Ğ²Â·ĞŸÂµĞ˜Ò‘Ğ©.
  *				example)
  *				dev_log(LOG_DEB0, "My Name is %s", name);
  */

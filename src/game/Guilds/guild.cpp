@@ -63,12 +63,12 @@ CGuild::CGuild(TGuildCreateParameter & cp)
 
 	enhance_strlcpymt(m_data.name, cp.name, sizeof(m_data.name));
 	m_data.master_pid = cp.master->GetPlayerID();
-	enhance_strlcpymt(m_data.grade_array[0].grade_name, LC_TEXT("±æµåÀå"), sizeof(m_data.grade_array[0].grade_name));
+	enhance_strlcpymt(m_data.grade_array[0].grade_name, LC_TEXT("Â±Ğ¶ÂµĞµĞĞµ"), sizeof(m_data.grade_array[0].grade_name));
 	m_data.grade_array[0].auth_flag = GUILD_AUTH_ADD_MEMBER | GUILD_AUTH_REMOVE_MEMBER | GUILD_AUTH_NOTICE | GUILD_AUTH_USE_SKILL;
 
 	for (int i = 1; i < GUILD_GRADE_COUNT; ++i)
 	{
-		enhance_strlcpymt(m_data.grade_array[i].grade_name, LC_TEXT("±æµå¿ø"), sizeof(m_data.grade_array[i].grade_name));
+		enhance_strlcpymt(m_data.grade_array[i].grade_name, LC_TEXT("Â±Ğ¶ÂµĞµÑ—Ñˆ"), sizeof(m_data.grade_array[i].grade_name));
 		m_data.grade_array[i].auth_flag = 0;
 	}
 
@@ -418,7 +418,7 @@ void CGuild::SendListPacket(LPCHARACTER ch)
 	   Count (byte)
 	   [
 	   ...
-	   name_flag 1 - ÀÌ¸§À» º¸³»´À³Ä ¾Èº¸³»´À³Ä
+	   name_flag 1 - ĞĞœÑ‘Â§ĞÂ» Ñ”Ñ‘Ñ–Â»Ò‘ĞÑ–Ğ” Ñ•Ğ˜Ñ”Ñ‘Ñ–Â»Ò‘ĞÑ–Ğ”
 	   name CHARACTER_NAME_MAX_LEN+1
 	   ] * Count
 
@@ -561,7 +561,7 @@ void CGuild::LoadGuildMemberData(SQLMsg* pmsg)
 void CGuild::LoadGuildGradeData(SQLMsg* pmsg)
 {
 	/*
-    // 15°³ ¾Æ´Ò °¡´É¼º Á¸Àç
+    // 15Â°Ñ– Ñ•Ğ–Ò‘Ğ¢ Â°ĞÒ‘Ğ™Ñ˜Ñ” Ğ‘Ñ‘ĞĞ·
 	if (pmsg->Get()->iNumRows != 15)
 	{
 		sys_err("Query failed: getting guild grade data. GuildID(%d)", GetID());
@@ -700,7 +700,7 @@ void CGuild::__P2PUpdateGrade(SQLMsg* pmsg)
 
 		grade--;
 
-		// µî±Ş ¸íÄªÀÌ ÇöÀç¿Í ´Ù¸£´Ù¸é ¾÷µ¥ÀÌÆ®
+		// ÂµĞ¾Â±Ğ® Ñ‘Ğ½Ğ”Ğ„ĞĞœ Ğ—Ñ†ĞĞ·Ñ—Ğ Ò‘Ğ©Ñ‘ĞˆÒ‘Ğ©Ñ‘Ğ¹ Ñ•Ñ‡ÂµÒĞĞœĞ–Â®
 		if (0 != strcmp(m_data.grade_array[grade].grade_name, name))
 		{
 			enhance_strlcpymt(m_data.grade_array[grade].grade_name, name, sizeof(m_data.grade_array[grade].grade_name));
@@ -922,7 +922,7 @@ bool CGuild::OfferExp(LPCHARACTER ch, int amount)
 
 	if (ch->GetExp() < (DWORD) amount)
 	{
-		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("<±æµå> Á¦°øÇÏ°íÀÚ ÇÏ´Â °æÇèÄ¡°¡ ³²Àº °æÇèÄ¡º¸´Ù ¸¹½À´Ï´Ù."));
+		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("<Â±Ğ¶ÂµĞµ> Ğ‘Â¦Â°ÑˆĞ—ĞŸÂ°Ğ½ĞĞª Ğ—ĞŸÒ‘Ğ’ Â°Ğ¶Ğ—Ğ¸Ğ”ĞÂ°Ğ Ñ–Ğ†ĞÑ” Â°Ğ¶Ğ—Ğ¸Ğ”ĞÑ”Ñ‘Ò‘Ğ© Ñ‘â„–Ğ…ĞÒ‘ĞŸÒ‘Ğ©."));
 		return false;
 	}
 
@@ -1033,7 +1033,7 @@ void CGuild::DeleteComment(LPCHARACTER ch, DWORD comment_id)
 		pmsg = DBManager::instance().DirectQuery("DELETE FROM guild_comment%s WHERE id = %u AND guild_id = %u AND name = '%s'",get_table_postfix(), comment_id, m_data.guild_id, ch->GetName());
 
 	if (pmsg->Get()->uiAffectedRows == 0 || pmsg->Get()->uiAffectedRows == (uint32_t)-1)
-		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("<±æµå> »èÁ¦ÇÒ ¼ö ¾ø´Â ±ÛÀÔ´Ï´Ù."));
+		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("<Â±Ğ¶ÂµĞµ> Â»Ğ¸Ğ‘Â¦Ğ—Ğ¢ Ñ˜Ñ† Ñ•ÑˆÒ‘Ğ’ Â±Ğ«ĞĞ¤Ò‘ĞŸÒ‘Ğ©."));
 	else
 		RefreshCommentForce(ch->GetPlayerID());
 
@@ -1086,7 +1086,7 @@ void CGuild::RefreshCommentForce(DWORD player_id)
 		d->BufferedPacket(szName, sizeof(szName));
 
 		if (i == pmsg->Get()->uiNumRows - 1)
-			d->Packet(szContent, sizeof(szContent)); // ¸¶Áö¸· ÁÙÀÌ¸é º¸³»±â
+			d->Packet(szContent, sizeof(szContent)); // Ñ‘Â¶Ğ‘Ñ†Ñ‘Â· Ğ‘Ğ©ĞĞœÑ‘Ğ¹ Ñ”Ñ‘Ñ–Â»Â±Ğ²
 		else
 			d->BufferedPacket(szContent, sizeof(szContent));
 	}
@@ -1265,7 +1265,7 @@ void CGuild::UseSkill(DWORD dwVnum, LPCHARACTER ch, DWORD pid)
 
 	if ((pkSk->dwFlag & SKILL_FLAG_SELFONLY))
 	{
-		// ÀÌ¹Ì °É·Á ÀÖÀ¸¹Ç·Î »ç¿ëÇÏÁö ¾ÊÀ½.
+		// ĞĞœâ„–Ğœ Â°Ğ™Â·Ğ‘ ĞĞ¦ĞÑ‘â„–Ğ—Â·Ğ Â»Ğ·Ñ—Ğ»Ğ—ĞŸĞ‘Ñ† Ñ•ĞšĞĞ….
 		if (ch->FindAffect(pkSk->dwVnum))
 			return;
 
@@ -1284,7 +1284,7 @@ void CGuild::UseSkill(DWORD dwVnum, LPCHARACTER ch, DWORD pid)
 
 	if (GetSP() < iNeededSP)
 	{
-		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("<±æµå> ¿ë½Å·ÂÀÌ ºÎÁ·ÇÕ´Ï´Ù. (%d, %d)"), GetSP(), iNeededSP);
+		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("<Â±Ğ¶ÂµĞµ> Ñ—Ğ»Ğ…Ğ•Â·Ğ’ĞĞœ Ñ”ĞĞ‘Â·Ğ—Ğ¥Ò‘ĞŸÒ‘Ğ©. (%d, %d)"), GetSP(), iNeededSP);
 		return;
 	}
 
@@ -1293,7 +1293,7 @@ void CGuild::UseSkill(DWORD dwVnum, LPCHARACTER ch, DWORD pid)
 
 	if (!abSkillUsable[dwRealVnum])
 	{
-		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("<±æµå> ÄğÅ¸ÀÓÀÌ ³¡³ªÁö ¾Ê¾Æ ±æµå ½ºÅ³À» »ç¿ëÇÒ ¼ö ¾ø½À´Ï´Ù."));
+		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("<Â±Ğ¶ÂµĞµ> Ğ”Ñ€Ğ•Ñ‘ĞĞ£ĞĞœ Ñ–ĞÑ–Ğ„Ğ‘Ñ† Ñ•ĞšÑ•Ğ– Â±Ğ¶ÂµĞµ Ğ…Ñ”Ğ•Ñ–ĞÂ» Â»Ğ·Ñ—Ğ»Ğ—Ğ¢ Ñ˜Ñ† Ñ•ÑˆĞ…ĞÒ‘ĞŸÒ‘Ğ©."));
 		return;
 	}
 
@@ -1312,12 +1312,12 @@ void CGuild::UseSkill(DWORD dwVnum, LPCHARACTER ch, DWORD pid)
 	//GuildPointChange(POINT_SP, -iNeededSP);
 
 	if (test_server)
-		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("<±æµå> %d ½ºÅ³À» »ç¿ëÇÔ (%d, %d) to %u"), dwVnum, GetSP(), iNeededSP, pid);
+		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("<Â±Ğ¶ÂµĞµ> %d Ğ…Ñ”Ğ•Ñ–ĞÂ» Â»Ğ·Ñ—Ğ»Ğ—Ğ¤ (%d, %d) to %u"), dwVnum, GetSP(), iNeededSP, pid);
 
 	switch (dwVnum)
 	{
 		case GUILD_SKILL_TELEPORT:
-			// ÇöÀç ¼­¹ö¿¡ ÀÖ´Â »ç¶÷À» ¸ÕÀú ½Ãµµ.
+			// Ğ—Ñ†ĞĞ· Ñ˜Â­â„–Ñ†Ñ—Ğ ĞĞ¦Ò‘Ğ’ Â»Ğ·Â¶Ñ‡ĞÂ» Ñ‘Ğ¥ĞÑŠ Ğ…Ğ“ÂµÂµ.
 			SendDBSkillUpdate(-iNeededSP);
 			if ((victim = (CHARACTER_MANAGER::instance().FindByPID(pid))))
 				ch->WarpSet(victim->GetX(), victim->GetY());
@@ -1325,15 +1325,15 @@ void CGuild::UseSkill(DWORD dwVnum, LPCHARACTER ch, DWORD pid)
 			{
 				if (m_memberP2POnline.find(pid) != m_memberP2POnline.end())
 				{
-					// ´Ù¸¥ ¼­¹ö¿¡ ·Î±×ÀÎµÈ »ç¶÷ÀÌ ÀÖÀ½ -> ¸Ş½ÃÁö º¸³» ÁÂÇ¥¸¦ ¹Ş¾Æ¿ÀÀÚ
-					// 1. A.pid, B.pid ¸¦ »Ñ¸²
-					// 2. B.pid¸¦ °¡Áø ¼­¹ö°¡ »Ñ¸°¼­¹ö¿¡°Ô A.pid, ÁÂÇ¥ ¸¦ º¸³¿
-					// 3. ¿öÇÁ
+					// Ò‘Ğ©Ñ‘Ò Ñ˜Â­â„–Ñ†Ñ—Ğ Â·ĞÂ±Ğ§ĞĞÂµĞ˜ Â»Ğ·Â¶Ñ‡ĞĞœ ĞĞ¦ĞĞ… -> Ñ‘Ğ®Ğ…Ğ“Ğ‘Ñ† Ñ”Ñ‘Ñ–Â» Ğ‘Ğ’Ğ—ÒÑ‘Â¦ â„–Ğ®Ñ•Ğ–Ñ—ĞĞĞª
+					// 1. A.pid, B.pid Ñ‘Â¦ Â»Ğ¡Ñ‘Ğ†
+					// 2. B.pidÑ‘Â¦ Â°ĞĞ‘Ñˆ Ñ˜Â­â„–Ñ†Â°Ğ Â»Ğ¡Ñ‘Â°Ñ˜Â­â„–Ñ†Ñ—ĞÂ°Ğ¤ A.pid, Ğ‘Ğ’Ğ—Ò Ñ‘Â¦ Ñ”Ñ‘Ñ–Ñ—
+					// 3. Ñ—Ñ†Ğ—Ğ‘
 					CCI * pcci = P2P_MANAGER::instance().FindByPID(pid);
 
 					if (pcci->bChannel != g_bChannel)
 					{
-						ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("<±æµå> »ó´ë°¡ %d Ã¤³Î¿¡ ÀÖ½À´Ï´Ù. (ÇöÀç Ã¤³Î %d)"), pcci->bChannel, g_bChannel);
+						ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("<Â±Ğ¶ÂµĞµ> Â»ÑƒÒ‘Ğ»Â°Ğ %d Ğ“Â¤Ñ–ĞÑ—Ğ ĞĞ¦Ğ…ĞÒ‘ĞŸÒ‘Ğ©. (Ğ—Ñ†ĞĞ· Ğ“Â¤Ñ–Ğ %d)"), pcci->bChannel, g_bChannel);
 					}
 					else
 					{
@@ -1346,7 +1346,7 @@ void CGuild::UseSkill(DWORD dwVnum, LPCHARACTER ch, DWORD pid)
 					}
 				}
 				else
-					ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("<±æµå> »ó´ë°¡ ¿Â¶óÀÎ »óÅÂ°¡ ¾Æ´Õ´Ï´Ù."));
+					ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("<Â±Ğ¶ÂµĞµ> Â»ÑƒÒ‘Ğ»Â°Ğ Ñ—Ğ’Â¶ÑƒĞĞ Â»ÑƒĞ•Ğ’Â°Ğ Ñ•Ğ–Ò‘Ğ¥Ò‘ĞŸÒ‘Ğ©."));
 			}
 			break;
 
@@ -1360,13 +1360,13 @@ void CGuild::UseSkill(DWORD dwVnum, LPCHARACTER ch, DWORD pid)
 			{
 				/*if (ch->GetPlayerID() != GetMasterPID())
 				  {
-				  ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("<±æµå> ±æµåÀå¸¸ ±æµå ½ºÅ³À» »ç¿ëÇÒ ¼ö ÀÖ½À´Ï´Ù."));
+				  ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("<Â±Ğ¶ÂµĞµ> Â±Ğ¶ÂµĞµĞĞµÑ‘Ñ‘ Â±Ğ¶ÂµĞµ Ğ…Ñ”Ğ•Ñ–ĞÂ» Â»Ğ·Ñ—Ğ»Ğ—Ğ¢ Ñ˜Ñ† ĞĞ¦Ğ…ĞÒ‘ĞŸÒ‘Ğ©."));
 				  return;
 				  }*/
 
 				if (!UnderAnyWar())
 				{
-					ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("<±æµå> ±æµå ½ºÅ³Àº ±æµåÀü Áß¿¡¸¸ »ç¿ëÇÒ ¼ö ÀÖ½À´Ï´Ù."));
+					ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("<Â±Ğ¶ÂµĞµ> Â±Ğ¶ÂµĞµ Ğ…Ñ”Ğ•Ñ–ĞÑ” Â±Ğ¶ÂµĞµĞÑŒ Ğ‘Ğ¯Ñ—ĞÑ‘Ñ‘ Â»Ğ·Ñ—Ğ»Ğ—Ğ¢ Ñ˜Ñ† ĞĞ¦Ğ…ĞÒ‘ĞŸÒ‘Ğ©."));
 					return;
 				}
 
@@ -1733,7 +1733,7 @@ bool CGuild::ChargeSP(LPCHARACTER ch, int iSP)
 
 	SendDBSkillUpdate(iSP);
 	{
-		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("<±æµå> %uÀÇ ¿ë½Å·ÂÀ» È¸º¹ÇÏ¿´½À´Ï´Ù."), iSP);
+		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("<Â±Ğ¶ÂµĞµ> %uĞĞ— Ñ—Ğ»Ğ…Ğ•Â·Ğ’ĞÂ» Ğ˜Ñ‘Ñ”â„–Ğ—ĞŸÑ—Ò‘Ğ…ĞÒ‘ĞŸÒ‘Ğ©."), iSP);
 	}
 	return true;
 }
@@ -1807,7 +1807,7 @@ void CGuild::RequestDepositMoney(LPCHARACTER ch, int iGold)
 {
 	if (false==ch->CanDeposit())
 	{
-		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("<±æµå> Àá½ÃÈÄ¿¡ ÀÌ¿ëÇØÁÖ½Ê½Ã¿À"));
+		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("<Â±Ğ¶ÂµĞµ> ĞĞ±Ğ…Ğ“Ğ˜Ğ”Ñ—Ğ ĞĞœÑ—Ğ»Ğ—Ğ¨Ğ‘Ğ¦Ğ…ĞšĞ…Ğ“Ñ—Ğ"));
 		return;
 	}
 
@@ -1834,19 +1834,19 @@ void CGuild::RequestWithdrawMoney(LPCHARACTER ch, int iGold)
 {
 	if (false==ch->CanDeposit())
 	{
-		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("<±æµå> Àá½ÃÈÄ¿¡ ÀÌ¿ëÇØÁÖ½Ê½Ã¿À"));
+		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("<Â±Ğ¶ÂµĞµ> ĞĞ±Ğ…Ğ“Ğ˜Ğ”Ñ—Ğ ĞĞœÑ—Ğ»Ğ—Ğ¨Ğ‘Ğ¦Ğ…ĞšĞ…Ğ“Ñ—Ğ"));
 		return;
 	}
 
 	if (ch->GetPlayerID() != GetMasterPID())
 	{
-		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("<±æµå> ±æµå ±İ°í¿¡¼± ±æµåÀå¸¸ Ãâ±İÇÒ ¼ö ÀÖ½À´Ï´Ù."));
+		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("<Â±Ğ¶ÂµĞµ> Â±Ğ¶ÂµĞµ Â±Ğ­Â°Ğ½Ñ—ĞÑ˜Â± Â±Ğ¶ÂµĞµĞĞµÑ‘Ñ‘ Ğ“Ğ²Â±Ğ­Ğ—Ğ¢ Ñ˜Ñ† ĞĞ¦Ğ…ĞÒ‘ĞŸÒ‘Ğ©."));
 		return;
 	}
 
 	if (m_data.gold < iGold)
 	{
-		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("<±æµå> °¡Áö°í ÀÖ´Â µ·ÀÌ ºÎÁ·ÇÕ´Ï´Ù."));
+		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("<Â±Ğ¶ÂµĞµ> Â°ĞĞ‘Ñ†Â°Ğ½ ĞĞ¦Ò‘Ğ’ ÂµÂ·ĞĞœ Ñ”ĞĞ‘Â·Ğ—Ğ¥Ò‘ĞŸÒ‘Ğ©."));
 		return;
 	}
 
@@ -1899,11 +1899,11 @@ bool CGuild::HasLand()
 }
 
 // GUILD_JOIN_BUG_FIX
-/// ±æµå ÃÊ´ë event Á¤º¸
+/// Â±Ğ¶ÂµĞµ Ğ“ĞšÒ‘Ğ» event Ğ‘Â¤Ñ”Ñ‘
 EVENTINFO(TInviteGuildEventInfo)
 {
-	DWORD	dwInviteePID;		///< ÃÊ´ë¹ŞÀº character ÀÇ PID
-	DWORD	dwGuildID;		///< ÃÊ´ëÇÑ Guild ÀÇ ID
+	DWORD	dwInviteePID;		///< Ğ“ĞšÒ‘Ğ»â„–Ğ®ĞÑ” character ĞĞ— PID
+	DWORD	dwGuildID;		///< Ğ“ĞšÒ‘Ğ»Ğ—Ğ¡ Guild ĞĞ— ID
 
 	TInviteGuildEventInfo()
 	: dwInviteePID( 0 )
@@ -1913,8 +1913,8 @@ EVENTINFO(TInviteGuildEventInfo)
 };
 
 /**
- * ±æµå ÃÊ´ë event callback ÇÔ¼ö.
- * event °¡ ¹ßµ¿ÇÏ¸é ÃÊ´ë °ÅÀı·Î Ã³¸®ÇÑ´Ù.
+ * Â±Ğ¶ÂµĞµ Ğ“ĞšÒ‘Ğ» event callback Ğ—Ğ¤Ñ˜Ñ†.
+ * event Â°Ğ â„–Ğ¯ÂµÑ—Ğ—ĞŸÑ‘Ğ¹ Ğ“ĞšÒ‘Ğ» Â°Ğ•ĞÑÂ·Ğ Ğ“Ñ–Ñ‘Â®Ğ—Ğ¡Ò‘Ğ©.
  */
 EVENTFUNC( GuildInviteEvent )
 {
@@ -1941,7 +1941,7 @@ void CGuild::Invite( LPCHARACTER pchInviter, LPCHARACTER pchInvitee )
 {
 	if (quest::CQuestManager::instance().GetPCForce(pchInviter->GetPlayerID())->IsRunning() == true)
 	{
-	    pchInviter->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("<±æµå> »ó´ë¹æÀÌ ÃÊ´ë ½ÅÃ»À» ¹ŞÀ» ¼ö ¾ø´Â »óÅÂÀÔ´Ï´Ù."));
+	    pchInviter->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("<Â±Ğ¶ÂµĞµ> Â»ÑƒÒ‘Ğ»â„–Ğ¶ĞĞœ Ğ“ĞšÒ‘Ğ» Ğ…Ğ•Ğ“Â»ĞÂ» â„–Ğ®ĞÂ» Ñ˜Ñ† Ñ•ÑˆÒ‘Ğ’ Â»ÑƒĞ•Ğ’ĞĞ¤Ò‘ĞŸÒ‘Ğ©."));
 	    return;
 	}
 
@@ -1951,17 +1951,17 @@ void CGuild::Invite( LPCHARACTER pchInviter, LPCHARACTER pchInvitee )
 
 	if ( pchInvitee->IsBlockMode( BLOCK_GUILD_INVITE ) ) 
 	{
-		pchInviter->ChatPacket( CHAT_TYPE_INFO, LC_TEXT("<±æµå> »ó´ë¹æÀÌ ±æµå ÃÊ´ë °ÅºÎ »óÅÂÀÔ´Ï´Ù.") );
+		pchInviter->ChatPacket( CHAT_TYPE_INFO, LC_TEXT("<Â±Ğ¶ÂµĞµ> Â»ÑƒÒ‘Ğ»â„–Ğ¶ĞĞœ Â±Ğ¶ÂµĞµ Ğ“ĞšÒ‘Ğ» Â°Ğ•Ñ”Ğ Â»ÑƒĞ•Ğ’ĞĞ¤Ò‘ĞŸÒ‘Ğ©.") );
 		return;
 	} 
 	else if ( !HasGradeAuth( GetMember( pchInviter->GetPlayerID() )->grade, GUILD_AUTH_ADD_MEMBER ) ) 
 	{
-		pchInviter->ChatPacket( CHAT_TYPE_INFO, LC_TEXT("<±æµå> ±æµå¿øÀ» ÃÊ´ëÇÒ ±ÇÇÑÀÌ ¾ø½À´Ï´Ù.") );
+		pchInviter->ChatPacket( CHAT_TYPE_INFO, LC_TEXT("<Â±Ğ¶ÂµĞµ> Â±Ğ¶ÂµĞµÑ—ÑˆĞÂ» Ğ“ĞšÒ‘Ğ»Ğ—Ğ¢ Â±Ğ—Ğ—Ğ¡ĞĞœ Ñ•ÑˆĞ…ĞÒ‘ĞŸÒ‘Ğ©.") );
 		return;
 	} 
 	else if ( pchInvitee->GetEmpire() != pchInviter->GetEmpire() ) 
 	{
-		pchInviter->ChatPacket( CHAT_TYPE_INFO, LC_TEXT("<±æµå> ´Ù¸¥ Á¦±¹ »ç¶÷À» ±æµå¿¡ ÃÊ´ëÇÒ ¼ö ¾ø½À´Ï´Ù.") );
+		pchInviter->ChatPacket( CHAT_TYPE_INFO, LC_TEXT("<Â±Ğ¶ÂµĞµ> Ò‘Ğ©Ñ‘Ò Ğ‘Â¦Â±â„– Â»Ğ·Â¶Ñ‡ĞÂ» Â±Ğ¶ÂµĞµÑ—Ğ Ğ“ĞšÒ‘Ğ»Ğ—Ğ¢ Ñ˜Ñ† Ñ•ÑˆĞ…ĞÒ‘ĞŸÒ‘Ğ©.") );
 		return;
 	}
 
@@ -1971,18 +1971,18 @@ void CGuild::Invite( LPCHARACTER pchInviter, LPCHARACTER pchInvitee )
 		case GERR_NONE: break;
 		case GERR_WITHDRAWPENALTY:
 						pchInviter->ChatPacket( CHAT_TYPE_INFO, 
-								LC_TEXT("<±æµå> Å»ÅğÇÑ ÈÄ %dÀÏÀÌ Áö³ªÁö ¾ÊÀº »ç¶÷Àº ±æµå¿¡ ÃÊ´ëÇÒ ¼ö ¾ø½À´Ï´Ù."), 
+								LC_TEXT("<Â±Ğ¶ÂµĞµ> Ğ•Â»Ğ•Ñ€Ğ—Ğ¡ Ğ˜Ğ” %dĞĞŸĞĞœ Ğ‘Ñ†Ñ–Ğ„Ğ‘Ñ† Ñ•ĞšĞÑ” Â»Ğ·Â¶Ñ‡ĞÑ” Â±Ğ¶ÂµĞµÑ—Ğ Ğ“ĞšÒ‘Ğ»Ğ—Ğ¢ Ñ˜Ñ† Ñ•ÑˆĞ…ĞÒ‘ĞŸÒ‘Ğ©."), 
 								quest::CQuestManager::instance().GetEventFlag( "guild_withdraw_delay" ) );
 						return;
 		case GERR_COMMISSIONPENALTY:
 						pchInviter->ChatPacket( CHAT_TYPE_INFO, 
-								LC_TEXT("<±æµå> ±æµå¸¦ ÇØ»êÇÑ Áö %dÀÏÀÌ Áö³ªÁö ¾ÊÀº »ç¶÷Àº ±æµå¿¡ ÃÊ´ëÇÒ ¼ö ¾ø½À´Ï´Ù."), 
+								LC_TEXT("<Â±Ğ¶ÂµĞµ> Â±Ğ¶ÂµĞµÑ‘Â¦ Ğ—Ğ¨Â»ĞºĞ—Ğ¡ Ğ‘Ñ† %dĞĞŸĞĞœ Ğ‘Ñ†Ñ–Ğ„Ğ‘Ñ† Ñ•ĞšĞÑ” Â»Ğ·Â¶Ñ‡ĞÑ” Â±Ğ¶ÂµĞµÑ—Ğ Ğ“ĞšÒ‘Ğ»Ğ—Ğ¢ Ñ˜Ñ† Ñ•ÑˆĞ…ĞÒ‘ĞŸÒ‘Ğ©."), 
 								quest::CQuestManager::instance().GetEventFlag( "guild_disband_delay") );
 						return;
-		case GERR_ALREADYJOIN:	pchInviter->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("<±æµå> »ó´ë¹æÀÌ ÀÌ¹Ì ´Ù¸¥ ±æµå¿¡ ¼ÓÇØÀÖ½À´Ï´Ù.")); return;
-		case GERR_GUILDISFULL:	pchInviter->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("<±æµå> ÃÖ´ë ±æµå¿ø ¼ö¸¦ ÃÊ°úÇß½À´Ï´Ù.")); return;
-		case GERR_GUILD_IS_IN_WAR : pchInviter->ChatPacket( CHAT_TYPE_INFO, LC_TEXT("<±æµå> ÇöÀç ±æµå°¡ ÀüÀï Áß ÀÔ´Ï´Ù.") ); return;
-		case GERR_INVITE_LIMIT : pchInviter->ChatPacket( CHAT_TYPE_INFO, LC_TEXT("<±æµå> ÇöÀç ½Å±Ô °¡ÀÔ Á¦ÇÑ »óÅÂ ÀÔ´Ï´Ù.") ); return;
+		case GERR_ALREADYJOIN:	pchInviter->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("<Â±Ğ¶ÂµĞµ> Â»ÑƒÒ‘Ğ»â„–Ğ¶ĞĞœ ĞĞœâ„–Ğœ Ò‘Ğ©Ñ‘Ò Â±Ğ¶ÂµĞµÑ—Ğ Ñ˜Ğ£Ğ—Ğ¨ĞĞ¦Ğ…ĞÒ‘ĞŸÒ‘Ğ©.")); return;
+		case GERR_GUILDISFULL:	pchInviter->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("<Â±Ğ¶ÂµĞµ> Ğ“Ğ¦Ò‘Ğ» Â±Ğ¶ÂµĞµÑ—Ñˆ Ñ˜Ñ†Ñ‘Â¦ Ğ“ĞšÂ°ÑŠĞ—Ğ¯Ğ…ĞÒ‘ĞŸÒ‘Ğ©.")); return;
+		case GERR_GUILD_IS_IN_WAR : pchInviter->ChatPacket( CHAT_TYPE_INFO, LC_TEXT("<Â±Ğ¶ÂµĞµ> Ğ—Ñ†ĞĞ· Â±Ğ¶ÂµĞµÂ°Ğ ĞÑŒĞĞ¿ Ğ‘Ğ¯ ĞĞ¤Ò‘ĞŸÒ‘Ğ©.") ); return;
+		case GERR_INVITE_LIMIT : pchInviter->ChatPacket( CHAT_TYPE_INFO, LC_TEXT("<Â±Ğ¶ÂµĞµ> Ğ—Ñ†ĞĞ· Ğ…Ğ•Â±Ğ¤ Â°ĞĞĞ¤ Ğ‘Â¦Ğ—Ğ¡ Â»ÑƒĞ•Ğ’ ĞĞ¤Ò‘ĞŸÒ‘Ğ©.") ); return;
 
 		default: sys_err( "ignore guild join error(%d)", errcode ); return;
 	}
@@ -1991,7 +1991,7 @@ void CGuild::Invite( LPCHARACTER pchInviter, LPCHARACTER pchInvitee )
 		return;
 
 	//
-	// ÀÌº¥Æ® »ı¼º
+	// ĞĞœÑ”ÒĞ–Â® Â»ÑÑ˜Ñ”
 	// 
 	TInviteGuildEventInfo* pInfo = AllocEventInfo<TInviteGuildEventInfo>();
 	pInfo->dwInviteePID = pchInvitee->GetPlayerID();
@@ -2000,7 +2000,7 @@ void CGuild::Invite( LPCHARACTER pchInviter, LPCHARACTER pchInvitee )
 	m_GuildInviteEventMap.insert(EventMap::value_type(pchInvitee->GetPlayerID(), event_create(GuildInviteEvent, pInfo, PASSES_PER_SEC(10))));
 
 	//
-	// ÃÊ´ë ¹Ş´Â character ¿¡°Ô ÃÊ´ë ÆĞÅ¶ Àü¼Û
+	// Ğ“ĞšÒ‘Ğ» â„–Ğ®Ò‘Ğ’ character Ñ—ĞÂ°Ğ¤ Ğ“ĞšÒ‘Ğ» Ğ–Ğ Ğ•Â¶ ĞÑŒÑ˜Ğ«
 	// 
 
 	DWORD gid = GetID();
@@ -2036,18 +2036,18 @@ void CGuild::InviteAccept( LPCHARACTER pchInvitee )
 		case GERR_NONE: break;
 		case GERR_WITHDRAWPENALTY:
 						pchInvitee->ChatPacket( CHAT_TYPE_INFO, 
-								LC_TEXT("<±æµå> Å»ÅğÇÑ ÈÄ %dÀÏÀÌ Áö³ªÁö ¾ÊÀº »ç¶÷Àº ±æµå¿¡ ÃÊ´ëÇÒ ¼ö ¾ø½À´Ï´Ù."), 
+								LC_TEXT("<Â±Ğ¶ÂµĞµ> Ğ•Â»Ğ•Ñ€Ğ—Ğ¡ Ğ˜Ğ” %dĞĞŸĞĞœ Ğ‘Ñ†Ñ–Ğ„Ğ‘Ñ† Ñ•ĞšĞÑ” Â»Ğ·Â¶Ñ‡ĞÑ” Â±Ğ¶ÂµĞµÑ—Ğ Ğ“ĞšÒ‘Ğ»Ğ—Ğ¢ Ñ˜Ñ† Ñ•ÑˆĞ…ĞÒ‘ĞŸÒ‘Ğ©."), 
 								quest::CQuestManager::instance().GetEventFlag( "guild_withdraw_delay" ) );
 						return;
 		case GERR_COMMISSIONPENALTY:
 						pchInvitee->ChatPacket( CHAT_TYPE_INFO, 
-								LC_TEXT("<±æµå> ±æµå¸¦ ÇØ»êÇÑ Áö %dÀÏÀÌ Áö³ªÁö ¾ÊÀº »ç¶÷Àº ±æµå¿¡ ÃÊ´ëÇÒ ¼ö ¾ø½À´Ï´Ù."), 
+								LC_TEXT("<Â±Ğ¶ÂµĞµ> Â±Ğ¶ÂµĞµÑ‘Â¦ Ğ—Ğ¨Â»ĞºĞ—Ğ¡ Ğ‘Ñ† %dĞĞŸĞĞœ Ğ‘Ñ†Ñ–Ğ„Ğ‘Ñ† Ñ•ĞšĞÑ” Â»Ğ·Â¶Ñ‡ĞÑ” Â±Ğ¶ÂµĞµÑ—Ğ Ğ“ĞšÒ‘Ğ»Ğ—Ğ¢ Ñ˜Ñ† Ñ•ÑˆĞ…ĞÒ‘ĞŸÒ‘Ğ©."), 
 								quest::CQuestManager::instance().GetEventFlag( "guild_disband_delay") );
 						return;
-		case GERR_ALREADYJOIN:	pchInvitee->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("<±æµå> »ó´ë¹æÀÌ ÀÌ¹Ì ´Ù¸¥ ±æµå¿¡ ¼ÓÇØÀÖ½À´Ï´Ù.")); return;
-		case GERR_GUILDISFULL:	pchInvitee->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("<±æµå> ÃÖ´ë ±æµå¿ø ¼ö¸¦ ÃÊ°úÇß½À´Ï´Ù.")); return;
-		case GERR_GUILD_IS_IN_WAR : pchInvitee->ChatPacket( CHAT_TYPE_INFO, LC_TEXT("<±æµå> ÇöÀç ±æµå°¡ ÀüÀï Áß ÀÔ´Ï´Ù.") ); return;
-		case GERR_INVITE_LIMIT : pchInvitee->ChatPacket( CHAT_TYPE_INFO, LC_TEXT("<±æµå> ÇöÀç ½Å±Ô °¡ÀÔ Á¦ÇÑ »óÅÂ ÀÔ´Ï´Ù.") ); return;
+		case GERR_ALREADYJOIN:	pchInvitee->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("<Â±Ğ¶ÂµĞµ> Â»ÑƒÒ‘Ğ»â„–Ğ¶ĞĞœ ĞĞœâ„–Ğœ Ò‘Ğ©Ñ‘Ò Â±Ğ¶ÂµĞµÑ—Ğ Ñ˜Ğ£Ğ—Ğ¨ĞĞ¦Ğ…ĞÒ‘ĞŸÒ‘Ğ©.")); return;
+		case GERR_GUILDISFULL:	pchInvitee->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("<Â±Ğ¶ÂµĞµ> Ğ“Ğ¦Ò‘Ğ» Â±Ğ¶ÂµĞµÑ—Ñˆ Ñ˜Ñ†Ñ‘Â¦ Ğ“ĞšÂ°ÑŠĞ—Ğ¯Ğ…ĞÒ‘ĞŸÒ‘Ğ©.")); return;
+		case GERR_GUILD_IS_IN_WAR : pchInvitee->ChatPacket( CHAT_TYPE_INFO, LC_TEXT("<Â±Ğ¶ÂµĞµ> Ğ—Ñ†ĞĞ· Â±Ğ¶ÂµĞµÂ°Ğ ĞÑŒĞĞ¿ Ğ‘Ğ¯ ĞĞ¤Ò‘ĞŸÒ‘Ğ©.") ); return;
+		case GERR_INVITE_LIMIT : pchInvitee->ChatPacket( CHAT_TYPE_INFO, LC_TEXT("<Â±Ğ¶ÂµĞµ> Ğ—Ñ†ĞĞ· Ğ…Ğ•Â±Ğ¤ Â°ĞĞĞ¤ Ğ‘Â¦Ğ—Ğ¡ Â»ÑƒĞ•Ğ’ ĞĞ¤Ò‘ĞŸÒ‘Ğ©.") ); return;
 
 		default: sys_err( "ignore guild join error(%d)", errcode ); return;
 	}

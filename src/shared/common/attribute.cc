@@ -85,13 +85,13 @@ void CAttribute::Alloc()
     }
 }
 
-CAttribute::CAttribute(DWORD width, DWORD height) // dword Å¸ÀÙÀ¸·Î ¸ğµÎ 0À» Ã¤¿î´Ù.
+CAttribute::CAttribute(DWORD width, DWORD height) // dword Ğ•Ñ‘ĞĞ©ĞÑ‘Â·Ğ Ñ‘Ñ€ÂµĞ 0ĞÂ» Ğ“Â¤Ñ—Ğ¾Ò‘Ğ©.
 {
     Initialize(width, height);
     Alloc();
 }
 
-CAttribute::CAttribute(DWORD * attr, DWORD width, DWORD height) // attrÀ» ÀĞ¾î¼­ smartÇÏ°Ô ¼Ó¼ºÀ» ÀĞ¾î¿Â´Ù.
+CAttribute::CAttribute(DWORD * attr, DWORD width, DWORD height) // attrĞÂ» ĞĞ Ñ•Ğ¾Ñ˜Â­ smartĞ—ĞŸÂ°Ğ¤ Ñ˜Ğ£Ñ˜Ñ”ĞÂ» ĞĞ Ñ•Ğ¾Ñ—Ğ’Ò‘Ğ©.
 {
     Initialize(width, height);
 
@@ -102,7 +102,7 @@ CAttribute::CAttribute(DWORD * attr, DWORD width, DWORD height) // attrÀ» ÀĞ¾î¼­
 	if (attr[0] != attr[i])
 	    break;
 
-    // ¼Ó¼ºÀÌ ÀüºÎ °°À¸¸é ´ÜÁö defaultAttr¸¸ ¼³Á¤ÇÑ´Ù.
+    // Ñ˜Ğ£Ñ˜Ñ”ĞĞœ ĞÑŒÑ”Ğ Â°Â°ĞÑ‘Ñ‘Ğ¹ Ò‘Ğ¬Ğ‘Ñ† defaultAttrÑ‘Ñ‘ Ñ˜Ñ–Ğ‘Â¤Ğ—Ğ¡Ò‘Ğ©.
     if (i == size)
 	defaultAttr = attr[0];
     else
@@ -112,22 +112,22 @@ CAttribute::CAttribute(DWORD * attr, DWORD width, DWORD height) // attrÀ» ÀĞ¾î¼­
 	for (i = 0; i < size; ++i)
 	    allAttr |= attr[i];
 
-	// ÇÏÀ§ 8ºñÆ®¸¸ »ç¿ëÇÒ °æ¿ì D_BYTE
+	// Ğ—ĞŸĞÂ§ 8Ñ”ÑĞ–Â®Ñ‘Ñ‘ Â»Ğ·Ñ—Ğ»Ğ—Ğ¢ Â°Ğ¶Ñ—Ğ¼ D_BYTE
 	if (!(allAttr & 0xffffff00))
 	    dataType = D_BYTE;
-	// ÇÏÀ§ 16ºñÆ®¸¸ »ç¿ëÇÒ °æ¿ì D_WORD
+	// Ğ—ĞŸĞÂ§ 16Ñ”ÑĞ–Â®Ñ‘Ñ‘ Â»Ğ·Ñ—Ğ»Ğ—Ğ¢ Â°Ğ¶Ñ—Ğ¼ D_WORD
 	else if (!(allAttr & 0xffff0000))
 	    dataType = D_WORD;
-	else // ±× ÀÌ¿Ü¿¡´Â D_DWORD
+	else // Â±Ğ§ ĞĞœÑ—Ğ¬Ñ—ĞÒ‘Ğ’ D_DWORD
 	    dataType = D_DWORD;
 
 	Alloc();
 
-	if (dataType == D_DWORD) // D_DWORDÀÏ ¶§´Â ¿øº» ¼Ó¼º°ú °°À¸¹Ç·Î ´ÜÁö º¹»ç.
+	if (dataType == D_DWORD) // D_DWORDĞĞŸ Â¶Â§Ò‘Ğ’ Ñ—ÑˆÑ”Â» Ñ˜Ğ£Ñ˜Ñ”Â°ÑŠ Â°Â°ĞÑ‘â„–Ğ—Â·Ğ Ò‘Ğ¬Ğ‘Ñ† Ñ”â„–Â»Ğ·.
 	    thecore_memcpy(data, attr, sizeof(DWORD) * width * height);
 	else
 	{
-	    // ¾Æ´Ï¸é ÄÁ¹öÆ® ÇØ¾ß ÇÑ´Ù.
+	    // Ñ•Ğ–Ò‘ĞŸÑ‘Ğ¹ Ğ”Ğ‘â„–Ñ†Ğ–Â® Ğ—Ğ¨Ñ•Ğ¯ Ğ—Ğ¡Ò‘Ğ©.
 	    DWORD * pdw = (DWORD *) attr;
 
 	    if (dataType == D_BYTE)
@@ -199,7 +199,7 @@ void CAttribute::Remove(DWORD x, DWORD y, DWORD attr)
     if (x > width || y > height)
 	return;
 
-    if (!data) // ¼Ó¼ºÀ» »èÁ¦ÇÒ ¶§ ¸¸¾à µ¥ÀÌÅÍ°¡ ¾øÀ¸¸é ±×³É ¸®ÅÏÇÑ´Ù.
+    if (!data) // Ñ˜Ğ£Ñ˜Ñ”ĞÂ» Â»Ğ¸Ğ‘Â¦Ğ—Ğ¢ Â¶Â§ Ñ‘Ñ‘Ñ•Ğ° ÂµÒĞĞœĞ•ĞÂ°Ğ Ñ•ÑˆĞÑ‘Ñ‘Ğ¹ Â±Ğ§Ñ–Ğ™ Ñ‘Â®Ğ•ĞŸĞ—Ğ¡Ò‘Ğ©.
 	return;
 
     if (bytePtr)

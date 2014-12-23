@@ -96,32 +96,32 @@ static void __proc_teen_notice(char *login, int hour)
 		case 1:
 		case 2:
 			{
-				ch->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("����� ���� �¶��� �ð��� �̹� %d�ð��� �������ϴ�."), hour);
+				ch->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("ґзЅЕАЗ ґ©Аы їВ¶уАО ЅГ°ЈАМ АМ№М %dЅГ°ЈАМ БціµЅАґПґЩ."), hour);
 				SET_OVER_TIME(ch, OT_NONE);
 			}
 			break;
 		case 3:
 			{
-				ch->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("����� ���� �¶��� �ð��� �̹� %d�ð��� �Ǿ����ϴ�,"), hour);
-				ch->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("������ ������ �����Ͻ� �� �ǰ��� ���� �޽��� �����ֽñ�ٶ��ϴ�."));
+				ch->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("ґзЅЕАЗ ґ©Аы їВ¶уАО ЅГ°ЈАМ АМ№М %dЅГ°ЈАМ µЗѕъЅАґПґЩ,"), hour);
+				ch->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("Б¶јУИч БўјУА» Бѕ·бЗПЅЕ ИД °З°­А» А§ЗШ ИЮЅДА» ГлЗШБЦЅГ±в№Щ¶шґПґЩ."));
 				SET_OVER_TIME(ch, OT_3HOUR);
 			}
 			break;
 		case 4:
 			{
-				ch->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("����� �̹� ���� �Ƿ� ���¿� ������,"));
-				ch->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("���� ���� ������ ����ġ�� 50%�� ����˴ϴ�."));
-				ch->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("����� �ǰ��� ���� ������ ������ �����Ͻð�"));
-				ch->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("�޽� �� �о��� �������ֽʽÿ�."));
+				ch->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("ґзЅЕАє АМ№М °ФАУ ЗЗ·О »уЕВїЎ µйѕој№Аёёз,"));
+				ch->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("°ФАУ і»АЗ јцАНАМ Б¤»уДЎАЗ 50%·О ЗПЗвµЛґПґЩ."));
+				ch->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("ґзЅЕАЗ °З°­А» А§ЗШ Б¶јУИч БўјУА» Бѕ·бЗПЅГ°н"));
+				ch->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("ИЮЅД №Ч ЗРѕчїЎ ї­БЯЗШБЦЅКЅГїА."));
 				SET_OVER_TIME(ch, OT_3HOUR);
 			}
 			break;
 		default:
 			{
-				ch->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("����� �̹� �������� ���� ���� �ð��� �����ϴ�."));
-				ch->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("�ǰ��� ���� ������ ������ �����Ͻ� �� �޽��� �����ֽʽÿ�,"));
-				ch->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("�׷��� ������ �ǰ� �� ���ظ� ���� �� ������ ���� ���� ��ġ�� 0�� �˴ϴ�."));
-				ch->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("���� �������� �ð��� 5�ð��� �Ǹ� �������� ���ƿɴϴ�."));
+				ch->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("ґзЅЕАє АМ№М їВАьЗПБц ёшЗС °ФАУ ЅГ°ЈїЎ µйѕој№ЅАґПґЩ."));
+				ch->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("°З°­А» А§ЗШ Б¶јУИч БўјУА» Бѕ·бЗПЅЕ ИД ИЮЅДА» ГлЗШБЦЅКЅГїА,"));
+				ch->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("±Ч·ёБц ѕКАёёй °З°­ »уїЎ ЗЗЗШё¦ АФА» јц АЦАёёз °ФАУ і»АЗ јцДЎґВ 0АМ µЛґПґЩ."));
+				ch->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("ґ©Аы їАЗБ¶уАО ЅГ°ЈАМ 5ЅГ°ЈАМ µЗёй Б¤»уАё·О µ№ѕЖїЙґПґЩ."));
 				SET_OVER_TIME(ch, OT_5HOUR);
 			}
 			break;
@@ -134,9 +134,9 @@ static inline void __sec_to_timestring(int sec, char *buf, size_t buflen)
 	int min		= (sec/60);
 
 	if (hour>0)
-		snprintf(buf, buflen, LC_TEXT("%d�ð�"), hour);
+		snprintf(buf, buflen, LC_TEXT("%dЅГ°Ј"), hour);
 	else
-		snprintf(buf, buflen, LC_TEXT("%d��"), min);
+		snprintf(buf, buflen, LC_TEXT("%dєР"), min);
 }
 
 static void __proc_login_notice(char *login, int on_time, int off_time)
@@ -157,13 +157,13 @@ static void __proc_login_notice(char *login, int on_time, int off_time)
 
 	if (0==on_time)
 	{
-		ch->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("����� ���� �������� �ð��� %s�Դϴ�."), off_time_string);
-		ch->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("����� ���� �¶��� �ð��� 0�� �Ǿ����ϴ�. 100% ȿ���� ������ �� �ֽ��ϴ�."));
+		ch->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("ґзЅЕАЗ ґ©Аы їАЗБ¶уАО ЅГ°ЈАє %sАФґПґЩ."), off_time_string);
+		ch->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("ґзЅЕАЗ ґ©Аы їВ¶уАО ЅГ°ЈАє 0АМ µЗѕъЅАґПґЩ. 100% Иї°ъё¦ ѕтАёЅЗ јц АЦЅАґПґЩ."));
 		return;
 	}
 	else
 	{
-		ch->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("����� ���� �������� �ð��� %s�̸�, ���� �¶��� �ð��� %s�Դϴ�."),
+		ch->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("ґзЅЕАЗ ґ©Аы їАЗБ¶уАО ЅГ°ЈАє %sАМёз, ґ©Аы їВ¶уАО ЅГ°ЈАє %sАФґПґЩ."),
 				off_time_string, on_time_string);
 	}
 }

@@ -3,7 +3,7 @@
 #include "SpeedServer.h"
 #include "locale_service.h"
 
-// Äèµµ ¼­¹ö º¸³Ê½º °æÇèÄ¡ ½Ã½ºÅÛ
+// Ğ”Ğ¸ÂµÂµ Ñ˜Â­â„–Ñ† Ñ”Ñ‘Ñ–ĞšĞ…Ñ” Â°Ğ¶Ğ—Ğ¸Ğ”Ğ Ğ…Ğ“Ğ…Ñ”Ğ•Ğ«
 // by rtsummit
 
 CSpeedServerManager::CSpeedServerManager()
@@ -361,13 +361,13 @@ HME CSpeedServerEmpireExp::GetCurrentExpPriv(int &duration, bool &is_change)
 
 	HME hme;
 
-	// ÇöÀç ³¯Â¥°¡ holidayÀÌ¸é holiday bonus¸¦ µµÀÔÇÑ´Ù.
+	// Ğ—Ñ†ĞĞ· Ñ–Ğ‡Ğ’ÒÂ°Ğ holidayĞĞœÑ‘Ğ¹ holiday bonusÑ‘Â¦ ÂµÂµĞĞ¤Ğ—Ğ¡Ò‘Ğ©.
 	if (holi_it != holiday_map.end())
 	{
 		for (std::list <HME>::iterator it = holi_it->second.begin();
 				it != wday_exp_table[datetime->tm_wday].end(); it++)
 		{
-			// ÇöÀç ½Ã°¢ÀÌ ½Ã°£ ±¸°£ ¾È¿¡ Æ÷ÇÔµÇ¸é,
+			// Ğ—Ñ†ĞĞ· Ğ…Ğ“Â°ÑĞĞœ Ğ…Ğ“Â°Ğˆ Â±Ñ‘Â°Ğˆ Ñ•Ğ˜Ñ—Ğ Ğ–Ñ‡Ğ—Ğ¤ÂµĞ—Ñ‘Ğ¹,
 			if (total_sec < (it->hour * 3600 + it->min * 60 ))
 			{
 				hme = *it;
@@ -380,7 +380,7 @@ HME CSpeedServerEmpireExp::GetCurrentExpPriv(int &duration, bool &is_change)
 		for (std::list <HME>::iterator it =  wday_exp_table[datetime->tm_wday].begin();
 				it != wday_exp_table[datetime->tm_wday].end(); it++)
 		{
-			// ÇöÀç ½Ã°¢ÀÌ ½Ã°£ ±¸°£ ¾È¿¡ Æ÷ÇÔµÇ¸é,
+			// Ğ—Ñ†ĞĞ· Ğ…Ğ“Â°ÑĞĞœ Ğ…Ğ“Â°Ğˆ Â±Ñ‘Â°Ğˆ Ñ•Ğ˜Ñ—Ğ Ğ–Ñ‡Ğ—Ğ¤ÂµĞ—Ñ‘Ğ¹,
 			if (total_sec < (it->hour * 3600 + it->min * 60 ))
 			{
 				hme = *it;

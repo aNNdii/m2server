@@ -14,7 +14,7 @@ namespace xmas
 	{
 		if (name == "xmas_snow" || name == "xmas_boom" || name == "xmas_song" || name == "xmas_tree")
 		{
-			// »Ñ·ÁÁØ´Ù
+			// Â»Ğ¡Â·Ğ‘Ğ‘Ğ¨Ò‘Ğ©
 			const DESC_MANAGER::DESC_SET& c_ref_set = DESC_MANAGER::instance().GetClientSet();
 
 			for (DESC_MANAGER::DESC_SET::const_iterator it = c_ref_set.begin(); it != c_ref_set.end(); ++it)
@@ -44,13 +44,13 @@ namespace xmas
 				{
 					CharacterVectorInteractor i;
 
-					// ¾øÀ¸¸é ¸¸µé¾îÁØ´Ù
+					// Ñ•ÑˆĞÑ‘Ñ‘Ğ¹ Ñ‘Ñ‘ÂµĞ¹Ñ•Ğ¾Ğ‘Ğ¨Ò‘Ğ©
 					if (!CHARACTER_MANAGER::instance().GetCharactersByRaceNum(MOB_XMAS_TREE_VNUM, i))
 						CHARACTER_MANAGER::instance().SpawnMob(MOB_XMAS_TREE_VNUM, 61, 76500 + 358400, 60900 + 153600, 0, false, -1);
 				}
 				else if (prev_value > 0 && value == 0)
 				{
-					// ÀÖÀ¸¸é Áö¿öÁØ´Ù
+					// ĞĞ¦ĞÑ‘Ñ‘Ğ¹ Ğ‘Ñ†Ñ—Ñ†Ğ‘Ğ¨Ò‘Ğ©
 					CharacterVectorInteractor i;
 
 					if (CHARACTER_MANAGER::instance().GetCharactersByRaceNum(MOB_XMAS_TREE_VNUM, i))
@@ -68,7 +68,7 @@ namespace xmas
 			switch (value)
 			{
 				case 0:
-					// ÀÖÀ¸¸é Áö¿ì´Â ÄÚµå
+					// ĞĞ¦ĞÑ‘Ñ‘Ğ¹ Ğ‘Ñ†Ñ—Ğ¼Ò‘Ğ’ Ğ”ĞªÂµĞµ
 					{
 						CharacterVectorInteractor i;
 
@@ -84,7 +84,7 @@ namespace xmas
 					break;
 
 				case 1:
-					// ³»°¡ ¼­ÇÑ»êÀÌ¸é »êÅ¸ ¾øÀ¸¸é ¸¸µé°í »óÅÂ¸¦ 2·Î ¸¸µç´Ù.
+					// Ñ–Â»Â°Ğ Ñ˜Â­Ğ—Ğ¡Â»ĞºĞĞœÑ‘Ğ¹ Â»ĞºĞ•Ñ‘ Ñ•ÑˆĞÑ‘Ñ‘Ğ¹ Ñ‘Ñ‘ÂµĞ¹Â°Ğ½ Â»ÑƒĞ•Ğ’Ñ‘Â¦ 2Â·Ğ Ñ‘Ñ‘ÂµĞ·Ò‘Ğ©.
 					if (map_allow_find(61))
 					{
 						quest::CQuestManager::instance().RequestSetEventFlag("xmas_santa", 2);
@@ -160,7 +160,7 @@ namespace xmas
 	{
 		if ( spawn == true )
 		{
-			// ¾øÀ¸¸é ¸¸µé¾îÁØ´Ù
+			// Ñ•ÑˆĞÑ‘Ñ‘Ğ¹ Ñ‘Ñ‘ÂµĞ¹Ñ•Ğ¾Ğ‘Ğ¨Ò‘Ğ©
 			struct SNPCSellFireworkPosition
 			{
 				long lMapIndex;
@@ -199,7 +199,7 @@ namespace xmas
 		{
 			CharacterVectorInteractor i;
 
-			// ÀÖÀ¸¸é Áö¿öÁØ´Ù
+			// ĞĞ¦ĞÑ‘Ñ‘Ğ¹ Ğ‘Ñ†Ñ—Ñ†Ğ‘Ğ¨Ò‘Ğ©
 			if (CHARACTER_MANAGER::instance().GetCharactersByRaceNum(MOB_XMAS_FIRWORK_SELLER_VNUM, i))
 			{
 				CharacterVectorInteractor::iterator it = i.begin();

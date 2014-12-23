@@ -41,8 +41,8 @@ namespace building
 		long	lNPCX;
 		long	lNPCY;
 
-		DWORD	dwGroupVnum; // ╟╟ю╨ ╠в╥Лю╨ гоЁ╙╦╦ ╟г╪Ё╟║╢и
-		DWORD	dwDependOnGroupVnum; // аЖ╬На╝ юж╬Н╬ъго╢б ╠в╥Л
+		DWORD	dwGroupVnum; // б╟б╟п░я■ б╠п╖б╥п╪п░я■ п≈п÷я√п└я▒я▒ б╟п≈я≤я√б╟п▌р▒п≥
+		DWORD	dwDependOnGroupVnum; // п▒я├я∙п╬п▒б╝ п░п╕я∙п╬я∙п╞п≈п÷р▒п▓ б╠п╖б╥п╪
 	} TObjectProto;
 
 	typedef struct SObject

@@ -6,7 +6,7 @@
 #include "affect.h"
 #include "locale_service.h"
 
-// µ¶
+// ÂµÂ¶
 const int poison_damage_rate[MOB_RANK_MAX_NUM] = 
 {
 	80, 50, 40, 30, 25, 1
@@ -135,7 +135,7 @@ EVENTFUNC(fire_event)
 
 /*
 
-   LEVEL¿¡ ÀÇÇÑ..
+   LEVELÑ—ÐŽ ÐÐ—Ð—Ð¡..
 
    +8   0%
    +7   5%
@@ -184,7 +184,7 @@ void CHARACTER::AttackedByPoison(LPCHARACTER pkAttacker)
 	if (m_pkPoisonEvent)
 		return;
 
-	if (m_bHasPoisoned && !IsPC()) // ¸ó½ºÅÍ´Â µ¶ÀÌ ÇÑ¹ø¸¸ °É¸°´Ù.
+	if (m_bHasPoisoned && !IsPC()) // Ñ‘ÑƒÐ…Ñ”Ð•ÐÒ‘Ð’ ÂµÂ¶ÐÐœ Ð—Ð¡â„–ÑˆÑ‘Ñ‘ Â°Ð™Ñ‘Â°Ò‘Ð©.
 		return;
 
 	if (pkAttacker && pkAttacker->GetLevel() < GetLevel())
@@ -201,7 +201,7 @@ void CHARACTER::AttackedByPoison(LPCHARACTER pkAttacker)
 	/*if (IsImmune(IMMUNE_POISON))
 	  return;*/
 
-	// µ¶ ³»¼º ±¼¸² ½ÇÆÐ, µ¶¿¡ °É·È´Ù!
+	// ÂµÂ¶ Ñ–Â»Ñ˜Ñ” Â±Ñ˜Ñ‘Ð† Ð…Ð—Ð–Ð , ÂµÂ¶Ñ—ÐŽ Â°Ð™Â·Ð˜Ò‘Ð©!
 	m_bHasPoisoned = true;
 
 	AddAffect(AFFECT_POISON, POINT_NONE, 0, AFF_POISON, POISON_LENGTH + 1, 0, true);

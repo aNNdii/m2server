@@ -1,31 +1,31 @@
 /*
  *    Filename: tea.c
- * Description: TEA ¾ÏÈ£È­ ¸ğµâ
+ * Description: TEA Ñ•ĞŸĞ˜ĞˆĞ˜Â­ Ñ‘Ñ€ÂµĞ²
  *
- *      Author: ±èÇÑÁÖ (aka. ºñ¿±, Cronan), ¼Û¿µÁø (aka. myevan, ºøÀÚ·ç)
+ *      Author: Â±Ğ¸Ğ—Ğ¡Ğ‘Ğ¦ (aka. Ñ”ÑÑ—Â±, Cronan), Ñ˜Ğ«Ñ—ÂµĞ‘Ñˆ (aka. myevan, Ñ”ÑˆĞĞªÂ·Ğ·)
  */
 #include "stdafx.h"
 
 /*
  * TEA Encryption Module Instruction
- *					Edited by ±èÇÑÁÖ aka. ºñ¿±, Cronan
+ *					Edited by Â±Ğ¸Ğ—Ğ¡Ğ‘Ğ¦ aka. Ñ”ÑÑ—Â±, Cronan
  *
  * void tea_code(const DWORD sz, const DWORD sy, const DWORD *key, DWORD *dest)
  * void tea_decode(const DWORD sz, const DWORD sy, const DWORD *key, DWORD *dest)
- *   8¹ÙÀÌÆ®¸¦ ¾ÏÈ£/º¹È£È­ ÇÒ¶§ »ç¿ëµÈ´Ù. key ´Â 16 ¹ÙÀÌÆ®¿©¾ß ÇÑ´Ù.
- *   sz, sy ´Â 8¹ÙÀÌÆ®ÀÇ ¿ª¼øÀ¸·Î ´ëÀÔÇÑ´Ù. 
+ *   8â„–Ğ©ĞĞœĞ–Â®Ñ‘Â¦ Ñ•ĞŸĞ˜Ğˆ/Ñ”â„–Ğ˜ĞˆĞ˜Â­ Ğ—Ğ¢Â¶Â§ Â»Ğ·Ñ—Ğ»ÂµĞ˜Ò‘Ğ©. key Ò‘Ğ’ 16 â„–Ğ©ĞĞœĞ–Â®Ñ—Â©Ñ•Ğ¯ Ğ—Ğ¡Ò‘Ğ©.
+ *   sz, sy Ò‘Ğ’ 8â„–Ğ©ĞĞœĞ–Â®ĞĞ— Ñ—Ğ„Ñ˜ÑˆĞÑ‘Â·Ğ Ò‘Ğ»ĞĞ¤Ğ—Ğ¡Ò‘Ğ©. 
  * 
  * int tea_decrypt(DWORD *dest, const DWORD *src, const DWORD *key, int size);
  * int tea_encrypt(DWORD *dest, const DWORD *src, const DWORD *key, int size);
- *   ÇÑ²¨¹ø¿¡ 8 ¹ÙÀÌÆ® ÀÌ»óÀ» ¾ÏÈ£/º¹È£È­ ÇÒ¶§ »ç¿ëÇÑ´Ù. ¸¸¾à size °¡
- *   8ÀÇ ¹è¼ö°¡ ¾Æ´Ï¸é 8ÀÇ ¹è¼ö·Î Å©±â¸¦ "´Ã·Á¼­" ¾ÏÈ£È­ ÇÑ´Ù. 
+ *   Ğ—Ğ¡Ğ†Ğâ„–ÑˆÑ—Ğ 8 â„–Ğ©ĞĞœĞ–Â® ĞĞœÂ»ÑƒĞÂ» Ñ•ĞŸĞ˜Ğˆ/Ñ”â„–Ğ˜ĞˆĞ˜Â­ Ğ—Ğ¢Â¶Â§ Â»Ğ·Ñ—Ğ»Ğ—Ğ¡Ò‘Ğ©. Ñ‘Ñ‘Ñ•Ğ° size Â°Ğ
+ *   8ĞĞ— â„–Ğ¸Ñ˜Ñ†Â°Ğ Ñ•Ğ–Ò‘ĞŸÑ‘Ğ¹ 8ĞĞ— â„–Ğ¸Ñ˜Ñ†Â·Ğ Ğ•Â©Â±Ğ²Ñ‘Â¦ "Ò‘Ğ“Â·Ğ‘Ñ˜Â­" Ñ•ĞŸĞ˜ĞˆĞ˜Â­ Ğ—Ğ¡Ò‘Ğ©. 
  *
  * ex. tea_code(pdwSrc[1], pdwSrc[0], pdwKey, pdwDest);
  *     tea_decrypt(pdwDest, pdwSrc, pdwKey, nSize);
  */
 
-#define TEA_ROUND		32		// 32 ¸¦ ±ÇÀåÇÏ¸ç, ³ôÀ» ¼ö·Ï °á°ú°¡ ³­ÇØÇØ Áø´Ù.
-#define DELTA			0x9E3779B9	// DELTA °ª ¹Ù²ÙÁö ¸»°Í.
+#define TEA_ROUND		32		// 32 Ñ‘Â¦ Â±Ğ—ĞĞµĞ—ĞŸÑ‘Ğ·, Ñ–Ñ„ĞÂ» Ñ˜Ñ†Â·ĞŸ Â°Ğ±Â°ÑŠÂ°Ğ Ñ–Â­Ğ—Ğ¨Ğ—Ğ¨ Ğ‘ÑˆÒ‘Ğ©.
+#define DELTA			0x9E3779B9	// DELTA Â°Ğ„ â„–Ğ©Ğ†Ğ©Ğ‘Ñ† Ñ‘Â»Â°Ğ.
 
 char tea_nilbuf[8] = { 0, 0, 0, 0, 0, 0, 0, 0 };
 

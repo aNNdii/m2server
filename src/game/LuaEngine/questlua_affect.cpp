@@ -31,7 +31,7 @@ namespace quest
 			return 0;
 		}
 
-		if (ch->FindAffect(AFFECT_QUEST_START_IDX, applyOn)) // Äù½ºÆ®·Î ÀÎÇØ °°Àº °÷¿¡ È¿°ú°¡ °É·ÁÀÖÀ¸¸é ½ºÅµ
+		if (ch->FindAffect(AFFECT_QUEST_START_IDX, applyOn)) // Ğ”Ñ‰Ğ…Ñ”Ğ–Â®Â·Ğ ĞĞĞ—Ğ¨ Â°Â°ĞÑ” Â°Ñ‡Ñ—Ğ Ğ˜Ñ—Â°ÑŠÂ°Ğ Â°Ğ™Â·Ğ‘ĞĞ¦ĞÑ‘Ñ‘Ğ¹ Ğ…Ñ”Ğ•Âµ
 			return 0;
 
 		long value = (long) lua_tonumber(L, 2);
@@ -62,14 +62,14 @@ namespace quest
 		return 0;
 	}
 
-	int affect_remove_bad(lua_State * L) // ³ª»Û È¿°ú¸¦ ¾ø¾Ú
+	int affect_remove_bad(lua_State * L) // Ñ–Ğ„Â»Ğ« Ğ˜Ñ—Â°ÑŠÑ‘Â¦ Ñ•ÑˆÑ•Ğª
 	{
 		LPCHARACTER ch = CQuestManager::instance().GetCurrentCharacterPtr();
 		ch->RemoveBadAffect();
 		return 0;
 	}
 
-	int affect_remove_good(lua_State * L) // ÁÁÀº È¿°ú¸¦ ¾ø¾Ú
+	int affect_remove_good(lua_State * L) // Ğ‘Ğ‘ĞÑ” Ğ˜Ñ—Â°ÑŠÑ‘Â¦ Ñ•ÑˆÑ•Ğª
 	{
 		LPCHARACTER ch = CQuestManager::instance().GetCurrentCharacterPtr();
 		ch->RemoveGoodAffect();
@@ -104,7 +104,7 @@ namespace quest
 		return 0;
 	}
 
-	int affect_remove_hair(lua_State * L) // Çì¾î È¿°ú¸¦ ¾ø¾Ø´Ù.
+	int affect_remove_hair(lua_State * L) // Ğ—Ğ¼Ñ•Ğ¾ Ğ˜Ñ—Â°ÑŠÑ‘Â¦ Ñ•ÑˆÑ•Ğ¨Ò‘Ğ©.
 	{
 		LPCHARACTER ch = CQuestManager::instance().GetCurrentCharacterPtr();
 
@@ -123,7 +123,7 @@ namespace quest
 		return 1;
 	}
 	
-	// ÇöÀç Ä³¸¯ÅÍ°¡ AFFECT_TYPE affect¸¦ °®°íÀÖÀ¸¸é bApplyOn °ªÀ» ¹İÈ¯ÇÏ°í ¾øÀ¸¸é nilÀ» ¹İÈ¯ÇÏ´Â ÇÔ¼ö.
+	// Ğ—Ñ†ĞĞ· Ğ”Ñ–Ñ‘Ğ‡Ğ•ĞÂ°Ğ AFFECT_TYPE affectÑ‘Â¦ Â°Â®Â°Ğ½ĞĞ¦ĞÑ‘Ñ‘Ğ¹ bApplyOn Â°Ğ„ĞÂ» â„–Ğ­Ğ˜Ğ‡Ğ—ĞŸÂ°Ğ½ Ñ•ÑˆĞÑ‘Ñ‘Ğ¹ nilĞÂ» â„–Ğ­Ğ˜Ğ‡Ğ—ĞŸÒ‘Ğ’ Ğ—Ğ¤Ñ˜Ñ†.
 	// usage :	applyOn = affect.get_apply(AFFECT_TYPE) 
 	int affect_get_apply_on(lua_State * L)
 	{

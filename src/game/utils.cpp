@@ -47,12 +47,12 @@ size_t str_lower(const char * src, char * dest, size_t dest_size)
 		return len;
 	}
 
-	// \0 �ڸ� Ȯ��
+	// \0 АЪё® И®єё
 	--dest_size;
 
 	while (*src && len < dest_size)
 	{
-		*dest = LOWER(*src); // LOWER ��ũ�ο��� ++�� --�ϸ� �ȵ�!!
+		*dest = LOWER(*src); // LOWER ёЕЕ©·ОїЎј­ ++іЄ --ЗПёй ѕИµК!!
 
 		++src;
 		++dest;
@@ -80,7 +80,7 @@ const char *one_argument(const char *argument, char *first_arg, size_t first_siz
 		return NULL;    
 	} 
 
-	// \0 �ڸ� Ȯ��
+	// \0 АЪё® И®єё
 	--first_size;
 
 	skip_spaces(&argument);
@@ -118,7 +118,7 @@ const char *first_cmd(const char *argument, char *first_arg, size_t first_arg_si
 	size_t cur_len = 0;
 	skip_spaces(&argument);
 
-	// \0 �ڸ� Ȯ��
+	// \0 АЪё® И®єё
 	first_arg_size -= 1;
 
 	while (*argument && !isnhspace(*argument) && cur_len < first_arg_size)
@@ -240,7 +240,7 @@ bool WildCaseCmp(const char *w, const char *s)
 		switch(*w)
 		{
 			case '*':
-				if (NULL == w[1])
+				if (w[1] == '\0')
 					return true;
 				{
 					for (size_t i = 0; i <= strlen(s); ++i)
@@ -252,7 +252,7 @@ bool WildCaseCmp(const char *w, const char *s)
 				return false;
 
 			case '?':
-				if (NULL == *s)
+				if (*s == '\0')
 					return false;
 
 				++w;
@@ -266,7 +266,7 @@ bool WildCaseCmp(const char *w, const char *s)
 						return false;
 				}
 
-				if (NULL == *w)
+				if (*w == '\0')
 					return true;
 
 				++w;

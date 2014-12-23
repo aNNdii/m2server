@@ -72,10 +72,6 @@
 #include "auction_manager.h"
 #endif
 
-#ifndef _WIN32
-#include <gtest/gtest.h>
-#endif
-
 #ifdef USE_STACKTRACE
 #include <execinfo.h>
 #endif
@@ -97,10 +93,10 @@ void WriteMallocMessage(const char* p1, const char* p2, const char* p3, const ch
 #endif
 
 // TRAFFIC_PROFILER
-static const DWORD	TRAFFIC_PROFILE_FLUSH_CYCLE = 3600;	///< TrafficProfiler ¿« Flush cycle. 1Ω√∞£ ∞£∞›
+static const DWORD	TRAFFIC_PROFILE_FLUSH_CYCLE = 3600;	///< TrafficProfiler –ê–ó Flush cycle. 1–Ö–ì¬∞–à ¬∞–à¬∞–≠
 // END_OF_TRAFFIC_PROFILER
 
-// ∞‘¿”∞˙ ø¨∞·µ«¥¬ º“ƒœ
+// ¬∞–§–ê–£¬∞—ä —ó¬¨¬∞–±¬µ–ó“ë–í —ò–¢–î–ü
 volatile int	num_events_called = 0;
 int             max_bytes_written = 0;
 int             current_bytes_written = 0;
@@ -175,11 +171,11 @@ void ShutdownOnFatalError()
 		{
 			char buf[256];
 
-			enhance_strlcpymt(buf, LC_TEXT("º≠πˆø° ƒ°∏Ì¿˚¿Œ ø¿∑˘∞° πﬂª˝«œø© ¿⁄µø¿∏∑Œ ¿Á∫Œ∆√µÀ¥œ¥Ÿ."), sizeof(buf));
+			enhance_strlcpymt(buf, LC_TEXT("—ò¬≠‚Ññ—Ü—ó–é –î–é—ë–Ω–ê—ã–ê–û —ó–ê¬∑—â¬∞–é ‚Ññ–Ø¬ª—ç–ó–ü—ó¬© –ê–™¬µ—ó–ê—ë¬∑–û –ê–∑—î–û–ñ–ì¬µ–õ“ë–ü“ë–©."), sizeof(buf));
 			SendNotice(buf);
-			enhance_strlcpymt(buf, LC_TEXT("10√ »ƒ ¿⁄µø¿∏∑Œ ¡¢º”¿Ã ¡æ∑·µ«∏Á,"), sizeof(buf));
+			enhance_strlcpymt(buf, LC_TEXT("10–ì–ö–ò–î –ê–™¬µ—ó–ê—ë¬∑–û –ë—û—ò–£–ê–ú –ë—ï¬∑–±¬µ–ó—ë–∑,"), sizeof(buf));
 			SendNotice(buf);
-			enhance_strlcpymt(buf, LC_TEXT("5∫– »ƒø° ¡§ªÛ¿˚¿∏∑Œ ¡¢º”«œΩ«ºˆ ¿÷Ω¿¥œ¥Ÿ."), sizeof(buf));
+			enhance_strlcpymt(buf, LC_TEXT("5—î–† –ò–î—ó–é –ë¬§¬ª—É–ê—ã–ê—ë¬∑–û –ë—û—ò–£–ó–ü–Ö–ó—ò—Ü –ê–¶–Ö–ê“ë–ü“ë–©."), sizeof(buf));
 			SendNotice(buf);
 		}
 
@@ -236,7 +232,7 @@ void heartbeat(LPHEART ht, int pulse)
 
 	t = get_dword_time();
 
-	// 1√ ∏∂¥Ÿ
+	// 1–ì–ö—ë¬∂“ë–©
 	if (!(pulse % ht->passes_per_sec))
 	{
 #ifdef ENABLE_LIMIT_TIME
@@ -286,14 +282,14 @@ void heartbeat(LPHEART ht, int pulse)
 	}
 
 	//
-	// 25 PPS(Pulse per second) ∂Û∞Ì ∞°¡§«“ ∂ß
+	// 25 PPS(Pulse per second) ¬∂—É¬∞–Ω ¬∞–é–ë¬§–ó–¢ ¬∂¬ß
 	//
 
-	// æ‡ 1.16√ ∏∂¥Ÿ
+	// —ï–∞ 1.16–ì–ö—ë¬∂“ë–©
 	if (!(pulse % (passes_per_sec + 4)))
 		CHARACTER_MANAGER::instance().ProcessDelayedSave();
 
-	//4√  ∏∂¥Ÿ
+	//4–ì–ö —ë¬∂“ë–©
 #if defined (__FreeBSD__) && defined(__FILEMONITOR__)
 	if (!(pulse % (passes_per_sec * 5)))
 	{
@@ -301,7 +297,7 @@ void heartbeat(LPHEART ht, int pulse)
 	}
 #endif
 
-	// æ‡ 5.08√ ∏∂¥Ÿ
+	// —ï–∞ 5.08–ì–ö—ë¬∂“ë–©
 	if (!(pulse % (passes_per_sec * 5 + 2)))
 	{
 		ITEM_MANAGER::instance().Update();
@@ -826,7 +822,7 @@ int io_loop(LPFDWATCH fdw)
 	LPDESC	d;
 	int		num_events, event_idx;
 
-	DESC_MANAGER::instance().DestroyClosed(); // PHASE_CLOSE¿Œ ¡¢º”µÈ¿ª ≤˜æÓ¡ÿ¥Ÿ.
+	DESC_MANAGER::instance().DestroyClosed(); // PHASE_CLOSE–ê–û –ë—û—ò–£¬µ–π–ê¬ª –Ü—á—ï–æ–ë–®“ë–©.
 	DESC_MANAGER::instance().TryConnect();
 
 	if ((num_events = fdwatch(fdw, 0)) < 0)

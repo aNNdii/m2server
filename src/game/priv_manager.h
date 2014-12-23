@@ -1,21 +1,21 @@
 #ifndef __PRIV_MANAGER_H
 #define __PRIV_MANAGER_H
 
-/// ±æµå º¸³Ê½º µ¥ÀÌÅÍ
+/// Â±Ğ¶ÂµĞµ Ñ”Ñ‘Ñ–ĞšĞ…Ñ” ÂµÒĞĞœĞ•Ğ
 struct SPrivGuildData
 {
-	int		value;		///< º¸³Ê½º ¼öÄ¡
-	time_t	end_time_sec;	///< Áö¼Ó ½Ã°£
+	int		value;		///< Ñ”Ñ‘Ñ–ĞšĞ…Ñ” Ñ˜Ñ†Ğ”Ğ
+	time_t	end_time_sec;	///< Ğ‘Ñ†Ñ˜Ğ£ Ğ…Ğ“Â°Ğˆ
 };
 
 typedef std::map<DWORD, int> PrivCharMap;
 typedef std::map<DWORD, SPrivGuildData> PrivGuildMap;
 
 /**
- * @version 05/06/08	Bang2ni - Guild privilege °ü·Ã ÇÔ¼ö Áö¼Ó ½Ã°£ Ãß°¡
- * 			          RequestGiveGuildPriv, GiveGuildPriv ÇÔ¼ö ÇÁ·ÎÅäÅ¸ÀÙ ¼öÁ¤
- * 			          m_aPrivGuild Å¸ÀÙ ¼öÁ¤
- * 			          ±¸Á¶Ã¼ SPrivGuildData, ¸â¹ö ÇÔ¼ö GetPrivByGuildEx Ãß°¡
+ * @version 05/06/08	Bang2ni - Guild privilege Â°ÑŒÂ·Ğ“ Ğ—Ğ¤Ñ˜Ñ† Ğ‘Ñ†Ñ˜Ğ£ Ğ…Ğ“Â°Ğˆ Ğ“Ğ¯Â°Ğ
+ * 			          RequestGiveGuildPriv, GiveGuildPriv Ğ—Ğ¤Ñ˜Ñ† Ğ—Ğ‘Â·ĞĞ•Ğ´Ğ•Ñ‘ĞĞ© Ñ˜Ñ†Ğ‘Â¤
+ * 			          m_aPrivGuild Ğ•Ñ‘ĞĞ© Ñ˜Ñ†Ğ‘Â¤
+ * 			          Â±Ñ‘Ğ‘Â¶Ğ“Ñ˜ SPrivGuildData, Ñ‘Ğ²â„–Ñ† Ğ—Ğ¤Ñ˜Ñ† GetPrivByGuildEx Ğ“Ğ¯Â°Ğ
  */
 class CPrivManager : public singleton<CPrivManager>
 {
@@ -48,11 +48,11 @@ class CPrivManager : public singleton<CPrivManager>
 
 		SPrivEmpireData* GetPrivByEmpireEx(BYTE bEmpire, BYTE type);
 
-		/// ±æµå º¸³Ê½º µ¥ÀÌÅÍ¸¦ ¾ò¾î¿Â´Ù.
+		/// Â±Ğ¶ÂµĞµ Ñ”Ñ‘Ñ–ĞšĞ…Ñ” ÂµÒĞĞœĞ•ĞÑ‘Â¦ Ñ•Ñ‚Ñ•Ğ¾Ñ—Ğ’Ò‘Ğ©.
 		/**
-		 * @param [in]	dwGuildID ¾ò¾î¿Ã ±æµåÀÇ ID
-		 * @param [in]	byType º¸³Ê½º Å¸ÀÙ
-		 * @return	´ë»ó ±æµåÀÇ ±æµå º¸³Ê½º µ¥ÀÌÅÍÀÇ Æ÷ÀÎÅÍ, ÇØ´çÇÏ´Â º¸³Ê½º Å¸ÀÙ°ú ±æµåÀÇ ID ¿¡ ´ëÇØ º¸³Ê½º µ¥ÀÌÅÍ°¡ ¾øÀ» °æ¿ì NULL
+		 * @param [in]	dwGuildID Ñ•Ñ‚Ñ•Ğ¾Ñ—Ğ“ Â±Ğ¶ÂµĞµĞĞ— ID
+		 * @param [in]	byType Ñ”Ñ‘Ñ–ĞšĞ…Ñ” Ğ•Ñ‘ĞĞ©
+		 * @return	Ò‘Ğ»Â»Ñƒ Â±Ğ¶ÂµĞµĞĞ— Â±Ğ¶ÂµĞµ Ñ”Ñ‘Ñ–ĞšĞ…Ñ” ÂµÒĞĞœĞ•ĞĞĞ— Ğ–Ñ‡ĞĞĞ•Ğ, Ğ—Ğ¨Ò‘Ğ·Ğ—ĞŸÒ‘Ğ’ Ñ”Ñ‘Ñ–ĞšĞ…Ñ” Ğ•Ñ‘ĞĞ©Â°ÑŠ Â±Ğ¶ÂµĞµĞĞ— ID Ñ—Ğ Ò‘Ğ»Ğ—Ğ¨ Ñ”Ñ‘Ñ–ĞšĞ…Ñ” ÂµÒĞĞœĞ•ĞÂ°Ğ Ñ•ÑˆĞÂ» Â°Ğ¶Ñ—Ğ¼ NULL
 		 */
 		const SPrivGuildData*	GetPrivByGuildEx( DWORD dwGuildID, BYTE byType ) const;
 

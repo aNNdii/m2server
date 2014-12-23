@@ -1,8 +1,8 @@
 /*
  *    Filename: socket.c
- * Description: 家南 包访 窃荐 庆歹.
+ * Description: 褬孝袛袩 掳褜路袚 袟肖褬褑 袟屑覒褏.
  *
- *      Author: 厚勘 (server), myevan (Client)
+ *      Author: 褦褋褩卤 (server), myevan (Client)
  */
 #ifndef __INC_LIBTHECORE_SOCKET_H__
 #define __INC_LIBTHECORE_SOCKET_H__

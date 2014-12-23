@@ -3,8 +3,8 @@
 
 class CHARACTER;
 
-// CPVP���� DWORD ���̵� �ΰ��� �޾Ƽ� m_dwCRC�� ���� ������ �ִ´�.
-// CPVPManager���� �̷��� ���� CRC�� ���� �˻��Ѵ�.
+// CPVPїЎґВ DWORD ѕЖАМµр µО°іё¦ №ЮѕЖј­ m_dwCRCё¦ ёёµйѕој­ °ЎБц°н АЦґВґЩ.
+// CPVPManagerїЎј­ АМ·ё°Ф ёёµз CRCё¦ ЕлЗШ °Л»цЗСґЩ.
 class CPVP
 {
 	public:
@@ -26,8 +26,8 @@ class CPVP
 		CPVP(CPVP & v);
 		~CPVP();
 
-		void	Win(DWORD dwPID); // dwPID�� �̰��!
-		bool	CanRevenge(DWORD dwPID); // dwPID�� ������ �� �־�?
+		void	Win(DWORD dwPID); // dwPID°Ў АМ°еґЩ!
+		bool	CanRevenge(DWORD dwPID); // dwPID°Ў є№јцЗТ јц АЦѕо?
 		bool	IsFight();
 		bool	Agree(DWORD dwPID);
 
@@ -57,7 +57,7 @@ class CPVPManager : public singleton<CPVPManager>
 
 	void			Insert(LPCHARACTER pkChr, LPCHARACTER pkVictim);
 	bool			CanAttack(LPCHARACTER pkChr, LPCHARACTER pkVictim);
-	bool			Dead(LPCHARACTER pkChr, DWORD dwKillerPID);	// PVP�� �־��� �������� ����
+	bool			Dead(LPCHARACTER pkChr, DWORD dwKillerPID);	// PVPїЎ АЦѕъіЄ ѕшѕъіЄё¦ ё®ЕП
 	void			GiveUp(LPCHARACTER pkChr, DWORD dwKillerPID);
 	void			Connect(LPCHARACTER pkChr);
 	void			Disconnect(LPCHARACTER pkChr);

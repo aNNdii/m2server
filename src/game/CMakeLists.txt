@@ -6,10 +6,10 @@ file(GLOB_RECURSE sources_localdir *.cpp *.c *.h)
 
 # If not FreeBSD
 if (NOT FREEBSD)
-    list(REMOVE_ITEM sources_localdir ${CMAKE_CURRENT_SOURCE_DIR}/FileMonitor_FreeBSD.h)
-    list(REMOVE_ITEM sources_localdir ${CMAKE_CURRENT_SOURCE_DIR}/FileMonitor_FreeBSD.cpp)
+	list(REMOVE_ITEM sources_localdir ${CMAKE_CURRENT_SOURCE_DIR}/FileMonitor_FreeBSD.h)
+	list(REMOVE_ITEM sources_localdir ${CMAKE_CURRENT_SOURCE_DIR}/FileMonitor_FreeBSD.cpp)
 endif()
-
+	
 SET(game_SRCS
 	${game_SRCS}
 	${sources_localdir}
@@ -36,7 +36,6 @@ include_directories(
 	${CMAKE_CURRENT_SOURCE_DIR}/Server/Protocol
 	${CMAKE_SOURCE_DIR}/src
 	${CMAKE_SOURCE_DIR}/src/shared
-	${CMAKE_SOURCE_DIR}/src/shared/libdevil
 	${CMAKE_SOURCE_DIR}/src/shared/libxtrap
 	${CMAKE_SOURCE_DIR}/src/lua
 	${BOOST_INCLUDE_DIR}
@@ -48,23 +47,58 @@ include_directories(
 add_executable(game ${game_SRCS})
 
 if(WIN32)
-    find_library(MYSQL_LIBRARY mysqlclient ${MYSQL_INCLUDE_DIR}/lib)
-    find_library(CRYPTOPP_LIBRARY cryptlib ${CRYPTOPP_LIBRARY_DIR})
-    find_library(LIBDEVIL_LIBRARY DevIL-1.7.8 ${CMAKE_SOURCE_DIR}/src/shared/libdevil/win32/lib)
-elseif(UNIX)
-    find_library(MYSQL_LIBRARY mysqlclient ${MYSQL_LIBRARIES})
-    find_library(CRYPTOPP_LIBRARY libcryptopp.a ${CRYPTOPP_LIBRARY_DIR})
-	find_library(LIBDEVIL_LIBRARY libIL.a libpng.a libtiff.a libmng.a liblcms.a libjpeg.a ${CMAKE_SOURCE_DIR}/src/shared/libdevil/unix/lib)
-endif()
+	find_library(MYSQL_LIBRARY mysqlclient ${MYSQL_INCLUDE_DIR}/lib)
+	find_library(CRYPTOPP_LIBRARY cryptlib ${CRYPTOPP_LIBRARY_DIR})
+	find_library(LIBDEVIL_LIBRARY DevIL-1.7.8 ${CMAKE_SOURCE_DIR}/src/shared/libdevil/win32/lib)
 
-target_link_libraries(game
-	libthecore
-	shared
-	lua
-	${CRYPTOPP_LIBRARY}
-	${MYSQL_LIBRARY}
-	${Boost_LIBRARIES}
-	${LIBDEVIL_LIBRARY}
-)
+	include_directories(${CMAKE_SOURCE_DIR}/src/shared/libdevil)
+
+	target_link_libraries(
+		game
+		libthecore
+		shared
+		lua
+		${CRYPTOPP_LIBRARY}
+		${MYSQL_LIBRARY}
+		${Boost_LIBRARIES}
+		${LIBDEVIL_LIBRARY}
+	)
+elseif(UNIX)
+	if(FREEBSD)
+		find_library(MYSQL_LIBRARY mysql ${MYSQL_LIBRARIES})
+	else()
+		find_library(MYSQL_LIBRARY mysqlclient ${MYSQL_LIBRARIES})
+	endif()
+
+	find_library(CRYPTOPP_LIBRARY libcryptopp.a ${CRYPTOPP_LIBRARY_DIR})
+	find_package(DevIL REQUIRED)
+	include_directories(${IL_INCLUDE_DIRS})
+	link_directories(${IL_LIBRARIES})
+	link_directories(${ILU_LIBRARIES})
+	link_directories(${ILUT_LIBRARIES})
+
+	target_link_libraries(
+		game
+		libthecore
+		shared
+		lua
+		pthread
+		md
+		${CRYPTOPP_LIBRARY}
+		${MYSQL_LIBRARY}
+		${Boost_LIBRARIES}
+		${IL_LIBRARIES}
+		${ILU_LIBRARIES}
+		${ILUT_LIBRARIES}
+		jpeg
+		png
+		tiff
+		mng
+		jbig
+		aa
+		IexMath-2_2
+		Iex-2_2
+	)
+endif()
 
 add_dependencies(game lua)

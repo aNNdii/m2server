@@ -18,6 +18,8 @@
 
 #ifndef __GNUC__
 #include <boost/bind.hpp>
+#elif defined(__clang__)
+#include <boost/bind.hpp>
 #endif
 
 CHARACTER_MANAGER::CHARACTER_MANAGER() :
@@ -114,7 +116,7 @@ void CHARACTER_MANAGER::DestroyCharacter(LPCHARACTER ch, const char* file, size_
 		return; // prevent duplicated destrunction
 	}
 
-	// ´øÀü¿¡ ¼Ò¼ÓµÈ ¸ó½ºÅÍ´Â ´øÀü¿¡¼­µµ »èÁ¦ÇÏµµ·Ï.
+	// Ò‘ÑˆĞÑŒÑ—Ğ Ñ˜Ğ¢Ñ˜Ğ£ÂµĞ˜ Ñ‘ÑƒĞ…Ñ”Ğ•ĞÒ‘Ğ’ Ò‘ÑˆĞÑŒÑ—ĞÑ˜Â­ÂµÂµ Â»Ğ¸Ğ‘Â¦Ğ—ĞŸÂµÂµÂ·ĞŸ.
 	if (ch->IsNPC() && !ch->IsPet() && ch->GetRider() == NULL)
 	{
 		if (ch->GetDungeon())
@@ -230,7 +232,7 @@ LPCHARACTER CHARACTER_MANAGER::FindPC(const char * name)
 
 LPCHARACTER CHARACTER_MANAGER::SpawnMobRandomPosition(DWORD dwVnum, long lMapIndex)
 {
-	// ¿Ö±¸ ½ºÆùÇÒÁö¸»Áö¸¦ °áÁ¤ÇÒ ¼ö ÀÖ°ÔÇÔ
+	// Ñ—Ğ¦Â±Ñ‘ Ğ…Ñ”Ğ–Ñ‰Ğ—Ğ¢Ğ‘Ñ†Ñ‘Â»Ğ‘Ñ†Ñ‘Â¦ Â°Ğ±Ğ‘Â¤Ğ—Ğ¢ Ñ˜Ñ† ĞĞ¦Â°Ğ¤Ğ—Ğ¤
 	{
 		if (dwVnum == 5001 && !quest::CQuestManager::instance().GetEventFlag("japan_regen"))
 		{
@@ -239,7 +241,7 @@ LPCHARACTER CHARACTER_MANAGER::SpawnMobRandomPosition(DWORD dwVnum, long lMapInd
 		}
 	}
 
-	// ÇØÅÂ¸¦ ½ºÆùÇÒÁö ¸»Áö¸¦ °áÁ¤ÇÒ ¼ö ÀÖ°Ô ÇÔ
+	// Ğ—Ğ¨Ğ•Ğ’Ñ‘Â¦ Ğ…Ñ”Ğ–Ñ‰Ğ—Ğ¢Ğ‘Ñ† Ñ‘Â»Ğ‘Ñ†Ñ‘Â¦ Â°Ğ±Ğ‘Â¤Ğ—Ğ¢ Ñ˜Ñ† ĞĞ¦Â°Ğ¤ Ğ—Ğ¤
 	{
 		if (dwVnum == 5002 && !quest::CQuestManager::instance().GetEventFlag("newyear_mob"))
 		{
@@ -248,7 +250,7 @@ LPCHARACTER CHARACTER_MANAGER::SpawnMobRandomPosition(DWORD dwVnum, long lMapInd
 		}
 	}
 
-	// ±¤º¹Àı ÀÌº¥Æ® 
+	// Â±Â¤Ñ”â„–ĞÑ ĞĞœÑ”ÒĞ–Â® 
 	{
 		if (dwVnum == 5004 && !quest::CQuestManager::instance().GetEventFlag("independence_day"))
 		{
@@ -448,7 +450,7 @@ LPCHARACTER CHARACTER_MANAGER::SpawnMobRange(DWORD dwVnum, long lMapIndex, int s
 	if (!pkMob)
 		return NULL;
 
-	if (pkMob->m_table.bType == CHAR_TYPE_STONE)	// µ¹Àº ¹«Á¶°Ç SPAWN ¸ğ¼ÇÀÌ ÀÖ´Ù.
+	if (pkMob->m_table.bType == CHAR_TYPE_STONE)	// Âµâ„–ĞÑ” â„–Â«Ğ‘Â¶Â°Ğ— SPAWN Ñ‘Ñ€Ñ˜Ğ—ĞĞœ ĞĞ¦Ò‘Ğ©.
 		bSpawnMotion = true;
 
 	int i = 16;
@@ -512,7 +514,7 @@ bool CHARACTER_MANAGER::SpawnMoveGroup(DWORD dwVnum, long lMapIndex, int sx, int
 
 		if (!tch)
 		{
-			if (i == 0)	// ¸ø¸¸µç ¸ó½ºÅÍ°¡ ´ëÀåÀÏ °æ¿ì¿¡´Â ±×³É ½ÇÆĞ
+			if (i == 0)	// Ñ‘ÑˆÑ‘Ñ‘ÂµĞ· Ñ‘ÑƒĞ…Ñ”Ğ•ĞÂ°Ğ Ò‘Ğ»ĞĞµĞĞŸ Â°Ğ¶Ñ—Ğ¼Ñ—ĞÒ‘Ğ’ Â±Ğ§Ñ–Ğ™ Ğ…Ğ—Ğ–Ğ 
 				return false;
 
 			continue;
@@ -596,7 +598,7 @@ LPCHARACTER CHARACTER_MANAGER::SpawnGroup(DWORD dwVnum, long lMapIndex, int sx, 
 
 		if (!tch)
 		{
-			if (i == 0)	// ¸ø¸¸µç ¸ó½ºÅÍ°¡ ´ëÀåÀÏ °æ¿ì¿¡´Â ±×³É ½ÇÆĞ
+			if (i == 0)	// Ñ‘ÑˆÑ‘Ñ‘ÂµĞ· Ñ‘ÑƒĞ…Ñ”Ğ•ĞÂ°Ğ Ò‘Ğ»ĞĞµĞĞŸ Â°Ğ¶Ñ—Ğ¼Ñ—ĞÒ‘Ğ’ Â±Ğ§Ñ–Ğ™ Ğ…Ğ—Ğ–Ğ 
 				return NULL;
 
 			continue;
@@ -646,20 +648,20 @@ struct FuncUpdateAndResetChatCounter
 void CHARACTER_MANAGER::Update(int iPulse)
 {
 	using namespace std;
-#ifdef __GNUC__
+#if defined(__GNUC__) && !defined(__clang__)
 	using namespace __gnu_cxx;
 #endif
 
 	BeginPendingDestroy();
 
-	// PC Ä³¸¯ÅÍ ¾÷µ¥ÀÌÆ®
+	// PC Ğ”Ñ–Ñ‘Ğ‡Ğ•Ğ Ñ•Ñ‡ÂµÒĞĞœĞ–Â®
 	{
 		if (!m_map_pkPCChr.empty())
 		{
-			// ÄÁÅ×ÀÌ³Ê º¹»ç
+			// Ğ”Ğ‘Ğ•Ğ§ĞĞœÑ–Ğš Ñ”â„–Â»Ğ·
 			CHARACTER_VECTOR v;
 			v.reserve(m_map_pkPCChr.size());
-#ifdef __GNUC__
+#if defined(__GNUC__) && !defined(__clang__)
 			transform(m_map_pkPCChr.begin(), m_map_pkPCChr.end(), back_inserter(v), select2nd<NAME_MAP::value_type>());
 #else
 			transform(m_map_pkPCChr.begin(), m_map_pkPCChr.end(), back_inserter(v), boost::bind(&NAME_MAP::value_type::second, _1));
@@ -680,13 +682,13 @@ void CHARACTER_MANAGER::Update(int iPulse)
 //		for_each_pc(bind2nd(mem_fun(&CHARACTER::UpdateCharacter), iPulse));
 	}
 
-	// ¸ó½ºÅÍ ¾÷µ¥ÀÌÆ®
+	// Ñ‘ÑƒĞ…Ñ”Ğ•Ğ Ñ•Ñ‡ÂµÒĞĞœĞ–Â®
 	{
 		if (!m_set_pkChrState.empty())
 		{
 			CHARACTER_VECTOR v;
 			v.reserve(m_set_pkChrState.size());
-#ifdef __GNUC__
+#if defined(__GNUC__) && !defined(__clang__)
 			transform(m_set_pkChrState.begin(), m_set_pkChrState.end(), back_inserter(v), identity<CHARACTER_SET::value_type>());
 #else
 			v.insert(v.end(), m_set_pkChrState.begin(), m_set_pkChrState.end());
@@ -695,7 +697,7 @@ void CHARACTER_MANAGER::Update(int iPulse)
 		}
 	}
 
-	// »êÅ¸ µû·Î ¾÷µ¥ÀÌÆ®
+	// Â»ĞºĞ•Ñ‘ ÂµÑ‹Â·Ğ Ñ•Ñ‡ÂµÒĞĞœĞ–Â®
 	{
 		CharacterVectorInteractor i;
 
@@ -706,7 +708,7 @@ void CHARACTER_MANAGER::Update(int iPulse)
 		}
 	}
 
-	// 1½Ã°£¿¡ ÇÑ¹ø¾¿ ¸÷ »ç³É °³¼ö ±â·Ï 
+	// 1Ğ…Ğ“Â°ĞˆÑ—Ğ Ğ—Ğ¡â„–ÑˆÑ•Ñ— Ñ‘Ñ‡ Â»Ğ·Ñ–Ğ™ Â°Ñ–Ñ˜Ñ† Â±Ğ²Â·ĞŸ 
 	if (0 == (iPulse % PASSES_PER_SEC(3600)))
 	{
 		for (MobKillCountMap::const_iterator it = m_map_dwMobKillCount.begin(); it != m_map_dwMobKillCount.end(); ++it)
@@ -715,11 +717,11 @@ void CHARACTER_MANAGER::Update(int iPulse)
 		m_map_dwMobKillCount.clear();
 	}
 
-	// Å×½ºÆ® ¼­¹ö¿¡¼­´Â 60ÃÊ¸¶´Ù Ä³¸¯ÅÍ °³¼ö¸¦ ¼¾´Ù
+	// Ğ•Ğ§Ğ…Ñ”Ğ–Â® Ñ˜Â­â„–Ñ†Ñ—ĞÑ˜Â­Ò‘Ğ’ 60Ğ“ĞšÑ‘Â¶Ò‘Ğ© Ğ”Ñ–Ñ‘Ğ‡Ğ•Ğ Â°Ñ–Ñ˜Ñ†Ñ‘Â¦ Ñ˜Ñ•Ò‘Ğ©
 	if (test_server && 0 == (iPulse % PASSES_PER_SEC(60)))
 		sys_log(0, "CHARACTER COUNT vid %zu pid %zu", m_map_pkChrByVID.size(), m_map_pkChrByPID.size());
 
-	// Áö¿¬µÈ DestroyCharacter ÇÏ±â
+	// Ğ‘Ñ†Ñ—Â¬ÂµĞ˜ DestroyCharacter Ğ—ĞŸÂ±Ğ²
 	FlushPendingDestroy();
 }
 
@@ -834,7 +836,7 @@ void CHARACTER_MANAGER::RegisterRaceNumMap(LPCHARACTER ch)
 {
 	DWORD dwVnum = ch->GetRaceNum();
 
-	if (m_set_dwRegisteredRaceNum.find(dwVnum) != m_set_dwRegisteredRaceNum.end()) // µî·ÏµÈ ¹øÈ£ ÀÌ¸é
+	if (m_set_dwRegisteredRaceNum.find(dwVnum) != m_set_dwRegisteredRaceNum.end()) // ÂµĞ¾Â·ĞŸÂµĞ˜ â„–ÑˆĞ˜Ğˆ ĞĞœÑ‘Ğ¹
 	{
 		sys_log(0, "RegisterRaceNumMap %s %u", ch->GetName(), dwVnum);
 		m_map_pkChrByRaceNum[dwVnum].insert(ch);
@@ -858,7 +860,7 @@ bool CHARACTER_MANAGER::GetCharactersByRaceNum(DWORD dwRaceNum, CharacterVectorI
 	if (it == m_map_pkChrByRaceNum.end())
 		return false;
 
-	// ÄÁÅ×ÀÌ³Ê º¹»ç
+	// Ğ”Ğ‘Ğ•Ğ§ĞĞœÑ–Ğš Ñ”â„–Â»Ğ·
 	i = it->second;
 	return true;
 }
@@ -1054,8 +1056,8 @@ void CHARACTER_MANAGER::SendScriptToMap(long lMapIndex, const std::string & s)
 
 bool CHARACTER_MANAGER::BeginPendingDestroy()
 {
-	// Begin ÀÌ ÈÄ¿¡ BeginÀ» ¶Ç ÇÏ´Â °æ¿ì¿¡ Flush ÇÏÁö ¾Ê´Â ±â´É Áö¿øÀ» À§ÇØ
-	// ÀÌ¹Ì ½ÃÀÛµÇ¾îÀÖÀ¸¸é false ¸®ÅÏ Ã³¸®
+	// Begin ĞĞœ Ğ˜Ğ”Ñ—Ğ BeginĞÂ» Â¶Ğ— Ğ—ĞŸÒ‘Ğ’ Â°Ğ¶Ñ—Ğ¼Ñ—Ğ Flush Ğ—ĞŸĞ‘Ñ† Ñ•ĞšÒ‘Ğ’ Â±Ğ²Ò‘Ğ™ Ğ‘Ñ†Ñ—ÑˆĞÂ» ĞÂ§Ğ—Ğ¨
+	// ĞĞœâ„–Ğœ Ğ…Ğ“ĞĞ«ÂµĞ—Ñ•Ğ¾ĞĞ¦ĞÑ‘Ñ‘Ğ¹ false Ñ‘Â®Ğ•ĞŸ Ğ“Ñ–Ñ‘Â®
 	if (m_bUsePendingDestroy)
 		return false;
 
@@ -1067,7 +1069,7 @@ void CHARACTER_MANAGER::FlushPendingDestroy()
 {
 	using namespace std;
 
-	m_bUsePendingDestroy = false; // ÇÃ·¡±×¸¦ ¸ÕÀú ¼³Á¤ÇØ¾ß ½ÇÁ¦ Destroy Ã³¸®°¡ µÊ
+	m_bUsePendingDestroy = false; // Ğ—Ğ“Â·ĞÂ±Ğ§Ñ‘Â¦ Ñ‘Ğ¥ĞÑŠ Ñ˜Ñ–Ğ‘Â¤Ğ—Ğ¨Ñ•Ğ¯ Ğ…Ğ—Ğ‘Â¦ Destroy Ğ“Ñ–Ñ‘Â®Â°Ğ ÂµĞš
 
 	if (!m_set_pkChrPendingDestroy.empty())
 	{
@@ -1086,12 +1088,12 @@ void CHARACTER_MANAGER::FlushPendingDestroy()
 CharacterVectorInteractor::CharacterVectorInteractor(const CHARACTER_SET & r)
 {
 	using namespace std;
-#ifdef __GNUC__
+#if defined(__GNUC__) && !defined(__clang__)
 	using namespace __gnu_cxx;
 #endif
 
 	reserve(r.size());
-#ifdef __GNUC__
+#if defined(__GNUC__) && !defined(__clang__)
 	transform(r.begin(), r.end(), back_inserter(*this), identity<CHARACTER_SET::value_type>());
 #else
 	insert(end(), r.begin(), r.end());

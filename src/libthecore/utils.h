@@ -17,45 +17,45 @@ extern "C"
 #define str_cmp strcasecmp
 #define STRNCPY(dst, src, len)          do {strncpy(dst, src, len); dst[len] = '\0'; } while(0)
 
-    extern char *	str_dup(const char * source);	// ¸Ş¸ğ¸® ÇÒ´ç ÇØ¼­ source º¹»ç ÇÑ°Å ¸®ÅÏ
-    extern void		printdata(const unsigned char * data, int bytes); // data¸¦ hex¶û ascii·Î Ãâ·Â (ÆĞÅ¶ ºĞ¼® µî¿¡ ¾²ÀÓ)
-    extern int		filesize(FILE * fp);	// ÆÄÀÏ Å©±â ¸®ÅÏ
+    extern char *	str_dup(const char * source);	// Ñ‘Ğ®Ñ‘Ñ€Ñ‘Â® Ğ—Ğ¢Ò‘Ğ· Ğ—Ğ¨Ñ˜Â­ source Ñ”â„–Â»Ğ· Ğ—Ğ¡Â°Ğ• Ñ‘Â®Ğ•ĞŸ
+    extern void		printdata(const unsigned char * data, int bytes); // dataÑ‘Â¦ hexÂ¶Ñ‹ asciiÂ·Ğ Ğ“Ğ²Â·Ğ’ (Ğ–Ğ Ğ•Â¶ Ñ”Ğ Ñ˜Â® ÂµĞ¾Ñ—Ğ Ñ•Ğ†ĞĞ£)
+    extern int		filesize(FILE * fp);	// Ğ–Ğ”ĞĞŸ Ğ•Â©Â±Ğ² Ñ‘Â®Ğ•ĞŸ
 
 #define core_dump()	core_dump_unix(__FILE__, __LINE__)
-    extern void		core_dump_unix(const char *who, WORD line);	// ÄÚ¾î¸¦ °­Á¦·Î ´ıÇÁ
+    extern void		core_dump_unix(const char *who, WORD line);	// Ğ”ĞªÑ•Ğ¾Ñ‘Â¦ Â°Â­Ğ‘Â¦Â·Ğ Ò‘ÑĞ—Ğ‘
 
 #define TOKEN(string) if (!str_cmp(token_string, string))
-    // src = ÅäÅ« : °ª
+    // src = Ğ•Ğ´Ğ•Â« : Â°Ğ„
     extern void		parse_token(char * src, char * token, char * value);
 
     extern void		trim_and_lower(const char * src, char * dest, size_t dest_size);
 
-    // ¹®ÀÚ¿­À» ¼Ò¹®ÀÚ·Î
+    // â„–Â®ĞĞªÑ—Â­ĞÂ» Ñ˜Ğ¢â„–Â®ĞĞªÂ·Ğ
     extern void		lower_string(const char * src, char * dest, size_t dest_len);
 
-    // arg1ÀÌ arg2·Î ½ÃÀÛÇÏ´Â°¡? (´ë¼Ò¹®ÀÚ ±¸º°ÇÏÁö ¾ÊÀ½)
+    // arg1ĞĞœ arg2Â·Ğ Ğ…Ğ“ĞĞ«Ğ—ĞŸÒ‘Ğ’Â°Ğ? (Ò‘Ğ»Ñ˜Ğ¢â„–Â®ĞĞª Â±Ñ‘Ñ”Â°Ğ—ĞŸĞ‘Ñ† Ñ•ĞšĞĞ…)
     extern int		is_abbrev(char *arg1, char *arg2);
 
-    // a¿Í bÀÇ ½Ã°£ÀÌ ¾ó¸¶³ª Â÷ÀÌ³ª´ÂÁö ¸®ÅÏ
+    // aÑ—Ğ bĞĞ— Ğ…Ğ“Â°ĞˆĞĞœ Ñ•ÑƒÑ‘Â¶Ñ–Ğ„ Ğ’Ñ‡ĞĞœÑ–Ğ„Ò‘Ğ’Ğ‘Ñ† Ñ‘Â®Ğ•ĞŸ
     extern struct timeval *	timediff(const struct timeval *a, const struct timeval *b);
 
-    // aÀÇ ½Ã°£¿¡ bÀÇ ½Ã°£À» ´õÇØ ¸®ÅÏ
+    // aĞĞ— Ğ…Ğ“Â°ĞˆÑ—Ğ bĞĞ— Ğ…Ğ“Â°ĞˆĞÂ» Ò‘Ñ…Ğ—Ğ¨ Ñ‘Â®Ğ•ĞŸ
     extern struct timeval *	timeadd(struct timeval *a, struct timeval *b);
 
-    // ÇöÀç ½Ã°£ curr_tmÀ¸·Î ºÎÅÍ days°¡ Áö³­ ³¯À» ¸®ÅÏ
+    // Ğ—Ñ†ĞĞ· Ğ…Ğ“Â°Ğˆ curr_tmĞÑ‘Â·Ğ Ñ”ĞĞ•Ğ daysÂ°Ğ Ğ‘Ñ†Ñ–Â­ Ñ–Ğ‡ĞÂ» Ñ‘Â®Ğ•ĞŸ
     extern struct tm *		tm_calc(const struct tm *curr_tm, int days);
 
-    extern int MAX(int a, int b); // µÑÁß¿¡ Å« °ªÀ» ¸®ÅÏ
-    extern int MIN(int a, int b); // µÑÁß¿¡ ÀÛÀº °ªÀ» ¸®ÅÏ
-    extern int MINMAX(int min, int value, int max); // ÃÖ¼Ò ÃÖ´ë °ªÀ» ÇÔ²² ºñ±³ÇØ¼­ ¸®ÅÏ
+    extern int MAX(int a, int b); // ÂµĞ¡Ğ‘Ğ¯Ñ—Ğ Ğ•Â« Â°Ğ„ĞÂ» Ñ‘Â®Ğ•ĞŸ
+    extern int MIN(int a, int b); // ÂµĞ¡Ğ‘Ğ¯Ñ—Ğ ĞĞ«ĞÑ” Â°Ğ„ĞÂ» Ñ‘Â®Ğ•ĞŸ
+    extern int MINMAX(int min, int value, int max); // Ğ“Ğ¦Ñ˜Ğ¢ Ğ“Ğ¦Ò‘Ğ» Â°Ğ„ĞÂ» Ğ—Ğ¤Ğ†Ğ† Ñ”ÑÂ±Ñ–Ğ—Ğ¨Ñ˜Â­ Ñ‘Â®Ğ•ĞŸ
 
-    extern int		number_ex(int from, int to, const char *file, int line); // fromÀ¸·Î ºÎÅÍ to±îÁöÀÇ ·£´ı °ª ¸®ÅÏ
+    extern int		number_ex(int from, int to, const char *file, int line); // fromĞÑ‘Â·Ğ Ñ”ĞĞ•Ğ toÂ±Ğ¾Ğ‘Ñ†ĞĞ— Â·ĞˆÒ‘Ñ Â°Ğ„ Ñ‘Â®Ğ•ĞŸ
 #define number(from, to) number_ex(from, to, __FILE__, __LINE__)
 
 	float	fnumber(float from, float to);
 
-    extern void		thecore_sleep(struct timeval * timeout);	// timeout¸¸Å­ ÇÁ·Î¼¼½º ½¬±â
-    extern DWORD	thecore_random();				// ·£´ı ÇÔ¼ö
+    extern void		thecore_sleep(struct timeval * timeout);	// timeoutÑ‘Ñ‘Ğ•Â­ Ğ—Ğ‘Â·ĞÑ˜Ñ˜Ğ…Ñ” Ğ…Â¬Â±Ğ²
+    extern DWORD	thecore_random();				// Â·ĞˆÒ‘Ñ Ğ—Ğ¤Ñ˜Ñ†
 
     extern float	get_float_time();
     extern DWORD	get_dword_time();
@@ -74,7 +74,7 @@ extern "C"
 		sys_err("realloc failed [%d] %s", errno, strerror(errno)); \
 		abort(); } } while(0)
 
-    // Next ¿Í Prev °¡ ÀÖ´Â ¸®½ºÆ®¿¡ Ãß°¡
+    // Next Ñ—Ğ Prev Â°Ğ ĞĞ¦Ò‘Ğ’ Ñ‘Â®Ğ…Ñ”Ğ–Â®Ñ—Ğ Ğ“Ğ¯Â°Ğ
 #define INSERT_TO_TW_LIST(item, head, prev, next)   \
     if (!(head))                                    \
     {                                               \

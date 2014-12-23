@@ -30,7 +30,7 @@ bool PlayerHB::Initialize()
 }
 
 //
-// @version	05/07/05 Bang2ni - id ¿¡ ÇØ´çÇÏ´Â data °¡ ¾øÀ» ¶§ Äõ¸®ÇÏ°í data ¸¦ insert  ÇÏ´ÂÄÚµå Ãß°¡.
+// @version	05/07/05 Bang2ni - id Ñ—Ğ Ğ—Ğ¨Ò‘Ğ·Ğ—ĞŸÒ‘Ğ’ data Â°Ğ Ñ•ÑˆĞÂ» Â¶Â§ Ğ”Ñ…Ñ‘Â®Ğ—ĞŸÂ°Ğ½ data Ñ‘Â¦ insert  Ğ—ĞŸÒ‘Ğ’Ğ”ĞªÂµĞµ Ğ“Ğ¯Â°Ğ.
 //
 void PlayerHB::Put(DWORD id)
 {
@@ -48,7 +48,7 @@ void PlayerHB::Put(DWORD id)
 }
 
 //
-// @version	05/07/05 Bang2ni - Query string ¹öÆÛ°¡ ÀÛ¾Æ¼­ ´Ã·ÁÁÜ.
+// @version	05/07/05 Bang2ni - Query string â„–Ñ†Ğ–Ğ«Â°Ğ ĞĞ«Ñ•Ğ–Ñ˜Â­ Ò‘Ğ“Â·Ğ‘Ğ‘Ğ¬.
 //
 bool PlayerHB::Query(DWORD id)
 {

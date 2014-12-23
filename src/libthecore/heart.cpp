@@ -1,8 +1,8 @@
 /*
  *    Filename: heart.c
- * Description: fps ¿¡ ÇÑ¹ø¾¿ È£ÃâµÇ´Â "½ÉÀå" ÀÌ´Ù.
+ * Description: fps Ñ—ÐŽ Ð—Ð¡â„–ÑˆÑ•Ñ— Ð˜ÐˆÐ“Ð²ÂµÐ—Ò‘Ð’ "Ð…Ð™ÐÐµ" ÐÐœÒ‘Ð©.
  *
- *      Author: ºñ¿± aka. Cronan
+ *      Author: Ñ”ÑÑ—Â± aka. Cronan
  */
 #define __LIBTHECORE__
 #include "stdafx.h"
@@ -57,8 +57,8 @@ int heart_idle(LPHEART ht)
 	missed_pulse += process_time.tv_usec / ht->opt_time.tv_usec;
     }
 
-	// ¹Ùºü¼­ pulseµµ ³õÃÆ´Âµ¥ Àß ½Ã°£ÀÌ ¾îµø¾î...
-	// ÆÞ½º fps ¾îÂ÷ÇÇ Æ²¾îÁ®ÀÖ´Âµ¥, Á¤È®È÷ ¸ÂÃß´Â °Ç Áß¿äÇÏÁö ¾Ê¾Æ.
+	// â„–Ð©Ñ”ÑŒÑ˜Â­ pulseÂµÂµ Ñ–Ñ…Ð“Ð–Ò‘Ð’ÂµÒ ÐÐ¯ Ð…Ð“Â°ÐˆÐÐœ Ñ•Ð¾ÂµÑˆÑ•Ð¾...
+	// Ð–Ð®Ð…Ñ” fps Ñ•Ð¾Ð’Ñ‡Ð—Ð— Ð–Ð†Ñ•Ð¾Ð‘Â®ÐÐ¦Ò‘Ð’ÂµÒ, Ð‘Â¤Ð˜Â®Ð˜Ñ‡ Ñ‘Ð’Ð“Ð¯Ò‘Ð’ Â°Ð— Ð‘Ð¯Ñ—Ð´Ð—ÐŸÐ‘Ñ† Ñ•ÐšÑ•Ð–.
 	if (missed_pulse > 0)
 	{
 		gettimeofday(&ht->last_time, (struct timezone *) 0);

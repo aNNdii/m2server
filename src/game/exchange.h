@@ -35,7 +35,7 @@ class CExchange
 		bool		CheckSpace();
 
 	private:
-		CExchange *	m_pCompany;	// ªÛ¥ÎπÊ¿« CExchange ∆˜¿Œ≈Õ
+		CExchange *	m_pCompany;	// ¬ª—É“ë–ª‚Ññ–∂–ê–ó CExchange –ñ—á–ê–û–ï–ù
 
 		LPCHARACTER	m_pOwner;
 

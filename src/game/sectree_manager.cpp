@@ -77,8 +77,8 @@ LPSECTREE SECTREE_MAP::Find(DWORD x, DWORD y)
 
 void SECTREE_MAP::Build()
 {
-    // Å¬¶óÀÌ¾ğÆ®¿¡°Ô ¹İ°æ 150m Ä³¸¯ÅÍÀÇ Á¤º¸¸¦ ÁÖ±âÀ§ÇØ
-    // 3x3Ä­ -> 5x5 Ä­À¸·Î ÁÖº¯sectree È®´ë(ÇÑ±¹)
+    // Ğ•Â¬Â¶ÑƒĞĞœÑ•Ñ€Ğ–Â®Ñ—ĞÂ°Ğ¤ â„–Ğ­Â°Ğ¶ 150m Ğ”Ñ–Ñ‘Ğ‡Ğ•ĞĞĞ— Ğ‘Â¤Ñ”Ñ‘Ñ‘Â¦ Ğ‘Ğ¦Â±Ğ²ĞÂ§Ğ—Ğ¨
+    // 3x3Ğ”Â­ -> 5x5 Ğ”Â­ĞÑ‘Â·Ğ Ğ‘Ğ¦Ñ”Ğ‡sectree Ğ˜Â®Ò‘Ğ»(Ğ—Ğ¡Â±â„–)
     if (LC_IsYMIR() || LC_IsKorea())
     {
 #define NEIGHBOR_LENGTH		5
@@ -107,7 +107,7 @@ void SECTREE_MAP::Build()
 	}
 
 	//
-	// ¸ğµç sectree¿¡ ´ëÇØ ÁÖÀ§ sectreeµé ¸®½ºÆ®¸¦ ¸¸µç´Ù.
+	// Ñ‘Ñ€ÂµĞ· sectreeÑ—Ğ Ò‘Ğ»Ğ—Ğ¨ Ğ‘Ğ¦ĞÂ§ sectreeÂµĞ¹ Ñ‘Â®Ğ…Ñ”Ğ–Â®Ñ‘Â¦ Ñ‘Ñ‘ÂµĞ·Ò‘Ğ©.
 	//
 	MapType::iterator it = map_.begin();
 
@@ -115,7 +115,7 @@ void SECTREE_MAP::Build()
 	{
 		LPSECTREE tree = it->second;
 
-		tree->m_neighbor_list.push_back(tree); // ÀÚ½ÅÀ» ³Ö´Â´Ù.
+		tree->m_neighbor_list.push_back(tree); // ĞĞªĞ…Ğ•ĞÂ» Ñ–Ğ¦Ò‘Ğ’Ò‘Ğ©.
 
 		sys_log(3, "%dx%d", tree->m_id.coord.x, tree->m_id.coord.y);
 
@@ -154,7 +154,7 @@ void SECTREE_MAP::Build()
 	};
 
 	//
-	// ¸ğµç sectree¿¡ ´ëÇØ ÁÖÀ§ sectreeµé ¸®½ºÆ®¸¦ ¸¸µç´Ù.
+	// Ñ‘Ñ€ÂµĞ· sectreeÑ—Ğ Ò‘Ğ»Ğ—Ğ¨ Ğ‘Ğ¦ĞÂ§ sectreeÂµĞ¹ Ñ‘Â®Ğ…Ñ”Ğ–Â®Ñ‘Â¦ Ñ‘Ñ‘ÂµĞ·Ò‘Ğ©.
 	//
 	MapType::iterator it = map_.begin();
 
@@ -162,7 +162,7 @@ void SECTREE_MAP::Build()
 	{
 		LPSECTREE tree = it->second;
 
-		tree->m_neighbor_list.push_back(tree); // ÀÚ½ÅÀ» ³Ö´Â´Ù.
+		tree->m_neighbor_list.push_back(tree); // ĞĞªĞ…Ğ•ĞÂ» Ñ–Ğ¦Ò‘Ğ’Ò‘Ğ©.
 
 		sys_log(3, "%dx%d", tree->m_id.coord.x, tree->m_id.coord.y);
 
@@ -231,7 +231,7 @@ LPSECTREE SECTREE_MANAGER::Get(DWORD dwIndex, DWORD x, DWORD y)
 }
 
 // -----------------------------------------------------------------------------
-// Setting.txt ·Î ºÎÅÍ SECTREE ¸¸µé±â
+// Setting.txt Â·Ğ Ñ”ĞĞ•Ğ SECTREE Ñ‘Ñ‘ÂµĞ¹Â±Ğ²
 // -----------------------------------------------------------------------------
 int SECTREE_MANAGER::LoadSettingFile(long lMapIndex, const char * c_pszSettingFileName, TMapSetting & r_setting)
 {
@@ -366,10 +366,10 @@ void SECTREE_MANAGER::LoadDungeon(int iIndex, const char * c_pszFileName)
 }
 
 // Fix me
-// ÇöÀç Town.txt¿¡¼­ x, y¸¦ ±×³É ¹Ş°í, ±×°É ÀÌ ÄÚµå ³»¿¡¼­ base ÁÂÇ¥¸¦ ´õÇØÁÖ±â ¶§¹®¿¡
-// ´Ù¸¥ ¸Ê¿¡ ÀÖ´Â Å¸¿îÀ¸·Î Àı´ë ÀÌµ¿ÇÒ ¼ö ¾ø°Ô µÇ¾îÀÖ´Ù.
-// ¾Õ¿¡ mapÀÌ¶ó°Å³ª, ±âÅ¸ ´Ù¸¥ ½Äº°ÀÚ°¡ ÀÖÀ¸¸é,
-// ´Ù¸¥ ¸ÊÀÇ Å¸¿îÀ¸·Îµµ ÀÌµ¿ÇÒ ¼ö ÀÖ°Ô ÇÏÀÚ.
+// Ğ—Ñ†ĞĞ· Town.txtÑ—ĞÑ˜Â­ x, yÑ‘Â¦ Â±Ğ§Ñ–Ğ™ â„–Ğ®Â°Ğ½, Â±Ğ§Â°Ğ™ ĞĞœ Ğ”ĞªÂµĞµ Ñ–Â»Ñ—ĞÑ˜Â­ base Ğ‘Ğ’Ğ—ÒÑ‘Â¦ Ò‘Ñ…Ğ—Ğ¨Ğ‘Ğ¦Â±Ğ² Â¶Â§â„–Â®Ñ—Ğ
+// Ò‘Ğ©Ñ‘Ò Ñ‘ĞšÑ—Ğ ĞĞ¦Ò‘Ğ’ Ğ•Ñ‘Ñ—Ğ¾ĞÑ‘Â·Ğ ĞÑÒ‘Ğ» ĞĞœÂµÑ—Ğ—Ğ¢ Ñ˜Ñ† Ñ•ÑˆÂ°Ğ¤ ÂµĞ—Ñ•Ğ¾ĞĞ¦Ò‘Ğ©.
+// Ñ•Ğ¥Ñ—Ğ mapĞĞœÂ¶ÑƒÂ°Ğ•Ñ–Ğ„, Â±Ğ²Ğ•Ñ‘ Ò‘Ğ©Ñ‘Ò Ğ…Ğ”Ñ”Â°ĞĞªÂ°Ğ ĞĞ¦ĞÑ‘Ñ‘Ğ¹,
+// Ò‘Ğ©Ñ‘Ò Ñ‘ĞšĞĞ— Ğ•Ñ‘Ñ—Ğ¾ĞÑ‘Â·ĞÂµÂµ ĞĞœÂµÑ—Ğ—Ğ¢ Ñ˜Ñ† ĞĞ¦Â°Ğ¤ Ğ—ĞŸĞĞª.
 // by rtsummit
 bool SECTREE_MANAGER::LoadMapRegion(const char * c_pszFileName, TMapSetting & r_setting, const char * c_pszMapName)
 {
@@ -478,7 +478,7 @@ bool SECTREE_MANAGER::LoadAttribute(LPSECTREE_MAP pkMapSectree, const char * c_p
 	for (int y = 0; y < iHeight; ++y)
 		for (int x = 0; x < iWidth; ++x)
 		{
-			// UNION À¸·Î ÁÂÇ¥¸¦ ÇÕÃÄ¸¸µç DWORD°ªÀ» ¾ÆÀÌµğ·Î »ç¿ëÇÑ´Ù.
+			// UNION ĞÑ‘Â·Ğ Ğ‘Ğ’Ğ—ÒÑ‘Â¦ Ğ—Ğ¥Ğ“Ğ”Ñ‘Ñ‘ÂµĞ· DWORDÂ°Ğ„ĞÂ» Ñ•Ğ–ĞĞœÂµÑ€Â·Ğ Â»Ğ·Ñ—Ğ»Ğ—Ğ¡Ò‘Ğ©.
 			SECTREEID id;
 			id.coord.x = (r_setting.iBaseX / SECTREE_SIZE) + x;
 			id.coord.y = (r_setting.iBaseY / SECTREE_SIZE) + y;
@@ -553,7 +553,7 @@ bool SECTREE_MANAGER::GetRecallPositionByEmpire(int iMapIndex, BYTE bEmpire, PIX
 {
 	std::vector<TMapRegion>::iterator it = m_vec_mapRegion.begin();
 
-	// 10000À» ³Ñ´Â ¸ÊÀº ÀÎ½ºÅÏ½º ´øÀü¿¡¸¸ ÇÑÁ¤µÇ¾îÀÖ´Ù.
+	// 10000ĞÂ» Ñ–Ğ¡Ò‘Ğ’ Ñ‘ĞšĞÑ” ĞĞĞ…Ñ”Ğ•ĞŸĞ…Ñ” Ò‘ÑˆĞÑŒÑ—ĞÑ‘Ñ‘ Ğ—Ğ¡Ğ‘Â¤ÂµĞ—Ñ•Ğ¾ĞĞ¦Ò‘Ğ©.
 	if (iMapIndex >= 10000)
 	{
 		iMapIndex /= 10000;
@@ -687,7 +687,7 @@ const TMapRegion * SECTREE_MANAGER::FindRegionByPartialName(const char* szMapNam
 		//if (rRegion.index == lMapIndex)
 		//return &rRegion;
 		if (rRegion.strMapName.find(szMapName))
-			return &rRegion; // Ä³½Ì ÇØ¼­ ºü¸£°Ô ÇÏÀÚ
+			return &rRegion; // Ğ”Ñ–Ğ…Ğœ Ğ—Ğ¨Ñ˜Â­ Ñ”ÑŒÑ‘ĞˆÂ°Ğ¤ Ğ—ĞŸĞĞª
 	}
 
 	return NULL;
@@ -782,7 +782,7 @@ int SECTREE_MANAGER::Build(const char * c_pszListFileName, const char* c_pszMapB
 		if (true == test_server)
 			sys_log ( 0,"[BUILD] Build %s %s %d ",c_pszMapBasePath, szMapName, iIndex );
 
-		// ¸ÕÀú ÀÌ ¼­¹ö¿¡¼­ ÀÌ ¸ÊÀÇ ¸ó½ºÅÍ¸¦ ½ºÆùÇØ¾ß ÇÏ´Â°¡ È®ÀÎ ÇÑ´Ù.
+		// Ñ‘Ğ¥ĞÑŠ ĞĞœ Ñ˜Â­â„–Ñ†Ñ—ĞÑ˜Â­ ĞĞœ Ñ‘ĞšĞĞ— Ñ‘ÑƒĞ…Ñ”Ğ•ĞÑ‘Â¦ Ğ…Ñ”Ğ–Ñ‰Ğ—Ğ¨Ñ•Ğ¯ Ğ—ĞŸÒ‘Ğ’Â°Ğ Ğ˜Â®ĞĞ Ğ—Ğ¡Ò‘Ğ©.
 		if (map_allow_find(iIndex))
 		{
 			LPSECTREE_MAP pkMapSectree = BuildSectreeFromSetting(setting);
@@ -981,7 +981,7 @@ bool SECTREE_MANAGER::GetRandomLocation(long lMapIndex, PIXEL_POSITION & r_pos, 
 
 long SECTREE_MANAGER::CreatePrivateMap(long lMapIndex)
 {
-	if (lMapIndex >= 10000) // 10000¹ø ÀÌ»óÀÇ ¸ÊÀº ¾ø´Ù. (È¤Àº ÀÌ¹Ì private ÀÌ´Ù)
+	if (lMapIndex >= 10000) // 10000â„–Ñˆ ĞĞœÂ»ÑƒĞĞ— Ñ‘ĞšĞÑ” Ñ•ÑˆÒ‘Ğ©. (Ğ˜Â¤ĞÑ” ĞĞœâ„–Ğœ private ĞĞœÒ‘Ğ©)
 		return 0;
 
 	LPSECTREE_MAP pkMapSectree = GetMap(lMapIndex);
@@ -1092,7 +1092,7 @@ struct FDestroyPrivateMapEntity
 
 void SECTREE_MANAGER::DestroyPrivateMap(long lMapIndex)
 {
-	if (lMapIndex < 10000) // private map Àº ÀÎµ¦½º°¡ 10000 ÀÌ»ó ÀÌ´Ù.
+	if (lMapIndex < 10000) // private map ĞÑ” ĞĞÂµÂ¦Ğ…Ñ”Â°Ğ 10000 ĞĞœÂ»Ñƒ ĞĞœÒ‘Ğ©.
 		return;
 
 	LPSECTREE_MAP pkMapSectree = GetMap(lMapIndex);
@@ -1100,11 +1100,11 @@ void SECTREE_MANAGER::DestroyPrivateMap(long lMapIndex)
 	if (!pkMapSectree)
 		return;
 
-	// ÀÌ ¸Ê À§¿¡ ÇöÀç Á¸ÀçÇÏ´Â °ÍµéÀ» ÀüºÎ ¾ø¾Ø´Ù.
+	// ĞĞœ Ñ‘Ğš ĞÂ§Ñ—Ğ Ğ—Ñ†ĞĞ· Ğ‘Ñ‘ĞĞ·Ğ—ĞŸÒ‘Ğ’ Â°ĞÂµĞ¹ĞÂ» ĞÑŒÑ”Ğ Ñ•ÑˆÑ•Ğ¨Ò‘Ğ©.
 	// WARNING:
-	// ÀÌ ¸Ê¿¡ ÀÖÁö¸¸ ¾î¶² Sectree¿¡µµ Á¸ÀçÇÏÁö ¾ÊÀ» ¼ö ÀÖÀ½
-	// µû¶ó¼­ ¿©±â¼­ delete ÇÒ ¼ö ¾øÀ¸¹Ç·Î Æ÷ÀÎÅÍ°¡ ±úÁú ¼ö ÀÖÀ¸´Ï
-	// º°µµ Ã³¸®¸¦ ÇØ¾ßÇÔ
+	// ĞĞœ Ñ‘ĞšÑ—Ğ ĞĞ¦Ğ‘Ñ†Ñ‘Ñ‘ Ñ•Ğ¾Â¶Ğ† SectreeÑ—ĞÂµÂµ Ğ‘Ñ‘ĞĞ·Ğ—ĞŸĞ‘Ñ† Ñ•ĞšĞÂ» Ñ˜Ñ† ĞĞ¦ĞĞ…
+	// ÂµÑ‹Â¶ÑƒÑ˜Â­ Ñ—Â©Â±Ğ²Ñ˜Â­ delete Ğ—Ğ¢ Ñ˜Ñ† Ñ•ÑˆĞÑ‘â„–Ğ—Â·Ğ Ğ–Ñ‡ĞĞĞ•ĞÂ°Ğ Â±ÑŠĞ‘ÑŠ Ñ˜Ñ† ĞĞ¦ĞÑ‘Ò‘ĞŸ
+	// Ñ”Â°ÂµÂµ Ğ“Ñ–Ñ‘Â®Ñ‘Â¦ Ğ—Ğ¨Ñ•Ğ¯Ğ—Ğ¤
 	FDestroyPrivateMapEntity f;
 	pkMapSectree->for_each(f);
 
@@ -1119,7 +1119,7 @@ TAreaMap& SECTREE_MANAGER::GetDungeonArea(long lMapIndex)
 	pkAreaMap::iterator it = m_map_pkArea.find(lMapIndex);
 
 	if (it == m_map_pkArea.end())
-		return m_map_pkArea[-1]; // ÀÓ½Ã·Î ºó Area¸¦ ¸®ÅÏ
+		return m_map_pkArea[-1]; // ĞĞ£Ğ…Ğ“Â·Ğ Ñ”Ñƒ AreaÑ‘Â¦ Ñ‘Â®Ğ•ĞŸ
 
 	return it->second;
 }
@@ -1142,7 +1142,7 @@ void SECTREE_MANAGER::SendNPCPosition(LPCHARACTER ch)
 
 	TNPCPosition np;
 
-	// TODO m_mapNPCPosition[lMapIndex] ¸¦ º¸³»ÁÖ¼¼¿ä
+	// TODO m_mapNPCPosition[lMapIndex] Ñ‘Â¦ Ñ”Ñ‘Ñ–Â»Ğ‘Ğ¦Ñ˜Ñ˜Ñ—Ğ´
 	NPCInfoVector::const_iterator it;
 
 	for (it = m_mapNPCPosition[lMapIndex].begin(); it != m_mapNPCPosition[lMapIndex].end(); ++it)
@@ -1378,7 +1378,7 @@ bool SECTREE_MANAGER::ForAttrRegion(long lMapIndex, long lStartX, long lStartY, 
 	}
 
 	//
-	// ¿µ¿ªÀÇ ÁÂÇ¥¸¦ Cell ÀÇ Å©±â¿¡ ¸ÂÃç È®ÀåÇÑ´Ù.
+	// Ñ—ÂµÑ—Ğ„ĞĞ— Ğ‘Ğ’Ğ—ÒÑ‘Â¦ Cell ĞĞ— Ğ•Â©Â±Ğ²Ñ—Ğ Ñ‘Ğ’Ğ“Ğ· Ğ˜Â®ĞĞµĞ—Ğ¡Ò‘Ğ©.
 	//
 
 	lStartX	-= lStartX % CELL_SIZE;
@@ -1387,7 +1387,7 @@ bool SECTREE_MANAGER::ForAttrRegion(long lMapIndex, long lStartX, long lStartY, 
 	lEndY	+= lEndY % CELL_SIZE;
 
 	//
-	// Cell ÁÂÇ¥¸¦ ±¸ÇÑ´Ù.
+	// Cell Ğ‘Ğ’Ğ—ÒÑ‘Â¦ Â±Ñ‘Ğ—Ğ¡Ò‘Ğ©.
 	// 
 
 	long lCX = lStartX / CELL_SIZE;

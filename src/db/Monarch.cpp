@@ -235,7 +235,7 @@ bool CMonarch::SetMonarch(const char * name)
     }
     delete pMsg;
 
-	//db¿¡ ÀÔ·Â
+	//dbÑ—ÐŽ ÐÐ¤Â·Ð’
 	snprintf(szQuery, sizeof(szQuery),
 					"REPLACE INTO monarch (empire, name, windate, money) VALUES(%d, %d, now(), %lld)", Empire, p->pid[Empire], p->money[Empire]);
 
