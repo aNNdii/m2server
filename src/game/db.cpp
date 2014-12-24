@@ -319,6 +319,7 @@ void DBManager::AnalyzeReturnQuery(SQLMsg * pMsg)
 					// PASSWORD('%s'), password, securitycode, social_id, id, status
 					char szEncrytPassword[45 + 1];
 					char szPassword[45 + 1];
+					char szSecuritycode[200];
 					char szSocialID[SOCIAL_ID_MAX_LEN + 1];
 					char szStatus[ACCOUNT_STATUS_MAX_LEN + 1];
 					DWORD dwID = 0;
@@ -340,6 +341,15 @@ void DBManager::AnalyzeReturnQuery(SQLMsg * pMsg)
 				   	}
 				
 					enhance_strlcpymt(szPassword, row[col++], sizeof(szPassword));
+
+					if (!row[col])
+					{
+						sys_err("error column %d", col);
+						M2_DELETE(pinfo);
+						break;
+					}
+
+					enhance_strlcpymt(szSecuritycode, row[col++], sizeof(szSecuritycode));
 
 					if (!row[col])
 				   	{ 
