@@ -58,9 +58,6 @@
 #include "SpeedServer.h"
 #include "DragonSoul.h"
 #include <boost/bind.hpp>
-#ifndef _WIN32
-	#include "limit_time.h"
-#endif
 
 //#define __FILEMONITOR__
 
