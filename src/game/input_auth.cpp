@@ -8,10 +8,6 @@
 #include "locale_service.h"
 #include "db.h"
 
-#ifndef _WIN32
-	#include "limit_time.h"
-#endif
-
 extern time_t get_global_time();
 
 bool FN_IS_VALID_LOGIN_STRING(const char *str)
