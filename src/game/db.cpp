@@ -473,7 +473,10 @@ void DBManager::AnalyzeReturnQuery(SQLMsg * pMsg)
 						enhance_strlcpymt(r.social_id, szSocialID, sizeof(r.social_id));
 						DESC_MANAGER::instance().ConnectAccount(r.login, d);
 
+						LoginPrepare(0, 0, 0, d, pinfo->adwClientKey, aiPremiumTimes);
+
 						sys_log(0, "QID_AUTH_LOGIN: SUCCESS %s", pinfo->login);
+						M2_DELETE(pinfo);
 					}
 				}
 			}
