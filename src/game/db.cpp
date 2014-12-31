@@ -208,7 +208,7 @@ void DBManager::SendAuthLogin(LPDESC d)
 	SendLoginPing(r.login);
 }
 
-void DBManager::LoginPrepare(BYTE bBillType, DWORD dwBillID, long lRemainSecs, LPDESC d, DWORD * pdwClientKey, int * paiPremiumTimes)
+void DBManager::LoginPrepare(long lRemainSecs, LPDESC d, DWORD * pdwClientKey, int * paiPremiumTimes)
 {
 	const TAccountTable & r = d->GetAccountTable();
 
@@ -473,7 +473,7 @@ void DBManager::AnalyzeReturnQuery(SQLMsg * pMsg)
 						enhance_strlcpymt(r.social_id, szSocialID, sizeof(r.social_id));
 						DESC_MANAGER::instance().ConnectAccount(r.login, d);
 
-						LoginPrepare(0, 0, 0, d, pinfo->adwClientKey, aiPremiumTimes);
+						LoginPrepare(0, d, pinfo->adwClientKey, aiPremiumTimes);
 
 						sys_log(0, "QID_AUTH_LOGIN: SUCCESS %s", pinfo->login);
 						M2_DELETE(pinfo);
