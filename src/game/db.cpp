@@ -208,7 +208,7 @@ void DBManager::SendAuthLogin(LPDESC d)
 	SendLoginPing(r.login);
 }
 
-void DBManager::LoginPrepare(BYTE bBillType, DWORD dwBillID, long lRemainSecs, LPDESC d, DWORD * pdwClientKey, int * paiPremiumTimes)
+void DBManager::LoginPrepare(long lRemainSecs, LPDESC d, DWORD * pdwClientKey, int * paiPremiumTimes)
 {
 	const TAccountTable & r = d->GetAccountTable();
 
@@ -319,6 +319,7 @@ void DBManager::AnalyzeReturnQuery(SQLMsg * pMsg)
 					// PASSWORD('%s'), password, securitycode, social_id, id, status
 					char szEncrytPassword[45 + 1];
 					char szPassword[45 + 1];
+					char szSecuritycode[200];
 					char szSocialID[SOCIAL_ID_MAX_LEN + 1];
 					char szStatus[ACCOUNT_STATUS_MAX_LEN + 1];
 					DWORD dwID = 0;
@@ -341,6 +342,16 @@ void DBManager::AnalyzeReturnQuery(SQLMsg * pMsg)
 				
 					enhance_strlcpymt(szPassword, row[col++], sizeof(szPassword));
 
+					if (!row[col])
+					{
+						sys_err("error column %d", col);
+						M2_DELETE(pinfo);
+						break;
+						
+					}
+					
+						enhance_strlcpymt(szSecuritycode, row[col++], sizeof(szSecuritycode));
+					
 					if (!row[col])
 				   	{ 
 						sys_err("error column %d", col); 
@@ -463,7 +474,10 @@ void DBManager::AnalyzeReturnQuery(SQLMsg * pMsg)
 						enhance_strlcpymt(r.social_id, szSocialID, sizeof(r.social_id));
 						DESC_MANAGER::instance().ConnectAccount(r.login, d);
 
+						LoginPrepare(0, d, pinfo->adwClientKey, aiPremiumTimes);
+
 						sys_log(0, "QID_AUTH_LOGIN: SUCCESS %s", pinfo->login);
+						M2_DELETE(pinfo);
 					}
 				}
 			}
