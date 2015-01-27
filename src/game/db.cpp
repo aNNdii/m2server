@@ -346,12 +346,11 @@ void DBManager::AnalyzeReturnQuery(SQLMsg * pMsg)
 					{
 						sys_err("error column %d", col);
 						M2_DELETE(pinfo);
-						break;
-						
+						break;	
 					}
-					
-						enhance_strlcpymt(szSecuritycode, row[col++], sizeof(szSecuritycode));
-					
+
+					enhance_strlcpymt(szSecuritycode, row[col++], sizeof(szSecuritycode));
+
 					if (!row[col])
 				   	{ 
 						sys_err("error column %d", col); 

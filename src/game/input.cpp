@@ -18,10 +18,6 @@
 #include "castle.h"
 #include "dev_log.h"
 
-#ifndef _WIN32
-	#include "limit_time.h"
-#endif
-
 extern time_t get_global_time();
 
 bool IsEmptyAdminPage()

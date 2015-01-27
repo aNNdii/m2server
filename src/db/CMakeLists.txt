@@ -32,11 +32,11 @@ if(WIN32)
     )
 
 elseif(UNIX)
-    if(FREEBSD)
-        find_library(MYSQL_LIBRARY mysql ${MYSQL_LIBRARIES}) 
-    else()
-        find_library(MYSQL_LIBRARY mysqlclient ${MYSQL_LIBRARIES})
-    endif()
+    #if(FREEBSD)
+    #    find_library(MYSQL_LIBRARY mysql ${MYSQL_LIBRARIES}) 
+    #else()
+    #    find_library(MYSQL_LIBRARY mysqlclient ${MYSQL_LIBRARIES})
+    #endif()
 
     target_link_libraries(db
         libthecore
