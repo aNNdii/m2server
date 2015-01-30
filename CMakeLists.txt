@@ -56,7 +56,7 @@ if(WIN32)
 		
 		set(BOOST_LIBRARYDIR C:/Boost/lib)
 		set(CRYPTOPP_LIBRARY_DIR C:/cryptopp/lib)
-		set(MYSQL_LIBRARIES ${CMAKE_SOURCE_DIR}/src/shared/libmysql/6.0.2/win32/lib)
+		set(MYSQL_LIBRARY ${CMAKE_SOURCE_DIR}/src/shared/libmysql/6.0.2/win32/lib)
 		set(OPENSSL_LIBRARIES C:/OpenSSL-Win32/lib)
 	endif()
 elseif(UNIX)
@@ -74,8 +74,7 @@ elseif(UNIX)
 	set(CRYPTOPP_INCLUDE_DIRS ${GENERIC_INCLUDE})
 	set(CRYPTOPP_LIBRARY_DIR ${GENERIC_LIBRARY})
 
-    set(MYSQL_INCLUDE_DIR ${GENERIC_INCLUDE})
-    set(MYSQL_LIBRARIES ${GENERIC_LIBRARY})
+	include(FindMySQL)
 endif()
 
 # Boost
@@ -85,7 +84,7 @@ set(BOOST_INCLUDE_DIR ${Boost_INCLUDE_DIRS})
 link_directories(
 	${Boost_LIBRARY_DIRS}
 	${CRYPTOPP_LIBRARY_DIR}
-	${MYSQL_LIBRARIES}
+	${MYSQL_LIBRARY}
 	${OPENSSL_LIBRARIES}
 )
 

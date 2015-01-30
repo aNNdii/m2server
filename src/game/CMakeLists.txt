@@ -64,11 +64,11 @@ if(WIN32)
 		${LIBDEVIL_LIBRARY}
 	)
 elseif(UNIX)
-	if(FREEBSD)
-		find_library(MYSQL_LIBRARY mysql ${MYSQL_LIBRARIES})
-	else()
-		find_library(MYSQL_LIBRARY mysqlclient ${MYSQL_LIBRARIES})
-	endif()
+	#if(FREEBSD)
+	#	find_library(MYSQL_LIBRARY mysql ${MYSQL_LIBRARIES})
+	#else()
+	#	find_library(MYSQL_LIBRARY mysqlclient ${MYSQL_LIBRARIES})
+	#endif()
 
 	find_library(CRYPTOPP_LIBRARY libcryptopp.a ${CRYPTOPP_LIBRARY_DIR})
 	find_package(DevIL REQUIRED)
@@ -94,6 +94,10 @@ elseif(UNIX)
 		png
 		tiff
 		mng
+		jbig
+		aa
+		IexMath-2_2
+		Iex-2_2
 	)
 endif()
 
