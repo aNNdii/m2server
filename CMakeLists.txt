@@ -56,7 +56,7 @@ if(WIN32)
 		
 		set(BOOST_LIBRARYDIR C:/Boost/lib)
 		set(CRYPTOPP_LIBRARY_DIR C:/cryptopp/lib)
-		set(MYSQL_LIBRARY ${CMAKE_SOURCE_DIR}/src/shared/libmysql/6.0.2/win32/lib)
+		set(MYSQL_LIBRARIES ${CMAKE_SOURCE_DIR}/src/shared/libmysql/6.0.2/win32/lib)
 		set(OPENSSL_LIBRARIES C:/OpenSSL-Win32/lib)
 	endif()
 elseif(UNIX)
